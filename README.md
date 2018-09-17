@@ -37,7 +37,7 @@ credit for their work.
 
 
 
-=== Contents of the Release
+# Contents of the Release
 
 	area	Area files.
 	doc	Documentation.
@@ -47,7 +47,7 @@ credit for their work.
 
 
 
-=== How to Install
+# How to Install
 
 First, group with your highest level Unix guru, and have him or her tank.
 Merc is easier to install than other muds, but every site is different.
@@ -115,7 +115,7 @@ Merc is easier to install than other muds, but every site is different.
 
 
 
-=== Support
+# Support
 
 First, read the documentation in the 'doc' directory.  We rewrote all of the
 documentation files from scratch for the 2.0 Alpha release, and have been
@@ -144,7 +144,7 @@ since the release.
 
 
 
-=== Future Plans
+# Future Plans
 
 We have finished core development of Merc.  There will never be a Merc 3.
 It's your mud now -- the end of our development is the beginning of yours.
