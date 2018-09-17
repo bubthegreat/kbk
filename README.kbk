@@ -1,0 +1,7 @@
+This is the source code for Kill or be Killed (KBK), posMUD, and/or Duel Grounds.
+
+No additional license is placed on this code by the authors. The original DIKU,
+Merc, ROM, and Tartarus license(s) apply.
+
+I've restored the orignal doc/ folder from the stock Tartarus distribution and
+updated the source to include proper credits and notices at the top of each file.

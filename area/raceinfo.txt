@@ -1,0 +1,299 @@
+human 
+--------------------
+Align		any
+Affect		none
+Imm		none
+Res		none
+Vuln		none
+Classes		warrior thief zealot paladin anti-paladin ranger channeler assassin necromancer elementalist healer 
+Size:		medium
+Str: 20 Int: 20 Wis: 20 Dex: 20 Con: 20
+
+
+
+dwarf 
+--------------------
+Align		good/neutral
+Affect		infrared
+Imm		none
+Res		poison disease
+Vuln		drowning
+Classes		warrior zealot paladin healer 
+Size:		medium
+Str: 22 Int: 18 Wis: 22 Dex: 16 Con: 25
+
+
+
+elf 
+--------------------
+Align		good
+Affect		infrared sneak
+Imm		none
+Res		charm
+Vuln		iron
+Classes		warrior thief paladin ranger channeler elementalist healer 
+Size:		medium
+Str: 18 Int: 25 Wis: 20 Dex: 23 Con: 17
+
+
+
+svirfnebli 
+--------------------
+Align		neutral
+Affect		detect_invis infrared
+Imm		none
+Res		poison disease
+Vuln		bash
+Classes		warrior thief elementalist healer 
+Size:		small
+Str: 22 Int: 18 Wis: 22 Dex: 20 Con: 23
+
+
+
+dark-elf 
+--------------------
+Align		evil
+Affect		infrared sneak
+Imm		none
+Res		charm
+Vuln		none
+Classes		warrior thief zealot anti-paladin channeler assassin necromancer elementalist healer 
+Size:		medium
+Str: 18 Int: 24 Wis: 20 Dex: 24 Con: 17
+
+
+
+centaur 
+--------------------
+Align		good
+Affect		none
+Imm		none
+Res		charm bash
+Vuln		none
+Classes		warrior paladin ranger elementalist 
+Size:		large
+Str: 24 Int: 18 Wis: 20 Dex: 20 Con: 22
+
+
+
+troll 
+--------------------
+Align		evil
+Affect		infrared
+Imm		none
+Res		weapon poison disease
+Vuln		fire acid
+Classes		warrior anti-paladin ranger 
+Size:		large
+Str: 24 Int: 16 Wis: 17 Dex: 17 Con: 24
+
+
+
+cloud 
+--------------------
+Align		neutral
+Affect		flying
+Imm		none
+Res		weapon bash
+Vuln		holy mental
+Classes		warrior ranger healer 
+Size:		huge
+Str: 24 Int: 16 Wis: 17 Dex: 18 Con: 23
+
+
+
+gnome 
+--------------------
+Align		neutral
+Affect		none
+Imm		none
+Res		charm mental
+Vuln		bash
+Classes		warrior channeler elementalist healer 
+Size:		small
+Str: 18 Int: 23 Wis: 25 Dex: 20 Con: 19
+
+
+
+draconian 
+--------------------
+Align		evil
+Affect		flying
+Imm		poison
+Res		slash acid disease
+Vuln		cold
+Classes		warrior thief zealot anti-paladin healer 
+Size:		medium
+Str: 22 Int: 23 Wis: 21 Dex: 18 Con: 20
+
+
+
+ethereal 
+--------------------
+Align		good/neutral
+Affect		infrared flying pass_door
+Imm		poison
+Res		weapon bash mental
+Vuln		lightning drowning
+Classes		warrior thief channeler elementalist healer 
+Size:		small
+Str: 17 Int: 24 Wis: 24 Dex: 22 Con: 17
+
+
+
+changeling [SET RACE]
+--------------------
+Align		any
+Affect		none
+Imm		none
+Res		none
+Vuln		none
+Classes		warrior thief paladin anti-paladin channeler necromancer elementalist 
+Size:		medium
+Str: 17 Int: 23 Wis: 22 Dex: 24 Con: 15
+
+
+
+arial 
+--------------------
+Align		any
+Affect		flying
+Imm		none
+Res		cold
+Vuln		lightning drowning
+Classes		warrior thief zealot anti-paladin channeler assassin necromancer elementalist healer 
+Size:		medium
+Str: 19 Int: 23 Wis: 20 Dex: 25 Con: 19
+
+
+
+fire 
+--------------------
+Align		evil
+Affect		none
+Imm		none
+Res		weapon bash fire
+Vuln		cold
+Classes		warrior zealot anti-paladin 
+Size:		huge
+Str: 25 Int: 15 Wis: 17 Dex: 17 Con: 24
+
+
+
+duergar 
+--------------------
+Align		evil
+Affect		detect_hidden infrared
+Imm		none
+Res		poison
+Vuln		holy light
+Classes		warrior thief zealot anti-paladin 
+Size:		medium
+Str: 23 Int: 16 Wis: 18 Dex: 21 Con: 23
+
+
+
+storm 
+--------------------
+Align		good
+Affect		waterbreathing
+Imm		none
+Res		weapon lightning drowning
+Vuln		negative
+Classes		warrior zealot paladin healer 
+Size:		huge
+Str: 24 Int: 17 Wis: 17 Dex: 17 Con: 23
+
+
+
+lich [SET RACE]
+--------------------
+Align		evil
+Affect		detect_invis flying pass_door dark_vision
+Imm		summon charm poison negative energy mental disease
+Res		none
+Vuln		fire acid holy
+Classes		necromancer 
+Size:		medium
+Str: 25 Int: 25 Wis: 25 Dex: 25 Con: 25
+
+
+
+angel [SET RACE]
+--------------------
+Align		good
+Affect		flying dark_vision
+Imm		charm poison holy mental disease
+Res		magic
+Vuln		negative
+Classes		warrior thief zealot paladin anti-paladin ranger channeler necromancer elementalist healer 
+Size:		medium
+Str: 25 Int: 25 Wis: 25 Dex: 25 Con: 25
+
+
+
+wood-elf 
+--------------------
+Align		neutral
+Affect		sneak
+Imm		none
+Res		charm wood
+Vuln		iron
+Classes		warrior ranger 
+Size:		medium
+Str: 19 Int: 24 Wis: 21 Dex: 25 Con: 18
+
+
+
+illithid 
+--------------------
+Align		evil
+Affect		infrared flying
+Imm		none
+Res		mental
+Vuln		fire light
+Classes		channeler necromancer elementalist 
+Size:		medium
+Str: 16 Int: 25 Wis: 23 Dex: 20 Con: 18
+
+
+
+vuuhu [SET RACE]
+--------------------
+Align		evil
+Affect		detect_invis flying
+Imm		none
+Res		fire negative
+Vuln		holy
+Classes		warrior anti-paladin 
+Size:		small
+Str: 21 Int: 20 Wis: 20 Dex: 25 Con: 23
+
+
+
+ruugrah [SET RACE]
+--------------------
+Align		evil
+Affect		detect_invis
+Imm		none
+Res		weapon bash acid negative
+Vuln		holy
+Classes		warrior anti-paladin 
+Size:		huge
+Str: 25 Int: 19 Wis: 18 Dex: 23 Con: 25
+
+
+
+malefisti [SET RACE]
+--------------------
+Align		evil
+Affect		detect_invis flying
+Imm		none
+Res		weapon fire acid negative
+Vuln		holy
+Classes		channeler necromancer elementalist 
+Size:		small
+Str: 19 Int: 25 Wis: 25 Dex: 24 Con: 21
+
+
+

@@ -1,0 +1,7 @@
+             Original DikuMUD by Hans Staerfeldt, Katja Nyboe,
+             Tom Madsen, Michael Seifert, and Sebastian Hammer
+             Based on MERC 2.1 code by Hatchet, Furey, and Kahn.
+             ROM 2.4 copyright (c) 1993-1998 Russ Taylor.
+             Tartarus 1.0 code by Daniel Graham.
+
+By what name do you wish to be known? 

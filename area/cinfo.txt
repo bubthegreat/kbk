@@ -1,0 +1,72 @@
+ancient------------------------
+Long Name: Masters of Intrigue
+Races Allowed: human dwarf svirfnebli dark-elf troll gnome draconian arial fire duergar lich vuuhu ruugrah malefisti 
+Classes Allowed: warrior thief zealot anti-paladin ranger druid channeler assassin necromancer elementalist bard healer 
+Align: evil
+Ethos: any
+Powers: eye of the predator eyes of intrigue mantle of maehslin shadowgate shroud cloak eavesdrop 
+
+
+knight------------------------
+Long Name: Knights of Thera
+Races Allowed: human dwarf elf centaur ethereal arial storm angel 
+Classes Allowed: warrior zealot paladin ranger druid channeler assassin elementalist bard 
+Align: good
+Ethos: any
+Powers: lightwalk dragonplate dragonweapon blademaster truestrike 
+
+
+arcana------------------------
+Long Name: Masters of the Five Magics
+Races Allowed: human dwarf elf svirfnebli dark-elf centaur troll cloud gnome draconian ethereal changeling arial fire duergar storm lich angel wood-elf illithid 
+Classes Allowed: anti-paladin channeler necromancer elementalist 
+Align: any
+Ethos: any
+Powers: channel venueport scourge scrying counterspell 
+
+
+rager------------------------
+Long Name: Battleragers, Haters of Magic
+Races Allowed: human dwarf elf svirfnebli dark-elf centaur troll cloud gnome draconian ethereal changeling arial fire duergar storm angel wood-elf 
+Classes Allowed: warrior thief ranger druid assassin bard 
+Align: any
+Ethos: any
+Powers: spellbane resistance bandage trophy bloodthirst blitz true sight hallow cry 
+
+
+outlaw------------------------
+Long Name: Outlaw, Barons of Chaos
+Races Allowed: human dwarf elf svirfnebli dark-elf centaur troll cloud gnome draconian ethereal changeling arial fire duergar storm lich angel wood-elf illithid 
+Classes Allowed: warrior thief zealot paladin anti-paladin ranger druid channeler assassin necromancer elementalist bard healer 
+Align: any
+Ethos: chaotic
+Powers: decoy disperse chaos blade randomizer garble confuse chromatic fire 
+
+
+empire------------------------
+Long Name: Empire, Subjugator of Nations
+Races Allowed: human dwarf svirfnebli dark-elf centaur troll cloud gnome draconian changeling arial fire duergar lich wood-elf illithid 
+Classes Allowed: warrior thief zealot anti-paladin ranger druid channeler assassin necromancer elementalist bard healer 
+Align: evil
+Ethos: lawful
+Powers: nightfist shove devour centurions black shroud imperial training 
+
+
+bounty------------------------
+Long Name: Bounty Hunters
+Races Allowed: null race human dwarf elf svirfnebli dark-elf centaur troll cloud gnome draconian ethereal changeling arial fire duergar storm lich angel wood-elf illithid vuuhu ruugrah malefisti 
+Classes Allowed: warrior thief zealot paladin anti-paladin ranger druid channeler assassin necromancer elementalist bard healer 
+Align: any
+Ethos: any
+Powers: informant hunters strength hire mercenary 
+
+
+sylvan------------------------
+Long Name: Sylvan Warders of the Glades
+Races Allowed: human dwarf elf svirfnebli dark-elf centaur cloud gnome draconian ethereal changeling arial fire storm angel wood-elf vuuhu ruugrah malefisti 
+Classes Allowed: warrior thief zealot ranger druid channeler assassin elementalist bard healer 
+Align: good/neutral
+Ethos: neutral/chaotic
+Powers: chameleon insectswarm beast call spiderhands wall of thorns pathfinding 
+
+

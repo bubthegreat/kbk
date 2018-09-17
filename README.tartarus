@@ -1,0 +1,59 @@
+# This is the original standard readme file for Tartarus release 1.0 #
+
+This is Tartarus 1.0 beta version based on ROM2.4 beta code and previous
+Merc2.1 and Diku base code.
+
+Tartarus code is a derivative mud of ROM2.4b which in turn was a
+derivative of Merc Diku Mud. This code release adds many additional spells
+and skills, as well as a lot of other additional code. It is not some
+super new MUD but an addition to ROM.
+
+
+RELASE NOTES:
+- I have included an area that was not written by me called arkham.are by
+Lillith. I have included this because one of my areas (legion.are)
+requries arkham to link it to New Thalos. I have been unable to contact
+the author of arkham.are but if the author reads this and contacts me they
+can have their area removed if need be, or proper credit given.
+
+- Make sure you have a file (empty of otherwise) called Zzz.plr in your
+pfile directory or the mud won't boot up (it'll go into an infinite loop).
+
+- There may be a problem compiling object limit loading on non POSIX
+compliant systems. If so edit out the limit loading in db.c (I assume if
+you're trying to build/run a mud you know enough C to comment out unwanted
+code).
+
+- There is no real documentation of new features other than that
+in the file "tartarus.new". Sorry about this, but I really don't have time
+to write a couple of hundred helps for the new skills/spells and also
+update the area writing documentation. Please ask your MUD coders about
+new stuff if you need it. (Or better still write help files and stuff and
+they can be added to the release with full credit given).
+
+- Any bugs or problems in this source release are mine and not those of
+the Diku, Merc or ROM coders, unless it was a previously existing problem
+from their releases. Do not email them complaining if something isn't
+right :)
+
+- This code base is very messy source for two major reasons:
+
+1) It has not been released as an exercise in neat, perfect coding but as
+a way for the author to share his code with the Diku MUD community. Rather
+than taking apart and posting it as acouple of hundred seperate snippets I
+found it far more convenient just to post the entire code base. If you 
+don't like the messy coding or some of the less efficient methods feel 
+free to erase them, fix them, modify them, butcher them, slaughter them,
+or simply ignore them.  
+
+3) The release is not just code by the author but also a lot of new areas.
+The author wrote almost all these areas and the additional derivative
+code alone and as such had his hands pretty much full. 
+
+- When you log in test out the various commands and skill/spells. Some of
+them do rather weird things that may not be apparent at first glance (eg,
+one spell group-gates but you won't notice this until you actually try it
+while in a goup,etc). Just use what code you wish to from the Tartarus
+release, as it's available in full code-base form simply because it's
+easier to do it this way rather than as individual snippets. Have fun.
+

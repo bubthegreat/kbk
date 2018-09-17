@@ -1,0 +1,823 @@
+Sender  Katistrofik~
+Date    Wed Jun  8 16:30:37 2005~
+Stamp   1118262637
+To      all~
+Subject None~
+Text
+Don't get too attatched to your characters, there will be a pwipe soon for the "official" launch.
+~
+Sender  Katistrofik~
+Date    Thu Jun  9 01:46:14 2005~
+Stamp   1118295974
+To      katistrofik~
+Subject dl 24~
+Text
+dl 24
+~
+Sender  Ormthrak~
+Date    Thu Jun  9 03:43:29 2005~
+Stamp   1118303009
+To      Katistrofik Zornath ~
+Subject Here I am, Rock you like a hurricane.~
+Text
+Imm me fellas. So I can finish that frickin area already.
+~
+Sender  Katistrofik~
+Date    Thu Jun  9 18:03:09 2005~
+Stamp   1118354589
+To      Immortal~
+Subject Stuff to bring back~
+Text
+Cabals ==
+Justice
+Sylvan
+Bounty
+Classes ==
+!!DRUIDS!!
+Areas ==
+Obsidian Palace
+Finish -
+Latenburrow Downs!
+Temple of the Learned (or scrap it)
+Sylvan Cabal Area (Orm, get on this!)
+Justice Cabal Area (Orm, get on this!)
+Quest Skills ==
+Divine Fervor
+Sigil of Pain
+..
+=================
+Also, I'd like to see the Angel race tweaked some.
+More to come.
+-
+Kat
+~
+Sender  Zornath~
+Date    Thu Jun  9 20:59:27 2005~
+Stamp   1118365167
+To      immortal~
+Subject Re: Stuff to bring back~
+Text
+OP's in and fully operational.
+~
+Sender  Zornath~
+Date    Fri Jun 10 03:37:33 2005~
+Stamp   1118392653
+To      immortal~
+Subject Quest store~
+Text
+With quest credits in, a big step has been taken towards
+completing the "quest store" or whatever it'll be called.
+However, I'm sure no one's thought ahead enough to think of
+what specifically will be sold there. So if your mind is
+wandering and you come up with ideas, feel free to post.
+~
+Sender  Katistrofik~
+Date    Fri Jun 10 19:44:02 2005~
+Stamp   1118450642
+To      all~
+Subject Quest Credits~
+Text
+You might notice you can gain quest credits.
+I won't go into specifics at this time, but a new system is in the works.
+So don't worry about the quest credits right now as they don't do anything.
+Expect further details when the official site is up and we open "officially".
+~
+Sender  Katistrofik~
+Date    Fri Jun 10 19:54:29 2005~
+Stamp   1118451269
+To      all~
+Subject bugs, broken skills, and especially TYPOS~
+Text
+If you find any of these, PLEASE use the /bug, /typo, and note to immortal about them!
+~
+Sender  Katistrofik~
+Date    Sat Jun 11 15:51:32 2005~
+Stamp   1118523092
+To      immortal~
+Subject weapon weights~
+Text
+Everyone say hi to Mahig, our new coder.
+Also, weapon weight thingy needs to be implemented.  Ask someone if you don't know what that is!
+~
+Sender  Optimus~
+Date    Sun Jun 12 09:14:00 2005~
+Stamp   1118585640
+To      immortal~
+Subject Practice rates~
+Text
+Please change the practice rates back to the way they were. 
+So they will improve quicker.
+~
+Sender  Juamaniquo~
+Date    Sun Jun 12 15:21:30 2005~
+Stamp   1118607690
+To      Immortal~
+Subject Elementals~
+Text
+Is it possible to get things changed where elementals dont disappear in copyover
+while their timer is left.
+~
+Sender  Tracerah~
+Date    Mon Jun 13 17:58:03 2005~
+Stamp   1118703483
+To      immortal~
+Subject Apply bit~
+Text
+We should add an APPLY_BIT for attack_mod
+That would be a pretty sick way to up leet items.
+~
+Sender  Zornath~
+Date    Mon Jun 13 22:06:05 2005~
+Stamp   1118718365
+To      immortal~
+Subject Should already be in.~
+Text
+I'm pretty sure I added it in addition to the other things.
+~
+Sender  1-800-555-555~
+Date    Tue Jun 14 04:18:27 2005~
+Stamp   1118740707
+To      immortal~
+Subject Sylvan~
+Text
+The area is done. Unless you see something that needs tweaked.
+Also..Justice? Really? Do you want them in? -ORM-
+~
+Sender  1-800-555-555~
+Date    Tue Jun 14 04:22:04 2005~
+Stamp   1118740924
+To      Immortal~
+Subject More stuff~
+Text
+The Empire cabal could use a facelift. Also maybe move Arcana somewhere else?
+Thats a giant pain in the ass to walk all the way there. Plus if done right..
+Ragers will get murdered non-stop..which isn't a bad thing. Just some thoughts.
+-ORM-
+~
+Sender  Kin~
+Date    Tue Jun 14 08:41:52 2005~
+Stamp   1118756512
+To      immortal~
+Subject Dummy bug~
+Text
+I can not attack the dummy, tripping or bashing or lashing does not work because he is "already down"
+Attacking it normal just shows my prompt again
+~
+Sender  Zornath~
+Date    Tue Jun 14 21:46:37 2005~
+Stamp   1118803597
+To      grader~
+Subject bugs~
+Text
+map helpfile bugs fixed, preserve lag added. keep em coming
+~
+Sender  Zornath~
+Date    Tue Jun 14 21:47:20 2005~
+Stamp   1118803640
+To      mors~
+Subject lore~
+Text
+echo added when lore fails. more likely to improve as well
+~
+Sender  Zornath~
+Date    Tue Jun 14 22:03:12 2005~
+Stamp   1118804592
+To      ordith~
+Subject bugs~
+Text
+what used demonfire on you? it's supposed to be communed,
+not cast. the only way for absorb to work is if it was cast, and whatever
+it is that's using it as a spell needs to be fixed
+
+slow now requires no target in combat and doesn't evoke a yell
+from the victim.
+
+keep em comin
+~
+Sender  Katistrofik~
+Date    Wed Jun 15 16:01:21 2005~
+Stamp   1118869281
+To      immortal~
+Subject Quest Store outline~
+Text
+Here's a little outline of how I envisioned it.  Zorn's already got the point system in, but I'll
+go into a little more detail.
+-
+There will be a room with a mob who will sell various types of things in which I will detail now:
+For a bare minimum of quest credits, you will be able to buy various types of potions.
+====
+return
+flying
+stone skin
+pass door
+frenzy
+teleport
+(feel free to add more, but nothing too prep-ish.  ie a/b/s)
+====
+I'd like to add class_specific sets.  Each set being 3-5 pieces of gear.
+====
+Warrior set will include:  gloves, boots, armor, weapon (of each type, but having the same stat mods)
+the boots - the boots will give the warrior the 'March' skill (gives the user 20%-30% mv back/10 hour flight at the cost of 20% health.)
+5hit/9dam +2 str, +2 dex, +25 hp
+It should echo the wearer of the boots that they have recieved the new skill.
+-
+the gloves - the gloves will prog an iron grip effect that lasts about 3-5 hours.  Also, it gives a +75 hp boost to the users berserk.  this should be in an echo for the wearer also.
+10hit/4dam +1str
+-
+the armor - the armor will give a 5% to dam_mod a prog 'Valiant Wrath' (gives +10dam for 3 hours and converts all warrior's attack nouns to Force of Nature.)
+-100ac, +50hp, -3dex, -10saves
+-
+the weapon (which should probably be like the OPrince blade, but only being able to change it once through a 'say change my weapon to a staff!' command.
+it will have no stat mods, but only add to the wielder's attack_mod by 1.  Make sure there is an echo for this.
+-
+====
+I wanted to make this a little like d2.  ie, wearing two items gives something, 3 gives something else, 4 something more.
+for warriors:
+====
+Having any 2 pieces will grant (make sure the mud can know when the person has 1, 2, 3, 4, or 5 pieces on at any given time)
++200hp.  3 pieces, (200hp) and he is now able to cause minor bleeding or broken bones (depending on weapon type).
+all 4 and the warrior now has (200hp, bleed/bone thing)  another +1attack_mod giving him a total of +2 attack_mod from the entire set.
+====
+Any feedback at all is welcome
+I'll post more class_sets as go along.
+~
+Sender  Katistrofik~
+Date    Wed Jun 15 16:07:25 2005~
+Stamp   1118869645
+To      immortal~
+Subject bounty~
+Text
+bounty needs to be put back in too
+~
+Sender  Katistrofik~
+Date    Wed Jun 15 17:47:09 2005~
+Stamp   1118875629
+To      immortal~
+Subject arial/cloud~
+Text
+arials don't have inherent flight.  don't think clouds do either.
+~
+Sender  Katistrofik~
+Date    Wed Jun 15 19:50:57 2005~
+Stamp   1118883057
+To      all~
+Subject liches~
+Text
+liches aren't worked on yet, so you'll notice you only get a few new skills.  expect them to be better in the future
+~
+Sender  Ormthrak~
+Date    Thu Jun 16 13:02:22 2005~
+Stamp   1118944942
+To      Ormthrak~
+Subject Evil Abode~
+Text
+Don't forget the keeper of souls desc, with the other head honchos.
+~
+Sender  Ormthrak~
+Date    Thu Jun 16 13:12:22 2005~
+Stamp   1118945542
+To      Ormthrak~
+Subject Changes~
+Text
+Decay corpse-Necro's in general
+Count-Maybe make it keep a tally of total people played during day
+Missing helpfiles.
+~
+Sender  Zornath~
+Date    Thu Jun 16 18:32:08 2005~
+Stamp   1118964728
+To      grader~
+Subject bugs~
+Text
+A missed bash doesn't necessarily mean it "missed". Think of
+"misses" as 0 damage. The bash didn't damage you because the
+damage was taken down by dam reduction and whatnot, but still
+landed. I think the "skill improves" thing is the norm for any
+failed improvements, not just skills. But that's just my guess
+so I could be wrong. Dark summons now summons golems too.
+
+Keep em coming
+~
+Sender  Zornath~
+Date    Thu Jun 16 18:49:27 2005~
+Stamp   1118965767
+To      shul~
+Subject spear~
+Text
+the spear is freezing bite now. keep em comin
+~
+Sender  Zornath~
+Date    Thu Jun 16 19:05:52 2005~
+Stamp   1118966752
+To      kin~
+Subject Quest Credits~
+Text
+They'll show in prompt now. Thanks. Keep em coming.
+~
+Sender  Zornath~
+Date    Fri Jun 17 17:56:22 2005~
+Stamp   1119048982
+To      kin~
+Subject dragonweapon~
+Text
+fixed.
+~
+Sender  Zornath~
+Date    Fri Jun 17 17:56:46 2005~
+Stamp   1119049006
+To      tetsunosuke~
+Subject weights~
+Text
+weights of those items adjusted to 20 across
+~
+Sender  Katistrofik~
+Date    Sat Jun 18 02:35:55 2005~
+Stamp   1119080155
+To      immortal~
+Subject ltrack~
+Text
+something's wrong with ltrack.  "Error accessing results."
+~
+Sender  Zornath~
+Date    Sat Jun 18 14:05:25 2005~
+Stamp   1119121525
+To      katistrofik~
+Subject ltrack~
+Text
+Ltrack relies on the mysql, and since it's not hooked up
+it doesn't find results to access.
+~
+Sender  Ormthrak~
+Date    Mon Jun 20 02:34:05 2005~
+Stamp   1119252845
+To      immortal~
+Subject Sylvan Guardian~
+Text
+For some reason he has two saplings. No idea why.
+~
+Sender  Ormthrak~
+Date    Mon Jun 20 02:41:45 2005~
+Stamp   1119253305
+To      Immortal~
+Subject Areas and all.~
+Text
+While my pet disaster, Latenburrow Downs will be complete one day. I wonder if
+snazzing up old areas would be better. The areas people actually go to at the
+moment. Fixing them, putting some new items/retooling old items. I would rather
+focus on that than doing the Latenburrow downs for now. Since I had my area SO
+SO SO CLOSE to being done, I just simply can't find the motivation to get back
+to work on something that I had so close to done. Maybe just scrap it for now
+so I can focus on improving the existing areas, and writing a new idea I have.
+Puppies make me cry.
+----ORM-----
+
+P.S- I will write L.Downs again one day. Because its a fucking thorn in my
+side now and pisses me off to no end. 
+~
+Sender  Ormthrak~
+Date    Mon Jun 20 02:50:56 2005~
+Stamp   1119253856
+To      Immortal~
+Subject QuestStore~
+Text
+I like this idea. The warrior set would make them pretty badass. I think some
+hidden skills would be great though. Instead of armor, you could learn a new
+spell/skill/spec with a certain amount. Of course there would still be armor, but
+once reaching a certain amount of credits, these new skills could show themselves
+on the list. They would be rare and very costly, plus them being hidden most would
+not save up their credits enough to reach them, instead they would buy what was
+visible. Anyways..just another idea about the QuestCreds.
+----ORM----
+~
+Sender  Ormthrak~
+Date    Mon Jun 20 03:06:43 2005~
+Stamp   1119254803
+To      Zornath~
+Subject Outlaw~
+Text
+Taking a break from the typo hell that is the abode, I thought I would check
+out the outlaw cabal. Figure I will spruce the place up a bit. About the inner
+is there a way you could make him cast Chromatic flame and garble/confuse?
+I am tired of this being the shit cabal. So trying to light some fire under it.
+----ORM-----
+~
+Sender  Ormthrak~
+Date    Mon Jun 20 03:11:46 2005~
+Stamp   1119255106
+To      Zornath~
+Subject More Outlaw inner goodness~
+Text
+Actually, a badass power for outlaws in general/the inner would be the ability
+to "steal" a power that was used against them in combat. The percent to do this
+as a pc would have to be somewhat low. Say you get flurried, you have a small
+chance to imitate them and return one. I think it would make outlaw sweet..and
+its a badass power. On par with what the rest of the cabals get. Of course
+only certain skill/spells can be attempted. I am sure this is a pain in the ass
+to code..but it sure would be awesome.
+-----ORM-----
+~
+Sender  Ormthrak~
+Date    Mon Jun 20 05:57:34 2005~
+Stamp   1119265054
+To      immortal~
+Subject Ermm..attack mods.~
+Text
+Now I am all for fun and all. But fucking jesus. A pc with a 20 is a maniac.
+Even the player himself said it was no fun. Plus he is stacked to the fucking
+gills. So lets let them play around so we can see where bugs and shit are.
+Or just give everyone 20 attackmods and op gear so we don't figure shit out.
+I know a pwipe is coming but, if any newbies show up here, facing these maniacs
+will just chase them away. ____ORM____
+~
+Sender  Tracerah~
+Date    Mon Jun 20 06:30:53 2005~
+Stamp   1119267053
+To      immortal~
+Subject charm code~
+Text
+The charm code (or something related to it) crashed us
+yesterday. I dont know anything more than that.
+~
+Sender  Katistrofik~
+Date    Tue Jun 21 00:47:34 2005~
+Stamp   1119332854
+To      immortal~
+Subject Cabals~
+Text
+Something's wrong with cabal items.
+ie Ancient guardian has the item, but it says ancient has no cabal power.
+I induct myself into rager, and the D doesn't respond to 'where is'.
+Lyerra gets attacked by the ancient guardian, and she's the ancient leader.
+~
+Sender  Dylaeyn~
+Date    Tue Jun 21 06:50:24 2005~
+Stamp   1119354624
+To      Immortal~
+Subject Assassin inside Ancients~
+Text
+Assassin attacks memebers of its own cabal.
+~
+Sender  Tracerah~
+Date    Tue Jun 21 12:41:59 2005~
+Stamp   1119375719
+To      immortal~
+Subject Some Item Issues~
+Text
+The MUD now logs certain item flaws to a textfile in /sys/ called itemfix.txt
+It will note any invalid weights, lack of material, level zeros, etc.
+This should help us clean up the areas a little.
+~
+Sender  Katistrofik~
+Date    Tue Jun 21 19:56:01 2005~
+Stamp   1119401761
+To      immortal~
+Subject ancient~
+Text
+Doesn't say "Ancient is on the Prowl on the who list if they're on.  I checked with a mortal.
+~
+Sender  Katistrofik~
+Date    Tue Jun 21 19:59:37 2005~
+Stamp   1119401977
+To      immortal~
+Subject None~
+Text
+Scratch the last note.
+Scratch the last note.  Ancient is on the Prowl works fine.
+~
+Sender  Ormthrak~
+Date    Wed Jun 22 10:44:07 2005~
+Stamp   1119455047
+To      Immortal~
+Subject Offhand Bug~
+Text
+Anything in the offhand while dual wielding can damage what otherwise cannot
+be. Even if they are immune to it. For instance, the efreeti can be affected
+by fire if you dual wield both his swords. 
+~
+Sender  Tracerah~
+Date    Wed Jun 22 14:23:57 2005~
+Stamp   1119468237
+To      immortal~
+Subject Druid Powers~
+Text
+I'd like to request nobody give out druid powers as quests.
+It'll make opening the class that much cooler.
+~
+Sender  Tracerah~
+Date    Wed Jun 22 20:20:22 2005~
+Stamp   1119489622
+To      immortal~
+Subject mods~
+Text
+It might be better if imms didnt set other imms attack/dam mods.
+I went to test bearform and hit someone for 20 oblits because
+I had no idea my attack mod was 20.
+~
+Sender  Laearrist~
+Date    Thu Jun 23 13:26:24 2005~
+Stamp   1119551184
+To      immortal~
+Subject You still looking for a coder?~
+Text
+I know C and C++, but I haven't really coded on a mud before.  I'm sure I could figure out enough to say,
+mimik most CF skills/spells that aren't here.  For instance, change spellcraft to boost the effective level of the spell vs.
+the crappiness that is currently spellcraft
+
+Yea, just let me know
+~
+Sender  Storsnopp~
+Date    Sat Jun 25 13:06:22 2005~
+Stamp   1119722782
+To      immortals~
+Subject forget~
+Text
+I can use skills even when forgotten.
+~
+Sender  Cedia~
+Date    Mon Jun 27 00:21:27 2005~
+Stamp   1119849687
+To      rager~
+Subject cloaked~
+Text
+Vomazanris looted my rings, I ask that they dont have their torch at anytime, we should hold it 
+Thank You
+~
+Sender  Tracerah~
+Date    Tue Jun 28 17:41:18 2005~
+Stamp   1119998478
+To      immortal~
+Subject Flash MX~
+Text
+Anyone got a copy they will send me?
+~
+Sender  Ormthrak~
+Date    Wed Jun 29 04:47:19 2005~
+Stamp   1120038439
+To      immortal~
+Subject Test..Test..1...2~
+Text
+Sword spec- In my opinion, and some players, it is just weak as shit. Maybe toning
+it up a little would be a good thing. Also, if axe specs lost decap, remove it 
+from the Weapon Spec helpfile.
+
+Enlist- Had a request to spruce this up from a player. It makes sense seeing as
+Soo..other imm fellas are still rocking yeah? Because I haven't seen hide nor
+hair of you all. Just making sure I am not alone..but as long as you are listening.
+Maybe spruce up enlist and sword specs..sword guys have a shitty time. And most
+choose it wish they hadn't. Just a thought or three. ---ORM----
+P.S.- The mud crashed halfway through the note, and I was too lazy to start over
+so patch it together. 
+~
+Sender  Ormthrak~
+Date    Wed Jun 29 04:59:24 2005~
+Stamp   1120039164
+To      immortal~
+Subject Specs.~
+Text
+A hand to hand SPEC for mobs would be awesome. At least pummel and stun..if
+possible. Thanks boys and girls.
+-----ORM------
+~
+Sender  Tracerah~
+Date    Wed Jun 29 06:30:03 2005~
+Stamp   1120044603
+To      immortal~
+Subject I'll get on that stuff this afternoon, after work~
+Text
+read the subject. 
+~
+Sender  Katistrofik~
+Date    Thu Jun 30 00:50:59 2005~
+Stamp   1120110659
+To      immortal~
+Subject flash mx~
+Text
+http://www.torrentspy.com/download.asp?id=310870
+found that on torrent spy.  pretty healthy torrent.  80mb
+it's flash mx
+~
+Sender  Ormthrak~
+Date    Fri Jul  1 03:05:41 2005~
+Stamp   1120205141
+To      immortal~
+Subject Extends..~
+Text
+I am not quite sure they are working, unless I am missing something with them.
+I am slightly retarded at times, so if they are working, just let me know what
+I might be doing wrong. Thanks boys and girls. __ORM__
+~
+Sender  Tracerah~
+Date    Fri Jul  1 06:48:06 2005~
+Stamp   1120218486
+To      immortal~
+Subject RE: extends~
+Text
+Working on them still..
+~
+Sender  Ormthrak~
+Date    Sat Jul  2 04:49:33 2005~
+Stamp   1120297773
+To      katistrofik~
+Subject Umm..Hps..~
+Text
+Wanna set me back? Testing mobs with YOU REALLY ARE BLEEDING, sucks. Heh.
+~
+Sender  Tracerah~
+Date    Sun Jul  3 22:10:51 2005~
+Stamp   1120446651
+To      immortal~
+Subject Shell~
+Text
+Due to a network/ISP issue here at home, I wound up with
+a new IP, which means until I get ahold of Gabe, I no
+longer have shell.
+
+To Charter Communcations, a hearty Fuck You.
+~
+Sender  Muerdajhru~
+Date    Tue Jul  5 18:04:38 2005~
+Stamp   1120604678
+To      katistrofik~
+Subject Vampiric Drain~
+Text
+What happened to this spell, anyway? :)
+~
+Sender  Ormthrak~
+Date    Wed Jul  6 00:51:28 2005~
+Stamp   1120629088
+To      tracerah~
+Subject The animal summon object.~
+Text
+So I have made the object, which is hidden away in my area. I have made the mob
+which is a ethereal spitting cobra, just a neat little follower. What I would like
+the cobra to do is spit acid. As the spell, spit acid. It's a weak spell that
+blinds and does minimal damage. So if you could code him to do that, it would be
+sweet. The object is a jade sphere (127) and the mob is the cobra (113). Though
+I have no idea where to reset the mob at. Perhaps realm of the dead? The spoken
+command prog would be, "Come my silent killer". Ideas? Stuff I missed. Holler back.
+---Orm---
+~
+Sender  Ormthrak~
+Date    Wed Jul  6 01:13:33 2005~
+Stamp   1120630413
+To      zornath~
+Subject Some work for you.~
+Text
+Well was wondering if you know how to make fightprogs. So I am going to assume 
+you do. If you do, I have a shield I want progged to cast dispel magic in combat.
+Room 134, the shields obj number is 134. Don't make it prog super often, but it
+is neutral only, so it won't be *that* bad. Also..if you get bored..feel free
+to test your might progging my tat. I want it to be able to invoke shadowstrike
+on the victim. The problem being is you can't do this in combat. So it would have
+to be invoked on the victim outside of combat. Also unholy fire progging on the
+tat during combat would be dope. So just some stuff that I think would be neat.
+----ORM----
+~
+Sender  Goca~
+Date    Wed Jul  6 02:24:30 2005~
+Stamp   1120634670
+To      Ormthrak~
+Subject Weapon I don't see enough of...~
+Text
+Well, I don't anything about this game, but a weapon named... Goca would be nice! Hah.
+~
+Sender  Ormthrak~
+Date    Wed Jul  6 03:13:19 2005~
+Stamp   1120637599
+To      immortal~
+Subject Areas in my sights.~
+Text
+So these are the areas I have come across that could use some sprucing up.
+Evil Abode-Slowly making progress there.
+Castle of Trials- The thought of fixing it up destroys three foot of my intestine.
+The galaxy- Can we just ditch this area? It sucks. Move Arcana.
+Elven Stronghold- Have spruced it up a lot. If you see anything, let me know.
+Countless others, but if you see something in dire need let me know. And as always
+I am uhh..83% done with the Downs...Again..I swear. ___ORM___
+~
+Sender  Ormthrak~
+Date    Thu Jul  7 04:33:55 2005~
+Stamp   1120728835
+To      goca~
+Subject Your brand.~
+Text
+Your brand now has my darkest powers. Use them wisely. And remember to always
+test yourself, and your foes in my unholy fire. -Ormthrak
+
+P.S.- Invoke Fist (victim) outside of combat is pretty neato. Tee hee.
+P.M.S- Do not tell the "secrets" of my tat to anyone.
+~
+Sender  Ogrets~
+Date    Thu Jul  7 22:46:39 2005~
+Stamp   1120794399
+To      rager~
+Subject Re: cloaked~
+Text
+Tough shit, just beat his ass and get them back. Waawaa.
+~
+Sender  Sudafed~
+Date    Fri Jul  8 03:46:03 2005~
+Stamp   1120812363
+To      Immortal~
+Subject Chargeset~
+Text
+Chargeset is only hitting for like dismembers and massacres.
+Might need a lil damage added.
+
+Sudafed
+~
+Sender  Zornath~
+Date    Fri Jul  8 04:27:44 2005~
+Stamp   1120814864
+To      ormthrak~
+Subject orb and snake~
+Text
+they're done. lemme know if anything comes up
+~
+Sender  Ormthrak~
+Date    Sat Jul  9 04:49:52 2005~
+Stamp   1120902592
+To      immortal~
+Subject I got the Downs.~
+Text
+Sooo..I think the Lattenburrow Downs is ready to be opened. Run through it
+and see what you think. Anyways, just a heads up. See ya. ___ORM___
+~
+Sender  Katistrofik~
+Date    Wed Jul 13 22:26:32 2005~
+Stamp   1121311592
+To      immortal~
+Subject Daed's ninja coding~
+Text
+He re-implemented short names and didn't tell us!
+~
+Sender  Testchar~
+Date    Sat Jul 16 07:19:22 2005~
+Stamp   1121516362
+To      immortal~
+Subject Wiznet debug~
+Text
+A new wiznet feature for all of you that lets you see whatever we coders want you to.  Muah.
+~
+Sender  Borim~
+Date    Sat Jul 16 22:02:00 2005~
+Stamp   1121569320
+To      zornath~
+Subject Missing things~
+Text
+Agam's carapace, mountain plate, pointy magician's hat, obsidian prince crown
+
+Thanks
+~
+Sender  Zornath~
+Date    Sun Jul 17 03:41:18 2005~
+Stamp   1121589678
+To      berim~
+Subject swordplay thrust~
+Text
+good to go.
+~
+Sender  Tracerah~
+Date    Sun Jul 17 11:19:24 2005~
+Stamp   1121617164
+To      immortal~
+Subject bits~
+Text
+i've got a fix for the max affects problem.
+~
+Sender  Zornath~
+Date    Wed Jul 20 17:55:55 2005~
+Stamp   1121882155
+To      immortal~
+Subject wiznet debug~
+Text
+Back in, and turns on and off now for those who are
+driven mad by what it says.
+~
+Sender  Ormthrak~
+Date    Wed Jul 27 04:49:58 2005~
+Stamp   1122439798
+To      immortal~
+Subject Yeah..Soo..~
+Text
+Zornath, were you going to port over the rest of my area? I can just rewrite was
+there, since it isn't much, but I am awful lazy. Also, in order for me to work on
+my area I need the security to do so. See ya around. --ORM---
+~
+Sender  Zornath~
+Date    Fri Jul 29 20:31:34 2005~
+Stamp   1122669094
+To      ormthrak~
+Subject stuff~
+Text
+security should be set and the area's ported
+~
+Sender  Zornath~
+Date    Sat Jul 30 01:13:08 2005~
+Stamp   1122685988
+To      all~
+Subject Beta/pwipe~
+Text
+It is likely that there will be a final pwipe before
+the beta closes. Don't get too attached to characters.
+~

@@ -1,0 +1,88 @@
+=== Object Limits
+
+1. What are object limits and why would you want them.
+2. How you can set object limits.
+3. Checking limits and modifying them.
+4. Bugs with limits.
+
+=== 1. What are object limits and why would you want them.
+
+Ok, object limits in this context doesn't mean limiting the use of an item
+to a players level. Rather it refers to the limiting of the -number- of
+times an object may be created in the mud for repopping and use by
+players.
+
+An example: A sword of slaying may have a limit of 8 set, in which case
+only 8 of them will repop for players before it stops appearing on the mob
+that has it. 
+
+Once an items reaches it's limit ("maxxed") it can only be obtained by
+PKing, stealing or buying it of the present owner. For this reason it's
+obvious that object limits shouldn't be used unless you are planning on a
+PK mud, in which case limits are an excellent way to ensure competition
+and a control on all those ave 30 daggers that thieves keep one-shotting
+people with.
+
+
+=== 2. How you can set object limits.
+
+The Tartarus code automatically assumes an object is non-limited and will
+allow it to repop normally without limit. If you want to set a limit on an
+item just add the following two lines to the end of the object:
+
+L
+#
+
+Where # is the limit on the item.
+
+eg,
+#6600
+axe toy~
+a toy axe~
+An axe made of wood lies here.~
+wood~ 
+weapon 0 AN
+axe 1 5 chop 0
+0 30 250 G
+E
+axe toy~
+A small label says 'made in Taiwan'.
+~
+L
+10
+
+This would limit the toy axe in dwarven daycare to 10. (Although I'm not
+sure why anyone would actually limit the toy axe).
+
+
+=== 3. Checking limits and modifying them.
+
+	To check on an item's limit just stat the item in question and the
+values of it's limit will be shown. This shows the Limit, which is the
+maximum limit set, and the Count, which is the current number of the item
+that exist. Count includes all of the instances of the item on pfiles as
+well as playing characters and in-game repops of the item. 
+	When the count is at the Limit no more of that item will repop
+during area resets. Destruction of an item through such means as
+sacrificing it, disintegration using disintegrate spell, burning, and so
+forth will reduce the Count accordingly so the item will be up to date.
+
+	Modifying limits is easy, just edit the area file of the object
+and change it's 'L' value. You'll have to reboot to get the new limit
+registered in the game.
+
+	
+=== 4. Bugs with limits.
+
+	If you plan on using limits then undoubtably players will seek to
+find ways around this by copying items. Most forms of copying are handled
+but players will always find some trick to use. When this happens items
+tend to become over-maxxed (Count > Limit).
+	When this is the case the item will begin vaporising whenever
+someone carrying one dies (mob or player). This was installed to burn he
+count back to the limit, and also as a way of making sure players knew
+that copying items to defeat counts was just going to be a big fight
+because any time they died their item would vaporise.
+	Item vaporising stops once the item's count is back to the max
+limit you set on it. If you find too many problems with items vaporising
+you'll need to fix either the problem players or the code.

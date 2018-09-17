@@ -1,0 +1,391 @@
+=== New features
+
+Firstly, this code is NOT a huge improvement/re-write of ROM2.4 but rather
+a further derivative that adds more 'serious' gaming aspects, particularly
+for people who would like to start a role-playing type mud with a more
+serious feel.
+
+This file briefly outlines some of the changes and additions to stock
+ROM2.4b. These additions or changes are all released purely so you can use
+what you want and see how one coder (who isn't particularly good at it
+either) implemented them. If you want to use the derivative is-as but
+don't like some of the implementations just take them out. As with all
+muds you'll need to know how hack code if you want to tailor it to suit
+your needs. 
+
+
+* Mobile tracking
+	Simple  mobile tracking is working. If you attack a mob and flee
+it will come after you at a rate of 1 room every half tick. The tracking
+code is very basic and inefficient memory wise, although very fast
+compared to the normal hash table tree seaching methods I have heard most
+people use. The actual search done by a mob checks only 1 room rather
+than the entire area and as such is very fsat as far as the tracking
+update is concerned.
+
+* Dual wield system
+	You can only use two hands, and one  of the options is to wield
+two weapons at once if you are proficient in dual wied skill. You will
+automatically try to slot a second weapon when you wield it, you don't
+need to type any new commands. 
+	Combat shows the damage type of both weapons in the delivery and
+damage messages so you can tell which weapon is doing what damage. You
+have to have a free hand when you try to wield a second weapon with a
+primary, if you're using a shield, light or held item you won't be able to
+attempt the dual.
+
+* Changeling shapeshift
+	Just read the basic help files 'help changeling' and 'help morph'
+on the mud. These are basic setups for shapeshifting. You can easily add
+more forms by editing the get_descr_form() function in act_info.c which
+replaces the PERS(ch,looker) macro from merc.h in a lot of situations.
+
+* Starvation and dehydration
+	Players who decide to go too long without food and water willl
+slowly start to starve and dehydrate. They begin taking a small amount of
+damage but this increases if they continue to starve/dehydrate. Edit
+update.c if you don't like this. (Only players over level 10
+starve/dehydrate).
+
+* Ageing
+	Characters other than immortals will age and eventually die of old
+age. Death age varies for each race and is modified by constitution and a
+random factor. An averge human should live around 400 hours of play time,
+while elvels can live around 700. A general indiction of your age shows on
+score command, saying young/mature/middle-aged/old etc. If you don't like
+the idea of ageing then edit out the age update in update.c
+
+* Constitution death
+	If players die too much their con drops. Default is coded at 1 con
+per 4 deaths. At 3 con they die permenantly.
+
+* Clans
+	Clans use an induction system where a mortal leader may induct
+players into his or her clan. Inducted players gain new clan specific
+abilities, as listed in the do_induct function in act_wiz.c. Just edit the
+abilities gained and dropped (on uninduction) to suit the clans you
+prefer. The default abilities are just example ones.
+
+* Limit loading
+	Read the file limits.txt
+
+* Cosmetic changes
+	A few comsemtic changes to commands, nothing big. Things like
+socket, stat etc. Also stuff like you can't hide/invis/earthfade while
+faerie fired, or quit right after trying to PK someone etc. Real basic
+changes that you'll have to find out yourself.
+
+ * Basic banks are in
+	Withdraw/blanace/deposit commands for banks. 
+
+* Races
+	Races gain special abilities if you want to set them on the race.
+You can assign existing skills to a race very esily, or just crete new
+ones and add them with the other abilities. Races can also be made align
+or ethos restricted (eg, dark elves must be evil). 
+	Default example races are: human, dwarf, elf, grey-elf, dark-elf,
+centaur, troll, giant, gnome, draconian, ethereal, changeling.
+
+* Stat rolling
+	For stat rolling at creation you can adjust the maximum and
+minimum rolls by changing the values in pc_race_table.max_stats[] and
+pc_race_table.stats[] in the const.c file. See comm.c nanny() function for
+stat rolling procedure that was coded in and change this if you feel it
+doesn't roll high/low enough.
+ 
+* Classes
+	Well more classes and options available. Classes can be made align
+or ethos restricted (eg, necromancers must be evil). Classes start with a
+fixed set of skills and spells rather than being able to choose anything
+they want from customization.
+	Current default classes are: warrior, thief, cleric, ranger,
+paladin, anti-paladin, monk, assassin, necromancer, elementalist,
+channeler.
+
+* Hometowns
+	Players can choose which town they will recall or are dumped at
+when they die. (Items in a PC corpse which decays will also go to the
+player's hometown pit..you'll have to make sure your hometowns have pits
+set). Edit comm.c nanny() function, and update.c object updates to add new
+towns. Only a couple of basic example ones are set on the default.
+
+* Spells/skills
+	I also added some new spells and skills, which are of varying
+usefulness. Some are really bad, some are ok and some are quite good.
+Just log in as a level 60 an type 'practice' to see the updated skills and
+spells list.
+	NB: Some people have reported that doing a prac list with an
+immortal results in a close_socket() due to a buffer overflow (too many
+things on the prac list). I haven't had this problem but if it does occur
+just edit do_practice and just parse the prac list into two buffers and
+write them seperately to the output socket.
+
+
+In general if you follow the Rom2.4 area making documents your areas will
+run on the Tartarus code. The next section contains brief infomation
+regarding the newer object and mobile options that may be included in
+areas that run under the Tartarus code. 
+
+For a full idea of what is new read merc.h and the other appropriate
+source code files. Sorry if you wanted more infomation for builders, but I
+just don't have the time. 
+
+=== 1. New object types
+
+#define ITEM_HOUSE_ITEM    35 
+This sets an item to poof when a player quits or logs in. Should never be
+set except on a House (clan) item.
+
+#define ITEM_SKELETON      36 
+Skeleton, as opposed to a corpse. Can be animated using 'animate skeleton'
+spell for necromancers.
+
+=== 2. New object extra_flags
+
+#define ITEM_BRAND              (aa)
+yA band, like a tatoo, that can be worn as a permenant item.
+
+#define CORPSE_NO_ANIMATE       (bb)
+Can't animate this corpse with 'animate dead' spell.
+
+#define ITEM_ANTI_LAWFUL        (cc) /* Zaps players of wrong ethos */
+#define ITEM_ANTI_NEUT          (dd)
+#define ITEM_ANTI_CHAOTIC       (ee)
+
+=== 3. New object wear_flags
+
+#define ITEM_WEAR_BRAND         (R)
+
+=== 4. Object restriction flags
+Pretty self-explanatory. You can set class, race and house restrictions on
+an item, but only one of each sort (you can't have TROLL_ONLY and also
+ELF_ONLY, that wouldn't make sense. But you can have TROLL_ONLY and
+WARRIOR_ONLY so only troll warriors can use the item, etc).
+
+#define HUMAN_ONLY              (A) /* Race restricts here...(Ceran) */
+#define DWARF_ONLY              (B) 
+#define ELF_ONLY                (C) 
+#define GREY_ONLY               (D)
+#define DARK_ONLY               (E)
+#define GIANT_ONLY              (F) 
+#define CENTAUR_ONLY            (G) 
+#define TROLL_ONLY              (H)
+#define DRACONIAN_ONLY          (I)
+#define GNOME_ONLY              (J)
+#define GNOME_ONLY              (J) 
+
+#define WARRIOR_ONLY            (K)  /* Class restricts here...(Ceran) */
+#define THIEF_ONLY              (L)
+#define CLERIC_ONLY             (M)
+#define PALADIN_ONLY            (N)
+#define ANTI_PALADIN_ONLY       (O)
+#define RANGER_ONLY             (P)
+#define MONK_ONLY               (Q)
+#define CHANNELER_ONLY          (R)
+#define NIGHTWALKER_ONLY        (S)
+#define NECROMANCER_ONLY        (T) 
+#define ELEMENTALIST_ONLY       (U) 
+
+#define ANCIENT_ONLY            (V) /* House restricts here...(Ceran) */
+#define ARCANA_ONLY             (W) 
+#define CRUSADER_ONLY           (X) 
+#define LIFE_ONLY               (Y)
+#define ENFORCER_ONLY           (Z)
+#define OUTLAW_ONLY             (aa)
+#define MAGE_ONLY               (bb) /* I don't think this one works yet */
+
+
+=== 5. New room flags
+
+#define ROOM_CONSECRATED        (V)
+Used with paladin spell 'consecrate'. Turns a NO_RECALL room into a recall
+one.
+
+#define ROOM_NO_SUMMON  	(W) /* Can't summon into room */
+#define ROOM_NO_CONSECRATE      (X) 
+#define ROOM_NO_ALARM           (Z) /* Can't set 'alarm' spell in room */
+#define ROOM_LOW_ONLY           (bb) /* Must be below level 10 to enter */
+#define ROOM_NO_MAGIC           (cc) /* No magic in room */
+
+=== 6. New extra_room flags
+
+#define ROOM_GLOBE_DARKNESS     (A) 
+Room is shrouded in darkness and you'll need a lot more light to see in
+it.
+
+=== 7. New exit flags
+
+#define EX_NOBASH                     (M)
+Can't bash door down using giant's door bash skill.
+
+=== 8. New guild flags. 
+Setting this on a room will prevent anyone but that class entering it.
+Keep those guilds exclusive. To set this put a 'G' followed by the class
+number at the end of a room entry in the #ROOMS section. 
+
+/* Class guild used in the room 'G'  flags */
+#define GUILD_WARRIOR           1
+#define GUILD_THIEF             2
+#define GUILD_CLERIC            3
+#define GUILD_PALADIN           4
+#define GUILD_ANTI_PALADIN      5
+#define GUILD_RANGER            6
+#define GUILD_MONK              7
+#define GUILD_CHANNELER         8
+#define GUILD_NIGHTWALKER       9
+#define GUILD_NECROMANCER       10
+#define GUILD_ELEMENTALIST      11
+
+=== 9. New reset flags for items
+
+#define WEAR_DUAL_WIELD              18 
+#define WEAR_TERTIARY_WIELD          19
+#define WEAR_BRAND                   20
+#define MAX_WEAR                     21
+
+=== 10. New OFF_FLAGS for mobiles
+
+#define OFF_TAIL                (M)
+Mob uses it's tail to sweep victims. Can knock victims down.
+
+#define OFF_CRUSH               (O)
+Mob attempts to crush victims. Powerful mobs automatically attempt to
+ground control a crushed victim.
+
+#define NO_TRACK                (V)
+Mobile won't track players.
+
+#define STATIC_TRACKING         (W)
+Mobile won't follow a player it is tracking but it will attack them if
+they walk back into it.
+
+#define SPAM_MURDER             (X)
+Mobile effectively does a 'murder <player>' command on anyone walking into
+it. A nice noisy function for aggro mobs.
+
+#define OFF_INTIMIDATED         (Y)
+Used with anti-paladin intimidate.
+
+#define OFF_UNDEAD_DRAIN        (Z)     
+Mobs with this can drain levels off players. Drained levels reduce
+fighting and spell casting power. They may be restored using the
+'restoration' cleric spell or a healer's 'restoration' spell. This is very
+powerful ability.
+
+#define AFF_SHADOWSTRIKE        (L) /* Don't use this one */
+#define AFF_CAMOUFLAGE          (ee) /* Is camoed*/
+#define AFF_ACUTE_VISION        (ff) /* Can see camouflaged victims */
+
+
+==== 11. New special functions
+Some of these need certain areas running on the mud. If you don't run
+those areas just copy the needed mobile/objects out of them and place them
+into your own area files so when the special function calls on them the
+mud won't crash. You should consult with your MUD coder about which
+functions may or may not be appropriate to include in your mud, as well
+as their compatability with your existing areas.
+
+DECLARE_SPEC_FUN(       spec_enforcer           );
+The mobile will attack (wanted) players. This is just a hack of the
+spec_guard function. Will work on any areas.
+
+DECLARE_SPEC_FUN(       spec_preserver          );
+A special for a magic-user House guardian.
+
+DECLARE_SPEC_FUN(       spec_fallen_angel       );
+Fallen Angel special. Very powerful mobile spec. Used in Drannor area.
+
+DECLARE_SPEC_FUN(       spec_troll              );
+Attempts to crush and spit acid. Used in 'Dead Forest' area but doesn't
+require that area to be used.
+
+DECLARE_SPEC_FUN(       spec_chimera            );
+Nasty. Mobile bites, breathes fire and rams. Used in 'Strange Carnival'
+area but doesn't require that area to be used.
+
+DECLARE_SPEC_FUN(       spec_bane);
+Extremely powerful and very bugged special. Don't use this, I think it
+should be taken out but I left it in if people want to use it and fix it
+up. You must have drannor area if you run this function on mobs.
+
+DECLARE_SPEC_FUN(       spec_monk       );
+Nasty special that lets a mobile palm strike, throw, ground control. Used
+on blood brother monks in 'Strange Carnival' area. You don't need Strange
+Carnival area to use this function.
+
+DECLARE_SPEC_FUN(       spec_darokin  );
+Used in Dale area. Not nice for players...mobile will try to summon back
+the last player that attacked it if the player flees. Also summons a mob
+to help it fight, etc. You only need the familiar from 'skills.are' to run
+this function on other areas.
+
+DECLARE_SPEC_FUN(       spec_godfather  );  
+A mobile for the outlaw House.
+
+DECLARE_SPEC_FUN(       spec_rakshasa   );
+DECLARE_SPEC_FUN(       spec_rakshasa_lich);
+DECLARE_SPEC_FUN(       spec_rakshasa_royal);
+A set of rakshasa specs for use in the rakshasa domain area. Pretty dull.
+
+DECLARE_SPEC_FUN(       spec_beholder   );
+Mean beholder special that lets a mob (beholder) cast multiple spells in a
+round using different eye stalks. 
+
+DECLARE_SPEC_FUN(       spec_deathknight);
+Tough undead knight special. Casts power word kill, fireball, iceball,
+curse, energy drain and wither sells.
+
+DECLARE_SPEC_FUN(       spec_room_thow  );
+Don't use this. Mob can throw a victim out of the room, even through
+doors. This works but sometimes crashes for some reason and I haven't
+bothered to fix it. (What can I say, I'm lazy)
+
+DECLARE_SPEC_FUN(       spec_spectre_king);
+Mob casts blindness, chill touch, iceball, energy drain, cone of cold,
+acid blast and frost breath. Used in drannor but may be used on any mob
+without problem.
+
+DECLARE_SPEC_FUN(       spec_hydra      );
+Big nasty hydra function. Used in Drannor.
+
+DECLARE_SPEC_FUN(       spec_bone_demon);
+Bone demon that rises from the ground in Drannor. Used only in drannor.
+
+DECLARE_SPEC_FUN(       spec_valere_knight);
+Knight that is useable only with the Drannor area.
+
+DECLARE_SPEC_FUN(       spec_drannor_wraith);
+Ditto.
+
+DECLARE_SPEC_FUN(       spec_titan);
+Big brute titan function for Arkham legion. 
+
+DECLARE_SPEC_FUN(       spec_necromancer);
+Mean spec_mage hack. Casts blindness, curse, energy drain, cremate, acid
+blast, frostbolt. Can also animate any corpses that are lying in the room.
+
+DECLARE_SPEC_FUN(       spec_crusader);
+Lets a mob put up steel nerves and battlecry. Useable on any mob. Don't
+overuse this, mobs that deathblow hurt.
+
+DECLARE_SPEC_FUN(       spec_demonologist);
+Very mean spec_mage hack. Casts blindness, disease, demonfire, fireball,
+deathspell, power word fear, cone of cold, acid blast. Can summon a dark
+slayer, and tries to power word kill anyone who stands in it's room for
+too long.
+
+DECLARE_SPEC_FUN(       spec_legionlord); 
+Bit of a joke. Massacres players who first walk into it, then proceeds to
+use a mix of other specials. Don't use unless you want to really mess up
+players.
+
+DECLARE_SPEC_FUN(       spec_gold_dragon);
+DECLARE_SPEC_FUN(       spec_black_dragon);
+DECLARE_SPEC_FUN(       spec_red_dragon);   
+Some derivative dragon specials were added too. These allow dragons to
+wing blast, cast spells and use breath attacks. Only use on powerful
+dragons.
+
+
+=== There's more stuff but you're going to have to hack the code yourself
+for it.
