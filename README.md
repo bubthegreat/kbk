@@ -8,7 +8,7 @@ Kahn	michael@uclink.berkeley.edu
 
 
 
-=== Introduction
+# Introduction
 
 Merc Diku Mud is a Diku Mud with many enhancements and contributions.  See our
 'contrib.txt' and 'help merc' for acknowledgements.  Send us your contribution,
@@ -20,7 +20,7 @@ This is the 2.1 production release of Merc.
 
 
 
-=== Copyright and License
+# Copyright and License
 
 Diku Mud is copyright (C) 1990, 1991 by Sebastian Hammer, Michael Seifert,
 Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.  Their license agreement
