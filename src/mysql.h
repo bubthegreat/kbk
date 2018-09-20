@@ -36,9 +36,9 @@
 MYSQL                   	conn;
 
 #define SQL_SERVER      	"localhost"
-#define SQL_USER        	""
-#define SQL_PWD         	""
-#define SQL_DB          	""
+#define SQL_USER        	"kbkuser"
+#define SQL_PWD         	"kbkpassword"
+#define SQL_DB          	"kbkdatabase"
 
 void    init_mysql		args( ( void ) );
 void    close_db                args( ( void ) );
