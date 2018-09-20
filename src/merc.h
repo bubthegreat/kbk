@@ -3452,24 +3452,6 @@ extern		time_t			boot_time;
  * These are all very standard library functions,
  *   but some systems have incomplete or non-ansi header files.
  */
-#if	defined(_AIX)
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined(apollo)
-int	atoi		args( ( const char *string ) );
-void *	calloc		args( ( unsigned nelem, size_t size ) );
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined(hpux)
-char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined(linux)
-char *	crypt		args( ( const char *key, const char *salt ) );
-void *  calloc          args( ( unsigned nelem, size_t size ) );
-#endif
 
 #if	defined(macintosh)
 #define NOCRYPT
