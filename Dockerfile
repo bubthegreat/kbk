@@ -17,6 +17,6 @@ RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 RUN git clone https://github.com/bubthegreat/kbk.git
 RUN cd kbk/src && make --silent
 
-ENTRYPOINT  ["bash"]
-
 EXPOSE 4000
+
+ENTRYPOINT  ["bash"]
