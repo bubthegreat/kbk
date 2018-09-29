@@ -46,18 +46,4 @@ run the service and see the segmentation faults:
 
 `kbk/area/startup`
 
-root@0d2c8bdd4992:/kbk/log# cat 1007.log
-Thu Sep 20 10:22:22 2018 :: Mysql_init: Established connection to MySQL database.
-Thu Sep 20 10:22:22 2018 :: 34 materials loaded.
-Thu Sep 20 10:22:22 2018 :: Loading object counts off players now...
-Thu Sep 20 10:22:22 2018 :: ../player/Zzz.plr
-Thu Sep 20 10:22:22 2018 :: Exits Fixed.
-Thu Sep 20 10:22:22 2018 :: Area Update.
-Thu Sep 20 10:22:22 2018 :: Cabal Items: Loaded.
-Thu Sep 20 10:22:22 2018 :: Created item fix log.
-Thu Sep 20 10:22:22 2018 :: Created race info file.
-Thu Sep 20 10:22:22 2018 :: [*****] BUG: Fread_string: EOF
-root@0d2c8bdd4992:/kbk/log#
-
-
-Right now, I suspect it's because of the changes that I made to make it compile successfully - it was failing to compile due to conflicts in definitions for the linux calloc and another.  I'll see if I can get it to compile properly in another environment. 
+crypt is currently segfaulting things, so I have to figure out how to get crypt unfucked.
