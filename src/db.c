@@ -1011,6 +1011,7 @@ void boot_db()
 	printRaceInfo();
 	log_string("Created race info file.");
 
+	log_string("Loading bans.");
 	load_bans();
 	log_string("Bans loaded.");
 
