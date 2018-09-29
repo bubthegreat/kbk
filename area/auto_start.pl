@@ -3,7 +3,7 @@
 use strict;
 use IO::Socket;
 
-my $port = 4000;
+my $port = 8989;
 my $exec = "./pos2";
 my $check_interval = 30;
 my $this_script = "perl auto_start.pl";
