@@ -36,6 +36,10 @@ Enter into the mysql command line:
 
 `mysql -u root -proot`
 
+Select the database:
+
+`use kbkdatabase`;
+
 Copypasta the database.sql file to create the actual database tables
 
 run the service and see the segmentation faults:
