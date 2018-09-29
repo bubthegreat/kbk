@@ -3418,7 +3418,7 @@ char *fread_string( FILE *fp )
 
         case EOF:
 	/* temp fix */
-	    log_string(fp)
+	    log_string(fp);
             bug( "Fread_string: EOF", 0 );
 	    return NULL;
             /* exit( 1 ); */
