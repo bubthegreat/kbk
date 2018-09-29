@@ -587,7 +587,7 @@ int			newobjs = 0;
  * Increase MAX_STRING if you have too.
  * Tune the others only if you understand what you're doing.
  */
-#define                 MAX_STRING      4500000	/* Original was 1483120 and then 3593120 */
+#define                 MAX_STRING      7500000	/* Original was 1483120 and then 3593120 */
 #define			MAX_PERM_BLOCK	131072
 #define			MAX_MEM_LIST	12
 
@@ -3417,6 +3417,7 @@ char *fread_string( FILE *fp )
 
         case EOF:
 	/* temp fix */
+	    log_string(fp)
             bug( "Fread_string: EOF", 0 );
 	    return NULL;
             /* exit( 1 ); */
