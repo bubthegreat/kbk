@@ -47,12 +47,12 @@
 #define DECLARE_IPROG_FUN_ENTRY(fun) 		IPROG_FUN_ENTRY fun
 #define DECLARE_IPROG_FUN_GIVE(fun) 		IPROG_FUN_GIVE fun
 #define DECLARE_IPROG_FUN_GREET(fun) 		IPROG_FUN_GREET fun
-#define DECLARE_IPROG_FUN_FIGHT(fun) 		IPROG_FUN_FIGHT fun          
+#define DECLARE_IPROG_FUN_FIGHT(fun) 		IPROG_FUN_FIGHT fun
 #define DECLARE_IPROG_FUN_DEATH(fun) 		IPROG_FUN_DEATH fun
 #define DECLARE_IPROG_FUN_SPEECH(fun) 		IPROG_FUN_SPEECH fun
 #define DECLARE_IPROG_FUN_PULSE(fun) 		IPROG_FUN_PULSE fun
 #define DECLARE_IPROG_FUN_INVOKE(fun) 		IPROG_FUN_INVOKE fun
-	
+
 #define DECLARE_MPROG_FUN_ATTACK( fun )	    	MPROG_FUN_ATTACK fun
 #define DECLARE_MPROG_FUN_BRIBE( fun )      	MPROG_FUN_BRIBE fun
 #define DECLARE_MPROG_FUN_ENTRY( fun )      	MPROG_FUN_ENTRY fun
@@ -169,7 +169,7 @@ typedef void MPROG_FUN_PULSE 	args( (CHAR_DATA *mob ) );
 typedef void MPROG_FUN_SPEECH 	args( (CHAR_DATA *mob, CHAR_DATA *ch, char *speech));
 typedef bool MPROG_FUN_MOVE 	args( (CHAR_DATA *ch, CHAR_DATA *mob, ROOM_INDEX_DATA *from, int direction));
 typedef bool MPROG_FUN_REQUEST 	args( (CHAR_DATA *ch, CHAR_DATA *mob, OBJ_DATA *obj));
- 
+
 typedef void RPROG_FUN_SPEECH 	args( (ROOM_INDEX_DATA *room, CHAR_DATA *ch, char *speech));
 typedef void RPROG_FUN_ENTRY 	args( (ROOM_INDEX_DATA *room, CHAR_DATA *ch));
 
@@ -197,9 +197,9 @@ typedef void SET_ITEM_PROG args((CHAR_DATA *ch, int arg2, bool arg3));
 #define MAX_IN_GROUP              	500
 #define MAX_ALIAS		   	10
 #define MAX_CLASS                  	13
-#define MAX_PC_RACE                	24 
+#define MAX_PC_RACE                	24
 #define MAX_CABAL                 	10
-#define MAX_DAMAGE_MESSAGE	   	63	
+#define MAX_DAMAGE_MESSAGE	   	63
 #define MAX_LEVEL		   	60
 #define LEVEL_HERO		   	(MAX_LEVEL - 9)
 #define LEVEL_IMMORTAL		   	(MAX_LEVEL - 8)
@@ -674,11 +674,11 @@ struct spec_type
 struct	affect_data
 {
     AFFECT_DATA *	next;
-	
+
 	//Very dangerous to use. if the char data is freed before the affect data (i.e. log off), this char data will almost certainly segfault
 	//somewhere. -- Zornath
 	//CHAR_DATA *	        owner;
-	
+
 	char *				owner_name;
     char *              name;
     bool		valid;
@@ -780,7 +780,7 @@ struct	room_affect_data
 #define EMPIRE_EMPEROR	5
 #define EMPIRE_IMM	6
 
-#define MAX_EMPIRE		8	
+#define MAX_EMPIRE		8
 #define CABAL_LEADER     	5
 #define MAX_BOUNTY		4
 
@@ -851,7 +851,7 @@ void 			free_bitmask	args((BITMASK *pBmask));
 #define MOB_VNUM_CITYGUARD	   	3060
 #define MOB_VNUM_VAMPIRE	   	3404
 
-/* skills.are mobs */	
+/* skills.are mobs */
 #define MOB_VNUM_ZOMBIE		   	2901
 #define MOB_VNUM_FIRE_ELEMENTAL	   	2902
 #define MOB_VNUM_WATER_ELEMENTAL   	2903
@@ -1643,7 +1643,7 @@ void 			free_bitmask	args((BITMASK *pBmask));
 #define SET_NONE		0
 #define SET_WARRIOR		1
 #define SET_CHANNELER		2
-#define SET_THIEF			3		
+#define SET_THIEF			3
 #define SET_HEALER		4
 #define SET_ELEMENTALIST	5
 
@@ -1876,7 +1876,7 @@ their hometown after choosing it at creation.
 #define EX_NOCLOSE		      	(K)
 #define EX_NOLOCK		      	(L)
 #define EX_NOBASH		      	(M)
-#define EX_NONOBVIOUS		      	(N)	
+#define EX_NONOBVIOUS		      	(N)
 #define EX_CURRENT			(O)
 
 /*
@@ -2361,7 +2361,7 @@ struct	char_data
     sh_int		dam_mod;
     sh_int		base_dam_mod;
     int			hometown;
-    sh_int		eavesdrop;    
+    sh_int		eavesdrop;
     bool		extracted;
     sh_int		cloaked;
     NOTE_DATA *		pnote;
@@ -2904,7 +2904,7 @@ extern  sh_int  gsn_trip;
 extern  sh_int  gsn_fast_healing;
 extern  sh_int  gsn_haggle;
 extern  sh_int  gsn_lore;
-extern  sh_int  gsn_meditation; 
+extern  sh_int  gsn_meditation;
 extern  sh_int  gsn_scrolls;
 extern  sh_int  gsn_staves;
 extern  sh_int  gsn_wands;
@@ -3300,32 +3300,30 @@ extern sh_int gsn_dragon_might;
 /*
  * Character macros.
  */
-#define IS_NPC(ch)		(IS_SET((ch)->act, ACT_IS_NPC))
-#define IS_IMMORTAL(ch)		(get_trust(ch) >= LEVEL_IMMORTAL)
-#define IS_HERO(ch)		(get_trust(ch) >= LEVEL_HERO)
-#define IS_HEROIMM(ch)		(IS_SET((ch)->act,PLR_HEROIMM))
+#define IS_NPC(ch)						(IS_SET((ch)->act, ACT_IS_NPC))
+#define IS_IMMORTAL(ch)				(get_trust(ch) >= LEVEL_IMMORTAL)
+#define IS_HERO(ch)						(get_trust(ch) >= LEVEL_HERO)
+#define IS_HEROIMM(ch)				(IS_SET((ch)->act,PLR_HEROIMM))
 #define IS_TRUSTED(ch,level)	(get_trust((ch)) >= (level))
-#define IS_AFFECTED(ch, sn)	(IS_SET((ch)->affected_by, (sn)))
-#define IS_ANSI(ch)		(!IS_NPC( ch ) && IS_SET((ch)->comm, COMM_ANSI))
+#define IS_AFFECTED(ch, sn)		(IS_SET((ch)->affected_by, (sn)))
+#define IS_ANSI(ch)						(!IS_NPC( ch ) && IS_SET((ch)->comm, COMM_ANSI))
 
-#define GET_AGE(ch)		((int) (17 + ((ch)->played \
-				    + current_time - (ch)->logon )/72000))
+#define GET_AGE(ch)		((int) (17 + ((ch)->played + current_time - (ch)->logon )/72000))
 
-#define IS_CABAL_OUTER_GUARD(ch) (IS_NPC((ch)) && IS_SET((ch)->act, ACT_OUTER_GUARDIAN))
-#define IS_CABAL_GUARD(ch)	(IS_NPC((ch)) && IS_SET((ch)->act, ACT_INNER_GUARDIAN))
-#define HAS_TRIGGER(ch,trig)    (IS_SET((ch)->pIndexData->mprog_flags,(trig)))
-#define IS_GOOD(ch)             (ch->alignment >= 1)
-#define IS_EVIL(ch)             (ch->alignment <= -1)
-#define IS_NEUTRAL(ch)                (!IS_GOOD(ch) && !IS_EVIL(ch))
+#define IS_CABAL_OUTER_GUARD(ch) 	(IS_NPC((ch)) && IS_SET((ch)->act, ACT_OUTER_GUARDIAN))
+#define IS_CABAL_GUARD(ch)				(IS_NPC((ch)) && IS_SET((ch)->act, ACT_INNER_GUARDIAN))
+#define HAS_TRIGGER(ch,trig)    	(IS_SET((ch)->pIndexData->mprog_flags,(trig)))
+#define IS_GOOD(ch)             	(ch->alignment >= 1)
+#define IS_EVIL(ch)             	(ch->alignment <= -1)
+#define IS_NEUTRAL(ch)          	(!IS_GOOD(ch) && !IS_EVIL(ch))
 #define IS_LAWFUL(ch)             (ch->pcdata->ethos >= 1)
-#define IS_CHAOTIC(ch)             (ch->pcdata->ethos <= -1)
-#define IS_ENEUTRAL(ch)                (!IS_LAWFUL(ch) && !IS_CHAOTIC(ch))
+#define IS_CHAOTIC(ch)            (ch->pcdata->ethos <= -1)
+#define IS_ENEUTRAL(ch)           (!IS_LAWFUL(ch) && !IS_CHAOTIC(ch))
 
 
-#define IS_AWAKE(ch)		(ch->position > POS_SLEEPING)
-#define GET_AC(ch,type)		((ch)->armor[type]			    \
-		        + ( IS_AWAKE(ch)			    \
-			? dex_app[get_curr_stat(ch,STAT_DEX)].defensive : 0 ))
+#define IS_AWAKE(ch)			(ch->position > POS_SLEEPING)
+#define GET_AC(ch,type)		((ch)->armor[type] + ( IS_AWAKE(ch)			    \
+														? dex_app[get_curr_stat(ch,STAT_DEX)].defensive : 0 ))
 
 //#define GET_HITROLL(ch)	((ch)->hitroll+str_app[get_curr_stat(ch,STAT_STR)].tohit)
 //#define GET_DAMROLL(ch) ((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam)
@@ -3335,51 +3333,40 @@ extern sh_int gsn_dragon_might;
 
 #define IS_SHIFTED(ch)		(!IS_NPC(ch) ? (ch)->pcdata->shifted>-1 ? TRUE : FALSE: FALSE)
 
-#define IS_OUTSIDE(ch)		(!IS_SET(				    \
-				    (ch)->in_room->room_flags,		    \
-				    ROOM_INDOORS))
+#define IS_OUTSIDE(ch)		(!IS_SET(				    						  \
+											    (ch)->in_room->room_flags,		    \
+											    ROOM_INDOORS))
 
 #define DAZE_STATE(ch, npulse)  ((ch)->daze = UMAX((ch)->daze, (npulse)))
 #define get_carry_weight(ch)    ((ch)->carry_weight + (ch)->gold/GOLD_PER_POUND)
-#define GetName(ch)		(IS_NPC(ch) ? (ch)->short_descr : (ch)->name)
+#define GetName(ch)							(IS_NPC(ch) ? (ch)->short_descr : (ch)->name)
 
-/*
- * Room Macros
- */
+/* Room Macros */
 
 #define IS_ROOM_AFFECTED(room, sn)  (IS_SET((room)->affected_by, (sn)))
 #define IS_RAFFECTED(room, sn)  (IS_SET((room)->affected_by, (sn)))
 
-/*
- * Object macros.
- */
+/* Object macros. */
 #define CAN_WEAR(obj, part)	(IS_SET((obj)->wear_flags,  (part)))
 #define IS_OBJ_STAT(obj, stat)	(is_set(&(obj)->extra_flags, (stat)))
 #define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4],(stat)))
-#define WEIGHT_MULT(obj)	((obj)->item_type == ITEM_CONTAINER ? \
-	(obj)->value[4] : 100)
+#define WEIGHT_MULT(obj)	((obj)->item_type == ITEM_CONTAINER ? (obj)->value[4] : 100)
 
+#define IS_METAL(obj)      ((!str_cmp(obj->material->name,"iron"))      ||      \
+                            (!str_cmp(obj->material->name,"metal"))     ||      \
+                            (!str_cmp(obj->material->name,"tin"))       ||      \
+                            (!str_cmp(obj->material->name,"titanium"))  ||      \
+                            (!str_cmp(obj->material->name,"mithril"))   ||      \
+                            (!str_cmp(obj->material->name,"copper"))    ||      \
+                            (!str_cmp(obj->material->name,"silver"))    ||      \
+                            (!str_cmp(obj->material->name,"steel"))     ||      \
+                            (!str_cmp(obj->material->name,"bronze")))
 
-#define IS_METAL(obj)      ((!str_cmp(obj->material->name,"iron"))            ||      \
-(!str_cmp(obj->material->name,"metal"))               ||      \
-(!str_cmp(obj->material->name,"tin"))             ||      \
-(!str_cmp(obj->material->name,"titanium"))              ||      \
-(!str_cmp(obj->material->name,"mithril"))                ||      \
-(!str_cmp(obj->material->name,"copper"))              ||      \
-(!str_cmp(obj->material->name,"silver"))    ||      \
-(!str_cmp(obj->material->name,"steel"))               ||      \
-(!str_cmp(obj->material->name,"bronze")))
-
-/*
- * Description macros.
- */
+/* Description macros. */
 #define PERS(ch, looker)			( pers(ch, looker) )
 
-/*
- * Structure for a social in the socials table.
- */
-struct	social_type
-{
+/* Structure for a social in the socials table. */
+struct	social_type {
     char      name[20];
     char *    char_no_arg;
     char *    others_no_arg;
@@ -3387,65 +3374,59 @@ struct	social_type
     char *    others_found;
     char *    vict_found;
     char *    char_not_found;
-    char *      char_auto;
-    char *      others_auto;
+    char *    char_auto;
+    char *    others_auto;
 };
 
-
-
-/*
- * Global constants.
- */
+/* Global constants. */
 extern	const	struct	str_app_type	str_app		[26];
 extern	const	struct	int_app_type	int_app		[26];
 extern	const	struct	wis_app_type	wis_app		[26];
 extern	const	struct	dex_app_type	dex_app		[26];
 extern	const	struct	con_app_type	con_app		[26];
 
-extern	const	struct	class_type	class_table	[MAX_CLASS];
-extern	const	struct	weapon_type	weapon_table	[];
-extern  const   struct  item_type	item_table	[];
-extern	const	struct	wiznet_type	wiznet_table	[];
-extern	const	struct	attack_type	attack_table	[];
-extern  const	struct  race_type	race_table	[];
-extern	const	struct	pc_race_type	pc_race_table	[];
-extern  const	struct	spec_type	spec_table	[];
-extern	const	struct	liq_type	liq_table	[];
-extern	const	struct	skill_type	skill_table	[MAX_SKILL];
-extern  const   struct  group_type      group_table	[MAX_GROUP];
-extern          struct social_type      social_table	[MAX_SOCIALS];
-extern	char *	const			title_table	[MAX_CLASS]
-							[MAX_LEVEL+1]
-							[2];
-extern  const   struct  improg_type      iprog_table	[];
-extern  const   struct  improg_type	 mprog_table	[];
-extern  const	struct	improg_type	 rprog_table	[];
+extern	const			struct	class_type	 class_table	[MAX_CLASS];
+extern	const			struct	weapon_type	 weapon_table	[];
+extern  const   	struct  item_type		 item_table	[];
+extern	const			struct	wiznet_type	 wiznet_table	[];
+extern	const			struct	attack_type	 attack_table	[];
+extern  const			struct  race_type		 race_table	[];
+extern	const			struct	pc_race_type pc_race_table	[];
+extern  const			struct	spec_type		 spec_table	[];
+extern	const			struct	liq_type		 liq_table	[];
+extern	const	  	struct	skill_type	 skill_table	[MAX_SKILL];
+extern  const   	struct  group_type   group_table	[MAX_GROUP];
+extern          	struct  social_type  social_table	[MAX_SOCIALS];
+extern	char   *	const								 title_table	[MAX_CLASS] [MAX_LEVEL+1] [2];
+extern  const   	struct  improg_type  iprog_table	[];
+extern  const   	struct  improg_type	 mprog_table	[];
+extern  const			struct	improg_type	 rprog_table	[];
 /*
  * Global variables.
  */
-extern		HELP_DATA	  *	help_first;
-extern		SHOP_DATA	  *	shop_first;
+extern		HELP_DATA	  		*	help_first;
+extern		SHOP_DATA	  		*	shop_first;
 
-extern		CHAR_DATA	  *	char_list;
-extern		DESCRIPTOR_DATA   *	descriptor_list;
-extern		OBJ_DATA	  *	object_list;
-extern		MAT_DATA	  * mat_list;
-extern		long			gold_constant;
+extern		CHAR_DATA	  		*	char_list;
+extern		DESCRIPTOR_DATA *	descriptor_list;
+extern		OBJ_DATA	  		*	object_list;
+extern		MAT_DATA	  		* mat_list;
+extern		long						  gold_constant;
 
-extern		char			bug_buf		[];
-extern		time_t			current_time;
-extern		bool			fLogAll;
-extern          bool                    MOBtrigger;
-extern		FILE *			fpReserve;
-extern		KILL_DATA		kill_table	[];
-extern		char			log_buf		[];
+extern		char							bug_buf		[];
+extern		time_t						current_time;
+extern		bool							fLogAll;
+extern    bool              MOBtrigger;
+extern		FILE *						fpReserve;
+extern		KILL_DATA					kill_table	[];
+extern		char							log_buf		[];
 extern		TIME_INFO_DATA		time_info;
-extern		WEATHER_DATA		weather_info;
-extern          ROOM_INDEX_DATA   *     top_affected_room;
-extern 		sh_int			count_data	[40000];
-extern          int                     top_mprog_index;
-extern		char			last_command[MSL];
-extern		time_t			boot_time;
+extern		WEATHER_DATA			weather_info;
+extern    ROOM_INDEX_DATA * top_affected_room;
+extern 		sh_int						count_data	[40000];
+extern    int               top_mprog_index;
+extern		char							last_command[MSL];
+extern		time_t						boot_time;
 
 /*
  * OS-dependent declarations.
@@ -3454,55 +3435,54 @@ extern		time_t			boot_time;
  */
 
 #if	defined(macintosh)
-#define NOCRYPT
-#if	defined(unix)
-void *  calloc          args( ( unsigned nelem, size_t size ) );
-#undef	unix
-#endif
+		#define NOCRYPT
+		#if	defined(unix)
+				void *  calloc          args( ( unsigned nelem, size_t size ) );
+					#undef	unix
+		#endif
 #endif
 
 #if	defined(MIPS_OS)
-char *	crypt		args( ( const char *key, const char *salt ) );
+		char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
 #if	defined(MSDOS)
-#define NOCRYPT
-#if	defined(unix)
-#undef	unix
-#endif
+		#define NOCRYPT
+		#if	defined(unix)
+				#undef	unix
+		#endif
 #endif
 
 #if	defined(NeXT)
-char *	crypt		args( ( const char *key, const char *salt ) );
+		char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
 #if	defined(sequent)
-char *	crypt		args( ( const char *key, const char *salt ) );
-int	fclose		args( ( FILE *stream ) );
-int	fprintf		args( ( FILE *stream, const char *format, ... ) );
-int	fread		args( ( void *ptr, int size, int n, FILE *stream ) );
-int	fseek		args( ( FILE *stream, long offset, int ptrname ) );
-void	perror		args( ( const char *s ) );
-int	ungetc		args( ( int c, FILE *stream ) );
+		char *	crypt		args( ( const char *key, const char *salt ) );
+		int			fclose	args( ( FILE *stream ) );
+		int			fprintf	args( ( FILE *stream, const char *format, ... ) );
+		int			fread		args( ( void *ptr, int size, int n, FILE *stream ) );
+		int			fseek		args( ( FILE *stream, long offset, int ptrname ) );
+		void		perror	args( ( const char *s ) );
+		int			ungetc	args( ( int c, FILE *stream ) );
 #endif
 
 #if	defined(sun)
-char *	crypt		args( ( const char *key, const char *salt ) );
-int	fclose		args( ( FILE *stream ) );
-int	fprintf		args( ( FILE *stream, const char *format, ... ) );
-#if	defined(SYSV)
-siz_t	fread		args( ( void *ptr, size_t size, size_t n,
-			    FILE *stream) );
-#else
-int	fread		args( ( void *ptr, int size, int n, FILE *stream ) );
-#endif
-int	fseek		args( ( FILE *stream, long offset, int ptrname ) );
-void	perror		args( ( const char *s ) );
-int	ungetc		args( ( int c, FILE *stream ) );
+		char *	crypt		args( ( const char *key, const char *salt ) );
+		int			fclose	args( ( FILE *stream ) );
+		int			fprintf	args( ( FILE *stream, const char *format, ... ) );
+		#if	defined(SYSV)
+				siz_t	fread		args( ( void *ptr, size_t size, size_t n,FILE *stream) );
+		#else
+				int		fread		args( ( void *ptr, int size, int n, FILE *stream ) );
+		#endif
+		int		fseek		args( ( FILE *stream, long offset, int ptrname ) );
+		void	perror	args( ( const char *s ) );
+		int		ungetc	args( ( int c, FILE *stream ) );
 #endif
 
 #if	defined(ultrix)
-char *	crypt		args( ( const char *key, const char *salt ) );
+		char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
 
@@ -3514,23 +3494,23 @@ char *	crypt		args( ( const char *key, const char *salt ) );
  * Turn on NOCRYPT to keep passwords in plain text.
  */
 #if	defined(NOCRYPT)
-#define crypt(s1, s2)	(s1)
+		#define crypt(s1, s2)	(s1)
 #endif
 
-#define GOD_DIR         	"../gods/"        
-#define PLAYER_DIR		"../player/"     
+#define GOD_DIR         	"../gods/"
+#define PLAYER_DIR		"../player/"
 #define SYS_DIR			"../sys/"
 
-#define AREA_LIST               "area.lst"  
+#define AREA_LIST               "area.lst"
 #define MATERIAL_LIST		"materials.lst"
-#define NULL_FILE       	"/dev/null"   
+#define NULL_FILE       	"/dev/null"
 
-#define BUG_FILE                "../sys/bugs.txt" 
-#define TYPO_FILE               "../sys/typos.txt" 
+#define BUG_FILE                "../sys/bugs.txt"
+#define TYPO_FILE               "../sys/typos.txt"
 #define SHUTDOWN_FILE           "shutdown.txt"
 #define BAN_FILE                "../sys/ban.txt"
 #define DEBUG_LOG_FILE          "../sys/debug.txt"
-#define BOUNTY_LOG_FILE         "../sys/bounties.txt"        
+#define BOUNTY_LOG_FILE         "../sys/bounties.txt"
 #define TEMP_GREP_RESULTS 	"../sys/tempgrepresults.tmp"
 #define LAST_COMMAND_FILE       "../sys/last_command.txt"
 #define CRASH_FILE              "../sys/crash.txt"
@@ -3539,8 +3519,8 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define LOGIN_SCREEN_FILE	"../sys/login.txt"
 #define ITEM_FIX_FILE		"../sys/itemfix.txt"
 
-#define PLAYER_LIST     	PLAYER_DIR "Player.lst"          
-#define TEMP_FILE       	PLAYER_DIR "romtmp"  
+#define PLAYER_LIST     	PLAYER_DIR "Player.lst"
+#define TEMP_FILE       	PLAYER_DIR "romtmp"
 
 #define PDEATH_LOG_FILE         "../players/dead_char/permdead.txt"
 
@@ -4175,4 +4155,3 @@ struct bit_type
 };
 
 int get_spell_aftype(CHAR_DATA *ch);
-

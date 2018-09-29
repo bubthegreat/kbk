@@ -7,6 +7,8 @@ RUN apt-get -y install gcc-4.8
 RUN apt-get -y install libmysqlclient-dev
 RUN apt-get -y install csh
 RUN apt-get -y install git-all
+RUN apt-get install libc6-dbg
+RUN apt-get install gdb
 
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
