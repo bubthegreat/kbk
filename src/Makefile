@@ -5,7 +5,7 @@ C_FLAGS = -Wall $(PROF) $(NOCRYPT)
 L_FLAGS =  $(PROF)
 E_FLAGS = `mysql_config --cflags --libs` -lcrypt
 
-O_FILES = act_comm.o act_ente.o act_info.o act_move.o act_obj.o act_wiz.o \
+O_FILES = act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o \
         alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o \
         handler.o healer.o interp.o lookup.o magic.o recycle.o \
         save.o skills.o special.o tables.o update.o morecabal.o morefight.o \
