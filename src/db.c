@@ -1012,7 +1012,7 @@ void boot_db()
 	log_string("Created race info file.");
 
 	log_string("Loading bans.");
-	load_bans();
+	// load_bans();
 	log_string("Bans loaded.");
 
 	pruneDatabase();
@@ -3418,7 +3418,6 @@ char *fread_string( FILE *fp )
 
         case EOF:
 	/* temp fix */
-	    log_string(fp);
             bug( "Fread_string: EOF", 0 );
 	    return NULL;
             /* exit( 1 ); */
