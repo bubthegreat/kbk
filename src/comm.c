@@ -584,6 +584,7 @@ void game_loop_unix( int control ) {
 
 #if defined(unix)
 void init_descriptor( int control ){
+    log_string("Entered into init_descriptor");
     char buf[MAX_STRING_LENGTH];
     DESCRIPTOR_DATA *dnew;
     struct sockaddr_in sock;
@@ -784,6 +785,7 @@ void close_socket( DESCRIPTOR_DATA *dclose ){
 
 bool read_from_descriptor( DESCRIPTOR_DATA *d )
 {
+    log_string("Entered into read_from_descriptor");
     int iStart;
 
     /* Hold horses if pending command already. */
@@ -948,6 +950,7 @@ void read_from_buffer( DESCRIPTOR_DATA *d ){
  */
 bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
 {
+    log_string("Entered into process_output");
     extern bool merc_down;
 
     /*
@@ -1290,6 +1293,7 @@ void bust_a_prompt( CHAR_DATA *ch ){
 
 bool output_buffer( DESCRIPTOR_DATA *d )
 {
+    log_string("Entered into output_buffer");
     char	buf[MAX_STRING_LENGTH];
     char	buf2[128];
     const char 	*str;
@@ -1555,143 +1559,133 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
         	      }
         	   }
 
-	if ( fOld )
-	{
-	    /* Old player */
-	    write_to_buffer( d, "Password: ", 0 );
-	    write_to_buffer( d, echo_off_str, 0 );
-	    d->connected = CON_GET_OLD_PASSWORD;
-	    return;
-	}
-	else
-	{
-	    /* New player */
- 	    if (newlock)
-	    {
-                write_to_buffer( d, "The game is newlocked.\n\r", 0 );
-                close_socket( d );
+          	if ( fOld ) {
+          	    /* Old player */
+          	    write_to_buffer( d, "Password: ", 0 );
+          	    write_to_buffer( d, echo_off_str, 0 );
+          	    d->connected = CON_GET_OLD_PASSWORD;
+          	    return;
+          	}
+          	else {
+          	    /* New player */
+           	    if (newlock) {
+                          write_to_buffer( d, "The game is newlocked.\n\r", 0 );
+                          close_socket( d );
+                          return;
+                      }
+
+          	    if (check_ban(d->host,BAN_NEWBIES)) {
+          		      write_to_buffer(d,
+          		      "New players are not allowed from your site.\n\r",0);
+          		      close_socket(d);
+          		      return;
+          	    }
+
+          	    sprintf( buf, "Did I get that right, %s (Y/N)? ", argument );
+          	    write_to_buffer( d, buf, 0 );
+          	    d->connected = CON_CONFIRM_NEW_NAME;
+
+          	    return;
+          	}
+	          break;
+
+        case CON_GET_OLD_PASSWORD:
+          	write_to_buffer( d, "\n\r", 2 );
+
+          	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd )) {
+          	    write_to_buffer( d, "Wrong password.\n\r", 0 );
+          	    sprintf(pbuf, "BAD PASSWORD ATTEMPT ON PLAYER %s BY SITE %s.",
+          		  ch->name, d->host);
+          	    wiznet(pbuf,ch,NULL,0,0,0);
+
+           	    for (fobj = ch->carrying; fobj != NULL; fobj = fobj_next) {
+            	    	fobj_next = fobj->next_content;
+            	    	fobj->pIndexData->limcount++;
+          	    }
+
+          	    close_socket( d );
+          	    return;
+          	}
+
+          	write_to_buffer( d, echo_on_str, 0 );
+
+          	if (check_playing(d,(ch->original_name ? ch->original_name :ch->name)))
+          	    return;
+
+          	if ( check_reconnect(d, ch->name, TRUE) )
                 return;
-            }
 
-	    if (check_ban(d->host,BAN_NEWBIES))
-	    {
-		write_to_buffer(d,
-		    "New players are not allowed from your site.\n\r",0);
-		close_socket(d);
-		return;
-	    }
+            free_string(ch->pcdata->logon_time);
+          	ch->pcdata->logon_time = str_dup(ctime( &current_time ));
+          	ch->pcdata->logon_time[strlen(ch->pcdata->logon_time)-1] = '\0';
 
-	    sprintf( buf, "Did I get that right, %s (Y/N)? ", argument );
-	    write_to_buffer( d, buf, 0 );
-	    d->connected = CON_CONFIRM_NEW_NAME;
+          	sprintf( log_buf, "(%s) %s@%s has connected. Room: %ld %s",
+          	timestamp(), (ch->original_name?ch->original_name:ch->name), d->host,
+          	ch->in_room->vnum,
+          	auto_check_multi(d,d->host) ? " (MULTI-CHAR?)" : "");
 
-	    return;
-	}
-	break;
+          	log_string( log_buf );
+          	update_sitetrack(ch,d->host);
+          	login_log(ch, LTYPE_IN);
 
-    case CON_GET_OLD_PASSWORD:
-	write_to_buffer( d, "\n\r", 2 );
+          	wiznet(log_buf,NULL,NULL,WIZ_SITES,0,get_trust(ch));
 
-	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ))
-	{
-	    write_to_buffer( d, "Wrong password.\n\r", 0 );
+          	if ( IS_IMMORTAL(ch) ) {
+          	    do_help( ch, "imotd" );
+          	    d->connected = CON_READ_IMOTD;
+           	}
+          	else {
+          	    do_help( ch, "motd" );
+          	    d->connected = CON_READ_MOTD;
+          	}
+          	break;
 
-	    sprintf(pbuf, "BAD PASSWORD ATTEMPT ON PLAYER %s BY SITE %s.",
-		ch->name, d->host);
-	    wiznet(pbuf,ch,NULL,0,0,0);
-
- 	    for (fobj = ch->carrying; fobj != NULL; fobj = fobj_next)
-	    {
-	    	fobj_next = fobj->next_content;
-	    	fobj->pIndexData->limcount++;
-	    }
-
-	    close_socket( d );
-	    return;
-	}
-
-	write_to_buffer( d, echo_on_str, 0 );
-
-	if (check_playing(d,(ch->original_name ? ch->original_name :ch->name)))
-	    return;
-
-	if ( check_reconnect( d, ch->name, TRUE ) )
-	    return;
-
-        free_string(ch->pcdata->logon_time);
-	ch->pcdata->logon_time = str_dup(ctime( &current_time ));
-	ch->pcdata->logon_time[strlen(ch->pcdata->logon_time)-1] = '\0';
-
-	sprintf( log_buf, "(%s) %s@%s has connected. Room: %ld %s",
-	timestamp(), (ch->original_name?ch->original_name:ch->name), d->host,
-	ch->in_room->vnum,
-	auto_check_multi(d,d->host) ? " (MULTI-CHAR?)" : "");
-
-	log_string( log_buf );
-	update_sitetrack(ch,d->host);
-	login_log(ch, LTYPE_IN);
-
-	wiznet(log_buf,NULL,NULL,WIZ_SITES,0,get_trust(ch));
-
-	if ( IS_IMMORTAL(ch) )
-	{
-	    do_help( ch, "imotd" );
-	    d->connected = CON_READ_IMOTD;
- 	}
-	else
-	{
-	    do_help( ch, "motd" );
-	    d->connected = CON_READ_MOTD;
-	}
-	break;
-
-/* RT code for breaking link */
+    /* RT code for breaking link */
 
     case CON_BREAK_CONNECT:
         log_string("Entered into CON_BREAK_CONNECT case");
-	switch( *argument )
-	{
-	case 'y' : case 'Y':
-            for ( d_old = descriptor_list; d_old != NULL; d_old = d_next )
-	    {
-		d_next = d_old->next;
-		if (d_old == d || d_old->character == NULL)
-		    continue;
+      	switch( *argument ) {
+      	case 'y' : case 'Y':
+                  for ( d_old = descriptor_list; d_old != NULL; d_old = d_next )
+      	    {
+      		d_next = d_old->next;
+      		if (d_old == d || d_old->character == NULL)
+      		    continue;
 
-		if (str_cmp((ch->original_name ? ch->original_name :
-			ch->name),d_old->original ?
-		    d_old->original->name : (d_old->character->original_name
-			? d_old->character->original_name :d_old->character->name)))
-		    continue;
+      		if (str_cmp((ch->original_name ? ch->original_name :
+      			ch->name),d_old->original ?
+      		    d_old->original->name : (d_old->character->original_name
+      			? d_old->character->original_name :d_old->character->name)))
+      		    continue;
 
-		close_socket(d_old);
-	    }
-	    if (check_reconnect(d,ch->name,TRUE))
-	    	return;
-	    write_to_buffer(d,"Reconnect attempt failed.\n\rName: ",0);
-            if ( d->character != NULL )
-            {
-                free_char( d->character );
-                d->character = NULL;
-            }
-	    d->connected = CON_GET_NAME;
-	    break;
+      		close_socket(d_old);
+      	    }
+      	    if (check_reconnect(d,ch->name,TRUE))
+      	    	return;
+      	    write_to_buffer(d,"Reconnect attempt failed.\n\rName: ",0);
+                  if ( d->character != NULL )
+                  {
+                      free_char( d->character );
+                      d->character = NULL;
+                  }
+      	    d->connected = CON_GET_NAME;
+      	    break;
 
-	case 'n' : case 'N':
-	    write_to_buffer(d,"Name: ",0);
-            if ( d->character != NULL )
-            {
-                free_char( d->character );
-                d->character = NULL;
-            }
-	    d->connected = CON_GET_NAME;
-	    break;
+      	case 'n' : case 'N':
+      	    write_to_buffer(d,"Name: ",0);
+                  if ( d->character != NULL )
+                  {
+                      free_char( d->character );
+                      d->character = NULL;
+                  }
+      	    d->connected = CON_GET_NAME;
+      	    break;
 
-	default:
-	    write_to_buffer(d,"Please type Y or N? ",0);
-	    break;
-	}
-	break;
+      	default:
+      	    write_to_buffer(d,"Please type Y or N? ",0);
+      	    break;
+    	   }
+    	   break;
 
   case CON_CONFIRM_NEW_NAME:
       log_string("Entered into CON_CONFIRM_NEW_NAME case");
@@ -1715,13 +1709,13 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
     	    break;
     	}
     	break;
+
     case CON_GET_NEW_PASSWORD:
         log_string("Entered into CON_GET_NEW_PASSWORD case");
 	      write_to_buffer( d, "\n\r", 2 );
         log_string("Wrote to buffer.");
 
-      	if ( strlen(argument) < 4 )
-      	{
+      	if ( strlen(argument) < 4 ) {
       	    	write_to_buffer( d, "Password must be at least five characters long.\n\rPassword: ", 0 );
       	    	return;
       	}
@@ -1747,46 +1741,47 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
 
     case CON_CONFIRM_NEW_PASSWORD:
         log_string("Entered into CON_CONFIRM_NEW_PASSWORD case");
-        	write_to_buffer( d, "\n\r", 2 );
+    	write_to_buffer( d, "\n\r", 2 );
+        log_string("Got past first write buffer in CON_CONFIRM_NEW_PASSWORD");
 
-        	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
-        	{
-        	    	write_to_buffer( d, "Passwords don't match.\n\rRetype password: ", 0);
-        	    	d->connected = CON_GET_NEW_PASSWORD;
-        	    	return;
-        	}
 
-        	write_to_buffer( d, echo_on_str, 0 );
-                write_to_buffer( d, "\n\rChoose your race:\n\r",0);
+    	if ( strcmp(argument, ch->pcdata->pwd) ) {
+	    	write_to_buffer( d, "Passwords don't match.\n\rRetype password: ", 0);
+	    	d->connected = CON_GET_NEW_PASSWORD;
+	    	return;
+    	}
+        else {
+            log_string("Passwords match.");
+        }
+
+        log_string("Got past password match check");
+
+    	write_to_buffer( d, echo_on_str, 0 );
+        write_to_buffer( d, "\n\rChoose your race:\n\r",0);
+        col = 0;
+
+        for ( race = 1; race < MAX_PC_RACE; race++ ) {
+            if (!race_table[race].pc_race)
+            	break;
+    		if (pc_race_table[race].set_race)
+    		   	continue;
+            ( (pc_race_table[race].xpadd == 0) ?
+            	sprintf(buf,"     %-15s",pc_race_table[race].name) : sprintf(buf,"     %-15s",pc_race_table[race].name));
+
+    		write_to_buffer(d, buf, 0);
+    		if (++col == 2){
+                write_to_buffer(d, "\n\r",0);
                 col = 0;
+            }
+            else write_to_buffer(d, "   ",0);
+            }
 
-                for ( race = 1; race < MAX_PC_RACE; race++ )
-        	{
-                        if (!race_table[race].pc_race)
-                            	break;
-        		if (pc_race_table[race].set_race)
-        		    	continue;
+        write_to_buffer(d,"\n\r",0);
+    	race = race_lookup(argument);
 
-                        ( (pc_race_table[race].xpadd == 0) ?
-                		sprintf(buf,"     %-15s",pc_race_table[race].name) : sprintf(buf,"     %-15s",pc_race_table[race].name));
-
-        		write_to_buffer(d, buf, 0);
-
-        		if (++col == 2)
-                        {
-                        	write_to_buffer(d, "\n\r",0);
-                        	col = 0;
-                        }
-                	else
-                        	write_to_buffer(d, "   ",0);
-                }
-
-                write_to_buffer(d,"\n\r",0);
-        	race = race_lookup(argument);
-
-        	write_to_buffer(d,"What is your race (type 'help' for more information)? ",0);
-        	d->connected = CON_GET_NEW_RACE;
-        	break;
+    	write_to_buffer(d,"What is your race (type 'help' for more information)? ",0);
+    	d->connected = CON_GET_NEW_RACE;
+    	break;
 
     case CON_GET_NEW_RACE:
 	one_argument(argument,arg);
@@ -2559,62 +2554,50 @@ another one exists.
 /*
  * Parse a name for acceptability.
  */
-bool check_parse_name( char *name )
-{
+bool check_parse_name( char *name ) {
+    log_string("Entered into check_parse_name");
     char *pc;
     int first = TRUE;
 
-    if ( is_name( name,
-	"all auto immortal self zzz someone something the you demise balance circle loner honor outlaw rager arcana knight life enforcer ancient empire sylvan builder") )
-	return FALSE;
+    if ( is_name( name, "all auto immortal self zzz someone something the you demise balance circle loner honor outlaw rager arcana knight life enforcer ancient empire sylvan builder") )
+	     return FALSE;
 
-    /*
-     * Length restrictions.
-     */
+    /* Length restrictions. */
 
     if ( strlen(name) < 3 )
-	return FALSE;
+	      return FALSE;
 
     if ( strlen(name) > 12 )
-	return FALSE;
+	     return FALSE;
 
-    /*
-     * Alphanumerics only.
-     */
-    for ( pc = name; *pc != '\0'; pc++ )
-    {
+    /* Alphanumerics only. */
+    for ( pc = name; *pc != '\0'; pc++ ) {
     	if ( !isalpha(*pc) )
-	    return FALSE;
-	if ( isupper(*pc) && !first)
-	    *pc = LOWER(*pc);
-	first = FALSE;
+            return FALSE;
+	    if ( isupper(*pc) && !first) *pc = LOWER(*pc);
+            first = FALSE;
     }
 
-    /*
-     * Prevent players from naming themselves after mobs.
-     */
+    /* Prevent players from naming themselves after mobs.*/
     {
-	extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
-	MOB_INDEX_DATA *pMobIndex;
-	int iHash;
+    	extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
+    	MOB_INDEX_DATA *pMobIndex;
+    	int iHash;
 
-	for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
-	{
-	    for ( pMobIndex  = mob_index_hash[iHash]; pMobIndex != NULL; pMobIndex  = pMobIndex->next )
-	    {
-		if ( is_name( name, pMobIndex->player_name ) )
-		    return FALSE;
-	    }
-	}
+    	for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ ) {
+    	    for ( pMobIndex  = mob_index_hash[iHash]; pMobIndex != NULL; pMobIndex  = pMobIndex->next )
+    	    {
+    		if ( is_name( name, pMobIndex->player_name ) )
+    		    return FALSE;
+    	    }
+    	}
     }
 
-    if (descriptor_list)
-    {
+    if (descriptor_list){
         int count=0;
         DESCRIPTOR_DATA *d, *dnext;
 
-        for (d = descriptor_list; d != NULL; d = dnext)
-        {
+        for (d = descriptor_list; d != NULL; d = dnext) {
             dnext=d->next;
             if (d->connected!=CON_PLAYING&&d->character&&d->character->name
                 && d->character->name[0] && !str_cmp(d->character->name,name))
@@ -2623,11 +2606,9 @@ bool check_parse_name( char *name )
                 close_socket(d);
             }
         }
-        if (count)
-        {
+        if (count) {
             sprintf(log_buf,"Double newbie alert (%s)",name);
-            wiznet(log_buf,NULL,NULL,WIZ_LOGINS,0,0);
-
+            wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
             return FALSE;
         }
     }
@@ -2635,11 +2616,9 @@ bool check_parse_name( char *name )
     return TRUE;
 }
 
-/*
- * Look for link-dead player to reconnect.
- */
-bool check_reconnect( DESCRIPTOR_DATA *d, char *name, bool fConn )
-{
+/* Look for link-dead player to reconnect. */
+bool check_reconnect( DESCRIPTOR_DATA *d, char *name, bool fConn ) {
+    log_string("Entered into check_reconnect");
     CHAR_DATA *ch;
     OBJ_DATA *obj;
 
@@ -2694,8 +2673,8 @@ bool check_reconnect( DESCRIPTOR_DATA *d, char *name, bool fConn )
  */
 bool check_playing( DESCRIPTOR_DATA *d, char *name )
 {
+    log_string("Entered into check_playing");
     DESCRIPTOR_DATA *dold;
-
     for ( dold = descriptor_list; dold; dold = dold->next )
     {
 	if ( dold != d
@@ -2949,6 +2928,7 @@ void act (const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2,
 void act_new( const char *format, CHAR_DATA *ch, const void *arg1,
 	      const void *arg2, int type, int min_pos)
 {
+    log_string("Entered into act_new");
 
     CHAR_DATA          *to;
     CHAR_DATA          *vch = ( CHAR_DATA * ) arg2;
@@ -3614,7 +3594,8 @@ void bugf (char * fmt, ...)
 }
 
 void sendf (CHAR_DATA *ch, char *fmt, ...)
-{log_string("Entered into sendf ");
+{
+    log_string("Entered into sendf ");
     char buf [MSL];
     va_list args;
     va_start (args, fmt);
@@ -3623,11 +3604,12 @@ void sendf (CHAR_DATA *ch, char *fmt, ...)
     send_to_char (buf, ch);
 }
 
-bool can_join_cabal(CHAR_DATA *ch, int cabal)
-{
+bool can_join_cabal(CHAR_DATA *ch, int cabal) {
+    log_string("Entered into can_join_cabal");
 	int iAlign, iEthos;
 
-	if (cabal == 0) return TRUE;
+	if (cabal == 0)
+        return TRUE;
 
 	if (ch->alignment < 0)
 		iAlign = ALIGN_E;

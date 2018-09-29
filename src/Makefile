@@ -1,5 +1,5 @@
 CC	= gcc
-PROF	= -ggdb -g3
+PROF	= -g
 NOCRYPT	=
 C_FLAGS = -Wall $(PROF) $(NOCRYPT)
 L_FLAGS =  $(PROF)
@@ -13,9 +13,9 @@ O_FILES = act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o \
         assassin.o olc_save.o mem.o string.o bit.o commune.o tracerah.o \
 	iprog.o mprog.o rprog.o bounty.o mysql.o newbit.o ranger.o \
 	note.o queststore.o
-                    
+
 pos2: $(O_FILES)
-	
+
 	rm -f pos2
 	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
 	mv pos2 ../area
@@ -24,24 +24,24 @@ pos2: $(O_FILES)
 .c.o: merc.h
 	$(CC) -I/usr/include/mysql -c $(C_FLAGS) $<
 
-clean: 
+clean:
 	rm -f *.o
-	
+
 backup:
 	@tar -cpf `date +%m.%d.%y-%I%M`.src.tar.gz -z *.c *.h
 	@mv *.gz ../backups
 	@echo "Made backup of source in ../backups"
-	
+
 areabackup:
 	@tar -cpf `date +%m.%d.%y-%I%M`.areas.tar.gz -z ../area/*.are ../area/*.txt ../area/*.hlp ../area/*.lst
 	@mv *.gz ../backups
 	@echo "Made backup of areas in ../backups"
-	
+
 fullbackup:
 	@tar -cpf `date +%m.%d.%y-%I%M`.full.tar.gz -z ../src/*.c ../src/*.h ../src/Makefile ../area/*.are ../area/*.txt ../area/*.lst ../area/*.hlp ../player/*.*
 	@mv *.gz ../backups
 	@echo "Made full backup of players, areas, and source in ../backups"
-	
+
 playerbackup:
 	@tar -cpf `date +%m.%d.%y-%I%M`.player.tar.gz -z ../player/*.*
 	@mv *.gz ../backups
