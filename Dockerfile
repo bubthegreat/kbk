@@ -14,8 +14,14 @@ RUN apt-get -y install mysql-server
 
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 
-RUN git clone https://github.com/bubthegreat/kbk.git
-# RUN cd kbk/src && make --silent
+ADD . /opt/kbk
+
+RUN cd /opt/kbk/src && make -k -j8
+RUN mkdir -p /opt/kbk/log
+RUN mkdir -p /opt/kbk/player
+
+WORKDIR /opt/kbk/area
+VOLUME [ "/opt/kbk" ]
 
 EXPOSE 8989
 
