@@ -1,4 +1,4 @@
-Current status: __BROKEN__
+Current status: __ALIVE__
 
 To get to where I'm stuck, here's where I'm at:
 
@@ -42,8 +42,5 @@ Select the database:
 
 Copypasta the database.sql file to create the actual database tables
 
-run the service and see the segmentation faults:
-
 `kbk/area/startup`
 
-crypt is currently segfaulting things, so I have to figure out how to get crypt unfucked.
