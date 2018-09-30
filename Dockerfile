@@ -9,6 +9,7 @@ RUN apt-get -y install csh
 RUN apt-get -y install git-all
 RUN apt-get -y install libc6-dbg
 RUN apt-get -y install gdb
+RUN apt-get -y install vim
 
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
