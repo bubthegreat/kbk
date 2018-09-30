@@ -19,7 +19,6 @@ RUN apt-get -y install mysql-server
 
 # Workaround for docker SQL installation.
 RUN chown -R mysql:mysql /var/lib/mysql /var/run/mysqld 
-RUN service mysql restart
 
 # Compile
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
