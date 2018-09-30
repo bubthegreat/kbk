@@ -1020,9 +1020,6 @@ void do_outfit ( CHAR_DATA *ch, char *argument )
       	obj_to_char( obj, ch );
       	wear_obj( ch, obj, FALSE );
     }
-	
-	obj = create_object( get_obj_index(1206), 0 );
-    obj_to_char( obj, ch );
 
     if (((obj = get_eq_char(ch,WEAR_WIELD)) == NULL 
     ||   !IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS)) 
