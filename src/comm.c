@@ -1592,7 +1592,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
         case CON_GET_OLD_PASSWORD:
           	write_to_buffer( d, "\n\r", 2 );
 
-          	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd )) {
+          	if ( strcmp(argument, ch->pcdata->pwd) {
           	    write_to_buffer( d, "Wrong password.\n\r", 0 );
           	    sprintf(pbuf, "BAD PASSWORD ATTEMPT ON PLAYER %s BY SITE %s.",
           		  ch->name, d->host);
@@ -1712,28 +1712,14 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
 
     case CON_GET_NEW_PASSWORD:
         log_string("Entered into CON_GET_NEW_PASSWORD case");
-	      write_to_buffer( d, "\n\r", 2 );
-        log_string("Wrote to buffer.");
+        write_to_buffer( d, "\n\r", 2 );
 
       	if ( strlen(argument) < 4 ) {
-      	    	write_to_buffer( d, "Password must be at least five characters long.\n\rPassword: ", 0 );
-      	    	return;
+            write_to_buffer( d, "Password must be at least five characters long.\n\rPassword: ", 0 );
+            return;
       	}
 
-        log_string("Passed password length.");
-
-      	// pwdnew = crypt( argument, ch->name );
-        log_string("Passed crypt call.");
-      	// for ( p = argument; *p != '\n'; p++ ) {
-        //       log_string('Got into our loop');
-      	//     	if ( *p == '~' ) {
-        //   			write_to_buffer( d, "New password not acceptable, try again.\n\rPassword: ", 0 );
-        //   			return;
-      	//     	}
-      	//  }
-         log_string("Passed acceptability for password.");
       	 free_string( ch->pcdata->pwd );
-         log_string("Freed string.");
       	 ch->pcdata->pwd	= str_dup( argument );
       	 write_to_buffer( d, "Please retype password: ", 0 );
       	 d->connected = CON_CONFIRM_NEW_PASSWORD;
