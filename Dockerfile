@@ -18,7 +18,7 @@ RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 
 ADD . /opt/kbk
 
-# RUN cd /opt/kbk/src && make -k -j8
+RUN cd /opt/kbk/src && make -k -j8
 RUN mkdir -p /opt/kbk/log
 RUN mkdir -p /opt/kbk/player
 
