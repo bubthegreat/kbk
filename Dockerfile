@@ -20,14 +20,17 @@ RUN apt-get -y install mysql-server
 # Workaround for docker SQL installation.
 RUN chown -R mysql:mysql /var/lib/mysql /var/run/mysqld 
 
-# Compile
+# Make gcc-4.8 our default gcc
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 
-RUN cd src && make -k -j8
+ADD . /opt/kbk
+
+RUN cd /opt/src && make -k -j8
 RUN mkdir -p /opt/kbk/log
 RUN mkdir -p /opt/kbk/player
 
-WORKDIR ./area
+WORKDIR /opt/kbk/area
+VOLUME [ "/opt/kbk" ]
 
 EXPOSE 8989
 
