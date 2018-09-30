@@ -1592,7 +1592,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
         case CON_GET_OLD_PASSWORD:
           	write_to_buffer( d, "\n\r", 2 );
 
-          	if ( strcmp(argument, ch->pcdata->pwd) {
+          	if ( strcmp(argument, ch->pcdata->pwd) ) {
           	    write_to_buffer( d, "Wrong password.\n\r", 0 );
           	    sprintf(pbuf, "BAD PASSWORD ATTEMPT ON PLAYER %s BY SITE %s.",
           		  ch->name, d->host);
