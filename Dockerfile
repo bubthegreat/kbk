@@ -23,14 +23,9 @@ RUN chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 # Make gcc-4.8 our default gcc
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 
-ADD . /opt/kbk
-
 RUN cd /opt/kbk/src && make -k -j8
-RUN mkdir -p /opt/kbk/log
-RUN mkdir -p /opt/kbk/player
 
 WORKDIR /opt/kbk/area
-VOLUME [ "/opt/kbk" ]
 
 EXPOSE 8989
 
