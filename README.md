@@ -1,6 +1,6 @@
 Current status: __ALIVE__
 
-To get to where I'm stuck, here's where I'm at:
+To Get things running:
 
 Download the repo
 
@@ -12,7 +12,7 @@ Build the docker image:
 
 Start the image:
 
-`docker run -dt -p 8989:8989 --name kbk_container kbkdocker`
+`docker run -dt -p 8989:8989 -v ${PWD}:/opt/kbk --name kbk_container kbkdocker`
 
 Get in that baby real deep:
 
