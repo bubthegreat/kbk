@@ -15,10 +15,9 @@ RUN apt-get -y install vim
 # Make gcc-4.8 our default gcc
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 
-RUN cd /opt/kbk/src && make -k -j8
+ADD . /opt/kbk
+RUN cd /opt/kbk/src && make -j8
 
 WORKDIR /opt/kbk/area
 
 EXPOSE 8989
-
-ENTRYPOINT  ["bash"]

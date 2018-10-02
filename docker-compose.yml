@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  kbk_sql:
+    build:
+        context: ./sql_container
+        dockerfile: Dockerfile
+    image: kbk_sql_image
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kbkdatabase
+      MYSQL_USER: kbkuser
+      MYSQL_PASSWORD: kbkpassword
+    networks:
+      - kbk_network
+  kbk_service:
+    build:
+        context: ./
+        dockerfile: Dockerfile
+    image: kbk_service_image
+    restart: always
+    ports:
+      - "8989:8989"
+    networks:
+      - kbk_network
+    links:
+      - kbk_sql
+    command: ./startup
+    volumes:
+        - ./player:/opt/kbk/player
+        - ./log:/opt/kbk/log
+networks:
+  kbk_network:
+    driver: "bridge"
