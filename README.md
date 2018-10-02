@@ -26,13 +26,12 @@ Restart the mysql server because it hates being installed for some reason:
 
 Make the database and users:
 
-`RUN mysql -u root -proot -e "CREATE DATABASE kbkdatabase;"`
-
-`RUN mysql -u root -proot -e "CREATE USER kbkuser@localhost IDENTIFIED BY 'somepassword';"`
-
-`RUN mysql -u root -proot -e "GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'someuser'@'localhost';"`
-
-`RUN mysql -u root -proot -e "FLUSH PRIVILEGES;"`
+```
+mysql -u root -proot -e "CREATE DATABASE kbkdatabase;"
+mysql -u root -proot -e "CREATE USER kbkuser@localhost IDENTIFIED BY 'somepassword';"
+mysql -u root -proot -e "GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'someuser'@'localhost';"
+mysql -u root -proot -e "FLUSH PRIVILEGES;"
+```
 
 Enter into the mysql command line:
 
