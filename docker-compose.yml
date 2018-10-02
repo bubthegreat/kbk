@@ -9,6 +9,11 @@ services:
     restart: always
     ports:
       - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kbkdatabase
+      MYSQL_USER: kbkuser
+      MYSQL_PASSWORD: kbkpassword
     networks:
       - kbk_network
   kbk_service:
