@@ -28,8 +28,8 @@ Make the database and users:
 
 ```
 mysql -u root -proot -e "CREATE DATABASE kbkdatabase;"
-mysql -u root -proot -e "CREATE USER kbkuser@localhost IDENTIFIED BY 'somepassword';"
-mysql -u root -proot -e "GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'someuser'@'localhost';"
+mysql -u root -proot -e "CREATE USER kbkuser@localhost IDENTIFIED BY 'kbkpassword';"
+mysql -u root -proot -e "GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'kbkuser'@'localhost';"
 mysql -u root -proot -e "FLUSH PRIVILEGES;"
 ```
 
