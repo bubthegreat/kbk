@@ -216,7 +216,7 @@ int hit_gain( CHAR_DATA *ch )
 	if (number_percent() < ch->pcdata->learned[gsn_camp])
 	gain *=2;
     }
-    gain *= 2;
+    gain *= 4;
     return UMIN(gain, ch->max_hit - ch->hit);
 }
 
@@ -323,8 +323,9 @@ int mana_gain( CHAR_DATA *ch )
 		gain *= 1.75;
 
     gain = gain * ch->in_room->mana_rate/100;
-
+    gain *= 2;
     return UMIN(gain, ch->max_mana - ch->mana);
+    
 }
 
 
@@ -392,7 +393,7 @@ int move_gain( CHAR_DATA *ch )
 	if (number_percent() < ch->pcdata->learned[gsn_camp])
 	gain *= 2;
     }
-    gain *= 2;
+    gain *= 4;
     return UMIN(gain, ch->max_move - ch->move);
 }
 
