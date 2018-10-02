@@ -20,6 +20,8 @@ Get in that baby real deep:
 
 Restart the mysql server because it hates being installed for some reason:
 
+`chown -R mysql:mysql /var/lib/mysql /var/run/mysqld `
+
 `service mysql restart`
 
 Make the database and users:
