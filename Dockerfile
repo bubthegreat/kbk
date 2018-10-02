@@ -24,4 +24,4 @@ WORKDIR /opt/kbk/area
 
 EXPOSE 8989
 
-ENTRYPOINT  ["gdb -ex run ./startup"]
+ENTRYPOINT  ["./startup"]
