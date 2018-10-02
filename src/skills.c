@@ -580,7 +580,7 @@ void check_improve( CHAR_DATA *ch, int sn, bool success, int multiplier )
 	return;  
 
     /* check to see if the character has a chance to learn */
-    chance = 15 * int_app[get_curr_stat(ch,STAT_INT)].learn;
+    chance = 45 * int_app[get_curr_stat(ch,STAT_INT)].learn;
 
     chance /= (multiplier * skill_table[sn].rating[ch->class] * 4);
 
