@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  kbk_sql:
+    image: kbk_sql_image
+    ports:
+      - "3306:3306"
+    links:
+      - kbk_service
+    networks:
+      - kbk_network
+  kbk_service:
+    image: kbk_service_image
+    ports:
+      - "8989:8989"
+    volumes:
+      - ./:/opt/kbk
+    networks:
+      - kbk_network
+networks:
+  kbk_network:
+    driver: "bridge"
