@@ -5,9 +5,11 @@ Furey	mec@shell.portal.com
 Hatchet	hatchet@uclink.berkeley.edu
 Kahn	michael@uclink.berkeley.edu
 
+# Table of Contents
+* [send_to_char](#send_to_char)
+* [act](#act)
 
-
-# The function 'send_to_char'
+## send_to_char
 
 The central output functions are 'send_to_char' and 'act'.  Of the two,
 'send_to_char' is much simpler, faster, and less powerful.
@@ -20,47 +22,47 @@ The string 'txt' is sent to the character 'ch'.  That's all there is to it.
 
 
 
-=== The function 'act'
+## act
 
 The function 'act' is much hairier.  The following section is a precise
 reference guide.  If you don't already have some notion of what 'act' format
 strings look like, then you should read some code which uses 'act' (such as
 some of the spell functions in magic.c) to get a concrete introduction to this
 function.
-
+```
     void act( const char *str, CHAR_DATA *ch,
 	const void *arg1, const void *arg2, int type )
 
     const char *str;
-
+```
 	This is a format string, with formatting specifications introduced
 	by '$' (just as 'printf' introduces its formatting sequences with '%').
 	Typically this is a complete sentence with a subject and an object.
-
+```
     CHAR_DATA *ch;
-
+```
 	This is the subject of the sentence.
-
+```
     const void *arg1;
-
+```
 	This is the object of the sentence.  This may be either an object or
 	possibly a text string.
-
+```
     const void *arg2;
-
+```
 	This is the target of the sentence, as well as possibly the object of
 	the sentence.  This may be either a victim, an object, or possibly a
 	text string.
-
+```
     int type;
-
+```
 	This is the 'to' type of the sentence.  Values are:
-
+```
 	    TO_CHAR	Send only to 'ch'.
 	    TO_VICT	Send only to 'arg2' (and then only if arg2 != ch).
 	    TO_ROOM	Send to all chars in room except 'ch'.
 	    TO_NOTVICT	Send to all chars in room except 'ch' and 'vict'.
-
+```
 	In every case, only characters in the same room as 'ch' are considered.
 
 Each awake character in the same room as 'ch' is considered for output.  (Thus
