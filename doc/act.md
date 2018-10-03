@@ -7,7 +7,7 @@ Kahn	michael@uclink.berkeley.edu
 
 
 
-=== The function 'send_to_char'
+# The function 'send_to_char'
 
 The central output functions are 'send_to_char' and 'act'.  Of the two,
 'send_to_char' is much simpler, faster, and less powerful.
