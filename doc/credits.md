@@ -4,7 +4,7 @@ slighted or haven't been credited appropriately, please open a bug and we'll get
 it addressed.
 
 
-## Merc Release
+## Merc Release 2.1
 * Furey	    mec@shell.portal.com
 * Hatchet	hatchet@uclink.berkeley.edu
 * Kahn	    michael@uclink.berkeley.edu
