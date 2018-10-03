@@ -7,7 +7,7 @@ Kahn	michael@uclink.berkeley.edu
 
 
 
-=== Classes
+# Classes
 
 The central organizing table for classes is class_table, which is an array of
 type 'struct class_type' (defined in 'merc.h') and is defined in 'const.c'.
@@ -59,7 +59,7 @@ The fields of class_table are:
 
 
 
-=== Other class-specific tables
+# Other class-specific tables
 
 (1) In const.c, skill_table contains the level needed for each class to use a
     particular skill or spell.  If the class cannot use that skill or spell,
@@ -77,7 +77,7 @@ The fields of class_table are:
 
 
 
-=== Adding a new class
+# Adding a new class
 
 Here's how to add a new class:
 
@@ -98,7 +98,7 @@ Here's how to add a new class:
 
 
 
-=== Immortal Levels
+# Immortal Levels
 
 Here are the immortal levels:
 
@@ -122,7 +122,7 @@ Here are the immortal levels:
 40	God	Immortals at this level have 'advance'.
 
 
-=== Tartarus code base
+# Tartarus code base
 
 Immortal levels were changed in the Tartarus derivative. Maximum IMM
 level is 60 now (Implementor), and extends down to 52 (avatar), with level
