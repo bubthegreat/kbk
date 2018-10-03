@@ -1615,25 +1615,26 @@ bool damage_newer(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_typ
 
 	if (check_shield_magnetism(ch, victim, dt)) return FALSE;
 
+	if (check_spin(ch,victim, dt))			return FALSE;
+
+    if (check_distance(ch,victim,dt))		return FALSE;
+
+	if (check_ironhands(ch,victim,dt))		return FALSE;
+
+	if (check_unarmed_defense(ch,victim,dt))	return FALSE;
+
 	if (check_parry(ch,victim,dt))
 	{
 		(check_restrike(ch,victim));
 		return FALSE;
 	}		
-        
-	if (check_dodge(ch,victim,dt))			return FALSE;
 
-	if (check_spin(ch,victim, dt))			return FALSE;
-
-        if (check_distance(ch,victim,dt))		return FALSE;
-
-	if (check_unarmed_defense(ch,victim,dt))	return FALSE;
-		
 	if (check_shield_block(ch,victim,dt))		return FALSE;
 
-        if (check_questdodge(ch,victim,dt))		return FALSE;
+	if (check_dodge(ch,victim,dt))			return FALSE;
+
+    if (check_questdodge(ch,victim,dt))		return FALSE;
 	
-	if (check_ironhands(ch,victim,dt))		return FALSE;
    }
 
    if (ch->enhancedDamMod >= 0)
