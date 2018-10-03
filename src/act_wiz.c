@@ -904,12 +904,6 @@ void do_outfit ( CHAR_DATA *ch, char *argument )
     OBJ_DATA *obj;
     AFFECT_DATA af;
 
-    if (IS_NPC(ch) || (ch->pcdata->newbie == FALSE && ch->ghost == 0))
-    {
-	send_to_char("Find it yourself!\n\r",ch);
-	return;
-    }
-
     if (is_affected(ch,skill_lookup("outfit")))
     {
 	send_to_char("You cannot yet reequip yourself.\n\r",ch);
