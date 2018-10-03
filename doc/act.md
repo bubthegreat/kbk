@@ -1,13 +1,7 @@
-Merc Release 2.1
-Sunday 01 August 1993
-
-Furey	mec@shell.portal.com
-Hatchet	hatchet@uclink.berkeley.edu
-Kahn	michael@uclink.berkeley.edu
-
 # Table of Contents
 * [send_to_char](#send_to_char)
 * [act](#act)
+* [$ sequences](#$ sequences)
 
 ## send_to_char
 
@@ -79,57 +73,22 @@ The first character of the output string is always capitalized.
 
 
 
-=== The '$' sequences
+## $ sequences
 
 Here are all the '$' sequences supported by 'act':
 
-    $t
-	Result is the 'arg1' argument interpreted as a string.
+Flag | Effect
+--- | ---
+$t  | Result is the 'arg1' argument interpreted as a string.
+$n | 	Result is the name of 'ch'.  If 'ch' is not visible to the target character, result is the string 'someone'.
+$N | 	Result is the name of 'arg2' (considered as a victim).  If 'arg2' is not visible to the target character, result is the string 'someone'.
+$e | 	Result is 'he', 'she', or 'it', depending on the sex of 'ch'.
+$E | 	Result is 'he', 'she', or 'it', depending on the sex of 'arg2' (considered as a victim).
+$m | 	Result is 'him', 'her', or 'it', depending on the sex of 'ch'.
+$M | 	Result is 'him', 'her', or 'it', depending on the sex of 'arg2' (considered as a victim).
+$s | 	Result is 'his', 'her', or 'its', depending on the sex of 'ch'.
+$S | 	Result is 'his', 'her', or 'its', depending on the sex of 'arg2' (considered as a victim).
+$p | 	Result is the short description of 'arg1' (considered as an object). If 'arg1' is invisible to the target character, result is the string 'something'.
+$P | 	Result is the short description of 'arg2' (considered as an object). If 'arg2' is invisible to the target character, result is the string 'something'.
+$d | 	Result is the first word in 'arg2', considered as a string.  If 'arg2' is NULL, result is the string 'door'.  This is meant for extracting the name from a door's keyword list, but may be used in general for other keyword lists.
 
-    $T
-	Result is the 'arg2' argument interpreted as a string.
-
-    $n
-	Result is the name of 'ch'.  If 'ch' is not visible to the target
-	character, result is the string 'someone'.
-
-    $N
-	Result is the name of 'arg2' (considered as a victim).  If 'arg2' is
-	not visible to the target character, result is the string 'someone'.
-
-    $e
-	Result is 'he', 'she', or 'it', depending on the sex of 'ch'.
-
-    $E
-	Result is 'he', 'she', or 'it', depending on the sex of 'arg2'
-	(considered as a victim).
-
-    $m
-	Result is 'him', 'her', or 'it', depending on the sex of 'ch'.
-
-    $M
-	Result is 'him', 'her', or 'it', depending on the sex of 'arg2'
-	(considered as a victim).
-
-    $s
-	Result is 'his', 'her', or 'its', depending on the sex of 'ch'.
-
-    $S
-	Result is 'his', 'her', or 'its', depending on the sex of 'arg2'
-	(considered as a victim).
-
-    $p
-	Result is the short description of 'arg1' (considered as an object).
-	If 'arg1' is invisible to the target character, result is the string
-	'something'.
-
-    $P
-	Result is the short description of 'arg2' (considered as an object).
-	If 'arg2' is invisible to the target character, result is the string
-	'something'.
-
-    $d
-	Result is the first word in 'arg2', considered as a string.  If 'arg2'
-	is NULL, result is the string 'door'.  This is meant for extracting the
-	name from a door's keyword list, but may be used in general for other
-	keyword lists.
