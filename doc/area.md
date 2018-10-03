@@ -1,5 +1,21 @@
 # Table of Contents
 * [Acknowledgement](#Acknowledgement)
+* [Overview of Areas](# Overview of Areas)
+* [Sections of an Area](# Sections of an Area)
+* [Memory Usage](# Memory Usage)
+* [The #AREA section](# The #AREA section)
+* [The #HELPS section](# The #HELPS section)
+* [The #MOBILES section](# The #MOBILES section)
+* [The #OBJECTS section](# The #OBJECTS section)
+* [The #ROOMS section](# The #ROOMS section)
+* [The #RESETS section](# The #RESETS section)
+* [The #SHOPS section](# The #SHOPS section)
+* [The #SPECIALS section](# The #SPECIALS section)
+* [The #$ section](# The #$ section)
+* [Meaning of Value Numbers by Item Type](# Meaning of Value Numbers by Item Type)
+* [Slot Numbers](# Slot Numbers)
+* [Booting and Testing Areas](# Booting and Testing Areas)
+* [Compressing the Area Files](# Compressing the Area Files)
 
 # Acknowledgement
 
@@ -35,15 +51,15 @@ balance between areas originally written by many different authors.
 
 An area file contains the following sections:
 
-    #AREA
-    #HELPS
-    #MOBILES
-    #OBJECTS
-    #ROOMS
-    #RESETS
-    #SHOPS
-    #SPECIALS
-    #$
+* AREA
+* HELPS
+* MOBILES
+* OBJECTS
+* ROOMS
+* RESETS
+* SHOPS
+* SPECIALS
+* $
 
 An area is a collection of sections starting with #AREA until the next #AREA.
 All of our area files (except 'help.are') contain just one #AREA section, which
@@ -58,13 +74,13 @@ respectively.  The #HELPS, #SHOPS, and #SPECIALS sections have new formats.
 
 
 
-=== Memory Usage
+# Memory Usage
 
 In order to simplify the code, the Merc server has a fixed maximum size on
 strings in the area database.  This size is defined at the beginning of 'db.c'
 'db.c' with a '#define' statement.  As distributed, this size is:
 
-    #define MAX_STRING	 1048576
+`#define MAX_STRING	 1048576`
 
 This size is 10% larger than needed for the areas we distribute.  Thus, you
 can add about 4 more areas without touching the server at all.  The server
@@ -80,7 +96,7 @@ versus other Diku muds with the same quantity of areas.
 
 
 
-=== Data Types
+# Data Types
 
 All of the data in an area file (even the section headers) consists of a series
 of values.  Each value has a specific type.  The server parses the file by
@@ -140,7 +156,7 @@ adding the area into an existing set of areas.
 
 
 
-=== The #AREA section
+# The #AREA section
 
 The syntax of this section is:
 
@@ -157,7 +173,7 @@ original author of the area.  The last phrase is the name of the area.
 
 
 
-=== The #HELPS section
+# The #HELPS section
 
 The syntax of this section is:
 
@@ -187,7 +203,7 @@ strings, so that picturesque greeting screens may be used.
 
     
 
-=== The #MOBILES section
+# The #MOBILES section
 
 The syntax of this section is:
 
@@ -244,7 +260,7 @@ The 'sex' value may be 0 for neutral, 1 for male, and 2 for female.
 
 
 
-=== The #OBJECTS section
+# The #OBJECTS section
 
 The syntax of this section is:
 
@@ -314,7 +330,7 @@ An object may have an unlimited number of 'E' and 'A' sections.
 
 
 
-=== The #ROOMS section
+# The #ROOMS section
 
 The syntax of this section is:
 
@@ -386,10 +402,10 @@ The 'S' at the end marks the end of the room.  It is not optional.
 
 
 
-=== The #RESETS section
+# The #RESETS section
 
 The syntax of this section is:
-
+```
     #RESETS
     {
 	* <comment:to_eol>
@@ -423,7 +439,7 @@ The syntax of this section is:
 	<comment:to_eol>
     }
     S
-
+```
 To reset an area, the server executes each command in the list of reset
 commands once.  Each area is reset once when the server loads, and again
 periodically as it ages.  An area is reset if it is at least 3 area-minutes old
@@ -440,16 +456,16 @@ Because of the end-of-line comments, this section is not as free-format as
 other sections.
 
 The reset commands are:
-
-    *	comment
-    M	read a mobile 
-    O	read an object
-    P	put object in object
-    G	give object to mobile
-    E	equip object to mobile
-    D	set state of door
-    R	randomize room exits
-    S	stop (end of list)
+command | thing
+*|	comment
+M|	read a mobile 
+O|	read an object
+P|	put object in object
+G|	give object to mobile
+E|	equip object to mobile
+D|	set state of door
+R|	randomize room exits
+S|	stop (end of list)
 
 The '*' lines contain comments.  The 'S' line is the last line of the section.
 
@@ -513,7 +529,7 @@ Any line (except an 'S' line) may have a comment at the end.
 
 
 
-=== The #SHOPS section
+# The #SHOPS section
 
 The syntax of this section is:
 
@@ -559,10 +575,10 @@ or it doesn't already have an identical object.  These items do not replenish.
 
 
 
-=== The #SPECIALS section
+# The #SPECIALS section
 
 The syntax of this section is:
-
+```
     #SPECIALS
     {
 	* <comment_to_eol>
@@ -571,7 +587,7 @@ The syntax of this section is:
 	M <mob-vnum:number> <spec-fun:word> <comment:to_eol>
     }
     S
-
+```
 Like the #RESETS section, the #SPECIALS section has one command per line.
 
 This section defines special functions (spec-fun's) for mobiles.  A spec-fun
@@ -607,7 +623,7 @@ To add a new special function:
 
 
 
-=== The #$ section
+# The #$ section
 
 The syntax of this section is:
 
@@ -620,7 +636,7 @@ with a '#$'.
 
 
 
-=== Meaning of Value Numbers by Item Type
+# Meaning of Value Numbers by Item Type
 
 In the values below, 'sn' is a spell, indexed by slot number.  A zero or
 negative sn means 'no spell'.
@@ -759,7 +775,7 @@ negative sn means 'no spell'.
 
 
 
-=== Slot Numbers
+# Slot Numbers
 
 These slot numbers are used in magical objects to indicate spells.  Save files
 do not use slot numbers; they use names instead.
@@ -840,7 +856,7 @@ do not use slot numbers; they use names instead.
 
 
 
-=== Booting and Testing Areas
+# Booting and Testing Areas
 
 When the Merc server starts, it reads a file named 'area.lst' in the current
 directory.  This file contains a list of all the area files to read in.  To add
@@ -876,7 +892,7 @@ checker.
 
 
 
-=== Compressing the Area Files
+# Compressing the Area Files
 
 It is possible to run Merc with a single combined, compressed area file.
 Here's how to do this on a Unix system:
