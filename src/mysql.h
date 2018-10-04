@@ -35,7 +35,7 @@
 ***************************************************************************/
 MYSQL                   	conn;
 
-#define SQL_SERVER      	"localhost"
+#define SQL_SERVER      	"kbk_kbk_sql_1"
 #define SQL_USER        	"kbkuser"
 #define SQL_PWD         	"kbkpassword"
 #define SQL_DB          	"kbkdatabase"
