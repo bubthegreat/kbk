@@ -210,6 +210,7 @@ bool check_fam(CHAR_DATA *ch, char *attack)
 	chance = chance/number_range(5,10);
 
 	if(number_percent() > chance) {
+	    check_improve(ch,gsn_wilderness_fam,TRUE,5);
 		switch(number_range(1,5)) {
 			case(1):
 				if(number_percent() > 50) {
