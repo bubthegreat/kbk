@@ -64,7 +64,7 @@ void do_heal(CHAR_DATA *ch, char *argument)
 	return;
     }
 
-    one_argument(argument,arg);
+    argument = one_argument(argument,arg);
 
     if (mob->cabal != 0)
     {
