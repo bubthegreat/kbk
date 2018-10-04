@@ -1,6 +1,3 @@
-CREATE DATABASE kbkdatabase;
-
-CREATE USER kbkuser@localhost IDENTIFIED BY 'kbkpassword';
 GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'kbkuser'@'%';
 FLUSH PRIVILEGES;
 
