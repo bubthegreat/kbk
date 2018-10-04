@@ -9,7 +9,6 @@ services:
     restart: always
     ports:
       - "3306:3306"
-    command: --init-file ./sql_container/configure_database.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: kbkdatabase
