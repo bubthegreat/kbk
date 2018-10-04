@@ -43,6 +43,8 @@ void do_heal(CHAR_DATA *ch, char *argument)
     int cost,sn;
     SPELL_FUN *spell;
     char *words;
+    OBJ_DATA *cursed = NULL;
+    char buf[MSL];
 
     /* check for healer */
     for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
