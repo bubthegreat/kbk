@@ -11,6 +11,7 @@ RUN apt-get -y install git-all
 RUN apt-get -y install libc6-dbg
 RUN apt-get -y install gdb
 RUN apt-get -y install vim
+RUN apt-get -y install mysql-client
 
 # Make gcc-4.8 our default gcc
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc

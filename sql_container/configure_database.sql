@@ -1,9 +1,4 @@
-GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'kbkuser'@'%';
-FLUSH PRIVILEGES;
-
-USE kbkdatabase;
-
-CREATE TABLE `bounties` (
+CREATE TABLE IF NOT EXISTS `bounties` (
   `amount` int(10) NOT NULL default '0',
   `name` varchar(25) NOT NULL default '',
   `victim` varchar(25) NOT NULL default '',
@@ -11,7 +6,7 @@ CREATE TABLE `bounties` (
   PRIMARY KEY  (`victim`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE `logins` (
+CREATE TABLE IF NOT EXISTS  `logins` (
   `name` varchar(50) NOT NULL default '',
   `site` varchar(255) NOT NULL default '',
   `logtime` varchar(255) NOT NULL default '',
@@ -22,7 +17,7 @@ CREATE TABLE `logins` (
   KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE `notes` (
+CREATE TABLE IF NOT EXISTS  `notes` (
   `type` tinyint(1) NOT NULL default '0',
   `sender` varchar(100) NOT NULL default '',
   `date` varchar(50) NOT NULL default '',
@@ -33,7 +28,7 @@ CREATE TABLE `notes` (
   PRIMARY KEY  (`type`,`sender`,`to_list`,`timestamp`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE `pklogs` (
+CREATE TABLE IF NOT EXISTS  `pklogs` (
   `dead` varchar(25) NOT NULL default '',
   `killer` varchar(25) NOT NULL default '',
   `room` varchar(255) NOT NULL default '',
@@ -41,7 +36,7 @@ CREATE TABLE `pklogs` (
   PRIMARY KEY  (`dead`,`killer`,`time`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE `traffic` (
+CREATE TABLE IF NOT EXISTS  `traffic` (
   `name` varchar(30) NOT NULL default '',
   `ip` int(10) unsigned NOT NULL default '0',
   `hostname` varchar(255) NOT NULL default '',
@@ -50,3 +45,5 @@ CREATE TABLE `traffic` (
   `vnum` mediumint(8) NOT NULL default '0',
   PRIMARY KEY  (`name`,`type`,`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'kbkpassword';
