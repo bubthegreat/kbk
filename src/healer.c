@@ -43,6 +43,8 @@ void do_heal(CHAR_DATA *ch, char *argument)
     int cost,sn;
     SPELL_FUN *spell;
     char *words;
+    OBJ_DATA *cursed = NULL;
+    char buf[MSL];
 
     /* check for healer */
     for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
@@ -169,6 +171,10 @@ void do_heal(CHAR_DATA *ch, char *argument)
     {
 	spell = spell_remove_curse;
 	sn    = skill_lookup("remove curse");
+	    argument = one_argument(argument, buf);
+        if(buf[0] != '\0')
+            if(!(cursed = get_obj_wear(ch, buf)) && !(cursed = get_obj_carry(ch, buf, ch)))
+                return send_to_char("You don't have that.\n\r",ch);
         words = "remove curse";
 		cost = 400;
     }
