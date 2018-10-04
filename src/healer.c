@@ -169,6 +169,10 @@ void do_heal(CHAR_DATA *ch, char *argument)
     {
 	spell = spell_remove_curse;
 	sn    = skill_lookup("remove curse");
+	    argument = one_argument(argument, buf);
+        if(buf[0] != '\0')
+            if(!(cursed = get_obj_wear(ch, buf)) && !(cursed = get_obj_carry(ch, buf, ch)))
+                return send_to_char("You don't have that.\n\r",ch);
         words = "remove curse";
 		cost = 400;
     }
