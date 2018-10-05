@@ -3042,6 +3042,8 @@ one_hit_new(victim,ch,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,20
  * Check for dodge.
  */
 
+// attacker = ch, defender = victim.  Changed variable names for clarity.
+
 bool check_dodge( CHAR_DATA *attacker, CHAR_DATA *defender, int dt )
 {
     char buf1[MSL], buf2[MSL], *attack;
