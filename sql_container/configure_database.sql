@@ -59,5 +59,33 @@ CREATE TABLE IF NOT EXISTS `player_data` (
   PRIMARY KEY  (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `helpfiles` (
+  `level` int(10) NOT NULL default '0',
+  `keyword` varchar(25) NOT NULL default '',
+  `text` text NOT NULL default '',
+  `imm_only` bool NOT NULL default '',
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `player_auth` (
+  `name` varchar(25) NOT NULL default '',
+  `password` varchar(25) NOT NULL default '',
+  `level` int(10) NOT NULL default '0',
+  PRIMARY KEY  (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `charmed` (
+  `original_name` varchar(25) NOT NULL default '',
+  `vnum` int(10) NOT NULL default '0',
+  `original_name` varchar(25) NOT NULL default '',
+  `short_descr` text NOT NULL default '',
+  `long_descr` text NOT NULL default '',
+  `level` int(10) NOT NULL default '0',
+  `hit` int(10) NOT NULL default '0',
+  `alignment` int(10) NOT NULL default '0',
+  `dice_number` int(10) NOT NULL default '0',
+  `dice_type` int(10) NOT NULL default '0',
+  `damroll` int(10) NOT NULL default '0',
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'kbkpassword';

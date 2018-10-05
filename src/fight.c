@@ -3042,33 +3042,35 @@ one_hit_new(victim,ch,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,20
  * Check for dodge.
  */
 
-bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
+// attacker = ch, defender = victim.  Changed variable names for clarity.
+
+bool check_dodge( CHAR_DATA *attacker, CHAR_DATA *defender, int dt )
 {
     char buf1[MSL], buf2[MSL], *attack;
-    int dex, dexa, fam, ch_hitroll, victim_hitroll, roll;
+    int dex, dexa, fam, attacker_hitroll, defender_hitroll, roll;
 	float hit_ratio, chance;
 
-    if ( !IS_AWAKE(victim) )
+    if ( !IS_AWAKE(defender) )
         return FALSE;
 
-    chance = ( 3 * get_skill(victim,gsn_dodge) / 10);
+    chance = ( 3 * get_skill(defender,gsn_dodge) / 10);
 
-    dex = get_curr_stat(victim,STAT_DEX);
-    dexa= get_curr_stat(ch,STAT_DEX);
+    dex = get_curr_stat(defender,STAT_DEX);
+    dexa= get_curr_stat(attacker,STAT_DEX);
 	
-	ch_hitroll = GET_HITROLL(ch);
-	victim_hitroll = GET_HITROLL(victim);
+	attacker_hitroll = GET_HITROLL(attacker);
+	defender_hitroll = GET_HITROLL(defender);
 	
 	//For simplicity...
-	if (victim_hitroll <= 0) victim_hitroll = 1;
-	if (ch_hitroll <= 0) ch_hitroll = 1;
+	if (defender_hitroll <= 0) defender_hitroll = 1;
+	if (attacker_hitroll <= 0) attacker_hitroll = 1;
 	
-	//Only increase the chance if the victim has more hitroll than the opponent. This is to prevent mage
+	//Only increase the chance if the defender has more hitroll than the attacker. This is to prevent mage
 	//classes from getting gibbed since they don't stack hitroll right now. Dodge will stay the same for
 	//mages but increase for melee classes that utilize hitroll up to 1.5x the base chance, which can be at
 	//most 30%. Zornath
-	if (victim_hitroll < ch_hitroll) {
-		hit_ratio = (float)ch_hitroll / (float)victim_hitroll;
+	if (defender_hitroll > attacker_hitroll) {
+		hit_ratio = (float)defender_hitroll / (float)attacker_hitroll;
 		
 		if (hit_ratio > 1.5)
 			chance *= 1.5;
@@ -3088,33 +3090,33 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	chance += 3*dex/2;
 
     chance+=dex-dexa;
-    chance+=(ch->size-victim->size)*5;
+    chance+=(attacker->size-defender->size)*5;
 
-    if((fam = get_skill(ch,gsn_wilderness_fam) > 0) && isInWilderness(ch))
+    if((fam = get_skill(defender,gsn_wilderness_fam) > 0) && isInWilderness(defender))
 	chance += fam/2;
 
     /* imperial training */
-    if (check_imperial_training(ch) == IMPERIAL_OFFENSE)
+    if (check_imperial_training(attacker) == IMPERIAL_OFFENSE)
 	chance -= 20;
-    if (check_imperial_training(ch) == IMPERIAL_DEFENSE)
+    if (check_imperial_training(attacker) == IMPERIAL_DEFENSE)
 	chance += 20;
-    if (check_imperial_training(victim) == IMPERIAL_OFFENSE)
+    if (check_imperial_training(defender) == IMPERIAL_OFFENSE)
 	chance -= 20;
-    if (check_imperial_training(victim) == IMPERIAL_DEFENSE)
+    if (check_imperial_training(defender) == IMPERIAL_DEFENSE)
 	chance += 20;
-    if (!can_see(victim,ch))
+    if (!can_see(defender,attacker))
         chance /= 2;
-    if (!IS_NPC(victim) && IS_SET(victim->act,PLR_MORON))
+    if (!IS_NPC(defender) && IS_SET(defender->act,PLR_MORON))
 	chance /= 2;
 
     // haste/slow
-    if (IS_AFFECTED(victim,AFF_HASTE))
+    if (IS_AFFECTED(defender,AFF_HASTE))
 	chance += 20;
-    if (IS_AFFECTED(victim,AFF_SLOW))
+    if (IS_AFFECTED(defender,AFF_SLOW))
 	chance -= 20;
-    if (IS_AFFECTED(ch,AFF_HASTE))
+    if (IS_AFFECTED(attacker,AFF_HASTE))
         chance -= 20;
-    if (IS_AFFECTED(ch,AFF_SLOW))
+    if (IS_AFFECTED(attacker,AFF_SLOW))
         chance += 20;
 
     if (chance > 95)    
@@ -3124,7 +3126,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     if ( roll >= chance)
         return FALSE;
 
-    attack=get_dam_message(ch,dt);
+    attack=get_dam_message(attacker,dt);
     if (chance - roll >= 40) {
 		sprintf(buf1,"You deftly dodge $n's %s.",attack);
 		sprintf(buf2,"$N deftly dodges your %s.",attack);
@@ -3147,14 +3149,15 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	}
 	
 
-    if(isInWilderness(ch) && check_fam(ch,attack))
+    if(isInWilderness(defender) && check_fam(defender,attack))
 	return TRUE;
 
-    act(buf1,ch,0,victim,TO_VICT);
-    act(buf2,ch,0,victim,TO_CHAR);
-    check_improve(victim,gsn_dodge,TRUE,5);
+    act(buf1,attacker,0,defender,TO_VICT);
+    act(buf2,attacker,0,defender,TO_CHAR);
+    check_improve(defender,gsn_dodge,TRUE,5);
     return TRUE;
 }
+
 
 /*
  * Check for quest dodge.

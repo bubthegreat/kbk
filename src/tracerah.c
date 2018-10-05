@@ -960,8 +960,11 @@ void do_trip_wire(CHAR_DATA *ch, char *argument)
 
 	/* Added - a level value of 125 indicates an advanced tripwire. - Zornath */
 	int highOrLow = 0;
+	char arg[MIL];
 	
 	skill = get_skill(ch, gsn_trip_wire);
+
+	one_argument(argument, arg);
 	
 	if (is_affected_room(ch->in_room, gsn_trip_wire))
 	{
@@ -979,13 +982,13 @@ void do_trip_wire(CHAR_DATA *ch, char *argument)
 		return send_to_char("You cannot set up another tripwire yet.\n\r",ch);
 
 	skill -= 10;
-	if (argument[0] == '\0' && get_skill(ch,skill_lookup("advanced tripwire")) == -2)
+	if (arg[0] == '\0' && get_skill(ch,skill_lookup("advanced tripwire")) <= 1)
 		return send_to_char("Set a high tripwire or a low tripwire?\n\r",ch);
 
-	if (!str_prefix(argument,"high"))
+	if (!str_prefix(arg,"high"))
 		highOrLow = 100;
 
-	if (!str_prefix(argument,"low"))
+	if (!str_prefix(arg,"low"))
 		highOrLow = 75;
 
 	if (get_skill(ch,skill_lookup("advanced tripwire")) > 70)
@@ -1031,7 +1034,10 @@ void do_trip_wire(CHAR_DATA *ch, char *argument)
 	raf.modifier		= 0;
 	raf.bitvector		= AFF_ROOM_TRIPWIRE;
 	raf.owner_name		= str_dup(ch->original_name);
-	affect_to_room(ch->in_room, &raf);
+        raf.end_fun             = NULL;
+        raf.tick_fun            = NULL;
+	raf.name                = NULL;
+	new_affect_to_room(ch->in_room, &raf);
 	
 	if (highOrLow == 100)
 	{
@@ -1051,6 +1057,7 @@ void do_trip_wire(CHAR_DATA *ch, char *argument)
 	check_improve(ch, gsn_trip_wire, TRUE, 1);
 	return;
 }
+
 
 void do_weapontrip(CHAR_DATA *ch, char *argument)
 {
