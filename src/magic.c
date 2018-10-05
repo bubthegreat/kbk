@@ -4892,8 +4892,7 @@ void spell_remove_curse( int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (IS_OBJ_STAT(obj,ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_NOREMOVE))
 	{
-	    if (!IS_OBJ_STAT(obj,ITEM_NOUNCURSE)
-	    &&  !saves_dispel(level + 2,obj->level,0))
+	    if (!saves_dispel(level + 2,obj->level,0))
 	    {
 		remove_bit(&obj->extra_flags,ITEM_NODROP);
 		remove_bit(&obj->extra_flags,ITEM_NOREMOVE);
