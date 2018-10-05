@@ -16,6 +16,8 @@ services:
       MYSQL_PASSWORD: kbkpassword
     networks:
       - kbk_network
+    volumes:
+      - ./sql_container:/var/lib/mysql
   kbk_service:
     build:
         context: ./
