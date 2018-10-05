@@ -46,4 +46,18 @@ CREATE TABLE IF NOT EXISTS  `traffic` (
   PRIMARY KEY  (`name`,`type`,`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS `player_data` (
+  `name` varchar(25) NOT NULL default '',
+  `level` int(10) NOT NULL default '0',
+  `race` int(10) NOT NULL default '0',
+  `class` int(10) NOT NULL default '0',
+  `cabal` int(10) NOT NULL default '0',
+  `sex` int(10) NOT NULL default '0',
+  `alignment` int(10) NOT NULL default '0',
+  `ethos` varchar(25) NOT NULL default '',
+  `ctime` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
 ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'kbkpassword';

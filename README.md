@@ -41,9 +41,9 @@ There's more for me to edit here, but It's early as fuck, and I just got it work
 
 So you've made some changes on your dev server - that's cool bro - but how do you get them to show up in production?  Right now, it means a brief moment of downtime, because I haven't automated the HA cluster containers yet.  There are two commands you'll need to know:
 
-`docker compose down`
+`docker-compose down --rmi all`
 
-This one gracefully shuts down the containers.
+This one gracefully shuts down the containers and removes the old images.
 
 `docker compose up --force-recreate --build`
 
