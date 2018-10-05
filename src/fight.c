@@ -9261,6 +9261,8 @@ bool check_unholy_new(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	if(IS_NPC(victim) || is_affected(victim,skill_lookup("unholy guard")))
 		return FALSE;
 
+	unequip_char(ch,obj);
+
 	for (af = obj->affected; af != NULL; af = af_next )
        	 	{
                 af_next = af->next;
@@ -9300,7 +9302,6 @@ bool check_unholy_new(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	paf.modifier = dmod;
 	affect_to_obj(obj,&paf);
 
-	unequip_char(ch,obj);
 	if (dual)
 		equip_char(ch,obj,WEAR_DUAL_WIELD);
 	else
