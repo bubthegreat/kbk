@@ -20,6 +20,7 @@ while ( 1 )
     end
 
     # Run posMUD 2.
+    #gdb -q -ex run --args ./pos2 $port >&! $logfile
     ./pos2 $port >&! $logfile 
 
     # Restart, giving old connections a chance to die.
