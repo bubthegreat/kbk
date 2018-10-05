@@ -3196,6 +3196,8 @@ void do_rename (CHAR_DATA* ch, char* argument)
                 return;
         }
 
+	fpReserve = fopen( NULL_FILE, "r" );
+
         if (get_char_world(ch,new_name)) /* check for playing level-1 non-saved */
         {
                 send_to_char ("A player with the name you specified already exists.\n\r",ch);
@@ -3203,13 +3205,16 @@ void do_rename (CHAR_DATA* ch, char* argument)
         }
 	/* Save char and then rename and move pfile */
         save_char_obj (victim);
+
+	// set strsave before we lose what their original pfile is called
+	sprintf(strsave,"%s%s.plr",PLAYER_DIR,capitalize(victim->original_name));
+
         free_string (victim->name);
 	free_string (victim->original_name);
         victim->name = str_dup (capitalize(new_name));
 	victim->original_name = str_dup (capitalize(new_name));
 
 	save_char_obj(victim);
-	sprintf(strsave,"%s%s.plr",PLAYER_DIR,capitalize(victim->original_name));
 	remove(strsave);
 
         send_to_char ("Character renamed.\n\r",ch);
