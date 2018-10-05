@@ -1390,7 +1390,6 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
 
     else
 	       reverse = FALSE;
-         log_string("Not affected by AFF_LOOKING_GLASS");
 
     /*
      * Find length in case caller didn't.
