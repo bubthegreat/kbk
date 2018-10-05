@@ -234,7 +234,6 @@ int main( int argc, char **argv )
 
 #if defined(macintosh) || defined(MSDOS)
 void game_loop_mac_msdos( void ) {
-    log_string("Entered into game_loop_mac_msdos");
     struct timeval last_time;
     struct timeval now_time;
     static DESCRIPTOR_DATA dcon;
@@ -376,7 +375,6 @@ void game_loop_mac_msdos( void ) {
 
 #if defined(unix)
 void game_loop_unix( int control ) {
-    log_string("Entered into game_loop_unix");
     static struct timeval null_time;
     struct timeval last_time;
 
@@ -584,7 +582,6 @@ void game_loop_unix( int control ) {
 
 #if defined(unix)
 void init_descriptor( int control ){
-    log_string("Entered into init_descriptor");
     char buf[MAX_STRING_LENGTH];
     DESCRIPTOR_DATA *dnew;
     struct sockaddr_in sock;
@@ -679,7 +676,6 @@ void init_descriptor( int control ){
 #endif
 
 void sig_handler (int sig){
-    log_string("Entered into sig_handler");
   	extern bool merc_down;
 
   	if (!merc_down){
@@ -720,7 +716,6 @@ void init_signals(){
 }
 
 void close_socket( DESCRIPTOR_DATA *dclose ){
-    log_string("Entered into close_socket");
     CHAR_DATA *ch;
     char buf[MAX_STRING_LENGTH];
 
@@ -785,7 +780,6 @@ void close_socket( DESCRIPTOR_DATA *dclose ){
 
 bool read_from_descriptor( DESCRIPTOR_DATA *d )
 {
-    log_string("Entered into read_from_descriptor");
     int iStart;
 
     /* Hold horses if pending command already. */
@@ -836,7 +830,6 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
  * Transfer one line from input buffer to input line.
  */
 void read_from_buffer( DESCRIPTOR_DATA *d ){
-    log_string("Entered into read_from_buffer");
     int i, j, k;
 
     /*
@@ -950,7 +943,6 @@ void read_from_buffer( DESCRIPTOR_DATA *d ){
  */
 bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
 {
-    log_string("Entered into process_output");
     extern bool merc_down;
 
     /*
@@ -1062,7 +1054,6 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
  * coded by Morgenes for Aldara Mud
  */
 void bust_a_prompt( CHAR_DATA *ch ){
-    log_string("Entered into bust_a_prompt");
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
     const char *str;
@@ -1293,7 +1284,6 @@ void bust_a_prompt( CHAR_DATA *ch ){
 
 bool output_buffer( DESCRIPTOR_DATA *d )
 {
-    log_string("Entered into output_buffer");
     char	buf[MAX_STRING_LENGTH];
     char	buf2[128];
     const char 	*str;
@@ -1394,7 +1384,6 @@ bool output_buffer( DESCRIPTOR_DATA *d )
  * Append onto an output buffer.
  */
 void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
-    log_string("Entered into write_to_buffer");
     int reverse;
     if ( d->character != NULL && IS_AFFECTED( d->character, AFF_LOOKING_GLASS ) && d->connected == CON_PLAYING )
 	       reverse = TRUE;
@@ -1454,7 +1443,6 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
  *   try lowering the max block size.
  */
 bool write_to_descriptor( int desc, char *txt, int length ) {
-    log_string("Entered into write_to_descriptor.");
     int iStart;
     int nWrite;
     int nBlock;
@@ -1480,7 +1468,6 @@ bool write_to_descriptor( int desc, char *txt, int length ) {
  * Deal with sockets that haven't logged in yet.
  */
 void nanny( DESCRIPTOR_DATA *d, char *argument ) {
-    log_string("Entered into nanny");
     DESCRIPTOR_DATA *d_old, *d_next;
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
@@ -1643,7 +1630,6 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
     /* RT code for breaking link */
 
     case CON_BREAK_CONNECT:
-        log_string("Entered into CON_BREAK_CONNECT case");
       	switch( *argument ) {
       	case 'y' : case 'Y':
                   for ( d_old = descriptor_list; d_old != NULL; d_old = d_next )
@@ -1688,7 +1674,6 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
     	   break;
 
   case CON_CONFIRM_NEW_NAME:
-      log_string("Entered into CON_CONFIRM_NEW_NAME case");
     	switch ( *argument ) {
     	case 'y': case 'Y':
     	    sprintf( buf, "New character.\n\rGive me a password for %s: %s", ch->name, echo_off_str );
@@ -1711,7 +1696,6 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
     	break;
 
     case CON_GET_NEW_PASSWORD:
-        log_string("Entered into CON_GET_NEW_PASSWORD case");
         write_to_buffer( d, "\n\r", 2 );
 
       	if ( strlen(argument) < 4 ) {
@@ -1726,7 +1710,6 @@ void nanny( DESCRIPTOR_DATA *d, char *argument ) {
       	 break;
 
     case CON_CONFIRM_NEW_PASSWORD:
-        log_string("Entered into CON_CONFIRM_NEW_PASSWORD case");
     	write_to_buffer( d, "\n\r", 2 );
         log_string("Got past first write buffer in CON_CONFIRM_NEW_PASSWORD");
 
@@ -2541,7 +2524,6 @@ another one exists.
  * Parse a name for acceptability.
  */
 bool check_parse_name( char *name ) {
-    log_string("Entered into check_parse_name");
     char *pc;
     int first = TRUE;
 
@@ -2604,7 +2586,6 @@ bool check_parse_name( char *name ) {
 
 /* Look for link-dead player to reconnect. */
 bool check_reconnect( DESCRIPTOR_DATA *d, char *name, bool fConn ) {
-    log_string("Entered into check_reconnect");
     CHAR_DATA *ch;
     OBJ_DATA *obj;
 
@@ -2659,7 +2640,6 @@ bool check_reconnect( DESCRIPTOR_DATA *d, char *name, bool fConn ) {
  */
 bool check_playing( DESCRIPTOR_DATA *d, char *name )
 {
-    log_string("Entered into check_playing");
     DESCRIPTOR_DATA *dold;
     for ( dold = descriptor_list; dold; dold = dold->next )
     {
@@ -2682,7 +2662,6 @@ bool check_playing( DESCRIPTOR_DATA *d, char *name )
 }
 
 void stop_idling( CHAR_DATA *ch ) {
-    log_string("Entered into stop_idling");
     if ( ch == NULL
     ||   ch->desc == NULL
     ||   ch->desc->connected != CON_PLAYING
@@ -2701,15 +2680,13 @@ void stop_idling( CHAR_DATA *ch ) {
 /*
  * Write to one char.
  */
-void send_to_char_bw( const char *txt, CHAR_DATA *ch )
-{log_string("Entered into send_to_char_bw");
+void send_to_char_bw( const char *txt, CHAR_DATA *ch ) {
     if ( txt != NULL && ch->desc != NULL )
         write_to_buffer( ch->desc, txt, strlen(txt) );
     return;
 }
 
-void send_to_char( const char *txt, CHAR_DATA *ch )
-{log_string("Entered into send_to_char");
+void send_to_char( const char *txt, CHAR_DATA *ch ) {
     const      char    *point;
                char    *point2;
                char    buf[ MAX_STRING_LENGTH*4 ];
@@ -2756,8 +2733,7 @@ void send_to_char( const char *txt, CHAR_DATA *ch )
     return;
 }
 
-void send_to_chars( const char *txt, CHAR_DATA *ch, int min, ... )
-{log_string("Entered into send_to_chars");
+void send_to_chars( const char *txt, CHAR_DATA *ch, int min, ... ) {
     if ( txt != NULL && ch->desc != NULL )
         write_to_buffer( ch->desc, txt, strlen(txt) );
     return;
@@ -2766,8 +2742,7 @@ void send_to_chars( const char *txt, CHAR_DATA *ch, int min, ... )
 /*
  * Send a page to one char.
  */
-void page_to_char_bw( const char *txt, CHAR_DATA *ch )
-{log_string("Entered into page_to_char_bw");
+void page_to_char_bw( const char *txt, CHAR_DATA *ch ) {
     if ( txt == NULL || ch->desc == NULL)
         return;
 
@@ -2790,8 +2765,7 @@ void page_to_char_bw( const char *txt, CHAR_DATA *ch )
 /*
  * Page to one char, new color version, by Lope.
  */
-void page_to_char( const char *txt, CHAR_DATA *ch )
-{log_string("Entered into page_to_char");
+void page_to_char( const char *txt, CHAR_DATA *ch ) {
     const      char    *point;
                char    *point2;
                char    buf[ MAX_STRING_LENGTH * 4 ];
@@ -2845,8 +2819,7 @@ void page_to_char( const char *txt, CHAR_DATA *ch )
 }
 
 /* string pager */
-void show_string(struct descriptor_data *d, char *input)
-{log_string("Entered into show_string");
+void show_string(struct descriptor_data *d, char *input) {
     char buffer[4*MAX_STRING_LENGTH];
     char buf[MAX_INPUT_LENGTH];
     register char *scan, *chk;
@@ -2899,14 +2872,12 @@ void show_string(struct descriptor_data *d, char *input)
 }
 
 /* quick sex fixer */
-void fix_sex(CHAR_DATA *ch)
-{log_string("Entered into fix_sex");
+void fix_sex(CHAR_DATA *ch) {
     if (ch->sex < 0 || ch->sex > 2)
     	ch->sex = IS_NPC(ch) ? 0 : ch->pcdata->true_sex;
 }
 
-void act (const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2, int type)
-{log_string("Entered into act ");
+void act (const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2, int type) {
     /* to be compatible with older code */
     act_new(format,ch,arg1,arg2,type,POS_RESTING);
 }
@@ -2914,7 +2885,6 @@ void act (const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2,
 void act_new( const char *format, CHAR_DATA *ch, const void *arg1,
 	      const void *arg2, int type, int min_pos)
 {
-    log_string("Entered into act_new");
 
     CHAR_DATA          *to;
     CHAR_DATA          *vch = ( CHAR_DATA * ) arg2;
@@ -3082,9 +3052,8 @@ int gofday( struct timeval *tp, void *tzp )
 }
 #endif
 
-void n_logf (char * fmt, ...)
-{log_string("Entered into n_logf ");
-	char buf [2*MSL];
+void n_logf (char * fmt, ...) {
+    char buf [2*MSL];
 	va_list args;
 	va_start (args, fmt);
 	vsprintf (buf, fmt, args);
@@ -3094,43 +3063,41 @@ void n_logf (char * fmt, ...)
 }
 
 /* Messy hack for login announcements in cabals. */
-void announce_login(CHAR_DATA *ch)
-{log_string("Entered into announce_login");
-        CHAR_DATA *guardian;
-	  char *rstring, buf[MAX_STRING_LENGTH],  rbuf[MAX_STRING_LENGTH];
-        if (ch->cabal == 0 || ch->cabal > MAX_CABAL || IS_IMMORTAL(ch))
+void announce_login(CHAR_DATA *ch) {
+    CHAR_DATA *guardian;
+	char *rstring, buf[MAX_STRING_LENGTH],  rbuf[MAX_STRING_LENGTH];
+    if (ch->cabal == 0 || ch->cabal > MAX_CABAL || IS_IMMORTAL(ch)){
         return;
+    }
 	guardian = get_cabal_guardian(ch->cabal);
-	if(!guardian)
-	return;
+	if(!guardian) {
+	    return;
+	}
 	rstring = str_dup(cabal_messages[ch->cabal].login);
 	sprintf(buf,rstring,ch->original_name);
 	sprintf(rbuf,"{c%s{x",buf);
 	do_cb(guardian,buf);
 }
 
-void announce_logout(CHAR_DATA *ch)
-{log_string("Entered into announce_logout");
-        CHAR_DATA *guardian;
-          char *rstring, buf[MAX_STRING_LENGTH],  rbuf[MAX_STRING_LENGTH];
-        if (ch->cabal == 0 || ch->cabal > MAX_CABAL || IS_IMMORTAL(ch))
+void announce_logout(CHAR_DATA *ch) {
+    CHAR_DATA *guardian;
+    char *rstring, buf[MAX_STRING_LENGTH],  rbuf[MAX_STRING_LENGTH];
+    if (ch->cabal == 0 || ch->cabal > MAX_CABAL || IS_IMMORTAL(ch)){
         return;
-        guardian = get_cabal_guardian(ch->cabal);
-	if(!guardian)
+    }
+    guardian = get_cabal_guardian(ch->cabal);
+	if (!guardian) {
         return;
-        rstring = str_dup(cabal_messages[ch->cabal].logout);
-        sprintf(buf,rstring,ch->original_name);
-        sprintf(rbuf,"{c%s{x",buf);
-        do_cb(guardian,buf);
+	}
+    rstring = str_dup(cabal_messages[ch->cabal].logout);
+    sprintf(buf, rstring, ch->original_name);
+    sprintf(rbuf,"{c%s{x",buf);
+    do_cb(guardian,buf);
 }
 
 /* Fun rename function to rename bad named chars on-line...(Ceran) */
-void do_rename (CHAR_DATA* ch, char* argument)
-{log_string("Entered into do_rename ");
-        char old_name[MAX_INPUT_LENGTH],
-             new_name[MAX_INPUT_LENGTH],
-             strsave [MAX_INPUT_LENGTH];
-
+void do_rename (CHAR_DATA* ch, char* argument) {
+        char old_name[MAX_INPUT_LENGTH], new_name[MAX_INPUT_LENGTH], strsave [MAX_INPUT_LENGTH];
         CHAR_DATA* victim;
         FILE* file;
 
@@ -3227,7 +3194,7 @@ return;
 }
 
 void do_renam(CHAR_DATA *ch,char *argument)
-{log_string("Entered into do_renam");
+{
 #if defined(unix)
 send_to_char("If you want to RENAME an existing player your must type rename in full.\n\r",ch);
 send_to_char("rename <current name> <new name>\n\r",ch);
@@ -3333,7 +3300,7 @@ int color( char type, CHAR_DATA *ch, char *string )
 }
 
 void colorconv( char *buffer, const char *txt, CHAR_DATA *ch )
-{log_string("Entered into colorconv");
+{
     const	char	*point;
 		int	skip = 0;
 
@@ -3375,7 +3342,7 @@ void colorconv( char *buffer, const char *txt, CHAR_DATA *ch )
 }
 
 void process_text(CHAR_DATA *ch, char *text)
-{log_string("Entered into process_text");
+{
 	char obuf[MSL*2], tbuf[MSL], rbuf[MSL];
 	bool found = FALSE;
 	int len, rcount, i, iloc;
@@ -3482,7 +3449,7 @@ const char *lowstring(const char *i)
 }
 
 void reverse_txt( char *txt, int length )
-{log_string("Entered into reverse_txt");
+{
     int i, state, c;
     char *word_ptr = NULL;
 #define WALKTHRU        0
@@ -3526,7 +3493,7 @@ void reverse_txt( char *txt, int length )
 }
 
 void reverse_word( char *w, int n )
-{log_string("Entered into reverse_word");
+{
     int i, hlen, left, right, up_left, up_right;
     hlen = n / 2;
     n--;
@@ -3553,7 +3520,7 @@ void reverse_word( char *w, int n )
 }
 
 void printf_to_char (CHAR_DATA *ch, char *fmt, ...)
-{log_string("Entered into printf_to_char ");
+{
 	char buf [MAX_STRING_LENGTH];
 	va_list args;
 	va_start (args, fmt);
@@ -3564,7 +3531,7 @@ void printf_to_char (CHAR_DATA *ch, char *fmt, ...)
 }
 
 void sprintf2 (CHAR_DATA *ch, char *fmt, ...)
-{log_string("Entered into sprintf2 ");
+{
     char buf [MSL];
     va_list args;
     va_start (args, fmt);
@@ -3574,7 +3541,7 @@ void sprintf2 (CHAR_DATA *ch, char *fmt, ...)
 }
 
 void bugf (char * fmt, ...)
-{log_string("Entered into bugf ");
+{
 	char buf [2*MSL];
 	va_list args;
 	va_start (args, fmt);
@@ -3586,7 +3553,6 @@ void bugf (char * fmt, ...)
 
 void sendf (CHAR_DATA *ch, char *fmt, ...)
 {
-    log_string("Entered into sendf ");
     char buf [MSL];
     va_list args;
     va_start (args, fmt);
@@ -3596,7 +3562,6 @@ void sendf (CHAR_DATA *ch, char *fmt, ...)
 }
 
 bool can_join_cabal(CHAR_DATA *ch, int cabal) {
-    log_string("Entered into can_join_cabal");
 	int iAlign, iEthos;
 
 	if (cabal == 0)
