@@ -8579,6 +8579,7 @@ void spell_curse_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	}
     }
 
+init_affect(&af);
 af.type = sn;
 af.where = TO_OBJECT;
 af.modifier = -1;
