@@ -16,6 +16,8 @@ services:
       MYSQL_PASSWORD: kbkpassword
     networks:
       - kbk_network
+    volume:
+      - sql-data:/var/lib/mysql
   kbk_service:
     build:
         context: ./
@@ -36,3 +38,6 @@ services:
 networks:
   kbk_network:
     driver: "bridge"
+    
+volumes:
+    sql-data:
