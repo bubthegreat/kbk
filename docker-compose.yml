@@ -34,7 +34,7 @@ services:
     volumes:
         - ./player:/opt/kbk/player
         - ./log:/opt/kbk/log
-        - .area:/opt/kbk/area
+        - ./area:/opt/kbk/area
 networks:
   kbk_network:
     driver: "bridge"
