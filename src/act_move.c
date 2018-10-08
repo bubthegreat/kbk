@@ -2168,31 +2168,22 @@ void do_hide( CHAR_DATA *ch, char *argument )
     sn_fog = skill_lookup("faerie fog");
     sn_fire = skill_lookup("faerie fire");
 
-    if (is_affected(ch,sn_fog) || is_affected(ch,sn_fire) || is_affected(ch, gsn_incandescense))
-    {
-	send_to_char("You can't hide while revealed.\n\r",ch);
-	return;
+    if (is_affected(ch,sn_fog) || is_affected(ch,sn_fire) || is_affected(ch, gsn_incandescense)){
+    	send_to_char("You can't hide while revealed.\n\r",ch);
+    	return;
     }
 
-    if ((ch->in_room->sector_type != SECT_CITY) && (ch->in_room->sector_type != SECT_INSIDE) && (ch->in_room->sector_type != SECT_ROAD))
-    {
-	send_to_char("The shadows here are too natural to blend with.", ch);
-	return;
+    if ((ch->in_room->sector_type != SECT_CITY) && (ch->in_room->sector_type != SECT_INSIDE) && (ch->in_room->sector_type != SECT_ROAD)){
+    	send_to_char("The shadows here are too natural to blend with.", ch);
+    	return;
     }
-
     send_to_char( "You attempt to hide.\n\r", ch );
 
-    if ( IS_AFFECTED(ch, AFF_HIDE) )
-        return;
-
-    if ( number_percent( ) < get_skill(ch,gsn_hide))
-    {
-	SET_BIT(ch->affected_by, AFF_HIDE);
-	check_improve(ch,gsn_hide,TRUE,3);
+    if ( number_percent() < get_skill(ch,gsn_hide)){
+        SET_BIT(ch->affected_by, AFF_HIDE);
     }
-    else
-	check_improve(ch,gsn_hide,FALSE,3);
-
+    // If we got this far, check for improvement.
+    check_improve(ch, gsn_hide, TRUE, 5);
     return;
 }
 
