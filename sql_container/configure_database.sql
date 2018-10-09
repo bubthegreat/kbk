@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `player_auth` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS `charmed` (
-  `original_name` varchar(25) NOT NULL default '',
+  `owner` varchar(25) NOT NULL default '',
   `vnum` int(10) NOT NULL default '0',
   `short_descr` text,
   `long_descr` text,
