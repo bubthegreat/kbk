@@ -9,8 +9,6 @@ RUN rpmkeys --import https://repo.mysql.com/RPM-GPG-KEY-mysql \
   && yum clean all \
   && mkdir /docker-entrypoint-initdb.d
 
-VOLUME /var/lib/mysql
-
 COPY configure_database.sql /docker-entrypoint-initdb.d
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY healthcheck.sh /healthcheck.sh

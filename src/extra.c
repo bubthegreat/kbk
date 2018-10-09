@@ -455,6 +455,7 @@ void do_snare( CHAR_DATA *ch, char *argument )
 	af.owner_name	= str_dup(ch->original_name);
 	af.end_fun   = NULL;
 	af.tick_fun  = NULL;
+	af.name      = NULL;
 	new_affect_to_room(ch->in_room, &af);
   
    	init_affect(&snaretimer);

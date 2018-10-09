@@ -1395,7 +1395,6 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
      * Find length in case caller didn't.
      */
     if ( length <= 0 ) length = strlen(txt);
-    log_string("checked length of string");
 
     /*
      * Initial \n\r if needed.
@@ -1405,7 +1404,6 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
       	d->outbuf[1]	= '\r';
       	d->outtop	= 2;
     }
-    log_string("Added initial \n\r");
 
     /*
      * Expand the buffer as needed.
@@ -1423,7 +1421,6 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
       	d->outbuf   = outbuf;
       	d->outsize *= 2;
     }
-    log_string("Finished expanding the buffer");
 
     /*
      * Copy.
@@ -1431,7 +1428,6 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length ){
     strcpy( d->outbuf + d->outtop, txt );
     if( reverse ) reverse_txt( d->outbuf + d->outtop, length );
     d->outtop += length;
-    log_string("Finished copying shit.");
     return;
 }
 
