@@ -5890,7 +5890,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	"true sight",
 	{ 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-	spell_true_sight,	TAR_CHAR_SELF,			POS_STANDING,
+	spell_true_sight,	TAR_CHAR_SELF,			POS_FIGHTING,
 	&gsn_true_sight,	SLOT(0),		50,	24,
 	"",			"Your true vision fades.",			"",	CMD_POWER
     },
