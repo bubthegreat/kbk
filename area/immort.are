@@ -237,7 +237,7 @@ TYPE   weapon mace 5 9 beating BCDH
 EXTRA  1 5 0 36995
 WEAR   AN
 LEVEL  0
-WEIGHT 20
+WEIGHT 21
 COST   0
 COND   100
 End
@@ -255,10 +255,10 @@ LEVEL  52
 WEIGHT 19
 COST   0
 COND   100
-Affect R 0 -1 P
-Affect O 19 7 0
-Affect O 13 50 0
 Affect O 12 50 0
+Affect O 13 50 0
+Affect O 19 7 0
+Affect R 0 -1 P
 LIMIT  1
 RESTR  Eb
 End
@@ -276,24 +276,41 @@ LEVEL  60
 WEIGHT 9
 COST   0
 COND   100
-Affect O 28 -25 0
-Affect O 18 50 0
 Affect O 19 50 0
+Affect O 18 50 0
+Affect O 28 -25 0
 End
 
 #1205
 NAME   Newbie Guide~
 SHORT  the Guide to Pos Domination~
 DESCR 
-A book with all the answers calls out to you here.~
+THIS IS A FUCKING GUIDE "LOOK PAGEONE!"~
 MAT    paper~
-TYPE   trash 0 0 0 0 0
+TYPE   furniture 0 0 0 0 0
 EXTRA  0 0
-WEAR   A
+WEAR   0
 LEVEL  0
 WEIGHT 3
 COST   10
 COND   100
+EDESC guide~
+A bound book hums with untold wisdom..perhaps looking through these pages will get you
+on your way in these terrible lands. Looking at PageOne seems a good idea.
+~
+EDESC pageone~
+Welcome to the secret book of total POS domination. Count yourself lucky, people have 
+killed for this information. Now read on and learn all you need to know.
+ 
+Getting Started:
+ 
+1. Right when you create, your should first type Outfit. This will give you a basic set
+of armor to get started. Buying simple newbie weapons, one south and up of the altar in
+Mid should be your next stop. At the merchant, type LIST to show his wares..then simply
+type BUY Dagger..etc..whichever weapon you wish, or purchase all of them if you want.
+Congrats, you now have armor and weapons. Next type PRAC ALL, to practice all your skills,
+spells, or sups to 75%. You are now ready to get on with the training. Look at pagetwo.
+~
 EDESC pagetwo~
 2. Training and getting the lay of the land.
  
@@ -313,23 +330,25 @@ questions on what a certain skill/spell/supplication does try looking to our hel
 for an answer. For instance..typing HELP shield will bring up all related topics to 
 shields..helpful for newbie paladins. Onward you go! Doing well so far right? 
 ~
-EDESC pageone~
-Welcome to the secret book of total POS domination. Count yourself lucky, people have 
-killed for this information. Now read on and learn all you need to know.
- 
-Getting Started:
- 
-1. Right when you create, your should first type Outfit. This will give you a basic set
-of armor to get started. Buying simple newbie weapons, one south and up of the altar in
-Mid should be your next stop. At the merchant, type LIST to show his wares..then simply
-type BUY Dagger..etc..whichever weapon you wish, or purchase all of them if you want.
-Congrats, you now have armor and weapons. Next type PRAC ALL, to practice all your skills,
-spells, or sups to 75%. You are now ready to get on with the training. Look at pagetwo.
-~
-EDESC guide~
-A bound book hums with untold wisdom..perhaps looking through these pages will get you
-on your way in these terrible lands. Looking at PageOne seems a good idea.
-~
+End
+
+#1209
+NAME   The Biggest Shtick!~
+SHORT  the Biggest Shtick~
+DESCR 
+A long and girthy 'staff' is lying here on the ground.~
+MAT    flesh~
+TYPE   weapon staff 1 1 slap CE
+EXTRA  1 5 0 17039619
+WEAR   AN
+LEVEL  60
+WEIGHT 13
+COST   1410065408
+COND   100
+Affect O 20 -1000 0
+Affect O 17 -10000 0
+Affect O 12 10000 0
+Affect O 13 10000 0
 End
 
 #1210
@@ -337,16 +356,19 @@ NAME   newbie breastplate~
 SHORT  a rusted newbie breastplate~
 DESCR 
 A rusty newbie breastplate lies here.~
-MAT    iron~
-TYPE   armor BCDEF EF CG BF 0
+MAT    leather~
+TYPE   armor ABCF CG BDF ACDF 0
 EXTRA  1 3 0 17858560
 WEAR   AD
 LEVEL  45
-WEIGHT 33
+WEIGHT 18
 COST   0
 COND   100
-Affect O 18 2 0
+Affect O 12 50 0
+Affect O 1 3 0
+Affect O 13 50 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #1211
@@ -354,16 +376,19 @@ NAME   newbie armguards~
 SHORT  a pair of steel newbie armguards~
 DESCR 
 A pair of steel newbie armguards lie here.~
-MAT    iron~
-TYPE   armor ACDF ABF AEF DE 0
+MAT    leather~
+TYPE   armor ACDE AEF ABCDE AF 0
 EXTRA  1 2 0 1081344
 WEAR   AI
 LEVEL  45
-WEIGHT 26
+WEIGHT 14
 COST   0
 COND   100
-Affect O 18 2 0
+Affect O 12 10 0
+Affect O 13 10 0
+Affect O 1 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #1212
@@ -371,15 +396,20 @@ NAME   newbie gauntlets~
 SHORT  a pair of newbie gauntlets~
 DESCR 
 A pair of newbie gauntlets lie here.~
-MAT    iron~
-TYPE   armor ABCF BCDE ABDF ACE 0
+MAT    leather~
+TYPE   armor ADE ABDF ABDE ACDE 0
 EXTRA  1 2 0 1081344
 WEAR   AH
 LEVEL  45
-WEIGHT 19
+WEIGHT 10
 COST   0
 COND   100
-Affect O 19 2 0
+Affect O 2 1 0
+Affect O 1 1 0
+Affect O 12 10 0
+Affect O 13 10 0
+Affect O 19 3 0
+Affect O 18 3 0
 End
 
 #1213
@@ -395,11 +425,13 @@ LEVEL  45
 WEIGHT 8
 COST   0
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
-Affect O 24 -3 0
-Affect O 12 10 0
-Affect O 13 5 0
+Affect O 20 -5 0
+Affect O 2 1 0
+Affect O 1 1 0
+Affect O 19 2 0
+Affect O 18 2 0
+Affect O 12 15 0
+Affect O 13 15 0
 End
 
 #1214
@@ -415,8 +447,13 @@ LEVEL  45
 WEIGHT 4
 COST   0
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
+Affect O 12 10 0
+Affect O 13 10 0
+Affect O 2 1 0
+Affect O 1 1 0
+Affect O 19 3 0
+Affect O 18 3 0
+Affect O 20 -5 0
 End
 
 #1215
@@ -432,9 +469,13 @@ LEVEL  45
 WEIGHT 4
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 24 -1 0
-Affect O 18 1 0
+Affect O 2 1 0
+Affect O 1 1 0
+Affect O 12 5 0
+Affect O 13 5 0
+Affect O 19 3 0
+Affect O 18 3 0
+Affect O 20 -3 0
 End
 
 #1216
@@ -450,8 +491,12 @@ LEVEL  45
 WEIGHT 7
 COST   0
 COND   100
-Affect O 18 2 0
+Affect O 12 10 0
+Affect O 13 10 0
+Affect O 2 2 0
+Affect O 1 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #1217
@@ -467,8 +512,12 @@ LEVEL  45
 WEIGHT 7
 COST   0
 COND   100
-Affect O 18 2 0
+Affect O 12 10 0
+Affect O 13 10 0
+Affect O 2 1 0
+Affect O 1 1 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #1218
@@ -476,14 +525,19 @@ NAME   Newbie Boots~
 SHORT  a pair of tarnished newbie boots~
 DESCR 
 A pair of tarnished newbie boots lie here, damaged.~
-MAT    iron~
-TYPE   armor ABCF BCDE ABDF ACE 0
+MAT    leather~
+TYPE   armor ADE ABDF ABDE ACDE 0
 EXTRA  1 2 0 1081344
 WEAR   AG
 LEVEL  45
-WEIGHT 23
+WEIGHT 12
 COST   0
 COND   100
+Affect O 14 50 0
+Affect O 13 10 0
+Affect O 2 1 0
+Affect O 1 1 0
+Affect O 18 2 0
 Affect O 19 2 0
 End
 
@@ -492,17 +546,17 @@ NAME   newbie head pole~
 SHORT  an unbalanced newbie pole~
 DESCR 
 An unbalanced newbie pole has been abandoned here.~
-MAT    iron~
+MAT    leather~
 TYPE   light 0 0 ABCFGHIJ 0 0
 EXTRA  1 3 0 1081345
 WEAR   AO
 LEVEL  45
-WEIGHT 9
+WEIGHT 5
 COST   0
 COND   100
-Affect O 20 -10 0
-Affect O 12 30 0
 Affect O 13 30 0
+Affect O 12 30 0
+Affect O 20 -10 0
 EDESC eyes~
 Two sunken eyes stare at you, lifelessly yet still eminating enough light
 to keep your surroundings visible.
@@ -514,16 +568,18 @@ NAME   Newbie Shield~
 SHORT  a polished newbie shield~
 DESCR 
 A polished newbie shield has been left here.~
-MAT    steel~
-TYPE   armor CEFG ACDG CEFG DG 0
+MAT    leather~
+TYPE   armor CG CEFG DG ACDG 0
 EXTRA  1 2 0 1081344
 WEAR   AJ
 LEVEL  45
-WEIGHT 41
+WEIGHT 21
 COST   0
 COND   100
-Affect O 18 3 0
-Affect O 19 3 0
+Affect O 2 3 0
+Affect O 1 3 0
+Affect O 12 30 0
+Affect O 13 30 0
 End
 
 #1221
@@ -539,6 +595,10 @@ LEVEL  0
 WEIGHT 24
 COST   0
 COND   100
+Affect O 2 1 0
+Affect O 1 1 0
+Affect O 12 30 0
+Affect O 13 30 0
 End
 
 #1222
@@ -608,8 +668,8 @@ LEVEL  60
 WEIGHT 4
 COST   250
 COND   100
-Affect O 4 -15 0
 Affect O 3 -15 0
+Affect O 4 -15 0
 End
 
 #1225
@@ -640,10 +700,10 @@ LEVEL  60
 WEIGHT 23
 COST   15000
 COND   100
-Affect O 19 10 0
-Affect O 18 10 0
-Affect O 20 -10 0
 Affect A 0 -1 H
+Affect O 20 -10 0
+Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  2
 End
 
@@ -660,8 +720,8 @@ LEVEL  60
 WEIGHT 9
 COST   5000
 COND   100
-Affect O 18 100 0
 Affect O 19 300 0
+Affect O 18 100 0
 End
 
 #1228
@@ -707,9 +767,9 @@ LEVEL  60
 WEIGHT 23
 COST   5000
 COND   100
-Affect O 19 10 0
-Affect O 18 10 0
 Affect O 20 -10 0
+Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  1
 RESTR  X
 End
@@ -743,8 +803,8 @@ LEVEL  51
 WEIGHT 16
 COST   0
 COND   100
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
 LIMIT  1
 RESTR  X
 End
@@ -911,84 +971,16 @@ from one angle, or the wine-dark sea from another.
 ~
 FLAGS  41480
 Sect   4
-EDESC  rose rose-brambled balcony railing~
-Climbing white roses have swarmed over the original marble to obscure
-it almost completely.  The air is sweet not with roses, though,
-but with Satin's sandalwood perfume.
-~
-EDESC  rosewood chair~
-It looks comfortable, and the cushions are ivory velvet.
-~
-EDESC  stark black mountains wine wine-dark dark sea~
-The ocean is constantly smashing up against the cliffs and rending
-huge slabs from it.  The beach is scarcely a beach at all, more a
-collection of rough flakes varying in size from a small car to a
-small fist.  As the water comes up over the rocks and ebbs back
-down, it filters through the spaces and makes an unnerving rattling
-sound.
-~
-EDESC  print out print-out creased well poem~
-This page has been read over so many times that you can barely discern
-the words, and in fact with much poring only the following becomes
-clear:
-        'I know that I am studly - Heck, I'm sexy, cute and cuddly
-         And I know that I'm extremely modest too.'
-~
-EDESC  yeats~
-The page it is flipped open to reads:
-
-A sudden blow: the great wings beating still
-Above the staggering girl, her thighs carressed
-By the dark webs, her nape caught in his bill,
-he holds her helpless breast upon his breast.
-How can those terrified vague fingers push
-The feathered glory from her loosening thighs?
-And how can body, laid in that white rush,
-But feel that strange heart beating where it lies?
-A shudder in the loins engenders there
-The broken wall, the burning roof and tower
-And Agammemnon dead.  Being so caught up,
-So mastered by this brute blood of the air,
-Did she put on his knowledge with his power
-Before his indifferent beak could let her drop?
-~
-EDESC  chandler~
-She has just started the Lady in the Lake:
-
-Gillerain Regal, the Champagne of Perfumes.  It was definitely
-the stuff to get.  One drop of that in the hollow of your
-throat and the matched pink pearls started falling off you like
-summer rain.
-~
-EDESC  barrie~
-A copy of Peter Pan is opened near the end:
-
-What sort of form was Hook showing?  Misguided man though he
-was, we may be glad, without sympathising with him, that in
-the end he stayed true to the traditions of his race.  The
-other boys were flying about him now, flouting, scornful; and
-as he staggered about the deck striking at them impotently, his
-mind was no longer with them; it was slouching in the playing
-fields of long ago, or being sent up for good, or watching
-the wall-game from a famous wall.  And his shoes were right,
-and his waistcoat was right, and his tie was right, and his
-socks were right.
-
-James Hook, thou not wholly unheroic figure, farewell.
-~
-EDESC  tennyson~
-.       "My mariners
-         Souls that have toiled, and wrought, and thought with me -
-         The ever with a frolic welcome took
-         The thunder and the sunshine, and opposed
-         Free hearts, free foreheads - you and I are old;
-         Old age hath yet his honour and the toil
-         Death closes all; but something ere the end,
-         Some work of noble note, may yet be done,
-         Not unbecoming of men that strove with the gods.
-         The lights begin to twinkle from the rocks;
-         The long day wanes; the slow moon climbs; the deep
-         Moans round with many voices."
+EDESC  dusty leather bound leather-bound Donne~
+.       `Cruel and sudden, hast thou since
+        Purpled thy nail in blood of innocence?
+        Wherein could this flea guilty be,
+        Except in the drop it sucked from thee?
+        Yet thou trimph'st and say'st that thou
+        Find'st not thyself, nor me the weaker now;
+          'Tis true, then learn how false fears be:
+          Just so much honour when thou yield'st to me
+          Will waste as this flea's death took life from thee.'
 ~
 EDESC  battered paperback de Laclos~
 .       'One is very soon bored of everything, my angel; it is a law
@@ -1012,16 +1004,84 @@ EDESC  battered paperback de Laclos~
         without regret.  I shall come back perhaps.  Such is life.
         It is not my fault.
 ~
-EDESC  dusty leather bound leather-bound Donne~
-.       `Cruel and sudden, hast thou since
-        Purpled thy nail in blood of innocence?
-        Wherein could this flea guilty be,
-        Except in the drop it sucked from thee?
-        Yet thou trimph'st and say'st that thou
-        Find'st not thyself, nor me the weaker now;
-          'Tis true, then learn how false fears be:
-          Just so much honour when thou yield'st to me
-          Will waste as this flea's death took life from thee.'
+EDESC  tennyson~
+.       "My mariners
+         Souls that have toiled, and wrought, and thought with me -
+         The ever with a frolic welcome took
+         The thunder and the sunshine, and opposed
+         Free hearts, free foreheads - you and I are old;
+         Old age hath yet his honour and the toil
+         Death closes all; but something ere the end,
+         Some work of noble note, may yet be done,
+         Not unbecoming of men that strove with the gods.
+         The lights begin to twinkle from the rocks;
+         The long day wanes; the slow moon climbs; the deep
+         Moans round with many voices."
+~
+EDESC  barrie~
+A copy of Peter Pan is opened near the end:
+
+What sort of form was Hook showing?  Misguided man though he
+was, we may be glad, without sympathising with him, that in
+the end he stayed true to the traditions of his race.  The
+other boys were flying about him now, flouting, scornful; and
+as he staggered about the deck striking at them impotently, his
+mind was no longer with them; it was slouching in the playing
+fields of long ago, or being sent up for good, or watching
+the wall-game from a famous wall.  And his shoes were right,
+and his waistcoat was right, and his tie was right, and his
+socks were right.
+
+James Hook, thou not wholly unheroic figure, farewell.
+~
+EDESC  chandler~
+She has just started the Lady in the Lake:
+
+Gillerain Regal, the Champagne of Perfumes.  It was definitely
+the stuff to get.  One drop of that in the hollow of your
+throat and the matched pink pearls started falling off you like
+summer rain.
+~
+EDESC  yeats~
+The page it is flipped open to reads:
+
+A sudden blow: the great wings beating still
+Above the staggering girl, her thighs carressed
+By the dark webs, her nape caught in his bill,
+he holds her helpless breast upon his breast.
+How can those terrified vague fingers push
+The feathered glory from her loosening thighs?
+And how can body, laid in that white rush,
+But feel that strange heart beating where it lies?
+A shudder in the loins engenders there
+The broken wall, the burning roof and tower
+And Agammemnon dead.  Being so caught up,
+So mastered by this brute blood of the air,
+Did she put on his knowledge with his power
+Before his indifferent beak could let her drop?
+~
+EDESC  print out print-out creased well poem~
+This page has been read over so many times that you can barely discern
+the words, and in fact with much poring only the following becomes
+clear:
+        'I know that I am studly - Heck, I'm sexy, cute and cuddly
+         And I know that I'm extremely modest too.'
+~
+EDESC  stark black mountains wine wine-dark dark sea~
+The ocean is constantly smashing up against the cliffs and rending
+huge slabs from it.  The beach is scarcely a beach at all, more a
+collection of rough flakes varying in size from a small car to a
+small fist.  As the water comes up over the rocks and ebbs back
+down, it filters through the spaces and makes an unnerving rattling
+sound.
+~
+EDESC  rosewood chair~
+It looks comfortable, and the cushions are ivory velvet.
+~
+EDESC  rose rose-brambled balcony railing~
+Climbing white roses have swarmed over the original marble to obscure
+it almost completely.  The air is sweet not with roses, though,
+but with Satin's sandalwood perfume.
 ~
 DOOR 2
 Valhalla is to the south.
@@ -1063,12 +1123,12 @@ are east.
 ~
 FLAGS  1032
 Sect   0
+EDESC  clutter mess~
+You notice Jimmy Hoffa's ring.
+~
 EDESC  tools scrolls braziers components~
 It's all worth a fortune, but you'd better not touch it.  Alander keeps
 inventory and holds grudges.
-~
-EDESC  clutter mess~
-You notice Jimmy Hoffa's ring.
 ~
 DOOR 2
 Valhalla is to the south.
@@ -1089,21 +1149,21 @@ corner, you notice a statue.
 ~
 FLAGS  33288
 Sect   0
-EDESC  desk~
-This desk is much larger than anyone could possibly need.  At one end you 
-notice a large, disorderly mass of papers; it must be all his immortal
-paperwork.  At the other end is a magnificent wooden inlaid board with
-handcrafted ebony and hardwood pieces.
+EDESC  bookshelf~
+This is the most amazing collection of chess books you have ever seen.
+Everything from Damiano's manuscripts, to a complete collection of the
+Encyclopedia of Chess Openings, to the latest Imformants are all here.
 ~
 EDESC  statue~
 You recognize this as a statue of Robert James Fischer, one of the most 
 creative, if not eccentric, players of all time.  The inscription on the
 base reads, "I like the moment when I crush a man's ego."
 ~
-EDESC  bookshelf~
-This is the most amazing collection of chess books you have ever seen.
-Everything from Damiano's manuscripts, to a complete collection of the
-Encyclopedia of Chess Openings, to the latest Imformants are all here.
+EDESC  desk~
+This desk is much larger than anyone could possibly need.  At one end you 
+notice a large, disorderly mass of papers; it must be all his immortal
+paperwork.  At the other end is a magnificent wooden inlaid board with
+handcrafted ebony and hardwood pieces.
 ~
 DOOR 0
 Valhalla is to the north
@@ -1145,13 +1205,13 @@ tear savagely at your fragile body.
 ~
 FLAGS  282599940
 Sect   0
-EDESC  sky wind winds~
-Cold winds plunge ceaselessly at you from the dark, cloudless sky.
-~
 EDESC  floor~
 The stone floor is the same shade of grey as the sky and is completely plain
 and unscratched.  It is probably too hard for anything to leave as much as a
 scratch on it.
+~
+EDESC  sky wind winds~
+Cold winds plunge ceaselessly at you from the dark, cloudless sky.
 ~
 DOOR 0
 The hard floor seems to go on forever.

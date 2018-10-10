@@ -1217,7 +1217,7 @@ TYPE   weapon staff 1 6 thrust 0
 EXTRA  1 1 0 1048576
 WEAR   AN
 LEVEL  1
-WEIGHT 15
+WEIGHT 13
 COST   111
 COND   100
 Affect O 18 1 0
@@ -1237,7 +1237,7 @@ TYPE   weapon staff 1 5 pound F
 EXTRA  1 1 0 1048576
 WEAR   AN
 LEVEL  1
-WEIGHT 23
+WEIGHT 20
 COST   290
 COND   100
 Affect O 19 1 0
@@ -1334,7 +1334,7 @@ SHORT  a practice sword~
 DESCR 
 A wooden practice sword lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon sword 6 8 slash 0
+TYPE   weapon sword 7 8 slash 0
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
@@ -1352,7 +1352,7 @@ SHORT  a practice dagger~
 DESCR 
 A wooden practice dagger lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon dagger 6 8 pierce 0
+TYPE   weapon dagger 7 8 pierce 0
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
@@ -1370,15 +1370,15 @@ SHORT  a practice spear~
 DESCR 
 A wooden practice spear lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon spear 6 8 pierce F
+TYPE   weapon spear 7 8 pierce F
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
-WEIGHT 25
+WEIGHT 20
 COST   100
 COND   100
-Affect O 19 5 0
-Affect O 18 5 0
+Affect O 18 10 0
+Affect O 19 10 0
 RESTR  c
 End
 
@@ -1388,15 +1388,15 @@ SHORT  a practice polearm~
 DESCR 
 A wooden practice polearm lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon polearm 6 8 slash F
+TYPE   weapon polearm 7 8 slash F
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
 WEIGHT 25
 COST   100
 COND   100
-Affect O 19 5 0
-Affect O 18 5 0
+Affect O 18 10 0
+Affect O 19 10 0
 RESTR  c
 End
 
@@ -1406,7 +1406,7 @@ SHORT  a practice whip~
 DESCR 
 A wooden practice whip lies here, obviously intended for a newbie.~
 MAT    leather~
-TYPE   weapon whip 6 8 whip 0
+TYPE   weapon whip 7 8 whip 0
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
@@ -1424,7 +1424,7 @@ SHORT  a practice flail~
 DESCR 
 A wooden practice flail lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon flail 6 8 whip 0
+TYPE   weapon flail 7 8 smash 0
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
@@ -1442,7 +1442,7 @@ SHORT  a practice mace~
 DESCR 
 A wooden practice mace lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon mace 6 8 pound 0
+TYPE   weapon mace 7 8 pound 0
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
@@ -1460,11 +1460,11 @@ SHORT  a practice staff~
 DESCR 
 A wooden practice staff lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon staff 6 8 pound 0
+TYPE   weapon staff 7 8 pound 0
 EXTRA  1 3 0 295168
 WEAR   AN
 LEVEL  51
-WEIGHT 15
+WEIGHT 13
 COST   100
 COND   100
 Affect O 19 5 0
@@ -1478,7 +1478,7 @@ SHORT  a practice axe~
 DESCR 
 A wooden practice axe lies here, obviously intended for a newbie.~
 MAT    wood~
-TYPE   weapon axe 6 8 cleave 0
+TYPE   weapon axe 7 8 cleave 0
 EXTRA  1 2 0 262400
 WEAR   AN
 LEVEL  51
@@ -1496,13 +1496,15 @@ SHORT  a two-handed practice sword~
 DESCR 
 A two-handed practice sword lies here.~
 MAT    wood~
-TYPE   weapon sword 8 6 slice F
+TYPE   weapon sword 7 8 slice F
 EXTRA  1 1 0 262144
 WEAR   AN
 LEVEL  51
 WEIGHT 15
 COST   100
 COND   100
+Affect O 18 5 0
+Affect O 19 5 0
 End
 
 #3760
@@ -1511,7 +1513,7 @@ SHORT  a practice shield~
 DESCR 
 A practice shield lies here.~
 MAT    wood~
-TYPE   armor ABFG ABDG BCEFG BCDEF 0
+TYPE   armor CFG ABDG BCEFG BCDEF 0
 EXTRA  0 0
 WEAR   AJ
 LEVEL  51
@@ -3232,7 +3234,7 @@ S
 
 #SHOPS
 3717 1 15 17 19 0 100 100 0 23
-3799 0 0 0 0 0 100 100 0 23
+3799 5 18 0 0 0 100 100 0 23
 0
 
 
