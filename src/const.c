@@ -2361,7 +2361,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 
     {
 	"web",
-	{ 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53 },
+	{ 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 	spell_web,		TAR_CHAR_OFFENSIVE,		POS_FIGHTING,
 	NULL,			SLOT(560),	20,	12,
