@@ -9918,6 +9918,10 @@ bool check_unarmed_defense( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
         return FALSE;
     }
 
+    if (chance > 90)
+        chance = 90;
+
+
     attack=get_dam_message(ch,dt);
 
     sprintf(buf1,"You deftly avoid $n's %s.",attack);
