@@ -1021,7 +1021,7 @@ void one_hit_new( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool specials, bool 
 
     if(get_skill(victim,gsn_backfist) !=0 && specials==TRUE)
     {
-		if (number_percent() < (get_skill(victim,gsn_backfist)/4) && count_hands(ch) < 2)
+		if (number_percent() < (get_skill(victim,gsn_backfist)/4) && count_hands(victim) < 2)
 		{
 			act("$n steps in quickly to strike $N with a quick backfist!",victim,0,ch,TO_NOTVICT);
 			act("You step in quickly to strike $N with a quick backfist!",victim,0,ch,TO_CHAR);
