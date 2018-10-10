@@ -1348,8 +1348,8 @@ LEVEL  60
 WEIGHT 15
 COST   0
 COND   100
-Affect O 24 10 0
 Affect A 0 0 d
+Affect O 24 10 0
 End
 
 #28503
@@ -1410,8 +1410,8 @@ LEVEL  0
 WEIGHT 28
 COST   0
 COND   100
-Affect O 19 2 0
 Affect O 13 10 0
+Affect O 19 2 0
 End
 
 #28507
@@ -1427,8 +1427,8 @@ LEVEL  0
 WEIGHT 13
 COST   0
 COND   100
-Affect O 19 3 0
 Affect O 18 1 0
+Affect O 19 3 0
 End
 
 #28508
@@ -1474,8 +1474,8 @@ LEVEL  0
 WEIGHT 7
 COST   0
 COND   100
-Affect O 24 -7 0
 Affect O 2 -3 0
+Affect O 24 -7 0
 LIMIT  15
 End
 
@@ -1492,10 +1492,10 @@ LEVEL  51
 WEIGHT 7
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 24 -5 0
-Affect O 1 -2 0
 Affect R 0 0 LN
+Affect O 1 -2 0
+Affect O 24 -5 0
+Affect O 19 2 0
 LIMIT  4
 End
 
@@ -1512,9 +1512,9 @@ LEVEL  30
 WEIGHT 15
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 20 -2 0
 Affect O 0 0 0
+Affect O 20 -2 0
+Affect O 19 2 0
 End
 
 #28513
@@ -1530,9 +1530,9 @@ LEVEL  0
 WEIGHT 7
 COST   0
 COND   100
-Affect O 5 -1 0
-Affect A 0 0 T
 Affect O 24 -3 0
+Affect A 0 0 T
+Affect O 5 -1 0
 LIMIT  5
 End
 
@@ -1549,8 +1549,8 @@ LEVEL  52
 WEIGHT 9
 COST   0
 COND   100
-Affect O 24 -4 0
 Affect A 0 0 R
+Affect O 24 -4 0
 EDESC robe~
 Just looking at this robe makes you tired.~
 End
@@ -1590,13 +1590,13 @@ NAME   potion teal~
 SHORT  a teal potion~
 DESCR 
 A teal potion is frothing here.~
-MAT    liquid~
+MAT    glass~
 TYPE   potion 65 'cure poison' 'cure disease' 'cure blindness' 'heal'
 EXTRA  1 1 0 1
 WEAR   A
-LEVEL  0
+LEVEL  10
 WEIGHT 2
-COST   0
+COST   2500
 COND   100
 End
 
@@ -1611,7 +1611,7 @@ EXTRA  1 1 0 2
 WEAR   A
 LEVEL  0
 WEIGHT 2
-COST   0
+COST   10000
 COND   100
 End
 
@@ -1628,9 +1628,9 @@ LEVEL  60
 WEIGHT 6
 COST   8000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
 Affect A 0 0 a
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  10
 End
 
@@ -1647,9 +1647,9 @@ LEVEL  0
 WEIGHT 13
 COST   0
 COND   100
-Affect O 24 -5 0
-Affect O 19 3 0
 Affect O 13 -100 0
+Affect O 19 3 0
+Affect O 24 -5 0
 End
 
 #28521
@@ -1658,16 +1658,16 @@ SHORT  the bracer of Diplomacy~
 DESCR 
 A fine bracer lies here.~
 MAT    cloth~
-TYPE   armor ADE BF ADE EF 0
+TYPE   armor BDE BF BDE EF 0
 EXTRA  1 3 0 524291
 WEAR   AM
 LEVEL  51
 WEIGHT 4
 COST   0
 COND   100
-Affect O 19 1 0
-Affect O 3 4 0
 Affect I 0 0 BP
+Affect O 3 4 0
+Affect O 19 1 0
 LIMIT  2
 End
 
@@ -1681,7 +1681,7 @@ TYPE   weapon staff 10 5 smash C
 EXTRA  0 0
 WEAR   AN
 LEVEL  51
-WEIGHT 15
+WEIGHT 13
 COST   0
 COND   100
 Affect A 0 0 E
@@ -1693,17 +1693,17 @@ SHORT  a shriveled head strung from a chain~
 DESCR 
 A shriveled head is herestrung from a small chain.~
 MAT    flesh~
-TYPE   armor DE ABF CE E 0
+TYPE   armor DE CF CE E 0
 EXTRA  1 8 0 1579666
 WEAR   AC
 LEVEL  51
 WEIGHT 8
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 4 -1 0
 Affect O 24 -3 0
+Affect O 4 -1 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  18
 End
 
@@ -1720,8 +1720,8 @@ LEVEL  0
 WEIGHT 3
 COST   0
 COND   100
-Affect O 19 8 0
 Affect O 2 -4 0
+Affect O 19 8 0
 LIMIT  8
 End
 
@@ -1738,9 +1738,9 @@ LEVEL  51
 WEIGHT 39
 COST   5000
 COND   100
-Affect R 0 0 I
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
+Affect R 0 0 I
 LIMIT  4
 End
 
@@ -1757,9 +1757,9 @@ LEVEL  40
 WEIGHT 2
 COST   0
 COND   100
-Affect O 2 6 0
-Affect O 14 100 0
 Affect O 12 50 0
+Affect O 14 100 0
+Affect O 2 6 0
 LIMIT  2
 End
 
@@ -1776,10 +1776,10 @@ LEVEL  40
 WEIGHT 7
 COST   11000
 COND   100
-Affect O 19 -2 0
-Affect O 12 200 0
-Affect O 3 3 0
 Affect O 4 2 0
+Affect O 3 3 0
+Affect O 12 200 0
+Affect O 19 -2 0
 LIMIT  2
 End
 
@@ -1796,10 +1796,10 @@ LEVEL  54
 WEIGHT 5
 COST   5400
 COND   100
-Affect O 3 -3 0
-Affect O 24 -3 0
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
+Affect O 24 -3 0
+Affect O 3 -3 0
 LIMIT  6
 End
 
@@ -1816,9 +1816,9 @@ LEVEL  0
 WEIGHT 20
 COST   0
 COND   100
-Affect O 13 100 0
-Affect O 17 -5 0
 Affect O 24 -5 0
+Affect O 17 -5 0
+Affect O 13 100 0
 LIMIT  4
 End
 
@@ -1828,17 +1828,17 @@ SHORT  a medallion of the Royal Guard~
 DESCR 
 A shiny medallion is lying here.~
 MAT    silver~
-TYPE   armor EF ABF EF BCDE 0
+TYPE   armor EF CF EF BCDE 0
 EXTRA  1 5 0 1053699
 WEAR   AC
 LEVEL  51
 WEIGHT 13
 COST   1200
 COND   100
-Affect O 5 2 0
-Affect O 13 25 0
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
+Affect O 13 25 0
+Affect O 5 2 0
 LIMIT  6
 End
 
@@ -1848,16 +1848,16 @@ SHORT  a royal gown~
 DESCR 
 A silver gown is piled here.~
 MAT    cloth~
-TYPE   armor 0 0 0 0 0
+TYPE   armor BDE ABF BDE AEF 0
 EXTRA  1 2 0 524289
 WEAR   AK
 LEVEL  45
-WEIGHT 5
+WEIGHT 7
 COST   0
 COND   100
-Affect O 5 4 0
-Affect O 2 2 0
 Affect O 19 5 0
+Affect O 2 2 0
+Affect O 5 4 0
 LIMIT  50
 End
 
@@ -1874,10 +1874,10 @@ LEVEL  0
 WEIGHT 24
 COST   0
 COND   100
-Affect O 19 12 0
-Affect O 18 2 0
-Affect O 1 -3 0
 Affect O 17 -10 0
+Affect O 1 -3 0
+Affect O 18 2 0
+Affect O 19 12 0
 LIMIT  3
 End
 
@@ -1894,9 +1894,9 @@ LEVEL  52
 WEIGHT 25
 COST   9000
 COND   100
-Affect O 19 -10 0
-Affect O 13 50 0
 Affect O 12 200 0
+Affect O 13 50 0
+Affect O 19 -10 0
 LIMIT  3
 End
 
@@ -1913,12 +1913,12 @@ LEVEL  60
 WEIGHT 16
 COST   20000
 COND   100
-Affect O 20 -10 0
-Affect O 14 50 0
-Affect O 13 50 0
-Affect O 12 50 0
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
+Affect O 12 50 0
+Affect O 13 50 0
+Affect O 14 50 0
+Affect O 20 -10 0
 LIMIT  1
 End
 
@@ -6136,6 +6136,7 @@ S
 
 
 #SHOPS
+28511 10 26 0 0 0 100 100 0 23
 0
 
 
