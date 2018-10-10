@@ -187,7 +187,7 @@ void do_pktrack(CHAR_DATA *ch, char *argument)
 
 void login_log(CHAR_DATA *ch, int type)
 {
-	char vbuf[MSL];
+	char vbuf[MSL] = "0";
 
 	if (ch->desc == NULL) return;
 
@@ -200,7 +200,7 @@ void login_log(CHAR_DATA *ch, int type)
 		type == LTYPE_AUTO ? ch->desc->ip : ch->desc->ip,
 		type == LTYPE_AUTO ? ch->desc->host : ch->desc->host,
 		type,
-		ch->in_room == NULL ? vbuf : vbuf
+		vbuf
 	);
 }
 
