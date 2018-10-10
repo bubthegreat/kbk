@@ -15,10 +15,3 @@ RUN apt-get -y install mysql-client
 
 # Make gcc-4.8 our default gcc
 RUN ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
-
-ADD . /opt/kbk
-RUN cd /opt/kbk/src && make -j8
-
-WORKDIR /opt/kbk/area
-
-EXPOSE 8989

@@ -1964,7 +1964,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 	spell_gate,		TAR_IGNORE,			POS_FIGHTING,
 	NULL,			SLOT(83),	80,	12,
-	"",			"!Gate!",		"", CMD_COMMUNE
+	"",			"!Gate!",		"", CMD_BOTH
     },
 
     {
