@@ -18,11 +18,21 @@ services:
       - kbk_network
     volumes:
       - sql-data:/var/lib/mysql
-  kbk_service:
+  kbk_build:
     build:
         context: ./
         dockerfile: Dockerfile
     image: kbk_service_image
+    command: >
+        sh -c "cd /opt/kbk/src &&
+               make"
+    volumes:
+        - ./:/opt/kbk/
+  kbk_service:
+    image: kbk_service_image
+    depends_on:
+        - kbk_sql
+        - kbk_build
     restart: always
     ports:
       - "8989:8989"
@@ -30,14 +40,14 @@ services:
       - kbk_network
     links:
       - kbk_sql
-    command: ./startup
+    command: >
+        sh -c "cd /opt/kbk/area &&
+               ./startup"
     volumes:
-        - ./player:/opt/kbk/player
-        - ./log:/opt/kbk/log
-        - ./area:/opt/kbk/area
+        - ./:/opt/kbk/
 networks:
   kbk_network:
     driver: "bridge"
-    
+
 volumes:
     sql-data:
