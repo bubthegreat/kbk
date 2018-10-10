@@ -3092,7 +3092,9 @@ bool check_dodge( CHAR_DATA *attacker, CHAR_DATA *defender, int dt )
     chance+=dex-dexa;
     chance+=(attacker->size-defender->size)*5;
 
-    if((fam = get_skill(defender,gsn_wilderness_fam) > 0) && isInWilderness(defender))
+    fam = get_skill(defender,gsn_wilderness_fam);
+
+    if(( fam > 0) && isInWilderness(defender))
 	chance += fam/2;
 
     /* imperial training */
