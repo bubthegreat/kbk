@@ -340,7 +340,7 @@ PARTS ABCDEFGHIJKLQUVWX
 SIZE  large
 DMOD  100
 AMOD  0
-QUEST 1
+QUEST 20
 End
 
 #27008
@@ -1341,10 +1341,10 @@ LEVEL  60
 WEIGHT 10
 COST   20000
 COND   100
-Affect O 14 25 0
-Affect O 13 25 0
-Affect O 12 25 0
 Affect O 19 10 0
+Affect O 12 25 0
+Affect O 13 25 0
+Affect O 14 25 0
 LIMIT  2
 End
 
@@ -1361,11 +1361,11 @@ LEVEL  60
 WEIGHT 8
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
-Affect O 20 -6 0
-Affect O 1 -5 0
 Affect A 0 0 U
+Affect O 1 -5 0
+Affect O 20 -6 0
+Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  2
 End
 
@@ -1382,11 +1382,11 @@ LEVEL  60
 WEIGHT 4
 COST   20000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 20 -6 0
-Affect O 2 -5 0
 Affect A 0 0 Q
+Affect O 2 -5 0
+Affect O 20 -6 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1403,11 +1403,11 @@ LEVEL  60
 WEIGHT 3
 COST   20000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 20 -6 0
-Affect O 1 -5 0
 Affect A 0 0 D
+Affect O 1 -5 0
+Affect O 20 -6 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1424,11 +1424,11 @@ LEVEL  60
 WEIGHT 3
 COST   20000
 COND   100
-Affect O 20 -6 0
-Affect O 2 -5 0
-Affect A 0 0 F
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect A 0 0 F
+Affect O 2 -5 0
+Affect O 20 -6 0
 LIMIT  2
 End
 
@@ -1445,10 +1445,10 @@ LEVEL  60
 WEIGHT 16
 COST   5000
 COND   100
-Affect O 18 10 0
-Affect O 19 5 0
-Affect O 13 10 0
 Affect O 12 -10 0
+Affect O 13 10 0
+Affect O 19 5 0
+Affect O 18 10 0
 LIMIT  3
 End
 
@@ -1465,11 +1465,11 @@ LEVEL  60
 WEIGHT 2
 COST   20000
 COND   100
-Affect O 20 -6 0
-Affect O 1 -3 0
-Affect A 0 0 NO
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
+Affect A 0 0 NO
+Affect O 1 -3 0
+Affect O 20 -6 0
 LIMIT  3
 End
 
@@ -1486,11 +1486,11 @@ LEVEL  60
 WEIGHT 2
 COST   20000
 COND   100
-Affect O 20 -6 0
-Affect O 2 -3 0
-Affect A 0 0 NO
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
+Affect A 0 0 NO
+Affect O 2 -3 0
+Affect O 20 -6 0
 LIMIT  3
 End
 
@@ -1507,11 +1507,11 @@ LEVEL  60
 WEIGHT 16
 COST   20000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 20 -6 0
-Affect O 2 -5 0
 Affect A 0 0 P
+Affect O 2 -5 0
+Affect O 20 -6 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1528,11 +1528,11 @@ LEVEL  60
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
-Affect O 20 -6 0
-Affect O 1 -5 0
 Affect A 0 0 T
+Affect O 1 -5 0
+Affect O 20 -6 0
+Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  3
 End
 
@@ -1549,11 +1549,11 @@ LEVEL  60
 WEIGHT 8
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
-Affect O 20 -6 0
-Affect O 1 -5 0
 Affect A 0 0 B
+Affect O 1 -5 0
+Affect O 20 -6 0
+Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  3
 End
 
@@ -1567,13 +1567,13 @@ TYPE   weapon spear 10 6 wrath F
 EXTRA  1 7 0 18354832
 WEAR   AN
 LEVEL  60
-WEIGHT 41
+WEIGHT 33
 COST   20000
 COND   100
-Affect O 18 9 0
-Affect O 19 9 0
-Affect O 1 2 0
 Affect O 2 3 0
+Affect O 1 2 0
+Affect O 19 9 0
+Affect O 18 9 0
 LIMIT  3
 End
 
@@ -1587,15 +1587,15 @@ TYPE   armor CDEF ABDEG BEF DF 0
 EXTRA  1 5 0 18350608
 WEAR   AD
 LEVEL  60
-WEIGHT 20
+WEIGHT 21
 COST   20000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 20 -6 0
-Affect O 2 -5 0
-Affect O 1 -5 0
 Affect A 0 0 PQ
+Affect O 1 -5 0
+Affect O 2 -5 0
+Affect O 20 -6 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1612,11 +1612,11 @@ LEVEL  60
 WEIGHT 21
 COST   20000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 2 -5 0
-Affect O 1 -5 0
 Affect A 0 0 DF
+Affect O 1 -5 0
+Affect O 2 -5 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1633,12 +1633,12 @@ LEVEL  60
 WEIGHT 5
 COST   20000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 20 -6 0
-Affect O 2 -2 0
-Affect O 1 -2 0
 Affect A 0 0 I
+Affect O 1 -2 0
+Affect O 2 -2 0
+Affect O 20 -6 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1655,11 +1655,11 @@ LEVEL  60
 WEIGHT 16
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
-Affect O 20 -6 0
-Affect O 1 -5 0
 Affect A 0 0 d
+Affect O 1 -5 0
+Affect O 20 -6 0
+Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  3
 End
 
@@ -1706,9 +1706,9 @@ LEVEL  60
 WEIGHT 19
 COST   20000
 COND   100
-Affect O 3 3 0
-Affect O 5 2 0
 Affect O 19 8 0
+Affect O 5 2 0
+Affect O 3 3 0
 LIMIT  3
 End
 
@@ -1725,11 +1725,11 @@ LEVEL  60
 WEIGHT 14
 COST   20000
 COND   100
-Affect O 4 2 0
-Affect O 2 2 0
-Affect O 12 75 0
-Affect O 13 75 0
 Affect O 20 -5 0
+Affect O 13 75 0
+Affect O 12 75 0
+Affect O 2 2 0
+Affect O 4 2 0
 LIMIT  3
 End
 
@@ -1746,10 +1746,10 @@ LEVEL  1
 WEIGHT 25
 COST   1000
 COND   100
-Affect O 12 35 0
-Affect O 14 35 0
-Affect O 17 -8 0
 Affect O 20 -5 0
+Affect O 17 -8 0
+Affect O 14 35 0
+Affect O 12 35 0
 LIMIT  3
 End
 
@@ -1766,9 +1766,9 @@ LEVEL  50
 WEIGHT 3
 COST   20000
 COND   100
-Affect O 3 3 0
-Affect O 18 2 0
 Affect O 20 -9 0
+Affect O 18 2 0
+Affect O 3 3 0
 LIMIT  3
 End
 
@@ -1785,10 +1785,10 @@ LEVEL  50
 WEIGHT 15
 COST   20000
 COND   100
-Affect O 4 1 0
-Affect O 5 2 0
-Affect O 6 1 0
 Affect O 19 3 0
+Affect O 6 1 0
+Affect O 5 2 0
+Affect O 4 1 0
 LIMIT  3
 End
 
@@ -1805,11 +1805,11 @@ LEVEL  50
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 2 1 0
-Affect O 13 30 0
-Affect O 18 1 0
-Affect O 19 1 0
 Affect O 20 -6 0
+Affect O 19 1 0
+Affect O 18 1 0
+Affect O 13 30 0
+Affect O 2 1 0
 LIMIT  3
 End
 
@@ -1826,8 +1826,8 @@ LEVEL  50
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
 LIMIT  3
 End
 
@@ -1844,10 +1844,10 @@ LEVEL  50
 WEIGHT 6
 COST   20000
 COND   100
-Affect O 12 40 0
-Affect O 13 40 0
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
+Affect O 13 40 0
+Affect O 12 40 0
 LIMIT  3
 End
 
@@ -1864,11 +1864,11 @@ LEVEL  55
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 1 1 0
-Affect O 2 1 0
-Affect O 14 100 0
-Affect O 18 3 0
 Affect O 20 -5 0
+Affect O 18 3 0
+Affect O 14 100 0
+Affect O 2 1 0
+Affect O 1 1 0
 LIMIT  3
 End
 
@@ -1885,10 +1885,10 @@ LEVEL  55
 WEIGHT 7
 COST   20000
 COND   100
-Affect O 2 2 0
-Affect O 12 25 0
-Affect O 13 25 0
 Affect O 19 2 0
+Affect O 13 25 0
+Affect O 12 25 0
+Affect O 2 2 0
 LIMIT  3
 End
 
@@ -1905,13 +1905,13 @@ LEVEL  55
 WEIGHT 7
 COST   20000
 COND   100
-Affect O 1 1 0
-Affect O 2 1 0
-Affect O 3 1 0
-Affect O 4 1 0
-Affect O 5 1 0
-Affect O 12 10 0
 Affect O 13 10 0
+Affect O 12 10 0
+Affect O 5 1 0
+Affect O 4 1 0
+Affect O 3 1 0
+Affect O 2 1 0
+Affect O 1 1 0
 LIMIT  3
 End
 
@@ -1928,9 +1928,9 @@ LEVEL  55
 WEIGHT 15
 COST   20000
 COND   100
-Affect O 13 100 0
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
+Affect O 13 100 0
 LIMIT  3
 End
 
@@ -1947,9 +1947,9 @@ LEVEL  45
 WEIGHT 5
 COST   10000
 COND   100
-Affect O 18 3 0
-Affect O 19 1 0
 Affect O 20 -10 0
+Affect O 19 1 0
+Affect O 18 3 0
 LIMIT  6
 End
 
@@ -1966,9 +1966,9 @@ LEVEL  45
 WEIGHT 17
 COST   10000
 COND   100
-Affect O 3 2 0
-Affect O 17 -5 0
 Affect O 18 2 0
+Affect O 17 -5 0
+Affect O 3 2 0
 LIMIT  6
 End
 
@@ -1985,8 +1985,8 @@ LEVEL  45
 WEIGHT 13
 COST   10000
 COND   100
-Affect O 18 2 0
 Affect O 19 3 0
+Affect O 18 2 0
 LIMIT  6
 End
 
@@ -2003,10 +2003,10 @@ LEVEL  55
 WEIGHT 5
 COST   20000
 COND   100
-Affect O 2 3 0
-Affect O 18 2 0
-Affect O 19 2 0
 Affect O 20 -7 0
+Affect O 19 2 0
+Affect O 18 2 0
+Affect O 2 3 0
 LIMIT  3
 End
 
@@ -2023,9 +2023,9 @@ LEVEL  55
 WEIGHT 8
 COST   20000
 COND   100
-Affect O 4 3 0
-Affect O 12 50 0
 Affect O 19 3 0
+Affect O 12 50 0
+Affect O 4 3 0
 LIMIT  3
 End
 
@@ -2042,10 +2042,10 @@ LEVEL  55
 WEIGHT 9
 COST   20000
 COND   100
-Affect O 13 65 0
-Affect O 17 -3 0
-Affect O 18 4 0
 Affect O 19 2 0
+Affect O 18 4 0
+Affect O 17 -3 0
+Affect O 13 65 0
 LIMIT  3
 End
 
@@ -3988,14 +3988,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 1
-~
-~
-0 0 27080
 DOOR 2
 ~
 ~
 0 0 27085
+DOOR 1
+~
+~
+0 0 27080
 DOOR 3
 ~
 ~
@@ -4015,14 +4015,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 2
-~
-~
-0 0 27086
 DOOR 1
 ~
 ~
 0 0 27081
+DOOR 2
+~
+~
+0 0 27086
 DOOR 3
 ~
 ~
@@ -4065,14 +4065,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 0
-~
-~
-0 0 27080
 DOOR 2
 ~
 ~
 0 0 27089
+DOOR 0
+~
+~
+0 0 27080
 DOOR 3
 ~
 ~
@@ -4092,22 +4092,22 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 1
-~
-~
-0 0 27084
-DOOR 2
-~
-~
-0 0 27078
-DOOR 0
-~
-~
-0 0 27081
 DOOR 3
 ~
 ~
 0 0 27086
+DOOR 1
+~
+~
+0 0 27084
+DOOR 0
+~
+~
+0 0 27081
+DOOR 2
+~
+~
+0 0 27078
 End
 
 #27086
@@ -4127,18 +4127,18 @@ DOOR 1
 ~
 ~
 0 0 27085
-DOOR 3
-~
-~
-0 0 27087
-DOOR 2
-~
-~
-0 0 27079
 DOOR 0
 ~
 ~
 0 0 27082
+DOOR 2
+~
+~
+0 0 27079
+DOOR 3
+~
+~
+0 0 27087
 End
 
 #27087
@@ -4154,14 +4154,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 2
-~
-~
-0 0 27090
 DOOR 1
 ~
 ~
 0 0 27086
+DOOR 2
+~
+~
+0 0 27090
 DOOR 0
 ~
 ~
@@ -4198,14 +4198,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 0
-~
-~
-0 0 27084
 DOOR 2
 ~
 ~
 0 0 27092
+DOOR 0
+~
+~
+0 0 27084
 DOOR 1
 ~
 ~
@@ -4325,10 +4325,6 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 2
-~
-~
-0 0 27098
 DOOR 0
 ~
 ~
@@ -4337,6 +4333,10 @@ DOOR 1
 ~
 ~
 0 0 27093
+DOOR 2
+~
+~
+0 0 27098
 DOOR 3
 ~
 ~
@@ -4356,14 +4356,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 0
-~
-~
-0 0 27090
 DOOR 2
 ~
 ~
 0 0 27099
+DOOR 0
+~
+~
+0 0 27090
 DOOR 1
 ~
 ~
@@ -4406,14 +4406,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 1
-~
-~
-0 0 27096
 DOOR 0
 ~
 ~
 0 0 27093
+DOOR 1
+~
+~
+0 0 27096
 DOOR 3
 ~
 ~
@@ -4460,14 +4460,14 @@ to navigate.
 ~
 FLAGS  8200
 Sect   0
-DOOR 1
-~
-~
-0 0 27098
 DOOR 0
 ~
 ~
 0 0 27095
+DOOR 1
+~
+~
+0 0 27098
 End
 
 #0
