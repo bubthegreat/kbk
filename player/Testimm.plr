@@ -7,7 +7,7 @@ Prom <%hhp %mm %vmv> ~
 Race human~
 Sex  1
 Cla  0
-Levl 51
+Levl 60
 Sec  0
 Plyd 25
 Agemod 7
@@ -402,9 +402,11 @@ Gr 'class basics'
 LogonTime Wed Oct 10 02:23:27 2018~
 TimePlayed 0~
 History Added by AUTO (Wed Oct 10 02:23:23 2018 at 0 hours)
-AUTO: Inducted into  by Nanny.
 
-~
+AUTO: Inducted into  by Nanny.
+
+
+~
 TrackAObj 0~
 TrackLObj 0~
 FingEQ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
