@@ -10227,6 +10227,7 @@ void spell_unholy_bless( int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		af_next = af_check->next;
 	    free_affect(af_check);
 	}
+	obj->affected = NULL;
 	obj->enchanted = TRUE;
 	
 	init_affect(&af);

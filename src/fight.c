@@ -1021,7 +1021,7 @@ void one_hit_new( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool specials, bool 
 
     if(get_skill(victim,gsn_backfist) !=0 && specials==TRUE)
     {
-		if (number_percent() < (get_skill(victim,gsn_backfist)/4) && count_hands(ch) < 2)
+		if (number_percent() < (get_skill(victim,gsn_backfist)/4) && count_hands(victim) < 2)
 		{
 			act("$n steps in quickly to strike $N with a quick backfist!",victim,0,ch,TO_NOTVICT);
 			act("You step in quickly to strike $N with a quick backfist!",victim,0,ch,TO_CHAR);
@@ -9917,6 +9917,10 @@ bool check_unarmed_defense( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
         check_improve(victim,gsn_unarmed_defense,FALSE,5);
         return FALSE;
     }
+
+    if (chance > 90)
+        chance = 90;
+
 
     attack=get_dam_message(ch,dt);
 
