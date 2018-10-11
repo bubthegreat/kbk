@@ -558,6 +558,7 @@ void do_vanish(CHAR_DATA *ch,char *argument)
 {
     ROOM_INDEX_DATA *pRoomIndex;
     int chance;
+    CHAR_DATA *victim;
 
     if ( (chance = get_skill(ch,gsn_vanish)) == 0
 	|| ch->level < skill_table[gsn_vanish].skill_level[ch->class])
@@ -571,13 +572,13 @@ void do_vanish(CHAR_DATA *ch,char *argument)
 	send_to_char("You cannot vanish again so soon.\n\r",ch);
 	return;
     }
-
+/*
     if(ch->position==POS_FIGHTING)
     {
 	send_to_char("You cannot vanish while fighting.\n\r",ch);
 	return;
     }
-
+*/
     if (ch->mana < 20)
     {
     	send_to_char("You don't have the mana.",ch);
@@ -589,6 +590,7 @@ void do_vanish(CHAR_DATA *ch,char *argument)
     if (ch->position==POS_FIGHTING) 
     {
 	chance -= 50;
+	victim = ch->fighting;
     }
 
     if (number_percent() > chance)
@@ -597,6 +599,7 @@ void do_vanish(CHAR_DATA *ch,char *argument)
 	act("$n attempts to slide into the shadows but fails.",ch,0,0,TO_ROOM);
 	check_improve(ch,gsn_vanish,FALSE,2);
     	ch->mana -= 10;
+        WAIT_STATE(ch,PULSE_VIOLENCE*2);
 	return;
     }
 
@@ -605,6 +608,7 @@ void do_vanish(CHAR_DATA *ch,char *argument)
 	send_to_char("You attempt to vanish without trace but fail.\n\r",ch);
 	act("$n attempts to slide into the shadows but fails.",ch,0,0,TO_ROOM);
     	ch->mana -= 10;
+        WAIT_STATE(ch,PULSE_VIOLENCE*2);
 	return;
     }
 
@@ -630,8 +634,27 @@ void do_vanish(CHAR_DATA *ch,char *argument)
     char_to_room(ch,pRoomIndex);
     act("$n appears from the shadows.",ch,0,0,TO_ROOM);
     do_look(ch,"auto");
+    if (ch->position==POS_FIGHTING)
+    {
+        stop_fighting( ch, FALSE );
+        stop_fighting( victim, FALSE );
+    }
+
+    AFFECT_DATA af;
+    init_affect(&af);
+    af.where                = TO_AFFECTS;
+    af.aftype               = AFT_SKILL;
+    af.type                 = gsn_vanish;
+    af.duration             = 0;
+    af.level                = ch->level;
+    affect_to_char(ch,&af);
+
+
+    WAIT_STATE(ch,PULSE_VIOLENCE*2);
+
     return;
 }
+
 
 void do_endure(CHAR_DATA *ch,char *argument)
 {
