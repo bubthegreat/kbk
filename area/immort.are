@@ -606,37 +606,192 @@ NAME   Newbie Map~
 SHORT  a newbie map written on parchment~
 DESCR 
 A newbie map lies here.~
-MAT    unknown~
-TYPE   map 0 0 0 0 0
-EXTRA  1 3 0 17858560
-WEAR   A
+MAT    wood~
+TYPE   furniture 0 0 0 0 0
+EXTRA  0 0
+WEAR   0
 LEVEL  0
 WEIGHT 9
 COST   0
 COND   100
-EDESC map~
-To Practice: n,w,n,w 
-To Train: s,3e,s 
-Strange Mansion: 21e,8n,w,n 
-Riven Rock Canyon: 12e,3n,w,2n,e,n,e,2n,e,2n 
-Strange Carnival: s,2e,2s,8w,s,w,2e,7n 
- Nightfall: 3e,4n,2w,7n,6e,4s,3e,d,s,d,2s,e,3s,e,2s,2e,2s,e,2s,2e,2s,3e,2s,u,2e,2n,e,n,e,4u,2e,  2d,e 
-Nightfall Keep: 
-3e,4n,2w,7n,6e,4s,3e,d,s,d,2s,e,3s,e,2s,2e,2s,e,2s,2e,2s,3e,2s,u,2e,2n,e,n, 
-4u,2e,2d,10e,s,2e,3u,e,3d,2e,s 
- Ramadhn: 6e,n,w,2n,3w,7n,3e,17n
- Dark Forest: 3e,4n,2w,13n 
-The Valley Inn: 4e,3n,2w 
-Lich Tower: n,d 
-The Hobo Train Yard: 4e,3n,2w,5n,w,2n,2e 
- Mausoleum: 40e,n,6e,2n,2e,n,e,d,2s 
-Tar Valon: 6e,n,w,2n,3w 
-The Lost Prison: 21e,12n 
- Battlefield: 3e,4n,2w,4n,w,5n,2w 
-Southern Swamps: 40e,n,6e, all south 
-Castle of Giants: 6e,4s,2e,s,2e,d,5n,2w,6n 
-Emerald Forest: 6s,w,s,2w,2s,e,s,w,2s,e,3s,w,s,w,u 
-Varggin Shih: n,d,3w,3s,d,2s,d,n,u,w,u,n,u,2n,e,d,n,d,2n
+EDESC Map~
+Hello Adventurers, 
+
+This map will show you directions to the Cabals of Thera, Towns and Cities you might 
+take refuge in and also different Areas you can explore. Utilize this tool. 
+EDESC Areas four~
+***Starting point is Market Square in Midgaard***
+[Areas Four]
+- The Hobo Train Yard
+{3e4n2w8ne}
+- The Lost Prison
+{20ene10n}
+- The Minotaur Maze
+{6sd}
+- The Naiadian Sea
+{4s2e3s2w3swswn}
+- The Red Tower
+{5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nwn2w}
+- The Southern Swamps
+{36en10e3s}
+- The Wild Woods
+{9en}
+- Underdark
+{6e4s2es2edws2d}
+- Valley of the Elves
+{3e4n2w6nwn}
+- Varggin Shih
+{nd2wsw2sd2sd}
+- Wyvern's Tower
+{6e4s2es2ede}
+
+EDESC Areas three~
+***Starting point is Market Square in Midgaard***
+[Areas Three]
+- Rakshasa Tower
+{5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nen2ene2n}
+- Rivenrock Canyon
+{12en}
+- Ruins of Drannor
+{5wnwn3w3nw3n7w8n2e3n4es5es2e2s}
+- Sands of Sorrow
+{s2e2s3e}
+- Shadowlands
+{3e4n2w4ne2n4e4s3edsd}
+- Snow Caves
+{3e4n2w12nwnene4nwnenw4n}
+- Strange Carnival
+{5w3s3wsds2esese2s2w}
+- Strange Mansion
+{20ene7nw}
+- Sywilm Woods
+{4w}
+- The Blue Tower
+{5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nwn2e}
+- The Cave of Shadows
+{36en6e3n3e14nws}
+- The Dale
+{5wnwnw}
+- The Dragon Tower
+{5w3s5w2s2wn2wsw3n2ew}
+- The Green Tower
+{5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nw3n}
+
+EDESC Areas two~
+***Starting point is Market Square in Midgaard***
+[Areas Two]
+- Elemental Temple
+{5w3s5w2s2wn2wsw2nw}
+- Emerald Forest
+{4s2e3s2w3swsw}
+- Evil' Abode
+{36enen}
+- Forest of Myth Drannor
+{5wnwn3w3nw3n7w8n2e3n2e}
+- Forgotten Isle
+{37esws}
+- Galaxy
+{5w3s5w2s2wn2wsw3newe}
+- Lich Tower
+{nd}
+- Hell
+{3e4n2w12nwnene4nwnenw3n8ed}
+- High Tower
+{5w3s5w2s2wn2wsw2n}
+- Latenburrow Downs
+{5wnwnen}
+- Mad Man
+{6e9n10wn}
+- Mahn-Tor
+{6e4s2es2ed3nes}
+- Mausoleum
+{36en6e3n5ened}
+- Neraka
+{5wnwn3w3nwn2wswn3w}
+
+EDESC Areas one~
+***Starting point is Market Square in Midgaard***
+[Areas One]
+- Arkham Swamps
+{36en15e}
+- Arkham Legion
+{36en17es2en6e2sen3es2e}
+- Beholder Corps
+{5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nw3n2wnwn}
+- Blight
+{6e3n}
+- Castle of Giants
+{6e4s2es2ed5n2wn}
+- Castle of Trails
+{5w3s5w2s2w2n}
+- Celestial Area
+{5wnwn3w3nwn2wswn3w2n2wu}
+- Charnag Che'el
+{6e4s2es2edwsdw}
+- Crusader Battlefield
+{3e4n2w6nw2n2w}
+- Dargaard Keep
+{3e4n2w12nwnene4nwnenw3n}
+- Dark Forest
+{3e4n2w7n}
+- Dead Forest
+{6e4s2eses}
+- Dunes of Aarid'dorr
+{6e4s2es2ed2se}
+- Dying Forest
+{6e4s2ese3se2ses2enen3e3s2w4s2e4s}
+
+EDESC Towns Cities Villages~
+***Starting point is Market Square in Midgaard***
+[Towns]
+- Arkham
+{36e}
+- Drow Enclave
+{5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nw7nd}
+- Giant Village
+{36en10e7s4w3s3e3se3s2e3s2e4sw2se4s2es2e}
+- Naiadia
+{4s2e3s2w3swsw2nw2nw3n2e}
+- Neraka
+{5wnwn3w3nwn2wswn3w}
+- New Ofcol
+{nd2wsw2sd2sds}
+- New Thalos
+{15e}
+- Ofcol
+{nd2wsw2sd2sds}
+- Ramadahn
+{6enw2n3w7n3e}
+- Tar Valon
+{6enw}
+- Thalos
+{6es}
+- The Elven Stronghold
+{5wnwn3w3nw3n7w8n2e3n2en}
+- Varggin Shih
+{nd2wsw2sd2sd}
+
+EDESC Cabals~
+***Starting Point is Market Square in Midgaard***
+[Cabals]
+- Ancient
+{36en6e3n3e14nws}
+- Arcana
+{6e4s2es2edwsd4w2d2ses2euw}
+- Bounty
+{s2pws}
+- Empire
+{6enw2n3w4nw2n2w5n}
+- Enforcer
+{nd2wsw2sd2sd3s4w}
+- Knight
+{nd2wsw2sd2sd7s6e2ue2un}
+- Outlaw
+{3e4n2w6nw4n}
+- Rager
+{6e4s2es2ed5n4wsw}
+- Sylvan
+{5w3s5wsesesen}
 ~
 End
 
