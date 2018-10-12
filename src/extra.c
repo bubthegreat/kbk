@@ -599,7 +599,6 @@ void do_weaponbreak(CHAR_DATA *ch, CHAR_DATA *victim )
 {
         int chance;
         OBJ_DATA *wield;
-        OBJ_DATA *dwield;
         bool using_primary = TRUE;
 
         chance = get_skill(ch,gsn_weaponbreaker);
@@ -621,24 +620,19 @@ void do_weaponbreak(CHAR_DATA *ch, CHAR_DATA *victim )
             return;
         }
     
-        if ((wield = get_eq_char(victim,WEAR_WIELD)) == NULL && (dwield = get_eq_char(victim,WEAR_DUAL_WIELD)) == NULL  )
+        if ((wield = get_eq_char(victim,WEAR_WIELD)) == NULL )
         {
-            send_to_char("But they aren't using a weapon.\n\r",ch);
-            return;
+            if ( (wield = get_eq_char(victim,WEAR_DUAL_WIELD)) == NULL )
+            {
+                send_to_char("But they aren't using a weapon.\n\r",ch);
+                return;
+            }
         }
 
         chance *= 9;
         chance /= 12;
         chance += (ch->level - victim->level)*3;
-        
-        if ( wield != NULL )
-        {
-            chance -= wield->level / 2;
-        }
-        else
-        {
-            chance -= dwield->level /2;
-        }
+        chance -= wield->level;
 
         if (!using_primary)
                 chance -= 15;
@@ -665,14 +659,8 @@ void do_weaponbreak(CHAR_DATA *ch, CHAR_DATA *victim )
         act("$n's mighty blow shatters $p!",ch,wield,victim,TO_NOTVICT);
         act("Your mighty blow shatters $p!",ch,wield,victim,TO_CHAR);
         act("$n's mighty blow shatters $p!",ch,wield,victim,TO_VICT);
-        if ( wield != NULL )
-        {
-            extract_obj(wield);
-	}
-        else
-        {
-            extract_obj(dwield);
-        }
+        extract_obj(wield);
+        
         WAIT_STATE(ch,2*PULSE_VIOLENCE);
         check_improve(ch,gsn_weaponbreaker,TRUE,1);
 		multi_hit(victim,ch,-1);
