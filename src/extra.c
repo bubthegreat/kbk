@@ -630,7 +630,16 @@ void do_weaponbreak(CHAR_DATA *ch, CHAR_DATA *victim )
         chance *= 9;
         chance /= 12;
         chance += (ch->level - victim->level)*3;
-        chance -= wield->level;
+        
+        if ( wield != NULL )
+        {
+            chance -= wield->level / 2;
+        }
+        else
+        {
+            chance -= dwield->level /2;
+        }
+
         if (!using_primary)
                 chance -= 15;
 	if(ch->level==60)
