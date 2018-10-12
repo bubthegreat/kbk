@@ -598,30 +598,35 @@ void update_pc_last_fight(CHAR_DATA *ch,CHAR_DATA *ch2)
 void do_weaponbreak(CHAR_DATA *ch, CHAR_DATA *victim )
 {
         int chance;
-          OBJ_DATA *wield;
+        OBJ_DATA *wield;
+        OBJ_DATA *dwield;
         bool using_primary = TRUE;
+
         chance = get_skill(ch,gsn_weaponbreaker);
-        if (chance == 0
-        || (ch->level < skill_table[gsn_weaponbreaker].skill_level[ch->class]
-	&& !IS_NPC(ch)))
+
+        if (chance == 0 || (ch->level < skill_table[gsn_weaponbreaker].skill_level[ch->class]	&& !IS_NPC(ch)))
         {
-        send_to_char("Huh?\n\r",ch);
-        return;
+            send_to_char("Huh?\n\r",ch);
+            return;
         }
-	if (!is_wielded(ch,WEAPON_AXE,WIELD_ONE)) {
-        send_to_char("You must be wielding an axe to do that.\n\r",ch);
-        return;
+	
+        if (!is_wielded(ch,WEAPON_AXE,WIELD_ONE)) {
+            send_to_char("You must be wielding an axe to do that.\n\r",ch);
+            return;
         }
-          if ( ( victim = ch->fighting ) == NULL )
-          {
-        send_to_char( "You aren't fighting anyone.\n\r", ch );
-        return;
-          }
-        if ((wield = get_eq_char(victim,WEAR_WIELD)) == NULL)
+
+        if ( ( victim = ch->fighting ) == NULL )
         {
-        send_to_char("But they aren't using a weapon.\n\r",ch);
-        return;
+            send_to_char( "You aren't fighting anyone.\n\r", ch );
+            return;
         }
+    
+        if ((wield = get_eq_char(victim,WEAR_WIELD)) == NULL && (dwield = get_eq_char(victim,WEAR_DUAL_WIELD)) == NULL  )
+        {
+            send_to_char("But they aren't using a weapon.\n\r",ch);
+            return;
+        }
+
         chance *= 9;
         chance /= 12;
         chance += (ch->level - victim->level)*3;
@@ -632,27 +637,33 @@ void do_weaponbreak(CHAR_DATA *ch, CHAR_DATA *victim )
 		chance=1000;
 	if ((is_set(&wield->extra_flags,ITEM_FIXED) || IS_OBJ_STAT(wield,ITEM_NODISARM)) && get_trust(ch)!=MAX_LEVEL)
 	{
-	act("$n attempts to shatter $N's weapon with $s axe, but it's far too powerful for that.",ch,0,victim,TO_NOTVICT);
-	act("$n attempts to shatter your weapon with $s axe, but it's far too powerful for that.",ch,0,victim,TO_VICT);
-	act("You attempt to shatter $N's weapon with your axe, but it's far too powerful for that.",ch,0,victim,TO_CHAR);
-	WAIT_STATE(ch,2*PULSE_VIOLENCE);
-	return;
+            act("$n attempts to shatter $N's weapon with $s axe, but it's far too powerful for that.",ch,0,victim,TO_NOTVICT);
+            act("$n attempts to shatter your weapon with $s axe, but it's far too powerful for that.",ch,0,victim,TO_VICT);
+            act("You attempt to shatter $N's weapon with your axe, but it's far too powerful for that.",ch,0,victim,TO_CHAR);
+            WAIT_STATE(ch,2*PULSE_VIOLENCE);
+	    return;
 	}
         if (number_percent() > chance)
         {
-        act("$n attempts to shatter $N's weapon with $S axe, but it holds firm.",ch,0,victim,TO_NOTVICT);
-        act("$n attempts to shatter your weapon with $S axe, but it holds firm.",ch,0,victim,TO_VICT);
-        act("You attempt to shatter $N's weapon with your axe, but it holds firm.",ch,0,victim,TO_CHAR);
-        check_improve(ch,gsn_weaponbreaker,FALSE,1);
-        WAIT_STATE(ch,2*PULSE_VIOLENCE);
-	multi_hit(victim,ch,-1);
-        return;
+            act("$n attempts to shatter $N's weapon with $S axe, but it holds firm.",ch,0,victim,TO_NOTVICT);
+            act("$n attempts to shatter your weapon with $S axe, but it holds firm.",ch,0,victim,TO_VICT);
+            act("You attempt to shatter $N's weapon with your axe, but it holds firm.",ch,0,victim,TO_CHAR);
+            check_improve(ch,gsn_weaponbreaker,FALSE,1);
+            WAIT_STATE(ch,2*PULSE_VIOLENCE);
+	    multi_hit(victim,ch,-1);
+            return;
         }
         act("$n's mighty blow shatters $p!",ch,wield,victim,TO_NOTVICT);
         act("Your mighty blow shatters $p!",ch,wield,victim,TO_CHAR);
         act("$n's mighty blow shatters $p!",ch,wield,victim,TO_VICT);
-        extract_obj(wield);
-		reslot_weapon(victim);
+        if ( wield != NULL )
+        {
+            extract_obj(wield);
+	}
+        else
+        {
+            extract_obj(dwield);
+        }
         WAIT_STATE(ch,2*PULSE_VIOLENCE);
         check_improve(ch,gsn_weaponbreaker,TRUE,1);
 		multi_hit(victim,ch,-1);
