@@ -1876,7 +1876,7 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
     if (CAN_WEAR(obj,ITEM_HOLD))
     {
-        if (get_eq_char(ch,WEAR_HOLD) == NULL)
+        if (get_eq_char(ch,WEAR_HOLD) == NULL && (hands_full(ch)))
         {
                 if (!fReplace)
                         return;
@@ -1893,8 +1893,9 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
         }
 
         // Ok, we're holding something else or have a free hand.
+        // But we're still equiping an offhand item, so let's free up the offhand.
         
-        if (!remove_obj(ch,WEAR_HOLD,fReplace))
+        if (!remove_offhand_obj(ch , fReplace))
             return;
 
         // Ok, we've made it this far let's hold this bitch.
@@ -1907,7 +1908,7 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
     if (CAN_WEAR(obj,ITEM_WEAR_SHIELD))
     {
-        if (get_eq_char(ch,WEAR_SHIELD) == NULL)
+        if (get_eq_char(ch,WEAR_SHIELD) == NULL && (hands_full(ch)))
         {
                 if (!fReplace)
                         return;
@@ -1924,8 +1925,9 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
 
         // Ok We're already holding a shield or have a free hand.
+        // But we're still equiping an offhand item, so let's free up the offhand.
         
-        if (!remove_obj(ch,WEAR_SHIELD,fReplace))
+        if (!remove_offhand_obj(ch , fReplace))
             return;
 
         // Ok, we've made it this far let's shield up.
@@ -1938,13 +1940,13 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
     if (obj->item_type == ITEM_LIGHT)
     {
-        if (get_eq_char(ch,WEAR_LIGHT) == NULL)
+        if (get_eq_char(ch,WEAR_LIGHT) == NULL && (hands_full(ch)))
         {
                 if (!fReplace)
-                        return;  // We're trying to wear a light, but don't have a light slot and we aren't replacing.
+                        return;  // We're trying to wear a light, but don't have a free hand and we aren't replacing.
                 else
                 {
-                    // We're trying to wear a light, don't already have one, and are trying to replace an item.
+                    // We're trying to wear a light, don't already have one, and are trying to replace an item cause we don't have a free hand.
                     if (!remove_offhand_obj(ch , fReplace))
                         return;  // We weren't able to free up our offhand and don't have a free hand.
                     // We're don't have a light, but we do have a free hand for one.  Light it up.
@@ -1956,9 +1958,10 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
         }
 
 
-        // Ok, we have a light already.
-        
-        if (!remove_obj(ch,WEAR_LIGHT,fReplace))
+        // Ok, we have a light already or a free hand.
+        // But we're still equiping an offhand item, so let's free up the offhand.
+
+        if (!remove_offhand_obj(ch , fReplace))
             return;
 
         // Ok, we've made it this far light it up!
