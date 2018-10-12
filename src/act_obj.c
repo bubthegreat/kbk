@@ -53,6 +53,8 @@ void 	save_cabal_items 		args( ( void ) );
 bool 	arena;
 void 	check_eagle_eyes		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_affected_obj			args((OBJ_DATA *obj, int sn));
+bool    remove_offhand_obj              ( CHAR_DATA *ch, bool fReplace );
+
 
 #undef OD
 #undef CD
@@ -1880,54 +1882,17 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
                         return;
                 else
                 {
-                    // send_to_char("Your hands are full but we'll hold it anyway.\n\r",ch);
-                    
-                    // We aren't holding anything, let's figure out what to do.
-                    weapon = get_eq_char(ch,WEAR_WIELD);
-                    
-                    if ((weapon != NULL && ch->size < SIZE_LARGE
-                    && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
-                    || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
-                    || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
-                    || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
-                    {
-                        // We're wielding a two-handed weapon, and we're replacing, so let's try and remove that.
-                        if (!remove_obj(ch,WEAR_WIELD,fReplace))
-                            return;
-                        // Our two handed weapon wasn't cursed, and is now removed, so let's hold that item and get out of here.
-                        act("$n holds $p in $s hands.",ch,obj,0,TO_ROOM);
-                        act("You hold $p in your hands.",ch,obj,0,TO_CHAR);
-                        equip_char(ch,obj,WEAR_HOLD);
-                        return;
-                    }
-                 
-                    // We aren't wielding a two-handed weapon, so let's try to replace our offhand.
-                    if ((get_eq_char(ch,WEAR_LIGHT) != NULL))
-                    {
-                        // Ok, we're holding a light, let's remove that.
-                        if (!remove_obj(ch,WEAR_LIGHT,fReplace))
-                            return;
-                    }
+                    if (!remove_offhand_obj(ch , fReplace))
+                        return;  // We weren't able to free up our offhand.
+                    act("$n holds $p in $s hands.",ch,obj,0,TO_ROOM);
+                    act("You hold $p in your hands.",ch,obj,0,TO_CHAR);
+                    equip_char(ch,obj,WEAR_HOLD);
+                    return;
 
-                    if ((get_eq_char(ch,WEAR_SHIELD) != NULL))
-                    {
-                        // Ok, we're holding a shield, let's remove that.
-                        if (!remove_obj(ch,WEAR_SHIELD,fReplace))
-                            return;
-                    }
-                    
-                    if ((get_eq_char(ch,WEAR_DUAL_WIELD) != NULL))
-                    {
-                        // Ok, we're dual wielding a weapon, let's replace that.
-                        if (!remove_obj(ch,WEAR_DUAL_WIELD,fReplace))
-                            return;
-                    }
-                    
-                    // Ok, we must be holding something then.
                 }
         }
 
-        // Ok, We're holding something else.  Let's try and remove that.
+        // Ok, we're holding something else or have a free hand.
         
         if (!remove_obj(ch,WEAR_HOLD,fReplace))
             return;
@@ -1948,53 +1913,17 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
                         return;
                 else
                 {
-                    // Not wearing a shield, but we're replacing something...
-                    weapon = get_eq_char(ch,WEAR_WIELD);
-                    
-                    if ((weapon != NULL && ch->size < SIZE_LARGE
-                    && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
-                    || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
-                    || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
-                    || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
-                    {
-                        // We're wielding a two-handed weapon, and we're replacing, so let's try and remove that.
-                        if (!remove_obj(ch,WEAR_WIELD,fReplace))
-                            return;
-                        // Our two handed weapon wasn't cursed, and is now removed, so let's shield up.
-                        act("$n wears $p as a shield.",ch,obj,0,TO_ROOM);
-                        act("You wear $p as a shield.",ch,obj,0,TO_CHAR);
-                        equip_char(ch,obj,WEAR_SHIELD);
-                        return;
-
-                    }
-                 
-                    // We aren't wielding a two-handed weapon, so let's try to replace our offhand.
-                    if ((get_eq_char(ch,WEAR_LIGHT) != NULL))
-                    {
-                        // Ok, we're holding a light, let's remove that.
-                        if (!remove_obj(ch,WEAR_LIGHT,fReplace))
-                            return;
-                    }
-
-                    if ((get_eq_char(ch,WEAR_HOLD) != NULL))
-                    {
-                        // Ok, we're holding something, let's remove that.
-                        if (!remove_obj(ch,WEAR_HOLD,fReplace))
-                            return;
-                    }
-                    
-                    if ((get_eq_char(ch,WEAR_DUAL_WIELD) != NULL))
-                    {
-                        // Ok, we're dual wielding a weapon, let's remove that.
-                        if (!remove_obj(ch,WEAR_DUAL_WIELD,fReplace))
-                            return;
-                    }
-                    
-                    // Ok, we must be wearing a shield already then.
+                    if (!remove_offhand_obj(ch , fReplace))
+                        return;  // We weren't able to free up our offhand.
+                    act("$n wears $p as a shield.",ch,obj,0,TO_ROOM);
+                    act("You wear $p as a shield.",ch,obj,0,TO_CHAR);
+                    equip_char(ch,obj,WEAR_SHIELD);
+                    return;
                 }
         }
 
-        // Let's try and remove that.
+
+        // Ok We're already holding a shield or have a free hand.
         
         if (!remove_obj(ch,WEAR_SHIELD,fReplace))
             return;
@@ -2012,55 +1941,22 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
         if (get_eq_char(ch,WEAR_LIGHT) == NULL)
         {
                 if (!fReplace)
-                        return;
+                        return;  // We're trying to wear a light, but don't have a light slot and we aren't replacing.
                 else
                 {
-                    // No light!
-                    weapon = get_eq_char(ch,WEAR_WIELD);
-                    
-                    if ((weapon != NULL && ch->size < SIZE_LARGE
-                    && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
-                    || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
-                    || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
-                    || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
-                    {
-                        // We're wielding a two-handed weapon, and we're replacing, so let's try and remove that.
-                        if (!remove_obj(ch,WEAR_WIELD,fReplace))
-                            return;
-                        // Our two handed weapon wasn't cursed, and is not removed.  Light 'em up.
-                        act("$n lights $p and holds it.",ch,obj,0,TO_ROOM);
-                        act("You light $p and hold it.",ch,obj,0,TO_CHAR);
-                        equip_char(ch,obj,WEAR_LIGHT);
-                        return;
-                    }
-                 
-                    // We aren't wielding a two-handed weapon, so let's try to replace our offhand.
-                    if ((get_eq_char(ch,WEAR_SHIELD) != NULL))
-                    {
-                        // Ok, we're wearing a shield, let's take that off.
-                        if (!remove_obj(ch,WEAR_SHIELD,fReplace))
-                            return;
-                    }
-
-                    if ((get_eq_char(ch,WEAR_HOLD) != NULL))
-                    {
-                        // Ok, we're holding something, let's remove that.
-                        if (!remove_obj(ch,WEAR_HOLD,fReplace))
-                            return;
-                    }
-                    
-                    if ((get_eq_char(ch,WEAR_DUAL_WIELD) != NULL))
-                    {
-                        // Ok, we're dual wielding a weapon, let's remove that.
-                        if (!remove_obj(ch,WEAR_DUAL_WIELD,fReplace))
-                            return;
-                    }
-                    
-                    // Ok, we must be holding a light already then.
+                    // We're trying to wear a light, don't already have one, and are trying to replace an item.
+                    if (!remove_offhand_obj(ch , fReplace))
+                        return;  // We weren't able to free up our offhand and don't have a free hand.
+                    // We're don't have a light, but we do have a free hand for one.  Light it up.
+                    act("$n lights $p and holds it.",ch,obj,0,TO_ROOM);
+                    act("You light $p and hold it.",ch,obj,0,TO_CHAR);
+                    equip_char(ch,obj,WEAR_LIGHT);
+                    return;
                 }
         }
 
-        // Let's try and remove that.
+
+        // Ok, we have a light already.
         
         if (!remove_obj(ch,WEAR_LIGHT,fReplace))
             return;
@@ -4681,4 +4577,68 @@ void do_steal( CHAR_DATA *ch, char *argument)
 	check_improve(ch, gsn_steal, TRUE, 3);
 	send_to_char("Got it!\n\r", ch);
 	return;
+}
+
+/*
+ * Attempt to remove the offhand object, return true if successful, otherwise fale.
+ */
+bool remove_offhand_obj( CHAR_DATA *ch, bool fReplace )
+{
+
+    OBJ_DATA *weapon;
+    weapon = get_eq_char(ch,WEAR_WIELD);
+    
+    if ((weapon != NULL && ch->size < SIZE_LARGE
+        && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
+        || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
+        || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
+        || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
+    {
+        // We're wielding a two-handed weapon, and we're replacing, so let's try and remove that.
+        if (!remove_obj(ch,WEAR_WIELD,fReplace))
+            return FALSE;  // We weren't able to remove it.
+        // Our two handed weapon wasn't cursed, and is now removed, we have a free offhand.
+        return TRUE;
+    }
+
+    // We aren't wielding a two-handed weapon, so let's try to replace our offhand worn item.
+    if ((get_eq_char(ch,WEAR_LIGHT) != NULL))
+    {
+        // Ok, we're holding a light, let's remove that.
+        if (!remove_obj(ch,WEAR_LIGHT,fReplace))
+            return FALSE;
+        // Our light is removed.  We have a free offhand.
+        return TRUE;
+    }
+
+    if ((get_eq_char(ch,WEAR_SHIELD) != NULL))
+    {
+        // Ok, we're holding a shield, let's remove that.
+        if (!remove_obj(ch,WEAR_SHIELD,fReplace))
+            return FALSE;
+        // Our shield is removed.  We have a free offhand.
+        return TRUE;
+    }
+
+    if ((get_eq_char(ch,WEAR_DUAL_WIELD) != NULL))
+    {
+        // Ok, we're dual wielding a weapon, let's replace that.
+        if (!remove_obj(ch,WEAR_DUAL_WIELD,fReplace))
+            return FALSE;
+        // Our dual wield is removed.  We have a free offhand.
+        return TRUE;
+    }
+
+    if ((get_eq_char(ch,WEAR_HOLD) != NULL))
+    {
+        // Ok, we're holding something, let's remove that.
+        if (!remove_obj(ch,WEAR_HOLD,fReplace))
+            return FALSE;
+        // Our held item is removed.  We have a free offhand.
+        return TRUE;
+    }
+
+    // We already had a free hand!
+    return TRUE;
+    
 }
