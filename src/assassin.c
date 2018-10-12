@@ -81,7 +81,6 @@ void do_crescent_kick(CHAR_DATA *ch,char *argument)
 	char arg[MIL];
 	CHAR_DATA *victim;
     OBJ_DATA *obj;
-    OBJ_DATA *secondary;
 	int dam, chance;
 
 	one_argument(argument,arg);
@@ -139,6 +138,8 @@ void do_crescent_kick(CHAR_DATA *ch,char *argument)
 		chance /= 1.4;
 		
 		obj = get_eq_char(victim,WEAR_WIELD);
+                if (obj == NULL)
+                     obj = get_eq_char(victim,WEAR_DUAL_WIELD);
 		
 		if ( (chance - 30> number_percent()) && (obj != NULL) )
 		{
@@ -168,14 +169,7 @@ void do_crescent_kick(CHAR_DATA *ch,char *argument)
 				else
 				{
 					obj_to_room( obj, victim->in_room );
-					reslot_weapon(victim);
-
-					if (!IS_NPC(victim) && (secondary = get_eq_char(victim,WEAR_DUAL_WIELD)) != NULL)
-					{
-						unequip_char(victim,secondary);
-						equip_char(victim,secondary,WEAR_WIELD);
-					}
-					else if (IS_NPC(victim) && victim->wait == 0 && can_see_obj(victim,obj))
+					if (IS_NPC(victim) && victim->wait == 0 && can_see_obj(victim,obj))
 					{
 						WAIT_STATE(victim,PULSE_VIOLENCE*3);
 						get_obj(victim,obj,NULL);
