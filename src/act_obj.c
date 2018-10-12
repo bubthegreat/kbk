@@ -1871,8 +1871,7 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 	return;
     }
 
-/* ====== DUAL WIELD STUFF STARTS HERE ======= */
-/* Dual wielding and limiting to 2 hands for objects */
+/* Begin handling the (virtual) offhand slot */
 
     if (CAN_WEAR(obj,ITEM_HOLD))
     {
@@ -1970,6 +1969,8 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
         equip_char(ch,obj,WEAR_LIGHT);
         return;
     }
+
+/* End handling the (virtual) offhand slot */
 
     if (CAN_WEAR(obj,ITEM_WIELD))
     {
