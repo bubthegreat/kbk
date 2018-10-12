@@ -1693,12 +1693,6 @@ bool remove_obj( CHAR_DATA *ch, int iWear, bool fReplace )
  */
 void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 {
-    OBJ_DATA *secondary;
-    bool wield_primary;
-    OBJ_DATA *primary;
-    OBJ_DATA *weapon;
-    OBJ_DATA *oldobj;
-    int sn, skill;
 
     if ( CAN_WEAR( obj, ITEM_WEAR_FINGER ) )
     {
@@ -1770,7 +1764,6 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
     if ( CAN_WEAR( obj, ITEM_WEAR_HEAD ) )
     {
-	oldobj =(get_eq_char(ch, WEAR_HEAD));
 	if ( !remove_obj( ch, WEAR_HEAD, fReplace ) )
 	    return;
 
@@ -4509,8 +4502,6 @@ void wield_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 {
     OBJ_DATA *secondary;
     OBJ_DATA *primary;
-    OBJ_DATA *weapon;
-    OBJ_DATA *oldobj;
     int sn, skill;
 
     if (!CAN_WEAR(obj,ITEM_WIELD))
@@ -4538,10 +4529,10 @@ void wield_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
     // Equip a two-handed weapon.
 
-    if ( (ch->size < SIZE_LARGE && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
-        || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
-        || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
-        || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
+    if ( (ch->size < SIZE_LARGE && IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS))
+        || (obj->value[0]==WEAPON_STAFF)
+        || (obj->value[0]==WEAPON_POLEARM)
+        || (obj->value[0]==WEAPON_SPEAR))
     {
         //  We're trying to equip a two-handed weapon.
         //  let's make sure our offhand is empty and do this.
@@ -4658,56 +4649,209 @@ void wield_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 void dual_obj (CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 {
 
-/* If you can't wield the dual weapon then see if you can replace primary 
-         if (!remove_obj(ch,WEAR_WIELD,fReplace))
+    OBJ_DATA *primary;
+    int sn, skill;
+
+    if (!CAN_WEAR(obj,ITEM_WIELD))
+    {
+        send_to_char("You can't dual wield that.\n\r",ch);
                 return;
-         if (get_obj_weight(obj) > (str_app[get_curr_stat(ch,STAT_STR)].wield ))
-         {
+    }
+
+    primary = get_eq_char(ch,WEAR_WIELD);
+
+    if (primary == NULL && (hands_full(ch)) )
+    {
+        // This really should never happen.
+        send_to_char("Your hands are full... How did this happen?\n\r",ch);
+        return;
+    }
+
+    // Trying to dual wield a two-handed weapon.
+
+    if ( (ch->size < SIZE_LARGE && IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS))
+        || (obj->value[0]==WEAPON_STAFF)
+        || (obj->value[0]==WEAPON_POLEARM)
+        || (obj->value[0]==WEAPON_SPEAR))
+    {
+        send_to_char("You can't dual wield a two-handed weapon.\n\r",ch);
+        return;
+    }
+
+    if (hands_full(ch))
+    {
+        if (!remove_offhand_obj(ch , fReplace))
+            return;  // We weren't able to free up our offhand, so we can't dual wield anything.
+
+        if (primary != NULL)
+        {
+            // We don't have an offhand weapon wielded and we have a free offhand, let's make sure we've got the strength etc.
+            if (primary->weight > obj->weight*75/100 || (primary->weight < 20 || obj->weight < 20))
+            {
+                // We can wield this with our existing primary wield, if we have the strength.
+
+                if (get_obj_weight(obj) > (str_app[get_curr_stat(ch,STAT_STR)].wield))
+                {
+                    // This weapon is to heavy to wield with current strength.
+                    send_to_char("It is too heavy for you to wield.\n\r",ch);
+                    return;
+                }
+
+                // We have enough str to wield this weapon, do we have enough for both?
+
+                if ( (get_obj_weight(obj) + primary->weight) > (str_app[get_curr_stat(ch,STAT_STR)].wield) )
+                {
+                    // These are too heavy to wield together at current strength.
+                    send_to_char("You aren't strong enough to wield both weapons together.\n\r",ch);
+                    return;
+                    
+                }
+
+                // Weights are ok, we have the str, etc.
+                act("$n dual wields $p.",ch,obj,0,TO_ROOM);
+                act("You dual wield $p.",ch,obj,0,TO_CHAR);
+                equip_char(ch,obj,WEAR_DUAL_WIELD);
+
+                switch(obj->value[0])
+                {
+                    default :               sn = -1;                break;
+                    case(WEAPON_SWORD):     sn = gsn_sword;         break;
+                    case(WEAPON_DAGGER):    sn = gsn_dagger;        break;
+                    case(WEAPON_SPEAR):     sn = gsn_spear;         break;
+                    case(WEAPON_MACE):      sn = gsn_mace;          break;
+                    case(WEAPON_AXE):       sn = gsn_axe;           break;
+                    case(WEAPON_FLAIL):     sn = gsn_flail;         break;
+                    case(WEAPON_WHIP):      sn = gsn_whip;          break;
+                    case(WEAPON_POLEARM):   sn = gsn_polearm;       break;
+                    case(WEAPON_STAFF): sn = gsn_staff; break;
+                }
+                
+                skill = get_weapon_skill(ch,sn);
+                if (skill >= 100)
+                    act("$p feels like a part of you!",ch,obj,0,TO_CHAR);
+                else if (skill > 85)
+                    act("You feel quite confident with $p.",ch,obj,0,TO_CHAR);
+                else if (skill > 70)
+                    act("You are skilled with $p.",ch,obj,0,TO_CHAR);
+                else if (skill > 50)
+                    act("Your skill with $p is adequate.",ch,obj,0,TO_CHAR);
+                else if (skill > 25)
+                    act("$p feels a little clumsy in your hands.",ch,obj,0,TO_CHAR);
+                else if (skill > 1)
+                    act("You fumble and almost drop $p.",ch,obj,0,TO_CHAR);
+                else
+                    act("You don't even know which end is up on $p.",ch,obj,0,TO_CHAR);
+                
+                return;
+
+
+            }
+            else
+            {
+                 send_to_char("It is too heavy to wield with your primary weapon.\n\r",ch);
+                 return;
+            }
+        }
+        else // We don't have a primary wield
+        {
+            if (get_obj_weight(obj) > (str_app[get_curr_stat(ch,STAT_STR)].wield))
+            {
+                // This weapon is to heavy to wield with current strength.
+                send_to_char("It is too heavy for you to wield.\n\r",ch);
+                return;
+            }
+ 
+            act("$n dual wields $p.",ch,obj,0,TO_ROOM);
+            act("You dual wield $p.",ch,obj,0,TO_CHAR);
+            equip_char(ch,obj,WEAR_DUAL_WIELD);
+
+            switch(obj->value[0])
+            {
+                default :               sn = -1;                break;
+                case(WEAPON_SWORD):     sn = gsn_sword;         break;
+                case(WEAPON_DAGGER):    sn = gsn_dagger;        break;
+                case(WEAPON_SPEAR):     sn = gsn_spear;         break;
+                case(WEAPON_MACE):      sn = gsn_mace;          break;
+                case(WEAPON_AXE):       sn = gsn_axe;           break;
+                case(WEAPON_FLAIL):     sn = gsn_flail;         break;
+                case(WEAPON_WHIP):      sn = gsn_whip;          break;
+                case(WEAPON_POLEARM):   sn = gsn_polearm;       break;
+                case(WEAPON_STAFF): sn = gsn_staff; break;
+            }
+            
+            skill = get_weapon_skill(ch,sn);
+            if (skill >= 100)
+                act("$p feels like a part of you!",ch,obj,0,TO_CHAR);
+            else if (skill > 85)
+                act("You feel quite confident with $p.",ch,obj,0,TO_CHAR);
+            else if (skill > 70)
+                act("You are skilled with $p.",ch,obj,0,TO_CHAR);
+            else if (skill > 50)
+                act("Your skill with $p is adequate.",ch,obj,0,TO_CHAR);
+            else if (skill > 25)
+                act("$p feels a little clumsy in your hands.",ch,obj,0,TO_CHAR);
+            else if (skill > 1)
+                act("You fumble and almost drop $p.",ch,obj,0,TO_CHAR);
+            else
+                act("You don't even know which end is up on $p.",ch,obj,0,TO_CHAR);
+            
+            return;
+
+            
+        }
+   }
+   else // We have a free hand already.
+   {
+       // Double check that offhand is free.
+       if (!remove_offhand_obj(ch , fReplace))
+            return;  // We weren't able to free up our offhand, so we can't dual wield anything.
+
+       // We don't have a primary wield
+       if (get_obj_weight(obj) > (str_app[get_curr_stat(ch,STAT_STR)].wield))
+       {
+            // This weapon is to heavy to wield with current strength.
             send_to_char("It is too heavy for you to wield.\n\r",ch);
             return;
-         }
+       }
 
-        if ((ch->size < SIZE_LARGE && IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS))
-            || obj->value[0]==WEAPON_SPEAR
-            || obj->value[0]==WEAPON_STAFF
-            || obj->value[0]==WEAPON_POLEARM)
+       act("$n dual wields $p.",ch,obj,0,TO_ROOM);
+       act("You dual wield $p.",ch,obj,0,TO_CHAR);
+       equip_char(ch,obj,WEAR_DUAL_WIELD);
+
+        switch(obj->value[0])
         {
-           if (get_eq_char(ch,WEAR_SHIELD) != NULL
-           || get_eq_char(ch,WEAR_HOLD) != NULL
-           || get_eq_char(ch,WEAR_LIGHT) != NULL
-           || get_eq_char(ch,WEAR_WIELD) != NULL)
-           {
-            send_to_char("You need both hands free for that weapon.\n\r",ch);
-            return;
-           }
+            default :               sn = -1;                break;
+            case(WEAPON_SWORD):     sn = gsn_sword;         break;
+            case(WEAPON_DAGGER):    sn = gsn_dagger;        break;
+            case(WEAPON_SPEAR):     sn = gsn_spear;         break;
+            case(WEAPON_MACE):      sn = gsn_mace;          break;
+            case(WEAPON_AXE):       sn = gsn_axe;           break;
+            case(WEAPON_FLAIL):     sn = gsn_flail;         break;
+            case(WEAPON_WHIP):      sn = gsn_whip;          break;
+            case(WEAPON_POLEARM):   sn = gsn_polearm;       break;
+            case(WEAPON_STAFF): sn = gsn_staff; break;
         }
-         act("$n wields $p.",ch,obj,0,TO_ROOM);
-         act("You wield $p.",ch,obj,0,TO_CHAR);
-         equip_char(ch,obj,WEAR_WIELD);
-
-        sn = get_weapon_sn(ch);
-        if (sn == gsn_hand_to_hand)
-                return;
+        
         skill = get_weapon_skill(ch,sn);
         if (skill >= 100)
-                act("$p feels like a part of you!",ch,obj,0,TO_CHAR);
+            act("$p feels like a part of you!",ch,obj,0,TO_CHAR);
         else if (skill > 85)
-                act("You feel quite confident with $p.",ch,obj,0,TO_CHAR);
+            act("You feel quite confident with $p.",ch,obj,0,TO_CHAR);
         else if (skill > 70)
-                act("You are skilled with $p.",ch,obj,0,TO_CHAR);
+            act("You are skilled with $p.",ch,obj,0,TO_CHAR);
         else if (skill > 50)
-                act("Your skill with $p is adequate.",ch,obj,0,TO_CHAR);
+            act("Your skill with $p is adequate.",ch,obj,0,TO_CHAR);
         else if (skill > 25)
-                act("$p feels a little clumsy in your hands.",ch,obj,0,TO_CHAR);
+            act("$p feels a little clumsy in your hands.",ch,obj,0,TO_CHAR);
         else if (skill > 1)
-                act("You fumble and almost drop $p.",ch,obj,0,TO_CHAR);
+            act("You fumble and almost drop $p.",ch,obj,0,TO_CHAR);
         else
-                act("You don't even know which end is up on $p.",ch,obj,0,TO_CHAR);
-
-         return;
-}
- ==== END DUAL_WIELD CODE ======= */
+            act("You don't even know which end is up on $p.",ch,obj,0,TO_CHAR);
+        
+        return;
 
 
+
+    }
 }
 
