@@ -1668,11 +1668,13 @@ bool damage_newer(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_typ
 	}
     }
     if (is_affected(victim,gsn_stoneskin) && dam_type!=DAM_TRUESTRIKE)
-	dam *= .8;
+	    dam *= .8;
+	if (is_affected(victim,gsn_wraithform) && dam_type!=DAM_TRUESTRIKE)
+	    dam *= .65;
     if (is_affected(victim,gsn_shield) && dam_type!=DAM_TRUESTRIKE)
-	dam *= .95;
+	    dam *= .95;
     if (is_affected(victim,gsn_barrier) && dam_type!=DAM_TRUESTRIKE)
-	dam *= .5;
+	    dam *= .5;
 	if (is_affected(victim,skill_lookup("aura")) && dam_type != DAM_TRUESTRIKE)
 		dam *= 0.7;
 		
