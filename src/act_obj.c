@@ -1646,7 +1646,6 @@ void do_eat( CHAR_DATA *ch, char *argument )
 bool remove_obj( CHAR_DATA *ch, int iWear, bool fReplace )
 {
     OBJ_DATA *obj;
-    OBJ_DATA *secondary;
     if ( ( obj = get_eq_char( ch, iWear ) ) == NULL )
 	return TRUE;
 
@@ -1664,19 +1663,6 @@ bool remove_obj( CHAR_DATA *ch, int iWear, bool fReplace )
     }
 
     unequip_char( ch, obj );
-    secondary = get_eq_char(ch,WEAR_DUAL_WIELD);
-
-    if (iWear == WEAR_WIELD && secondary != NULL)
-	{
-	unequip_char(ch,secondary);
-	equip_char(ch,secondary,WEAR_WIELD);
-	}
-    if (iWear == WEAR_DUAL_WIELD)
-	{
-	act("$n stops dual wielding $p.",ch,obj,0,TO_ROOM);
-	act("You stop dual wielding $p.",ch,obj,0,TO_CHAR);
-	return TRUE;
-	}
 
     act( "$n stops using $p.", ch, obj, NULL, TO_ROOM );
     act( "You stop using $p.", ch, obj, NULL, TO_CHAR );
@@ -2134,7 +2120,6 @@ void do_remove( CHAR_DATA *ch, char *argument )
               && obj->wear_loc != WEAR_BRAND )
                 remove_obj( ch, obj->wear_loc, TRUE );
 	}
-	reslot_weapon(ch);
 	return;
     }
     else if ( ( obj = get_obj_wear( ch, arg ) ) == NULL )
@@ -2153,7 +2138,6 @@ void do_remove( CHAR_DATA *ch, char *argument )
     }
 
     remove_obj( ch, obj->wear_loc, TRUE );
-	reslot_weapon(ch);
 
     return;
 }
