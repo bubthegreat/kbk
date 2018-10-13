@@ -4778,7 +4778,10 @@ void disarm( CHAR_DATA *ch, CHAR_DATA *victim )
 
 
     if ( ( obj = get_eq_char( victim, WEAR_WIELD ) ) == NULL )
-        return;
+    {
+        if ( ( obj = get_eq_char( victim, WEAR_DUAL_WIELD ) ) == NULL )
+            return;
+    }
 
     if (IS_AFFECTED(ch,AFF_BLIND))
 
@@ -4829,13 +4832,6 @@ void disarm( CHAR_DATA *ch, CHAR_DATA *victim )
 		}
     }
 
-reslot_weapon(victim);
-
-    if ((secondary = get_eq_char(victim,WEAR_DUAL_WIELD)) != NULL)
-    {
-	unequip_char(victim,secondary);
-	equip_char(victim,secondary,WEAR_WIELD);
-    }
     return;
 }
 
@@ -5935,8 +5931,11 @@ void do_disarm( CHAR_DATA *ch, char *argument )
 
     if ( ( obj = get_eq_char( victim, WEAR_WIELD ) ) == NULL )
     {
-        send_to_char( "Your opponent is not wielding a weapon.\n\r", ch );
-        return;
+        if ( ( obj = get_eq_char( victim, WEAR_DUAL_WIELD ) ) == NULL )
+        {
+            send_to_char( "Your opponent is not wielding a weapon.\n\r", ch );
+            return;
+        }
     }
 
 	if (is_affected(victim,gsn_spiderhands) )
@@ -10420,6 +10419,8 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 	check_improve(ch,gsn_swordplay,TRUE,4);
 	victimWield = get_eq_char(victim,WEAR_WIELD);
 	secondary = get_eq_char(victim,WEAR_DUAL_WIELD);
+        if (victimWield == NULL)
+            victimWield = get_eq_char(victim,WEAR_DUAL_WIELD);
 
 	for (af = ch->affected; af != NULL; af = af_next)
 	{
@@ -10524,13 +10525,7 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
         				    get_obj(victim,victimWield,NULL);
     				}
 
-				reslot_weapon(victim);
 
-    				if (secondary != NULL)
-    				{
-						unequip_char(victim,secondary);
-						equip_char(victim,secondary,WEAR_WIELD);
-					}
 			}
 		}
 		one_hit_new(ch,victim,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,160,"thrust");

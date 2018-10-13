@@ -141,6 +141,7 @@ DECLARE_DO_FUN(	do_down		);
 DECLARE_DO_FUN(	do_drink	);
 DECLARE_DO_FUN(	do_drop		);
 DECLARE_DO_FUN( do_dump		);
+DECLARE_DO_FUN( do_dual         ); // For dual wielding
 DECLARE_DO_FUN(	do_east		);
 DECLARE_DO_FUN(	do_eat		);
 DECLARE_DO_FUN(	do_echo		);
@@ -344,6 +345,7 @@ DECLARE_DO_FUN(	do_visible	);
 DECLARE_DO_FUN( do_violate	);
 DECLARE_DO_FUN( do_vnum		);
 DECLARE_DO_FUN(	do_wake		);
+DECLARE_DO_FUN( do_wield        ); // For wielding
 DECLARE_DO_FUN(	do_wear		);
 DECLARE_DO_FUN(	do_weather	);
 DECLARE_DO_FUN(	do_west		);
