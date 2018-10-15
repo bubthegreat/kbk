@@ -100,6 +100,8 @@ Welcome to KBK Reborn!
 2018-10-12:  Wield, dual, and wear commands split apart.  Wield for primary weapon, dual
              for dual wield.  Wear for everything else.  Sadly only having two hands
              continues to be true.
+2018-10-15:  Limited items will always spawn on NPCs and never vaporize on their death,
+             but beware:  When a PC dies there is a chance it vaporizes if it is over limit.
 
 See 'HELP CHANGES' for older changes.  See commits directly at:
     https://gitlab.com/bubthegreat/kbk/commits/master
