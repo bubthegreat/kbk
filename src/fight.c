@@ -3700,9 +3700,10 @@ void make_corpse( CHAR_DATA *killer,CHAR_DATA *ch )
 
 		
 		if (obj->pIndexData->limcount > obj->pIndexData->limtotal
-			 && obj->pIndexData->limtotal > 0)
+			 && obj->pIndexData->limtotal > 0 && !IS_NPC(ch))
 		{
 			act("$p flashes brightly and vaporizes.",ch,obj,NULL,TO_ROOM);
+                        act("$p flashes brightly and vaporizes.",ch,obj,NULL,TO_CHAR);
 			extract_obj( obj );
 			putInCorpse = FALSE;
 		}
