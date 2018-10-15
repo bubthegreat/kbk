@@ -131,6 +131,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "demand",	do_demand, POS_STANDING, 0 ,LOG_NORMAL, 1, 1},
     { "animalcall",	do_animal_call, POS_STANDING, 0, LOG_NORMAL, 1, 0 },
 	{ "stance",	do_stance, POS_FIGHTING, 0, LOG_NORMAL, 1, 0 },
+    { "serpentstrike",  do_serpent_strike, POS_FIGHTING, 0, LOG_NORMAL, 1, 0},
     /*
      * Informational commands.
      */

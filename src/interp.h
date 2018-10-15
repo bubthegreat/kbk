@@ -587,6 +587,7 @@ DECLARE_DO_FUN( do_drive		);
 DECLARE_DO_FUN( do_swordplay		);
 DECLARE_DO_FUN( do_dedicate		);
 DECLARE_DO_FUN( do_stance		);
+DECLARE_DO_FUN( do_serpent_strike       );
 DECLARE_DO_FUN( do_ritual_of_abominations );
 DECLARE_DO_FUN( do_clearbrush		);
 DECLARE_DO_FUN( do_dragsnare		);
