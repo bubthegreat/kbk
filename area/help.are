@@ -56,11 +56,6 @@ Zor - 2009-04-19: GLOBE OF DARKNESS fixed, and will eventually wear off affected
 Zor - 2009-04-19: Objects "owned" by a character, such as Leader weapons, will
                   stay with their owner through death.
 Tra - 2009-04-18: STAB and GOUGE updated to address game balance.
-~
-
-0 MOTD~
-Welcome to KBK!
-
 Zor - 2009-05-06: Skill improvement rates increased.
 Zor - 2009-05-05: Necromancers gain Banshee Call. Cooldown on dark summons reduced from 60 to 10.
                   Members of Ancient can now target each other by name while cloaked.
@@ -78,9 +73,38 @@ Zor - 2009-05-04: The channeler spell Animate Object has been overhauled. Animat
 Zor - 2009-05-04: Atrophy degeneration increased to -10 from roughly -4. Regeneration
                   (whether from gear, imbue regeneration, or atrophy) now affects mana and 
                   moves as well as HP, at a rate of half the character's regen stat.
+~
 
-See 'HELP CHANGES' for older changes.
-{RRemember to use the BUG and TYPO commands!{x
+0 MOTD~
+Welcome to KBK Reborn!
+
+2018-09-17:  Bub the Great resurrects the old code.  KBK is a mindless zombie and stinks.
+2018-10-01:  KBK is Reborn!  Juices are flowing, and the stink is mighty, but it lives.
+2018-10-02:  Regeneration is doubled.  Learning rates are tripled.
+2018-10-03:  Stability increases.  Ordering on defenses is changed to spec skills, parry,
+             shield block, and then dodge.
+2018-10-04:  Healers can now targetted uncurse items.  No uncurse flags are ignored in favor
+             of playability.  Wilderness familiarity now (properly) boost dodging.
+2018-10-05:  Renaming is now possible.  Unholy bless no longer removes stats on gaining
+             charges.  Many database backend problems are address.
+2018-10-06:  Curse weapon is fixed.  AP's cackle gleefully in the night and plot domination.
+2018-10-08:  Hide and sneak improvement rates are boosted.  You still must vis to improve.
+2018-10-10:  Large batch of area updates.  See Baal for more details... If you dare!
+             Unholy blessing now removes all affects when applied.  No more boosting with
+             curse weapon first.  Related note:  No longer crashes when unholy blessing.
+             Web is now mortal accessible for bounty hunters.  Backfist now requires a
+             properly free hand.  Unarmed defense is capped at 90% effectiveness.  Can no
+             longer vanish into Bounty cabal.  True sight is possible in combat.
+2018-10-11:  Wraithform now properly has damage reduction applied, instead of just a line
+             in affects.  Assassin can vanish in combat.
+2018-10-12:  Wield, dual, and wear commands split apart.  Wield for primary weapon, dual
+             for dual wield.  Wear for everything else.  Sadly only having two hands
+             continues to be true.
+
+See 'HELP CHANGES' for older changes.  See commits directly at:
+    https://gitlab.com/bubthegreat/kbk/commits/master
+    
+{Rhttps://gitlab.com/bubthegreat/kbk/issues to report issues!{x
 [Hit Return to Continue]
 ~
 
