@@ -4062,20 +4062,6 @@ void do_stance(CHAR_DATA *ch, char *argument)
 		act("$n drops into a combat stance.",ch,0,0,TO_ROOM);
 		act("You drop into the Wolf stance.",ch,0,0,TO_CHAR);
 	}
-	else if (!str_prefix(argument,"anaconda"))
-	{
-		init_affect(&af);
-		af.where	= TO_AFFECTS;
-		af.aftype	= AFT_SKILL;
-		af.type		= gsn_stance;
-		af.level	= 5;
-		af.duration	= -1;
-		af.name		= str_dup("anaconda stance");
-		af.affect_list_msg	= str_dup("grants a chance to deliver poisoning strikes");
-		affect_to_char(ch,&af);
-		act("$n drops into a combat stance.",ch,0,0,TO_ROOM);
-		act("You drop into the Anaconda stance.",ch,0,0,TO_CHAR);
-	}
 	else if (!str_prefix(argument,"mongoose"))
 	{
 		init_affect(&af);

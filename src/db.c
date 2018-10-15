@@ -544,6 +544,7 @@ sh_int	gsn_vorpal_bolt;
 sh_int  gsn_exude_health;
 sh_int  gsn_vitality;
 sh_int  gsn_dragon_might;
+sh_int  gsn_serpent_strike;
 
 /* GSNS */
 
