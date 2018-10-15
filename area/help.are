@@ -100,6 +100,9 @@ Welcome to KBK Reborn!
 2018-10-12:  Wield, dual, and wear commands split apart.  Wield for primary weapon, dual
              for dual wield.  Wear for everything else.  Sadly only having two hands
              continues to be true.
+2018-10-14:  Serpent strike replaces anaconda stance for rangers.
+2018-10-15:  Players now have access to otype (help otype) and vostat to find and identify
+             items and see what their limits and count are.  In game item DB... sort of.
 2018-10-15:  Limited items will always spawn on NPCs and never vaporize on their death,
              but beware:  When a PC dies there is a chance it vaporizes if it is over limit.
 
@@ -1274,7 +1277,7 @@ Syntax: wizhelp
 Wizhelp provides a list of all the immortal commands.
 ~
 
-58 OTYPE~
+0 OTYPE~
 Syntax: otype <type> <wear/weapon>
 	otype light
 
@@ -5536,7 +5539,7 @@ After years spent in nature, Rangers have learned to mimic the movements of
 certain animals, replicating the physics of their motions to benefit them.
 
 Stances taught by the Ranger guild include the Black Bear, Rabbit, Deer, Wolf,
-Anaconda, Mongoose, Ent, Hawk, and Diamondback stances.
+Mongoose, Ent, Hawk, and Diamondback stances.
 ~
 
 1 MALEDICT CORPSE~
