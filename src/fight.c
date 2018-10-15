@@ -3700,7 +3700,8 @@ void make_corpse( CHAR_DATA *killer,CHAR_DATA *ch )
 
 		
 		if (obj->pIndexData->limcount > obj->pIndexData->limtotal
-			 && obj->pIndexData->limtotal > 0 && !IS_NPC(ch))
+			 && obj->pIndexData->limtotal > 0 && !IS_NPC(ch)
+                         && (number_percent() < (abs( 1. - (obj->pIndexData->limtotal / obj->pIndexData->limcount )) * 100.) ))
 		{
 			act("$p flashes brightly and vaporizes.",ch,obj,NULL,TO_ROOM);
                         act("$p flashes brightly and vaporizes.",ch,obj,NULL,TO_CHAR);
