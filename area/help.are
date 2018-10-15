@@ -1272,7 +1272,7 @@ Syntax: wizhelp
 Wizhelp provides a list of all the immortal commands.
 ~
 
-58 OTYPE~
+0 OTYPE~
 Syntax: otype <type> <wear/weapon>
 	otype light
 
