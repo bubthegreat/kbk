@@ -279,3 +279,105 @@ bool check_fam(CHAR_DATA *ch, char *attack)
 	}
 	return FALSE;
 }
+void do_serpent_strike(CHAR_DATA *ch, char *argument)
+{
+    CHAR_DATA *victim;
+    int chance;
+    
+    if ((chance = get_skill(ch,gsn_serpent_strike) ) == 0
+        || (ch->level < skill_table[gsn_serpent_strike].skill_level[ch->class]) )
+    {
+        send_to_char("You don't know how to move with the speed of a serpent.\n\r",ch);
+
+        return;
+    }
+
+    
+    if ( ( victim = ch->fighting ) == NULL )
+    {
+        send_to_char( "You aren't fighting anyone.\n\r", ch );
+        return;
+    }
+
+    chance -= get_curr_stat(victim,STAT_DEX);
+    chance += get_curr_stat(ch,STAT_STR)/3;
+    chance += get_curr_stat(ch,STAT_DEX)/2;
+    
+    AFFECT_DATA *poisonCheck = affect_find(victim->affected,gsn_poison),
+                anacondaPoison;
+
+    int poisonLevel = ch->level, poisonDuration = 3, strLoss = -1;
+
+    if (number_percent() < chance)
+    {
+        check_improve(ch,gsn_serpent_strike,TRUE,1);
+        WAIT_STATE(ch,skill_table[gsn_serpent_strike].beats);
+
+        act("$n strikes forward suddenly, piercing through your defenses!",ch,0,victim,TO_VICT);
+        act("$n strikes forward suddenly, piercing through $N's defenses!",ch,0,victim,TO_NOTVICT);
+        act("With the speed of an Anaconda, you penetrate $N's defenses!",ch,0,victim,TO_CHAR);
+        one_hit_new(ch,victim,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,150,"serpent strike");
+        if (poisonCheck != NULL)
+        {
+                if (!str_cmp(poisonCheck->name,"anaconda venom"))
+                {
+                        poisonLevel = poisonCheck->level + 2;
+                        if (poisonCheck->duration < 10)
+                                poisonDuration = poisonCheck->duration + 3;
+                        else poisonDuration = poisonCheck->duration;
+                        strLoss = poisonCheck->modifier - 1;
+                        if (poisonLevel > 100)
+                                poisonLevel = 100;
+                        if (poisonDuration > 100)
+                                poisonDuration = 100;
+                        if (strLoss > 100)
+                                strLoss = 100;
+                        act("You feel your body tingle as poison seeps into your veins.",ch,0,victim,TO_VICT);
+                        act("$N looks very sick.",ch,0,victim,TO_NOTVICT);
+                        act("You release poison into $N's veins!",ch,0,victim,TO_CHAR);
+                        affect_remove(victim,poisonCheck);
+                        init_affect(&anacondaPoison);
+                       anacondaPoison.where            = TO_AFFECTS;
+                        anacondaPoison.aftype           = AFT_SKILL;
+                        anacondaPoison.type             = gsn_poison;
+                        anacondaPoison.level            = poisonLevel;
+                        anacondaPoison.duration         = poisonDuration;
+                        anacondaPoison.name             = str_dup("anaconda venom");
+                        anacondaPoison.location         = APPLY_STR;
+                        anacondaPoison.modifier         = strLoss;
+                        anacondaPoison.owner_name               = str_dup(ch->original_name);
+                        anacondaPoison.bitvector        = AFF_POISON;
+                        affect_to_char(victim,&anacondaPoison);
+
+                }
+        }
+        else if (poisonCheck == NULL)
+        {
+                act("You feel your body tingle as poison seeps into your veins.",ch,0,victim,TO_VICT);
+                act("$N looks very sick.",ch,0,victim,TO_ROOM);
+                act("You release poison into $N's veins!",ch,0,victim,TO_CHAR);
+                init_affect(&anacondaPoison);
+                anacondaPoison.where            = TO_AFFECTS;
+                anacondaPoison.aftype           = AFT_SKILL;
+                anacondaPoison.type             = gsn_poison;
+                anacondaPoison.level            = poisonLevel;
+                anacondaPoison.duration         = poisonDuration;
+                anacondaPoison.name             = str_dup("anaconda venom");
+                anacondaPoison.modifier         = strLoss;
+                anacondaPoison.owner_name               = str_dup(ch->original_name);
+                affect_to_char(victim,&anacondaPoison);
+        }
+    }
+    else
+    {
+        check_improve(ch,gsn_serpent_strike,FALSE,1);
+        WAIT_STATE(ch,skill_table[gsn_serpent_strike].beats);
+
+        act("$n strikes forward suddenly, but cannot penetrate your defenses!",ch,0,victim,TO_VICT);
+        act("$n strikes forward suddenly, but cannot penetrate through $N's defenses!",ch,0,victim,TO_NOTVICT);
+        act("Your serpent strike is blocked by $N's defenses!",ch,0,victim,TO_CHAR);
+        one_hit_new(ch,victim,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,0,"serpent strike");
+        //damage_old(victim,ch,0,gsn_serpent_strike,DAM_SLASH,TRUE);
+    }
+ 
+}

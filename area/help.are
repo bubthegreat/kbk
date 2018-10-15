@@ -100,6 +100,7 @@ Welcome to KBK Reborn!
 2018-10-12:  Wield, dual, and wear commands split apart.  Wield for primary weapon, dual
              for dual wield.  Wear for everything else.  Sadly only having two hands
              continues to be true.
+2018-10-14:  Serpent strike replaces anaconda stance for rangers.
 
 See 'HELP CHANGES' for older changes.  See commits directly at:
     https://gitlab.com/bubthegreat/kbk/commits/master
@@ -5534,7 +5535,7 @@ After years spent in nature, Rangers have learned to mimic the movements of
 certain animals, replicating the physics of their motions to benefit them.
 
 Stances taught by the Ranger guild include the Black Bear, Rabbit, Deer, Wolf,
-Anaconda, Mongoose, Ent, Hawk, and Diamondback stances.
+Mongoose, Ent, Hawk, and Diamondback stances.
 ~
 
 1 MALEDICT CORPSE~
