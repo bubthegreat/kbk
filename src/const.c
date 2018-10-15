@@ -6842,7 +6842,17 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_ward_of_magnetism,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(0),	150,	24,
 	"",	"Your ward of magnetism fades, leaving you able to handle metal objects again.", "", CMD_SPELL
-    }
+    },
+
+    {
+        "serpent strike",
+        { 53, 53, 53, 53, 53, 20, 53, 53, 53, 53, 53, 53, 53 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        spell_null,        TAR_IGNORE,          POS_FIGHTING,
+        &gsn_serpent_strike,                   SLOT(0),        0,    12,
+        "serpent strike",     "", "", CMD_NONE
+    },
+
 
 };
 
@@ -6936,7 +6946,8 @@ const   struct  group_type      group_table     [MAX_GROUP]     =
 	"double spin kick", "dash", "bindwounds", "plant growth", "spores",
 	"spire of flames", "worldbind", "aura", "darkshout",
 	"enlarge", "reduce", "water breathing", "tripwire", "self immolation", "stance",
-	"maledict corpse", "charge weapon", "unholy bless", "wilderness familiarity", "ward of magnetism" }
+	"maledict corpse", "charge weapon", "unholy bless", "wilderness familiarity", "ward of magnetism",
+        "serpent strike" }
     },
 
     {
