@@ -2459,7 +2459,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 // 		if ( pObjIndex->count < limit || number_range(0,4) == 0 )
 
 	if ( pObjIndex->limcount >= pObjIndex->limtotal
-	&& pObjIndex->limtotal > 0)
+	&& pObjIndex->limtotal > 0 && FALSE )
 	{
 		break;
 	}
