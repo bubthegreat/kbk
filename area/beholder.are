@@ -679,9 +679,9 @@ LEVEL  48
 WEIGHT 9
 COST   20000
 COND   100
-Affect O 12 25 0
-Affect O 19 2 0
 Affect O 24 -6 0
+Affect O 19 2 0
+Affect O 12 25 0
 EDESC zhentil black robes~
 The robes are covered in the symbols of the lord of darkness and hum softly
 with the power imbued upon them by the high priests of the Zhentil order.
@@ -799,9 +799,9 @@ LEVEL  40
 WEIGHT 8
 COST   19000
 COND   100
-Affect O 17 -6 0
-Affect O 2 2 0
 Affect O 19 2 0
+Affect O 2 2 0
+Affect O 17 -6 0
 LIMIT  1
 End
 
@@ -834,8 +834,8 @@ LEVEL  35
 WEIGHT 13
 COST   18000
 COND   100
-Affect O 2 2 0
 Affect O 13 40 0
+Affect O 2 2 0
 LIMIT  3
 End
 
@@ -852,8 +852,8 @@ LEVEL  40
 WEIGHT 6
 COST   10000
 COND   100
-Affect O 18 -4 0
 Affect O 19 7 0
+Affect O 18 -4 0
 EDESC sacrificial knife~
 It looks extremely sharp, almost good enough for surgical work, but it is very
 unwieldly and has little balance for fighting with.
@@ -889,8 +889,8 @@ LEVEL  40
 WEIGHT 12
 COST   17700
 COND   100
-Affect O 18 5 0
 Affect O 19 3 0
+Affect O 18 5 0
 LIMIT  1
 End
 
@@ -907,8 +907,8 @@ LEVEL  50
 WEIGHT 19
 COST   20000
 COND   100
-Affect O 18 -5 0
 Affect O 19 3 0
+Affect O 18 -5 0
 LIMIT  2
 End
 
@@ -967,9 +967,9 @@ LEVEL  45
 WEIGHT 14
 COST   7000
 COND   100
-Affect O 1 1 0
-Affect O 2 1 0
 Affect O 19 2 0
+Affect O 2 1 0
+Affect O 1 1 0
 LIMIT  4
 End
 
@@ -986,8 +986,8 @@ LEVEL  51
 WEIGHT 17
 COST   20000
 COND   100
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
 EDESC acid singer scimitar~
 The acid on the blade seems to be seeping out of the very steel itself. There
 is no indication of how it keeps producing the acid, but it is of an extremely
@@ -1026,10 +1026,10 @@ LEVEL  45
 WEIGHT 3
 COST   13000
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
-Affect O 24 -5 0
 Affect O 12 25 0
+Affect O 24 -5 0
+Affect O 19 2 0
+Affect O 18 2 0
 LIMIT  3
 End
 
@@ -1046,8 +1046,8 @@ LEVEL  46
 WEIGHT 10
 COST   7000
 COND   100
-Affect O 3 2 0
 Affect O 13 20 0
+Affect O 3 2 0
 LIMIT  30
 End
 

@@ -371,8 +371,8 @@ LEVEL  51
 WEIGHT 17
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -389,8 +389,8 @@ LEVEL  51
 WEIGHT 24
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -407,8 +407,8 @@ LEVEL  51
 WEIGHT 24
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -425,8 +425,8 @@ LEVEL  51
 WEIGHT 6
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -443,8 +443,8 @@ LEVEL  51
 WEIGHT 41
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -461,8 +461,8 @@ LEVEL  51
 WEIGHT 22
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -479,8 +479,8 @@ LEVEL  51
 WEIGHT 13
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -497,8 +497,8 @@ LEVEL  51
 WEIGHT 33
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -515,8 +515,8 @@ LEVEL  51
 WEIGHT 19
 COST   1
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  X
 End
 
@@ -565,8 +565,8 @@ LEVEL  51
 WEIGHT 16
 COST   5000
 COND   100
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
 LIMIT  1
 RESTR  X
 End
@@ -584,8 +584,8 @@ LEVEL  0
 WEIGHT 12
 COST   0
 COND   100
-Affect O 19 10 0
 Affect O 2 -5 0
+Affect O 19 10 0
 End
 
 #5751
@@ -618,8 +618,8 @@ LEVEL  52
 WEIGHT 14
 COST   0
 COND   100
-Affect O 19 10 0
 Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  1
 RESTR  X
 End
@@ -637,9 +637,9 @@ LEVEL  60
 WEIGHT 17
 COST   0
 COND   100
-Affect O 29 1 0
-Affect O 19 15 0
 Affect O 31 1 0
+Affect O 19 15 0
+Affect O 29 1 0
 LIMIT  1
 RESTR  X
 End

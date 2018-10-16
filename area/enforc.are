@@ -257,11 +257,11 @@ LEVEL  51
 WEIGHT 39
 COST   0
 COND   100
-Affect O 12 75 0
-Affect O 13 75 0
-Affect O 20 -10 0
-Affect O 18 8 0
 Affect O 19 8 0
+Affect O 18 8 0
+Affect O 20 -10 0
+Affect O 13 75 0
+Affect O 12 75 0
 End
 
 #4524
@@ -277,9 +277,9 @@ LEVEL  51
 WEIGHT 16
 COST   0
 COND   100
-Affect O 19 10 0
-Affect O 18 10 0
 Affect O 30 3 0
+Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  2
 End
 

@@ -594,10 +594,10 @@ DESCR
 Some toughened hide lies here in a heap.~
 MAT    flesh~
 TYPE   armor CDEF ABDEG BEF DF 0
-EXTRA  1 7 0 33624513
+EXTRA  1 6 0 33558977
 WEAR   AD
 LEVEL  60
-WEIGHT 20
+WEIGHT 21
 COST   0
 COND   100
 Affect R 0 -1 D
@@ -691,7 +691,7 @@ TYPE   weapon spear 4 9 thrust 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  55
-WEIGHT 16
+WEIGHT 13
 COST   0
 COND   100
 Affect O 19 1 0

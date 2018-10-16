@@ -1177,8 +1177,8 @@ LEVEL  0
 WEIGHT 6
 COST   1140
 COND   100
-Affect O 5 1 0
 Affect O 4 1 0
+Affect O 5 1 0
 EDESC diploma~
 This document shows that you have graduated from Mud School.
 It also has magical effects on your abilities if you hold it!
@@ -1200,8 +1200,8 @@ LEVEL  0
 WEIGHT 2
 COST   380
 COND   100
-Affect O 20 -1 0
 Affect O 17 -1 0
+Affect O 20 -1 0
 EDESC banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
@@ -1240,8 +1240,8 @@ LEVEL  1
 WEIGHT 20
 COST   290
 COND   100
-Affect O 19 1 0
 Affect O 18 2 0
+Affect O 19 1 0
 EDESC staff~
 You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
@@ -1341,8 +1341,8 @@ LEVEL  51
 WEIGHT 10
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1359,8 +1359,8 @@ LEVEL  51
 WEIGHT 4
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1377,8 +1377,8 @@ LEVEL  51
 WEIGHT 20
 COST   100
 COND   100
-Affect O 18 10 0
 Affect O 19 10 0
+Affect O 18 10 0
 RESTR  c
 End
 
@@ -1395,8 +1395,8 @@ LEVEL  51
 WEIGHT 25
 COST   100
 COND   100
-Affect O 18 10 0
 Affect O 19 10 0
+Affect O 18 10 0
 RESTR  c
 End
 
@@ -1413,8 +1413,8 @@ LEVEL  51
 WEIGHT 7
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1431,8 +1431,8 @@ LEVEL  51
 WEIGHT 12
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1449,8 +1449,8 @@ LEVEL  51
 WEIGHT 14
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1467,8 +1467,8 @@ LEVEL  51
 WEIGHT 13
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1485,8 +1485,8 @@ LEVEL  51
 WEIGHT 14
 COST   100
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 RESTR  c
 End
 
@@ -1503,8 +1503,8 @@ LEVEL  51
 WEIGHT 15
 COST   100
 COND   100
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
 End
 
 #3760
@@ -1565,10 +1565,6 @@ wall.
 ~
 FLAGS  131084
 Sect   0
-EDESC  plaque~
-This zone (Mud School) is created by Hatchet for any Merc Mud.
-Copyright 1992, 1993.
-~
 EDESC  sign~
 Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
 now, you have just a vest, a shield, and a weapon.  As you go through Mud
@@ -1583,6 +1579,10 @@ To stop using a piece of equipment, type 'REMOVE item'.
 Finally, to see the items in your inventory, type 'INVENTORY'.
 
 When you are ready to continue, go west.
+~
+EDESC  plaque~
+This zone (Mud School) is created by Hatchet for any Merc Mud.
+Copyright 1992, 1993.
 ~
 DOOR 2
 You see a path into another room.

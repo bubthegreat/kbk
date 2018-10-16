@@ -2960,8 +2960,8 @@ LEVEL  30
 WEIGHT 33
 COST   600
 COND   100
-Affect O 13 20 0
 Affect O 5 1 0
+Affect O 13 20 0
 EDESC darkened platemail~
 It is dark and heavy, but polished to a brilliant sheen.
 ~
@@ -2999,8 +2999,8 @@ LEVEL  30
 WEIGHT 17
 COST   1100
 COND   100
-Affect O 18 -2 0
 Affect O 19 7 0
+Affect O 18 -2 0
 EDESC guardian sword~
 This sword is heavy but deadly.
 ~
@@ -3038,8 +3038,8 @@ LEVEL  32
 WEIGHT 23
 COST   320
 COND   100
-Affect O 18 5 0
 Affect O 19 2 0
+Affect O 18 5 0
 EDESC silver mace~
 This mace seems deadly accurate.
 ~
@@ -3103,8 +3103,8 @@ LEVEL  35
 WEIGHT 27
 COST   780
 COND   100
-Affect O 1 1 0
 Affect O 18 1 0
+Affect O 1 1 0
 EDESC helm Kazzal-
 
 Bak~
@@ -3144,17 +3144,17 @@ LEVEL  51
 WEIGHT 34
 COST   550
 COND   100
-Affect O 1 4 0
-Affect O 19 3 0
-Affect O 20 -5 0
 Affect R 0 -1 M
-EDESC bolted steel plate~
-It is covered with the dents and scratches of well used armor.
-~
+Affect O 20 -5 0
+Affect O 19 3 0
+Affect O 1 4 0
 EDESC coat~
 This shining plate appears to be old but well taken care of to have survived the many
 battles and years it has seen. Emblazoned on the front is the family crest of the K'ahn
 family and has been passed down from years of peacekeepers.
+~
+EDESC bolted steel plate~
+It is covered with the dents and scratches of well used armor.
 ~
 LIMIT  2
 End
@@ -3191,9 +3191,9 @@ LEVEL  51
 WEIGHT 25
 COST   1350
 COND   100
-Affect O 19 7 0
-Affect O 2 -3 0
 Affect O 18 5 0
+Affect O 2 -3 0
+Affect O 19 7 0
 EDESC bastard sword~
 A bringer of much sorrow to its wielder's enemies.
 ~
@@ -3213,8 +3213,8 @@ LEVEL  22
 WEIGHT 6
 COST   420
 COND   100
-Affect O 18 3 0
 Affect O 19 1 0
+Affect O 18 3 0
 EDESC thief's dagger~
 It has the sigil of the thieves guild embossed on the hilt.
 ~
@@ -3252,8 +3252,8 @@ LEVEL  31
 WEIGHT 6
 COST   310
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 EDESC compass~
 Used in mapmaking, it is also a decent weapon.
 ~
@@ -3272,8 +3272,8 @@ LEVEL  38
 WEIGHT 6
 COST   100
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 EDESC cookie cutter~
 It is shaped like a cute little werewolf.
 ~
@@ -3292,8 +3292,8 @@ LEVEL  44
 WEIGHT 6
 COST   7440
 COND   100
-Affect O 18 -1 0
 Affect O 19 5 0
+Affect O 18 -1 0
 EDESC straight razor~
 Looks like something a psycho killer would use.
 ~
@@ -3313,8 +3313,8 @@ LEVEL  34
 WEIGHT 6
 COST   2340
 COND   100
-Affect O 18 4 0
 Affect O 19 2 0
+Affect O 18 4 0
 EDESC thornblade~
 Thornblade's pommel and hilt ends are shaped like red rose buds, and
 the grip is wrapped in green silk.
@@ -3353,8 +3353,8 @@ LEVEL  22
 WEIGHT 19
 COST   220
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 EDESC flail silver~
 Every part of this flail is made of the same bright silver metal.
 ~
@@ -3373,8 +3373,8 @@ LEVEL  17
 WEIGHT 16
 COST   370
 COND   100
-Affect O 18 3 0
 Affect O 19 1 0
+Affect O 18 3 0
 EDESC longsword silver~
 This solid silver longsword is the standard issue to all pilgrims.
 ~
@@ -3449,9 +3449,9 @@ LEVEL  29
 WEIGHT 24
 COST   12900
 COND   100
-Affect O 2 -1 0
-Affect O 18 1 0
 Affect O 19 6 0
+Affect O 18 1 0
+Affect O 2 -1 0
 EDESC faith-healer sword~
 It looks incredibly heavy and evil.
 ~
@@ -3627,8 +3627,8 @@ LEVEL  23
 WEIGHT 3
 COST   630
 COND   100
-Affect O 2 1 0
 Affect O 14 30 0
+Affect O 2 1 0
 End
 
 #737
@@ -3746,8 +3746,8 @@ LEVEL  37
 WEIGHT 21
 COST   370
 COND   100
-Affect O 3 2 0
 Affect O 12 20 0
+Affect O 3 2 0
 EDESC cap skull~
 This cap is a brightly polished human skull with a small strap of leather
 inside to attatch it to the head.
@@ -3915,8 +3915,8 @@ LEVEL  60
 WEIGHT 6
 COST   20000
 COND   100
-Affect O 4 -2 0
 Affect O 12 50 0
+Affect O 4 -2 0
 EDESC button cthulhu~
 A small white button with a green picture of Cthulhu smiling and waving.
 ~
@@ -3993,8 +3993,8 @@ LEVEL  31
 WEIGHT 16
 COST   310
 COND   100
-Affect O 2 1 0
 Affect O 12 10 0
+Affect O 2 1 0
 EDESC earrings~
 They glow with a faint magical aura.
 ~
@@ -4013,8 +4013,8 @@ LEVEL  10
 WEIGHT 16
 COST   100
 COND   100
-Affect O 12 10 0
 Affect O 13 1 0
+Affect O 12 10 0
 EDESC rosary~
 Looking closer, you notice that each bead is carved with a tiny rune.
 ~
@@ -4093,9 +4093,9 @@ LEVEL  35
 WEIGHT 25
 COST   12000
 COND   100
-Affect O 17 30 0
-Affect O 18 3 0
 Affect O 19 7 0
+Affect O 18 3 0
+Affect O 17 30 0
 LIMIT  6
 End
 
@@ -4142,7 +4142,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  0 0
 WEAR   0
 LEVEL  5
-WEIGHT 6
+WEIGHT 25
 COST   750
 COND   100
 End
@@ -7018,14 +7018,14 @@ A door lies east.
 ~
 FLAGS  262144
 Sect   0
-EDESC  altar~
-The altar is carved from a smooth block of obsidian.
+EDESC  portal~
+The portal begins to dematerialize since the ceremony was disturbed.
 ~
 EDESC  book green~
 This is a copy of the infamous Necronomicon.
 ~
-EDESC  portal~
-The portal begins to dematerialize since the ceremony was disturbed.
+EDESC  altar~
+The altar is carved from a smooth block of obsidian.
 ~
 DOOR 1
 You see a room with a number of doors.

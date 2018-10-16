@@ -1156,9 +1156,9 @@ LEVEL  0
 WEIGHT 33
 COST   10000
 COND   100
-Affect O 1 1 0
-Affect O 13 10 0
 Affect O 18 2 0
+Affect O 13 10 0
+Affect O 1 1 0
 End
 
 #4203
@@ -1174,8 +1174,8 @@ LEVEL  0
 WEIGHT 26
 COST   10000
 COND   100
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
 End
 
 #4204
@@ -1191,8 +1191,8 @@ LEVEL  0
 WEIGHT 26
 COST   10000
 COND   100
-Affect O 13 10 0
 Affect O 19 2 0
+Affect O 13 10 0
 End
 
 #4205
@@ -1208,9 +1208,9 @@ LEVEL  0
 WEIGHT 23
 COST   10000
 COND   100
-Affect O 2 1 0
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
+Affect O 2 1 0
 End
 
 #4206
@@ -1226,9 +1226,9 @@ LEVEL  0
 WEIGHT 28
 COST   10000
 COND   100
-Affect O 13 10 0
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
+Affect O 13 10 0
 End
 
 #4207
@@ -1244,8 +1244,8 @@ LEVEL  0
 WEIGHT 19
 COST   10000
 COND   100
-Affect O 13 5 0
 Affect O 19 2 0
+Affect O 13 5 0
 End
 
 #4208
@@ -1261,8 +1261,8 @@ LEVEL  35
 WEIGHT 16
 COST   0
 COND   100
-Affect O 18 1 0
 Affect O 19 3 0
+Affect O 18 1 0
 End
 
 #4209
@@ -1278,8 +1278,8 @@ LEVEL  45
 WEIGHT 25
 COST   10000
 COND   100
-Affect O 18 4 0
 Affect O 19 7 0
+Affect O 18 4 0
 LIMIT  4
 End
 
@@ -1293,12 +1293,12 @@ TYPE   armor 0 0 0 0 ACDF
 EXTRA  1 2 0 514
 WEAR   AD
 LEVEL  0
-WEIGHT 20
+WEIGHT 21
 COST   10000
 COND   100
-Affect O 1 3 0
-Affect O 18 7 0
 Affect O 19 3 0
+Affect O 18 7 0
+Affect O 1 3 0
 LIMIT  3
 End
 
@@ -1315,9 +1315,9 @@ LEVEL  45
 WEIGHT 6
 COST   0
 COND   100
-Affect O 18 4 0
-Affect O 19 5 0
 Affect O 2 3 0
+Affect O 19 5 0
+Affect O 18 4 0
 LIMIT  3
 End
 
@@ -1334,10 +1334,10 @@ LEVEL  0
 WEIGHT 4
 COST   0
 COND   100
-Affect O 18 1 0
-Affect O 19 3 0
-Affect O 13 20 0
 Affect O 2 4 0
+Affect O 13 20 0
+Affect O 19 3 0
+Affect O 18 1 0
 LIMIT  1
 End
 
@@ -1370,8 +1370,8 @@ LEVEL  45
 WEIGHT 23
 COST   10000
 COND   100
-Affect O 19 4 0
 Affect O 1 3 0
+Affect O 19 4 0
 LIMIT  10
 End
 
@@ -1388,8 +1388,8 @@ LEVEL  51
 WEIGHT 4
 COST   10000
 COND   100
-Affect O 3 4 0
 Affect O 20 15 0
+Affect O 3 4 0
 LIMIT  1
 End
 
@@ -1406,10 +1406,10 @@ LEVEL  45
 WEIGHT 6
 COST   0
 COND   100
-Affect O 24 5 0
-Affect O 13 50 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 13 50 0
+Affect O 24 5 0
 LIMIT  3
 End
 
@@ -1426,8 +1426,8 @@ LEVEL  45
 WEIGHT 16
 COST   10000
 COND   100
-Affect O 2 3 0
 Affect O 18 5 0
+Affect O 2 3 0
 LIMIT  3
 End
 
@@ -1444,10 +1444,10 @@ LEVEL  55
 WEIGHT 13
 COST   10000
 COND   100
-Affect O 19 2 0
-Affect O 12 45 0
-Affect O 1 1 0
 Affect O 2 3 0
+Affect O 1 1 0
+Affect O 12 45 0
+Affect O 19 2 0
 LIMIT  3
 RESTR  C
 End
@@ -1465,8 +1465,8 @@ LEVEL  0
 WEIGHT 7
 COST   10000
 COND   100
-Affect O 1 6 0
 Affect O 19 3 0
+Affect O 1 6 0
 LIMIT  3
 End
 
@@ -1483,8 +1483,8 @@ LEVEL  45
 WEIGHT 32
 COST   10000
 COND   100
-Affect O 19 4 0
 Affect O 18 3 0
+Affect O 19 4 0
 LIMIT  3
 End
 
@@ -1501,8 +1501,8 @@ LEVEL  55
 WEIGHT 4
 COST   10000
 COND   100
-Affect O 13 50 0
 Affect O 12 50 0
+Affect O 13 50 0
 LIMIT  4
 End
 
@@ -1516,7 +1516,7 @@ TYPE   weapon staff 7 6 smash 0
 EXTRA  1 3 0 4099
 WEAR   AN
 LEVEL  51
-WEIGHT 15
+WEIGHT 13
 COST   10000
 COND   100
 LIMIT  1
@@ -1671,9 +1671,9 @@ LEVEL  0
 WEIGHT 7
 COST   5000
 COND   100
-Affect O 2 2 0
-Affect O 18 2 0
 Affect O 19 1 0
+Affect O 18 2 0
+Affect O 2 2 0
 End
 
 #4233
@@ -1719,9 +1719,9 @@ LEVEL  0
 WEIGHT 17
 COST   13000
 COND   100
-Affect O 13 10 0
-Affect O 18 4 0
 Affect O 19 3 0
+Affect O 18 4 0
+Affect O 13 10 0
 LIMIT  3
 End
 
@@ -1738,8 +1738,8 @@ LEVEL  45
 WEIGHT 16
 COST   4500
 COND   100
-Affect O 2 -2 0
 Affect O 19 4 0
+Affect O 2 -2 0
 LIMIT  2
 End
 
@@ -2137,8 +2137,8 @@ LEVEL  51
 WEIGHT 20
 COST   20000
 COND   100
-Affect O 1 2 0
 Affect O 13 63 0
+Affect O 1 2 0
 EDESC sceptre~
 You see a beautiful golden sceptre with with intricate carvings running
 it's length. A spectacular crystal in the rough shape of a star is 
@@ -2236,10 +2236,10 @@ LEVEL  0
 WEIGHT 16
 COST   10000
 COND   100
-Affect O 19 3 0
-Affect O 18 2 0
-Affect O 13 50 0
 Affect O 2 2 0
+Affect O 13 50 0
+Affect O 18 2 0
+Affect O 19 3 0
 LIMIT  1
 End
 
@@ -2259,18 +2259,18 @@ dense woods is to the north or south.
 ~
 FLAGS  0
 Sect   2
-EDESC  EAST E~
+EDESC  WEST W~
 The forest thickens in this direction. The mass of trees only allows you
 to see several feet off the trail.
-~
-EDESC  DOWN D~
-The damp earth is a rich black color with scattered leaves upon it.
 ~
 EDESC  UP U~
 A massive canopy covers the sky above your head. Tiny specks of light
 strugle to make thier way through the foliage.
 ~
-EDESC  WEST W~
+EDESC  DOWN D~
+The damp earth is a rich black color with scattered leaves upon it.
+~
+EDESC  EAST E~
 The forest thickens in this direction. The mass of trees only allows you
 to see several feet off the trail.
 ~
@@ -2297,21 +2297,21 @@ rises up in the forest to the north.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Large planks of wood a placed closely together forming a bridge across the 
-ravine.
-~
-EDESC  UP U~
-You can see the sky overhead here because of the space the ravine has 
-created.
+EDESC  NORTH N~
+A massive ravine cuts through the forest in this direction. You can see
+a small creek running at the bottom.
 ~
 EDESC  WEST W~
 A massive ravine cuts through the forest in this direction. You can see
 a small creek running at the bottom.
 ~
-EDESC  NORTH N~
-A massive ravine cuts through the forest in this direction. You can see
-a small creek running at the bottom.
+EDESC  UP U~
+You can see the sky overhead here because of the space the ravine has 
+created.
+~
+EDESC  DOWN D~
+Large planks of wood a placed closely together forming a bridge across the 
+ravine.
 ~
 DOOR 0
 ~
@@ -2334,25 +2334,25 @@ plaque catches your attention to the left of the gate.
 ~
 FLAGS  0
 Sect   2
-EDESC  plaque~
-Only those who can reach the stars will pass through these gates.
-~
-EDESC  bumps~
-As you look more closely at the bumps you notice they are actually small
-stars embossed on the face of the stone.
-~
-EDESC  DOWN D~
-Brown packed dirt covers the ground beneath you.
-~
-EDESC  UP U~
-A massive green hill rises rises high above your head.
+EDESC  EAST E~
+A massive wall of grey stone rises up here.
 ~
 EDESC  WEST W~
 A massive wall of grey stone rises up here. You notice a series of small 
 bumps upon the stone.
 ~
-EDESC  EAST E~
-A massive wall of grey stone rises up here.
+EDESC  UP U~
+A massive green hill rises rises high above your head.
+~
+EDESC  DOWN D~
+Brown packed dirt covers the ground beneath you.
+~
+EDESC  bumps~
+As you look more closely at the bumps you notice they are actually small
+stars embossed on the face of the stone.
+~
+EDESC  plaque~
+Only those who can reach the stars will pass through these gates.
 ~
 DOOR 0
 Massive vines twist and turn forming a massive gate to the north.
@@ -2377,11 +2377,11 @@ direction from this room.
 ~
 FLAGS  256
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A massive dome open covered in constellations rises above your head.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 A massive archway leads into a spectacular room.
@@ -2413,20 +2413,20 @@ giving it a simple but elegant feel.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
-EDESC  UP U~
-The ceiling here is made of a dull grey stone.
-~
-EDESC  WEST W~
+EDESC  NORTH N~
 The wall here is made of a dull grey stone.
 ~
 EDESC  SOUTH S~
 The wall here is made of a dull grey stone.
 ~
-EDESC  NORTH N~
+EDESC  WEST W~
 The wall here is made of a dull grey stone.
+~
+EDESC  UP U~
+The ceiling here is made of a dull grey stone.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 1
 A archway leads back out into the main hall.
@@ -2444,20 +2444,20 @@ giving it a simple but elegant feel.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
-EDESC  UP U~
-The ceiling here is made of a dull grey stone.
-~
-EDESC  SOUTH S~
+EDESC  NORTH N~
 The wall here is made of a dull grey stone.
 ~
 EDESC  EAST E~
 The wall here is made of a dull grey stone.
 ~
-EDESC  NORTH N~
+EDESC  SOUTH S~
 The wall here is made of a dull grey stone.
+~
+EDESC  UP U~
+The ceiling here is made of a dull grey stone.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 3
 An archway leads back out into the main hall.
@@ -2479,12 +2479,12 @@ the room.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A massive double leveled dome rises up overhead. It is covered with 
 paintings of unknown elves and a massive library.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 A circlular doorway is set against the wall here.
@@ -2518,19 +2518,19 @@ The smells and light look a bit brighter down the hallway to the east.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
-EDESC  UP U~
-A beautiful white marble covers the ceiling here.
+EDESC  NORTH N~
+Beautiful wildflowers are placed inbetween the lanterns on the the wall 
+here.
 ~
 EDESC  SOUTH S~
 Beautiful wildflowers are placed inbetween the lanterns on the the wall 
 here.
 ~
-EDESC  NORTH N~
-Beautiful wildflowers are placed inbetween the lanterns on the the wall 
-here.
+EDESC  UP U~
+A beautiful white marble covers the ceiling here.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 1
 A doorway leads into a grand hall.
@@ -2554,11 +2554,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2593,15 +2593,15 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
+EDESC  WEST W~
+The wall here is made of a beautifull dark wood covered in wildflowers and 
+lanterns.
 ~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
 ~
-EDESC  WEST W~
-The wall here is made of a beautifull dark wood covered in wildflowers and 
-lanterns.
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2631,15 +2631,15 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
+EDESC  WEST W~
+The wall here is made of a beautifull dark wood covered in wildflowers and 
+lanterns.
 ~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
 ~
-EDESC  WEST W~
-The wall here is made of a beautifull dark wood covered in wildflowers and 
-lanterns.
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2669,11 +2669,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2709,11 +2709,11 @@ sky.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2748,11 +2748,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2787,11 +2787,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2827,11 +2827,11 @@ sky.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2866,11 +2866,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2905,11 +2905,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2944,11 +2944,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -2983,11 +2983,11 @@ wine back and forth to the guests.
 ~
 FLAGS  8
 Sect   0
-EDESC  DOWN D~
-Smooth marble covers the floor beneath you.
-~
 EDESC  UP U~
 A tall wooden ceiling hung with flowers and herbs is above you.
+~
+EDESC  DOWN D~
+Smooth marble covers the floor beneath you.
 ~
 DOOR 0
 The hall continues in this direction.
@@ -3781,13 +3781,13 @@ candle.
 ~
 FLAGS  12
 Sect   0
-EDESC  rune~
-A massive rune has been inscribeD4on the floor here. Around the rune 
-something has been written in a forgotten language.
-~
 EDESC  writing~
 As you look more closely at the writing you notice the phrase "HAKRI
 GWENIDILL MAFRE FINAE" is repeated around the entire rune.
+~
+EDESC  rune~
+A massive rune has been inscribeD4on the floor here. Around the rune 
+something has been written in a forgotten language.
 ~
 DOOR 2
 ~
@@ -3854,16 +3854,16 @@ stone itself.
 ~
 FLAGS  8
 Sect   0
+EDESC  writing~
+The key to past lies in the present. Only when the five stars have been
+united will the way be seen. When the five stars of the Chiliad are
+together then will the key be revealed.
+~
 EDESC  symbol~
 The symbol here is in the form of a five pointed star. At the tip of
 each star there is a slight indentation as if somthing was meant to be
 placed there. As you look closer at the star itself, you notice there is
 some writing in the center.
-~
-EDESC  writing~
-The key to past lies in the present. Only when the five stars have been
-united will the way be seen. When the five stars of the Chiliad are
-together then will the key be revealed.
 ~
 DOOR 3
 A doorway leads back out to the hallway.
@@ -5181,12 +5181,12 @@ symbol engraved next to it.
 ~
 FLAGS  8201
 Sect   0
-EDESC  arch~
-The symbol of the Elven Chiliad has been carved into the archway here.
-~
 EDESC  statue~
 Looking a bit closer you notice the statues hand is clenched, as if it
 had been once holding a weapon.
+~
+EDESC  arch~
+The symbol of the Elven Chiliad has been carved into the archway here.
 ~
 DOOR 0
 ~
@@ -5242,13 +5242,13 @@ symbol engraved next to it.
 ~
 FLAGS  8201
 Sect   0
-EDESC  arch~
-A beautiful symbol depicting a crecent moon is carved into the archway
-here.
-~
 EDESC  statue~
 Looking a bit closer you notice the statues hand is clenched, as if it
 had been once holding a weapon.
+~
+EDESC  arch~
+A beautiful symbol depicting a crecent moon is carved into the archway
+here.
 ~
 DOOR 1
 ~
@@ -5275,12 +5275,12 @@ symbol engraved next to it.
 ~
 FLAGS  9
 Sect   0
-EDESC  arch~
-A symbol of three interlocking rings is carved into the archway here.
-~
 EDESC  statue~
 Looking a bit closer you notice the statues hand is clenched, as if it
 had been once holding a weapon.
+~
+EDESC  arch~
+A symbol of three interlocking rings is carved into the archway here.
 ~
 DOOR 0
 A thick haze prevents you from seeing to far ahead of you.
@@ -5310,15 +5310,15 @@ symbol engraved next to it.
 ~
 FLAGS  8201
 Sect   0
-EDESC  arch~
-A symbol depicting a golden coin has been chisled into the archway.
+EDESC  symbol~
+A small coin has been etched near the doorway to the south.
 ~
 EDESC  statue~
 Looking a bit closer you notice the statues hand is clenched, as if it
 had been once holding a weapon.
 ~
-EDESC  symbol~
-A small coin has been etched near the doorway to the south.
+EDESC  arch~
+A symbol depicting a golden coin has been chisled into the archway.
 ~
 DOOR 0
 A thick haze prevents you from seeing to far ahead of you.
@@ -5353,12 +5353,12 @@ symbol engraved next to it.
 ~
 FLAGS  8201
 Sect   0
-EDESC  arch~
-A tome, crown, and a night sky have been carved into the archway overhead.
-~
 EDESC  statue~
 Looking a bit closer you notice the statues hand is clenched, as if it
 had been once holding a weapon.
+~
+EDESC  arch~
+A tome, crown, and a night sky have been carved into the archway overhead.
 ~
 DOOR 0
 A thick haze prevents you from seeing to far ahead of you.
@@ -6409,17 +6409,17 @@ perfection.
 ~
 FLAGS  8201
 Sect   0
-EDESC  table~
-An immense oak table with intricate carvings rests here peacefully. You
-notice a small journal sitting upon the edge of the table.
+EDESC  torn~
+Description: Gareesh, the mass of of white stars forming a magnificent 
+lion.
 ~
 EDESC  journal~
 As you open the journal you notice the pages seem to be blank. You see a
 torn piece of paper sticking out from between the pages.
 ~
-EDESC  torn~
-Description: Gareesh, the mass of of white stars forming a magnificent 
-lion.
+EDESC  table~
+An immense oak table with intricate carvings rests here peacefully. You
+notice a small journal sitting upon the edge of the table.
 ~
 DOOR 0
 A thick haze prevents seeing the way ahead of you.
@@ -6683,6 +6683,29 @@ perfection.
 ~
 FLAGS  8201
 Sect   0
+EDESC  virinahn~
+The god of the night sky, often depicted using simply the crecent moon.
+It is said he has also gone by the name "Wyntran".
+~
+EDESC  hjinikin~
+Lord of the frozen wastes, who would often take the form of a weary
+traveller.
+~
+EDESC  jyritonomy~
+Often depicted as a dragon clutching a scroll, to represent his strength
+and diplomatic nature.
+~
+EDESC  grinith~
+Depicted as a three headed hydra to represent the aid he lent thrice upon
+the battlefield of Baratook.
+~
+EDESC  faewry~
+The sable god of fire, patron of Gwenidill during it's conception.
+~
+EDESC  bookshelf~
+Looking upon the bookshelf you notice the titles:
+The Pantheon of Gwenidill
+~
 EDESC  pantheon~
 An account of the known traits of the gods of the Chilliadian Pantheon:
 
@@ -6703,29 +6726,6 @@ CONTENTS:
 These traits have been compiled and scribed by,
 
 'Vynith Fawentod' the eternally bound.
-~
-EDESC  bookshelf~
-Looking upon the bookshelf you notice the titles:
-The Pantheon of Gwenidill
-~
-EDESC  faewry~
-The sable god of fire, patron of Gwenidill during it's conception.
-~
-EDESC  grinith~
-Depicted as a three headed hydra to represent the aid he lent thrice upon
-the battlefield of Baratook.
-~
-EDESC  jyritonomy~
-Often depicted as a dragon clutching a scroll, to represent his strength
-and diplomatic nature.
-~
-EDESC  hjinikin~
-Lord of the frozen wastes, who would often take the form of a weary
-traveller.
-~
-EDESC  virinahn~
-The god of the night sky, often depicted using simply the crecent moon.
-It is said he has also gone by the name "Wyntran".
 ~
 DOOR 0
 A thick haze prevents seeing the way ahead of you.
@@ -6751,10 +6751,25 @@ perfection.
 ~
 FLAGS  8201
 Sect   0
-EDESC  bookshelf~
-Looking upon the bookshelf you notice the titles:
-
-Documentation of the Night Sky
+EDESC  gwenid~
+Description: The five brightest stars in the night sky.
+~
+EDESC  pricipis~
+Description: The largest constellation known, Pricipis is a massive
+formation of red stars forming a stallion.
+~
+EDESC  jivinah~
+Description: A tight formation of stars forming a great horn.
+~
+EDESC  leoniq~
+Description: A cluster of white stars which have been named 'Leoniq' or 
+'White Fist'.
+~
+EDESC  haroe~
+Description: Eight young yellow stars forming a five pointed crown.
+~
+EDESC  epslin~
+Description: A mass of ten white stars forming a charging bull.
 ~
 EDESC  documentation~
 The collective works of the observers of the night sky.
@@ -6774,25 +6789,10 @@ CONTENTS:
 
 The page has been torn off after the six entry.....
 ~
-EDESC  epslin~
-Description: A mass of ten white stars forming a charging bull.
-~
-EDESC  haroe~
-Description: Eight young yellow stars forming a five pointed crown.
-~
-EDESC  leoniq~
-Description: A cluster of white stars which have been named 'Leoniq' or 
-'White Fist'.
-~
-EDESC  jivinah~
-Description: A tight formation of stars forming a great horn.
-~
-EDESC  pricipis~
-Description: The largest constellation known, Pricipis is a massive
-formation of red stars forming a stallion.
-~
-EDESC  gwenid~
-Description: The five brightest stars in the night sky.
+EDESC  bookshelf~
+Looking upon the bookshelf you notice the titles:
+
+Documentation of the Night Sky
 ~
 DOOR 1
 A thick haze prevents seeing the way ahead of you.
@@ -7104,13 +7104,13 @@ silver chair embossed with stars sits facing the telescope.
 ~
 FLAGS  8201
 Sect   0
+EDESC  chair~
+This beautiful silver chair seems to beckon for you to sit.
+~
 EDESC  telescope~
 An extremely large telescope made of brass is before you. Wheels, and
 gears unmoved for centuries lie in waiting. This contraption holds a
 strange beauty which begs to be used.
-~
-EDESC  chair~
-This beautiful silver chair seems to beckon for you to sit.
 ~
 DOOR 0
 A thick haze prevents seeing the way ahead of you.
@@ -7347,12 +7347,12 @@ your eye is a carving of a lion upon the back wall.
 ~
 FLAGS  1
 Sect   0
-EDESC  lion~
+EDESC  carving~
 A beautiful lion in full stride has been etched into the wall here. The
 lion's mouth is open and there is a small crevice that looks as if
 somthing could be placed in the mouth.
 ~
-EDESC  carving~
+EDESC  lion~
 A beautiful lion in full stride has been etched into the wall here. The
 lion's mouth is open and there is a small crevice that looks as if
 somthing could be placed in the mouth.
@@ -7528,25 +7528,9 @@ eternally upon the walls here in the Pantheon.
 ~
 FLAGS  8201
 Sect   0
-EDESC  virinahn~
-A portrait of a crecent moon hangs upon the wall of the altar here. The
-portrait itself seems to be hanging a bit crooked.
-~
-EDESC  hjinikin~
-A portrait of a strange figure shrowded by driving snow hangs upon the
-wall of the altar here.
-~
-EDESC  jyritonimy~
-A portrait of a dragon like figure holding a scroll in his right claw
-hangs upon the wall of the altar here.
-~
-EDESC  grinith~
-A portrait of three headed hydra rising up out of the water hangs upon
-the wall of the altar.
-~
-EDESC  faewry~
-A portrait of an elf like figure engulfed in flames hangs upon the wall
-of the altar.
+EDESC  altar~
+A beautiful altar made of guilded gold rests before you. Small portaits
+depicting the gods of old hang from the walls of the altar.
 ~
 EDESC  portraits~
 Looking closer at the portraits you notice the names of the gods etched
@@ -7557,9 +7541,25 @@ JYRITONIMY
 HJINIKIN
 VIRINAHN
 ~
-EDESC  altar~
-A beautiful altar made of guilded gold rests before you. Small portaits
-depicting the gods of old hang from the walls of the altar.
+EDESC  faewry~
+A portrait of an elf like figure engulfed in flames hangs upon the wall
+of the altar.
+~
+EDESC  grinith~
+A portrait of three headed hydra rising up out of the water hangs upon
+the wall of the altar.
+~
+EDESC  jyritonimy~
+A portrait of a dragon like figure holding a scroll in his right claw
+hangs upon the wall of the altar here.
+~
+EDESC  hjinikin~
+A portrait of a strange figure shrowded by driving snow hangs upon the
+wall of the altar here.
+~
+EDESC  virinahn~
+A portrait of a crecent moon hangs upon the wall of the altar here. The
+portrait itself seems to be hanging a bit crooked.
 ~
 DOOR 0
 A thick haze prevents seeing the way ahead of you.

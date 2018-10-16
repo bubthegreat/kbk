@@ -2815,8 +2815,8 @@ LEVEL  12
 WEIGHT 18
 COST   1410
 COND   100
-Affect O 1 1 0
 Affect O 18 2 0
+Affect O 1 1 0
 End
 
 #1315
@@ -2862,8 +2862,8 @@ LEVEL  6
 WEIGHT 13
 COST   720
 COND   100
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
 End
 
 #1318
@@ -2879,8 +2879,8 @@ LEVEL  10
 WEIGHT 5
 COST   970
 COND   100
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 End
 
 #1319
@@ -2909,7 +2909,7 @@ TYPE   weapon staff 1 4 crush 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  0
-WEIGHT 20
+WEIGHT 17
 COST   42
 COND   100
 End
@@ -3137,8 +3137,8 @@ LEVEL  7
 WEIGHT 21
 COST   1140
 COND   100
-Affect O 4 1 0
 Affect O 3 1 0
+Affect O 4 1 0
 End
 
 #1336
@@ -3169,8 +3169,8 @@ LEVEL  13
 WEIGHT 10
 COST   2200
 COND   100
-Affect O 5 -1 0
 Affect O 4 2 0
+Affect O 5 -1 0
 End
 
 #1338
@@ -3232,8 +3232,8 @@ LEVEL  35
 WEIGHT 10
 COST   4300
 COND   100
-Affect O 20 -3 0
 Affect O 17 -5 0
+Affect O 20 -3 0
 End
 
 #1342
@@ -3249,8 +3249,8 @@ LEVEL  17
 WEIGHT 21
 COST   3600
 COND   100
-Affect O 17 -3 0
 Affect O 2 2 0
+Affect O 17 -3 0
 End
 
 #1343
@@ -3279,7 +3279,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  1 1 0 64
 WEAR   AB
 LEVEL  0
-WEIGHT 4
+WEIGHT 16
 COST   1000
 COND   100
 End
@@ -3357,8 +3357,8 @@ LEVEL  0
 WEIGHT 8
 COST   0
 COND   100
-Affect O 14 -82 0
 Affect O 12 -100 0
+Affect O 14 -82 0
 End
 
 #1357
@@ -3652,8 +3652,8 @@ LEVEL  20
 WEIGHT 4
 COST   2100
 COND   100
-Affect O 19 2 0
 Affect O 2 1 0
+Affect O 19 2 0
 End
 
 #1377
@@ -3699,8 +3699,8 @@ LEVEL  26
 WEIGHT 10
 COST   2900
 COND   100
-Affect O 20 -2 0
 Affect O 17 -6 0
+Affect O 20 -2 0
 End
 
 #1380
@@ -3746,8 +3746,8 @@ LEVEL  26
 WEIGHT 21
 COST   2900
 COND   100
-Affect O 20 -2 0
 Affect O 17 -6 0
+Affect O 20 -2 0
 End
 
 #1383
@@ -3763,8 +3763,8 @@ LEVEL  29
 WEIGHT 10
 COST   3300
 COND   100
-Affect O 20 -2 0
 Affect O 17 -7 0
+Affect O 20 -2 0
 End
 
 #1384
@@ -3793,7 +3793,7 @@ TYPE   weapon staff 3 9 pound F
 EXTRA  1 1 0 64
 WEAR   AN
 LEVEL  27
-WEIGHT 30
+WEIGHT 26
 COST   1280
 COND   100
 Affect O 18 3 0
@@ -3828,8 +3828,8 @@ LEVEL  22
 WEIGHT 21
 COST   2400
 COND   100
-Affect O 20 -2 0
 Affect O 17 -5 0
+Affect O 20 -2 0
 End
 
 #1388
@@ -3861,8 +3861,8 @@ LEVEL  29
 WEIGHT 10
 COST   3300
 COND   100
-Affect O 20 -2 0
 Affect O 17 -7 0
+Affect O 20 -2 0
 End
 
 #1390
@@ -3894,8 +3894,8 @@ LEVEL  22
 WEIGHT 21
 COST   2400
 COND   100
-Affect O 20 -2 0
 Affect O 17 -5 0
+Affect O 20 -2 0
 End
 
 #1392
@@ -3927,8 +3927,8 @@ LEVEL  29
 WEIGHT 10
 COST   3300
 COND   100
-Affect O 20 -2 0
 Affect O 17 -7 0
+Affect O 20 -2 0
 End
 
 #1394
@@ -3944,8 +3944,8 @@ LEVEL  27
 WEIGHT 5
 COST   2100
 COND   100
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
 End
 
 #1395
@@ -3961,8 +3961,8 @@ LEVEL  20
 WEIGHT 10
 COST   1970
 COND   100
-Affect O 19 2 0
 Affect O 17 -2 0
+Affect O 19 2 0
 End
 
 #1396
@@ -3978,8 +3978,8 @@ LEVEL  50
 WEIGHT 10
 COST   10800
 COND   100
-Affect O 20 -4 0
 Affect O 17 -12 0
+Affect O 20 -4 0
 End
 
 #1397
@@ -4011,8 +4011,8 @@ LEVEL  20
 WEIGHT 13
 COST   2200
 COND   100
-Affect O 3 1 0
 Affect O 17 -5 0
+Affect O 3 1 0
 End
 
 #1399
@@ -4028,8 +4028,8 @@ LEVEL  40
 WEIGHT 8
 COST   5100
 COND   100
-Affect O 20 -2 0
 Affect O 17 -10 0
+Affect O 20 -2 0
 End
 
 #1400
@@ -4045,8 +4045,8 @@ LEVEL  46
 WEIGHT 5
 COST   10700
 COND   100
-Affect O 19 5 0
 Affect O 2 2 0
+Affect O 19 5 0
 End
 
 #1401
@@ -4059,11 +4059,11 @@ TYPE   armor BCDE BCEF BF CF 0
 EXTRA  1 1 0 64
 WEAR   AD
 LEVEL  37
-WEIGHT 26
+WEIGHT 27
 COST   17800
 COND   100
-Affect O 17 -5 0
 Affect O 2 3 0
+Affect O 17 -5 0
 EDESC green scale shirt~
 Green dragon scale shirt was made from a poor unfortunate green dragon.
 ~
@@ -4155,26 +4155,26 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 3
-The shadows cloud your vision.
-~
-~
-0 -1 1303
-DOOR 1
-The shadows cloud your vision.
-~
-~
-0 -1 1302
-DOOR 0
-The shadows cloud your vision.
-~
-~
-0 -1 1307
 DOOR 2
 The shadows cloud your vision.
 ~
 ~
 0 -1 1304
+DOOR 3
+The shadows cloud your vision.
+~
+~
+0 -1 1303
+DOOR 0
+The shadows cloud your vision.
+~
+~
+0 -1 1307
+DOOR 1
+The shadows cloud your vision.
+~
+~
+0 -1 1302
 End
 
 #1302
@@ -4187,16 +4187,6 @@ sounds moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-The shadows cloud your vision.
-~
-~
-0 -1 1303
-DOOR 3
-The shadows cloud your vision.
-~
-~
-0 -1 1301
 DOOR 0
 You see a small clearing in the shadows.
 ~
@@ -4207,6 +4197,16 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1305
+DOOR 1
+The shadows cloud your vision.
+~
+~
+0 -1 1303
+DOOR 3
+The shadows cloud your vision.
+~
+~
+0 -1 1301
 End
 
 #1303
@@ -4224,16 +4224,16 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1306
-DOOR 0
-The shadows cloud your vision.
-~
-~
-0 -1 1309
 DOOR 1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1301
+DOOR 0
+The shadows cloud your vision.
+~
+~
+0 -1 1309
 DOOR 3
 The shadows cloud your vision.
 ~
@@ -4251,16 +4251,16 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 2
-The shadows cloud your vision.
-~
-~
-0 -1 1307
 DOOR 0
 The shadows cloud your vision.
 ~
 ~
 0 -1 11400
+DOOR 2
+The shadows cloud your vision.
+~
+~
+0 -1 1307
 DOOR 1
 The shadows cloud your vision.
 ~
@@ -4278,16 +4278,16 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 0
-The shadows cloud your vision.
-~
-~
-0 -1 1302
 DOOR 3
 The shadows cloud your vision.
 ~
 ~
 0 -1 1304
+DOOR 0
+The shadows cloud your vision.
+~
+~
+0 -1 1302
 DOOR 2
 The shadows cloud your vision.
 ~
@@ -4310,26 +4310,26 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a shadowy tavern.
-~
-~
-0 -1 9301
-DOOR 2
-The shadows cloud your vision.
-~
-~
-0 -1 1309
 DOOR 3
 The shadows cloud your vision.
 ~
 ~
 0 -1 1305
+DOOR 1
+You see a shadowy tavern.
+~
+~
+0 -1 9301
 DOOR 0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1303
+DOOR 2
+The shadows cloud your vision.
+~
+~
+0 -1 1309
 End
 
 #1307
@@ -4342,26 +4342,26 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 2
-The shadows cloud your vision.
-~
-~
-0 -1 1301
-DOOR 0
-The shadows cloud your vision.
-~
-~
-0 -1 1304
 DOOR 1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1308
+DOOR 2
+The shadows cloud your vision.
+~
+~
+0 -1 1301
 DOOR 3
 The shadows cloud your vision.
 ~
 ~
 0 -1 1309
+DOOR 0
+The shadows cloud your vision.
+~
+~
+0 -1 1304
 End
 
 #1308
@@ -4374,16 +4374,16 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
-DOOR 3
-The shadows cloud your vision.
-~
-~
-0 -1 1307
 DOOR 0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1305
+DOOR 3
+The shadows cloud your vision.
+~
+~
+0 -1 1307
 DOOR 1
 The shadows cloud your vision.
 ~
@@ -4406,6 +4406,16 @@ sounds of moaning and growling come from all directions.
 ~
 FLAGS  8193
 Sect   3
+DOOR 2
+The shadows cloud your vision.
+~
+~
+0 -1 1303
+DOOR 3
+The shadows cloud your vision.
+~
+~
+0 -1 1308
 DOOR 0
 The shadows cloud your vision.
 ~
@@ -4416,16 +4426,6 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1307
-DOOR 3
-The shadows cloud your vision.
-~
-~
-0 -1 1308
-DOOR 2
-The shadows cloud your vision.
-~
-~
-0 -1 1303
 End
 
 #1311

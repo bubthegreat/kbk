@@ -517,14 +517,14 @@ into the downs beyond.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-The cobblestones beneath you are well-worn, but not cracked or uneven.
+EDESC  SOUTH S~
+A barrivaded guard tower looms to the north.
 ~
 EDESC  UP U~
 The western gate of Midgaard towers over you.
 ~
-EDESC  SOUTH S~
-A barrivaded guard tower looms to the north.
+EDESC  DOWN D~
+The cobblestones beneath you are well-worn, but not cracked or uneven.
 ~
 DOOR 1
 The walls of Midgaard tower to the east, and an archway offers entrance to 
@@ -590,14 +590,14 @@ seen off to the southwest.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A thick blanket of lush green grass covers the ground.
+EDESC  NORTH N~
+Green rolling fields continue in this direction.
 ~
 EDESC  EAST E~
 Green rolling fields continue in this direction.
 ~
-EDESC  NORTH N~
-Green rolling fields continue in this direction.
+EDESC  DOWN D~
+A thick blanket of lush green grass covers the ground.
 ~
 DOOR 2
 A cobblestone road can be seen in this direction.
@@ -622,11 +622,11 @@ seen off to the southwest.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A thick blanket of lush green grass covers the ground.
-~
 EDESC  EAST E~
 Green rolling fields continue in this direction.
+~
+EDESC  DOWN D~
+A thick blanket of lush green grass covers the ground.
 ~
 DOOR 0
 A cobblestone street begins up ahead.
@@ -657,12 +657,12 @@ through the downs like a vein, leading far off into the distance.
 ~
 FLAGS  0
 Sect   2
+EDESC  WEST W~
+Lush green hills rise up in this direction.
+~
 EDESC  DOWN D~
 A combination of brown dirt and small rocks makes up the ground beneath 
 you.
-~
-EDESC  WEST W~
-Lush green hills rise up in this direction.
 ~
 DOOR 0
 The path continues in this direction.
@@ -769,15 +769,15 @@ through the downs like a vein, leading far off into the distance.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
+EDESC  WEST W~
+Lush green hills rise up in this direction.
 ~
 EDESC  NORTH N~
 Lush green hills rise up in this direction.
 ~
-EDESC  WEST W~
-Lush green hills rise up in this direction.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 1
 The path continues in this direction.
@@ -807,15 +807,15 @@ through the downs like a vein, leading far off into the distance.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
+EDESC  EAST E~
+Lush green hills rise up in this direction.
 ~
 EDESC  SOUTH S~
 Lush green hills rise up in this direction.
 ~
-EDESC  EAST E~
-Lush green hills rise up in this direction.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 0
 ~
@@ -839,14 +839,14 @@ seen off to the southwest.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A thick blanket of lush green grass covers the ground.
+EDESC  NORTH N~
+The green rolling hills continue in this direction.
 ~
 EDESC  WEST W~
 The green rolling hills continue in this direction.
 ~
-EDESC  NORTH N~
-The green rolling hills continue in this direction.
+EDESC  DOWN D~
+A thick blanket of lush green grass covers the ground.
 ~
 DOOR 1
 A dirt path can be seen up ahead.
@@ -872,12 +872,12 @@ through the downs like a vein, leading far off into the distance.
 ~
 FLAGS  0
 Sect   2
+EDESC  SOUTH S~
+Lush green hills rise up in this direction.
+~
 EDESC  DOWN D~
 A combination of brown dirt and small rocks makes up the ground beneath 
 you.
-~
-EDESC  SOUTH S~
-Lush green hills rise up in this direction.
 ~
 DOOR 0
 Lush green hills rise up in this direction.
@@ -907,11 +907,11 @@ seen off to the southwest.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A thick blanket of lush green grass covers the ground.
-~
 EDESC  EAST E~
 Green rolling hills continue in this direction.
+~
+EDESC  DOWN D~
+A thick blanket of lush green grass covers the ground.
 ~
 DOOR 0
 Green rolling hills continue in this direction.
@@ -980,15 +980,15 @@ through the downs like a vein, leading far off into the distance.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
+EDESC  NORTH N~
+Green rolling fields continue in this direction.
 ~
 EDESC  WEST W~
 The ground seems disapear a little ways in this direction.
 ~
-EDESC  NORTH N~
-Green rolling fields continue in this direction.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 1
 The path continues in this direction.
@@ -1014,12 +1014,12 @@ and you notice a dense forest looming on the other side of the river.
 ~
 FLAGS  0
 Sect   2
+EDESC  SOUTH S~
+Green rolling fields continue in this direction.
+~
 EDESC  DOWN D~
 A combination of brown dirt and small rocks make up the ground beneath 
 you.
-~
-EDESC  SOUTH S~
-Green rolling fields continue in this direction.
 ~
 DOOR 0
 The dirt path continues in this direction.
@@ -1049,11 +1049,11 @@ seen off to the southwest.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A thick blanket of lush green grass covers the ground.
-~
 EDESC  SOUTH S~
 Green rolling hills continue in this direction.
+~
+EDESC  DOWN D~
+A thick blanket of lush green grass covers the ground.
 ~
 DOOR 0
 A dirt path can be seen up ahead.
@@ -1083,14 +1083,14 @@ seen off to the southwest.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A thick blanket of lush green grass covers the ground.
+EDESC  EAST E~
+Green rolling hills continue in this direction.
 ~
 EDESC  SOUTH S~
 Green rolling hills continue in this direction.
 ~
-EDESC  EAST E~
-Green rolling hills continue in this direction.
+EDESC  DOWN D~
+A thick blanket of lush green grass covers the ground.
 ~
 DOOR 0
 Green rolling hills continue in this direction.
@@ -1156,15 +1156,15 @@ rolling hills of the downs beginning on the other side of the river.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks make up the ground beneath 
-you.
+EDESC  SOUTH S~
+The bordering woods end at the steep decent down to the river.
 ~
 EDESC  NORTH N~
 The bordering woods end at the steep decent down to the river.
 ~
-EDESC  SOUTH S~
-The bordering woods end at the steep decent down to the river.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks make up the ground beneath 
+you.
 ~
 DOOR 1
 A massive stone bridge crosses the ravine up ahead.
@@ -1191,15 +1191,15 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks make up the ground beneath 
-you.
+EDESC  NORTH N~
+The majestic peaks of Mount Cim loom in the distance.
 ~
 EDESC  WEST W~
 A thick line of trees continues to border the grass in this direction.
 ~
-EDESC  NORTH N~
-The majestic peaks of Mount Cim loom in the distance.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks make up the ground beneath 
+you.
 ~
 DOOR 1
 A small path leads off in this direction.
@@ -1262,14 +1262,14 @@ standing water wafts in from the south, in the direction of the lowlands.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Green leafy vines creep among the large stones beneath you.
+EDESC  NORTH N~
+The forest thickens in this direction.
 ~
 EDESC  EAST E~
 The forest thickens in this direction.
 ~
-EDESC  NORTH N~
-The forest thickens in this direction.
+EDESC  DOWN D~
+Green leafy vines creep among the large stones beneath you.
 ~
 DOOR 2
 The stoney clearing continues in this direction.
@@ -1295,14 +1295,14 @@ standing water wafts in from the south, in the direction of the lowlands.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Green leafy vines creep among the large stones beneath you.
+EDESC  NORTH N~
+The forest thickens in this direction.
 ~
 EDESC  WEST W~
 The forest thickens in this direction.
 ~
-EDESC  NORTH N~
-The forest thickens in this direction.
+EDESC  DOWN D~
+Green leafy vines creep among the large stones beneath you.
 ~
 DOOR 1
 The stoney clearing continues in this direction.
@@ -1328,11 +1328,11 @@ standing water wafts in from the south, in the direction of the lowlands.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Green leafy vines creep among the large stones beneath you.
-~
 EDESC  SOUTH S~
 The forest thickens in this direction.
+~
+EDESC  DOWN D~
+Green leafy vines creep among the large stones beneath you.
 ~
 DOOR 0
 The stoney clearing continues in this direction.
@@ -1363,11 +1363,11 @@ standing water wafts in from the south, in the direction of the lowlands.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Green leafy vines creep among the large stones beneath you.
-~
 EDESC  SOUTH S~
 The forest thickens in this direction.
+~
+EDESC  DOWN D~
+Green leafy vines creep among the large stones beneath you.
 ~
 DOOR 0
 The stoney clearing continues in this direction.
@@ -1398,11 +1398,11 @@ standing water wafts in from the south, in the direction of the lowlands.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Green leafy vines creep among the large stones beneath you.
-~
 EDESC  SOUTH S~
 The forest thickens in this direction.
+~
+EDESC  DOWN D~
+Green leafy vines creep among the large stones beneath you.
 ~
 DOOR 0
 The stoney clearing continues in this direction.
@@ -1434,14 +1434,14 @@ and to the south the ground becomes even soggier.
 ~
 FLAGS  0
 Sect   3
-EDESC  DOWN D~
-Thick, black mud makes up this soggy path.
+EDESC  NORTH N~
+The waterlogged timber continues in this direction.
 ~
 EDESC  EAST E~
 The waterlogged timber continues in this direction.
 ~
-EDESC  NORTH N~
-The waterlogged timber continues in this direction.
+EDESC  DOWN D~
+Thick, black mud makes up this soggy path.
 ~
 DOOR 2
 The muddy path continues in this direction.
@@ -1468,14 +1468,14 @@ and to the south the ground becomes even soggier.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Thick, black mud makes up this soggy path.
+EDESC  SOUTH S~
+The waterlogged timber continues in this direction.
 ~
 EDESC  WEST W~
 The waterlogged timber continues in this direction.
 ~
-EDESC  SOUTH S~
-The waterlogged timber continues in this direction.
+EDESC  DOWN D~
+Thick, black mud makes up this soggy path.
 ~
 DOOR 0
 The muddy path continues in this direction.
@@ -1502,14 +1502,14 @@ and to the south a putrid waterway can be seen.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Thick, black mud makes up this soggy path.
+EDESC  NORTH N~
+The waterlogged timber continues in this direction.
 ~
 EDESC  EAST E~
 The waterlogged timber continues in this direction.
 ~
-EDESC  NORTH N~
-The waterlogged timber continues in this direction.
+EDESC  DOWN D~
+Thick, black mud makes up this soggy path.
 ~
 DOOR 0
 You can see a crumbling stone facade to the north.
@@ -1537,14 +1537,14 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  SOUTH S~
+The forest grows thicker in this direction.
 ~
 EDESC  WEST W~
 The forest grows thicker in this direction.
 ~
-EDESC  SOUTH S~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 0
 The path continues in this direction.
@@ -1572,14 +1572,14 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  NORTH N~
+The forest grows thicker in this direction.
 ~
 EDESC  EAST E~
 The forest grows thicker in this direction.
 ~
-EDESC  NORTH N~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 0
 ~
@@ -1611,14 +1611,14 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  SOUTH S~
+The forest grows thicker in this direction.
 ~
 EDESC  NORTH N~
 The forest grows thicker in this direction.
 ~
-EDESC  SOUTH S~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 1
 The path continues in this direction.
@@ -1646,14 +1646,14 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  NORTH N~
+The forest grows thicker in this direction.
 ~
 EDESC  WEST W~
 The forest grows thicker in this direction.
 ~
-EDESC  NORTH N~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 1
 The path continues in this direction.
@@ -1681,11 +1681,11 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
-~
 EDESC  EAST E~
 The forest grows thicker in this direction.
+~
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 0
 The path continues in this direction.
@@ -1718,14 +1718,14 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  SOUTH S~
+The forest grows thicker in this direction.
 ~
 EDESC  WEST W~
 The forest grows thicker in this direction.
 ~
-EDESC  SOUTH S~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 0
 The path continues in this direction.
@@ -1753,14 +1753,14 @@ leaves.  To the north a strange shadowy grove opens up.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  EAST E~
+The forest grows thicker in this direction.
 ~
 EDESC  WEST W~
 The forest grows thicker in this direction.
 ~
-EDESC  EAST E~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 0
 A shadowy grove looms up ahead.
@@ -1788,14 +1788,14 @@ to dance across the forest floor.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A inch of fallen leaves blankets the forest floor.
+EDESC  EAST E~
+The forest grows thicker in this direction.
 ~
 EDESC  SOUTH S~
 The forest grows thicker in this direction.
 ~
-EDESC  EAST E~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A inch of fallen leaves blankets the forest floor.
 ~
 DOOR 0
 The path continues in this direction.
@@ -1821,14 +1821,14 @@ deep gusty vale can be seen off to the west.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of small rocks and brown dirt cover the ground beneath you.
+EDESC  SOUTH S~
+The forest grows thicker in this direction.
 ~
 EDESC  NORTH N~
 The forest grows thicker in this direction.
 ~
-EDESC  SOUTH S~
-The forest grows thicker in this direction.
+EDESC  DOWN D~
+A combination of small rocks and brown dirt cover the ground beneath you.
 ~
 DOOR 1
 The path continues in this direction.
@@ -1892,14 +1892,14 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
+EDESC  NORTH N~
+The grassy ground slopes up towards a treeline in this direction.
 ~
 EDESC  EAST E~
 The grassy ground slopes up towards a treeline in this direction.
 ~
-EDESC  NORTH N~
-The grassy ground slopes up towards a treeline in this direction.
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 2
 The vale continues in this direction.
@@ -1925,14 +1925,14 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
+EDESC  EAST E~
+The grassy ground slopes up towards a treeline in this direction.
 ~
 EDESC  SOUTH S~
 The grassy ground slopes up towards a treeline in this direction.
 ~
-EDESC  EAST E~
-The grassy ground slopes up towards a treeline in this direction.
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 0
 The vale continues in this direction.
@@ -1995,11 +1995,11 @@ the east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
-~
 EDESC  NORTH N~
 The grassy ground slopes up towards a treeline in this direction.
+~
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 1
 The vale continues in this direction.
@@ -2030,11 +2030,11 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
-~
 EDESC  SOUTH S~
 The grassy ground slopes up towards a treeline in this direction.
+~
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 0
 ~
@@ -2101,11 +2101,11 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-The grass beneath you seems trampled by frequent use.
-~
 EDESC  NORTH N~
 The grassy ground slopes up towards a treeline in this direction.
+~
+EDESC  DOWN D~
+The grass beneath you seems trampled by frequent use.
 ~
 DOOR 1
 The vale continues in this direction.
@@ -2136,11 +2136,11 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
-~
 EDESC  SOUTH S~
 The grassy ground slopes up towards a treeline in this direction.
+~
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 0
 The vale continues in this direction.
@@ -2171,11 +2171,11 @@ the east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
-~
 EDESC  WEST W~
 The grassy ground slopes up towards a treeline in this direction.
+~
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 0
 The vale continues in this direction.
@@ -2206,14 +2206,14 @@ east.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Lush, green grass covers the ground beneath you.
+EDESC  SOUTH S~
+The grassy ground slopes up towards a treeline in this direction.
 ~
 EDESC  WEST W~
 The grassy ground slopes up towards a treeline in this direction.
 ~
-EDESC  SOUTH S~
-The grassy ground slopes up towards a treeline in this direction.
+EDESC  DOWN D~
+Lush, green grass covers the ground beneath you.
 ~
 DOOR 0
 The vale continues in this direction.
@@ -2240,11 +2240,11 @@ north the path leads uphill towards a rough path.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-The grass beneath you seems trampled by frequent use.
-~
 EDESC  WEST W~
 The grassy ground slopes up towards a treeline in this direction.
+~
+EDESC  DOWN D~
+The grass beneath you seems trampled by frequent use.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2274,14 +2274,14 @@ north towards a meadow, and winds south towards a large vale.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Jagged rocks dominate the dirt path beneath you.
+EDESC  NORTH N~
+Small bushes and tall grass line the edge of the path here.
 ~
 EDESC  EAST E~
 Small bushes and tall grass line the edge of the path here.
 ~
-EDESC  NORTH N~
-Small bushes and tall grass line the edge of the path here.
+EDESC  DOWN D~
+Jagged rocks dominate the dirt path beneath you.
 ~
 DOOR 2
 The path continues in this direction.
@@ -2306,14 +2306,14 @@ north towards a meadow, and winds south towards a large vale.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Jagged rocks dominate the dirt path beneath you.
+EDESC  SOUTH S~
+Small bushes and tall grass line the edge of the path here.
 ~
 EDESC  WEST W~
 Small bushes and tall grass line the edge of the path here.
 ~
-EDESC  SOUTH S~
-Small bushes and tall grass line the edge of the path here.
+EDESC  DOWN D~
+Jagged rocks dominate the dirt path beneath you.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2339,14 +2339,14 @@ deep vale.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Jagged rocks dominate the dirt path beneath you.
+EDESC  EAST E~
+Small bushes and tall grass line the edge of the path here.
 ~
 EDESC  WEST W~
 Small bushes and tall grass line the edge of the path here.
 ~
-EDESC  EAST E~
-Small bushes and tall grass line the edge of the path here.
+EDESC  DOWN D~
+Jagged rocks dominate the dirt path beneath you.
 ~
 DOOR 0
 A grassy meadow begins up ahead.
@@ -2373,11 +2373,11 @@ horizon.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Tall grasses and wildflowers blanket the ground beneath you.
-~
 EDESC  WEST W~
 Scrubby brush and small trees line the edge of the meadow.
+~
+EDESC  DOWN D~
+Tall grasses and wildflowers blanket the ground beneath you.
 ~
 DOOR 0
 The meadow continues in this direction.
@@ -2408,11 +2408,11 @@ horizon.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Tall grasses and wildflowers blanket the ground beneath you.
-~
 EDESC  SOUTH S~
 Scrubby brush and small trees line the edge of the meadow.
+~
+EDESC  DOWN D~
+Tall grasses and wildflowers blanket the ground beneath you.
 ~
 DOOR 0
 The meadow continues in this direction.
@@ -2444,14 +2444,14 @@ horizon.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Tall grasses and wildflowers blanket the ground beneath you.
+EDESC  NORTH N~
+The peaks of Mount Cim loom up over the edge of the meadow.
 ~
 EDESC  WEST W~
 Scrubby brush and small trees line the edge of the meadow.
 ~
-EDESC  NORTH N~
-The peaks of Mount Cim loom up over the edge of the meadow.
+EDESC  DOWN D~
+Tall grasses and wildflowers blanket the ground beneath you.
 ~
 DOOR 1
 The meadow continues in this direction.
@@ -2478,11 +2478,11 @@ horizon.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Tall grasses and wildflowers blanket the ground beneath you.
-~
 EDESC  NORTH N~
 The peaks of Mount Cim loom up over the edge of the meadow.
+~
+EDESC  DOWN D~
+Tall grasses and wildflowers blanket the ground beneath you.
 ~
 DOOR 1
 The meadow continues in this direction.
@@ -2514,11 +2514,11 @@ horizon.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Tall grasses and wildflowers blanket the ground beneath you.
-~
 EDESC  NORTH N~
 The peaks of Mount Cim loom up over the edge of the meadow.
+~
+EDESC  DOWN D~
+Tall grasses and wildflowers blanket the ground beneath you.
 ~
 DOOR 1
 A small path leads off in this direction.
@@ -2550,14 +2550,14 @@ horizon.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Tall grasses and wildflowers blanket the ground beneath you.
+EDESC  EAST E~
+Scrubby brush and small trees line the edge of the meadow.
 ~
 EDESC  SOUTH S~
 Scrubby brush and small trees line the edge of the meadow.
 ~
-EDESC  EAST E~
-Scrubby brush and small trees line the edge of the meadow.
+EDESC  DOWN D~
+Tall grasses and wildflowers blanket the ground beneath you.
 ~
 DOOR 0
 The meadow continues in this direction.
@@ -2583,14 +2583,14 @@ louder off to the west.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-Large, jagged rocks dominate the trail here.
+EDESC  EAST E~
+Scrubby brush and wildflowers grow along the edge of the trail here.
 ~
 EDESC  SOUTH S~
 A quiet meadow expands in this direction.
 ~
-EDESC  EAST E~
-Scrubby brush and wildflowers grow along the edge of the trail here.
+EDESC  DOWN D~
+Large, jagged rocks dominate the trail here.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2615,14 +2615,14 @@ Off to the south the woodlands loom darkly.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks dominate the trail here.
+EDESC  NORTH N~
+The twin peaks loom up over the edge of the trail.
 ~
 EDESC  WEST W~
 A large meadow can be seen in this direction.
 ~
-EDESC  NORTH N~
-The twin peaks loom up over the edge of the trail.
+EDESC  DOWN D~
+Large, jagged rocks dominate the trail here.
 ~
 DOOR 1
 The path continues in this direction.
@@ -2649,14 +2649,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  SOUTH S~
+The foothills lead downward in this direction.
 ~
 EDESC  NORTH N~
 The twin peaks loom up in this direction.
 ~
-EDESC  SOUTH S~
-The foothills lead downward in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 1
 The path continues in this direction.
@@ -2683,14 +2683,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  EAST E~
+The highlands continue on in this direction.
 ~
 EDESC  SOUTH S~
 The foothills leaD downward in this direction.
 ~
-EDESC  EAST E~
-The highlands continue on in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2717,14 +2717,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  NORTH N~
+The twin peaks loom up in this direction.
 ~
 EDESC  WEST W~
 The highlands continue on in this direction.
 ~
-EDESC  NORTH N~
-The twin peaks loom up in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 1
 The path continues in this direction.
@@ -2751,14 +2751,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  EAST E~
+The highlands continue on in this direction.
 ~
 EDESC  SOUTH S~
 The foothills leaD downward in this direction.
 ~
-EDESC  EAST E~
-The highlands continue on in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2783,14 +2783,14 @@ defiantly along the river banks.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  NORTH N~
+The twin peaks loom up in this direction.
 ~
 EDESC  WEST W~
 The highlands continue on in this direction.
 ~
-EDESC  NORTH N~
-The twin peaks loom up in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 1
 A cluster of stones leads across the river in this direction.
@@ -2817,12 +2817,12 @@ sheer rock face.
 ~
 FLAGS  0
 Sect   5
+EDESC  SOUTH S~
+The waters of the Sywilm can be seen snaking of to the south.
+~
 EDESC  NORTH N~
 The waters of the Sywilm emerge in this direction, from beneath a rock 
 face.
-~
-EDESC  SOUTH S~
-The waters of the Sywilm can be seen snaking of to the south.
 ~
 DOOR 1
 A cluster of stones leads across the river in this direction.
@@ -2852,14 +2852,14 @@ banks of the river.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  NORTH N~
+The twin peaks loom up in this direction.
 ~
 EDESC  SOUTH S~
 The foothills leaD downward in this direction.
 ~
-EDESC  NORTH N~
-The twin peaks loom up in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 1
 The path continues in this direction.
@@ -2886,14 +2886,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  NORTH N~
+The twin peaks loom up in this direction.
 ~
 EDESC  EAST E~
 The highlands continue on in this direction.
 ~
-EDESC  NORTH N~
-The twin peaks loom up in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 2
 The path continues in this direction.
@@ -2920,14 +2920,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  EAST E~
+The highlands continue on in this direction.
 ~
 EDESC  WEST W~
 The highlands continue on in this direction.
 ~
-EDESC  EAST E~
-The highlands continue on in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2954,14 +2954,14 @@ the dark woods and the downs like a shimmering thread of silver.
 ~
 FLAGS  0
 Sect   5
-EDESC  DOWN D~
-Large, jagged rocks make up this difficult trail.
+EDESC  SOUTH S~
+The foothills leaD downward in this direction.
 ~
 EDESC  WEST W~
 The highlands continue on in this direction.
 ~
-EDESC  SOUTH S~
-The foothills leaD downward in this direction.
+EDESC  DOWN D~
+Large, jagged rocks make up this difficult trail.
 ~
 DOOR 0
 The path continues in this direction.
@@ -2989,12 +2989,12 @@ stoney expanse of the highlands begins.
 ~
 FLAGS  0
 Sect   2
+EDESC  NORTH N~
+The twin peaks loom in this direction.
+~
 EDESC  DOWN D~
 A combination of brown dirt and small rocks makes up the ground beneath 
 you.
-~
-EDESC  NORTH N~
-The twin peaks loom in this direction.
 ~
 DOOR 1
 The path continues in this direction.
@@ -3025,18 +3025,18 @@ and drops hundreds of feet down to the foothills below.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
-~
-EDESC  WEST W~
-A spectacular view of the woodlands unfolds in this direction.
+EDESC  EAST E~
+A spectacular view of the downs unfolds in this direction.
 ~
 EDESC  SOUTH S~
 A spectacular view of the downs unfolds in this direction.
 ~
-EDESC  EAST E~
-A spectacular view of the downs unfolds in this direction.
+EDESC  WEST W~
+A spectacular view of the woodlands unfolds in this direction.
+~
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 0
 The path continues in this direction.
@@ -3057,12 +3057,12 @@ The landcape slopes upward to the north, towards the twin peaks.
 ~
 FLAGS  0
 Sect   2
+EDESC  EAST E~
+The foothills continue on in this direction.
+~
 EDESC  DOWN D~
 A combination of brown dirt and small rocks makes up the ground beneath 
 you.
-~
-EDESC  EAST E~
-The foothills continue on in this direction.
 ~
 DOOR 0
 The path continues in this direction.
@@ -3093,15 +3093,15 @@ The landscape slopes upward to the north, towards the twin peaks.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
+EDESC  EAST E~
+The foothills continue on in this direction.
 ~
 EDESC  WEST W~
 The foothills continue on in this direction.
 ~
-EDESC  EAST E~
-The foothills continue on in this direction.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 2
 The path continues in this direction.
@@ -3122,15 +3122,15 @@ landscape slopes upward to the north, towards the twin peaks.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
+EDESC  SOUTH S~
+The foothills continue downhill in this direction.
 ~
 EDESC  WEST W~
 The foothills continue downhill in this direction.
 ~
-EDESC  SOUTH S~
-The foothills continue downhill in this direction.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 0
 The path continues in this direction.
@@ -3156,15 +3156,15 @@ lanscape slopes upward to the north, in the direction of the twin peaks.
 ~
 FLAGS  0
 Sect   2
-EDESC  DOWN D~
-A combination of brown dirt and small rocks makes up the ground beneath 
-you.
+EDESC  SOUTH S~
+Lush green hills rise up in this direction.
 ~
 EDESC  NORTH N~
 The twin peaks of Mount Cim loom in the distance.
 ~
-EDESC  SOUTH S~
-Lush green hills rise up in this direction.
+EDESC  DOWN D~
+A combination of brown dirt and small rocks makes up the ground beneath 
+you.
 ~
 DOOR 1
 The path continues in this direction.
@@ -3188,14 +3188,14 @@ into either side of the ravine.
 ~
 FLAGS  0
 Sect   9
-EDESC  EAST E~
-Lush, rolling fields begin in this direction.
+EDESC  WEST W~
+A dense wood looms in the distance.
 ~
 EDESC  NORTH N~
 The twin peaks of Mount Cim rise up in the distance.
 ~
-EDESC  WEST W~
-A dense wood looms in the distance.
+EDESC  EAST E~
+Lush, rolling fields begin in this direction.
 ~
 DOOR 2
 A fieldstone brigde looms up ahead.
@@ -3221,18 +3221,18 @@ of fieldstone towers above you, granting passage across the swift waters.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  WEST W~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  WEST W~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3264,18 +3264,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  NORTH N~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  NORTH N~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 2
 The river continues in this direction.
@@ -3302,18 +3302,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  NORTH N~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 1
 The river continues in this direction.
@@ -3340,18 +3340,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  NORTH N~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 1
 The river continues in this direction.
@@ -3378,18 +3378,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  WEST W~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3416,18 +3416,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  NORTH N~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  NORTH N~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 2
 The river continues in this direction.
@@ -3454,18 +3454,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  NORTH N~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 1
 The river continues in this direction.
@@ -3492,18 +3492,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  WEST W~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3530,18 +3530,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  EAST E~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  WEST W~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  EAST E~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3568,18 +3568,18 @@ more quickly as they flow silently to the south.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  WEST W~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  WEST W~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 A shear wall of falling water crashes into the rocks in this direction.
@@ -3608,14 +3608,14 @@ south the Sywilm snakes its way down to the lowland marshes.
 ~
 FLAGS  0
 Sect   9
-EDESC  WEST W~
-A dense wood looms in the distance.
+EDESC  EAST E~
+Lush, rolling fields begin in this direction.
 ~
 EDESC  SOUTH S~
 The rushing waters of the Sywilm snake off in this direction.
 ~
-EDESC  EAST E~
-Lush, rolling fields begin in this direction.
+EDESC  WEST W~
+A dense wood looms in the distance.
 ~
 DOOR 0
 A fieldstone brigde looms up ahead.
@@ -3641,18 +3641,18 @@ of fieldstone towers above you, granting passage across the swift waters.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  WEST W~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  WEST W~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3684,18 +3684,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  WEST W~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3722,18 +3722,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  NORTH N~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 1
 The river continues in this direction.
@@ -3760,16 +3760,16 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  NORTH N~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side of the ravine.
 ~
-EDESC  NORTH N~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 2
 The river continues in this direction.
@@ -3796,18 +3796,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  WEST W~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3834,18 +3834,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  NORTH N~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  EAST E~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  NORTH N~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 2
 The river continues in this direction.
@@ -3872,18 +3872,18 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
+EDESC  SOUTH S~
+The stoney banks of the river end at the grassy turf, which runs up the 
+side 
+of the ravine.
 ~
 EDESC  WEST W~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
 ~
-EDESC  SOUTH S~
-The stoney banks of the river end at the grassy turf, which runs up the 
-side 
-of the ravine.
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 0
 The river continues in this direction.
@@ -3910,13 +3910,13 @@ lowlands.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The churning waters of the Sywilm flow beneath you.
-~
 EDESC  NORTH N~
 The stoney banks of the river end at the grassy turf, which runs up the 
 side 
 of the ravine.
+~
+EDESC  DOWN D~
+The churning waters of the Sywilm flow beneath you.
 ~
 DOOR 2
 The stoney banks of the river end at the grassy turf, which runs up the 
@@ -3944,14 +3944,14 @@ the silhouette of the mountains stand gray-blue against the sky.
 ~
 FLAGS  0
 Sect   6
-EDESC  DOWN D~
-The waters of the Sywilm flow lazily beneath you.
+EDESC  EAST E~
+The waters flow freely through the woodlands in this direction.
 ~
 EDESC  SOUTH S~
 The waters flow freely through the woodlands in this direction.
 ~
-EDESC  EAST E~
-The waters flow freely through the woodlands in this direction.
+EDESC  DOWN D~
+The waters of the Sywilm flow lazily beneath you.
 ~
 DOOR 0
 The waters of the Sywilm flow in from this direction.
@@ -3976,20 +3976,20 @@ appears to have been hewn long ago.
 ~
 FLAGS  9
 Sect   0
-EDESC  DOWN D~
-Small puddles of water collect upon the cold stone floor of the cavern.
-~
-EDESC  UP U~
-Water drips from this dull gray ceiling.
-~
-EDESC  WEST W~
+EDESC  NORTH N~
 The cold, damp walls of the cave lie in this direction.
 ~
 EDESC  EAST E~
 The cold, damp walls of the cave lie in this direction.
 ~
-EDESC  NORTH N~
+EDESC  WEST W~
 The cold, damp walls of the cave lie in this direction.
+~
+EDESC  UP U~
+Water drips from this dull gray ceiling.
+~
+EDESC  DOWN D~
+Small puddles of water collect upon the cold stone floor of the cavern.
 ~
 DOOR 2
 A translucent sheet of waters pours down in front of the cavern here.
@@ -4009,17 +4009,17 @@ the edge of the cliff and flying freely back towards the earth.
 ~
 FLAGS  0
 Sect   9
-EDESC  WEST W~
+EDESC  NORTH N~
+A huge mass of water falls towards the ground in this direction.
+~
+EDESC  EAST E~
 A sheer rock face lies on the side of the falls here.
 ~
 EDESC  SOUTH S~
 The waters of the Sywilm can be seen snaking of to the south.
 ~
-EDESC  EAST E~
+EDESC  WEST W~
 A sheer rock face lies on the side of the falls here.
-~
-EDESC  NORTH N~
-A huge mass of water falls towards the ground in this direction.
 ~
 DOOR 4
 The waters of the Sywilm can be seen pouring off the edge of the cliff.

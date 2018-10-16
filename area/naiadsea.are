@@ -532,9 +532,9 @@ LEVEL  45
 WEIGHT 16
 COST   3000
 COND   100
-Affect O 19 3 0
-Affect O 13 25 0
 Affect O 5 1 0
+Affect O 13 25 0
+Affect O 19 3 0
 LIMIT  4
 End
 
@@ -551,10 +551,10 @@ LEVEL  45
 WEIGHT 14
 COST   3000
 COND   100
-Affect O 19 2 0
-Affect O 14 75 0
-Affect O 13 25 0
 Affect O 1 1 0
+Affect O 13 25 0
+Affect O 14 75 0
+Affect O 19 2 0
 LIMIT  4
 End
 
@@ -568,12 +568,12 @@ TYPE   armor BF ABEF CDE BCE 0
 EXTRA  1 2 0 16777280
 WEAR   AD
 LEVEL  45
-WEIGHT 20
+WEIGHT 21
 COST   3000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
 Affect O 13 50 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  4
 End
 
@@ -590,10 +590,10 @@ LEVEL  45
 WEIGHT 12
 COST   3000
 COND   100
-Affect O 18 1 0
-Affect O 17 -7 0
-Affect O 13 35 0
 Affect O 2 2 0
+Affect O 13 35 0
+Affect O 17 -7 0
+Affect O 18 1 0
 LIMIT  4
 End
 
@@ -610,8 +610,8 @@ LEVEL  40
 WEIGHT 27
 COST   2500
 COND   100
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  7
 End
 
@@ -628,8 +628,8 @@ LEVEL  40
 WEIGHT 20
 COST   2500
 COND   100
-Affect O 19 5 0
 Affect O 18 4 0
+Affect O 19 5 0
 LIMIT  7
 End
 
@@ -646,9 +646,9 @@ LEVEL  40
 WEIGHT 27
 COST   2500
 COND   100
-Affect O 17 -5 0
-Affect O 13 50 0
 Affect O 4 3 0
+Affect O 13 50 0
+Affect O 17 -5 0
 LIMIT  7
 End
 
@@ -662,11 +662,11 @@ TYPE   weapon spear 10 6 pierce F
 EXTRA  1 2 0 192
 WEAR   AN
 LEVEL  40
-WEIGHT 41
+WEIGHT 33
 COST   2500
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 LIMIT  8
 End
 
@@ -683,9 +683,9 @@ LEVEL  35
 WEIGHT 8
 COST   2000
 COND   100
-Affect O 18 2 0
-Affect O 13 25 0
 Affect O 12 25 0
+Affect O 13 25 0
+Affect O 18 2 0
 LIMIT  10
 End
 
@@ -702,10 +702,10 @@ LEVEL  35
 WEIGHT 8
 COST   2000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 13 25 0
 Affect O 2 1 0
+Affect O 13 25 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  10
 End
 
@@ -722,9 +722,9 @@ LEVEL  35
 WEIGHT 10
 COST   2000
 COND   100
-Affect O 17 -5 0
-Affect O 12 20 0
 Affect O 4 2 0
+Affect O 12 20 0
+Affect O 17 -5 0
 LIMIT  10
 End
 
@@ -741,9 +741,9 @@ LEVEL  35
 WEIGHT 3
 COST   2000
 COND   100
-Affect O 19 2 0
-Affect O 17 -4 0
 Affect O 12 25 0
+Affect O 17 -4 0
+Affect O 19 2 0
 LIMIT  10
 End
 

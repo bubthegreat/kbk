@@ -378,11 +378,11 @@ TYPE   armor ABCD BDE AE BE 0
 EXTRA  1 2 0 1088
 WEAR   AD
 LEVEL  26
-WEIGHT 26
+WEIGHT 27
 COST   7600
 COND   100
-Affect O 1 2 0
 Affect O 19 1 0
+Affect O 1 2 0
 End
 
 #5201
@@ -414,8 +414,8 @@ LEVEL  25
 WEIGHT 16
 COST   2700
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #5203
@@ -431,8 +431,8 @@ LEVEL  25
 WEIGHT 21
 COST   2700
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #5204
@@ -448,8 +448,8 @@ LEVEL  25
 WEIGHT 18
 COST   3100
 COND   100
-Affect O 2 1 0
 Affect O 18 1 0
+Affect O 2 1 0
 End
 
 #5205
@@ -465,8 +465,8 @@ LEVEL  25
 WEIGHT 22
 COST   3100
 COND   100
-Affect O 2 1 0
 Affect O 18 1 0
+Affect O 2 1 0
 End
 
 #5206
@@ -495,7 +495,7 @@ TYPE   armor 0 0 0 0 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  4
-WEIGHT 26
+WEIGHT 27
 COST   9100
 COND   100
 Affect O 18 -6 0
@@ -622,8 +622,8 @@ LEVEL  0
 WEIGHT 10
 COST   0
 COND   100
-Affect O 2 -8 0
 Affect O 1 -10 0
+Affect O 2 -8 0
 End
 
 #5219
@@ -669,8 +669,8 @@ LEVEL  26
 WEIGHT 20
 COST   3300
 COND   100
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
 End
 
 #5222
@@ -983,8 +983,8 @@ LEVEL  8
 WEIGHT 5
 COST   590
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #0
@@ -2526,13 +2526,13 @@ writings are on this wall.
 ~
 FLAGS  0
 Sect   3
-EDESC  skeleton skeletons~
-Something is strange about these skeletons. Upon further investigation,
-these skeletons appear illusionary. 
-~
 EDESC  writings writing words~
 This cave along with the valley and dwarf forest is made by Hatchet for
 any Merc Mud. Copyright 1992 
+~
+EDESC  skeleton skeletons~
+Something is strange about these skeletons. Upon further investigation,
+these skeletons appear illusionary. 
 ~
 DOOR 0
 You see more of the cave. 

@@ -176,7 +176,7 @@ DESCR
 A small golden dagger lies here with dark markings on it.~
 MAT    stone~
 TYPE   weapon dagger 7 7 searing 0
-EXTRA  2 9 0 331075 1 4194304
+EXTRA  2 9 1 4194304 0 331075
 WEAR   AN
 LEVEL  53
 WEIGHT 6
@@ -232,8 +232,8 @@ LEVEL  51
 WEIGHT 23
 COST   0
 COND   100
-Affect O 18 5 0
 Affect O 19 12 0
+Affect O 18 5 0
 LIMIT  2
 RESTR  F
 End

@@ -3520,9 +3520,9 @@ LEVEL  45
 WEIGHT 17
 COST   10000
 COND   100
-Affect O 13 10 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 13 10 0
 End
 
 #3023
@@ -3662,13 +3662,13 @@ LEVEL  0
 WEIGHT 9
 COST   75
 COND   100
+EDESC letters~
+They say, "Use 'hold lantern' to activate."
+~
 EDESC lantern~
 It is a large and robust but somewhat battered oil lantern made from brass,
 equipped with a handle to make it handy and a hood to protect its flame.
 Some letters have been scratched on its bottom.
-~
-EDESC letters~
-They say, "Use 'hold lantern' to activate."
 ~
 End
 
@@ -4165,8 +4165,8 @@ LEVEL  45
 WEIGHT 34
 COST   5000
 COND   100
-Affect O 17 -10 0
 Affect O 19 3 0
+Affect O 17 -10 0
 End
 
 #3073
@@ -4182,8 +4182,8 @@ LEVEL  45
 WEIGHT 27
 COST   5000
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #3074
@@ -4199,8 +4199,8 @@ LEVEL  45
 WEIGHT 29
 COST   5000
 COND   100
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
 End
 
 #3075
@@ -4216,8 +4216,8 @@ LEVEL  45
 WEIGHT 12
 COST   5000
 COND   100
-Affect O 18 4 0
 Affect O 14 30 0
+Affect O 18 4 0
 End
 
 #3076
@@ -4233,8 +4233,8 @@ LEVEL  45
 WEIGHT 10
 COST   5000
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #3077
@@ -4250,9 +4250,9 @@ LEVEL  45
 WEIGHT 26
 COST   5000
 COND   100
-Affect O 13 30 0
-Affect O 2 2 0
 Affect O 19 3 0
+Affect O 2 2 0
+Affect O 13 30 0
 End
 
 #3079
@@ -4533,8 +4533,8 @@ LEVEL  45
 WEIGHT 27
 COST   5000
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 End
 
 #3112
@@ -4566,8 +4566,8 @@ LEVEL  45
 WEIGHT 23
 COST   5000
 COND   100
-Affect O 18 5 0
 Affect O 14 50 0
+Affect O 18 5 0
 End
 
 #3114
@@ -4752,11 +4752,11 @@ LEVEL  0
 WEIGHT 6
 COST   0
 COND   100
-EDESC desk~
-The desk looks very sparse, there is a drawer on the left side.
-~
 EDESC drawer~
 You notice a keyhole in the drawer.
+~
+EDESC desk~
+The desk looks very sparse, there is a drawer on the left side.
 ~
 End
 
@@ -5762,8 +5762,8 @@ LEVEL  29
 WEIGHT 17
 COST   3100
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 EDESC long sword~
 It looks exceptionally sharp and well-balanced. Maybe you should keep it.
 ~
@@ -5782,8 +5782,8 @@ LEVEL  45
 WEIGHT 17
 COST   1280
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 EDESC sword~
 You see a sword of great craftsmanship.  Imprinted on the side is:
 Merc Industries
@@ -5803,8 +5803,8 @@ LEVEL  8
 WEIGHT 6
 COST   590
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 EDESC dagger~
 You see a dagger of great craftsmanship.  Imprinted on the side is:
 Merc Industries
@@ -5824,8 +5824,8 @@ LEVEL  7
 WEIGHT 23
 COST   620
 COND   100
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
 EDESC mace~
 You see a mace of great craftsmanship.  Imprinted on the side is:
 Merc Industries
@@ -6054,8 +6054,8 @@ LEVEL  16
 WEIGHT 4
 COST   1280
 COND   100
-Affect O 17 -4 0
 Affect O 20 -1 0
+Affect O 17 -4 0
 End
 
 #3365
@@ -6071,8 +6071,8 @@ LEVEL  8
 WEIGHT 2
 COST   640
 COND   100
-Affect O 20 -1 0
 Affect O 17 -2 0
+Affect O 20 -1 0
 EDESC banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
@@ -6304,13 +6304,13 @@ TYPE   weapon staff 9 9 magic EF
 EXTRA  1 4 0 99
 WEAR   AN
 LEVEL  53
-WEIGHT 10
+WEIGHT 5
 COST   100000
 COND   100
-Affect O 19 6 0
-Affect O 18 6 0
-Affect O 12 300 0
 Affect O 13 100 0
+Affect O 12 300 0
+Affect O 18 6 0
+Affect O 19 6 0
 RESTR  b
 End
 
@@ -6368,7 +6368,7 @@ You see the entrance to Mud School.
 DOOR 5
 ~
 ~
-A 0 28000
+AB 0 28000
 End
 
 #3002
@@ -6507,14 +6507,14 @@ A small wooden sign has been posted near the door.
 ~
 FLAGS  263176
 Sect   0
+EDESC  writing carving carvings symbols symbol~
+Although it is very hard to understand, you think it looks a lot like beer,
+poems about beer, and small beer-mugs.
+~
 EDESC  sign~
 The Grunting Boar is a place of peaceful leisure.  We have hired a
 bouncer to keep the peace.  Please leave your differences outside and enjoy
 your stay!  
-~
-EDESC  writing carving carvings symbols symbol~
-Although it is very hard to understand, you think it looks a lot like beer,
-poems about beer, and small beer-mugs.
 ~
 DOOR 3
 You see the exit to the entrance hall.
@@ -6543,6 +6543,13 @@ A small sign is on the counter.
 ~
 FLAGS  262152
 Sect   0
+EDESC  sign~
+Free instructions provided by the store:
+
+   Buy  - Will buy you some bread or pastry.
+   List - The baker will kindly tell you the price and sort of the bread in
+          his bakery.
+~
 EDESC  danish pastry~
 You see that this is truly delicious pastry.  Must be made by a Dane from
 Denmark (which surely is not the capital of Sweden!).  Former ruler of
@@ -6551,13 +6558,6 @@ Iceland, Estonia etc. etc.
    The sight of those large, wholesome chokoladeboller makes your mouth water
 and your soul sing.
 
-~
-EDESC  sign~
-Free instructions provided by the store:
-
-   Buy  - Will buy you some bread or pastry.
-   List - The baker will kindly tell you the price and sort of the bread in
-          his bakery.
 ~
 DOOR 2
 You see the main street.
@@ -7141,15 +7141,15 @@ sorts and sizes.
 ~
 FLAGS  262152
 Sect   0
-EDESC  jars bottles~
-Some of them are transparent enabling you to see that some contain colored
-powders while others contain body parts of various animals.
+EDESC  scrolls~
+Each scroll is stored in a leather tube that protects it from moist.
 ~
 EDESC  books~
 Most of them appear to be very old and dusty.
 ~
-EDESC  scrolls~
-Each scroll is stored in a leather tube that protects it from moist.
+EDESC  jars bottles~
+Some of them are transparent enabling you to see that some contain colored
+powders while others contain body parts of various animals.
 ~
 DOOR 2
 You see the main street.
@@ -7168,13 +7168,6 @@ A small sign with golden letters stands on the desk.
 ~
 FLAGS  262152
 Sect   0
-EDESC  oil lamps~
-They are made from polished gold and looks as if they are securely fastened
-to the smooth stone walls.
-~
-EDESC  desk~
-Your face is reflected in its surface.
-~
 EDESC  sign~
 The golden letters say :-
 
@@ -7182,6 +7175,13 @@ The golden letters say :-
         'buy <item>' to buy an item,
         'sell <item>' to sell an item and
         'value <item>' to make the jeweller evaluate an item.
+~
+EDESC  desk~
+Your face is reflected in its surface.
+~
+EDESC  oil lamps~
+They are made from polished gold and looks as if they are securely fastened
+to the smooth stone walls.
 ~
 DOOR 0
 You see Main Street.
@@ -7201,17 +7201,6 @@ A wooden sign is hanging above the fireplace.
 ~
 FLAGS  262152
 Sect   0
-EDESC  fireplace~
-It is a rather large fireplace made from heavy granite rocks.
-~
-EDESC  table~
-It is made from solid oak but appears to be very used.  Its surface is
-covered in marks and scratches.  A large burning candle stands directly on
-the table surface, tallow flowing down its sides.
-~
-EDESC  pot~
-Several large pieces of leather hide are boiling in the iron pot.
-~
 EDESC  sign~
 The wooden sign says :-
 
@@ -7219,6 +7208,17 @@ The wooden sign says :-
         'buy <item>' to buy an item,
         'sell <item>' to sell an item and
         'value <item>' to make the leather worker evaluate an item.
+~
+EDESC  pot~
+Several large pieces of leather hide are boiling in the iron pot.
+~
+EDESC  table~
+It is made from solid oak but appears to be very used.  Its surface is
+covered in marks and scratches.  A large burning candle stands directly on
+the table surface, tallow flowing down its sides.
+~
+EDESC  fireplace~
+It is a rather large fireplace made from heavy granite rocks.
 ~
 DOOR 2
 You see the alley.
@@ -7236,22 +7236,22 @@ east and Wall Road leads both north and south from here.
 ~
 FLAGS  262144
 Sect   1
-EDESC  bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+EDESC  wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+EDESC  tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 EDESC  gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-EDESC  tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-EDESC  wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+EDESC  bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 DOOR 0
 Wall road runs along the inner city wall to the north.
@@ -7285,22 +7285,22 @@ the city wall.
 ~
 FLAGS  262144
 Sect   1
-EDESC  bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+EDESC  wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+EDESC  tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 EDESC  gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-EDESC  tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-EDESC  wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+EDESC  bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 DOOR 0
 Wall road heads north along the city wall.
@@ -7356,12 +7356,12 @@ been written on the wall here.
 ~
 FLAGS  262144
 Sect   1
-EDESC  letters~
-It says 'Who watches the watchmen?'
-~
 EDESC  wall~
 It is built from large grey rocks that have been fastened to each other with
 some kind of mortar.  It is far too high to climb.
+~
+EDESC  letters~
+It says 'Who watches the watchmen?'
 ~
 DOOR 0
 The road continues further north.
@@ -7562,16 +7562,16 @@ opening in the wall ten feet below the bridge.
 ~
 FLAGS  262144
 Sect   1
-EDESC  bridge~
+EDESC  wall~
 It is built from large grey rocks that have been fastened to each other with
-some kind of mortar, just like the wall.
+some kind of mortar.  It is far too high to climb.
 ~
 EDESC  opening~
 You cannot really see it from here as it is somewhere beneath your feet.
 ~
-EDESC  wall~
+EDESC  bridge~
 It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+some kind of mortar, just like the wall.
 ~
 DOOR 0
 You see the road.
@@ -7595,22 +7595,22 @@ wall.
 ~
 FLAGS  262144
 Sect   1
-EDESC  bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+EDESC  wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+EDESC  tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 EDESC  gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-EDESC  tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-EDESC  wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+EDESC  bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 DOOR 1
 The city gate is to the east.
@@ -7629,22 +7629,22 @@ the city wall.
 ~
 FLAGS  262144
 Sect   1
-EDESC  bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+EDESC  wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+EDESC  tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
 ~
 EDESC  gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-EDESC  tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-EDESC  wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+EDESC  bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 DOOR 1
 You see the plains.~
@@ -7668,14 +7668,14 @@ seen a rainbow.
 ~
 FLAGS  262152
 Sect   1
-EDESC  altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
-~
 EDESC  statue king god~
 The statue represents the Great God Zed, holding a staff.  He has long, grey
 hair and beard and a kindly look on his face.  His staff is topped by a painted
 cube, the 6 faces of which represent the 6 aspects of his power.
+~
+EDESC  altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
 ~
 DOOR 2
 You see the southern end of the temple.
@@ -8116,6 +8116,10 @@ DOOR 3
 ~
 ~
 0 -1 3107
+DOOR 5
+~
+~
+0 0 17958
 End
 
 #3109
@@ -8363,6 +8367,10 @@ A road sign is here.
 ~
 FLAGS  262144
 Sect   1
+EDESC  chain~
+The the chain reaches the clouds high above you.  It must take some really
+powerful magic to hold such a chain in place.
+~
 EDESC  sign~
 The sign points in all directions:
 
@@ -8374,10 +8382,6 @@ The sign points in all directions:
 Someone has added the following with red paint:
 
    Up    - Redferne's Flying Citadel.
-~
-EDESC  chain~
-The the chain reaches the clouds high above you.  It must take some really
-powerful magic to hold such a chain in place.
 ~
 DOOR 0
 ~
@@ -8465,8 +8469,8 @@ street ends to the north near a run-down neighborhood.
 ~
 FLAGS  262144
 Sect   1
-EDESC  grate grating~
-Looks heavy.  A small sign is hanging on it.
+EDESC  elm tree~
+The fresh young leaves of the elm tree wave gently in the wind.
 ~
 EDESC  sign~
 The sign says :-
@@ -8476,8 +8480,8 @@ The sign says :-
     Many brave adventurers have found their final resting place here.
           Please show respect and do not desecrate their tombs.
 ~
-EDESC  elm tree~
-The fresh young leaves of the elm tree wave gently in the wind.
+EDESC  grate grating~
+Looks heavy.  A small sign is hanging on it.
 ~
 DOOR 0
 You see the beginnings of Midgaard's bad neighborhoods.
@@ -8933,12 +8937,12 @@ half hidden by a stack of books, leads to a room in the back of the shop.
 ~
 FLAGS  262150
 Sect   0
+EDESC  window~
+You peer out the window and see a cityguard beating up an old lady.
+~
 EDESC  bookcase~
 You see many cartographer journals and topographical studies.  You also see
 quite a few tomes written by someone named "Anson MacDonald".
-~
-EDESC  window~
-You peer out the window and see a cityguard beating up an old lady.
 ~
 DOOR 0
 A sign on the door says, "Unauthorized Personel Prohibited".
@@ -9838,12 +9842,12 @@ A smallish sign hangs on the wall, lettered in common.
 ~
 FLAGS  262152
 Sect   0
+EDESC  tapestries walls~
+You think about peeking behind the tapestries, but think better of it.
+~
 EDESC  sign~
 Give me your coins, and I shall change them for you, taking but 1 in 20 for
 my fee.  --- Otho the Changer
-~
-EDESC  tapestries walls~
-You think about peeking behind the tapestries, but think better of it.
 ~
 DOOR 0
 Clan Road is to the north.
@@ -9864,11 +9868,11 @@ you search vainly for a clean table to sit at, and then give up.
 ~
 FLAGS  262152
 Sect   0
-EDESC  table tables~
-You find a table that's relatively vomit-free.
-~
 EDESC  wall walls~
 Bare, except for the holes.
+~
+EDESC  table tables~
+You find a table that's relatively vomit-free.
 ~
 DOOR 2
 A dark alley is to the south.
@@ -10375,6 +10379,7 @@ D 0 3143 0 2
 D 0 3160 0 2
 D 0 3161 2 2
 D 0 3399 4 2
+D 0 3001 5 1
 D 0 3054 5 2
 O 0 3134 0 3101
 O 0 3134 0 3102

@@ -628,8 +628,8 @@ LEVEL  52
 WEIGHT 13
 COST   1000
 COND   100
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  5
 End
 
@@ -646,8 +646,8 @@ LEVEL  52
 WEIGHT 18
 COST   1000
 COND   100
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  25
 End
 
@@ -664,9 +664,9 @@ LEVEL  55
 WEIGHT 4
 COST   1000
 COND   100
-Affect O 20 -5 0
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
+Affect O 20 -5 0
 LIMIT  10
 End
 
@@ -683,8 +683,8 @@ LEVEL  60
 WEIGHT 9
 COST   1000
 COND   100
-Affect O 19 8 0
 Affect O 18 8 0
+Affect O 19 8 0
 LIMIT  5
 End
 
@@ -701,8 +701,8 @@ LEVEL  60
 WEIGHT 7
 COST   20000
 COND   100
-Affect O 19 10 0
 Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  6
 End
 
@@ -719,9 +719,9 @@ LEVEL  60
 WEIGHT 2
 COST   20000
 COND   100
-Affect O 20 -18 0
-Affect O 13 75 0
 Affect O 12 75 0
+Affect O 13 75 0
+Affect O 20 -18 0
 LIMIT  6
 End
 
@@ -738,9 +738,9 @@ LEVEL  60
 WEIGHT 10
 COST   20000
 COND   100
-Affect O 20 -5 0
-Affect O 19 8 0
 Affect O 18 8 0
+Affect O 19 8 0
+Affect O 20 -5 0
 LIMIT  6
 End
 
@@ -757,9 +757,9 @@ LEVEL  60
 WEIGHT 10
 COST   20000
 COND   100
-Affect O 20 -15 0
-Affect O 12 175 0
 Affect O 3 10 0
+Affect O 12 175 0
+Affect O 20 -15 0
 LIMIT  6
 RESTR  b
 End
@@ -809,11 +809,11 @@ LEVEL  65
 WEIGHT 18
 COST   10000
 COND   100
-Affect O 20 -20 0
-Affect O 19 8 0
-Affect O 13 100 0
-Affect O 12 50 0
 Affect O 5 -10 0
+Affect O 12 50 0
+Affect O 13 100 0
+Affect O 19 8 0
+Affect O 20 -20 0
 LIMIT  1
 End
 
@@ -830,9 +830,9 @@ LEVEL  65
 WEIGHT 9
 COST   1000
 COND   100
-Affect A 0 0 DTU
-Affect O 19 15 0
 Affect O 18 15 0
+Affect O 19 15 0
+Affect A 0 0 DTU
 LIMIT  1
 End
 
@@ -849,8 +849,8 @@ LEVEL  65
 WEIGHT 16
 COST   1000
 COND   100
-Affect O 20 -15 0
 Affect O 19 8 0
+Affect O 20 -15 0
 LIMIT  2
 End
 
@@ -867,10 +867,10 @@ LEVEL  60
 WEIGHT 27
 COST   20000
 COND   100
-Affect O 20 -10 0
-Affect O 19 5 0
-Affect O 13 50 0
 Affect O 12 50 0
+Affect O 13 50 0
+Affect O 19 5 0
+Affect O 20 -10 0
 LIMIT  2
 End
 
@@ -887,10 +887,10 @@ LEVEL  60
 WEIGHT 34
 COST   20000
 COND   100
-Affect O 20 -10 0
-Affect O 19 8 0
-Affect O 13 70 0
 Affect O 12 70 0
+Affect O 13 70 0
+Affect O 19 8 0
+Affect O 20 -10 0
 LIMIT  2
 End
 
@@ -907,10 +907,10 @@ LEVEL  60
 WEIGHT 29
 COST   20000
 COND   100
-Affect O 20 -10 0
-Affect O 19 6 0
-Affect O 13 50 0
 Affect O 12 50 0
+Affect O 13 50 0
+Affect O 19 6 0
+Affect O 20 -10 0
 LIMIT  2
 End
 
@@ -927,9 +927,9 @@ LEVEL  60
 WEIGHT 27
 COST   20000
 COND   100
-Affect O 19 12 0
-Affect O 13 30 0
 Affect O 12 30 0
+Affect O 13 30 0
+Affect O 19 12 0
 LIMIT  2
 End
 
@@ -946,9 +946,9 @@ LEVEL  60
 WEIGHT 24
 COST   20000
 COND   100
-Affect O 19 12 0
-Affect O 13 25 0
 Affect O 12 25 0
+Affect O 13 25 0
+Affect O 19 12 0
 LIMIT  2
 End
 
@@ -965,9 +965,9 @@ LEVEL  65
 WEIGHT 25
 COST   20000
 COND   100
-Affect A 0 0 NV
-Affect O 19 15 0
 Affect O 18 15 0
+Affect O 19 15 0
+Affect A 0 0 NV
 LIMIT  1
 End
 
@@ -984,9 +984,9 @@ LEVEL  65
 WEIGHT 18
 COST   20000
 COND   100
-Affect A 0 0 FO
-Affect O 19 15 0
 Affect O 18 15 0
+Affect O 19 15 0
+Affect A 0 0 FO
 EDESC flame~
 As you look within the flames of the blades the words "my vengeance is inexorable" form.
 ~
@@ -1006,10 +1006,10 @@ LEVEL  60
 WEIGHT 14
 COST   20000
 COND   100
-Affect O 20 -25 0
-Affect O 19 10 0
-Affect O 13 100 0
 Affect O 12 100 0
+Affect O 13 100 0
+Affect O 19 10 0
+Affect O 20 -25 0
 EDESC spike~
 One of the spikes along the crown has the word "Suffer!" engraved on it.
 ~
@@ -1029,10 +1029,10 @@ LEVEL  65
 WEIGHT 21
 COST   0
 COND   100
-Affect O 19 12 0
-Affect O 18 12 0
-Affect O 13 40 0
 Affect O 20 -2 0
+Affect O 13 40 0
+Affect O 18 12 0
+Affect O 19 12 0
 LIMIT  1
 End
 
@@ -1046,12 +1046,12 @@ TYPE   weapon sword 12 4 flbite 0
 EXTRA  1 2 0 513
 WEAR   AN
 LEVEL  53
-WEIGHT 10
+WEIGHT 18
 COST   0
 COND   100
-Affect O 27 5 0
-Affect O 19 6 0
 Affect O 18 8 0
+Affect O 19 6 0
+Affect O 27 5 0
 LIMIT  3
 End
 

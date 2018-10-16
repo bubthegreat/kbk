@@ -751,7 +751,7 @@ TYPE   armor AD ABCD BD BD 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  20
-WEIGHT 26
+WEIGHT 27
 COST   2900
 COND   100
 End
@@ -814,8 +814,8 @@ LEVEL  17
 WEIGHT 28
 COST   4100
 COND   100
-Affect O 18 2 0
 Affect O 1 2 0
+Affect O 18 2 0
 End
 
 #6510
@@ -846,8 +846,8 @@ LEVEL  7
 WEIGHT 4
 COST   460
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 End
 
 #6512
@@ -863,8 +863,8 @@ LEVEL  13
 WEIGHT 16
 COST   2000
 COND   100
-Affect O 1 1 0
 Affect O 2 1 0
+Affect O 1 1 0
 End
 
 #6513

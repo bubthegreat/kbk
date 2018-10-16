@@ -257,10 +257,10 @@ LEVEL  50
 WEIGHT 17
 COST   15800
 COND   100
-Affect O 12 20 0
-Affect O 13 20 0
-Affect O 19 7 0
 Affect O 18 7 0
+Affect O 19 7 0
+Affect O 13 20 0
+Affect O 12 20 0
 LIMIT  2
 End
 
@@ -277,11 +277,11 @@ LEVEL  48
 WEIGHT 34
 COST   19999
 COND   100
-Affect O 13 45 0
-Affect O 20 -10 0
-Affect O 17 -10 0
-Affect O 18 6 0
 Affect O 19 2 0
+Affect O 18 6 0
+Affect O 17 -10 0
+Affect O 20 -10 0
+Affect O 13 45 0
 LIMIT  3
 End
 
@@ -298,8 +298,8 @@ LEVEL  40
 WEIGHT 27
 COST   19999
 COND   100
-Affect O 20 -5 0
 Affect O 18 4 0
+Affect O 20 -5 0
 LIMIT  2
 End
 
@@ -316,8 +316,8 @@ LEVEL  35
 WEIGHT 23
 COST   16000
 COND   100
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
 LIMIT  7
 End
 
@@ -334,8 +334,8 @@ LEVEL  25
 WEIGHT 6
 COST   11000
 COND   100
-Affect O 19 3 0
 Affect O 18 -2 0
+Affect O 19 3 0
 LIMIT  7
 End
 
@@ -352,8 +352,8 @@ LEVEL  50
 WEIGHT 20
 COST   20000
 COND   100
-Affect O 19 4 0
 Affect O 18 2 0
+Affect O 19 4 0
 LIMIT  10
 End
 

@@ -1173,7 +1173,7 @@ TYPE   weapon spear 6 5 stab 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  30
-WEIGHT 26
+WEIGHT 21
 COST   1000
 COND   100
 Affect O 19 2 0
@@ -1454,7 +1454,7 @@ SHORT  the torque of restoration~
 DESCR 
 A shiny circle of silver is on the ground.~
 MAT    silver~
-TYPE   armor EF ABF EF BCDE 0
+TYPE   armor EF CF EF BCDE 0
 EXTRA  1 8 0 34085395
 WEAR   AC
 LEVEL  51
@@ -1464,7 +1464,6 @@ COND   100
 Affect O 13 -100 0
 Affect O 12 -100 0
 Affect O 14 -100 0
-LIMIT  1
 End
 
 #13716
@@ -1483,7 +1482,6 @@ COND   100
 Affect O 2 -1 0
 Affect O 5 -2 0
 Affect O 19 2 0
-LIMIT  1
 End
 
 #13717
@@ -1520,7 +1518,6 @@ EDESC rod lordly might~
 It appears to be a dull and useless ceremonial staff.
 There are some strange markings on the rod...
 ~
-LIMIT  1
 End
 
 #13718
