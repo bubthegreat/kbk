@@ -381,7 +381,11 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	act( "IMM: $n sneaks $T.", ch, NULL, dir_name[door], TO_IMMINROOM );
     }
 
-    if ( (to_room->sector_type != SECT_FOREST) && (to_room->sector_type != SECT_MOUNTAIN) && (to_room->sector_type != SECT_HILLS ) )
+    if ( (to_room->sector_type != SECT_FOREST) 
+      && (to_room->sector_type != SECT_MOUNTAIN) 
+      && (to_room->sector_type != SECT_HILLS )
+      && (to_room->sector_type != SECT_FIELD)
+      && (to_room->sector_type != SECT_DESERT) )
     {
 	un_camouflage(ch, NULL);
     }
