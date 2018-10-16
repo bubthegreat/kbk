@@ -308,7 +308,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	move = movement_loss[UMIN(SECT_MAX-1, in_room->sector_type)] + movement_loss[UMIN(SECT_MAX-1, to_room->sector_type)];
 	if ( get_skill(ch,gsn_pathfinding) > 0 && isInWilderness(ch) && !cabal_down_new(ch,CABAL_RAGER,FALSE))
         {
-	    move *= ((100 - get_skill(ch,gsn_pathfinding))/100);
+            move *= ((100 - get_skill(ch,gsn_pathfinding))/100);
             check_improve(ch,gsn_pathfinding,TRUE,1);
         }
         move /= 2;
