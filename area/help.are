@@ -103,6 +103,8 @@ Welcome to KBK Reborn!
 2018-10-14:  Serpent strike replaces anaconda stance for rangers.
 2018-10-15:  Players now have access to otype (help otype) and vostat to find and identify
              items and see what their limits and count are.  In game item DB... sort of.
+2018-10-15:  Limited items will always spawn on NPCs and never vaporize on their death,
+             but beware:  When a PC dies there is a chance it vaporizes if it is over limit.
 
 See 'HELP CHANGES' for older changes.  See commits directly at:
     https://gitlab.com/bubthegreat/kbk/commits/master
