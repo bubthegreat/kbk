@@ -333,8 +333,8 @@ LEVEL  45
 WEIGHT 12
 COST   9000
 COND   100
-Affect O 17 -5 0
 Affect O 19 2 0
+Affect O 17 -5 0
 LIMIT  7
 End
 
@@ -351,11 +351,10 @@ LEVEL  50
 WEIGHT 4
 COST   9000
 COND   100
-Affect O 12 35 0
-Affect O 13 35 0
-Affect O 19 3 0
 Affect O 5 2 0
-LIMIT  4
+Affect O 19 3 0
+Affect O 13 35 0
+Affect O 12 35 0
 End
 
 #22003
@@ -371,10 +370,9 @@ LEVEL  50
 WEIGHT 13
 COST   9000
 COND   100
-Affect O 13 25 0
-Affect O 23 -3 0
 Affect O 19 3 0
-LIMIT  5
+Affect O 23 -3 0
+Affect O 13 25 0
 End
 
 #22004
@@ -390,10 +388,9 @@ LEVEL  50
 WEIGHT 16
 COST   9000
 COND   100
-Affect O 2 -3 0
-Affect O 13 40 0
 Affect O 19 3 0
-LIMIT  2
+Affect O 13 40 0
+Affect O 2 -3 0
 End
 
 #22005
@@ -409,10 +406,9 @@ LEVEL  50
 WEIGHT 8
 COST   9000
 COND   100
-Affect O 14 100 0
-Affect O 5 3 0
 Affect O 19 4 0
-LIMIT  4
+Affect O 5 3 0
+Affect O 14 100 0
 End
 
 #22006
@@ -425,14 +421,13 @@ TYPE   armor DEF CEG BCG ABCDEF 0
 EXTRA  1 1 0 2
 WEAR   AD
 LEVEL  50
-WEIGHT 20
+WEIGHT 21
 COST   9000
 COND   100
-Affect O 19 3 0
-Affect O 1 3 0
-Affect O 18 5 0
 Affect O 13 20 0
-LIMIT  4
+Affect O 18 5 0
+Affect O 1 3 0
+Affect O 19 3 0
 End
 
 #22007
@@ -448,7 +443,6 @@ LEVEL  55
 WEIGHT 7
 COST   9000
 COND   100
-LIMIT  1
 End
 
 #22008
@@ -464,9 +458,8 @@ LEVEL  50
 WEIGHT 24
 COST   9000
 COND   100
-Affect O 19 10 0
 Affect O 13 50 0
-LIMIT  1
+Affect O 19 10 0
 End
 
 #22009
@@ -479,12 +472,12 @@ TYPE   weapon staff 8 6 digestion F
 EXTRA  1 2 0 3
 WEAR   AN
 LEVEL  45
-WEIGHT 37
+WEIGHT 32
 COST   9000
 COND   100
-Affect O 2 2 0
-Affect O 19 8 0
 Affect O 18 8 0
+Affect O 19 8 0
+Affect O 2 2 0
 LIMIT  9
 End
 
@@ -514,11 +507,11 @@ TYPE   armor DEF DEG BCG BDF 0
 EXTRA  1 1 0 1
 WEAR   AD
 LEVEL  50
-WEIGHT 26
+WEIGHT 27
 COST   900
 COND   100
-Affect O 19 3 0
 Affect O 2 -1 0
+Affect O 19 3 0
 LIMIT  10
 End
 
@@ -535,8 +528,8 @@ LEVEL  50
 WEIGHT 22
 COST   900
 COND   100
-Affect O 19 3 0
 Affect O 2 -1 0
+Affect O 19 3 0
 LIMIT  10
 End
 
@@ -553,8 +546,8 @@ LEVEL  50
 WEIGHT 18
 COST   900
 COND   100
-Affect O 19 3 0
 Affect O 2 -2 0
+Affect O 19 3 0
 LIMIT  10
 End
 
@@ -571,8 +564,8 @@ LEVEL  50
 WEIGHT 32
 COST   900
 COND   100
-Affect O 19 3 0
 Affect O 2 -2 0
+Affect O 19 3 0
 LIMIT  10
 End
 
@@ -589,8 +582,8 @@ LEVEL  50
 WEIGHT 7
 COST   900
 COND   100
-Affect O 13 -200 0
 Affect O 12 200 0
+Affect O 13 -200 0
 LIMIT  2
 End
 
@@ -607,8 +600,8 @@ LEVEL  51
 WEIGHT 16
 COST   900
 COND   100
-Affect O 19 4 0
 Affect O 13 10 0
+Affect O 19 4 0
 LIMIT  2
 End
 
@@ -625,10 +618,10 @@ LEVEL  50
 WEIGHT 8
 COST   900
 COND   100
-Affect O 4 6 0
-Affect O 24 -10 0
-Affect O 19 3 0
 Affect O 12 25 0
+Affect O 19 3 0
+Affect O 24 -10 0
+Affect O 4 6 0
 LIMIT  2
 End
 
@@ -662,10 +655,10 @@ LEVEL  40
 WEIGHT 17
 COST   900
 COND   100
-Affect O 1 2 0
-Affect O 6 1 0
-Affect O 13 35 0
 Affect O 19 3 0
+Affect O 13 35 0
+Affect O 6 1 0
+Affect O 1 2 0
 LIMIT  18
 End
 
@@ -2622,7 +2615,7 @@ End
 
 
 #SPECIALS
-M 22003 spec_breath_gas
+M 22003 spec_master_warrior
 M 22006 spec_cast_undead
 S
 

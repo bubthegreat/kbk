@@ -256,12 +256,12 @@ LEVEL  60
 WEIGHT 1
 COST   0
 COND   100
-EDESC orb~
+EDESC scrying~
 Peering into the orb alone reveals nothing.  One must first conjure the
 image of the one he seeks to target and then focus his energy into the orb
 to utilize its magic.  
 ~
-EDESC scrying~
+EDESC orb~
 Peering into the orb alone reveals nothing.  One must first conjure the
 image of the one he seeks to target and then focus his energy into the orb
 to utilize its magic.  
@@ -386,11 +386,11 @@ LEVEL  60
 WEIGHT 13
 COST   0
 COND   100
-Affect O 19 10 0
-Affect O 18 10 0
-Affect O 20 -5 0
-Affect O 5 5 0
 Affect O 13 40 0
+Affect O 5 5 0
+Affect O 20 -5 0
+Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  1
 End
 
@@ -598,13 +598,13 @@ one with all magic.
 ~
 FLAGS  8716
 Sect   1
-EDESC  skeletons~
-The skeletons looks like they had suffered the death of hunger.
-One of them looks like he has written something at the wall.
-~
 EDESC  writing wall~
 The writing says 'A pray to the GODS will not be heard, though
 the only exit is death..... Mother, I love you'.
+~
+EDESC  skeletons~
+The skeletons looks like they had suffered the death of hunger.
+One of them looks like he has written something at the wall.
 ~
 End
 

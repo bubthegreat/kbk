@@ -3906,8 +3906,8 @@ LEVEL  50
 WEIGHT 16
 COST   20000
 COND   100
-Affect O 19 4 0
 Affect O 18 2 0
+Affect O 19 4 0
 EDESC stetson helm~
 The ancient Ranger Lord's Stetson is a wide-brimmed affair with a living
 oak leaf tacked to its front. It seems several sizes too large for you. 
@@ -3927,10 +3927,10 @@ LEVEL  38
 WEIGHT 23
 COST   10000
 COND   100
-Affect O 19 3 0
-Affect O 18 3 0
-Affect O 4 -5 0
 Affect O 1 2 0
+Affect O 4 -5 0
+Affect O 18 3 0
+Affect O 19 3 0
 EDESC vainglory Morning-Star Morningstar~
 Along the oaken haft of this holy weapon is engraved a faded psalm: "
 .... Wilt thou hide thyself forever? Shall thy wrath burn like fire?" 
@@ -3950,11 +3950,11 @@ LEVEL  38
 WEIGHT 2
 COST   12000
 COND   100
-Affect O 1 2 0
-Affect O 24 -5 0
-Affect O 17 -5 0
-Affect A 0 -1 d
 Affect A 0 -1 c
+Affect A 0 -1 d
+Affect O 17 -5 0
+Affect O 24 -5 0
+Affect O 1 2 0
 EDESC Relic ikon~
 Staring at the beatific face of this martyr Saint, you feel a sense of
 peace come over you. Although only a foot high, this sacred relic radiates
@@ -4126,8 +4126,8 @@ LEVEL  20
 WEIGHT 9
 COST   500
 COND   100
-Affect O 6 1 0
 Affect O 2 1 0
+Affect O 6 1 0
 EDESC dress~
 It's a flouncy and frilly thing, the color of crushed lavender. 
 ~
@@ -4193,8 +4193,8 @@ LEVEL  35
 WEIGHT 16
 COST   12000
 COND   100
-Affect O 19 7 0
 Affect O 18 7 0
+Affect O 19 7 0
 EDESC sword~
 The sword you hold in your hands once belonged to a templar knight of
 great renown and virtue as can be seen from the intricate carvings on the
@@ -4216,9 +4216,9 @@ LEVEL  35
 WEIGHT 8
 COST   5000
 COND   100
-Affect O 12 15 0
-Affect O 2 2 0
 Affect O 24 -5 0
+Affect O 2 2 0
+Affect O 12 15 0
 EDESC cross~
 This small and nicely carved wooden cross has a long chain of black
 leather string attached to it so that it may be worn around the neck. Carved
@@ -4240,8 +4240,8 @@ LEVEL  35
 WEIGHT 14
 COST   5000
 COND   100
-Affect O 19 1 0
 Affect O 2 1 0
+Affect O 19 1 0
 EDESC surcoat~
 This is a white surcoat with a red cross in the front and back of it.
 Worn by the crusader knights of the barbarian lands, it has seen better
@@ -4285,8 +4285,8 @@ LEVEL  35
 WEIGHT 29
 COST   5000
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 EDESC steel leggings~
 This is a sturdy though battered pair of leggings worn by the Crusader
 Knights. The closely meshed steel make it somewhat less protective than full
@@ -4309,8 +4309,8 @@ LEVEL  35
 WEIGHT 24
 COST   5000
 COND   100
-Affect O 18 3 0
 Affect O 14 40 0
+Affect O 18 3 0
 EDESC sollerets boots~
 Made for maximum protection with minimum weight, the soft fur inner
 lining of the boots make it both comfortable and safe. The soles have been
@@ -4424,9 +4424,9 @@ LEVEL  43
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 19 6 0
-Affect O 18 6 0
 Affect O 2 2 0
+Affect O 18 6 0
+Affect O 19 6 0
 EDESC yew bow~
 It is a long and supple weapon worked from yew by elven craft and magic.
 It is surrounded by an aura of goodness. 
@@ -4521,8 +4521,8 @@ LEVEL  35
 WEIGHT 41
 COST   10000
 COND   100
-Affect O 19 2 0
 Affect O 13 -10 0
+Affect O 19 2 0
 EDESC shield melancholic~
 This is a Knight Melancholic's shield, and it bears the crest of the
 Order, that of a bleeding heart skewered by a sword and crossed with roses.
@@ -4543,9 +4543,9 @@ LEVEL  35
 WEIGHT 17
 COST   10000
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
 Affect O 13 -10 0
+Affect O 18 4 0
+Affect O 19 4 0
 EDESC sword swiftbird~
 This sword has been beautifully crafted, meant to bring woe measure for
 measure to the enemies of its wielder. Engraved along the blade of the
@@ -4567,8 +4567,8 @@ LEVEL  43
 WEIGHT 10
 COST   10000
 COND   100
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
 EDESC orb marmalade~
 The orb is fist-sized and pulsates with an otherworldly energy. As you
 examine it closer, it spits a burst of magic into the air. It emits a low
@@ -4589,9 +4589,9 @@ LEVEL  50
 WEIGHT 2
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 1 0
 Affect O 12 -15 0
+Affect O 18 1 0
+Affect O 19 4 0
 EDESC Tiancanshengong manual~
 Browsing through the manual, you notice the following oriental words that
 glows right out of the page : Bu Pa Tian Cang Di Jui Zi Pa Cheng Jing Yong
@@ -4612,9 +4612,9 @@ LEVEL  20
 WEIGHT 6
 COST   100
 COND   100
-Affect O 24 -5 0
-Affect O 18 2 0
 Affect O 12 -15 0
+Affect O 18 2 0
+Affect O 24 -5 0
 EDESC bible~
 This small black bible looks well thumbed and has a weathered binding.
 One of the bibles used by chapel-goers of the past, it seems to have
@@ -4661,9 +4661,9 @@ LEVEL  15
 WEIGHT 24
 COST   8000
 COND   100
-Affect O 19 3 0
-Affect O 18 1 0
 Affect O 2 -1 0
+Affect O 18 1 0
+Affect O 19 3 0
 EDESC marcel proust mace book~
 All 7 related books of this literary masterpiece have been bound in one
 weighty collection. It looks extremely valuable. 
@@ -4727,8 +4727,8 @@ LEVEL  28
 WEIGHT 20
 COST   4700
 COND   100
-Affect O 19 1 0
 Affect O 18 3 0
+Affect O 19 1 0
 EDESC bow ashen Longbow~
 This longbow is six feet tall and made from the sturdy, supple wood of
 the valley ash. Clearly, it has been crafted by skillful hands. 
@@ -4745,11 +4745,11 @@ TYPE   weapon spear 9 3 pierce A
 EXTRA  1 4 0 708
 WEAR   AN
 LEVEL  25
-WEIGHT 26
+WEIGHT 21
 COST   3000
 COND   100
-Affect O 19 4 0
 Affect O 18 1 0
+Affect O 19 4 0
 EDESC hellspear spear~
 Five and half feet of night-black iron, the Hell-Spears were forged in
 the Devil's infernal smithies for his huntsmen to claim the souls of the
@@ -5063,11 +5063,11 @@ LEVEL  38
 WEIGHT 7
 COST   9000
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 13 10 0
-Affect O 9 20 0
 Affect O 6 -1 0
+Affect O 9 20 0
+Affect O 13 10 0
+Affect O 19 4 0
+Affect O 18 4 0
 EDESC skin cloak~
 An elven princess of a past age gave up her skin to the witches of the
 Lochhearn to save her people, and they made this awful artifact from her
@@ -5090,8 +5090,8 @@ LEVEL  20
 WEIGHT 2
 COST   5500
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 EDESC candle~
 The blood candle burns so that only you can see its light. It is made by
 witches from the blood and fat of dead women and can be extinguished only by
@@ -5112,8 +5112,8 @@ LEVEL  38
 WEIGHT 5
 COST   15000
 COND   100
-Affect O 19 2 0
 Affect O 12 15 0
+Affect O 19 2 0
 EDESC ring scarab beetle~
 A large ugly beetle has been dipped in liquid gold. Its legs curl in the
 manner of death and you imagine you could slip the thing over your finger if
@@ -5134,10 +5134,10 @@ LEVEL  38
 WEIGHT 12
 COST   15500
 COND   100
-Affect O 19 1 0
-Affect O 18 1 0
-Affect O 4 2 0
 Affect O 3 2 0
+Affect O 4 2 0
+Affect O 18 1 0
+Affect O 19 1 0
 EDESC wig~
 Your vision swims even as you look at the wig, a mass of small green
 serpents sewn into what looks like human skin. The serpents suddenly stop
@@ -5159,9 +5159,9 @@ LEVEL  50
 WEIGHT 14
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
 Affect O 13 15 0
+Affect O 18 2 0
+Affect O 19 2 0
 EDESC circlet~
 In a thick band of cracked black leather has been set a stone which glows
 dully from within a circle of crystal. It radiates an aura of evil, and
@@ -5182,9 +5182,9 @@ LEVEL  50
 WEIGHT 34
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 1 0
 Affect O 12 20 0
+Affect O 18 1 0
+Affect O 19 2 0
 EDESC gown samite~
 The gown of white samite flows long and smoothly to the ground. It is
 trimmed with ermine and has been embroidered with silken runes. You hesitate
@@ -5206,8 +5206,8 @@ LEVEL  50
 WEIGHT 13
 COST   20000
 COND   100
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
 EDESC whip tail manticore~
 This exotic instrument of death is the massive tail of a manticore. The
 severed end has been cauterized and bound with magic to a greaved haft of
@@ -5228,9 +5228,9 @@ LEVEL  50
 WEIGHT 6
 COST   20000
 COND   100
-Affect O 12 40 0
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
+Affect O 12 40 0
 EDESC dagger Yog-Sothoth~
 The name of the god Yog-Sothoth has been runed upon the blade of this
 dagger. Its steel mirrors your reflection in waves that decay and rot your
@@ -5292,8 +5292,8 @@ LEVEL  25
 WEIGHT 16
 COST   4700
 COND   100
-Affect O 19 4 0
 Affect O 18 1 0
+Affect O 19 4 0
 EDESC hellblade blade~
 Names of damned souls like so many pits and scratches have been burned
 into the blade of this evil sword. Black flames run along its blade near
@@ -5435,9 +5435,9 @@ LEVEL  18
 WEIGHT 5
 COST   1500
 COND   100
-Affect O 19 4 0
-Affect O 18 3 0
 Affect O 24 -3 0
+Affect O 18 3 0
+Affect O 19 4 0
 EDESC lancelot signet ring~
 This ring looks like a thing from another and much older age. Its band of
 white-gold is very tarnished and dull. You can just make out upon the
@@ -5460,14 +5460,14 @@ LEVEL  35
 WEIGHT 9
 COST   1000
 COND   100
+EDESC rift~
+A belching of fire erupts from here, fueled by the dark magic of the witch sisters, though
+along a ledge, you spy a shining golden circle easily within your reach.
+~
 EDESC pool~
 The scrying pool lies still and murky. The witches seem to have tossed
 bones, old jewellery and odd trinkets in here where they now lie decaying or
 corroded. You notice something glimmer faintly at the bottom of the pool. 
-~
-EDESC rift~
-A belching of fire erupts from here, fueled by the dark magic of the witch sisters, though
-along a ledge, you spy a shining golden circle easily within your reach.
 ~
 End
 
@@ -5560,10 +5560,10 @@ LEVEL  40
 WEIGHT 13
 COST   5000
 COND   100
-Affect O 18 2 0
-Affect O 17 -5 0
-Affect O 12 -5 0
 Affect O 19 4 0
+Affect O 12 -5 0
+Affect O 17 -5 0
+Affect O 18 2 0
 EDESC bone bracelet~
 This ornamental chain was strung from blackened knuckle bones of an elf.
 It is surrounded with an aura of death. 
@@ -5583,9 +5583,9 @@ LEVEL  35
 WEIGHT 12
 COST   5000
 COND   100
-Affect A 0 0 P
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
+Affect A 0 0 P
 End
 
 #0

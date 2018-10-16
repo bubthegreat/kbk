@@ -1105,7 +1105,7 @@ DESCR
 A simple bracer of some sort of hide rots along the ground.~
 MAT    unknown~
 TYPE   armor DF DF DF DF 0
-EXTRA  1 1 0 65536
+EXTRA  0 0
 WEAR   AM
 LEVEL  51
 WEIGHT 15

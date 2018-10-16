@@ -5358,8 +5358,8 @@ LEVEL  30
 WEIGHT 9
 COST   10
 COND   100
-Affect O 1 1 0
 Affect O 13 1 0
+Affect O 1 1 0
 End
 
 #17002
@@ -5435,9 +5435,9 @@ LEVEL  17
 WEIGHT 14
 COST   10
 COND   100
-Affect O 13 1 0
-Affect O 18 1 0
 Affect O 19 5 0
+Affect O 18 1 0
+Affect O 13 1 0
 End
 
 #17007
@@ -5453,9 +5453,9 @@ LEVEL  15
 WEIGHT 17
 COST   10
 COND   100
-Affect O 1 1 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 1 1 0
 End
 
 #17008
@@ -5471,8 +5471,8 @@ LEVEL  20
 WEIGHT 27
 COST   10
 COND   100
-Affect O 1 1 0
 Affect O 19 2 0
+Affect O 1 1 0
 End
 
 #17009
@@ -5488,8 +5488,8 @@ LEVEL  43
 WEIGHT 27
 COST   110
 COND   100
-Affect O 3 2 0
 Affect O 12 15 0
+Affect O 3 2 0
 End
 
 #17010
@@ -5520,10 +5520,10 @@ LEVEL  43
 WEIGHT 30
 COST   100
 COND   100
-Affect O 13 50 0
-Affect O 1 3 0
-Affect O 19 4 0
 Affect O 18 3 0
+Affect O 19 4 0
+Affect O 1 3 0
+Affect O 13 50 0
 LIMIT  5
 End
 
@@ -5571,8 +5571,8 @@ LEVEL  44
 WEIGHT 4
 COST   220
 COND   100
-Affect O 13 25 0
 Affect O 18 4 0
+Affect O 13 25 0
 End
 
 #17015
@@ -5588,9 +5588,9 @@ LEVEL  46
 WEIGHT 10
 COST   10
 COND   100
-Affect O 12 20 0
-Affect O 13 15 0
 Affect O 19 4 0
+Affect O 13 15 0
+Affect O 12 20 0
 End
 
 #17016
@@ -5606,8 +5606,8 @@ LEVEL  43
 WEIGHT 12
 COST   1000
 COND   100
-Affect O 13 30 0
 Affect O 18 4 0
+Affect O 13 30 0
 End
 
 #17017
@@ -5623,11 +5623,11 @@ LEVEL  46
 WEIGHT 27
 COST   100
 COND   100
-Affect O 5 2 0
-Affect O 12 15 0
-Affect O 13 15 0
-Affect O 17 -5 0
 Affect O 24 -2 0
+Affect O 17 -5 0
+Affect O 13 15 0
+Affect O 12 15 0
+Affect O 5 2 0
 End
 
 #17018
@@ -5643,10 +5643,10 @@ LEVEL  22
 WEIGHT 6
 COST   10
 COND   100
-Affect O 1 -3 0
-Affect O 13 -15 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 13 -15 0
+Affect O 1 -3 0
 End
 
 #17019
@@ -5659,12 +5659,12 @@ TYPE   weapon mace 5 5 blast 0
 EXTRA  1 3 0 2178
 WEAR   AN
 LEVEL  21
-WEIGHT 20
+WEIGHT 21
 COST   0
 COND   100
-Affect O 2 -2 0
-Affect O 18 -5 0
 Affect O 19 2 0
+Affect O 18 -5 0
+Affect O 2 -2 0
 End
 
 #17020
@@ -5680,9 +5680,9 @@ LEVEL  1
 WEIGHT 18
 COST   0
 COND   100
-Affect O 1 -2 0
-Affect O 3 1 0
 Affect O 18 2 0
+Affect O 3 1 0
+Affect O 1 -2 0
 End
 
 #17021
@@ -5713,8 +5713,8 @@ LEVEL  45
 WEIGHT 13
 COST   100
 COND   100
-Affect O 13 20 0
 Affect O 17 -10 0
+Affect O 13 20 0
 End
 
 #17023
@@ -5746,10 +5746,10 @@ LEVEL  40
 WEIGHT 16
 COST   1000
 COND   100
-Affect O 1 2 0
-Affect O 13 10 0
-Affect O 18 2 0
 Affect O 19 4 0
+Affect O 18 2 0
+Affect O 13 10 0
+Affect O 1 2 0
 End
 
 #17025
@@ -5765,9 +5765,9 @@ LEVEL  38
 WEIGHT 23
 COST   1000
 COND   100
-Affect O 1 1 0
-Affect O 18 2 0
 Affect O 19 5 0
+Affect O 18 2 0
+Affect O 1 1 0
 End
 
 #17026
@@ -5799,11 +5799,11 @@ LEVEL  39
 WEIGHT 9
 COST   0
 COND   100
-Affect O 1 -3 0
-Affect O 5 -3 0
-Affect O 14 -150 0
-Affect O 18 -5 0
 Affect O 19 -5 0
+Affect O 18 -5 0
+Affect O 14 -150 0
+Affect O 5 -3 0
+Affect O 1 -3 0
 End
 
 #17028
@@ -5819,9 +5819,9 @@ LEVEL  40
 WEIGHT 16
 COST   0
 COND   100
-Affect O 17 -10 0
-Affect O 18 1 0
 Affect O 19 4 0
+Affect O 18 1 0
+Affect O 17 -10 0
 End
 
 #17029
@@ -5837,8 +5837,8 @@ LEVEL  13
 WEIGHT 7
 COST   0
 COND   100
-Affect O 5 1 0
 Affect O 13 10 0
+Affect O 5 1 0
 End
 
 #17030
@@ -5870,9 +5870,9 @@ LEVEL  14
 WEIGHT 4
 COST   100
 COND   100
-Affect O 3 -2 0
-Affect O 13 5 0
 Affect O 19 1 0
+Affect O 13 5 0
+Affect O 3 -2 0
 End
 
 #17032
@@ -5888,8 +5888,8 @@ LEVEL  16
 WEIGHT 27
 COST   0
 COND   100
-Affect O 1 -1 0
 Affect O 19 2 0
+Affect O 1 -1 0
 End
 
 #17033
@@ -5905,8 +5905,8 @@ LEVEL  11
 WEIGHT 15
 COST   0
 COND   100
-Affect O 2 -1 0
 Affect O 19 2 0
+Affect O 2 -1 0
 End
 
 #17034
@@ -5922,9 +5922,9 @@ LEVEL  33
 WEIGHT 12
 COST   600
 COND   100
-Affect O 2 -3 0
-Affect O 14 -50 0
 Affect O 19 -3 0
+Affect O 14 -50 0
+Affect O 2 -3 0
 End
 
 #17035
@@ -5940,8 +5940,8 @@ LEVEL  30
 WEIGHT 27
 COST   2300
 COND   100
-Affect O 2 2 0
 Affect O 18 3 0
+Affect O 2 2 0
 End
 
 #17036
@@ -5954,11 +5954,11 @@ TYPE   armor AE AE AE AE 0
 EXTRA  1 3 0 4192
 WEAR   AG
 LEVEL  31
-WEIGHT 20
+WEIGHT 21
 COST   1000
 COND   100
-Affect O 14 200 0
 Affect O 2 4 0
+Affect O 14 200 0
 End
 
 #17037
@@ -5974,8 +5974,8 @@ LEVEL  30
 WEIGHT 12
 COST   0
 COND   100
-Affect O 1 4 0
 Affect O 19 3 0
+Affect O 1 4 0
 End
 
 #17038
@@ -5991,10 +5991,10 @@ LEVEL  23
 WEIGHT 7
 COST   900
 COND   100
-Affect O 4 -4 0
-Affect O 5 -2 0
-Affect O 18 -4 0
 Affect O 19 5 0
+Affect O 18 -4 0
+Affect O 5 -2 0
+Affect O 4 -4 0
 End
 
 #17039
@@ -6010,9 +6010,9 @@ LEVEL  20
 WEIGHT 19
 COST   1000
 COND   100
-Affect O 1 -3 0
-Affect O 5 -3 0
 Affect O 13 -25 0
+Affect O 5 -3 0
+Affect O 1 -3 0
 End
 
 #17040
@@ -6044,8 +6044,8 @@ LEVEL  26
 WEIGHT 17
 COST   1000
 COND   100
-Affect O 17 -10 0
 Affect O 18 4 0
+Affect O 17 -10 0
 End
 
 #17042
@@ -6061,9 +6061,9 @@ LEVEL  26
 WEIGHT 5
 COST   4900
 COND   100
-Affect O 17 -10 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 17 -10 0
 End
 
 #17043
@@ -6111,9 +6111,9 @@ LEVEL  17
 WEIGHT 18
 COST   1000
 COND   100
-Affect O 5 1 0
-Affect O 18 2 0
 Affect O 19 4 0
+Affect O 18 2 0
+Affect O 5 1 0
 End
 
 #17046
@@ -6129,8 +6129,8 @@ LEVEL  16
 WEIGHT 33
 COST   120
 COND   100
-Affect O 2 1 0
 Affect O 13 4 0
+Affect O 2 1 0
 End
 
 #17047
@@ -6146,8 +6146,8 @@ LEVEL  10
 WEIGHT 17
 COST   1200
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 End
 
 #17048
@@ -6163,8 +6163,8 @@ LEVEL  11
 WEIGHT 6
 COST   1200
 COND   100
-Affect O 18 2 0
 Affect O 19 1 0
+Affect O 18 2 0
 End
 
 #17049
@@ -6180,8 +6180,8 @@ LEVEL  11
 WEIGHT 14
 COST   1200
 COND   100
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
 End
 
 #17050
@@ -6382,8 +6382,8 @@ LEVEL  17
 WEIGHT 29
 COST   110
 COND   100
-Affect O 1 1 0
 Affect O 17 -5 0
+Affect O 1 1 0
 End
 
 #17063
@@ -6399,11 +6399,11 @@ LEVEL  16
 WEIGHT 3
 COST   100
 COND   100
-Affect O 1 1 0
-Affect O 3 -1 0
-Affect O 4 -1 0
-Affect O 5 1 0
 Affect O 17 -4 0
+Affect O 5 1 0
+Affect O 4 -1 0
+Affect O 3 -1 0
+Affect O 1 1 0
 End
 
 #17064
@@ -6419,10 +6419,10 @@ LEVEL  17
 WEIGHT 17
 COST   1000
 COND   100
-Affect O 1 1 0
-Affect O 13 10 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 13 10 0
+Affect O 1 1 0
 End
 
 #17065
@@ -6438,8 +6438,8 @@ LEVEL  16
 WEIGHT 4
 COST   1000
 COND   100
-Affect O 2 2 0
 Affect O 18 5 0
+Affect O 2 2 0
 End
 
 #17066
@@ -6455,8 +6455,8 @@ LEVEL  18
 WEIGHT 10
 COST   1100
 COND   100
-Affect O 2 2 0
 Affect O 18 3 0
+Affect O 2 2 0
 End
 
 #17067
@@ -6472,12 +6472,12 @@ LEVEL  19
 WEIGHT 13
 COST   11
 COND   100
-Affect O 18 1 0
-Affect O 20 -1 0
-Affect O 21 -2 0
-Affect O 22 -2 0
-Affect O 23 -1 0
 Affect O 24 -2 0
+Affect O 23 -1 0
+Affect O 22 -2 0
+Affect O 21 -2 0
+Affect O 20 -1 0
+Affect O 18 1 0
 End
 
 #17068
@@ -6493,13 +6493,13 @@ LEVEL  20
 WEIGHT 8
 COST   1110
 COND   100
-Affect O 13 20 0
-Affect O 18 1 0
-Affect O 20 -1 0
-Affect O 21 -1 0
-Affect O 22 -1 0
-Affect O 23 -2 0
 Affect O 24 -1 0
+Affect O 23 -2 0
+Affect O 22 -1 0
+Affect O 21 -1 0
+Affect O 20 -1 0
+Affect O 18 1 0
+Affect O 13 20 0
 End
 
 #17069
@@ -6515,9 +6515,9 @@ LEVEL  23
 WEIGHT 3
 COST   1000
 COND   100
-Affect O 2 2 0
-Affect O 17 -4 0
 Affect O 18 3 0
+Affect O 17 -4 0
+Affect O 2 2 0
 End
 
 #17070
@@ -6533,9 +6533,9 @@ LEVEL  25
 WEIGHT 27
 COST   1000
 COND   100
-Affect O 2 1 0
-Affect O 3 1 0
 Affect O 13 10 0
+Affect O 3 1 0
+Affect O 2 1 0
 End
 
 #17071
@@ -6551,10 +6551,10 @@ LEVEL  47
 WEIGHT 6
 COST   20000
 COND   100
-Affect O 2 2 0
-Affect O 17 -5 0
-Affect O 18 8 0
 Affect O 19 2 0
+Affect O 18 8 0
+Affect O 17 -5 0
+Affect O 2 2 0
 End
 
 #17072
@@ -6570,8 +6570,8 @@ LEVEL  15
 WEIGHT 9
 COST   0
 COND   100
-Affect O 12 50 0
 Affect O 19 1 0
+Affect O 12 50 0
 End
 
 #17073
@@ -6587,8 +6587,8 @@ LEVEL  40
 WEIGHT 14
 COST   5000
 COND   100
-Affect O 12 50 0
 Affect O 3 2 0
+Affect O 12 50 0
 End
 
 #17074
@@ -6604,8 +6604,8 @@ LEVEL  20
 WEIGHT 6
 COST   100
 COND   100
-Affect O 18 1 0
 Affect O 19 3 0
+Affect O 18 1 0
 End
 
 #17075
@@ -6621,8 +6621,8 @@ LEVEL  22
 WEIGHT 7
 COST   100
 COND   100
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
 End
 
 #17076
@@ -6638,8 +6638,8 @@ LEVEL  23
 WEIGHT 13
 COST   0
 COND   100
-Affect O 13 5 0
 Affect O 19 2 0
+Affect O 13 5 0
 End
 
 #17077
@@ -6655,8 +6655,8 @@ LEVEL  25
 WEIGHT 18
 COST   0
 COND   100
-Affect O 18 -5 0
 Affect O 19 4 0
+Affect O 18 -5 0
 End
 
 #17078
@@ -6672,9 +6672,9 @@ LEVEL  27
 WEIGHT 7
 COST   100
 COND   100
-Affect O 1 1 0
-Affect O 5 -1 0
 Affect O 13 20 0
+Affect O 5 -1 0
+Affect O 1 1 0
 End
 
 #17079
@@ -6706,8 +6706,8 @@ LEVEL  31
 WEIGHT 15
 COST   100
 COND   100
-Affect O 18 1 0
 Affect O 19 2 0
+Affect O 18 1 0
 End
 
 #17081
@@ -6723,8 +6723,8 @@ LEVEL  46
 WEIGHT 15
 COST   100
 COND   100
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
 End
 
 #17082
@@ -6740,8 +6740,8 @@ LEVEL  47
 WEIGHT 16
 COST   1000
 COND   100
-Affect O 13 25 0
 Affect O 19 3 0
+Affect O 13 25 0
 End
 
 #17083
@@ -6757,11 +6757,11 @@ LEVEL  49
 WEIGHT 39
 COST   1000
 COND   100
-Affect O 13 50 0
-Affect O 17 -15 0
-Affect O 20 -2 0
-Affect O 21 -2 0
 Affect O 23 -2 0
+Affect O 21 -2 0
+Affect O 20 -2 0
+Affect O 17 -15 0
+Affect O 13 50 0
 End
 
 #17084
@@ -6777,9 +6777,9 @@ LEVEL  17
 WEIGHT 5
 COST   100
 COND   100
-Affect O 12 10 0
-Affect O 13 15 0
 Affect O 18 1 0
+Affect O 13 15 0
+Affect O 12 10 0
 End
 
 #17085
@@ -6811,9 +6811,9 @@ LEVEL  23
 WEIGHT 6
 COST   1000
 COND   100
-Affect O 17 -5 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 17 -5 0
 End
 
 #17087
@@ -6844,8 +6844,8 @@ LEVEL  30
 WEIGHT 34
 COST   1000
 COND   100
-Affect O 17 -5 0
 Affect O 19 2 0
+Affect O 17 -5 0
 End
 
 #17089
@@ -6861,8 +6861,8 @@ LEVEL  37
 WEIGHT 7
 COST   1000
 COND   100
-Affect O 17 -15 0
 Affect O 19 6 0
+Affect O 17 -15 0
 End
 
 #17090
@@ -6957,6 +6957,9 @@ There are no exits from Silence's Chamber.
 ~
 FLAGS  8
 Sect   1
+EDESC  mirror~
+The mirror offers a view of the world, constantly changing with such
+complexity that only a god could understand what is being shown. ~
 EDESC  map~
 The map sits against the north wall.  It is a rough sketch of the Underdark,
 showing only the lay out of the streets.  It looks as follows. 
@@ -6988,9 +6991,6 @@ Well once it looked as follows :)
    #########################################*#########
                                            #-#
 ~
-EDESC  mirror~
-The mirror offers a view of the world, constantly changing with such
-complexity that only a god could understand what is being shown. ~
 DOOR 0
 ~
 map~
@@ -9457,16 +9457,16 @@ the Slaver's route and farther down, the market area.
 ~
 FLAGS  8201
 Sect   1
+EDESC  door entrance~
+An enormous door that is covered with arcane symbols.  There seem to be
+scratch marks on the door.  You wonder if the warning about being unable
+to recall from this place is true...
+~
 EDESC  floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
-~
-EDESC  door entrance~
-An enormous door that is covered with arcane symbols.  There seem to be
-scratch marks on the door.  You wonder if the warning about being unable
-to recall from this place is true...
 ~
 DOOR 0
 Sunrise
@@ -9638,15 +9638,15 @@ To the north is the Slaver's route, east and south lies the square
 ~
 FLAGS  8201
 Sect   1
-EDESC  stocks~
-You see before the symbol of pure oppression.  Blood stained and well
-used, it stands empty but not for long.
-~
 EDESC  guillotine~
 This is the guillotine, it is used to dispose of the mischievous slaves who
 for some mistaken reason thought they were actually free to do what they
 wanted.  The blade is rusted with dried up blood.  A faint aroma or death
 emanates from the basket that holds the heads of the chopped bodies. ~
+EDESC  stocks~
+You see before the symbol of pure oppression.  Blood stained and well
+used, it stands empty but not for long.
+~
 DOOR 0
 The slaver's route
 ~
@@ -9814,15 +9814,15 @@ North and west sunrise goes on.  South is the entrance to the cages.
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-A huge oaken door stands in your way.  Emblazed on it is sketch of an iron
-cage containing many weird and exotic creatures.
-~
 EDESC  floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
+~
+EDESC  door~
+A huge oaken door stands in your way.  Emblazed on it is sketch of an iron
+cage containing many weird and exotic creatures.
 ~
 DOOR 0
 Sunrise
@@ -9974,15 +9974,6 @@ To the North lies an entrance to a house, east the street goes onwards
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The regular looking door, decorated with the symbol of Silence. ~
-EDESC  statue githzerai~
-The githzerai is humanoid.  Dressed in a monastic robe there is a sense of
-power that flows from his pose.  The githzerai are a race of humanoids that
-were enslaved by the mind flayers, there they were scarred for all eternity.
-The githzerai is human in height and weight.  Most githzerai are strong,
-and very capable with mental powers.  This statue is very lifelike, and it's
-eyes seem to glow in the weird lighting of the orb.~
 EDESC  statue silence~
 This is a statue of the god of agility and speed.  He is dressed totally in a
 black ninja outfit.  In one hand he wields a tiger's claw the other hand
@@ -9996,6 +9987,15 @@ You take one final look at this impressive almost life like representation of
 Silence and notice that it's eyes glow purple and seem to be watching your
 every move.
 ~
+EDESC  statue githzerai~
+The githzerai is humanoid.  Dressed in a monastic robe there is a sense of
+power that flows from his pose.  The githzerai are a race of humanoids that
+were enslaved by the mind flayers, there they were scarred for all eternity.
+The githzerai is human in height and weight.  Most githzerai are strong,
+and very capable with mental powers.  This statue is very lifelike, and it's
+eyes seem to glow in the weird lighting of the orb.~
+EDESC  door~
+The regular looking door, decorated with the symbol of Silence. ~
 DOOR 0
 A door blocks the way into the home
 ~
@@ -10019,13 +10019,13 @@ The street continues east and west, to the north is a door to a home
 ~
 FLAGS  9
 Sect   1
-EDESC  door~
-A regular looking door with a huge symbol of Snikt emblazed onto it.~
 EDESC  statue alien~
 This is a statue of the queen alien.  The queen is a true monstrosity with
 triple jaws, a bony, black head frill, and a spike on her tail about the size
 of your thigh.  She seems to be deep in meditation.
 ~
+EDESC  door~
+A regular looking door with a huge symbol of Snikt emblazed onto it.~
 DOOR 0
 A doorway to a house
 ~
@@ -10057,6 +10057,8 @@ home.  South Sunset goes on.
 ~
 FLAGS  8201
 Sect   1
+EDESC  door~
+A plain and simple door, with the symbol of Ironhand engraved into it.~
 EDESC  symbols ground~
 The symbols are as follows.  They stand out because they glow in a deep
 blue and seem to pulsate.
@@ -10072,8 +10074,6 @@ The go on, but you can't make much sense of them.  Obviously Ironhand
 was way beyond this mortal world and was involved in the workings of the
 world.
 ~
-EDESC  door~
-A plain and simple door, with the symbol of Ironhand engraved into it.~
 DOOR 0
 A door to a home
 ~
@@ -10109,10 +10109,6 @@ the south is the entrance to the darkened root.
 ~
 FLAGS  8201
 Sect   1
-EDESC  statue martial artist~
-Before you stands a statue of a martial artist.  He is dressed in long robes
-and holds his hands up in a defensive posture.
-~
 EDESC  arcane symbols street~
 The following has been engraved into the ground with great care. 
 bool spec_kungfu_poison( CHAR_DATA *ch )
@@ -10127,6 +10123,10 @@ bool spec_kungfu_poison( CHAR_DATA *ch )
 And it goes on, but you can't make much sense of it.  Strahd is one of the
 true gods of merc, knowing enough to alter the very fabric of the mortal
 realms.
+~
+EDESC  statue martial artist~
+Before you stands a statue of a martial artist.  He is dressed in long robes
+and holds his hands up in a defensive posture.
 ~
 DOOR 0
 The gathering place
@@ -10165,14 +10165,14 @@ the south is the entrance to the Sparkling Jewel
 ~
 FLAGS  9
 Sect   1
+EDESC  statue monkey~
+Before you stands a statue of a monkey.  The monkey looks like a cute
+little bugger with very sharp little teeth.
+~
 EDESC  list~
 A list floats above the ground showing off all of Lenny's creations.  These
 creations include his marvellous house, Gilligan's island and Sesame
 street.  Each of the creations being truly unique.
-~
-EDESC  statue monkey~
-Before you stands a statue of a monkey.  The monkey looks like a cute
-little bugger with very sharp little teeth.
 ~
 DOOR 0
 The gathering place
@@ -10298,8 +10298,6 @@ market, and south is Jasper avenue
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-A simple wooden door, with a guillotine engraved into it~
 EDESC  arcane mystic road symbols~
 The following symbols rest on the road here.
 
@@ -10314,6 +10312,8 @@ The following symbols rest on the road here.
 
 The presence of Raptor can be felt keenly in Farside
 ~
+EDESC  door~
+A simple wooden door, with a guillotine engraved into it~
 DOOR 0
 A door blocks your entry to the slave's market
 ~
@@ -10351,11 +10351,6 @@ the entrance to Shadow's Shadow (a tavern)
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-A well built oaken door.  On the door is an engraving of a person walking. 
-Behind and below the person is his shadow, and beyond this is yet another
-shadow.
-~
 EDESC  symbols ground~
 The follow has been carefully written into the ground.
 
@@ -10374,6 +10369,11 @@ written.
     RoX, the leader of Farside.  May he live in peace and harmony.             
 All praises go out to RoX
 
+~
+EDESC  door~
+A well built oaken door.  On the door is an engraving of a person walking. 
+Behind and below the person is his shadow, and beyond this is yet another
+shadow.
 ~
 DOOR 0
 The slave's square
@@ -12374,17 +12374,17 @@ Death's lane goes on to the north
 ~
 FLAGS  9
 Sect   1
-EDESC  wall~
-This is the cavern wall. It is wet and glistens in your light source.  On the
-ground there seem to be footsteps that go right up to the cavern wall. 
-Once you realise this, you look at the wall more carefully.  You now notice
-that there seems to be a rock that could act like a door handle.. ~
 EDESC  floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
 ~
+EDESC  wall~
+This is the cavern wall. It is wet and glistens in your light source.  On the
+ground there seem to be footsteps that go right up to the cavern wall. 
+Once you realise this, you look at the wall more carefully.  You now notice
+that there seems to be a rock that could act like a door handle.. ~
 DOOR 0
 Death's lane
 ~
@@ -12435,17 +12435,17 @@ Traveller's crescent goes east and south
 ~
 FLAGS  8
 Sect   1
-EDESC  wall~
-The cavern wall looms above you to the west.  The wall is covered with
-water that glistens in your light.  Fascinated you look at the reflected light
-and notice that there seems to be an outline of a door on the wall.  You
-look carefully and you are rewarded with a handle to this door. ~
 EDESC  floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
 orb gives out a dim light that barely illuminates everything around you. 
 These orbs seem to be along all the streets in the Underdark.  The orb
 itself is about 4 inches wide and is spherical.
 ~
+EDESC  wall~
+The cavern wall looms above you to the west.  The wall is covered with
+water that glistens in your light.  Fascinated you look at the reflected light
+and notice that there seems to be an outline of a door on the wall.  You
+look carefully and you are rewarded with a handle to this door. ~
 DOOR 1
 Traveller's crescent
 ~
@@ -13167,6 +13167,10 @@ A huge door stands to the west, the way to the surface is up.
 ~
 FLAGS  9
 Sect   1
+EDESC  door~
+This door is just incredible in it's size, ten people can easily walk through
+it at a time.  The door is made of steel and glint dully in the light. 
+Although huge, the door is well oiled and will open smoothly. ~
 EDESC  markings wall~
 The following has been scratched into the wall:
 
@@ -13180,10 +13184,6 @@ code is enforced by huge floating eyes.
 Good luck,
           Silence
 ~
-EDESC  door~
-This door is just incredible in it's size, ten people can easily walk through
-it at a time.  The door is made of steel and glint dully in the light. 
-Although huge, the door is well oiled and will open smoothly. ~
 DOOR 3
 A huge door blocks your way into the Underdark.
 ~
@@ -13210,21 +13210,21 @@ The hall delves further into the house to the north.  South is the door
 ~
 FLAGS  8201
 Sect   1
-EDESC  fur skin~
-The fur of this skin is a very dark red, so dark that it seems black.  The fur
-is soft and very smooth.  You have no idea as to what animal has this
-colour and texture of fur.  Certainly nothing on the surface. ~
+EDESC  door~
+The door is large with no obvious handle.  All you have to do to open this
+door is push on it.  There is a round hole high up on it that you can look
+out onto to the street with.
+~
 EDESC  closet~
 This is a spacious closet, with hooks and hangers to clothing.  There are
 also shelves that can hold helms and helmets.  One the north wall of the
 closet are a series of small nails, you realise these provide a place for
 weapons.  The closet is currently empty.
 ~
-EDESC  door~
-The door is large with no obvious handle.  All you have to do to open this
-door is push on it.  There is a round hole high up on it that you can look
-out onto to the street with.
-~
+EDESC  fur skin~
+The fur of this skin is a very dark red, so dark that it seems black.  The fur
+is soft and very smooth.  You have no idea as to what animal has this
+colour and texture of fur.  Certainly nothing on the surface. ~
 DOOR 0
 The hall goes on
 ~
@@ -13869,11 +13869,11 @@ as if it can be opened.  South is a small door.
 ~
 FLAGS  8201
 Sect   1
+EDESC  panel~
+A panel on the west wall looks as if it can easily be moved. ~
 EDESC  door~
 This is a small wooden door
 ~
-EDESC  panel~
-A panel on the west wall looks as if it can easily be moved. ~
 DOOR 0
 The main passage of the warehouse
 ~
@@ -14339,13 +14339,13 @@ A door stands to the north.
 ~
 FLAGS  9
 Sect   1
+EDESC  door~
+This door is just a very old door that is made of oak.
+~
 EDESC  desk~
 The desk is very old and you are afraid to touch it lest it fall apart.  The
 surface of the desk has all sort of scratch marks and there seems to be
 teeth marks on one of the legs.
-~
-EDESC  door~
-This door is just a very old door that is made of oak.
 ~
 DOOR 0
 A door stands here
@@ -14444,12 +14444,12 @@ The door to the rec room is to the east
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The door is just your typical door.
-~
 EDESC  hole~
 This is the hole where people used to deposit their waste.  It no longer
 smells, and you thankfully can't see the bottom. ~
+EDESC  door~
+The door is just your typical door.
+~
 DOOR 1
 A door stands here
 ~
@@ -15115,14 +15115,14 @@ The sole exit is the door to the west.
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-The door is a simple wooden door.~
 EDESC  sign~
 The sign reads as follows:
 
      This building should only be entered if you are over 18 years              
           of age.  All minors shall be persecuted.
 ~
+EDESC  door~
+The door is a simple wooden door.~
 DOOR 3
 The door stands ready to be used
 ~
@@ -15608,10 +15608,10 @@ by going east or south and west goes further into this building
 ~
 FLAGS  8201
 Sect   1
-EDESC  bars~
-These bars have the shape of a door in them~
 EDESC  door~
 The door is huge and made of oak~
+EDESC  bars~
+These bars have the shape of a door in them~
 DOOR 0
 The bars can be opened like a door
 ~
@@ -15823,13 +15823,13 @@ A door exits north, a prison cell is east, the hall continues south and west.
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-This door is huge and has no handle on it.  The door is large enough to
-allow the spherical bodies of the guardian eyes to pass freely. ~
 EDESC  barred door~
 This is the prison door.  It is made of bars like the rest of the way into this
 prison cell
 ~
+EDESC  door~
+This door is huge and has no handle on it.  The door is large enough to
+allow the spherical bodies of the guardian eyes to pass freely. ~
 DOOR 0
 A huge door that has no handle leads out
 ~
@@ -15944,12 +15944,12 @@ The sole exit is the door to the west.
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 3
 The prison door
 ~
@@ -15968,12 +15968,12 @@ The sole exit is the door to the east
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 1
 The prison door
 ~
@@ -16031,12 +16031,12 @@ The sole exit is the door to the east
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 1
 The prison door
 ~
@@ -16055,12 +16055,12 @@ The sole exit is the door to the west
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 3
 The prison door
 ~
@@ -16118,12 +16118,12 @@ and west the hall continues.
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-This door is huge and has no handle, it allows the enforcer eyes to come in
-and out of the building without a problem.~
 EDESC  prison~
 The prison door is made completely of iron.  The door is about four inches
 thick and looks as if nothing could even dent it.~
+EDESC  door~
+This door is huge and has no handle, it allows the enforcer eyes to come in
+and out of the building without a problem.~
 DOOR 1
 The entrance door
 ~
@@ -16155,13 +16155,13 @@ the Underdark is west.
 ~
 FLAGS  8201
 Sect   1
-EDESC  prison~
-This door is built completely of iron.  It is huge and very very hard to
-budge.~
 EDESC  door~
 The entrance door is huge.  The door has no handle and to open it all you
 have to do is push it open.
 ~
+EDESC  prison~
+This door is built completely of iron.  It is huge and very very hard to
+budge.~
 DOOR 1
 The prison hall
 ~
@@ -16190,12 +16190,12 @@ The sole exit is the door to the north
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 0
 The prison door
 ~
@@ -16214,12 +16214,12 @@ The sole exit is the door to the north
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 0
 The prison door
 ~
@@ -16238,12 +16238,12 @@ The sole exit is the door to the north
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 0
 The prison door
 ~
@@ -16295,12 +16295,12 @@ The sole exit is through the door to the north
 ~
 FLAGS  10249
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 0
 The prison door
 ~
@@ -16350,12 +16350,12 @@ The sole exit is the door to the north
 ~
 FLAGS  8713
 Sect   1
-EDESC  door~
-The door is made of solid iron.  You strain against it and it finally gives
-way after placing your entire weight and strength against it.~
 EDESC  hole~
 This is hole is used for bodily functions.  You can detect the putrid smell
 of raw faeces coming from the hole.~
+EDESC  door~
+The door is made of solid iron.  You strain against it and it finally gives
+way after placing your entire weight and strength against it.~
 DOOR 0
 The prison door
 ~
@@ -16872,11 +16872,11 @@ The sole exit is the door to the west
 ~
 FLAGS  8201
 Sect   1
+EDESC  rug~
+The rug is that of a bear, the fur is dark brown and clean. ~
 EDESC  door~
 The door is small and stout
 ~
-EDESC  rug~
-The rug is that of a bear, the fur is dark brown and clean. ~
 DOOR 3
 A door
 ~
@@ -16944,11 +16944,11 @@ The hall continues to the south, there are doors east and west
 ~
 FLAGS  8200
 Sect   1
-EDESC  exit~
-The exit door is huge and well built.  There is little else to say about it
-~
 EDESC  door~
 The door is a beautiful oak door
+~
+EDESC  exit~
+The exit door is huge and well built.  There is little else to say about it
 ~
 DOOR 0
 The exit to the city
@@ -17087,16 +17087,16 @@ Door lie north and south, the hallway continues east
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-The door is a solid oaken door~
-EDESC  hand~
-The hand is the amputated hand of some prince that the thieves collected
-while robbing his palace, they cut off his hand so he would always
-remember the thieve's guild.~
 EDESC  mural~
 Looking closely at this mural you notice the faint outline of a door where
 the gate has been painted, then you notice that the gate's handle looks
 real.~
+EDESC  hand~
+The hand is the amputated hand of some prince that the thieves collected
+while robbing his palace, they cut off his hand so he would always
+remember the thieve's guild.~
+EDESC  door~
+The door is a solid oaken door~
 DOOR 0
 A door
 ~
@@ -17437,11 +17437,11 @@ The hallway continues east and west, there is a door to the north
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-The door is a well crafted wooden door~
 EDESC  statues~
 The statues are of many different creatures.  The most noticeable is that of
 a large beholder.~
+EDESC  door~
+The door is a well crafted wooden door~
 DOOR 0
 A door waits to be used
 ~
@@ -17575,12 +17575,12 @@ There is a door to the south
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-The door is a solid oak door
-~
 EDESC  painting paintings~
 The paintings all depict unicorns and other mystical beasts.  They are
 painted in a soft flowing style.~
+EDESC  door~
+The door is a solid oak door
+~
 DOOR 2
 A door waits to be used
 ~
@@ -17600,11 +17600,11 @@ The hallway continues north and south.  There is a door to the east
 ~
 FLAGS  8200
 Sect   1
+EDESC  door~
+The door is made of oak~
 EDESC  statues~
 The statues are those of many different creatures.  Every creature you have
 ever seen has been made into a statue of pure solid grey marble.~
-EDESC  door~
-The door is made of oak~
 DOOR 0
 The hallway
 ~
@@ -17657,14 +17657,14 @@ The hallway goes north, there is a door to the east.
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-The door is a regular wooden door~
-EDESC  statues~
-The statue in the south eastern corner is a large unicorn and the one in the
-south western corner is a large pegasus.~
 EDESC  painting~
 The painting is a large gloved hand that is closed about a bunch of gold
 coins.  The glove is black and the background is purple.~
+EDESC  statues~
+The statue in the south eastern corner is a large unicorn and the one in the
+south western corner is a large pegasus.~
+EDESC  door~
+The door is a regular wooden door~
 DOOR 0
 The hallway
 ~
@@ -17689,10 +17689,10 @@ The sole exit is to the west
 ~
 FLAGS  8200
 Sect   1
-EDESC  door~
-The door is a solid oaken door~
 EDESC  rug~
 The rug is a bearskin rug~
+EDESC  door~
+The door is a solid oaken door~
 DOOR 3
 A door waits to be used
 ~
@@ -17868,11 +17868,11 @@ The only way out is the door to the north
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The door is black and made out of a wood like substance.~
 EDESC  chest~
 The chest is locked and magically protected, there is no way in the known
 world that you could open it.~
+EDESC  door~
+The door is black and made out of a wood like substance.~
 DOOR 0
 A door stands before you
 ~
@@ -17945,11 +17945,11 @@ The sole exit is the door to the south
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The door is solid black.~
 EDESC  chest~
 The drawers are all filled with clothing, ranging from rich clothing to the
 simple fares of a peasant.~
+EDESC  door~
+The door is solid black.~
 DOOR 2
 A door is ready to be used
 ~
@@ -18377,15 +18377,15 @@ The sole exit is to the south
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The door is black~
-EDESC  window~
-This window is used to find their targets.  It is large and opaque at the
-moment.~
 EDESC  words~
 The words read as follows
 
       Speak the words and then the name, the game shall appear~
+EDESC  window~
+This window is used to find their targets.  It is large and opaque at the
+moment.~
+EDESC  door~
+The door is black~
 DOOR 2
 A door blocks the way out
 ~
@@ -18536,12 +18536,12 @@ The hall continues east and south.  There is a door to the west
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The door has a face carved into it~
 EDESC  figure figures~
 The figures when you peer closely enough seem to be half human half
 ghoul.  The combination produces a frightening creature whom you would
 never want to meet in your mortal life.~
+EDESC  door~
+The door has a face carved into it~
 DOOR 1
 The large hall
 ~
@@ -18670,10 +18670,10 @@ There is a door to the north, south and west.
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-The door is a sturdy wooden door~
 EDESC  cage~
 This is a solid iron door.~
+EDESC  door~
+The door is a sturdy wooden door~
 DOOR 0
 A door stands ready
 ~
@@ -18703,11 +18703,11 @@ The sole exit is the door to the east
 ~
 FLAGS  8201
 Sect   1
-EDESC  door~
-A sturdy wooden door~
 EDESC  panel~
 This panel looks as if it can slide out, you test it and see that there is a bed
 behind it, you figure that the keeper must also sleep in this room.~
+EDESC  door~
+A sturdy wooden door~
 DOOR 1
 A door waits to be used
 ~

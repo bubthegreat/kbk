@@ -3822,7 +3822,7 @@ TYPE   weapon staff 1 10 pierce 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  6
-WEIGHT 20
+WEIGHT 17
 COST   108
 COND   100
 End
@@ -3987,7 +3987,7 @@ TYPE   armor AD ABCD BD BD 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  20
-WEIGHT 26
+WEIGHT 27
 COST   200
 COND   100
 End
@@ -4002,7 +4002,7 @@ TYPE   armor AD ABCD BD BD 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  20
-WEIGHT 26
+WEIGHT 27
 COST   200
 COND   100
 End
@@ -4017,7 +4017,7 @@ TYPE   armor BCD DE ABCD E 0
 EXTRA  1 5 0 3424
 WEAR   AD
 LEVEL  25
-WEIGHT 26
+WEIGHT 27
 COST   300
 COND   100
 End
@@ -4032,7 +4032,7 @@ TYPE   armor 0 0 0 0 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  0
-WEIGHT 26
+WEIGHT 27
 COST   176
 COND   100
 Affect O 12 -20 0
@@ -4048,7 +4048,7 @@ TYPE   armor A B A A 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  8
-WEIGHT 26
+WEIGHT 27
 COST   180
 COND   100
 Affect O 12 -10 0
@@ -4109,7 +4109,7 @@ TYPE   armor 0 0 0 0 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  0
-WEIGHT 26
+WEIGHT 27
 COST   144
 COND   100
 End
@@ -4199,7 +4199,7 @@ TYPE   armor 0 0 0 0 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  0
-WEIGHT 26
+WEIGHT 27
 COST   340
 COND   100
 End
@@ -4514,7 +4514,7 @@ TYPE   clothing 0 0 0 0 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  0
-WEIGHT 26
+WEIGHT 27
 COST   36
 COND   100
 End
@@ -5170,7 +5170,7 @@ TYPE   armor AD ABCD BD BD 0
 EXTRA  1 1 0 64
 WEAR   AD
 LEVEL  20
-WEIGHT 26
+WEIGHT 27
 COST   200
 COND   100
 End
@@ -5219,8 +5219,8 @@ LEVEL  22
 WEIGHT 32
 COST   140
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #9601
@@ -5300,22 +5300,22 @@ tavern of the Dancing Daemon Inn, and your future adventures in New Thalos.
 ~
 FLAGS  262268
 Sect   0
-EDESC  4.picture~
-You see a picture of Loki... at least you think it's Loki.
-He seems to be hiding from the camera.
-~
-EDESC  3.picture~
-You see a picture of Hammor on the front porch of the Danjerhaus,
-drinking a guinness stout and petting Big Guy the Cat.
+EDESC  1.1picture~
+You see a picture of Felix here, standing before the arena.
+He seems to be doing a body count.
 ~
 EDESC  2.picture~
 You see a picture of Shark standing behind his desk screaming at a newbie.
 Through a window in the back you see a large aquarium. The newbie seems to
 be cowering in fear.
 ~
-EDESC  1.1picture~
-You see a picture of Felix here, standing before the arena.
-He seems to be doing a body count.
+EDESC  3.picture~
+You see a picture of Hammor on the front porch of the Danjerhaus,
+drinking a guinness stout and petting Big Guy the Cat.
+~
+EDESC  4.picture~
+You see a picture of Loki... at least you think it's Loki.
+He seems to be hiding from the camera.
 ~
 DOOR 5
 The stairs lead down to the Daemon.
@@ -7875,9 +7875,6 @@ blood, there is a barely readable sign.
 ~
 FLAGS  262264
 Sect   0
-EDESC  vat~
-You think you hear noises from the vat....nah.
-~
 EDESC  note sign~
 LIST : gives you a list of items for sale.
 VALUE : tells you how much an item is worth
@@ -7885,6 +7882,9 @@ SELL : sells an item to Butch for a generous sum
 BUY : Butch's FAVORITE command lets you have an item for his low low price.
 
                                         NEWBEE INTRUCTOR COMMITEE
+~
+EDESC  vat~
+You think you hear noises from the vat....nah.
 ~
 DOOR 3
 ~
@@ -8950,12 +8950,12 @@ hallway.
 ~
 FLAGS  262152
 Sect   0
+EDESC  mirror~
+You see a the fighting image of some armor clad humanoid wielding a weapon.
+~
 EDESC  window~
 Looking out this window you can see the grounds of the palace that
 seperate the walls of the palace from the building itself.
-~
-EDESC  mirror~
-You see a the fighting image of some armor clad humanoid wielding a weapon.
 ~
 DOOR 0
 ~

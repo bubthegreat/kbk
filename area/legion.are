@@ -2809,7 +2809,6 @@ COST   20000
 COND   100
 Affect O 19 -5 0
 Affect O 18 -5 0
-LIMIT  10
 End
 
 #29712

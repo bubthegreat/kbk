@@ -285,7 +285,7 @@ End
 NAME   Newbie Guide~
 SHORT  the Guide to Pos Domination~
 DESCR 
-THIS IS A FUCKING GUIDE "LOOK PAGEONE!"~
+THIS IS A GUIDE! *LOOK PAGEONE*~
 MAT    paper~
 TYPE   furniture 0 0 0 0 0
 EXTRA  0 0
@@ -332,6 +332,21 @@ shields..helpful for newbie paladins. Onward you go! Doing well so far right?
 ~
 End
 
+#1208
+NAME   Potion of invisibility~
+SHORT  a potion of Invisibility~
+DESCR 
+You see an almost translucent glass vial on the ground.~
+MAT    glass~
+TYPE   potion 0 'invisibility' 'heal' 'heal' 'reserved'
+EXTRA  0 0
+WEAR   A
+LEVEL  51
+WEIGHT 7
+COST   0
+COND   100
+End
+
 #1209
 NAME   The Biggest Shtick!~
 SHORT  the Biggest Shtick~
@@ -364,11 +379,11 @@ LEVEL  45
 WEIGHT 18
 COST   0
 COND   100
-Affect O 12 50 0
 Affect O 1 3 0
-Affect O 13 50 0
 Affect O 19 2 0
 Affect O 18 2 0
+Affect O 13 20 0
+Affect O 12 20 0
 End
 
 #1211
@@ -606,12 +621,12 @@ NAME   Newbie Map~
 SHORT  a newbie map written on parchment~
 DESCR 
 A newbie map lies here.~
-MAT    unknown~
+MAT    wood~
 TYPE   map 0 0 0 0 0
 EXTRA  1 3 0 17858560
 WEAR   A
 LEVEL  0
-WEIGHT 9
+WEIGHT 6
 COST   0
 COND   100
 EDESC map~

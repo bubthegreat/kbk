@@ -149,10 +149,10 @@ LEVEL  56
 WEIGHT 19
 COST   5
 COND   100
-Affect O 1 1 0
-Affect O 18 5 0
-Affect O 2 -3 0
 Affect O 19 5 0
+Affect O 2 -3 0
+Affect O 18 5 0
+Affect O 1 1 0
 LIMIT  4
 End
 
@@ -169,13 +169,13 @@ LEVEL  56
 WEIGHT 16
 COST   0
 COND   100
-Affect R 0 0 C
-Affect V 0 0 H
-Affect O 24 -4 0
-Affect O 17 -20 0
-Affect O 18 3 0
-Affect O 19 3 0
 Affect O 1 4 0
+Affect O 19 3 0
+Affect O 18 3 0
+Affect O 17 -20 0
+Affect O 24 -4 0
+Affect V 0 0 H
+Affect R 0 0 C
 LIMIT  2
 End
 
@@ -192,11 +192,11 @@ LEVEL  0
 WEIGHT 8
 COST   0
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
-Affect O 24 -4 0
-Affect A 0 0 CEGP
 Affect O 14 100 0
+Affect A 0 0 CEGP
+Affect O 24 -4 0
+Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #11003
@@ -209,13 +209,13 @@ TYPE   armor 0 0 0 0 0
 EXTRA  1 10 0 17630915
 WEAR   AD
 LEVEL  0
-WEIGHT 20
+WEIGHT 21
 COST   0
 COND   100
-Affect O 18 3 0
-Affect O 19 1 0
-Affect O 24 -6 0
 Affect A 0 0 T
+Affect O 24 -6 0
+Affect O 19 1 0
+Affect O 18 3 0
 End
 
 #11004
@@ -231,10 +231,10 @@ LEVEL  56
 WEIGHT 16
 COST   0
 COND   100
-Affect O 1 1 0
-Affect O 2 -3 0
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect O 2 -3 0
+Affect O 1 1 0
 LIMIT  4
 End
 
@@ -251,10 +251,10 @@ LEVEL  0
 WEIGHT 18
 COST   0
 COND   100
-Affect O 1 1 0
-Affect O 2 -2 0
-Affect O 18 2 0
 Affect O 19 3 0
+Affect O 18 2 0
+Affect O 2 -2 0
+Affect O 1 1 0
 LIMIT  3
 End
 

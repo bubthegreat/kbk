@@ -788,8 +788,8 @@ LEVEL  35
 WEIGHT 18
 COST   150
 COND   100
-Affect O 13 10 0
 Affect O 1 2 0
+Affect O 13 10 0
 End
 
 #13001
@@ -805,8 +805,8 @@ LEVEL  50
 WEIGHT 7
 COST   2500
 COND   100
-Affect O 18 4 0
 Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  4
 End
 
@@ -823,8 +823,8 @@ LEVEL  45
 WEIGHT 4
 COST   8000
 COND   100
-Affect O 2 5 0
 Affect O 13 40 0
+Affect O 2 5 0
 LIMIT  3
 End
 
@@ -841,8 +841,8 @@ LEVEL  45
 WEIGHT 26
 COST   8000
 COND   100
-Affect O 2 4 0
 Affect O 13 30 0
+Affect O 2 4 0
 LIMIT  1
 End
 
@@ -859,9 +859,9 @@ LEVEL  50
 WEIGHT 2
 COST   5000
 COND   100
-Affect O 19 2 0
-Affect O 13 50 0
 Affect O 1 3 0
+Affect O 13 50 0
+Affect O 19 2 0
 LIMIT  4
 End
 
@@ -879,11 +879,11 @@ LEVEL  50
 WEIGHT 5
 COST   8000
 COND   100
-Affect O 24 -4 0
-Affect O 17 -10 0
-Affect O 13 25 0
-Affect O 19 3 0
 Affect O 1 4 0
+Affect O 19 3 0
+Affect O 13 25 0
+Affect O 17 -10 0
+Affect O 24 -4 0
 LIMIT  2
 End
 
@@ -900,9 +900,9 @@ LEVEL  55
 WEIGHT 18
 COST   10000
 COND   100
-Affect O 19 6 0
-Affect O 18 1 0
 Affect O 13 25 0
+Affect O 18 1 0
+Affect O 19 6 0
 LIMIT  1
 End
 
@@ -919,8 +919,8 @@ LEVEL  35
 WEIGHT 4
 COST   5000
 COND   100
-Affect O 2 -2 0
 Affect O 19 4 0
+Affect O 2 -2 0
 LIMIT  8
 End
 
@@ -937,10 +937,10 @@ LEVEL  50
 WEIGHT 36
 COST   8000
 COND   100
-Affect O 2 -3 0
-Affect O 19 6 0
-Affect O 18 -2 0
 Affect O 24 -5 0
+Affect O 18 -2 0
+Affect O 19 6 0
+Affect O 2 -3 0
 LIMIT  3
 End
 
@@ -957,9 +957,9 @@ LEVEL  50
 WEIGHT 28
 COST   8000
 COND   100
-Affect O 2 -2 0
-Affect O 19 4 0
 Affect O 18 -1 0
+Affect O 19 4 0
+Affect O 2 -2 0
 LIMIT  3
 End
 
@@ -976,9 +976,9 @@ LEVEL  50
 WEIGHT 30
 COST   8000
 COND   100
-Affect O 2 -2 0
-Affect O 19 4 0
 Affect O 18 -1 0
+Affect O 19 4 0
+Affect O 2 -2 0
 LIMIT  3
 End
 
@@ -995,9 +995,9 @@ LEVEL  50
 WEIGHT 25
 COST   8000
 COND   100
-Affect O 2 -2 0
-Affect O 19 5 0
 Affect O 18 -2 0
+Affect O 19 5 0
+Affect O 2 -2 0
 LIMIT  3
 End
 
@@ -1014,11 +1014,11 @@ LEVEL  45
 WEIGHT 9
 COST   8000
 COND   100
-Affect O 17 -10 0
-Affect O 19 2 0
-Affect O 12 75 0
-Affect O 4 3 0
 Affect O 3 3 0
+Affect O 4 3 0
+Affect O 12 75 0
+Affect O 19 2 0
+Affect O 17 -10 0
 LIMIT  3
 End
 
@@ -1035,8 +1035,8 @@ LEVEL  45
 WEIGHT 25
 COST   8000
 COND   100
-Affect O 12 50 0
 Affect O 1 4 0
+Affect O 12 50 0
 LIMIT  4
 End
 
@@ -1053,9 +1053,9 @@ LEVEL  50
 WEIGHT 4
 COST   8000
 COND   100
-Affect O 13 20 0
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect O 13 20 0
 LIMIT  4
 End
 
@@ -1072,9 +1072,9 @@ LEVEL  50
 WEIGHT 30
 COST   8000
 COND   100
-Affect O 13 45 0
-Affect O 19 4 0
 Affect O 18 3 0
+Affect O 19 4 0
+Affect O 13 45 0
 LIMIT  3
 End
 
@@ -1091,9 +1091,9 @@ LEVEL  50
 WEIGHT 24
 COST   8000
 COND   100
-Affect O 13 20 0
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
+Affect O 13 20 0
 LIMIT  3
 End
 
@@ -1110,9 +1110,9 @@ LEVEL  50
 WEIGHT 25
 COST   8000
 COND   100
-Affect O 13 35 0
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect O 13 35 0
 LIMIT  3
 End
 
@@ -1126,12 +1126,12 @@ TYPE   armor ABCDF ABF ABCDF ABCDE D
 EXTRA  1 4 0 1539
 WEAR   AG
 LEVEL  50
-WEIGHT 20
+WEIGHT 21
 COST   8000
 COND   100
-Affect O 13 35 0
-Affect O 19 3 0
 Affect O 18 4 0
+Affect O 19 3 0
+Affect O 13 35 0
 LIMIT  3
 End
 
@@ -1148,10 +1148,10 @@ LEVEL  50
 WEIGHT 12
 COST   8000
 COND   100
-Affect O 18 3 0
-Affect O 12 15 0
-Affect O 13 40 0
 Affect O 1 2 0
+Affect O 13 40 0
+Affect O 12 15 0
+Affect O 18 3 0
 LIMIT  8
 End
 
@@ -1183,9 +1183,9 @@ LEVEL  45
 WEIGHT 15
 COST   8000
 COND   100
-Affect O 2 2 0
-Affect O 19 3 0
 Affect O 18 1 0
+Affect O 19 3 0
+Affect O 2 2 0
 LIMIT  12
 End
 
@@ -1202,8 +1202,8 @@ LEVEL  45
 WEIGHT 12
 COST   8000
 COND   100
-Affect O 2 3 0
 Affect O 19 3 0
+Affect O 2 3 0
 LIMIT  6
 End
 
@@ -1217,12 +1217,12 @@ TYPE   armor ABDF AG CF ACDE B
 EXTRA  1 2 0 16842752
 WEAR   AD
 LEVEL  51
-WEIGHT 20
+WEIGHT 21
 COST   10000
 COND   100
-Affect O 13 100 0
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
+Affect O 13 100 0
 LIMIT  2
 End
 
@@ -1239,11 +1239,11 @@ LEVEL  40
 WEIGHT 8
 COST   9000
 COND   100
-Affect O 17 -10 0
-Affect O 13 20 0
-Affect O 4 2 0
-Affect O 3 1 0
 Affect O 2 2 0
+Affect O 3 1 0
+Affect O 4 2 0
+Affect O 13 20 0
+Affect O 17 -10 0
 LIMIT  12
 End
 
@@ -1260,9 +1260,9 @@ LEVEL  45
 WEIGHT 28
 COST   8000
 COND   100
-Affect O 2 -2 0
-Affect O 19 3 0
 Affect O 18 -1 0
+Affect O 19 3 0
+Affect O 2 -2 0
 LIMIT  3
 End
 
@@ -1279,9 +1279,9 @@ LEVEL  40
 WEIGHT 3
 COST   8000
 COND   100
-Affect O 13 30 0
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
+Affect O 13 30 0
 LIMIT  30
 End
 
@@ -1298,9 +1298,9 @@ LEVEL  45
 WEIGHT 21
 COST   8000
 COND   100
-Affect O 2 -2 0
-Affect O 19 4 0
 Affect O 18 -2 0
+Affect O 19 4 0
+Affect O 2 -2 0
 LIMIT  3
 End
 
@@ -1332,8 +1332,8 @@ LEVEL  45
 WEIGHT 25
 COST   9000
 COND   100
-Affect O 18 3 0
 Affect O 19 8 0
+Affect O 18 3 0
 LIMIT  1
 End
 
@@ -1350,8 +1350,8 @@ LEVEL  45
 WEIGHT 24
 COST   9000
 COND   100
-Affect O 18 2 0
 Affect O 13 5 0
+Affect O 18 2 0
 LIMIT  5
 End
 
@@ -1365,12 +1365,12 @@ TYPE   weapon axe 10 4 divine 0
 EXTRA  1 1 0 1
 WEAR   AN
 LEVEL  45
-WEIGHT 20
+WEIGHT 21
 COST   9000
 COND   100
-Affect O 18 7 0
-Affect O 19 1 0
 Affect O 13 20 0
+Affect O 19 1 0
+Affect O 18 7 0
 LIMIT  9
 End
 
@@ -1434,8 +1434,8 @@ LEVEL  1
 WEIGHT 4
 COST   9000
 COND   100
-Affect O 13 35 0
 Affect O 19 3 0
+Affect O 13 35 0
 LIMIT  30
 End
 
@@ -1452,9 +1452,9 @@ LEVEL  50
 WEIGHT 3
 COST   9000
 COND   100
-Affect O 19 3 0
-Affect O 2 3 0
 Affect O 1 1 0
+Affect O 2 3 0
+Affect O 19 3 0
 LIMIT  4
 End
 
@@ -1471,10 +1471,10 @@ LEVEL  50
 WEIGHT 13
 COST   9000
 COND   100
-Affect O 17 -14 0
-Affect O 4 3 0
-Affect O 3 3 0
 Affect O 19 2 0
+Affect O 3 3 0
+Affect O 4 3 0
+Affect O 17 -14 0
 LIMIT  6
 End
 
@@ -1488,11 +1488,11 @@ TYPE   weapon spear 10 6 thrust 0
 EXTRA  1 3 0 4099
 WEAR   AN
 LEVEL  50
-WEIGHT 21
+WEIGHT 17
 COST   9000
 COND   100
-Affect O 13 10 0
 Affect O 12 35 0
+Affect O 13 10 0
 LIMIT  6
 End
 
@@ -1509,10 +1509,10 @@ LEVEL  50
 WEIGHT 13
 COST   9000
 COND   100
-Affect O 13 10 0
-Affect O 19 2 0
-Affect O 2 2 0
 Affect O 1 1 0
+Affect O 2 2 0
+Affect O 19 2 0
+Affect O 13 10 0
 LIMIT  7
 End
 
@@ -1529,9 +1529,9 @@ LEVEL  50
 WEIGHT 25
 COST   9000
 COND   100
-Affect O 13 25 0
-Affect O 5 2 0
 Affect O 1 1 0
+Affect O 5 2 0
+Affect O 13 25 0
 LIMIT  5
 End
 

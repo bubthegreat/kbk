@@ -272,8 +272,8 @@ LEVEL  25
 WEIGHT 16
 COST   1000
 COND   100
-Affect O 18 -2 0
 Affect O 19 -2 0
+Affect O 18 -2 0
 End
 
 #22501
@@ -289,9 +289,9 @@ LEVEL  25
 WEIGHT 9
 COST   2000
 COND   100
-Affect O 19 1 0
-Affect O 14 25 0
 Affect O 2 1 0
+Affect O 14 25 0
+Affect O 19 1 0
 End
 
 #0
