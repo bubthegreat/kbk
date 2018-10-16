@@ -1028,7 +1028,9 @@ void do_outfit ( CHAR_DATA *ch, char *argument )
     
     // Give them a newbie map and a newbie guide.
 	obj = create_object( get_obj_index(1222), 0 );
+	obj_to_char( obj, ch );
 	obj = create_object( get_obj_index(1205), 0 );
+	obj_to_char( obj, ch );
 
     send_to_char("You have been equipped by the gods.\n\r",ch);
     send_to_char("You may buy weapons and instruments one south and one up from the recall pit in Midgaard.\n\r",ch);
