@@ -329,7 +329,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	    return;
 	}
 	int wait_state = 1;
-	if (get_skill(ch,gsn_pathfinding) > 0 && (ch->in_room->sector_type==SECT_FOREST || ch->in_room->sector_type==SECT_HILLS || ch->in_room->sector_type==SECT_MOUNTAIN) && cabal_down_new(ch,CABAL_SYLVAN,FALSE))
+	if (get_skill(ch,gsn_pathfinding) > 0 && isInWilderness(ch) && cabal_down_new(ch,CABAL_SYLVAN,FALSE))
 		wait_state = 1*((100-get_skill(ch,gsn_pathfinding))/100);
 	if (is_affected(ch,gsn_hobble))
 		wait_state = 3;
@@ -2036,8 +2036,7 @@ void do_camp(CHAR_DATA *ch, char *argument)
 	send_to_char("You are already asleep.",ch);
 	return;
     }
-    if ((ch->in_room->sector_type != SECT_FOREST) && (ch->in_room->sector_type != SECT_HILLS)
-    && (ch->in_room->sector_type != SECT_MOUNTAIN) )
+    if ( !isInWilderness(ch) )
     {
 	send_to_char("This land is not wild enough for you to camp out in.\n\r",ch);
 	return;
