@@ -2089,7 +2089,7 @@ void do_insectswarm( CHAR_DATA *ch, char *argument )
     if (is_safe(ch,victim))
 	return;
 
-     if(!(ch->in_room->sector_type == SECT_FIELD || ch->in_room->sector_type == SECT_FOREST || ch->in_room->sector_type == SECT_MOUNTAIN))
+     if( !isInWilderness(ch) )
 	{
 	send_to_char("You must be in more of a wilderness area to call insects.\n\r",ch);
 	return;
@@ -2224,7 +2224,7 @@ void spell_wall_of_thorns(int sn, int level, CHAR_DATA *ch, void *vo, int target
       return;
     }
 
-    if(!(ch->in_room->sector_type == SECT_FIELD || ch->in_room->sector_type == SECT_FOREST))
+    if(!isInWilderness(ch))
 	{
 	send_to_char("There isn't enough foliage here to call a wall of thorns.\n\r",ch);
 	return;
