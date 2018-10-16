@@ -1144,9 +1144,7 @@ void do_centurion_call( CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type == SECT_FOREST)
-		|| (ch->in_room->sector_type == SECT_HILLS)
-		|| (ch->in_room->sector_type == SECT_MOUNTAIN)
+	if ( isInWilderness(ch)
 		|| (ch->in_room->sector_type == SECT_INSIDE)
 		|| (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 		|| ((ch->in_room->cabal != 0 && ch->in_room->cabal != CABAL_EMPIRE))) 
