@@ -2077,9 +2077,7 @@ void do_camouflage( CHAR_DATA *ch, char *argument )
     if (IS_AFFECTED(ch, AFF_FAERIE_FIRE))
 	return send_to_char("You can't camouflage while revealed.\n\r",ch);
 
-    if ( (ch->in_room->sector_type != SECT_FOREST) && (ch->in_room->sector_type != SECT_MOUNTAIN) 
-	&& (ch->in_room->sector_type != SECT_HILLS ) && (ch->in_room->sector_type != SECT_DESERT) 
-	&& (ch->in_room->sector_type != SECT_FIELD ))
+    if ( !isInWilderness(ch) )
     {
 	send_to_char("There is no cover here.\n\r", ch);
 	act("$n tries to cover $mself on the single leaf on the ground.", ch, NULL, NULL, TO_ROOM);
@@ -3166,9 +3164,7 @@ void do_animal_call(CHAR_DATA *ch,char *argument)
         return;
     }
 
-    if ( (ch->in_room->sector_type != SECT_FOREST) && (ch->in_room->sector_type != SECT_MOUNTAIN)
-        && (ch->in_room->sector_type != SECT_HILLS ) && (ch->in_room->sector_type != SECT_DESERT)
-        && (ch->in_room->sector_type != SECT_FIELD ))
+    if ( !isInWilderness(ch) )
     {
            send_to_char("You are not within the right environment to call an animal.\n\r",ch);
            return;
@@ -3396,8 +3392,11 @@ void do_cloak( CHAR_DATA *ch, char *argument )
 
 bool isInWilderness(CHAR_DATA *ch)
 {
-	if ((ch->in_room->sector_type == SECT_FIELD) || (ch->in_room->sector_type == SECT_FOREST) || (ch->in_room->sector_type == SECT_HILLS)
-	|| (ch->in_room->sector_type == SECT_MOUNTAIN))
+	if ((ch->in_room->sector_type == SECT_FIELD) 
+         || (ch->in_room->sector_type == SECT_FOREST) 
+         || (ch->in_room->sector_type == SECT_HILLS)
+	 || (ch->in_room->sector_type == SECT_MOUNTAIN)
+         || (ch->in_room->sector_type == SECT_DESERT))
 	{
 		return TRUE;
 	}
