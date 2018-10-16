@@ -95,8 +95,9 @@ bool 	check_ward_diminution	args( (CHAR_DATA *mage, CHAR_DATA *attacker, int dam
 bool	check_unholy_new	args( (CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)	);
 bool	is_affected_obj		args( (OBJ_DATA *obj, int sn)			);
 void	check_paladin_combo	args( (CHAR_DATA *ch, CHAR_DATA *victim) );
-float hitroll_multiplier	args( (CHAR_DATA *ch, CHAR_DATA *victim, float max_multiplier) );
-bool check_shield_magnetism	args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dt ));
+float   hitroll_multiplier	args( (CHAR_DATA *ch, CHAR_DATA *victim, float max_multiplier) );
+bool    check_shield_magnetism	args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dt ));
+void    check_critical_strike   args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dt ));
 
  /*
  * Control the fights going on.
@@ -464,6 +465,8 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     	act("Your amber aura intenses and your movements become more fluid!",ch,0,0,TO_CHAR);
 	one_hit_new(ch,victim,dt,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,HIT_NOMULT,NULL);
     }
+
+    check_critical_strike(ch, victim, dt);
 
     if (check_darkshout(ch) == DARKSHOUT_MEPHISTOPHELES && number_percent() < 40)
     {
@@ -10665,4 +10668,98 @@ bool check_shield_magnetism( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	act(buf2,ch,0,victim,TO_CHAR);
 	
 	return TRUE;
+}
+
+void check_critical_strike ( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
+{
+//////////////////////////// Begin Critical Strike Check /////////////////////////////////
+        if (number_percent() < ch->pcdata->learned[skill_lookup("critical strike")] / 6)
+        {
+                if (is_wielded(ch,WEAPON_SWORD,WIELD_PRIMARY) 
+                 || is_wielded(ch,WEAPON_AXE,WIELD_PRIMARY) 
+                 || is_wielded(ch,WEAPON_DAGGER,WIELD_PRIMARY) 
+                 || is_wielded(ch,WEAPON_SPEAR,WIELD_PRIMARY) 
+                 || is_wielded(ch,WEAPON_POLEARM,WIELD_PRIMARY) 
+                 || is_wielded(ch,WEAPON_EXOTIC,WIELD_PRIMARY))
+                {
+                        act("You deliver a critical strike!",ch,0,0,TO_CHAR);
+                        act("$n delivers a critical strike!",ch,0,0,TO_ROOM);
+                        one_hit_new(ch,victim,dt,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,115,"critical strike");
+                        if (!is_affected(victim,skill_lookup("critical strike")))
+                        {
+                                act("$n's critical strike tears open an immense gash in your body!",ch,0,victim,TO_VICT);
+                                act("$n's critical strike tears open an immense gash in $N's body!",ch,0,victim,TO_NOTVICT);
+                                act("Your critical strike tears open an immense gash in $N's body!",ch,0,victim,TO_CHAR);
+                                AFFECT_DATA bleeding;
+                                init_affect(&bleeding);
+                                bleeding.aftype = AFT_SKILL;
+                                bleeding.type = skill_lookup("critical strike");
+                                bleeding.affect_list_msg = str_dup("induces major bleeding");
+                                bleeding.owner_name = str_dup(ch->original_name);
+                                bleeding.duration = 3;
+                                if (is_wielded(ch,WEAPON_SWORD,WIELD_PRIMARY))
+                                        bleeding.level = 3;
+                                else if (is_wielded(ch,WEAPON_AXE,WIELD_PRIMARY))
+                                        bleeding.level = 4;
+                                else if (is_wielded(ch,WEAPON_DAGGER,WIELD_PRIMARY))
+                                        bleeding.level = 2;
+                                else if (is_wielded(ch,WEAPON_POLEARM,WIELD_PRIMARY))
+                                        bleeding.level = 5;
+                                else if (is_wielded(ch,WEAPON_SPEAR,WIELD_PRIMARY))
+                                        bleeding.level = 6;
+                                else
+                                        bleeding.level = 10;
+                                affect_to_char(victim,&bleeding);
+                        }
+                }
+               else if (is_wielded(ch,WEAPON_FLAIL,WIELD_PRIMARY) 
+                     || is_wielded(ch,WEAPON_MACE,WIELD_PRIMARY) 
+                     || is_wielded(ch,WEAPON_STAFF,WIELD_PRIMARY) 
+                     || is_wielded(ch,WEAPON_WHIP,WIELD_PRIMARY))
+                {
+                        act("You deliver a critical strike!",ch,0,0,TO_CHAR);
+                        act("$n delivers a critical strike!",ch,0,0,TO_ROOM);
+                        one_hit_new(ch,victim,dt,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,115,"critical strike");
+                        if (!is_affected(victim,skill_lookup("critical strike")))
+                        {
+                                act("You feel your bones shatter under the force of $n's critical strike!",ch,0,victim,TO_VICT);
+                                act("$n's critical strike shatters $N's bones!",ch,0,victim,TO_NOTVICT);
+                                act("Your critical strike shatters $N's bones!",ch,0,victim,TO_CHAR);
+                                AFFECT_DATA boneshatter;
+                                init_affect(&boneshatter);
+                                boneshatter.aftype = AFT_SKILL;
+                                boneshatter.type = skill_lookup("critical strike");
+                                boneshatter.duration = 3;
+                                boneshatter.level = 1;
+                                boneshatter.owner_name = str_dup(ch->original_name);
+                                boneshatter.location = APPLY_STR;
+                                if (is_wielded(ch,WEAPON_FLAIL,WIELD_PRIMARY))
+                                        boneshatter.modifier = -3;
+                                else if (is_wielded(ch,WEAPON_MACE,WIELD_PRIMARY))
+                                        boneshatter.modifier = -4;
+                                else if (is_wielded(ch,WEAPON_STAFF,WIELD_PRIMARY))
+                                        boneshatter.modifier = -3;
+                                else if (is_wielded(ch,WEAPON_WHIP,WIELD_PRIMARY))
+                                        boneshatter.modifier = -2;
+                                else
+                                        boneshatter.modifier = -1;
+                                affect_to_char(victim,&boneshatter);
+
+                                boneshatter.location = APPLY_DEX;
+                                if (is_wielded(ch,WEAPON_FLAIL,WIELD_PRIMARY))
+                                        boneshatter.modifier = -3;
+                                else if (is_wielded(ch,WEAPON_MACE,WIELD_PRIMARY))
+                                        boneshatter.modifier = -4;
+                                else if (is_wielded(ch,WEAPON_STAFF,WIELD_PRIMARY))
+                                        boneshatter.modifier = -3;
+                                else if (is_wielded(ch,WEAPON_WHIP,WIELD_PRIMARY))
+                                        boneshatter.modifier = -2;
+                                else
+                                        boneshatter.modifier = -1;
+                                affect_to_char(victim,&boneshatter);
+                        }
+                }
+        }
+//////////////////////////// End Critical Strike Check /////////////////////////////////                        
+
 }
