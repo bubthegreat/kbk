@@ -3413,11 +3413,7 @@ void invoke_prog_forest_green_emerald(OBJ_DATA *obj, CHAR_DATA *ch, char *argume
     			if (IS_AFFECTED(ch, AFF_FAERIE_FIRE))
 				return send_to_char("You can't become camouflaged while revealed.\n\r",ch);
 
-    			if ( (target->in_room->sector_type != SECT_FOREST) && 
-				(target->in_room->sector_type != SECT_MOUNTAIN) && 
-				(target->in_room->sector_type != SECT_HILLS ) && 
-				(target->in_room->sector_type != SECT_DESERT) && 
-				(target->in_room->sector_type != SECT_FIELD ))
+    			if ( isInWilderness(target) )
     			{
 				send_to_char("There is no cover here.\n\r", ch);
 				set = FALSE;
