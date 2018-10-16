@@ -432,7 +432,7 @@ void do_snare( CHAR_DATA *ch, char *argument )
 	}
 
 	if( !isInWilderness(ch) &&
-	    !IS_IMMORTAL(ch)) ||
+	    !IS_IMMORTAL(ch) ||
 	    (ch->in_room->vnum==5700 || ch->in_room->cabal))
 	{
 		send_to_char("You cannot create a snare in this environment.\n\r",ch);
