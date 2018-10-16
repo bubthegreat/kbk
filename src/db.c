@@ -544,6 +544,7 @@ sh_int	gsn_vorpal_bolt;
 sh_int  gsn_exude_health;
 sh_int  gsn_vitality;
 sh_int  gsn_dragon_might;
+sh_int  gsn_serpent_strike;
 
 /* GSNS */
 
@@ -2459,7 +2460,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 // 		if ( pObjIndex->count < limit || number_range(0,4) == 0 )
 
 	if ( pObjIndex->limcount >= pObjIndex->limtotal
-	&& pObjIndex->limtotal > 0)
+	&& pObjIndex->limtotal > 0 && FALSE )
 	{
 		break;
 	}

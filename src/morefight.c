@@ -195,8 +195,14 @@ void strip( CHAR_DATA *ch, CHAR_DATA *victim )
     OBJ_DATA *obj;
     OBJ_DATA *secondary;
 
-    if ( ( obj = get_eq_char( victim, WEAR_WIELD ) ) == NULL )
-        return;
+    obj = get_eq_char( victim, WEAR_WIELD );
+
+    if ( obj == NULL )
+    {
+        obj = get_eq_char( victim, WEAR_DUAL_WIELD );
+	if ( obj == NULL )
+            return;
+    }
 
     if (is_affected(victim,gsn_spiderhands) )
     {
@@ -251,6 +257,7 @@ void do_strip( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     CHAR_DATA *victim;
     OBJ_DATA *wield;
+    OBJ_DATA *dwield;
     OBJ_DATA *obj;
     int chance,ch_weapon,vict_weapon,ch_vict_weapon;
 
@@ -286,17 +293,17 @@ void do_strip( CHAR_DATA *ch, char *argument )
 
     wield = get_eq_char( ch, WEAR_WIELD );
 
-        if(!wield)
-                return send_to_char("You must be wielding a whip or flail to do that.\n\r",ch);
+    if(!wield)
+        return send_to_char("You must be wielding a whip or flail to do that.\n\r",ch);
 
-        if((wield->value[0] != WEAPON_WHIP) && (wield->value[0] != WEAPON_FLAIL))
-        {
-                send_to_char("You must be wielding a whip or flail to do that.\n\r",ch);
-                return;
-        }
+    if((wield->value[0] != WEAPON_WHIP) && (wield->value[0] != WEAPON_FLAIL))
+    {
+        send_to_char("You must be wielding a whip or flail to do that.\n\r",ch);
+        return;
+    }
 
 
-    if ( ( obj = get_eq_char( victim, WEAR_WIELD ) ) == NULL )
+    if ( ( obj = get_eq_char( victim, WEAR_WIELD ) ) == NULL && ( dwield = get_eq_char( victim, WEAR_DUAL_WIELD ) ) == NULL )
     {
         send_to_char( "Your opponent is not wielding a weapon.\n\r", ch );
         return;
@@ -335,26 +342,26 @@ void do_strip( CHAR_DATA *ch, char *argument )
         ch,NULL,victim,TO_NOTVICT);
         check_improve(ch,gsn_strip,FALSE,1);
     }
-        if (IS_AWAKE(victim) && !IS_NPC(victim) && (victim->fighting != ch))
-        {
+    if (IS_AWAKE(victim) && !IS_NPC(victim) && (victim->fighting != ch))
+    {
         sprintf(buf,"%s is trying to strip me of my weapon!",PERS(ch,victim) );
         do_myell( victim, buf );
         multi_hit( victim, ch, TYPE_UNDEFINED );
-        }
-        else if (!IS_AWAKE(victim) && !IS_NPC(victim))
-        {
+    }
+    else if (!IS_AWAKE(victim) && !IS_NPC(victim))
+    {
         sprintf(buf,"%s is trying to strip me of my weapon!",PERS(ch,victim) );
 	victim->position=POS_STANDING;
         do_myell( victim, buf );
 	one_hit( victim, ch, TYPE_UNDEFINED );
-        }
-        else if ( !IS_NPC(ch))
-        {
+    }
+    else if ( !IS_NPC(ch))
+    {
         if ( IS_NPC(victim) && IS_AWAKE(victim))
         {
-        multi_hit( victim, ch, TYPE_UNDEFINED );
+            multi_hit( victim, ch, TYPE_UNDEFINED );
         }
-}
+    }
     check_killer(ch,victim);
     return;
 }

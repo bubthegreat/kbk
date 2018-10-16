@@ -28,6 +28,8 @@ services:
                make"
     volumes:
         - ./:/opt/kbk/
+    networks:
+      - kbk_network
   kbk_service:
     image: kbk_service_image
     depends_on:

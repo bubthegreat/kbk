@@ -2361,7 +2361,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 
     {
 	"web",
-	{ 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53 },
+	{ 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 	spell_web,		TAR_CHAR_OFFENSIVE,		POS_FIGHTING,
 	NULL,			SLOT(560),	20,	12,
@@ -5890,7 +5890,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	"true sight",
 	{ 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24 },
 	{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-	spell_true_sight,	TAR_CHAR_SELF,			POS_STANDING,
+	spell_true_sight,	TAR_CHAR_SELF,			POS_FIGHTING,
 	&gsn_true_sight,	SLOT(0),		50,	24,
 	"",			"Your true vision fades.",			"",	CMD_POWER
     },
@@ -6842,7 +6842,17 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_ward_of_magnetism,	TAR_CHAR_SELF,		POS_STANDING,
 	NULL,			SLOT(0),	150,	24,
 	"",	"Your ward of magnetism fades, leaving you able to handle metal objects again.", "", CMD_SPELL
-    }
+    },
+
+    {
+        "serpent strike",
+        { 53, 53, 53, 53, 53, 20, 53, 53, 53, 53, 53, 53, 53 },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        spell_null,        TAR_IGNORE,          POS_FIGHTING,
+        &gsn_serpent_strike,                   SLOT(0),        0,    12,
+        "serpent strike",     "", "", CMD_NONE
+    },
+
 
 };
 
@@ -6936,7 +6946,8 @@ const   struct  group_type      group_table     [MAX_GROUP]     =
 	"double spin kick", "dash", "bindwounds", "plant growth", "spores",
 	"spire of flames", "worldbind", "aura", "darkshout",
 	"enlarge", "reduce", "water breathing", "tripwire", "self immolation", "stance",
-	"maledict corpse", "charge weapon", "unholy bless", "wilderness familiarity", "ward of magnetism" }
+	"maledict corpse", "charge weapon", "unholy bless", "wilderness familiarity", "ward of magnetism",
+        "serpent strike" }
     },
 
     {

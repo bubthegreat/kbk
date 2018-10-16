@@ -728,6 +728,7 @@ bool no_vanish_area(CHAR_DATA *ch)
 	"entropy.are",
 	"empire.are",
 	"sylvangrove.are",
+	"bounty.are",
 	
 	"END"
   };
