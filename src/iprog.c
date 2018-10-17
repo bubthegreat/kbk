@@ -1792,7 +1792,7 @@ void wear_prog_stone_skin(OBJ_DATA *obj, CHAR_DATA *ch)
         return send_to_char("The stench of this magical relic disgusts you and you ignore its effects.\n\r",ch);
 
 
-    act("As you hold $p, you feel your skin harden into pure stone new.",ch,obj,0,TO_CHAR);
+    act("As you hold $p, you feel your skin harden into pure stone.",ch,obj,0,TO_CHAR);
     spell_stone_skin(gsn_stoneskin, -1, ch, ch, 1);
     return;
 }
