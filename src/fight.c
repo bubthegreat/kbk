@@ -890,7 +890,8 @@ void one_hit_new( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool specials, bool 
 		}
 		else
 		{
-			check_improve(victim,gsn_backfist,FALSE,5);
+			if ( count_hands(victim) < 2)
+                            check_improve(victim,gsn_backfist,FALSE,5);
 		}
     }
 
