@@ -222,8 +222,17 @@ void do_path( CHAR_DATA *ch, char *argument )
         AREA_DATA *area;
 
 	if ( argument[0] == '\0' ) {
-		send_to_char("<destination player, mob, or area>\n\r", ch);
+		if(!IS_IMMORTAL(ch))
+			send_to_char("<destination area>\n\r", ch);
+		else
+			send_to_char("<destination player, mob, or area>\n\r", ch);
 		return;
+	}
+
+	if ( IS_AFFECTED(ch, AFF_BLIND) && !IS_IMMORTAL(ch) )
+	{
+		send_to_char("You can't see to get there.\n\r", ch);
+        	return;
 	}
 
 	if ((source = ch->in_room) == NULL)
@@ -238,7 +247,7 @@ void do_path( CHAR_DATA *ch, char *argument )
                 fArea = 1;
 	}
 
-        else if ((victim = get_char_world(ch, argument)) != NULL)
+        else if ( IS_IMMORTAL(ch) && (victim = get_char_world(ch, argument)) != NULL)
 		destination = victim->in_room;
 
 	if (destination == NULL)
