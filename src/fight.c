@@ -6373,9 +6373,7 @@ void do_herb(CHAR_DATA *ch,char *argument)
         send_to_char("You can't find any more herbs.\n\r",ch);
         return;
         }
-    if ( (ch->in_room->sector_type != SECT_FOREST) && (ch->in_room->sector_type != SECT_MOUNTAIN)
-        && (ch->in_room->sector_type != SECT_HILLS ) && (ch->in_room->sector_type != SECT_DESERT)
-        && (ch->in_room->sector_type != SECT_FIELD ))
+    if ( !isInWilderness(ch) )
         {
         send_to_char("You can't find any herbs here.\n\r",ch);
         return;

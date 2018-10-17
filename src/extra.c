@@ -431,13 +431,9 @@ void do_snare( CHAR_DATA *ch, char *argument )
 		return;
 	}
 
-	if((ch->in_room->sector_type!=SECT_FOREST &&
-	   ch->in_room->sector_type!=SECT_MOUNTAIN &&
-	   ch->in_room->sector_type!=SECT_DESERT &&
-	   ch->in_room->sector_type!=SECT_FIELD &&
-	   ch->in_room->sector_type!=SECT_HILLS &&
-	   !IS_IMMORTAL(ch)) ||
-	   (ch->in_room->vnum==5700 || ch->in_room->cabal))
+	if( !isInWilderness(ch) &&
+	    !IS_IMMORTAL(ch) ||
+	    (ch->in_room->vnum==5700 || ch->in_room->cabal))
 	{
 		send_to_char("You cannot create a snare in this environment.\n\r",ch);
 		return;
