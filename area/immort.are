@@ -618,24 +618,19 @@ End
 
 #1222
 NAME   Newbie Map~
-SHORT  a newbie map written on parchment~
+SHORT  A sign with directions~
 DESCR 
-A newbie map lies here.~
+A large sign stands here showing directions to many places.~
 MAT    wood~
 TYPE   map 0 0 0 0 0
 EXTRA  1 3 0 17858560
 WEAR   A
 LEVEL  0
-WEIGHT 6
+WEIGHT 9
 COST   0
 COND   100
-EDESC Map~
-Hello Adventurers, 
 
-This map will show you directions to the Cabals of Thera, Towns and Cities you might 
-take refuge in and also different Areas you can explore. Utilize this tool. 
 EDESC Areas four~
-***Starting point is Market Square in Midgaard***
 [Areas Four]
 - The Hobo Train Yard
 {3e4n2w8ne}
@@ -659,9 +654,8 @@ EDESC Areas four~
 {nd2wsw2sd2sd}
 - Wyvern's Tower
 {6e4s2es2ede}
-
+~
 EDESC Areas three~
-***Starting point is Market Square in Midgaard***
 [Areas Three]
 - Rakshasa Tower
 {5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nen2ene2n}
@@ -691,9 +685,8 @@ EDESC Areas three~
 {5w3s5w2s2wn2wsw3n2ew}
 - The Green Tower
 {5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nw3n}
-
+~
 EDESC Areas two~
-***Starting point is Market Square in Midgaard***
 [Areas Two]
 - Elemental Temple
 {5w3s5w2s2wn2wsw2nw}
@@ -723,9 +716,8 @@ EDESC Areas two~
 {36en6e3n5ened}
 - Neraka
 {5wnwn3w3nwn2wswn3w}
-
+~
 EDESC Areas one~
-***Starting point is Market Square in Midgaard***
 [Areas One]
 - Arkham Swamps
 {36en15e}
@@ -755,9 +747,8 @@ EDESC Areas one~
 {6e4s2es2ed2se}
 - Dying Forest
 {6e4s2ese3se2ses2enen3e3s2w4s2e4s}
-
+~
 EDESC Towns Cities Villages~
-***Starting point is Market Square in Midgaard***
 [Towns]
 - Arkham
 {36e}
@@ -785,9 +776,8 @@ EDESC Towns Cities Villages~
 {5wnwn3w3nw3n7w8n2e3n2en}
 - Varggin Shih
 {nd2wsw2sd2sd}
-
+~
 EDESC Cabals~
-***Starting Point is Market Square in Midgaard***
 [Cabals]
 - Ancient
 {36en6e3n3e14nws}
@@ -809,6 +799,7 @@ EDESC Cabals~
 {5w3s5wsesesen}
 ~
 End
+
 
 #1223
 NAME   Newbie Gold~
