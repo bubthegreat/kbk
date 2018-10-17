@@ -192,7 +192,7 @@ typedef void SET_ITEM_PROG args((CHAR_DATA *ch, int arg2, bool arg3));
 
  */
 #define MAX_SOCIALS		  	256
-#define MAX_SKILL                 	639
+#define MAX_SKILL                 	640
 #define MAX_GROUP		   	50
 #define MAX_IN_GROUP              	500
 #define MAX_ALIAS		   	10
