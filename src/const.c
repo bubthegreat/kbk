@@ -6005,7 +6005,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51 },
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
         spell_vampiric_touch,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-        &gsn_vampiric_touch,       SLOT( 0),       0,      12,
+        &gsn_vampiric_touch,       SLOT( 0),       0,      24,
         "deathly touch",                     "",       "", CMD_SPELL
     },
 
