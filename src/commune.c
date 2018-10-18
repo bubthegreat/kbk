@@ -706,7 +706,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		}
 	}  
     	send_to_char("You feel drained.\n\r",ch);
-    	ch->move /= 2;
-		ch->mana /= 2;
-    	ch->hit /= 2;
+    	ch->move *= .9;
+	ch->mana *= .9;
+    	ch->hit  *= .9;
 }
