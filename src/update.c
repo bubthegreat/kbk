@@ -560,7 +560,7 @@ void mobile_update( void )
 
 
 	/* Examine call for special procedure */
-	if ( ch->spec_fun != 0 )
+	if ( ch->spec_fun != 0 && (ch->wait <= 0))
 	{
 	    if ( (*ch->spec_fun) ( ch ) )
 		continue;
