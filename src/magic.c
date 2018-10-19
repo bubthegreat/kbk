@@ -444,8 +444,8 @@ void do_cast( CHAR_DATA *ch, char *argument )
     /*
      * Switched NPC's can cast spells, but others can't.
      */
-    if ( IS_NPC(ch) && ch->desc == NULL)
-	return;
+//    if ( IS_NPC(ch) && ch->desc == NULL)
+//	return;
 
 	if(class_table[ch->class].ctype!=CLASS_CASTER && !IS_IMMORTAL(ch))
 	{
