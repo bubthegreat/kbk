@@ -3553,7 +3553,8 @@ void make_corpse( CHAR_DATA *killer,CHAR_DATA *ch )
                          && (number_percent() < (abs( 1. - (obj->pIndexData->limtotal / obj->pIndexData->limcount )) * 100.) ))
 		{
 			act("$p flashes brightly and vaporizes.",ch,obj,NULL,TO_ROOM);
-                        act("$p flashes brightly and vaporizes.",ch,obj,NULL,TO_CHAR);
+                        act("$p flashes brightly and vaporizes, and you find yourself with a quest credit as compensation.",ch,obj,NULL,TO_CHAR);
+			gain_quest_credits(ch, 1);
 			extract_obj( obj );
 			putInCorpse = FALSE;
 		}
