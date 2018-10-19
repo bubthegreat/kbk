@@ -10051,9 +10051,9 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 	
 	if (!is_affected(ch,sn))
 		return;
-	if (level == 15 || level == 25 || level == 35 || level == 45 || level == 55 || level == 65)
+	if (level == 5 || level == 10 || level == 15 || level == 20 || level == 25 || level == 30)
 		do_say(ch,"Raaaagh!!");
-	if (level == 15)
+	if (level == 5)
 	{
 		act("$n's $p glows softly.",ch,wield,victim,TO_VICT);
 		act("$n's $p glows softly.",ch,wield,victim,TO_NOTVICT);
@@ -10066,7 +10066,7 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (level == 25)
+	if (level == 10)
 	{
 		act("$n's $p glows faintly.",ch,wield,victim,TO_VICT);
 		act("$n's $p glows faintly.",ch,wield,victim,TO_NOTVICT);
@@ -10080,7 +10080,7 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (level == 35)
+	if (level == 15)
 	{
 		act("$n's $p hums loudly.",ch,wield,victim,TO_VICT);
 		act("$n's $p hums loudly.",ch,wield,victim,TO_NOTVICT);
@@ -10111,7 +10111,7 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (level == 45)
+	if (level == 20)
 	{
 		act("$n's $p glows with radiant light.",ch,wield,victim,TO_VICT);
 		act("$n's $p glows with radiant light.",ch,wield,victim,TO_NOTVICT);
@@ -10140,7 +10140,7 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 	
-	if (level == 55)
+	if (level == 25)
 	{
 		act("$n's $p shines brightly.",ch,wield,victim,TO_VICT);
 		act("$n's $p shines brightly.",ch,wield,victim,TO_NOTVICT);
@@ -10186,7 +10186,7 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (level == 65)
+	if (level == 30)
 	{
 		act("$n's $p pulses with power!",ch,wield,victim,TO_VICT);
 		act("$n's $p pulses with power!",ch,wield,victim,TO_NOTVICT);
@@ -10229,7 +10229,7 @@ void check_paladin_combo(CHAR_DATA *ch, CHAR_DATA *victim)
 		affect_strip(ch,sn);
 		return;
 	}
-	if (level > 65)
+	if (level > 30)
 	{
 		act("The power running through your veins becomes too much to bare and you lose your focus!",ch,0,0,TO_CHAR);
 		affect_strip(ch,sn);
@@ -10261,8 +10261,8 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 	if (number_percent() > get_skill(ch,skill_lookup("swordplay")))
 	{
 		act("$n attempts to execute a complex maneuver with $s sword, but botches it and fails.",ch,0,0,TO_ROOM);
+		WAIT_STATE(ch,PULSE_VIOLENCE*1);
 		return send_to_char("You attempt to execute a swordplay maneuver, but botch it.\n\r",ch);
-		WAIT_STATE(ch,PULSE_VIOLENCE*2);
 	}
 	
 	check_improve(ch,gsn_swordplay,TRUE,4);
@@ -10317,7 +10317,7 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 		affect_to_char(ch,&affectCounter);
 		send_to_char("You gain 3 combo points!\n",ch);
 		check_paladin_combo(ch, victim);
-		WAIT_STATE(ch,PULSE_VIOLENCE*1.5);
+		WAIT_STATE(ch,PULSE_VIOLENCE*1);
 	}	
 	else if (!str_prefix(argument,"charge"))
 	{
@@ -10330,7 +10330,7 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 			act("$n sees an opening in your defenses and charges into you, sending you flying!",ch,0,victim,TO_VICT);
 			act("$n charges into $N, sending $S flying!",ch,0,victim,TO_NOTVICT);
 			act("Seizing a moment of weakness, you charge into $N, sending $M flying!",ch,0,victim,TO_CHAR);
-			WAIT_STATE(victim,PULSE_VIOLENCE*2);
+			WAIT_STATE(victim,PULSE_VIOLENCE*1.5);
 		}
 		one_hit_new(ch,victim,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,170,"charge");
 		affect_strip(ch,sn);
@@ -10342,7 +10342,7 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 		affect_to_char(ch,&affectCounter);
 		send_to_char("You gain 6 combo points!\n",ch);
 		check_paladin_combo(ch, victim);
-		WAIT_STATE(ch,PULSE_VIOLENCE*2.5);
+		WAIT_STATE(ch,PULSE_VIOLENCE*2);
 	}
 
 	else if (!str_prefix(argument,"thrust"))
@@ -10467,7 +10467,7 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 		affect_to_char(ch,&affectCounter);
 		send_to_char("You gain 7 combo points!\n",ch);
 		check_paladin_combo(ch, victim);
-		WAIT_STATE(ch,PULSE_VIOLENCE*2.5);
+		WAIT_STATE(ch,PULSE_VIOLENCE*2);
 	}
 
 	else if (!str_prefix(argument,"whirl"))
@@ -10502,7 +10502,7 @@ void do_swordplay(CHAR_DATA *ch, char *argument)
 		affect_to_char(ch,&affectCounter);
 		send_to_char("You gain 8 combo points!\n",ch);
 		check_paladin_combo(ch, victim);
-		WAIT_STATE(ch,PULSE_VIOLENCE*3);
+		WAIT_STATE(ch,PULSE_VIOLENCE*2);
 	}
 
 	else
