@@ -5061,7 +5061,6 @@ bool spec_practice_dummy (CHAR_DATA *ch)
 bool spec_elemental(CHAR_DATA *ch)
 {
 	int spell_num=0;
-	char *buf = '\0';
 
 	CHAR_DATA *victim = ch->fighting;
 
@@ -5071,29 +5070,32 @@ bool spec_elemental(CHAR_DATA *ch)
 	if (number_percent() > 65)
 		return FALSE;
 
+	//WAIT_STATE(ch,skill_table[gsn_serpent_strike].beats);
+
 	switch(ch->pIndexData->vnum)
 	{
 		// Fire
 		case 2902:
-			spell_num = skill_lookup("fireball"); buf="fireball"; break;
+			spell_num = skill_lookup("fireball"); break;
 		// Water
 		case 2903:
-			spell_num = skill_lookup("hydrolic ram"); buf="'hydrolic ram'"; break;
+			spell_num = skill_lookup("hydrolic ram"); break;
 		// Air
 		case 2904: 
-			spell_num =  skill_lookup("windwall"); buf="windwall"; break;
+			spell_num =  skill_lookup("windwall"); break;
 		// Earth
 		case 2905: 
-			spell_num = skill_lookup("earthmaw"); buf="earthmaw"; break;
+			spell_num = skill_lookup("earthmaw"); break;
 		default:
 			return FALSE; break;
 	}
 
-	if (spell_num == 0 || buf == '\0')
+	if (spell_num == 0 )
 		return FALSE;
 
-	//(*skill_table[spell_num].spell_fun) (spell_num, ch->level, ch, victim, TAR_CHAR_OFFENSIVE);
-	do_cast(ch, buf);
+	(*skill_table[spell_num].spell_fun) (spell_num, ch->level, ch, victim, TAR_CHAR_OFFENSIVE);
+	WAIT_STATE(ch,skill_table[spell_num].beats);
+	//do_cast(ch, buf);
 	return FALSE;
 }
 
