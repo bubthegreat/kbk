@@ -110,6 +110,7 @@ Welcome to KBK Reborn!
              duplicated the functionality but was assassin only.
 2018-10-17:  Mortals now have (limited) access to the path command which will give you the
              shortest path from your location to any area.  Enjoy!
+2018-10-18:  Vampiric touch now available for mortal necros.
 
 See 'HELP CHANGES' for older changes.  See commits directly at:
     https://gitlab.com/bubthegreat/kbk/commits/master
