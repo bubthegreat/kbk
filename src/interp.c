@@ -514,7 +514,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "zecho",		do_zecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, 0 },
     { "otype",		do_otype,	POS_DEAD,	 0,  LOG_NORMAL, 1, 0 },
     { "rastrip",	do_rastrip,	POS_DEAD,	L6,  LOG_NORMAL, 1, 0 },
-    { "path",		do_path,	POS_DEAD,	60,  LOG_NORMAL, 1, 0 },
+    { "path",		do_path,	POS_DEAD,	 0,  LOG_NORMAL, 1, 0 },
     { "jinx",		do_jinx,	POS_DEAD,	60,  LOG_NORMAL, 0, 0 },
     { "charmed",	do_charmed,	POS_DEAD,	60,  LOG_NORMAL, 0, 0 },
     { "gget",		do_global_get,	POS_DEAD,	55,  LOG_NORMAL, 0, 0 },
