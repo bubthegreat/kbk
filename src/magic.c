@@ -798,11 +798,12 @@ void do_cast( CHAR_DATA *ch, char *argument )
                 }
 
 			if (is_affected(victim,skill_lookup("body of diamond"))) {	
-				if (number_percent() < 25) {
+				if (number_percent() < 50) {
 					act("Your spell is reflected off $N's diamond skin!",ch,0,victim,TO_CHAR);
 	                act("Your diamond skin reflects $n's spell!",ch,0,victim,TO_VICT);
 	                act("$N's diamond skin reflects $n's spell!",ch,0,victim,TO_NOTVICT);
-					(*skill_table[sn].spell_fun) ( sn, ch->level/4, victim, ch, target);
+					(*skill_table[sn].spell_fun) ( sn, ch->level, victim, ch, target);
+					return;
 				}
 			}
 				
