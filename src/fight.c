@@ -370,6 +370,13 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 {
     int chance, dual_chance;
     char buf[MAX_STRING_LENGTH];
+    bool candual = FALSE;
+    
+    // Can we get dual wield attacks?
+    if ( get_eq_char(ch,WEAR_DUAL_WIELD) != NULL 
+      || count_hands(ch) == 0
+      || (get_eq_char(ch,WEAR_WIELD) != NULL && count_hands(ch) == 1) )
+        candual = TRUE;
 
     if (is_affected(ch,gsn_timestop))
     {
@@ -516,7 +523,7 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
             return;
     }
 
-    if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL && ch->pcdata->learned[gsn_second_attack] > 10)
+    if (candual && ch->pcdata->learned[gsn_second_attack] > 10)
     {
 	if (number_percent( ) < dual_chance)
 	{
@@ -547,7 +554,7 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     if (IS_AFFECTED(ch,AFF_HASTE))
         dual_chance*=1.2;
 
-    if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL && ch->pcdata->learned[gsn_third_attack] > 10)
+    if (candual && ch->pcdata->learned[gsn_third_attack] > 10)
     {
 	if (number_percent( ) < dual_chance)
 	{
@@ -577,7 +584,7 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     dual_chance = get_skill(ch,gsn_dual_wield)/4 + GET_HITROLL(ch) / 15;
     if (IS_AFFECTED(ch,AFF_HASTE))
         dual_chance*=1.2;
-    if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL && ch->pcdata->learned[gsn_fourth_attack] > 10)
+    if (candual && ch->pcdata->learned[gsn_fourth_attack] > 10)
     {
 	if (number_percent( ) < dual_chance)
 	{
@@ -589,6 +596,7 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	    check_improve(ch,gsn_dual_wield,FALSE,5);
 	}
     }
+/*  If we can already dual wield hands, this block makes no sense.
 	
 	int off_chance = 3 * get_skill(ch,skill_lookup("unarmed offense")) / 4;
 	if (IS_AFFECTED(ch,AFF_HASTE)) off_chance = 3 * off_chance / 2;
@@ -612,6 +620,8 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	affect_strip(victim,gsn_blackjack);
 	return;
     }
+
+*/
 
     /* imperial training */
     if (check_imperial_training(ch) == IMPERIAL_OFFENSE && get_skill(ch,gsn_third_attack)>80)
@@ -880,7 +890,8 @@ void one_hit_new( CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool specials, bool 
 		}
 		else
 		{
-			check_improve(victim,gsn_backfist,FALSE,5);
+			if ( count_hands(victim) < 2)
+                            check_improve(victim,gsn_backfist,FALSE,5);
 		}
     }
 

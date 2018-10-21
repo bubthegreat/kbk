@@ -2352,21 +2352,36 @@ void do_garrotte(CHAR_DATA *ch, char *argument)
 
 int count_hands(CHAR_DATA *ch)
 {
-	int count=0;
+    int count=0;
+    OBJ_DATA *weapon;
 
-	if (get_eq_char(ch,WEAR_LIGHT) != NULL)
-		count++;
-   	if (get_eq_char(ch,WEAR_WIELD) != NULL)
-        	count++;
-   	if (get_eq_char(ch,WEAR_HOLD) != NULL)
-        	count++;
-   	if (get_eq_char(ch,WEAR_SHIELD) != NULL)
-        	count++;
-   	if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL)
-        	count++;
-	if (count > 2)
-		bug("Count_hands: Character holding %d items.",count);
-	return count;
+    if (get_eq_char(ch,WEAR_LIGHT) != NULL)
+        count++;
+    if (get_eq_char(ch,WEAR_WIELD) != NULL)
+    {
+        count++;
+        weapon = get_eq_char(ch,WEAR_WIELD);
+
+        if ((weapon != NULL && ch->size < SIZE_LARGE
+            && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
+            || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
+            || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
+            || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
+        {
+            // We're wearing a two-handed weapon, that counts for both hands.
+            count++;
+        }
+    }
+    if (get_eq_char(ch,WEAR_HOLD) != NULL)
+        count++;
+    if (get_eq_char(ch,WEAR_SHIELD) != NULL)
+        count++;
+    if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL)
+        count++;
+    if (count > 2)
+        bug("Count_hands: Character holding %d items.",count);
+    return count;
+
 }
 
 void do_intercept( CHAR_DATA *ch, char *argument)
