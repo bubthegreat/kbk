@@ -5988,7 +5988,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
         spell_null,		TAR_IGNORE, 	POS_STANDING,
         &gsn_pummel,            SLOT(0),       	0,       0,
-        "pummeling fists",    	"", 	"",	CMD_NONE
+        "pummeling fists",    	"Your flesh no longer feels as battered and bruised", 	"",	CMD_NONE
     },
 
     {
