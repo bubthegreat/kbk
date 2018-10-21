@@ -3575,11 +3575,9 @@ void do_practice( CHAR_DATA *ch, char *argument )
 	fAll = !str_cmp( argument, "all" );
       if ( fAll )
       {
-	if(get_curr_stat(ch,STAT_INT) < 17)
-		pracs=3;
-	if(get_curr_stat(ch,STAT_INT) < 24)
+	if(get_curr_stat(ch,STAT_INT) < 23)
 		pracs=2;
-	if(get_curr_stat(ch,STAT_INT) > 23)
+	if(get_curr_stat(ch,STAT_INT) >= 23)
 		pracs=1;
 	for ( sn = 0; sn < MAX_SKILL; sn++ )
 		{
