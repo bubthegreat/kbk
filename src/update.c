@@ -545,12 +545,10 @@ void mobile_update( void )
     {
 	ch_next = ch->next;
 
-	if ( !IS_NPC(ch) || ch->in_room == NULL 
-	|| (IS_NPC(ch) && ch->pIndexData->vnum != MOB_VNUM_ENFORCER && IS_AFFECTED(ch,AFF_CHARM)
-	&& ch->pIndexData->vnum != MOB_VNUM_SHAMAN_MERCENARY && ch->pIndexData->vnum != MOB_VNUM_SPITTING_SNAKE))
+	if ( !IS_NPC(ch) || ch->in_room == NULL )
 	    continue;
 
-        if(ch->position==POS_FIGHTING && ch->extended_flags>3 && number_percent()>50)
+        if(ch->position==POS_FIGHTING && ch->extended_flags>3 && number_percent()>50 && ch->wait <=0)
 	{
                 do_mob_spec(ch);
 	}
@@ -560,7 +558,7 @@ void mobile_update( void )
 
 
 	/* Examine call for special procedure */
-	if ( ch->spec_fun != 0 )
+	if ( ch->spec_fun != 0 && (ch->wait <= 0))
 	{
 	    if ( (*ch->spec_fun) ( ch ) )
 		continue;

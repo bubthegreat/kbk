@@ -2033,11 +2033,23 @@ void spell_vampiric_touch(int sn, int level, CHAR_DATA *ch, void *vo, int target
 
     	if (saves_spell(level,victim,DAM_NEGATIVE))
 		dam*=.6;
-    	damage(ch,victim,dam,gsn_vampiric_touch,DAM_NEGATIVE,TRUE);
 
     	if (!IS_SET(victim->imm_flags,IMM_NEGATIVE))
-    		ch->hit+=dam;
+        {
+            if (ch->race == race_lookup("lich"))
+            {
+                act("Your unholy power feeds on $N's lifeforce.",ch,0,victim,TO_CHAR);
+                ch->hit+=dam;
+                ch->mana+=dam;
+            }
+            else
+            {
+                act("You strengthen your life force at $N's expense.",ch,0,victim,TO_CHAR);
+                ch->hit+= (dam*2);
+            }
+        }
 
+        damage(ch,victim,dam,gsn_vampiric_touch,DAM_NEGATIVE,TRUE);
     return;
 }
 

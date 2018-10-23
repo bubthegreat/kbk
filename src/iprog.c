@@ -1787,22 +1787,14 @@ void speech_prog_jade_orb(OBJ_DATA *obj, CHAR_DATA *ch, char *argument)
 
 void wear_prog_stone_skin(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-	AFFECT_DATA af;
 
-	if (ch->cabal==cabal_lookup("rager"))
-		return send_to_char("The stench of this magical relic disgusts you and you ignore its effects.\n\r",ch);
+    if (ch->cabal==cabal_lookup("rager"))
+        return send_to_char("The stench of this magical relic disgusts you and you ignore its effects.\n\r",ch);
 
-	act("As you hold $p, you feel your skin harden into pure stone.",ch,obj,0,TO_CHAR);
-	init_affect(&af);
-	af.aftype = AFT_SKILL;
-	af.where = TO_AFFECTS;
-	af.location = 0;
-	af.type = gsn_stoneskin;
-	af.duration = -1;
-	af.owner_name = str_dup(ch->original_name);
-	af.modifier = 0;
-	affect_to_char(ch,&af);
-	return;
+
+    act("As you hold $p, you feel your skin harden into pure stone.",ch,obj,0,TO_CHAR);
+    spell_stone_skin(gsn_stoneskin, -1, ch, ch, 1);
+    return;
 }
 
 void remove_prog_stone_skin(OBJ_DATA *obj, CHAR_DATA *ch)
@@ -1812,7 +1804,7 @@ void remove_prog_stone_skin(OBJ_DATA *obj, CHAR_DATA *ch)
 	for (check = ch->affected; check != NULL; check = checkLooper)
 	{
 		checkLooper = check->next;
-		if (check->type == gsn_stoneskin && check->duration == -1)
+		if ( check->type == gsn_stoneskin )
 		{
 			act("As you remove $p, you feel your hardened skin soften and become more frail.",ch,obj,0,TO_CHAR);
 			affect_remove(ch,check);

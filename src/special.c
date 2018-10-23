@@ -5092,6 +5092,7 @@ bool spec_elemental(CHAR_DATA *ch)
 		return FALSE;
 
 	(*skill_table[spell_num].spell_fun) (spell_num, ch->level, ch, victim, TAR_CHAR_OFFENSIVE);
+	WAIT_STATE(ch,skill_table[spell_num].beats);
 	return FALSE;
 }
 

@@ -1374,7 +1374,27 @@ void do_pummel(CHAR_DATA *ch,char *argument)
 			damage( ch, victim, 0, gsn_pummel,DAM_NONE,TRUE);
 			continue;
 		}
-		one_hit_new(ch, victim, gsn_pummel, HIT_NOSPECIALS, HIT_UNBLOCKABLE, HIT_NOADD, 135, NULL);
+		one_hit_new(ch, victim, gsn_pummel, HIT_NOSPECIALS, HIT_UNBLOCKABLE, HIT_NOADD, HIT_NOMULT, NULL);
+	}
+
+	if (numhits == 6 && (number_percent() < 50) && !is_affected(victim, gsn_pummel))
+	{
+		AFFECT_DATA af;
+		init_affect(&af);
+		af.where     = TO_VULN;
+		af.aftype    = AFT_MALADY;
+		af.owner_name = str_dup(ch->original_name);
+		af.type      = gsn_pummel;
+		af.level     = ch->level;
+		af.duration  = 1;
+	        af.location     = APPLY_DAM_MOD;
+	        af.modifier     = 30;
+		char msg_buf[MSL];
+		sprintf(msg_buf,"adds vulnerability to additional strikes");
+		af.affect_list_msg = str_dup(msg_buf);
+		affect_to_char( victim, &af );
+		act("You pummel $N with your fists, and they look battered and bruised.", ch, 0, victim, TO_CHAR);
+		act("$n pummels you with their fists, leaving you battered and bruised.", ch , 0, victim, TO_VICT);
 	}
 
 	check_improve(ch,gsn_pummel,TRUE,1);
@@ -2332,21 +2352,36 @@ void do_garrotte(CHAR_DATA *ch, char *argument)
 
 int count_hands(CHAR_DATA *ch)
 {
-	int count=0;
+    int count=0;
+    OBJ_DATA *weapon;
 
-	if (get_eq_char(ch,WEAR_LIGHT) != NULL)
-		count++;
-   	if (get_eq_char(ch,WEAR_WIELD) != NULL)
-        	count++;
-   	if (get_eq_char(ch,WEAR_HOLD) != NULL)
-        	count++;
-   	if (get_eq_char(ch,WEAR_SHIELD) != NULL)
-        	count++;
-   	if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL)
-        	count++;
-	if (count > 2)
-		bug("Count_hands: Character holding %d items.",count);
-	return count;
+    if (get_eq_char(ch,WEAR_LIGHT) != NULL)
+        count++;
+    if (get_eq_char(ch,WEAR_WIELD) != NULL)
+    {
+        count++;
+        weapon = get_eq_char(ch,WEAR_WIELD);
+
+        if ((weapon != NULL && ch->size < SIZE_LARGE
+            && IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS))
+            || (weapon != NULL && weapon->value[0]==WEAPON_STAFF)
+            || (weapon != NULL && weapon->value[0]==WEAPON_POLEARM)
+            || (weapon != NULL && weapon->value[0]==WEAPON_SPEAR))
+        {
+            // We're wearing a two-handed weapon, that counts for both hands.
+            count++;
+        }
+    }
+    if (get_eq_char(ch,WEAR_HOLD) != NULL)
+        count++;
+    if (get_eq_char(ch,WEAR_SHIELD) != NULL)
+        count++;
+    if (get_eq_char(ch,WEAR_DUAL_WIELD) != NULL)
+        count++;
+    if (count > 2)
+        bug("Count_hands: Character holding %d items.",count);
+    return count;
+
 }
 
 void do_intercept( CHAR_DATA *ch, char *argument)

@@ -5988,7 +5988,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
         spell_null,		TAR_IGNORE, 	POS_STANDING,
         &gsn_pummel,            SLOT(0),       	0,       0,
-        "pummeling fists",    	"", 	"",	CMD_NONE
+        "pummeling fists",    	"Your flesh no longer feels as battered and bruised", 	"",	CMD_NONE
     },
 
     {
@@ -6002,10 +6002,10 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 
     {
 	"vampiric touch",
-        { 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51 },
+        { 53, 53, 53, 53, 53, 53, 53, 53, 53, 35, 53, 53, 53 },
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
         spell_vampiric_touch,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-        &gsn_vampiric_touch,       SLOT( 0),       0,      12,
+        &gsn_vampiric_touch,       SLOT( 0),       60,      24,
         "deathly touch",                     "",       "", CMD_SPELL
     },
 
@@ -6947,7 +6947,7 @@ const   struct  group_type      group_table     [MAX_GROUP]     =
 	"spire of flames", "worldbind", "aura", "darkshout",
 	"enlarge", "reduce", "water breathing", "tripwire", "self immolation", "stance",
 	"maledict corpse", "charge weapon", "unholy bless", "wilderness familiarity", "ward of magnetism",
-        "serpent strike" }
+        "serpent strike", "vampiric touch" }
     },
 
     {
@@ -7029,8 +7029,7 @@ it easier to see what abilities each cabal gets. (Ceran)
     {
         "lich",    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         {"minion tactics", "minion sanc", "minion flight", "minion sneak",
-         "minion recall", "minion haste", "minion trans", "vampiric touch",
-	 "ritual of abominations" }
+         "minion recall", "minion haste", "minion trans", "ritual of abominations" }
     },
 
 /* swarrior */
