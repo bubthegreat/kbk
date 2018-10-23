@@ -114,6 +114,7 @@ Welcome to KBK Reborn!
 2018-10-19:  Diamondback stance for rangers upgraded and fixed.  Mobs now experience lag.
              Holy word's cost has dropped.  Pummel adjusted with dual wield changes...
              Vaporizing items give quest points.  Elementalist pets significantly upgraded.
+2018-10-23:  Two handed paladins get a massive boost.  Swordplay a lot scarier.
 
 See 'HELP CHANGES' for older changes.  See commits directly at:
     https://gitlab.com/bubthegreat/kbk/commits/master
@@ -5464,7 +5465,7 @@ dumbfounded.
 
 With every technique a Paladin uses, they grow one step closer to executing an attack
 of great power. This growth is called the Swordplay Counter. The counter executes on
-values 15, 25, 35, 45, 55, and 65, with the higher values being stronger. This counter
+values 5, 10, 15, 20, 25, and 30, with the higher values being stronger. This counter
 is invisible unless you add the value to your prompt. See 'prompt' for more 
 information.
 
