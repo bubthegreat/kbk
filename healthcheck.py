@@ -1,6 +1,6 @@
 #!/usr/env/python
 
-def test_connection(hostname='bubtaylor.com', port=8989, timeout = 10):
+def test_connection(hostname='poskbk.com', port=8989, timeout = 10):
     """Test that the login prompt shows up if you try to connect.
     
     When spinning up KBK, the login prompt should show up on successful
