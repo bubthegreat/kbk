@@ -1045,15 +1045,14 @@ void do_assassinate(CHAR_DATA *ch,char *argument)
         if (!(str_cmp(race_table[victim->race].name,"lich")))
                 chance = 0;
 
-	if (!str_cmp(argument, "ohjustdie"))
-		chance = 99;
-
 	obj = get_eq_char(ch, WEAR_WIELD);
 
 	if (number_percent() < chance)
 	{
 		if (!obj) {
-			// hand echos
+                        act("$n {r+++ ASSASSINATES +++{x $N!",ch,0,victim,TO_NOTVICT);
+                        act("You {r+++ ASSASSINATE +++{x $N!",ch,0,victim,TO_CHAR);
+                        act("$n {r+++ ASSASSINATES +++{x you!",ch,0,victim,TO_VICT);
 		} else if (obj->value[0] == WEAPON_SWORD) {
 			act("The bitter taste of blood fills your mouth as you feel the sharp pain of a blade plunge into your vital organs.", ch, 0, victim, TO_VICT);
 			act("You deftly slide from the shadows and pierce the underbelly of $N slicing your blade upwards through his innards, spilling them.", ch, 0, victim, TO_CHAR);
