@@ -87,4 +87,5 @@ CREATE TABLE IF NOT EXISTS `charmed` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
-ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'kbkpassword';
+CREATE USER 'kbkuser'@'%' IDENTIFIED BY 'kbkpassword';
+GRANT ALL PRIVILEGES ON kbkdatabase.* TO 'kbkuser'@'%';
