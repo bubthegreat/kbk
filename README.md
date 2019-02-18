@@ -34,3 +34,7 @@ By what name do you wish to be known?
 ```
 
 I've also included the service and deployment descriptions for a kubernetes config, or alternatively the docker-compose yaml for a docker swarm deployment.
+
+# NOTE
+
+This is not a production configuration - there are default passwords and things that should *absolutely* be modified for production use.  Do - Not - Use - The - Defaults - In - Production
