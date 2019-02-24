@@ -20,6 +20,7 @@ COPY . /kbk
 
 # Build steps
 RUN cd /kbk/src && make -j8
+RUN chmod 777 /kbk/data/startup.sh
 
 EXPOSE 3306
 EXPOSE 8989
