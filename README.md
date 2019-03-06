@@ -6,13 +6,14 @@ To Get things running:
 
 Install Docker from [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
-Installation and running:
+Install docker-compose with `pip install --user docker-compose`
+
+Running:
 
 ```
 git clone https://gitlab.com/bubthegreat/kbk.git
 cd kbk
-docker build -t 'kbk' .
-docker run -d -p 8989:8989 kbk
+docker-compose up
 ```
 
 Now you should be able to connect to port 8989 of your host it's running on. (It's running on 0.0.0.0:8989)
