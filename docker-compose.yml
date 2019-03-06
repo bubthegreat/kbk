@@ -33,10 +33,14 @@ services:
       - "8989:8989"
     volumes:
         - kbk-players:/kbk/player
+        - kbk-areas:/kbk/area
+        - kbk-sys:/kbk/sys
 
 volumes:
     kbk-sql-data:
     kbk-players:
+    kbk-areas:
+    kbk-sys:
 
 networks:
   kbk_network:
