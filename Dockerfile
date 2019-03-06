@@ -18,10 +18,10 @@ COPY . /kbk
 # Build steps
 RUN cd /kbk/src && make -j8
 
-RUN chmod 777 /kbk/area/startup.csh
+RUN chmod 777 /kbk/area/startup.sh
 RUN chmod 777 /kbk/data/healthcheck.py
 
 EXPOSE 8989
-HEALTHCHECK CMD /kbk/data/healtcheck.py
+# HEALTHCHECK CMD /kbk/data/healtcheck.py
 WORKDIR /kbk/area
-CMD ["./startup.csh"]
+CMD ["./startup.sh"]

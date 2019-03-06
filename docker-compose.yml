@@ -24,10 +24,8 @@ services:
         context: ./
         dockerfile: Dockerfile
     image: kbk
-    depends_on:
-        - kbk_sql
     links:
-      - kbk_sql
+      - kbk_sql:kbk_sql
     restart: always
     networks:
       - kbk_network
