@@ -1,19 +1,19 @@
 #!/usr/env/python
 
-def test_connection(hostname='poskbk.com', port=8989, timeout = 10):
+def test_connection(hostname='poskbk.com', port=8989, timeout=10):
     """Test that the login prompt shows up if you try to connect.
-    
+
     When spinning up KBK, the login prompt should show up on successful
     connection.  The prompt reads: By what name do you wish to be known?
     If we get that in our messages at some point, then we'll know we're
     successfully able to connect to the service.
-    
+
     Args:
         hostname: url/ip of the host to connect to
         port: port number to attempt connectoin on
         timeout: timeout value before we'll fail the connection.
     """
-    
+
     start = time.time()
     now = time.time()
     elapsed = 0

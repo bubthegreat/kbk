@@ -1,18 +1,45 @@
 version: '3'
 
 services:
+  kbk_sql:
+    build:
+        context: ./sql_container
+        dockerfile: Dockerfile
+    container_name: kbk_sql
+    image: kbk_sql_image
+    restart: always
+    ports:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kbkdatabase
+      MYSQL_USER: kbkuser
+      MYSQL_PASSWORD: kbkpassword
+    networks:
+      - kbk_network
+    volumes:
+      - kbk-sql-data:/var/lib/mysql
   kbk:
     build:
         context: ./
         dockerfile: Dockerfile
     image: kbk
+    depends_on:
+        - kbk_sql
+    links:
+      - kbk_sql
     restart: always
+    networks:
+      - kbk_network
     ports:
-      - "3306"
       - "8989:8989"
     volumes:
-        - ./:/opt/kbk/
-        - sql-data:/var/lib/mysql
+        - kbk-players:/kbk/player
 
 volumes:
-    sql-data:
+    kbk-sql-data:
+    kbk-players:
+
+networks:
+  kbk_network:
+    driver: "overlay"

@@ -76,7 +76,7 @@ int mysql_safe_query (char *fmt, ...)
     *safe = '\0';
 
     va_start (argp, fmt);
-                        
+
     for ( p = fmt, out = query; *p != '\0'; p++ ) {
         if ( *p != '%' ) {
 			*out++ = *p;
@@ -227,14 +227,14 @@ void saveCharmed(CHAR_DATA *ch) {
 				charm->level,
 				charm->max_hit,
 				charm->hit,
-				charm->alignment, 
+				charm->alignment,
 				charm->damage[DICE_NUMBER],
 				charm->damage[DICE_TYPE],
 				charm->damroll
 			);
 		}
 	}
-	return;		
+	return;
 }
 
 
@@ -244,7 +244,7 @@ void loadCharmed(CHAR_DATA *ch) {
 	CHAR_DATA		*mob;
 	long			vnum=0;
 	AFFECT_DATA		af;
-	
+
 	// Get charmies from database
 	mysql_safe_query("SELECT * FROM charmed WHERE owner='%s'", ch->original_name);
 	result = mysql_store_result(&conn);
@@ -337,7 +337,7 @@ void printCharmed(CHAR_DATA *ch, char *name)
 	BUFFER		*buffer;
 	int			c = 0;
 	char		buf[MSL];
-	
+
 	// Select all the charmies of this person.
 	mysql_safe_query("SELECT * FROM charmed WHERE owner='%s'", name);
 	result = mysql_store_result(&conn);
@@ -359,13 +359,13 @@ void printCharmed(CHAR_DATA *ch, char *name)
 		// Free up memory.
 		mysql_free_result(result);
 		free_buf(buffer);
-	} 
+	}
 	else {
 		printf_to_char(ch, "No charmed mobs have been recorded for %s.\n\r", name);
 	}
 	return;
 }
-			
+
 void do_charmed(CHAR_DATA *ch, char *argument) {
 	if (IS_NPC(ch))
 		return;
@@ -374,7 +374,7 @@ void do_charmed(CHAR_DATA *ch, char *argument) {
 		send_to_char("Syntax: charmed <player name>\n\r", ch);
 		return;
 	}
-		
+
 	printCharmed(ch, argument);
 	return;
 }
@@ -388,7 +388,7 @@ void pruneDatabase(void)
 	else {
 		n_logf("MySQL: Notes tables has been cleaned.");
 	}
-		
+
 
 	// Logins
 	if (mysql_safe_query("DELETE FROM logins WHERE ctime + 5184000 < %d", current_time) != 0) {
@@ -439,7 +439,7 @@ void delete_char(char *name, bool save_pfile){
 	else {
 		n_logf("Delete_char: Failed to wipe pklogs for %s.", name);
 	}
-	// 
+	//
     if(save_pfile){
         sprintf(buf2,"mv %s%s.plr %sdead_char/%s.plr" ,PLAYER_DIR, name, PLAYER_DIR, name);
 	}
@@ -456,7 +456,7 @@ void updatePlayerDb(CHAR_DATA *ch) {
 	// Clear out old info
 	mysql_safe_query("DELETE FROM `player_data` WHERE name='%s'",ch->original_name);
 	// Add new info.
-	mysql_safe_query("INSERT INTO `player_data` VALUES(NULL,'%s',%d,%d,%d,%d,%d,%d,%d,%d)",
+	mysql_safe_query("INSERT INTO `player_data` VALUES('%s',%d,%d,%d,%d,%d,%d,%d,%d)",
 		ch->original_name,
 		ch->level,
 		ch->race,
@@ -490,7 +490,7 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 				send_to_char("You must either specify a cabal or be a member of a cabal.\n\r", ch);
 				return;
 			}
-		} 
+		}
 		else {
 			cabal = cabal_lookup(arg);
 			if (cabal == 0 || cabal > MAX_CABAL){
@@ -498,13 +498,13 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 				return;
 			}
 		}
-	} 
+	}
 	else {
 		if (ch->cabal == 0){
 			send_to_char("You aren't in a cabal.\n\r", ch);
 			return;
 		}
-			 
+
 		if (ch->pcdata->induct != CABAL_LEADER){
 			send_to_char("You aren't the leader of your cabal.\n\r", ch);
 			return;
@@ -516,9 +516,9 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 
 	// If they've gotten past the gatekeepers, they should be allowed to see this.
 	mysql_safe_query("SELECT * FROM `player_data` WHERE cabal=%d AND LEVEL <= %d", cabal, ch->level);
-	res = mysql_store_result(&conn);	
+	res = mysql_store_result(&conn);
 	member_count = mysql_num_rows(res);
-	
+
 	send_to_char("Member Name     Last Login\n\r-----------     ----------\n\r", ch);
 	// Count the number of members for the cabals and print that shit out.
 	if (res) {
@@ -535,11 +535,11 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 	}
 	else {
 		send_to_char("DB Error.\n\r", ch);
-	}		
+	}
 
 	printf_to_char(ch, "\n\rTotal Members Found: %d.\n\r", mysql_affected_rows(&conn));
 	return;
-}	
+}
 
 void do_ltrack(CHAR_DATA *ch, char *argument)
 {

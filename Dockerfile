@@ -13,16 +13,15 @@ RUN apt-get -y install gdb
 RUN apt-get -y install vim
 RUN apt-get -y install mysql-client
 RUN apt-get -y install telnet
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
 
-# Required files
 COPY . /kbk
-
 # Build steps
 RUN cd /kbk/src && make -j8
-RUN chmod 777 /kbk/data/startup.sh
 
-EXPOSE 3306
+RUN chmod 777 /kbk/area/startup.csh
+RUN chmod 777 /kbk/data/healthcheck.py
+
 EXPOSE 8989
-
-CMD ["/kbk/data/startup.sh"]
+HEALTHCHECK CMD /kbk/data/healtcheck.py
+WORKDIR /kbk/area
+CMD ["./startup.csh"]

@@ -24,7 +24,7 @@ while ( 1 )
 
     # Run posMUD 2.
     #gdb -q -ex run --args ./pos2 $port >&! $logfile
-    ./pos2 $port >&! $logfile 
+    ./pos2 $port # > $logfile
 
     # Restart, giving old connections a chance to die.
     if ( -e shutdown.txt ) then
