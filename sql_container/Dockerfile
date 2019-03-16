@@ -12,6 +12,7 @@ RUN rpmkeys --import https://repo.mysql.com/RPM-GPG-KEY-mysql \
 COPY configure_database.sql /docker-entrypoint-initdb.d
 COPY docker-entrypoint.sh /entrypoint.sh
 COPY healthcheck.sh /healthcheck.sh
+COPY my.cnf /etc/my.cnf
 
 ENTRYPOINT ["/entrypoint.sh"]
 HEALTHCHECK CMD /healthcheck.sh
