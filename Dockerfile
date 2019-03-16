@@ -13,15 +13,18 @@ RUN apt-get -y install gdb
 RUN apt-get -y install vim
 RUN apt-get -y install mysql-client
 RUN apt-get -y install telnet
+RUN apt-get -y install bash
+RUN apt-get -y install curl
 
 COPY . /kbk
 # Build steps
 RUN cd /kbk/src && make -j8
 
-RUN chmod 777 /kbk/area/startup.sh
-RUN chmod 777 /kbk/data/healthcheck.py
+RUN chmod 777 /kbk/area/start-kbk.sh
 
 EXPOSE 8989
-# HEALTHCHECK CMD /kbk/data/healtcheck.py
-WORKDIR /kbk/area
-CMD ["./startup.sh"]
+
+HEALTHCHECK CMD curl -m 1 localhost:8989 | grep "Revived from the dead by Bub." || exit 1
+
+WORKDIR /kbk/area/
+CMD ./start-kbk.sh

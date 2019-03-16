@@ -1,6 +1,4 @@
 #!/bin/bash
-# Written by Furey.
-# With additions from Tony and Alander.
 
 # Set the port number.
 KBK_PORT=8989
