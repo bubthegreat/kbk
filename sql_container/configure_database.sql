@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS `kbkdatabase`;
+USE `kbkdatabase`;
+
 CREATE TABLE IF NOT EXISTS `bounties` (
   `amount` int(10) NOT NULL default '0',
   `name` varchar(25) NOT NULL default '',
@@ -86,5 +89,5 @@ CREATE TABLE IF NOT EXISTS `charmed` (
   `damroll` int(10) NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-
-ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'kbkpassword';
+CREATE USER IF NOT EXISTS `kbkuser`;
+ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'mysecretpass';
