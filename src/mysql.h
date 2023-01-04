@@ -1,6 +1,6 @@
 MYSQL                   	conn;
 
-#define SQL_SERVER      	"kbk_sql"
+#define SQL_SERVER      	"kbk-sql"
 #define SQL_USER        	"kbkuser"
 #define SQL_PWD         	"kbkpassword"
 #define SQL_DB          	"kbkdatabase"

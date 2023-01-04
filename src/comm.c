@@ -2987,8 +2987,11 @@ void n_logf (char * fmt, ...)
 	char buf [2*MSL];
 	va_list args;
 	va_start (args, fmt);
+	log_string("Finished va_start.");
 	vsprintf (buf, fmt, args);
+	log_string("Finished vsprintf.");
 	va_end (args);
+	log_string("Finished va_end.");
 
 	log_string (buf);
 }

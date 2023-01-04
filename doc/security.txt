@@ -25,7 +25,7 @@ adding in the PLR_DENY bit (1048576) to their 'AffectedBy' bits.
 
 The 'ban' command can be used to ban sites or domains.
 
-The 'startup' script automatically saves log files in the the directory ../log
+The 'startup' script automatically saves log files in the the directory /kbk/log
 (i.e. a 'log' directory which is a sibling of the current directory).  You
 should check your log files from time to time.
 

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: kbk-sql
+  name: kbk-sql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: kbk-sql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/kbk-network: "true"
+        io.kompose.service: kbk-sql
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_DATABASE
+              value: kbkdatabase
+            - name: MYSQL_PASSWORD
+              value: kbkpassword
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+            - name: MYSQL_USER
+              value: kbkuser
+          image: mysql:5.7
+          name: kbk-sql
+          ports:
+            - containerPort: 3306
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: kbk-sql-data
+      restartPolicy: Always
+      volumes:
+        - name: kbk-sql-data
+          persistentVolumeClaim:
+            claimName: kbk-sql-data
+status: {}

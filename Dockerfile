@@ -16,7 +16,13 @@ RUN apt-get -y install telnet
 RUN apt-get -y install bash
 RUN apt-get -y install curl
 
-COPY . /kbk
+COPY ./area /kbk/area
+COPY ./data /kbk/data
+COPY ./src /kbk/src
+COPY ./sys /kbk/sys
+COPY ./player /kbk/player
+COPY ./log /kbk/log
+
 # Build steps
 RUN cd /kbk/src && make -j8
 

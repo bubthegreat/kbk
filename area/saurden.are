@@ -1,0 +1,113 @@
+#AREADATA
+Name Saurian Den~
+Builders Testimm~
+VNUMs 10000 10099
+Credits (null)~
+Security 1
+Xplore 0
+End
+
+
+
+#MOBDATA
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#ROOMDATA
+#10000
+NAME   A Filthy Pit~
+DESCR
+
+~
+FLAGS  0
+Sect   0
+EDESC  north~
+The greasy walls here appear to be smothered with the
+fats of the dead rendered corpses of other unfortunate
+victims who have made their way here.
+-
+~
+DOOR 0
+~
+~
+0 0 10002
+DOOR 3
+~
+~
+0 0 10003
+End
+
+#10002
+NAME   At the bottom of the sheer cliff~
+DESCR
+The sheer cliff looms above you to the north.  To the east and west, you
+see nothing but brambles and dead trees that are so thick they're not
+possible to pass.  There is an animal trail leading south.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+~
+~
+0 0 10000
+End
+
+#10003
+NAME   ~
+DESCR
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 10000
+DOOR 5
+~
+~
+0 0 10004
+End
+
+#10004
+NAME   ~
+DESCR
+~
+FLAGS  0
+Sect   0
+DOOR 4
+~
+~
+0 0 10003
+End
+
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+S
+
+
+
+#SHOPS
+0
+
+
+
+#IMPROGS
+E
+
+
+
+#$

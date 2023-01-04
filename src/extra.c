@@ -1151,7 +1151,7 @@ void do_otrack( CHAR_DATA *ch, char *argument )
 	results[0]='\0';
 	while(fgets(results,200,fpChar))
 	{
-		//there are ten chars in ../player/ that we need to get rid of first on the path to getting the name.
+		//there are ten chars in /kbk/player/ that we need to get rid of first on the path to getting the name.
 		newbuf[0]='\0';
 		for (counter = 0; counter < (strlen(results) - 10);counter++)
 		{

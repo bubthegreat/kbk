@@ -3498,32 +3498,32 @@ extern		time_t						boot_time;
 		#define crypt(s1, s2)	(s1)
 #endif
 
-#define GOD_DIR         	"../gods/"
-#define PLAYER_DIR		"../player/"
-#define SYS_DIR			"../sys/"
+#define GOD_DIR         	"/kbk/gods/"
+#define PLAYER_DIR          "/kbk/player/"
+#define SYS_DIR             "/kbk/sys/"
 
-#define AREA_LIST               "area.lst"
+#define AREA_LIST           "area.lst"
 #define MATERIAL_LIST		"materials.lst"
 #define NULL_FILE       	"/dev/null"
 
-#define BUG_FILE                "../sys/bugs.txt"
-#define TYPO_FILE               "../sys/typos.txt"
-#define SHUTDOWN_FILE           "shutdown.txt"
-#define BAN_FILE                "../sys/ban.txt"
-#define DEBUG_LOG_FILE          "../sys/debug.txt"
-#define BOUNTY_LOG_FILE         "../sys/bounties.txt"
-#define TEMP_GREP_RESULTS 	"../sys/tempgrepresults.tmp"
-#define LAST_COMMAND_FILE       "../sys/last_command.txt"
-#define CRASH_FILE              "../sys/crash.txt"
-#define CABAL_ITEMS_FILE	"../sys/citems.txt"
-#define GOD_LOG_FILE    	"../sys/glog.txt"
-#define LOGIN_SCREEN_FILE	"../sys/login.txt"
-#define ITEM_FIX_FILE		"../sys/itemfix.txt"
+#define BUG_FILE            "/kbk/sys/bugs.txt"
+#define TYPO_FILE           "/kbk/sys/typos.txt"
+#define SHUTDOWN_FILE       "shutdown.txt"
+#define BAN_FILE            "/kbk/sys/ban.txt"
+#define DEBUG_LOG_FILE      "/kbk/sys/debug.txt"
+#define BOUNTY_LOG_FILE     "/kbk/sys/bounties.txt"
+#define TEMP_GREP_RESULTS 	"/kbk/sys/tempgrepresults.tmp"
+#define LAST_COMMAND_FILE   "/kbk/sys/last_command.txt"
+#define CRASH_FILE          "/kbk/sys/crash.txt"
+#define CABAL_ITEMS_FILE	"/kbk/sys/citems.txt"
+#define GOD_LOG_FILE    	"/kbk/sys/glog.txt"
+#define LOGIN_SCREEN_FILE	"/kbk/sys/login.txt"
+#define ITEM_FIX_FILE		"/kbk/sys/itemfix.txt"
 
 #define PLAYER_LIST     	PLAYER_DIR "Player.lst"
 #define TEMP_FILE       	PLAYER_DIR "romtmp"
 
-#define PDEATH_LOG_FILE         "../players/dead_char/permdead.txt"
+#define PDEATH_LOG_FILE         "/kbk/players/dead_char/permdead.txt"
 
 
 /*

@@ -858,28 +858,31 @@ void boot_db()
 	char chkbuf[MAX_STRING_LENGTH];
 	char pbuf[100];
 
-        log_string("Loading object counts off players now...");
+	log_string("Loading object counts off players now...");
 	sprintf(pbuf,"ls %s%s > %s",PLAYER_DIR,"*.plr",PLAYER_LIST);
 	system(pbuf);
 
-	if ((fpChar_list = fopen( PLAYER_LIST, "r")) == NULL)
-	{
+	if ((fpChar_list = fopen( PLAYER_LIST, "r")) == NULL) {
+		log_string("no file path found for char list, exiting....");
 		perror(PLAYER_LIST);
 		exit(1);
 	}
+	else {
+		log_string("Found char list.");
+	}
 
-	for (; ;)
-	{
-	 strcpy(strPlr, fread_word(fpChar_list) );
-	log_string(strPlr);
-	 sprintf(chkbuf,"%s%s",PLAYER_DIR,"Zzz.plr");
-	 if (!str_cmp(strPlr,chkbuf))
-	 break;
-	 if ( (	fpChar = fopen(strPlr, "r") ) == NULL)
-	 {
-		perror(strPlr);
-		exit(1);
-	 }
+	for (; ;) {
+		strcpy(strPlr, fread_word(fpChar_list) );
+		log_string(strPlr);
+		sprintf(chkbuf,"%s%s",PLAYER_DIR,"Zzz.plr");
+		if (!str_cmp(strPlr,chkbuf))
+			break;
+		if ( (	fpChar = fopen(strPlr, "r") ) == NULL) {
+			
+			log_string("Error loading player info - doesn't match what's in buffer...");
+			perror(strPlr);
+			exit(1);
+		}
 	num_pfiles++;
 	for (; ;)
 	{
@@ -1018,17 +1021,22 @@ void boot_db()
 
 	pruneDatabase();
 
+	log_string("Database pruned.");
+
 	fp = fopen(LOGIN_SCREEN_FILE, "r");
+	log_string("Login screen filepath opened.");
 	
 	//Printed carriage return to prevent use of strcat with unitialized buffer
 	sprintf(buf, "\r");
-	while(fgets(tempbuf,200,fp))
-	{
+
+	while (fgets(tempbuf,200,fp)) {
 		strcat(buf,tempbuf);
 		strcat(buf,"\r");
 	}
 	
 	fclose(fp);
+	
+	log_string("Login screen filepath closed.");
 	chop(buf);
 	chop(buf);
 	help_greeting = str_dup(buf);
@@ -4525,8 +4533,8 @@ players loaded */
 
 	if ((fpChar_list = fopen( PLAYER_LIST, "r")) == NULL)
 	{
-	perror(PLAYER_LIST);
-	exit(1);
+		perror(PLAYER_LIST);
+		exit(1);
 	}
 
 	for (; ;)
@@ -4534,7 +4542,7 @@ players loaded */
 	 strcpy(strPlr, fread_word(fpChar_list) );
          log_string(strPlr);
  	 sprintf(chkbuf,"%s%s",PLAYER_DIR,"Zzz.plr");
-	 if (!str_cmp(strPlr,"../player/Zzz.plr"))
+	 if (!str_cmp(strPlr,"/kbk/player/Zzz.plr"))
 		break;	/* Exit if == Zzz.plr file */
 
 	 if ( (	fpChar = fopen(strPlr, "r") ) == NULL)

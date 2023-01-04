@@ -874,7 +874,7 @@ You can test areas by running Merc in a different directory with a different
 directory structure is an exercise for the student.  (You DID say you're
 running a mud because you wanted to learn more about system administration,
 right?)  Hint: you can run a program in another directory just by invoking its
-full name: '../src/merc', for example.
+full name: '/kbk/src/merc', for example.
 
 The server reports syntax errors, including the area file name and a line
 number.  Take the line number with a grain of salt; some kinds of errors cause
@@ -909,11 +909,11 @@ Here's how to do this on a Unix system:
 
 (4) Edit 'startup'.  Change the line:
 
-	../src/merc $port >&! $logfile
+	/kbk/src/merc $port >&! $logfile
 
     to:
 
-	zcat all_area.Z | ../src/merc $port >&! $logfile
+	zcat all_area.Z | /kbk/src/merc $port >&! $logfile
 
 (5) Test the changes so far.  Merc should start up normally, although it
     may take a few seconds longer to zcat everything.
