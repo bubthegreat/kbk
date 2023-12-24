@@ -2094,26 +2094,15 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 				}
 			}
 
-			write_to_buffer(d, "KBK offers the following Cabals to mortals:\n\r\n\r", 0);
-			write_to_buffer(d, "Ancient ..... Masters of Intrigue\n\r", 0);
-			write_to_buffer(d, "Knight ...... The Knights of Thera\n\r", 0);
-			write_to_buffer(d, "Arcana ...... Masters of the Five Magics\n\r", 0);
-			write_to_buffer(d, "Rager ....... Battleragers, Haters of Magic\n\r", 0);
-			write_to_buffer(d, "Outlaw ...... Barons of Chaos\n\r", 0);
-			write_to_buffer(d, "Empire ...... Subjugator of Nations\n\r", 0);
-			write_to_buffer(d, "Bounty ...... The Bounty Hunter's Guild\n\r", 0);
-			write_to_buffer(d, "Sylvan ...... Sylvan Warders of the Glades\n\r", 0);
-			write_to_buffer(d, "Enforcer .... The Enforcers of Justice\n\r", 0);
-			write_to_buffer(d, "\n\r", 0);
-
 			write_to_buffer(d, "The following cabals are available to you based on your race, class, alignment, and ethos.\n\r\n\r", 0);
-			write_to_buffer(d, "Cabal                           Align  Ethos  Active Chars  Limit\n\r", 0);
+			write_to_buffer(d, "Cabal                           Name       Align  Ethos  Active Chars  Limit\n\r", 0);
 			for (iCabal=1; iCabal < MAX_CABAL; iCabal++) {
 				if (!can_join_cabal(ch, iCabal))
 					continue;
 
-				sprintf(buf, "%-30s  %-6s %-6s %-2d            %-2d\n\r",
+				sprintf(buf, "%-30s  %-10s %-6s %-6s %-2d            %-2d\n\r",
 					cabal_table[iCabal].long_name,
+					cabal_table[iCabal].name,
 					get_align_restr_name(cabal_restr_table[iCabal].acc_align),
 					get_ethos_restr_name(cabal_restr_table[iCabal].acc_ethos),
 					cabal_members[iCabal],
