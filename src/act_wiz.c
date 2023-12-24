@@ -6969,7 +6969,7 @@ void do_otype(CHAR_DATA *ch, char *argument)
 #define COPYOVER_FILE "copyover.data"
 
 /* This is the executable file */
-#define EXE_FILE	  "../area/pos2"
+#define EXE_FILE	  "/kbk/area/pos2"
 
 /*  Copyover - Original idea: Fusion of MUD++
  *  Adapted to Diku by Erwin S. Andreasen, <erwin@andreasen.org>

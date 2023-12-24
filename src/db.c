@@ -787,68 +787,72 @@ void boot_db()
 		sprintf(matbuf,"%d materials loaded.",matcount);
 		log_string(matbuf);
 	}
-		
-	for ( ; ; )
-	{
+	
+	log_string("Beginning area loads.");
+	for ( ; ; ) {
 	    strcpy( strArea, fread_word( fpList ) );
+
+		char matbuf[MSL];
+		sprintf(matbuf,"Loading area %s...", strArea);
+		log_string(matbuf);
+
 	    if ( strArea[0] == '$' )
 		break;
-	  
-	    if ( strArea[0] == '-' )
-	    {
-		fpArea = stdin;
-	    }
-	    else
-	    {
-		if ( ( fpArea = fopen( strArea, "r" ) ) == NULL )
-		{
-		    perror( strArea );
-		    exit( 1 );
-		}
-	    }
-            current_area = NULL;
 
-	    for ( ; ; )
-	    {
-		char *word;
-
-		if ( fread_letter( fpArea ) != '#' )
-		{
-		    bug( "Boot_db: # not found.", 0 );
-		    exit( 1 );
-		}
-		word = fread_word( fpArea );
-		     if ( word[0] == '$'               )                 break;
-		else if ( !str_cmp( word, "AREA"     ) ) { load_area    (fpArea); }
-  /* OLC */     else if ( !str_cmp( word, "AREADATA" ) ) { new_load_area(fpArea); }
-		else if ( !str_cmp( word, "HELPS"    ) ) { load_helps   (fpArea, strArea); }
-		else if ( !str_cmp( word, "MOBOLD"   ) ) { load_old_mob (fpArea); }
-		else if ( !str_cmp( word, "MOBILES"  ) ) { load_mobiles (fpArea); }
-		else if ( !str_cmp( word, "OBJOLD"   ) ) { load_old_obj (fpArea); }
-	  	else if ( !str_cmp( word, "OBJECTS"  ) ) { load_objects (fpArea); }
-		else if ( !str_cmp( word, "RESETS"   ) ) { load_resets  (fpArea); }
-		else if ( !str_cmp( word, "ROOMS"    ) ) { load_rooms   (fpArea); }
-		else if ( !str_cmp( word, "SHOPS"    ) ) { load_shops   (fpArea); }
-		else if ( !str_cmp( word, "SOCIALS"  ) ) { load_socials (fpArea); }
-		else if ( !str_cmp( word, "SPECIALS" ) ) { load_specials(fpArea); }
-		else if ( !str_cmp( word, "IMPROGS"  ) ) { load_improgs (fpArea); }
-                else if ( !str_cmp( word, "ROOMDATA"  ) ) { load_rooms_new (fpArea); }
-                else if ( !str_cmp( word, "MOBDATA" ) ) { load_mobiles_new(fpArea); }
-                else if ( !str_cmp( word, "OBJDATA"  ) ) { load_objects_new (fpArea); }
-		else
-		{
-		    bug( "Boot_db: bad section name.", 0 );
-		    exit( 1 );
-		}
+	    if ( strArea[0] == '-' ) {
+			fpArea = stdin;
 	    }
+	    else {
+			if ( ( fpArea = fopen( strArea, "r" ) ) == NULL ) {
+				perror( strArea );
+				log_string("Encountered error loading area.");
+				exit( 1 );
+			}
+	    }
+        current_area = NULL;
+
+	    for ( ; ; ) {
+			char *word;
+
+			if ( fread_letter( fpArea ) != '#' ) {
+				bug( "Boot_db: # not found.", 0 );
+				exit( 1 );
+			}
+			word = fread_word( fpArea );
+			if ( word[0] == '$'               )                 break;
+			else if ( !str_cmp( word, "AREA"     ) ) { load_area    (fpArea); }
+			/* OLC */     
+			else if ( !str_cmp( word, "AREADATA" ) ) { new_load_area(fpArea); }
+			else if ( !str_cmp( word, "HELPS"    ) ) { load_helps   (fpArea, strArea); }
+			else if ( !str_cmp( word, "MOBOLD"   ) ) { load_old_mob (fpArea); }
+			else if ( !str_cmp( word, "MOBILES"  ) ) { load_mobiles (fpArea); }
+			else if ( !str_cmp( word, "OBJOLD"   ) ) { load_old_obj (fpArea); }
+			else if ( !str_cmp( word, "OBJECTS"  ) ) { load_objects (fpArea); }
+			else if ( !str_cmp( word, "RESETS"   ) ) { load_resets  (fpArea); }
+			else if ( !str_cmp( word, "ROOMS"    ) ) { load_rooms   (fpArea); }
+			else if ( !str_cmp( word, "SHOPS"    ) ) { load_shops   (fpArea); }
+			else if ( !str_cmp( word, "SOCIALS"  ) ) { load_socials (fpArea); }
+			else if ( !str_cmp( word, "SPECIALS" ) ) { load_specials(fpArea); }
+			else if ( !str_cmp( word, "IMPROGS"  ) ) { load_improgs (fpArea); }
+			else if ( !str_cmp( word, "ROOMDATA"  ) ) { load_rooms_new (fpArea); }
+			else if ( !str_cmp( word, "MOBDATA" ) ) { load_mobiles_new(fpArea); }
+			else if ( !str_cmp( word, "OBJDATA"  ) ) { load_objects_new (fpArea); }
+			else {
+				bug( "Boot_db: bad section name.", 0 );
+				exit( 1 );
+			}
+	    }
+		char matbuf2[MSL];
+		sprintf(matbuf2,"Finished loading area %s...", strArea);
+		log_string(matbuf2);
 	    if ( fpArea != stdin )
 		fclose( fpArea );
 	    fpArea = NULL;
 	}
-	fclose( fpList );
+		fclose( fpList );
     }
     {
-	fBootDb  = FALSE;	/* Exit boot status before limit load */
+		fBootDb  = FALSE;	/* Exit boot status before limit load */
     }
 
     {
@@ -858,28 +862,31 @@ void boot_db()
 	char chkbuf[MAX_STRING_LENGTH];
 	char pbuf[100];
 
-        log_string("Loading object counts off players now...");
+	log_string("Loading object counts off players now...");
 	sprintf(pbuf,"ls %s%s > %s",PLAYER_DIR,"*.plr",PLAYER_LIST);
 	system(pbuf);
 
-	if ((fpChar_list = fopen( PLAYER_LIST, "r")) == NULL)
-	{
+	if ((fpChar_list = fopen( PLAYER_LIST, "r")) == NULL) {
+		log_string("no file path found for char list, exiting....");
 		perror(PLAYER_LIST);
 		exit(1);
 	}
+	else {
+		log_string("Found char list.");
+	}
 
-	for (; ;)
-	{
-	 strcpy(strPlr, fread_word(fpChar_list) );
-	log_string(strPlr);
-	 sprintf(chkbuf,"%s%s",PLAYER_DIR,"Zzz.plr");
-	 if (!str_cmp(strPlr,chkbuf))
-	 break;
-	 if ( (	fpChar = fopen(strPlr, "r") ) == NULL)
-	 {
-		perror(strPlr);
-		exit(1);
-	 }
+	for (; ;) {
+		strcpy(strPlr, fread_word(fpChar_list) );
+		log_string(strPlr);
+		sprintf(chkbuf,"%s%s",PLAYER_DIR,"Zzz.plr");
+		if (!str_cmp(strPlr,chkbuf))
+			break;
+		if ( (	fpChar = fopen(strPlr, "r") ) == NULL) {
+			
+			log_string("Error loading player info - doesn't match what's in buffer...");
+			perror(strPlr);
+			exit(1);
+		}
 	num_pfiles++;
 	for (; ;)
 	{
@@ -1018,17 +1025,22 @@ void boot_db()
 
 	pruneDatabase();
 
+	log_string("Database pruned.");
+
 	fp = fopen(LOGIN_SCREEN_FILE, "r");
+	log_string("Login screen filepath opened.");
 	
 	//Printed carriage return to prevent use of strcat with unitialized buffer
 	sprintf(buf, "\r");
-	while(fgets(tempbuf,200,fp))
-	{
+
+	while (fgets(tempbuf,200,fp)) {
 		strcat(buf,tempbuf);
 		strcat(buf,"\r");
 	}
 	
 	fclose(fp);
+	
+	log_string("Login screen filepath closed.");
 	chop(buf);
 	chop(buf);
 	help_greeting = str_dup(buf);
@@ -1049,6 +1061,8 @@ void boot_db()
 void load_area( FILE *fp )
 {
     AREA_DATA *pArea;
+
+	log_string("Login screen filepath closed.");
 
     pArea		= alloc_perm( sizeof(*pArea) );
 /*  pArea->reset_first	= NULL;
@@ -4525,8 +4539,8 @@ players loaded */
 
 	if ((fpChar_list = fopen( PLAYER_LIST, "r")) == NULL)
 	{
-	perror(PLAYER_LIST);
-	exit(1);
+		perror(PLAYER_LIST);
+		exit(1);
 	}
 
 	for (; ;)
@@ -4534,7 +4548,7 @@ players loaded */
 	 strcpy(strPlr, fread_word(fpChar_list) );
          log_string(strPlr);
  	 sprintf(chkbuf,"%s%s",PLAYER_DIR,"Zzz.plr");
-	 if (!str_cmp(strPlr,"../player/Zzz.plr"))
+	 if (!str_cmp(strPlr,"/kbk/player/Zzz.plr"))
 		break;	/* Exit if == Zzz.plr file */
 
 	 if ( (	fpChar = fopen(strPlr, "r") ) == NULL)

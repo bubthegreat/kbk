@@ -1880,10 +1880,9 @@ REDIT( redit_desc )
 
     EDIT_ROOM(ch, pRoom);
 
-    if ( argument[0] == '\0' )
-    {
-	string_append( ch, &pRoom->description );
-	return TRUE;
+    if ( argument[0] == '\0' ) {
+	    string_append( ch, &pRoom->description );
+	    return TRUE;
     }
 
     send_to_char( "Syntax:  desc\n\r", ch );
@@ -2011,26 +2010,26 @@ struct wear_type
 
 const struct wear_type wear_table[] =
 {
-    {	WEAR_NONE,	ITEM_TAKE		},
-    {	WEAR_LIGHT,	ITEM_LIGHT		},
+    {	WEAR_NONE,	    ITEM_TAKE		    },
+    {	WEAR_LIGHT,	    ITEM_LIGHT		    },
     {	WEAR_FINGER_L,	ITEM_WEAR_FINGER	},
     {	WEAR_FINGER_R,	ITEM_WEAR_FINGER	},
     {	WEAR_NECK_1,	ITEM_WEAR_NECK		},
     {	WEAR_NECK_2,	ITEM_WEAR_NECK		},
-    {	WEAR_BODY,	ITEM_WEAR_BODY		},
-    {	WEAR_HEAD,	ITEM_WEAR_HEAD		},
-    {	WEAR_LEGS,	ITEM_WEAR_LEGS		},
-    {	WEAR_FEET,	ITEM_WEAR_FEET		},
-    {	WEAR_HANDS,	ITEM_WEAR_HANDS		},
-    {	WEAR_ARMS,	ITEM_WEAR_ARMS		},
+    {	WEAR_BODY,	    ITEM_WEAR_BODY		},
+    {	WEAR_HEAD,	    ITEM_WEAR_HEAD		},
+    {	WEAR_LEGS,	    ITEM_WEAR_LEGS		},
+    {	WEAR_FEET,	    ITEM_WEAR_FEET		},
+    {	WEAR_HANDS,	    ITEM_WEAR_HANDS		},
+    {	WEAR_ARMS,	    ITEM_WEAR_ARMS		},
     {	WEAR_SHIELD,	ITEM_WEAR_SHIELD	},
-    {	WEAR_ABOUT,	ITEM_WEAR_ABOUT		},
-    {	WEAR_WAIST,	ITEM_WEAR_WAIST		},
+    {	WEAR_ABOUT,	    ITEM_WEAR_ABOUT		},
+    {	WEAR_WAIST,	    ITEM_WEAR_WAIST		},
     {	WEAR_WRIST_L,	ITEM_WEAR_WRIST		},
     {	WEAR_WRIST_R,	ITEM_WEAR_WRIST		},
-    {	WEAR_WIELD,	ITEM_WIELD		},
-    {	WEAR_HOLD,	ITEM_HOLD		},
-    {	NO_FLAG,	NO_FLAG			}
+    {	WEAR_WIELD,	    ITEM_WIELD		    },
+    {	WEAR_HOLD,	    ITEM_HOLD		    },
+    {	NO_FLAG,	    NO_FLAG			    }
 };
 
 
@@ -2038,7 +2037,7 @@ const struct wear_type wear_table[] =
 /*****************************************************************************
  Name:		wear_loc
  Purpose:	Returns the location of the bit that matches the count.
- 		1 = first match, 2 = second match etc.
+ 		    1 = first match, 2 = second match etc.
  Called by:	oedit_reset(olc_act.c).
  ****************************************************************************/
 int wear_loc(int bits, int count)

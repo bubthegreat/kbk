@@ -9,7 +9,7 @@ MYSQL_AVAIL=false
 until $MYSQL_AVAIL; do
     echo "MySQL is unavailable - sleeping"
     # Try to get a connection to the mysql server
-    mysql -h kbk_sql -u kbkuser -pkbkpassword --execute '\q'
+    mysql -h kbk-sql -u kbkuser -pkbkpassword --execute '\q'
     LAST_RETURN=$?
     if [[ $LAST_RETURN == 0 ]]; then
         echo 'Found mysql server'
@@ -27,16 +27,13 @@ fi
 while true; do
     while true; do
         # Go through and loop until we find a log file number that doesn't exist already.
-        KBK_LOGFILE=../log/$KBK_LOG_INDEX.log
+        KBK_LOGFILE=/kbk/log/$KBK_LOG_INDEX.log
         echo $KBK_LOGFILE
     	if [ ! -f "$KBK_LOGFILE" ]; then
             break
         fi
     	let "KBK_LOG_INDEX++"
     done
-
-    # Start our high CPU killer
-    ../high_cpu_kill &
 
     # Run posMUD 2.
     ./pos2 $port # > $logfile

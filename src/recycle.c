@@ -338,7 +338,7 @@ CHAR_DATA *new_char (void)
     ch->description             = &str_empty[0];
     ch->prompt                  = &str_empty[0];
 	ch->material				= &str_empty[0];
-    ch->prefix			= &str_empty[0];
+    ch->prefix			        = &str_empty[0];
     ch->logon                   = current_time;
     ch->lines                   = PAGELEN;
     for (i = 0; i < 4; i++)
