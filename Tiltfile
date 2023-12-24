@@ -8,8 +8,13 @@ docker_build('kbk',
     dockerfile='Dockerfile',
     live_update=[
         sync('./area/', '/kbk/area/'),
-        sync('./src/', '/kbk/src/'),
         sync('./player/', '/kbk/player/'),
+        sync('./src/', '/kbk/src/'),
+        run('cd /kbk/src && make -j8', 
+            trigger=[
+                './src/act_obj.c',
+            ]
+        )
     ]
 )
 
