@@ -14,27 +14,27 @@
  *  benefitting.  We hope that you share your changes too.  What goes	   *
  *  around, comes around.						   *
  ***************************************************************************/
- 
-/***************************************************************************
-*	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Tartarus/doc/rom.license                  *
-***************************************************************************/
 
 /***************************************************************************
-*       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
-*	In using this code you agree to comply with the Tartarus license   *
-*       found in the file /Tartarus/doc/tartarus.doc                       *
-***************************************************************************/
+ *	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
+ *	ROM has been brought to you by the ROM consortium		   *
+ *	    Russ Taylor (rtaylor@pacinfo.com)				   *
+ *	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
+ *	    Brian Moore (rom@rom.efn.org)				   *
+ *	By using this code, you have agreed to follow the terms of the	   *
+ *	ROM license, in the file Tartarus/doc/rom.license                  *
+ ***************************************************************************/
 
-int     cabal_lookup    args( (const char *name) );
-int	position_lookup	args( (const char *name) );
-int 	sex_lookup	args( (const char *name) );
-int 	size_lookup	args( (const char *name) );
+/***************************************************************************
+ *       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
+ *	In using this code you agree to comply with the Tartarus license   *
+ *       found in the file /Tartarus/doc/tartarus.doc                       *
+ ***************************************************************************/
 
-HELP_DATA * help_lookup	    args( (char *) );
-HELP_AREA * had_lookup	    args( (char *) );
+int cabal_lookup args((const char *name));
+int position_lookup args((const char *name));
+int sex_lookup args((const char *name));
+int size_lookup args((const char *name));
+
+HELP_DATA *help_lookup args((char *));
+HELP_AREA *had_lookup args((char *));

@@ -19,20 +19,20 @@
  ***************************************************************************/
 
 /***************************************************************************
-*	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Tartarus/doc/rom.license                  *
-***************************************************************************/
+ *	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
+ *	ROM has been brought to you by the ROM consortium		   *
+ *	    Russ Taylor (rtaylor@pacinfo.com)				   *
+ *	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
+ *	    Brian Moore (rom@rom.efn.org)				   *
+ *	By using this code, you have agreed to follow the terms of the	   *
+ *	ROM license, in the file Tartarus/doc/rom.license                  *
+ ***************************************************************************/
 
 /***************************************************************************
-*       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
-*	In using this code you agree to comply with the Tartarus license   *
-*       found in the file /Tartarus/doc/tartarus.doc                       *
-***************************************************************************/
+ *       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
+ *	In using this code you agree to comply with the Tartarus license   *
+ *       found in the file /Tartarus/doc/tartarus.doc                       *
+ ***************************************************************************/
 //
 //   Infinate bitmask system.
 //
@@ -40,107 +40,108 @@
 
 #include "include.h"
 
-int remove_bit(BITMASK *mask, sh_int bit) 
+int remove_bit(BITMASK *mask, sh_int bit)
 {
 	BMlist *pBlist, *last = 0;
 
-    	if (!is_set(mask, bit)) // nothing doing. It isn't set.
-        	return FALSE;
-    	--bit;
+	if (!is_set(mask, bit)) // nothing doing. It isn't set.
+		return FALSE;
+	--bit;
 
-    	for(pBlist = mask->int_list;pBlist;pBlist = pBlist->next) 
+	for (pBlist = mask->int_list; pBlist; pBlist = pBlist->next)
 	{
-        	if (pBlist->set == bit / 32) 
+		if (pBlist->set == bit / 32)
 		{
-            		pBlist->tar_mask &= ~(1 << (bit % 32)); // remove it.
-            		
+			pBlist->tar_mask &= ~(1 << (bit % 32)); // remove it.
+
 			--mask->bits;
-            		if (pBlist->tar_mask == 0) 
+			if (pBlist->tar_mask == 0)
 			{
-                		if (last)
-                    			last->next = pBlist->next;
-                		else
-                    			mask->int_list = pBlist->next;
-                		free(pBlist);
-                		--mask->masks;
-            		}
-           		return TRUE;
-        	}
-        	last = pBlist;
-    	}
-    	return FALSE; 
-}
-
-int set_bit(BITMASK *mask, sh_int bit) 
-{
-    	BMlist *pBlist;
-
-    	--bit;
-
-    	for(pBlist = mask->int_list;pBlist;pBlist = pBlist->next) 
-		{
-        	if (pBlist->set == bit / 32) 
-			{ 
-            		if (pBlist->tar_mask & (1 << (bit % 32)))
-                		return FALSE;
-
-            		pBlist->tar_mask |= 1 << (bit % 32); 
-            		++mask->bits;
-            		return 1; 
-        	}
-    	}
-
-    	pBlist = malloc(sizeof(BMlist));
-    	++mask->masks;
-    	pBlist->next = mask->int_list;
-    	mask->int_list = pBlist;
-    	pBlist->tar_mask = 0;
-    	pBlist->set = bit / 32;
-    	pBlist->tar_mask |= 1 << (bit % 32);
-    	++mask->bits;
-    	return 2; 
-}
-
-int is_set(BITMASK *mask, sh_int bit) 
-{
-    	BMlist *pBlist;
-
-    	--bit;
-
-    	for(pBlist = mask->int_list;pBlist;pBlist = pBlist->next)
-	{
-        	if (pBlist->set == bit / 32) 
-		{
-            		if (pBlist->tar_mask & 1 << (bit % 32))
-                		return TRUE;
-            		else
-                		return FALSE;
-        	}
+				if (last)
+					last->next = pBlist->next;
+				else
+					mask->int_list = pBlist->next;
+				free(pBlist);
+				--mask->masks;
+			}
+			return TRUE;
+		}
+		last = pBlist;
 	}
-    	return FALSE;
+	return FALSE;
 }
 
-int *serialize_bitmask(BITMASK *mask, int *len) 
+int set_bit(BITMASK *mask, sh_int bit)
 {
 	BMlist *pBlist;
-	
-	if (mask->bits <= 0) 
+
+	--bit;
+
+	for (pBlist = mask->int_list; pBlist; pBlist = pBlist->next)
+	{
+		if (pBlist->set == bit / 32)
+		{
+			if (pBlist->tar_mask & (1 << (bit % 32)))
+				return FALSE;
+
+			pBlist->tar_mask |= 1 << (bit % 32);
+			++mask->bits;
+			return 1;
+		}
+	}
+
+	pBlist = malloc(sizeof(BMlist));
+	++mask->masks;
+	pBlist->next = mask->int_list;
+	mask->int_list = pBlist;
+	pBlist->tar_mask = 0;
+	pBlist->set = bit / 32;
+	pBlist->tar_mask |= 1 << (bit % 32);
+	++mask->bits;
+	return 2;
+}
+
+int is_set(BITMASK *mask, sh_int bit)
+{
+	BMlist *pBlist;
+
+	--bit;
+
+	for (pBlist = mask->int_list; pBlist; pBlist = pBlist->next)
+	{
+		if (pBlist->set == bit / 32)
+		{
+			if (pBlist->tar_mask & 1 << (bit % 32))
+				return TRUE;
+			else
+				return FALSE;
+		}
+	}
+	return FALSE;
+}
+
+int *serialize_bitmask(BITMASK *mask, int *len)
+{
+	BMlist *pBlist;
+
+	if (mask->bits <= 0)
 		return NULL;
-		
+
 	int *ilist = (int *)malloc(sizeof(int) * mask->bits), i = 0, z;
 	*len = mask->bits;
-	
-	if (!ilist) return NULL;
-	
+
+	if (!ilist)
+		return NULL;
+
 	ilist[mask->bits - 1] = 0;
 
-	for(pBlist = mask->int_list;pBlist;pBlist = pBlist->next) 
+	for (pBlist = mask->int_list; pBlist; pBlist = pBlist->next)
 	{
-		for(z = 0;z < 32;++z) 
+		for (z = 0; z < 32; ++z)
 		{
-			if (i > mask->bits) 	
+			if (i > mask->bits)
 			{
-					break;
+				break;
 			}
 
 			if (pBlist->tar_mask & 1 << z)
@@ -148,7 +149,7 @@ int *serialize_bitmask(BITMASK *mask, int *len)
 		}
 	}
 
-	if (i < mask->bits + 1) 
+	if (i < mask->bits + 1)
 	{
 		// Problem
 	}
@@ -156,73 +157,72 @@ int *serialize_bitmask(BITMASK *mask, int *len)
 	return ilist;
 }
 
-void free_bitmask(BITMASK *pBmask) 
+void free_bitmask(BITMASK *pBmask)
 {
-    	BMlist *pBMlist, *next;
-    	int found = 1;
-    
-	for(pBMlist = pBmask->int_list;pBMlist;pBMlist = next) 
+	BMlist *pBMlist, *next;
+	int found = 1;
+
+	for (pBMlist = pBmask->int_list; pBMlist; pBMlist = next)
 	{
-        	next = pBMlist->next;
-        	free_mem(pBMlist, sizeof(pBMlist) );
-        	found = 2;
-    	}
-    	return;
+		next = pBMlist->next;
+		free_mem(pBMlist, sizeof(pBMlist));
+		found = 2;
+	}
+	return;
 }
 
-BITMASK init_bitmask(BITMASK *bm) 
+BITMASK init_bitmask(BITMASK *bm)
 {
-    	static BITMASK bmzero;
-    	if (bm == 0)
-        	return bmzero;
+	static BITMASK bmzero;
+	if (bm == 0)
+		return bmzero;
 
-    	*bm = bmzero;
-    	return bmzero;
+	*bm = bmzero;
+	return bmzero;
 }
 
-void load_bitmask(BITMASK *pBmask, FILE *fp) 
+void load_bitmask(BITMASK *pBmask, FILE *fp)
 {
-    	int i;
-    	BMlist *pBMlist;
+	int i;
+	BMlist *pBMlist;
 
-    	pBmask->masks = fread_number(fp);
-    	pBmask->bits = fread_number(fp);
+	pBmask->masks = fread_number(fp);
+	pBmask->bits = fread_number(fp);
 
-    	for(i = 0;i < pBmask->masks;i++) 
-		{
-        	pBMlist = malloc(sizeof(BMlist));
-        	pBMlist->set = fread_number(fp);
-        	pBMlist->tar_mask = fread_number(fp);
-		
-			//if (pBmask->int_list)
-				pBMlist->next = pBmask->int_list;
-			//else
-			//	pBMlist->next = NULL;
-				
-			pBmask->int_list = pBMlist;
-    	}
-		
-		
+	for (i = 0; i < pBmask->masks; i++)
+	{
+		pBMlist = malloc(sizeof(BMlist));
+		pBMlist->set = fread_number(fp);
+		pBMlist->tar_mask = fread_number(fp);
+
+		// if (pBmask->int_list)
+		pBMlist->next = pBmask->int_list;
+		// else
+		//	pBMlist->next = NULL;
+
+		pBmask->int_list = pBMlist;
+	}
 }
 
-void save_bitmask(BITMASK *pBmask, FILE *fp) 
+void save_bitmask(BITMASK *pBmask, FILE *fp)
 {
-    	BMlist *pBMlist = pBmask->int_list;
-		int i;
+	BMlist *pBMlist = pBmask->int_list;
+	int i;
 
-    	fprintf(fp, "%ld %ld", pBmask->masks, pBmask->bits);
-		
-		for(i = 0;i < pBmask->masks;i++) {
-			fprintf(fp, " %ld %ld", pBMlist->set, pBMlist->tar_mask);
-			pBMlist = pBMlist->next;
-		}
-		/*//Bug fix - prevent next = self which was causing pfile bitmask duplications
-    	for(pBMlist = pBmask->int_list;pBMlist && pBMlist != last;pBMlist = pBMlist->next) {
-			last = pBMlist;
-        	
-		}*/
+	fprintf(fp, "%ld %ld", pBmask->masks, pBmask->bits);
 
-    	fprintf(fp, "\n");
+	for (i = 0; i < pBmask->masks; i++)
+	{
+		fprintf(fp, " %ld %ld", pBMlist->set, pBMlist->tar_mask);
+		pBMlist = pBMlist->next;
+	}
+	/*//Bug fix - prevent next = self which was causing pfile bitmask duplications
+	for(pBMlist = pBmask->int_list;pBMlist && pBMlist != last;pBMlist = pBMlist->next) {
+		last = pBMlist;
+
+	}*/
+
+	fprintf(fp, "\n");
 }
 
 void load_old_bits(BITMASK *pBmask, FILE *fp)
@@ -230,38 +230,39 @@ void load_old_bits(BITMASK *pBmask, FILE *fp)
 	long temp;
 	int i = 0;
 
-	temp = fread_flag( fp );
-	
-	for( i = 0; i < 32 ; i++ )
-	{	if(IS_SET( temp, 1 << i ) )
-			set_bit(pBmask, i+1);
+	temp = fread_flag(fp);
+
+	for (i = 0; i < 32; i++)
+	{
+		if (IS_SET(temp, 1 << i))
+			set_bit(pBmask, i + 1);
 	}
-	
+
 	return;
 }
 
 void multi_set_bit(BITMASK *bm, int bits)
 {
-     	int i;
+	int i;
 
-	for(i = 0; i < 32;i++)
-       		if (IS_SET(bits, 1 << i))
-			set_bit(bm, i+1);
-     
+	for (i = 0; i < 32; i++)
+		if (IS_SET(bits, 1 << i))
+			set_bit(bm, i + 1);
+
 	return;
 }
 
 BITMASK dup_bitmask(BITMASK *bm)
 {
 	int ilist_len;
-	int *ilist = (int *)serialize_bitmask(bm, &ilist_len),i;
-	
+	int *ilist = (int *)serialize_bitmask(bm, &ilist_len), i;
+
 	BITMASK dup = init_bitmask(NULL);
-	
-	if (!ilist) 
+
+	if (!ilist)
 		return dup;
-	
-	for(i = 0; i < ilist_len; i++)
+
+	for (i = 0; i < ilist_len; i++)
 	{
 		set_bit(&dup, ilist[i]);
 	}
@@ -270,19 +271,19 @@ BITMASK dup_bitmask(BITMASK *bm)
 	return dup;
 }
 
-char * bitmask_string( BITMASK *bm, const struct flag_type *flags )
-{	int i;
+char *bitmask_string(BITMASK *bm, const struct flag_type *flags)
+{
+	int i;
 	static char string[MSL];
 	string[0] = '\0';
 
-	for( i = 0 ; flags[i].name != NULL ; i++ )
-	{	
-		if(is_set(bm, flags[i].bit) )
-		{	
+	for (i = 0; flags[i].name != NULL; i++)
+	{
+		if (is_set(bm, flags[i].bit))
+		{
 			strcat(string, flags[i].name);
 			strcat(string, " ");
 		}
 	}
 	return string;
 }
-

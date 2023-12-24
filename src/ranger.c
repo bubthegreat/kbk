@@ -19,20 +19,20 @@
  ***************************************************************************/
 
 /***************************************************************************
-*	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Tartarus/doc/rom.license                  *
-***************************************************************************/
+ *	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
+ *	ROM has been brought to you by the ROM consortium		   *
+ *	    Russ Taylor (rtaylor@pacinfo.com)				   *
+ *	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
+ *	    Brian Moore (rom@rom.efn.org)				   *
+ *	By using this code, you have agreed to follow the terms of the	   *
+ *	ROM license, in the file Tartarus/doc/rom.license                  *
+ ***************************************************************************/
 
 /***************************************************************************
-*       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
-*	In using this code you agree to comply with the Tartarus license   *
-*       found in the file /Tartarus/doc/tartarus.doc                       *
-***************************************************************************/
+ *       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
+ *	In using this code you agree to comply with the Tartarus license   *
+ *       found in the file /Tartarus/doc/tartarus.doc                       *
+ ***************************************************************************/
 #include "include.h"
 
 void do_clearbrush(CHAR_DATA *ch, char *argument)
@@ -43,35 +43,35 @@ void do_clearbrush(CHAR_DATA *ch, char *argument)
 	AFFECT_DATA af;
 	int dir = 0;
 
-	if(is_affected(ch,skill_lookup("clear brush")))
-		return send_to_char("You don't have the energy to clear more brush right now.\n\r",ch);
-	
-	if(is_affected_room(room,skill_lookup("clear brush")))
-		return send_to_char("The brush here is too thin to clear.\n\r",ch);
+	if (is_affected(ch, skill_lookup("clear brush")))
+		return send_to_char("You don't have the energy to clear more brush right now.\n\r", ch);
 
-	if(!isInWilderness(ch))
-		return send_to_char("You must be in the wilderness to clear brush.\n\r",ch);
+	if (is_affected_room(room, skill_lookup("clear brush")))
+		return send_to_char("The brush here is too thin to clear.\n\r", ch);
 
-	if(argument[0] == '\0' || (str_prefix("n",argument) && str_prefix("e",argument) && str_prefix("s",argument) && str_prefix("w",argument)))
-		return send_to_char("Invalid direction.\n\r",ch);
+	if (!isInWilderness(ch))
+		return send_to_char("You must be in the wilderness to clear brush.\n\r", ch);
 
-	if(!str_prefix("u",argument) || !str_prefix("d",argument))
-		return send_to_char("You can't clear brush upwards or downwards.\n\r",ch);
+	if (argument[0] == '\0' || (str_prefix("n", argument) && str_prefix("e", argument) && str_prefix("s", argument) && str_prefix("w", argument)))
+		return send_to_char("Invalid direction.\n\r", ch);
 
-	if(!str_prefix("e",argument))
+	if (!str_prefix("u", argument) || !str_prefix("d", argument))
+		return send_to_char("You can't clear brush upwards or downwards.\n\r", ch);
+
+	if (!str_prefix("e", argument))
 		dir = DIR_EAST;
 
-	if(!str_prefix("n",argument))
+	if (!str_prefix("n", argument))
 		dir = DIR_NORTH;
-	
-	if(!str_prefix("s",argument))
+
+	if (!str_prefix("s", argument))
 		dir = DIR_SOUTH;
 
-	if(!str_prefix("w",argument))
+	if (!str_prefix("w", argument))
 		dir = DIR_WEST;
 
-	if(room->exit[dir])
-		return send_to_char("That way is already clear!\n\r",ch);
+	if (room->exit[dir])
+		return send_to_char("That way is already clear!\n\r", ch);
 
 	nroom = new_room_index();
 	nroom->description = str_dup(droom->description);
@@ -81,64 +81,65 @@ void do_clearbrush(CHAR_DATA *ch, char *argument)
 	nroom->exit[rev_dir[dir]]->u1.to_room = ch->in_room;
 	nroom->name = str_dup(droom->name);
 	nroom->sector_type = SECT_FOREST;
-	SET_BIT(nroom->exit[rev_dir[dir]]->exit_info,EX_NONOBVIOUS);
+	SET_BIT(nroom->exit[rev_dir[dir]]->exit_info, EX_NONOBVIOUS);
 
-	switch(dir) {
-		case(DIR_EAST):
-			ch->in_room->exit[dir] = new_exit();
-			ch->in_room->exit[dir]->u1.to_room = nroom;
-			room->exit[dir]->orig_door = dir;
-			SET_BIT(room->exit[dir]->exit_info,EX_NONOBVIOUS);
-			send_to_char("You clear the brush away to the east and step into the clearing.\n\r",ch);
-			act("$n rustles the trees to the east, then disappears.",ch,0,0,TO_ROOM);
-			break;
-	        case(DIR_SOUTH):
-                        ch->in_room->exit[dir] = new_exit();
-                        ch->in_room->exit[dir]->u1.to_room = nroom;
-			room->exit[dir]->orig_door = dir;                        
-			SET_BIT(room->exit[dir]->exit_info,EX_NONOBVIOUS);
-			act("$n rustles the trees to the south, then disappears.",ch,0,0,TO_ROOM);
-                        send_to_char("You clear the brush away to the south and step into the clearing.\n\r",ch);
-                        break;
+	switch (dir)
+	{
+	case (DIR_EAST):
+		ch->in_room->exit[dir] = new_exit();
+		ch->in_room->exit[dir]->u1.to_room = nroom;
+		room->exit[dir]->orig_door = dir;
+		SET_BIT(room->exit[dir]->exit_info, EX_NONOBVIOUS);
+		send_to_char("You clear the brush away to the east and step into the clearing.\n\r", ch);
+		act("$n rustles the trees to the east, then disappears.", ch, 0, 0, TO_ROOM);
+		break;
+	case (DIR_SOUTH):
+		ch->in_room->exit[dir] = new_exit();
+		ch->in_room->exit[dir]->u1.to_room = nroom;
+		room->exit[dir]->orig_door = dir;
+		SET_BIT(room->exit[dir]->exit_info, EX_NONOBVIOUS);
+		act("$n rustles the trees to the south, then disappears.", ch, 0, 0, TO_ROOM);
+		send_to_char("You clear the brush away to the south and step into the clearing.\n\r", ch);
+		break;
 
-                case(DIR_NORTH):
-                        ch->in_room->exit[dir] = new_exit();
-                        ch->in_room->exit[dir]->u1.to_room = nroom;
-			room->exit[dir]->orig_door = dir;                        
-			SET_BIT(room->exit[dir]->exit_info,EX_NONOBVIOUS);
-                        send_to_char("You clear the brush away to the north and step into the clearing.\n\r",ch);
-                        act("$n rustles the trees to the north, then disappears.",ch,0,0,TO_ROOM);
-			break;
+	case (DIR_NORTH):
+		ch->in_room->exit[dir] = new_exit();
+		ch->in_room->exit[dir]->u1.to_room = nroom;
+		room->exit[dir]->orig_door = dir;
+		SET_BIT(room->exit[dir]->exit_info, EX_NONOBVIOUS);
+		send_to_char("You clear the brush away to the north and step into the clearing.\n\r", ch);
+		act("$n rustles the trees to the north, then disappears.", ch, 0, 0, TO_ROOM);
+		break;
 
-                case(DIR_WEST):
-                        ch->in_room->exit[dir] = new_exit();
-                        ch->in_room->exit[dir]->u1.to_room = nroom;
-                        SET_BIT(room->exit[dir]->exit_info,EX_NONOBVIOUS);
-			room->exit[dir]->orig_door = dir;
-                        send_to_char("You clear the brush away to the west and step into the clearing.\n\r",ch);
-                        act("$n rustles the trees to the west, then disappears.",ch,0,0,TO_ROOM);
-			break;
+	case (DIR_WEST):
+		ch->in_room->exit[dir] = new_exit();
+		ch->in_room->exit[dir]->u1.to_room = nroom;
+		SET_BIT(room->exit[dir]->exit_info, EX_NONOBVIOUS);
+		room->exit[dir]->orig_door = dir;
+		send_to_char("You clear the brush away to the west and step into the clearing.\n\r", ch);
+		act("$n rustles the trees to the west, then disappears.", ch, 0, 0, TO_ROOM);
+		break;
 	}
 
 	char_from_room(ch);
-	char_to_room(ch,nroom);
-	do_look(ch,"auto");
+	char_to_room(ch, nroom);
+	do_look(ch, "auto");
 
 	init_affect(&af);
 	af.where = TO_AFFECTS;
 	af.aftype = AFT_SKILL;
 	af.type = skill_lookup("clear brush");
-	af.duration = ch->level/12;
-	affect_to_char(ch,&af);
+	af.duration = ch->level / 12;
+	affect_to_char(ch, &af);
 
 	init_affect_room(&raf);
 	raf.where = TO_ROOM_AFFECTS;
 	raf.type = skill_lookup("clear brush");
 	raf.duration = -1;
-	affect_to_room(room,&raf);
-	affect_to_room(nroom,&raf);
+	affect_to_room(room, &raf);
+	affect_to_room(nroom, &raf);
 
-return;
+	return;
 }
 /* Dragging snare...under construction */
 void do_dragsnare(CHAR_DATA *ch, char *argument)
@@ -148,30 +149,30 @@ void do_dragsnare(CHAR_DATA *ch, char *argument)
 	ROOM_INDEX_DATA *room = ch->in_room;
 	int dir = 0;
 
-	if(!isInWilderness(ch))
-		return send_to_char("You must be in the wilds to set a dragging snare.\n\r",ch);
-	if(is_affected(ch,gsn_dragsnare))
-		return send_to_char("You already have a snare waiting for someone!\n\r",ch);
-	if(is_affected_room(room,gsn_dragsnare))
-		return send_to_char("This room can't be prepared for a dragsnare right now.\n\r",ch);
-	if(argument[0] == '\0' || (str_prefix("n",argument) && str_prefix("s",argument) && str_prefix("e",argument) && str_prefix("w",argument)))
-		return send_to_char("Invalid direction.\n\r",ch);
+	if (!isInWilderness(ch))
+		return send_to_char("You must be in the wilds to set a dragging snare.\n\r", ch);
+	if (is_affected(ch, gsn_dragsnare))
+		return send_to_char("You already have a snare waiting for someone!\n\r", ch);
+	if (is_affected_room(room, gsn_dragsnare))
+		return send_to_char("This room can't be prepared for a dragsnare right now.\n\r", ch);
+	if (argument[0] == '\0' || (str_prefix("n", argument) && str_prefix("s", argument) && str_prefix("e", argument) && str_prefix("w", argument)))
+		return send_to_char("Invalid direction.\n\r", ch);
 
-	if(!str_prefix("n",argument))
+	if (!str_prefix("n", argument))
 		dir = DIR_NORTH;
-	if(!str_prefix("s",argument))
+	if (!str_prefix("s", argument))
 		dir = DIR_SOUTH;
-	if(!str_prefix("e",argument))
+	if (!str_prefix("e", argument))
 		dir = DIR_EAST;
-	if(!str_prefix("w",argument))
+	if (!str_prefix("w", argument))
 		dir = DIR_WEST;
-	if(!str_prefix("u",argument))
+	if (!str_prefix("u", argument))
 		dir = DIR_UP;
-	if(!str_prefix("d",argument))
+	if (!str_prefix("d", argument))
 		dir = DIR_DOWN;
 
-	if(!room->exit[dir])
-		return send_to_char("Alas, you cannot go that way.\n\r",ch);
+	if (!room->exit[dir])
+		return send_to_char("Alas, you cannot go that way.\n\r", ch);
 
 	init_affect(&af);
 	af.where = TO_AFFECTS;
@@ -179,19 +180,19 @@ void do_dragsnare(CHAR_DATA *ch, char *argument)
 	af.aftype = AFT_SKILL;
 	af.duration = 6;
 	af.owner_name = str_dup(ch->original_name);
-	affect_to_char(ch,&af);
+	affect_to_char(ch, &af);
 	init_affect_room(&raf);
 	raf.where = TO_ROOM_AFFECTS;
 	raf.type = gsn_dragsnare;
 	raf.aftype = AFT_SKILL;
 	raf.owner_name = str_dup(ch->original_name);
 	raf.duration = 6;
-	affect_to_room(room,&raf);
-	act("You carefully lay down a snare to catch the foot of the next passerby and step back to catch them.",ch,0,0,TO_CHAR);
+	affect_to_room(room, &raf);
+	act("You carefully lay down a snare to catch the foot of the next passerby and step back to catch them.", ch, 0, 0, TO_CHAR);
 	char_from_room(ch);
-	char_to_room(ch,room->exit[dir]->u1.to_room);
-	do_look(ch,"auto");
-return;
+	char_to_room(ch, room->exit[dir]->u1.to_room);
+	do_look(ch, "auto");
+	return;
 }
 
 bool check_fam(CHAR_DATA *ch, char *attack)
@@ -201,30 +202,33 @@ bool check_fam(CHAR_DATA *ch, char *attack)
 	char buf[MAX_STRING_LENGTH];
 	AFFECT_DATA af;
 
-	if((victim = ch->fighting) == NULL)
+	if ((victim = ch->fighting) == NULL)
 		return FALSE;
 
-	if ((chance = get_skill(ch,gsn_wilderness_fam)) == 0)
+	if ((chance = get_skill(ch, gsn_wilderness_fam)) == 0)
 		return FALSE;
 
-	chance = chance/number_range(5,10);
+	chance = chance / number_range(5, 10);
 
-	if(number_percent() > chance) {
-	    check_improve(ch,gsn_wilderness_fam,TRUE,5);
-		switch(number_range(1,5)) {
-			case(1):
-				if(number_percent() > 50) {
-				if(IS_AFFECTED(victim,AFF_BLIND))
+	if (number_percent() > chance)
+	{
+		check_improve(ch, gsn_wilderness_fam, TRUE, 5);
+		switch (number_range(1, 5))
+		{
+		case (1):
+			if (number_percent() > 50)
+			{
+				if (IS_AFFECTED(victim, AFF_BLIND))
 					break;
-				sprintf(buf,"You dive to the ground, avoiding $N's %s, grab a handful of dirt and fling it in $S eyes!",attack);
-				act(buf,ch,0,victim,TO_CHAR);
+				sprintf(buf, "You dive to the ground, avoiding $N's %s, grab a handful of dirt and fling it in $S eyes!", attack);
+				act(buf, ch, 0, victim, TO_CHAR);
 				free_string(buf);
-				sprintf(buf,"$n dives to the ground, avoiding your %s, and sends a handful of dirt at your eyes!",attack);
-				act(buf,ch,0,victim,TO_VICT);
+				sprintf(buf, "$n dives to the ground, avoiding your %s, and sends a handful of dirt at your eyes!", attack);
+				act(buf, ch, 0, victim, TO_VICT);
 				free_string(buf);
-				act("$N is blinded by the dirt in $S eyes!",ch,0,victim,TO_NOTVICT);
-				send_to_char("You can't see a thing!\n\r",victim);
-				damage_new(ch,victim,number_range(2,10),TYPE_UNDEFINED,DAM_NONE,TRUE,HIT_UNBLOCKABLE,HIT_NOADD,HIT_NOMULT,"thrown dirt");
+				act("$N is blinded by the dirt in $S eyes!", ch, 0, victim, TO_NOTVICT);
+				send_to_char("You can't see a thing!\n\r", victim);
+				damage_new(ch, victim, number_range(2, 10), TYPE_UNDEFINED, DAM_NONE, TRUE, HIT_UNBLOCKABLE, HIT_NOADD, HIT_NOMULT, "thrown dirt");
 
 				init_affect(&af);
 				af.where = TO_AFFECTS;
@@ -235,45 +239,48 @@ bool check_fam(CHAR_DATA *ch, char *attack)
 				af.duration = 0;
 				af.owner_name = str_dup(ch->original_name);
 				af.bitvector = AFF_BLIND;
-				affect_to_char(victim,&af);
+				affect_to_char(victim, &af);
 				break;
+			}
+			else
+				break;
+		case (2):
+			sprintf(buf, "You use the trees to your advantage and avoid $N's %s.", attack);
+			act(buf, ch, 0, victim, TO_CHAR);
+			free_string(buf);
+			sprintf(buf, "$n uses the trees to avoid your %s.", attack);
+			act(buf, ch, 0, victim, TO_VICT);
+			free_string(buf);
+			break;
+		case (3):
+			if (number_percent() > 60)
+			{
+				sprintf(buf, "You dodge $N's %s and disappear into the trees momentarily.", attack);
+				act(buf, ch, 0, victim, TO_CHAR);
+				free_string(buf);
+				sprintf(buf, "$n dodges your %s and disappears into the trees.", attack);
+				act(buf, ch, 0, victim, TO_VICT);
+
+				stop_fighting(ch, TRUE);
+				do_camouflage(ch, "");
+				if (!can_see(victim, ch))
+				{
+					OBJ_DATA *weapon = get_eq_char(ch, WEAR_WIELD);
+
+					damage_new(ch, victim, number_range(2 * GET_DAMROLL(ch), 3 * GET_DAMROLL(ch)), TYPE_UNDEFINED, weapon ? weapon->value[3] : DAM_BASH, TRUE, HIT_UNBLOCKABLE, HIT_NOADD, HIT_NOMULT, "ambush");
 				}
 				else
-					break;
-			case(2):
-				sprintf(buf,"You use the trees to your advantage and avoid $N's %s.",attack);
-				act(buf,ch,0,victim,TO_CHAR);
-				free_string(buf);
-				sprintf(buf,"$n uses the trees to avoid your %s.",attack);
-				act(buf,ch,0,victim,TO_VICT);
-				free_string(buf);
-				break;
-			case(3):
-				if(number_percent() > 60) {
-				sprintf(buf,"You dodge $N's %s and disappear into the trees momentarily.",attack);
-				act(buf,ch,0,victim,TO_CHAR);
-				free_string(buf);
-				sprintf(buf,"$n dodges your %s and disappears into the trees.",attack);
-				act(buf,ch,0,victim,TO_VICT);
-
-				stop_fighting(ch,TRUE);
-				do_camouflage(ch,"");
-				if (!can_see(victim, ch)) {
-					OBJ_DATA *weapon = get_eq_char(ch,WEAR_WIELD);
-					
-					damage_new(ch,victim,number_range(2*GET_DAMROLL(ch),3*GET_DAMROLL(ch)),TYPE_UNDEFINED,weapon ? weapon->value[3] : DAM_BASH,TRUE,HIT_UNBLOCKABLE,HIT_NOADD,HIT_NOMULT,"ambush");
-				}
-				else {
+				{
 					act("You attempt to ambush $N but $E spots you before you can strike!", ch, 0, victim, TO_CHAR);
 					act("$n attempts to ambush you but you spot $m before $e can strike!", ch, 0, victim, TO_VICT);
 					set_fighting(ch, victim);
 				}
 				break;
-				}
-				return FALSE;
-			case(4):
-			case(5):
-				return FALSE;
+			}
+			return FALSE;
+		case (4):
+		case (5):
+			return FALSE;
 		}
 		return TRUE;
 	}
@@ -281,103 +288,100 @@ bool check_fam(CHAR_DATA *ch, char *attack)
 }
 void do_serpent_strike(CHAR_DATA *ch, char *argument)
 {
-    CHAR_DATA *victim;
-    int chance;
-    
-    if ((chance = get_skill(ch,gsn_serpent_strike) ) == 0
-        || (ch->level < skill_table[gsn_serpent_strike].skill_level[ch->class]) )
-    {
-        send_to_char("You don't know how to move with the speed of a serpent.\n\r",ch);
+	CHAR_DATA *victim;
+	int chance;
 
-        return;
-    }
+	if ((chance = get_skill(ch, gsn_serpent_strike)) == 0 || (ch->level < skill_table[gsn_serpent_strike].skill_level[ch->class]))
+	{
+		send_to_char("You don't know how to move with the speed of a serpent.\n\r", ch);
 
-    
-    if ( ( victim = ch->fighting ) == NULL )
-    {
-        send_to_char( "You aren't fighting anyone.\n\r", ch );
-        return;
-    }
+		return;
+	}
 
-    chance -= get_curr_stat(victim,STAT_DEX);
-    chance += get_curr_stat(ch,STAT_STR)/3;
-    chance += get_curr_stat(ch,STAT_DEX)/2;
-    
-    AFFECT_DATA *poisonCheck = affect_find(victim->affected,gsn_poison),
-                anacondaPoison;
+	if ((victim = ch->fighting) == NULL)
+	{
+		send_to_char("You aren't fighting anyone.\n\r", ch);
+		return;
+	}
 
-    int poisonLevel = ch->level, poisonDuration = 3, strLoss = -1;
+	chance -= get_curr_stat(victim, STAT_DEX);
+	chance += get_curr_stat(ch, STAT_STR) / 3;
+	chance += get_curr_stat(ch, STAT_DEX) / 2;
 
-    if (number_percent() < chance)
-    {
-        check_improve(ch,gsn_serpent_strike,TRUE,1);
-        WAIT_STATE(ch,skill_table[gsn_serpent_strike].beats);
+	AFFECT_DATA *poisonCheck = affect_find(victim->affected, gsn_poison),
+				anacondaPoison;
 
-        act("$n strikes forward suddenly, piercing through your defenses!",ch,0,victim,TO_VICT);
-        act("$n strikes forward suddenly, piercing through $N's defenses!",ch,0,victim,TO_NOTVICT);
-        act("With the speed of an Anaconda, you penetrate $N's defenses!",ch,0,victim,TO_CHAR);
-        one_hit_new(ch,victim,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,150,"serpent strike");
-        if (poisonCheck != NULL)
-        {
-                if (!str_cmp(poisonCheck->name,"anaconda venom"))
-                {
-                        poisonLevel = poisonCheck->level + 2;
-                        if (poisonCheck->duration < 10)
-                                poisonDuration = poisonCheck->duration + 3;
-                        else poisonDuration = poisonCheck->duration;
-                        strLoss = poisonCheck->modifier - 1;
-                        if (poisonLevel > 100)
-                                poisonLevel = 100;
-                        if (poisonDuration > 100)
-                                poisonDuration = 100;
-                        if (strLoss > 100)
-                                strLoss = 100;
-                        act("You feel your body tingle as poison seeps into your veins.",ch,0,victim,TO_VICT);
-                        act("$N looks very sick.",ch,0,victim,TO_NOTVICT);
-                        act("You release poison into $N's veins!",ch,0,victim,TO_CHAR);
-                        affect_remove(victim,poisonCheck);
-                        init_affect(&anacondaPoison);
-                       anacondaPoison.where            = TO_AFFECTS;
-                        anacondaPoison.aftype           = AFT_SKILL;
-                        anacondaPoison.type             = gsn_poison;
-                        anacondaPoison.level            = poisonLevel;
-                        anacondaPoison.duration         = poisonDuration;
-                        anacondaPoison.name             = str_dup("anaconda venom");
-                        anacondaPoison.location         = APPLY_STR;
-                        anacondaPoison.modifier         = strLoss;
-                        anacondaPoison.owner_name               = str_dup(ch->original_name);
-                        anacondaPoison.bitvector        = AFF_POISON;
-                        affect_to_char(victim,&anacondaPoison);
+	int poisonLevel = ch->level, poisonDuration = 3, strLoss = -1;
 
-                }
-        }
-        else if (poisonCheck == NULL)
-        {
-                act("You feel your body tingle as poison seeps into your veins.",ch,0,victim,TO_VICT);
-                act("$N looks very sick.",ch,0,victim,TO_ROOM);
-                act("You release poison into $N's veins!",ch,0,victim,TO_CHAR);
-                init_affect(&anacondaPoison);
-                anacondaPoison.where            = TO_AFFECTS;
-                anacondaPoison.aftype           = AFT_SKILL;
-                anacondaPoison.type             = gsn_poison;
-                anacondaPoison.level            = poisonLevel;
-                anacondaPoison.duration         = poisonDuration;
-                anacondaPoison.name             = str_dup("anaconda venom");
-                anacondaPoison.modifier         = strLoss;
-                anacondaPoison.owner_name               = str_dup(ch->original_name);
-                affect_to_char(victim,&anacondaPoison);
-        }
-    }
-    else
-    {
-        check_improve(ch,gsn_serpent_strike,FALSE,1);
-        WAIT_STATE(ch,skill_table[gsn_serpent_strike].beats);
+	if (number_percent() < chance)
+	{
+		check_improve(ch, gsn_serpent_strike, TRUE, 1);
+		WAIT_STATE(ch, skill_table[gsn_serpent_strike].beats);
 
-        act("$n strikes forward suddenly, but cannot penetrate your defenses!",ch,0,victim,TO_VICT);
-        act("$n strikes forward suddenly, but cannot penetrate through $N's defenses!",ch,0,victim,TO_NOTVICT);
-        act("Your serpent strike is blocked by $N's defenses!",ch,0,victim,TO_CHAR);
-        one_hit_new(ch,victim,TYPE_UNDEFINED,HIT_NOSPECIALS,HIT_UNBLOCKABLE,HIT_NOADD,0,"serpent strike");
-        //damage_old(victim,ch,0,gsn_serpent_strike,DAM_SLASH,TRUE);
-    }
- 
+		act("$n strikes forward suddenly, piercing through your defenses!", ch, 0, victim, TO_VICT);
+		act("$n strikes forward suddenly, piercing through $N's defenses!", ch, 0, victim, TO_NOTVICT);
+		act("With the speed of an Anaconda, you penetrate $N's defenses!", ch, 0, victim, TO_CHAR);
+		one_hit_new(ch, victim, TYPE_UNDEFINED, HIT_NOSPECIALS, HIT_UNBLOCKABLE, HIT_NOADD, 150, "serpent strike");
+		if (poisonCheck != NULL)
+		{
+			if (!str_cmp(poisonCheck->name, "anaconda venom"))
+			{
+				poisonLevel = poisonCheck->level + 2;
+				if (poisonCheck->duration < 10)
+					poisonDuration = poisonCheck->duration + 3;
+				else
+					poisonDuration = poisonCheck->duration;
+				strLoss = poisonCheck->modifier - 1;
+				if (poisonLevel > 100)
+					poisonLevel = 100;
+				if (poisonDuration > 100)
+					poisonDuration = 100;
+				if (strLoss > 100)
+					strLoss = 100;
+				act("You feel your body tingle as poison seeps into your veins.", ch, 0, victim, TO_VICT);
+				act("$N looks very sick.", ch, 0, victim, TO_NOTVICT);
+				act("You release poison into $N's veins!", ch, 0, victim, TO_CHAR);
+				affect_remove(victim, poisonCheck);
+				init_affect(&anacondaPoison);
+				anacondaPoison.where = TO_AFFECTS;
+				anacondaPoison.aftype = AFT_SKILL;
+				anacondaPoison.type = gsn_poison;
+				anacondaPoison.level = poisonLevel;
+				anacondaPoison.duration = poisonDuration;
+				anacondaPoison.name = str_dup("anaconda venom");
+				anacondaPoison.location = APPLY_STR;
+				anacondaPoison.modifier = strLoss;
+				anacondaPoison.owner_name = str_dup(ch->original_name);
+				anacondaPoison.bitvector = AFF_POISON;
+				affect_to_char(victim, &anacondaPoison);
+			}
+		}
+		else if (poisonCheck == NULL)
+		{
+			act("You feel your body tingle as poison seeps into your veins.", ch, 0, victim, TO_VICT);
+			act("$N looks very sick.", ch, 0, victim, TO_ROOM);
+			act("You release poison into $N's veins!", ch, 0, victim, TO_CHAR);
+			init_affect(&anacondaPoison);
+			anacondaPoison.where = TO_AFFECTS;
+			anacondaPoison.aftype = AFT_SKILL;
+			anacondaPoison.type = gsn_poison;
+			anacondaPoison.level = poisonLevel;
+			anacondaPoison.duration = poisonDuration;
+			anacondaPoison.name = str_dup("anaconda venom");
+			anacondaPoison.modifier = strLoss;
+			anacondaPoison.owner_name = str_dup(ch->original_name);
+			affect_to_char(victim, &anacondaPoison);
+		}
+	}
+	else
+	{
+		check_improve(ch, gsn_serpent_strike, FALSE, 1);
+		WAIT_STATE(ch, skill_table[gsn_serpent_strike].beats);
+
+		act("$n strikes forward suddenly, but cannot penetrate your defenses!", ch, 0, victim, TO_VICT);
+		act("$n strikes forward suddenly, but cannot penetrate through $N's defenses!", ch, 0, victim, TO_NOTVICT);
+		act("Your serpent strike is blocked by $N's defenses!", ch, 0, victim, TO_CHAR);
+		one_hit_new(ch, victim, TYPE_UNDEFINED, HIT_NOSPECIALS, HIT_UNBLOCKABLE, HIT_NOADD, 0, "serpent strike");
+		// damage_old(victim,ch,0,gsn_serpent_strike,DAM_SLASH,TRUE);
+	}
 }

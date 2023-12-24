@@ -19,20 +19,20 @@
  ***************************************************************************/
 
 /***************************************************************************
-*	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Tartarus/doc/rom.license                  *
-***************************************************************************/
+ *	ROM 2.4 is copyright 1993-1996 Russ Taylor			   *
+ *	ROM has been brought to you by the ROM consortium		   *
+ *	    Russ Taylor (rtaylor@pacinfo.com)				   *
+ *	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
+ *	    Brian Moore (rom@rom.efn.org)				   *
+ *	By using this code, you have agreed to follow the terms of the	   *
+ *	ROM license, in the file Tartarus/doc/rom.license                  *
+ ***************************************************************************/
 
 /***************************************************************************
-*       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
-*	In using this code you agree to comply with the Tartarus license   *
-*       found in the file /Tartarus/doc/tartarus.doc                       *
-***************************************************************************/
+ *       Tartarus code is copyright (C) 1997-1998 by Daniel Graham          *
+ *	In using this code you agree to comply with the Tartarus license   *
+ *       found in the file /Tartarus/doc/tartarus.doc                       *
+ ***************************************************************************/
 
 // System
 #include <sys/types.h>
