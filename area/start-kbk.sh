@@ -35,9 +35,6 @@ while true; do
     	let "KBK_LOG_INDEX++"
     done
 
-    # Start our high CPU killer
-    /kbk/high_cpu_kill &
-
     # Run posMUD 2.
     ./pos2 $port # > $logfile
 

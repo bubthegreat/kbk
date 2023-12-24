@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kbk-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kbk
+  template:
+    metadata:
+      labels:
+        app: kbk
+    spec:
+      volumes:
+        - name: kbk-persistent-storage
+          persistentVolumeClaim:
+            claimName: kbk-pvc
+      containers:
+        - name: kbk
+          image: kbk:latest
+          ports:
+            - containerPort: 8989
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kbk-service
+spec:
+  selector:
+    app: kbk-service
+  ports:
+    - protocol: TCP
+      port: 8989
+      targetPort: 8989
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kbk-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi  # Change to your desired storage size
