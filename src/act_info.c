@@ -1858,19 +1858,25 @@ void do_score(CHAR_DATA *ch, char *argument)
 		send_to_char(buf, ch);
 	}
 
-	sprintf(buf, "Race: %s  Sex: %s  Class: %s\n\r",
+	sprintf(buf, "%-13s%-15s%-13s%-15s%-13s%-15s\n\r",
+			"Race:",
 			race_table[ch->race].name,
+			"Sex:",
 			ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male"
 													: "female",
+			"Class:",
 			IS_NPC(ch) ? "mobile" : class_table[ch->class].name);
 	send_to_char(buf, ch);
 
 	if (ch->level >= 30)
 	{
 		sprintf(buf,
-				"You have %d/%d hit, %d/%d mana, %d/%d movement.\n\r",
+				"%-12s%5d/%-10d%-12s%5d/%-10d%-12s%5d/%-10d \n\r",
+				"hitpoints:",
 				ch->hit, ch->max_hit,
+				"mana:",
 				ch->mana, ch->max_mana,
+				"moves:",
 				ch->move, ch->max_move);
 		send_to_char(buf, ch);
 	}
@@ -1894,26 +1900,6 @@ void do_score(CHAR_DATA *ch, char *argument)
 				percenta,
 				percentb,
 				percentc);
-		send_to_char(buf, ch);
-	}
-	if ((ch->class == CLASS_WARRIOR) || ch->pcdata->special > 0)
-	{
-		sprintf(buf,
-				"You have %d practices and %d training sessions and %d specializations.\n\r",
-				ch->practice, ch->train, ch->pcdata->special);
-		send_to_char(buf, ch);
-	}
-	else
-	{
-		sprintf(buf,
-				"You have %d practices and %d training sessions.\n\r",
-				ch->practice, ch->train);
-		send_to_char(buf, ch);
-	}
-
-	if (ch->class == CLASS_PALADIN && ch->pcdata->dedication == 0)
-	{
-		sprintf(buf, "You have yet to choose your dedication.\n\r");
 		send_to_char(buf, ch);
 	}
 	sprintf(buf,
@@ -1947,6 +1933,27 @@ void do_score(CHAR_DATA *ch, char *argument)
 				ch->perm_stat[STAT_WIS],
 				ch->perm_stat[STAT_DEX],
 				ch->perm_stat[STAT_CON]);
+		send_to_char(buf, ch);
+	}
+
+	if ((ch->class == CLASS_WARRIOR) || ch->pcdata->special > 0)
+	{
+		sprintf(buf,
+				"You have %d practices and %d training sessions and %d specializations.\n\r",
+				ch->practice, ch->train, ch->pcdata->special);
+		send_to_char(buf, ch);
+	}
+	else
+	{
+		sprintf(buf,
+				"You have %d practices and %d training sessions.\n\r",
+				ch->practice, ch->train);
+		send_to_char(buf, ch);
+	}
+
+	if (ch->class == CLASS_PALADIN && ch->pcdata->dedication == 0)
+	{
+		sprintf(buf, "You have yet to choose your dedication.\n\r");
 		send_to_char(buf, ch);
 	}
 	sprintf(buf,

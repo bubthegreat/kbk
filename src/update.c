@@ -1851,13 +1851,41 @@ void aggr_update(void)
 			 *   giving each 'vch' an equal chance of selection.
 			 */
 
+			/* Unless I'm misunderstanding, the logic below doesn't actually define a random
+			 * target, it defines a pretty consistent target when number_range(0, 0) hits,
+			 * that would be the first person in the 'next_in_room', and THEN we have a chance
+			 * to hit someone else - second person has a 50/50 chance to get "selected", and then
+			 * third person has a 30% chance to get selected - so...statistically you end up with
+			 * a random chance to get selected, but the reality is that it's less and less likely
+			 * to be the one hit the further into this you get - since your random range will always
+			 * have a larger and larger number to choose from, it will always be less and less likely
+			 * to be selected.
+			 * 
+			 * 1 person: count = 0, 100% selection for first person
+			 * 2 person: count = 0, 100% selection, count = 1, 50% selection for person 2, left with 50/50 for two people.
+			 * 3 person: count = 0, 100% selection, count = 2, 50% selection for person 2, count = 3, 33% for person 3 to be selected
+			 * N person: count = 0, 100%, count = 2, 50% selection P2, 33% selection P3, 25% selection P4, (N/index)% chance for each
+			 * which sounds good mathematically, except you don't reduce the selection of the person before by adding a lower % selection
+			 * for each subsequent person.  
+			 * 
+			 * It looks like this was a workaround to the lack of index counting for playable characters in the room?  Maybe I'm just
+			 * folling myself on how those probabilities play out, but it feels like 50% chance you've been selected for #2 and 33% chance
+			 * next guy is picked doesn't make it random, it makes it more and more likely it's within the last x people who entered the room
+			 * past the first ones.
+			 */
 			count = 0;
 			victim = NULL;
 			for (vch = wch->in_room->people; vch != NULL; vch = vch_next)
 			{
 				vch_next = vch->next_in_room;
 
-				if (!IS_NPC(vch) && vch->level < LEVEL_IMMORTAL && ch->level >= vch->level - 5 && (!IS_SET(ch->act, ACT_WIMPY) || !IS_AWAKE(vch)) && can_see(ch, vch))
+				if (
+					!IS_NPC(vch) && /* victim is not an npc*/
+					vch->level < LEVEL_IMMORTAL && /* victim is not an immortal*/
+					ch->level >= vch->level - 5 && /* If the aggro mob (ch) is 5 levels below or better than target */
+					(!IS_SET(ch->act, ACT_WIMPY) || !IS_AWAKE(vch)) &&  /* If the mob isn't wimpy OR the victim is asleep*/
+					can_see(ch, vch) /* If the mob can see the victim*/
+				)
 				{
 					if (number_range(0, count) == 0)
 						victim = vch;
