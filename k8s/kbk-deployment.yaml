@@ -39,6 +39,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  annotations:
+    tilt.dev/down-policy: keep
   name: kbk-pvc
 spec:
   accessModes:

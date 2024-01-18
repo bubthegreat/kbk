@@ -79,42 +79,8 @@ Zor - 2009-05-04: Atrophy degeneration increased to -10 from roughly -4. Regener
 Welcome to KBK Reborn!
 
 2018-09-17:  Bub the Great resurrects the old code.  KBK is a mindless zombie and stinks.
-2018-10-01:  KBK is Reborn!  Juices are flowing, and the stink is mighty, but it lives.
-2018-10-02:  Regeneration is doubled.  Learning rates are tripled.
-2018-10-03:  Stability increases.  Ordering on defenses is changed to spec skills, parry,
-             shield block, and then dodge.
-2018-10-04:  Healers can now targetted uncurse items.  No uncurse flags are ignored in favor
-             of playability.  Wilderness familiarity now (properly) boost dodging.
-2018-10-05:  Renaming is now possible.  Unholy bless no longer removes stats on gaining
-             charges.  Many database backend problems are address.
-2018-10-06:  Curse weapon is fixed.  AP's cackle gleefully in the night and plot domination.
-2018-10-08:  Hide and sneak improvement rates are boosted.  You still must vis to improve.
-2018-10-10:  Large batch of area updates.  See Baal for more details... If you dare!
-             Unholy blessing now removes all affects when applied.  No more boosting with
-             curse weapon first.  Related note:  No longer crashes when unholy blessing.
-             Web is now mortal accessible for bounty hunters.  Backfist now requires a
-             properly free hand.  Unarmed defense is capped at 90% effectiveness.  Can no
-             longer vanish into Bounty cabal.  True sight is possible in combat.
-2018-10-11:  Wraithform now properly has damage reduction applied, instead of just a line
-             in affects.  Assassin can vanish in combat.
-2018-10-12:  Wield, dual, and wear commands split apart.  Wield for primary weapon, dual
-             for dual wield.  Wear for everything else.  Sadly only having two hands
-             continues to be true.
-2018-10-14:  Serpent strike replaces anaconda stance for rangers.
-2018-10-15:  Players now have access to otype (help otype) and vostat to find and identify
-             items and see what their limits and count are.  In game item DB... sort of.
-2018-10-15:  Limited items will always spawn on NPCs and never vaporize on their death,
-             but beware:  When a PC dies there is a chance it vaporizes if it is over limit.
-2018-10-16:  Ranger now at home in all wilds.  Sylvan's slightly more dangerous as well.
-2018-10-17:  Dual wielding for hand to hand is in.  Unarmed offense is out (not now) as it
-             duplicated the functionality but was assassin only.
-2018-10-17:  Mortals now have (limited) access to the path command which will give you the
-             shortest path from your location to any area.  Enjoy!
-2018-10-18:  Vampiric touch now available for mortal necros, is now two rounds to cast.
-2018-10-19:  Diamondback stance for rangers upgraded and fixed.  Mobs now experience lag.
-             Holy word's cost has dropped.  Pummel adjusted with dual wield changes...
-             Vaporizing items give quest points.  Elementalist pets significantly upgraded.
-2018-10-23:  Two handed paladins get a massive boost.  Swordplay a lot scarier.
+----------:  Lots of fixes and improvements, thanks to Krunk - but MOTD is long, snip.
+2023-01-17:  Improvements to score and some bug fixes.
 
 See 'HELP CHANGES' for older changes.  See commits directly at:
     https://gitlab.com/bubthegreat/kbk/commits/master

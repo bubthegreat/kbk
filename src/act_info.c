@@ -1858,6 +1858,19 @@ void do_score(CHAR_DATA *ch, char *argument)
 		send_to_char(buf, ch);
 	}
 
+	if (!IS_NPC(ch))
+	{
+		sprintf(buf, "%-13s%-15d%-13s%-15d%-13s%-15d\n\r",
+				"PKills:",
+				ch->pcdata->kills[PK_KILLS],
+				"PKDeaths:",
+				ch->pcdata->killed[PK_KILLED],
+				"MobDeaths:",
+				ch->pcdata->killed[MOB_KILLED]
+		);
+		send_to_char(buf, ch);
+	}
+
 	sprintf(buf, "%-13s%-15s%-13s%-15s%-13s%-15s\n\r",
 			"Race:",
 			race_table[ch->race].name,
@@ -1868,6 +1881,31 @@ void do_score(CHAR_DATA *ch, char *argument)
 			IS_NPC(ch) ? "mobile" : class_table[ch->class].name);
 	send_to_char(buf, ch);
 
+	char *alignstr;
+	char *ethosstr;
+	if (ch->alignment == 1000)
+		alignstr = "good";
+	else if (ch->alignment == 0)
+		alignstr = "neutral";
+	else
+		alignstr = "evil";
+	if (ch->pcdata->ethos == 1000)
+		ethosstr = "lawful";
+	else if (ch->pcdata->ethos == 0)
+		ethosstr = "neutral";
+	else
+		ethosstr = "chaotic";
+
+	sprintf(buf, "%-13s%-15s%-13s%-15s%-13s%-15s\n\r",
+			"Align:",
+			alignstr,
+			"Ethos:",
+			ethosstr,
+			"Hometown:",
+			hometown_table[ch->hometown].name);
+	send_to_char(buf, ch);
+
+	// Add raw HP details if you're above level 30
 	if (ch->level >= 30)
 	{
 		sprintf(buf,
@@ -1880,6 +1918,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 				ch->move, ch->max_move);
 		send_to_char(buf, ch);
 	}
+	// If ou're not above level 30, you get percents.
 	else
 	{
 		int percenta, percentb, percentc;
@@ -1896,43 +1935,88 @@ void do_score(CHAR_DATA *ch, char *argument)
 		else
 			percentc = (ch->move * 100) / ch->max_move;
 		sprintf(buf,
-				"You have %d%% hit, %d%% mana, %d%% movement.\n\r",
+				"%-12s%-10d%%%-12s%-10d%-12s%-10d \n\r",
+				"hitpoints:",
 				percenta,
+				"mana:",
 				percentb,
+				"moves:",
 				percentc);
 		send_to_char(buf, ch);
 	}
-	sprintf(buf,
-			"You are carrying %d/%d items with weight %ld/%d pounds.\n\r",
-			ch->carry_number, can_carry_n(ch),
-			get_carry_weight(ch), can_carry_w(ch));
-	send_to_char(buf, ch);
 
 	if (ch->level >= 20)
 	{
 		sprintf(buf,
-				"Str: %d(%d) Int: %d(%d) Wis: %d(%d) Dex: %d(%d) Con: %d(%d)\n\r",
+				"%-10s%5d(%d%-10s%-10s%5d(%d%-10s%-10s%5d(%d%-10s\n\r%-10s%5d(%d%-10s%-10s%5d(%d%-10s\n\r",
+				"STR:",
 				ch->perm_stat[STAT_STR],
 				get_curr_stat(ch, STAT_STR),
+				")",
+				"INT:",
 				ch->perm_stat[STAT_INT],
 				get_curr_stat(ch, STAT_INT),
+				")",
+				"WIS:",
 				ch->perm_stat[STAT_WIS],
 				get_curr_stat(ch, STAT_WIS),
+				")",
+				"DEX:",
 				ch->perm_stat[STAT_DEX],
 				get_curr_stat(ch, STAT_DEX),
+				")",
+				"CON:",
 				ch->perm_stat[STAT_CON],
-				get_curr_stat(ch, STAT_CON));
+				get_curr_stat(ch, STAT_CON),
+				")");
 		send_to_char(buf, ch);
 	}
 	else
 	{
 		sprintf(buf,
-				"Str: %d(?\?)  Int: %d(?\?)  Wis: %d(?\?)  Dex: %d(?\?)  Con: %d(?\?)\n\r",
+				"%-10s%5d(%d%-10s%-10s%5d(%d%-10s%-10s%5d(%d%-10s\n\r%-10s%5d(%d%-10s%-10s%5d(%d%-10s\n\r",
+				"STR:",
 				ch->perm_stat[STAT_STR],
+				"?",
+				")",
+				"INT:",
 				ch->perm_stat[STAT_INT],
+				"?",
+				")",
+				"WIS:",
 				ch->perm_stat[STAT_WIS],
+				"?",
+				")",
+				"DEX:",
 				ch->perm_stat[STAT_DEX],
-				ch->perm_stat[STAT_CON]);
+				"?",
+				")",
+				"CON:",
+				ch->perm_stat[STAT_CON],
+				"?",
+				")");
+		send_to_char(buf, ch);
+	}
+	sprintf(buf,
+			"%-10s%5d/%-12d%-10s%5d/%-10d \n\r",
+			"Carry:",
+			ch->carry_number, 
+			can_carry_n(ch),
+			"Weight:",
+			get_carry_weight(ch),
+			can_carry_w(ch)
+	);
+	send_to_char(buf, ch);
+
+	if (ch->level >= 15)
+	{
+		sprintf(buf,
+				"%-13s%-15d%-13s%-15d \n\r",
+				"Hitroll:",
+				GET_HITROLL(ch), 
+				"Damroll:",
+				GET_DAMROLL(ch)
+		);
 		send_to_char(buf, ch);
 	}
 
@@ -1963,24 +2047,17 @@ void do_score(CHAR_DATA *ch, char *argument)
 
 	if (ch->level >= 30)
 	{
-		sprintf(buf, "Wimpy set to %d hit points.  Hometown is %s.\n\r",
-				ch->wimpy, hometown_table[ch->hometown].name);
+		sprintf(buf, "Wimpy set to %d hit points.\n\r",
+				ch->wimpy);
 	}
 	else
 	{
-		sprintf(buf, "Wimpy set to %d%% hit points.  Hometown is %s.\n\r",
-				ch->wimpy, hometown_table[ch->hometown].name);
+		sprintf(buf, "Wimpy set to %d%% hit points.\n\r",
+				ch->wimpy);
 	}
 	send_to_char(buf, ch);
 
-	if (!IS_NPC(ch))
-	{
-		sprintf(buf, "PKills: %d  PKDeaths: %d  MobDeaths: %d\n\r",
-				ch->pcdata->kills[PK_KILLS],
-				ch->pcdata->killed[PK_KILLED],
-				ch->pcdata->killed[MOB_KILLED]);
-		send_to_char(buf, ch);
-	}
+
 
 	switch (ch->position)
 	{
@@ -2016,13 +2093,17 @@ void do_score(CHAR_DATA *ch, char *argument)
 	/* print AC values */
 	if (ch->level >= 25)
 	{
-		sprintf(buf, "Armor: pierce: %d (%.1f%%)  bash: %d (%.1f%%)  slash: %d (%.1f%%)  magic: %d (%.1f%%)\n\r",
+		sprintf(buf, "%-10s %d (%.1f%%)  %-10s %d (%.1f%%)\n\r%-10s %d (%.1f%%)  %-10s %d (%.1f%%)\n\r",
+				"pierce:",
 				GET_AC(ch, AC_PIERCE),
 				calculate_ac_redux(GET_AC(ch, AC_PIERCE)) * 100,
+				"bash:",
 				GET_AC(ch, AC_BASH),
 				calculate_ac_redux(GET_AC(ch, AC_BASH)) * 100,
+				"slash:",
 				GET_AC(ch, AC_SLASH),
 				calculate_ac_redux(GET_AC(ch, AC_SLASH)) * 100,
+				"magic:",
 				GET_AC(ch, AC_EXOTIC),
 				calculate_ac_redux(GET_AC(ch, AC_EXOTIC)) * 100);
 		send_to_char(buf, ch);
@@ -2102,13 +2183,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 		send_to_char("\n\r", ch);
 	}
 
-	if (ch->level >= 15)
-	{
-		sprintf(buf, "Hitroll: %d  Damroll: %d. ",
-				GET_HITROLL(ch), GET_DAMROLL(ch));
-		send_to_char(buf, ch);
-		send_to_char("\n\r", ch);
-	}
+
 	if (ch->level >= 39)
 	{
 		float saves_chance = 35 - (ch->saving_throw * .66);
@@ -2165,21 +2240,6 @@ void do_score(CHAR_DATA *ch, char *argument)
 			}
 		}
 	}
-
-	send_to_char("You are ", ch);
-	if (ch->alignment == 1000)
-		send_to_char("good,", ch);
-	else if (ch->alignment == 0)
-		send_to_char("neutral,", ch);
-	else
-		send_to_char("evil,", ch);
-	send_to_char(" and have a ", ch);
-	if (ch->pcdata->ethos == 1000)
-		send_to_char("lawful ethos.\n\r", ch);
-	else if (ch->pcdata->ethos == 0)
-		send_to_char("neutral ethos.\n\r", ch);
-	else
-		send_to_char("chaotic ethos.\n\r", ch);
 
 	if (ch->pause != 0)
 		send_to_char("Your adrenaline is gushing.\n\r", ch);
