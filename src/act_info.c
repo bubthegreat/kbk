@@ -1364,7 +1364,9 @@ void do_look(CHAR_DATA *ch, char *argument)
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto"))
 	{
 		/* 'look' or 'look auto' */
-		send_to_char(ch->in_room->name, ch);
+		// Get that colored room name bruh.
+		sprintf(buf, "{W%s{x", ch->in_room->name);
+		send_to_char(buf, ch);
 
 		if ((IS_IMMORTAL(ch)) &&
 			((IS_NPC(ch)) || (IS_SET(ch->act, PLR_HOLYLIGHT)) || (IS_BUILDER(ch, ch->in_room->area))))
@@ -1630,7 +1632,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 
 	if (fAuto)
 	{
-		sprintf(buf, "[Exits:");
+		sprintf(buf, "{W[Exits:");
 	}
 	else if (IS_IMMORTAL(ch))
 	{
@@ -1802,7 +1804,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 		strcat(buf, fAuto ? " none" : "None.\n\r");
 
 	if (fAuto)
-		strcat(buf, "]\n\r");
+		strcat(buf, "]{x\n\r");
 
 	send_to_char(buf, ch);
 	return;
