@@ -6,6 +6,8 @@ To Get things running:
 
 Install Docker from [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
+Install tilt from **[here](https://docs.tilt.dev/install.html)**
+
 Running:
 
 ```
@@ -36,7 +38,6 @@ By what name do you wish to be known?
 
 This is not a production configuration - there are default passwords and things that should *absolutely* be modified for production use.  Do - Not - Use - The - Defaults - In - Production
 
-
 # Area Editing
 
 Hacky, but works for getting areas off the PVC and onto local - if you're editing an area and want to pull it off the box, you can do this:
@@ -46,6 +47,6 @@ $POD=$(kubectl get pod -l app=kbk -o jsonpath="{.items[0].metadata.name}")
 kubectl exec -it $POD -- bash -c 'cp /kbk/area/air.are /kbk/localxfer/air.are'
 ```
 
-The problem with a local volume mount is that you have to have the source files in the same directory as your area file *CURRENTLY.  Once we can change that (Will take some work fixing the pathing) then we can just do a standard volume mount for the area files. 
+The problem with a local volume mount is that you have to have the source files in the same directory as your area file *CURRENTLY.  Once we can change that (Will take some work fixing the pathing) then we can just do a standard volume mount for the area files.
 
 There's a LOT of relative pathing built in instead of absolute pathing since this is before the days of docker and consistent builds.
