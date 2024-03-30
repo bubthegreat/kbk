@@ -5,7 +5,7 @@
 image: ubuntu:14.04
 
 build:
-  stage: build-a-bear
+  stage: build
   # instead of calling g++ directly you can also use some build toolkit like make
   # install the necessary build tools when needed
   before_script: 
@@ -26,4 +26,3 @@ build:
   artifacts:
     paths:
       - area/pos2
-
