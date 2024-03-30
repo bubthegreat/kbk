@@ -5,7 +5,7 @@
 image: ubuntu:14.04
 
 build:
-  stage: build
+  stage: build-a-bear
   # instead of calling g++ directly you can also use some build toolkit like make
   # install the necessary build tools when needed
   before_script: 
