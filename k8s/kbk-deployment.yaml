@@ -16,11 +16,19 @@ spec:
         - name: kbk-persistent-storage
           persistentVolumeClaim:
             claimName: kbk-pvc
+        - name: kbk-files
+          hostPath: 
+            # This
+            path: /run/desktop/mnt/host/c/Users/bubth/Development/kbk/localxfer
+            type: Directory
       containers:
         - name: kbk
           image: kbk:latest
           ports:
             - containerPort: 8989
+          volumeMounts:
+            - name: kbk-files
+              mountPath: /kbk/localxfer
 
 ---
 apiVersion: v1

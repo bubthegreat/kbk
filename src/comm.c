@@ -1124,7 +1124,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 	if (ch->desc->editor != 0)
 	{
-		send_to_char("[OLC Mode] ", ch);
+		send_to_char("[OLC Mode: `done` to exit] ", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 # tiltfile
-allow_k8s_contexts('default')
+allow_k8s_contexts('docker-desktop')
 
 # Define the services using Docker Compose
 docker_build('kbk-sql', 'mysql/')
@@ -15,6 +15,9 @@ docker_build('kbk',
                 './src/act_obj.c',
             ]
         )
+    ],
+    ignore=[
+        './localxfer/'
     ]
 )
 
