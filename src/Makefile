@@ -20,6 +20,12 @@ pos2: $(O_FILES)
 	mv pos2 /kbk/area
 	cd ..
 
+pos2-ci: $(O_FILES)
+	rm -f pos2
+	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
+	mv pos2 ../area
+	cd ..
+
 .c.o: merc.h
 	$(CC) -I/usr/include/mysql -c $(C_FLAGS) $<
 

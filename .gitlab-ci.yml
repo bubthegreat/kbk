@@ -22,7 +22,7 @@ build:
     - apt-get -y install vim
     - apt update && apt -y install make autoconf
   script: 
-    - cd src && make -j8
+    - cd src && make -j8 pos2-ci
   artifacts:
     paths:
       - area/pos2
