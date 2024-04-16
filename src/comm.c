@@ -2998,14 +2998,12 @@ void fix_sex(CHAR_DATA *ch)
 
 void act(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2, int type)
 {
-	log_string("Entered act.");
 	/* to be compatible with older code */
 	act_new(format, ch, arg1, arg2, type, POS_RESTING);
 }
 
 void act_new(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2, int type, int min_pos)
 {
-	log_string("Entered act_new.");
 	CHAR_DATA *to;
 	CHAR_DATA *vch = (CHAR_DATA *)arg2;
 	OBJ_DATA *obj1 = (OBJ_DATA *)arg1;
