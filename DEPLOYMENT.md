@@ -42,13 +42,17 @@ kbk/
 git remote set-url origin https://github.com/bubthegreat/kbk.git
 git push -u origin master
 
-# 2. Deploy ApplicationSet
-kubectl apply -f argocd/kbk-applicationset.yaml
-kubectl apply -f argocd/ingress-nginx-tcp-config.yaml
+# 2. Deploy App of Apps (single command!)
+kubectl apply -f argocd/kbk-app-of-apps.yaml
 
 # 3. Monitor deployment
 kubectl get applications -n argocd | grep kbk
 ```
+
+The App of Apps will automatically create:
+- `kbk-environments` (ApplicationSet)
+- `kbk-prod`, `kbk-staging`, `kbk-dev` (Applications)
+- `kbk-ingress-nginx-tcp-config` (Application)
 
 ### Deploy Manually
 

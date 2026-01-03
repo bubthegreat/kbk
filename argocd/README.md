@@ -4,8 +4,10 @@ This directory contains ArgoCD ApplicationSet and Application manifests for auto
 
 ## Files
 
+- `kbk-app-of-apps.yaml` - **App of Apps** - Single Application that manages everything (recommended)
 - `kbk-applicationset.yaml` - ApplicationSet that deploys all KBK environments (prod, staging, dev)
 - `ingress-nginx-tcp-config.yaml` - Application for managing the ingress-nginx TCP ConfigMap
+- `kustomization.yaml` - Kustomize file for the App of Apps pattern
 
 ## Prerequisites
 
@@ -16,7 +18,21 @@ This directory contains ArgoCD ApplicationSet and Application manifests for auto
 
 ## Deployment
 
-### Option 1: Apply directly to cluster
+### Option 1: App of Apps (Recommended - Single Command)
+
+This is the easiest way - just apply one manifest and ArgoCD manages everything:
+
+```bash
+# Apply the App of Apps
+kubectl apply -f argocd/kbk-app-of-apps.yaml
+```
+
+This single Application will:
+- Deploy the ApplicationSet (which creates kbk-prod, kbk-staging, kbk-dev)
+- Deploy the ingress-nginx TCP config
+- Auto-sync all changes from GitHub
+
+### Option 2: Apply manifests individually
 
 ```bash
 # Apply the ApplicationSet (creates apps for all environments)
@@ -26,25 +42,30 @@ kubectl apply -f argocd/kbk-applicationset.yaml
 kubectl apply -f argocd/ingress-nginx-tcp-config.yaml
 ```
 
-### Option 2: Using ArgoCD CLI
+### Option 3: Using ArgoCD CLI
 
 ```bash
-# Create the ApplicationSet
-argocd appset create argocd/kbk-applicationset.yaml
+# App of Apps (recommended)
+argocd app create -f argocd/kbk-app-of-apps.yaml
 
-# Create the ingress-nginx config app
+# Or individual apps
+argocd appset create argocd/kbk-applicationset.yaml
 argocd app create -f argocd/ingress-nginx-tcp-config.yaml
 ```
 
-### Option 3: Via ArgoCD UI
+### Option 4: Via ArgoCD UI
 
 1. Navigate to ArgoCD UI
 2. Click "New App" → "Edit as YAML"
-3. Paste the contents of `kbk-applicationset.yaml`
+3. Paste the contents of `kbk-app-of-apps.yaml`
 4. Click "Create"
-5. Repeat for `ingress-nginx-tcp-config.yaml`
+5. ArgoCD will automatically create all child applications
 
 ## What Gets Deployed
+
+The App of Apps (`kbk-app-of-apps`) will create:
+1. **ApplicationSet** (`kbk-environments`) - which creates 3 environment Applications
+2. **Application** (`kbk-ingress-nginx-tcp-config`) - for TCP routing
 
 The ApplicationSet will automatically create and manage 3 ArgoCD Applications:
 
@@ -182,6 +203,16 @@ generators:
 
 To remove all KBK applications:
 
+### If using App of Apps (recommended)
+```bash
+# Delete the App of Apps (removes everything)
+kubectl delete application -n argocd kbk-app-of-apps
+
+# Optionally, delete the namespaces
+kubectl delete namespace kbk-prod kbk-staging kbk-dev
+```
+
+### If using individual apps
 ```bash
 # Delete the ApplicationSet (removes all generated apps)
 kubectl delete applicationset -n argocd kbk-environments
