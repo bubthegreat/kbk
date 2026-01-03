@@ -137,6 +137,7 @@ const struct cmd_type cmd_table[] =
         {"ability", do_ability, POS_DEAD, 0, LOG_NORMAL, 1, 0},
         {"areas", do_areas, POS_DEAD, 0, LOG_NORMAL, 1, 0},
         {"bug", do_bug, POS_DEAD, 0, LOG_NORMAL, 1, 0},
+        {"commands", do_commands, POS_DEAD, 0, LOG_NORMAL, 1, 0},
         {"compare", do_compare, POS_RESTING, 0, LOG_NORMAL, 1, 0},
         {"consider", do_consider, POS_RESTING, 0, LOG_NORMAL, 1, 0},
         {"count", do_count, POS_SLEEPING, 0, LOG_NORMAL, 1, 0},
