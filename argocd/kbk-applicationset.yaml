@@ -1,0 +1,69 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kbk-environments
+  namespace: argocd
+spec:
+  # Use the List generator to define each environment
+  generators:
+    - list:
+        elements:
+          - environment: prod
+            namespace: kbk-prod
+            overlay: prod
+            telnetPort: "8989"
+          - environment: staging
+            namespace: kbk-staging
+            overlay: kbk-staging
+            telnetPort: "8988"
+          - environment: dev
+            namespace: kbk-dev
+            overlay: dev
+            telnetPort: "8987"
+  
+  template:
+    metadata:
+      name: 'kbk-{{environment}}'
+      labels:
+        app: kbk
+        environment: '{{environment}}'
+    spec:
+      project: default
+      
+      source:
+        repoURL: https://github.com/bubthegreat/kbk.git
+        targetRevision: HEAD
+        path: 'k8s/overlays/{{overlay}}'
+      
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        syncOptions:
+          - CreateNamespace=true
+          - PrunePropagationPolicy=foreground
+          - PruneLast=true
+        retry:
+          limit: 5
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 3m
+      
+      # Ignore differences in certain fields that are expected to change
+      ignoreDifferences:
+        - group: apps
+          kind: Deployment
+          jsonPointers:
+            - /spec/replicas
+        - group: ""
+          kind: PersistentVolumeClaim
+          jsonPointers:
+            - /spec/volumeName
+            - /status
+

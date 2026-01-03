@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kbk-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kbk
+  template:
+    metadata:
+      labels:
+        app: kbk
+    spec:
+      volumes:
+        - name: kbk-persistent-storage
+          persistentVolumeClaim:
+            claimName: kbk-pvc
+        - name: kbk-files
+          emptyDir: {}
+      containers:
+        - name: kbk
+          image: bubthegreat/kbk:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8989
+          volumeMounts:
+            - name: kbk-files
+              mountPath: /kbk/localxfer
+

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kbk-ingress
+spec:
+  rules:
+    - host: kbk-staging.bubtaylor.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kbk-service
+                port:
+                  number: 80
+

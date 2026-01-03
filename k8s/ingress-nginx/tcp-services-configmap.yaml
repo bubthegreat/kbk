@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx
+data:
+  # Production - port 8989
+  "8989": "kbk-prod/kbk-service:8989"
+  # Staging - port 8988
+  "8988": "kbk-staging/kbk-service:8989"
+  # Dev - port 8987
+  "8987": "kbk-dev/kbk-service:8989"
+
