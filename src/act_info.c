@@ -760,6 +760,41 @@ void do_socials(CHAR_DATA *ch, char *argument)
 	return;
 }
 
+/* List all available commands for the character */
+void do_commands(CHAR_DATA *ch, char *argument)
+{
+	char buf[MAX_STRING_LENGTH];
+	int cmd;
+	int col;
+	int trust;
+
+	col = 0;
+	trust = get_trust(ch);
+
+	send_to_char("Available commands:\n\r", ch);
+
+	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++)
+	{
+		/* Only show commands the character has access to and that should be shown */
+		if (cmd_table[cmd].level <= trust && cmd_table[cmd].show)
+		{
+			sprintf(buf, "%-12s", cmd_table[cmd].name);
+			send_to_char(buf, ch);
+			if (++col % 6 == 0)
+				send_to_char("\n\r", ch);
+		}
+	}
+
+	if (col % 6 != 0)
+		send_to_char("\n\r", ch);
+
+	send_to_char("\n\rType 'socials' for a list of social commands.\n\r", ch);
+	if (IS_IMMORTAL(ch))
+		send_to_char("Type 'wizhelp' for a list of immortal commands.\n\r", ch);
+
+	return;
+}
+
 /* RT Commands to replace news, motd, imotd, etc from ROM */
 
 void do_motd(CHAR_DATA *ch, char *argument)
