@@ -37,11 +37,16 @@
 
 void init_mysql(void)
 {
+	my_bool reconnect = 1;
+
 	if (!mysql_init(&conn))
 	{
 		n_logf("Init_mysql: mysql_init() failed. Reason: %s", mysql_error(&conn));
 		return;
 	}
+
+	/* Enable automatic reconnection */
+	mysql_options(&conn, MYSQL_OPT_RECONNECT, &reconnect);
 
 	if ((mysql_real_connect(&conn, SQL_SERVER, SQL_USER, SQL_PWD, SQL_DB, 0, NULL, 0)) == NULL)
 	{
@@ -50,7 +55,7 @@ void init_mysql(void)
 		return;
 	}
 
-	log_string("Mysql_init: Established connection to MySQL database.");
+	log_string("Mysql_init: Established connection to MySQL database with auto-reconnect enabled.");
 	return;
 }
 
