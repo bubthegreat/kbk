@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `charmed` (
   `damroll` int(10) NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Create user with default authentication
-CREATE USER IF NOT EXISTS 'kbkuser'@'%' IDENTIFIED BY 'kbkpassword';
+CREATE USER IF NOT EXISTS `kbkuser`;
+ALTER USER 'kbkuser'@'%' IDENTIFIED WITH mysql_native_password BY 'kbkpassword';
 GRANT ALL ON `kbkdatabase`.* to 'kbkuser'@'%';
 FLUSH PRIVILEGES;
