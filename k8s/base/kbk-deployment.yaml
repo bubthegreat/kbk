@@ -13,11 +13,46 @@ spec:
         app: kbk
     spec:
       volumes:
-        - name: kbk-persistent-storage
+        - name: kbk-player-storage
           persistentVolumeClaim:
-            claimName: kbk-pvc
+            claimName: kbk-player-pvc
+        - name: kbk-sys-storage
+          persistentVolumeClaim:
+            claimName: kbk-sys-pvc
+        - name: kbk-area-storage
+          persistentVolumeClaim:
+            claimName: kbk-area-pvc
         - name: kbk-files
           emptyDir: {}
+      initContainers:
+        - name: init-kbk-data
+          image: bubthegreat/kbk:latest
+          command: ['sh', '-c']
+          args:
+            - |
+              # Copy player files if volume is empty
+              if [ ! -f /kbk-persistent/player/Player.lst ]; then
+                echo "Initializing player directory..."
+                cp -r /kbk/player/* /kbk-persistent/player/ || true
+              fi
+              # Copy sys files if volume is empty
+              if [ ! -f /kbk-persistent/sys/bugs.txt ]; then
+                echo "Initializing sys directory..."
+                cp -r /kbk/sys/* /kbk-persistent/sys/ || true
+              fi
+              # Copy area files if volume is empty (includes the compiled binary)
+              if [ ! -f /kbk-persistent/area/area.lst ]; then
+                echo "Initializing area directory..."
+                cp -r /kbk/area/* /kbk-persistent/area/ || true
+              fi
+              echo "Initialization complete!"
+          volumeMounts:
+            - name: kbk-player-storage
+              mountPath: /kbk-persistent/player
+            - name: kbk-sys-storage
+              mountPath: /kbk-persistent/sys
+            - name: kbk-area-storage
+              mountPath: /kbk-persistent/area
       containers:
         - name: kbk
           image: bubthegreat/kbk:latest
@@ -25,6 +60,12 @@ spec:
           ports:
             - containerPort: 8989
           volumeMounts:
+            - name: kbk-player-storage
+              mountPath: /kbk/player
+            - name: kbk-sys-storage
+              mountPath: /kbk/sys
+            - name: kbk-area-storage
+              mountPath: /kbk/area
             - name: kbk-files
               mountPath: /kbk/localxfer
 

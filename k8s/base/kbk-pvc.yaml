@@ -3,11 +3,37 @@ kind: PersistentVolumeClaim
 metadata:
   annotations:
     tilt.dev/down-policy: keep
-  name: kbk-pvc
+  name: kbk-player-pvc
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    tilt.dev/down-policy: keep
+  name: kbk-sys-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    tilt.dev/down-policy: keep
+  name: kbk-area-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
 
