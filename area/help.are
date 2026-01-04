@@ -909,6 +909,44 @@ errors. The area will be marked as changed and must be saved with asave.
 See also: MEDIT OEDIT REDIT ASAVE
 ~
 
+60 CHARMED~
+Syntax: charmed <player name>
+
+CHARMED displays a list of all charmed/summoned creatures that are currently
+saved in the database for a specific player. This is useful for tracking what
+followers a player has when they log out and log back in.
+
+The command queries the MySQL database and shows:
+- Number of charmed creatures
+- Virtual number (vnum) of each creature
+- Short description of each creature
+
+Charmed creatures are automatically saved to the database when a player quits
+or saves, and are restored when the player logs back in. This includes:
+- Summoned elementals (air, water, fire, earth)
+- Animated undead
+- Charmed NPCs
+- Any other followers with the AFF_CHARM flag
+
+The database stores creature information including:
+- Owner name
+- Creature vnum
+- Name, short description, long description
+- Level, hit points, alignment
+- Damage dice and damroll
+
+This command is primarily used for debugging charm-related issues or verifying
+that a player's followers are being properly saved and restored.
+
+Example Output:
+  Num Vnum     Charmed Name
+  --------------------------------------------------
+  1)  3062   - a fire elemental
+  2)  3063   - a water elemental
+
+See also: STAT FINGER
+~
+
 58 ALLOW BAN PERMBAN~
 Syntax: allow <site>
 	ban <site> <newbies/all/permit>
