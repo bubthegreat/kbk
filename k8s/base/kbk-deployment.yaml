@@ -21,9 +21,6 @@ spec:
         - name: kbk-sys-storage
           persistentVolumeClaim:
             claimName: kbk-sys-pvc
-        - name: kbk-area-storage
-          persistentVolumeClaim:
-            claimName: kbk-area-pvc
         - name: kbk-files
           emptyDir: {}
       initContainers:
@@ -42,19 +39,12 @@ spec:
                 echo "Initializing sys directory..."
                 cp -r /kbk/sys/* /kbk-persistent/sys/ || true
               fi
-              # Copy area files if volume is empty (includes the compiled binary)
-              if [ ! -f /kbk-persistent/area/area.lst ]; then
-                echo "Initializing area directory..."
-                cp -r /kbk/area/* /kbk-persistent/area/ || true
-              fi
               echo "Initialization complete!"
           volumeMounts:
             - name: kbk-player-storage
               mountPath: /kbk-persistent/player
             - name: kbk-sys-storage
               mountPath: /kbk-persistent/sys
-            - name: kbk-area-storage
-              mountPath: /kbk-persistent/area
       containers:
         - name: kbk
           image: bubthegreat/kbk:4a91943
@@ -66,8 +56,6 @@ spec:
               mountPath: /kbk/player
             - name: kbk-sys-storage
               mountPath: /kbk/sys
-            - name: kbk-area-storage
-              mountPath: /kbk/area
             - name: kbk-files
               mountPath: /kbk/localxfer
 
