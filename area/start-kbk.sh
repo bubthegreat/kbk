@@ -6,19 +6,19 @@ KBK_LOG_INDEX=0
 MYSQL_AVAIL=false
 
 # Wait for mysql service to be ready:
+echo "Waiting for MySQL to be ready..."
 until $MYSQL_AVAIL; do
-    echo "MySQL is unavailable - sleeping"
-    # Try to get a connection to the mysql server
-    # Use --default-auth to avoid mysql_native_password error in MySQL 8.4+
-    mysql -h kbk-sql -u kbkuser -pkbkpassword --default-auth=caching_sha2_password --execute '\q'
-    LAST_RETURN=$?
-    if [[ $LAST_RETURN == 0 ]]; then
-        echo 'Found mysql server'
+    # Simple TCP connection check - doesn't require authentication
+    if timeout 1 bash -c "cat < /dev/null > /dev/tcp/kbk-sql/3306" 2>/dev/null; then
+        echo 'MySQL port is open, waiting 5 more seconds for initialization...'
+        sleep 5
         MYSQL_AVAIL=true
     else
-        sleep 1
+        echo "MySQL is unavailable - sleeping"
+        sleep 2
     fi
 done
+echo "MySQL is ready!"
 
 # Set limits.
 if [ -f "shutdown.txt" ] ; then
