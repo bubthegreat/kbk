@@ -852,6 +852,63 @@ natural level.
 A trust of 0 means to use the character's natural level again.
 ~
 
+60 PROGSET~
+Syntax: progset <obj/mob/room> <vnum> <prog-type> <prog-name>
+
+PROGSET assigns hardcoded special programs to objects, mobiles, or rooms.
+These programs are triggered by specific events and allow for custom behavior
+without using traditional scripting.
+
+Arguments:
+  obj/mob/room - The type of entity to attach the program to
+  vnum         - The virtual number of the object, mobile, or room
+  prog-type    - The type of trigger for the program
+  prog-name    - The name of the hardcoded function to execute
+
+Object Program Types (iprogs):
+  wear_prog    - Triggered when the object is worn
+  remove_prog  - Triggered when the object is removed
+  get_prog     - Triggered when the object is picked up
+  drop_prog    - Triggered when the object is dropped
+  sac_prog     - Triggered when the object is sacrificed
+  entry_prog   - Triggered when the object enters a room
+  give_prog    - Triggered when the object is given to someone
+  greet_prog   - Triggered when someone enters the room with the object
+  fight_prog   - Triggered during combat while wearing/carrying the object
+  death_prog   - Triggered when the wearer dies (can prevent death)
+  speech_prog  - Triggered when speech occurs near the object
+  pulse_prog   - Triggered periodically (every pulse)
+  invoke_prog  - Triggered by the 'invoke' command
+
+Mobile Program Types (mprogs):
+  bribe_prog   - Triggered when the mobile is given gold
+  entry_prog   - Triggered when the mobile enters a room
+  greet_prog   - Triggered when someone enters the mobile's room
+  fight_prog   - Triggered during combat
+  death_prog   - Triggered when the mobile dies (can prevent death)
+  pulse_prog   - Triggered periodically (every pulse)
+  speech_prog  - Triggered when speech occurs near the mobile
+  give_prog    - Triggered when the mobile is given an item
+  attack_prog  - Triggered when the mobile is attacked
+  move_prog    - Triggered when the mobile moves
+  request_prog - Triggered by the 'request' command
+
+Room Program Types (rprogs):
+  speech_prog  - Triggered when speech occurs in the room
+  entry_prog   - Triggered when someone enters the room
+
+Examples:
+  progset obj 1234 wear_prog wear_prog_ring_wizardry
+  progset mob 5678 greet_prog greet_prog_outer_guardian
+  progset room 9012 entry_prog rprog_entry_esiraen_fall
+
+Note: The prog-name must match a function defined in the source code
+(iprog.c, mprog.c, or rprog.c). Using an invalid prog-name will cause
+errors. The area will be marked as changed and must be saved with asave.
+
+See also: MEDIT OEDIT REDIT ASAVE
+~
+
 58 ALLOW BAN PERMBAN~
 Syntax: allow <site>
 	ban <site> <newbies/all/permit>
