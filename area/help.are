@@ -1110,6 +1110,40 @@ should almost never be used, as 100 players popping into one room can have
 horrible effects on slow links. Teleport is a synonym for transfer. 
 ~
 
+54 ARENA~
+Syntax: arena
+
+ARENA is a toggle command that starts or stops a global arena event. When
+activated, all non-newbie players are automatically transported to the arena
+for a free-for-all combat event.
+
+When Arena Mode Starts:
+- All players (except newbies) are teleported to the arena
+- Mortals go to room 26000, immortals to room 26060
+- Players are set to ghost mode (no death penalties)
+- Wizlock is automatically enabled (prevents new logins)
+- Normal cabal, class, and alignment politics are suspended
+- Players fight to collect arena trophies from kills
+- Death returns you to the altar with all equipment intact
+
+When Arena Mode Ends:
+- All players are returned to their recall points
+- Mortals return to room 3014, immortals to room 1200
+- Arena trophies are counted and results are announced
+- Trophies are removed from inventory
+- Wizlock is automatically disabled
+- Kill counts are displayed for all participants
+
+Notes:
+- This is a major server event affecting all players
+- Should be announced in advance when possible
+- Newbie characters are automatically excluded
+- The arena is a consequence-free PK environment
+- Prizes may be awarded to top performers
+
+See also: WIZLOCK TRANSFER GOTO
+~
+
 54 AT~
 Syntax: at <location> <command>
 
