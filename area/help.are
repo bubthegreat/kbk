@@ -1013,6 +1013,59 @@ Notes:
 See also: STAT SET MSTAT OSTAT
 ~
 
+60 JINX~
+Syntax: jinx
+
+JINX is a debugging and information command that provides detailed statistics
+about the game's internal data structures. It has no arguments and performs
+three main functions when executed:
+
+1. Skill Table Analysis
+   - Counts the total number of entries in the skill table
+   - Displays the count to the immortal
+
+2. Skill Group Listing
+   - Lists all skill groups with their index numbers
+   - Shows group names for reference
+
+3. Cabal Information Export
+   - Generates a detailed report file called 'cinfo.txt'
+   - File is created in the game's root directory
+
+The cinfo.txt file contains comprehensive information about each cabal:
+- Cabal name and long name
+- Allowed races
+- Allowed classes
+- Alignment restrictions (good, neutral, evil, or combinations)
+- Ethos restrictions (lawful, neutral, chaotic, or combinations)
+- Cabal powers/abilities (skills and spells available to members)
+
+This command is primarily used for:
+- Debugging skill and group table issues
+- Verifying cabal configuration
+- Generating documentation for cabal restrictions
+- Troubleshooting class/race/alignment access problems
+- Reviewing cabal powers and abilities
+
+Output Example (to immortal):
+  Entries found in skill table: 487
+  0) rom basics
+  1) mage basics
+  2) cleric basics
+  [... additional groups ...]
+
+The cinfo.txt file is written to disk and can be reviewed with any text editor.
+This is useful for offline analysis or sharing configuration details.
+
+Notes:
+- This command takes no arguments
+- The cinfo.txt file is overwritten each time the command is run
+- File permissions must allow writing to the game directory
+- Useful for builders and administrators reviewing game balance
+
+See also: STAT DUMP VLIST
+~
+
 58 ALLOW BAN PERMBAN~
 Syntax: allow <site>
 	ban <site> <newbies/all/permit>
