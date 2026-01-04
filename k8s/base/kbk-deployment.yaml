@@ -28,7 +28,7 @@ spec:
           emptyDir: {}
       initContainers:
         - name: init-kbk-data
-          image: bubthegreat/kbk:3a3234a
+          image: bubthegreat/kbk:62c1865
           command: ['sh', '-c']
           args:
             - |
@@ -57,7 +57,7 @@ spec:
               mountPath: /kbk-persistent/area
       containers:
         - name: kbk
-          image: bubthegreat/kbk:3a3234a
+          image: bubthegreat/kbk:62c1865
           imagePullPolicy: Always
           ports:
             - containerPort: 8989
