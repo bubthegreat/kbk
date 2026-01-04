@@ -6,30 +6,40 @@ This directory contains the GitHub Actions workflows for building and deploying 
 
 ### `build-and-deploy.yml`
 
-Automatically builds Docker images and updates Kubernetes manifests when code changes are pushed.
+Automatically builds Docker images and updates Kubernetes manifests when code changes are pushed to **any branch**.
 
 **Triggers:**
-- Push to `master` or `main` branch
+- Push to `master` or `main` branch → Deploys to **kbk-prod**
+- Push to any other branch → Deploys to **kbk-dev**
 - Changes to `src/`, `area/`, `Dockerfile`, `mysql/`, or workflow files
 - Manual trigger via GitHub UI
 
 **What it does:**
 
-1. **Build and Push Images**
+1. **Build and Push Images** (all branches)
    - Builds `bubthegreat/kbk` Docker image
    - Builds `bubthegreat/kbk-sql` Docker image
    - Tags images with:
-     - `latest` (always updated)
+     - `latest` (only for master/main)
      - Short commit SHA (e.g., `abc1234`)
      - Timestamp + SHA (e.g., `20240116-123456-abc1234`)
+     - Branch + SHA (e.g., `feature-help-abc1234`)
+     - Branch + latest (e.g., `feature-help-latest`)
    - Pushes all tags to Docker Hub
    - Uses layer caching for faster builds
 
 2. **Update Kubernetes Manifests**
+
+   **For master/main (Production):**
    - Updates `k8s/base/kbk-deployment.yaml` with new image tag
    - Updates `k8s/base/mysql-deployment.yaml` with new image tag
    - Commits changes back to the repository
-   - ArgoCD automatically detects and deploys the changes
+   - ArgoCD automatically deploys to **kbk-prod** namespace
+
+   **For feature branches (Development):**
+   - Updates `k8s/overlays/dev/kustomization.yaml` with branch-specific tags
+   - Commits changes back to the repository
+   - ArgoCD automatically deploys to **kbk-dev** namespace
 
 ## Setup Instructions
 
@@ -96,36 +106,64 @@ kubectl get pods -n kbk-prod -w
 
 ### Image Tagging Strategy
 
-Each build creates three tags:
+**Production builds (master/main)** create five tags:
 
-1. **`latest`** - Always points to the most recent build
-   - Use for: Development/testing
+1. **`latest`** - Always points to the most recent production build
    - Example: `bubthegreat/kbk:latest`
 
 2. **Short SHA** - Git commit hash (7 characters)
-   - Use for: Production deployments (what gets committed to manifests)
    - Example: `bubthegreat/kbk:abc1234`
    - Benefit: Immutable, traceable to exact code version
 
 3. **Timestamp + SHA** - Human-readable timestamp
-   - Use for: Debugging, rollbacks
    - Example: `bubthegreat/kbk:20240116-123456-abc1234`
    - Benefit: Easy to see when it was built
 
+4. **Branch + SHA** - Branch name with commit
+   - Example: `bubthegreat/kbk:master-abc1234`
+
+5. **Branch + latest** - Latest build for this branch
+   - Example: `bubthegreat/kbk:master-latest`
+
+**Development builds (feature branches)** create four tags (no `latest`):
+
+1. **Short SHA** - Git commit hash (7 characters)
+   - Example: `bubthegreat/kbk:abc1234`
+
+2. **Timestamp + SHA** - Human-readable timestamp
+   - Example: `bubthegreat/kbk:20240116-123456-abc1234`
+
+3. **Branch + SHA** - Branch name with commit
+   - Example: `bubthegreat/kbk:feature-help-abc1234`
+
+4. **Branch + latest** - Latest build for this branch
+   - Example: `bubthegreat/kbk:feature-help-latest`
+
 ### GitOps Flow
 
+**Production (master/main):**
 ```
-Code Change → GitHub Push → GitHub Actions → Docker Hub → Git Commit → ArgoCD → Kubernetes
+Code Change → GitHub Push → GitHub Actions → Docker Hub → Git Commit → ArgoCD → kbk-prod
      ↓              ↓              ↓              ↓            ↓           ↓          ↓
-  src/*.c      Workflow      Build Images    Push Tags   Update K8s   Detect    Deploy
-                Triggers                                  Manifests    Change    Pods
+  src/*.c      Workflow      Build Images    Push Tags   Update base  Detect    Deploy
+                Triggers                                  manifests    Change    Pods
+```
+
+**Development (branches):**
+```
+Code Change → GitHub Push → GitHub Actions → Docker Hub → Git Commit → ArgoCD → kbk-dev
+     ↓              ↓              ↓              ↓            ↓           ↓          ↓
+  src/*.c      Workflow      Build Images    Push Tags   Update dev   Detect    Deploy
+                Triggers                                  overlay      Change    Pods
 ```
 
 ### Automatic Rollout
 
 When the workflow updates the manifests:
 
-1. **Commit is pushed** with message like: `chore: update image tags to abc1234 [skip ci]`
+1. **Commit is pushed** with message like:
+   - Production: `chore: update production image tags to abc1234 [skip ci]`
+   - Development: `chore: update dev overlay for branch feature-help to abc1234 [skip ci]`
    - `[skip ci]` prevents infinite loop of builds
 
 2. **ArgoCD detects change** within ~3 minutes (or immediately if you sync manually)
@@ -134,7 +172,50 @@ When the workflow updates the manifests:
    - Old pods stay running until new ones are healthy
    - Zero-downtime deployment
 
-4. **All environments update** (prod, staging, dev) because they all use the base manifests
+4. **Environments are isolated**:
+   - Production uses base manifests → deploys to `kbk-prod`
+   - Development uses dev overlay → deploys to `kbk-dev`
+
+## Testing Feature Branches
+
+### Quick Start
+
+1. **Create and push your branch:**
+   ```bash
+   git checkout -b feature/my-new-feature
+   # Make your changes
+   git add .
+   git commit -m "feat: add new feature"
+   git push origin feature/my-new-feature
+   ```
+
+2. **Wait for the build** (~5-10 minutes)
+   - Go to https://github.com/bubthegreat/kbk/actions
+   - Watch the workflow run
+   - Check the deployment summary
+
+3. **Monitor the deployment:**
+   ```bash
+   # Watch ArgoCD sync
+   argocd app get kbk-dev
+
+   # Watch pods restart
+   kubectl get pods -n kbk-dev -w
+
+   # Check the deployed image
+   kubectl get deployment -n kbk-dev kbk-deployment -o jsonpath='{.spec.template.spec.containers[0].image}'
+   ```
+
+4. **Test your changes** in the kbk-dev environment
+
+5. **When ready, merge to master** to deploy to production
+
+### Branch Naming
+
+Branch names are sanitized for Docker tags (slashes become dashes):
+- `feature/new-command` → `feature-new-command-abc1234`
+- `bugfix/arena-fix` → `bugfix-arena-fix-abc1234`
+- `docs/update-readme` → `docs-update-readme-abc1234`
 
 ## Manual Operations
 
