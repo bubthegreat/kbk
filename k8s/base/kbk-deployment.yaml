@@ -20,7 +20,7 @@ spec:
           emptyDir: {}
       containers:
         - name: kbk
-          image: bubthegreat/kbk:latest
+          image: bubthegreat/kbk:5b4227f
           imagePullPolicy: Always
           ports:
             - containerPort: 8989
