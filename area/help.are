@@ -947,6 +947,72 @@ Example Output:
 See also: STAT FINGER
 ~
 
+60 FLAG~
+Syntax: flag mob  <name> <field> <+/-/=> <flags>
+        flag char <name> <field> <+/-/=> <flags>
+        flag obj  <name> <field> <+/-/=> <flags>
+
+FLAG is a powerful command for modifying flags on mobs, characters, and objects.
+This is primarily used for debugging, testing, or fixing issues with entities
+in the game world.
+
+Target Types:
+  mob/char - Modify flags on NPCs or player characters
+  obj      - Modify flags on objects
+
+Field Types for Mobs:
+  act   - NPC behavior flags (sentinel, aggressive, etc.)
+  aff   - Affect flags (invisible, detect_invis, sanctuary, etc.)
+  off   - Offensive flags (bash, disarm, etc.) - NPCs only
+  imm   - Immunity flags (fire, cold, poison, etc.)
+  res   - Resistance flags (fire, cold, poison, etc.)
+  vuln  - Vulnerability flags (fire, cold, poison, etc.)
+  form  - Body form flags (edible, sentient, mammal, etc.) - NPCs only
+  part  - Body parts flags (head, arms, legs, etc.) - NPCs only
+
+Field Types for Characters (PCs):
+  plr   - Player flags (autoassist, autoexit, etc.)
+  comm  - Communication flags (quiet, nochannels, etc.)
+  aff   - Affect flags (same as mobs)
+  imm   - Immunity flags (same as mobs)
+  res   - Resistance flags (same as mobs)
+  vuln  - Vulnerability flags (same as mobs)
+
+Field Types for Objects:
+  wear         - Wear location flags (take, finger, neck, body, etc.)
+  extra        - Extra flags (glow, hum, dark, etc.)
+  weaponflags  - Weapon-specific flags (flaming, frost, vampiric, etc.)
+  restricts    - Restriction flags (class, race, alignment restrictions)
+
+Operators:
+  +  - Add the specified flag(s) to existing flags
+  -  - Remove the specified flag(s) from existing flags
+  =  - Set flags equal to specified flag(s) (clears all others)
+  (none) - Toggle the specified flag(s)
+
+Examples:
+  flag mob guard act sentinel aggressive
+    Toggles sentinel and aggressive flags on the guard
+
+  flag char bob plr + autoassist autoexit
+    Adds autoassist and autoexit flags to player Bob
+
+  flag obj sword weaponflags - flaming
+    Removes the flaming flag from the sword
+
+  flag mob dragon imm = fire
+    Sets dragon's immunities to ONLY fire (removes all other immunities)
+
+Notes:
+- This is a very powerful command - use with caution
+- Some flags may only be settable by MAX_LEVEL immortals
+- Modifying PC flags can affect gameplay significantly
+- Always verify changes with STAT command after using FLAG
+- Multiple flags can be specified in a single command
+
+See also: STAT SET MSTAT OSTAT
+~
+
 58 ALLOW BAN PERMBAN~
 Syntax: allow <site>
 	ban <site> <newbies/all/permit>
