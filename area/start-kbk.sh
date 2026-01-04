@@ -9,7 +9,8 @@ MYSQL_AVAIL=false
 until $MYSQL_AVAIL; do
     echo "MySQL is unavailable - sleeping"
     # Try to get a connection to the mysql server
-    mysql -h kbk-sql -u kbkuser -pkbkpassword --execute '\q'
+    # Use --default-auth to avoid mysql_native_password error in MySQL 8.4+
+    mysql -h kbk-sql -u kbkuser -pkbkpassword --default-auth=caching_sha2_password --execute '\q'
     LAST_RETURN=$?
     if [[ $LAST_RETURN == 0 ]]; then
         echo 'Found mysql server'
