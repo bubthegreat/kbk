@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: mysql
+        test-pvc: "2026-01-04"
     spec:
       volumes:
         - name: mysql-persistent-storage

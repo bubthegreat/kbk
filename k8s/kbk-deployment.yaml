@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: kbk
+        test-pvc: "2026-01-04"
     spec:
       volumes:
         - name: kbk-persistent-storage
