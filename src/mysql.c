@@ -80,6 +80,9 @@ int mysql_safe_query(char *fmt, ...)
 	*query = '\0';
 	*safe = '\0';
 
+	/* Ping MySQL to ensure connection is alive and reconnect if needed */
+	mysql_ping(&conn);
+
 	va_start(argp, fmt);
 
 	for (p = fmt, out = query; *p != '\0'; p++)
