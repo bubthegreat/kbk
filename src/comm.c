@@ -3358,7 +3358,6 @@ void do_renam(CHAR_DATA *ch, char *argument)
 
 int color(char type, CHAR_DATA *ch, char *string)
 {
-	log_string("Entered color.");
 	char code[20];
 	char *p = '\0';
 
@@ -3453,7 +3452,6 @@ int color(char type, CHAR_DATA *ch, char *string)
 
 void colorconv(char *buffer, const char *txt, CHAR_DATA *ch)
 {
-	log_string("Entered colorconv.");
 	const char *point;
 	int skip = 0;
 
