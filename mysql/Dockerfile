@@ -1,5 +1,5 @@
-# Use MySQL 5.7 for compatibility with old authentication
-FROM mysql:5.7
+# Use an official MySQL image as the base image
+FROM mysql:latest
 
 # Copy the custom SQL script into the container
 COPY init.sql /docker-entrypoint-initdb.d/
