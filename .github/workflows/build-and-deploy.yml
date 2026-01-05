@@ -169,73 +169,17 @@ jobs:
           \`\`\`
           EOF
 
-  update-manifests-dev:
-    name: Update Dev Manifests
+  build-summary:
+    name: Build Summary (Non-Production)
     runs-on: ubuntu-latest
     needs: build-and-push
     if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main'
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create or update dev overlay for branch
-        run: |
-          BRANCH_NAME="${{ needs.build-and-push.outputs.branch_name }}"
-          SHORT_SHA="${{ needs.build-and-push.outputs.short_sha }}"
-
-          # Create dev overlay directory if it doesn't exist
-          mkdir -p k8s/overlays/dev
-
-          # Create/update kustomization.yaml for dev
-          cat > k8s/overlays/dev/kustomization.yaml << EOF
-          apiVersion: kustomize.config.k8s.io/v1beta1
-          kind: Kustomization
-
-          namespace: kbk-dev
-
-          resources:
-            - namespace.yaml
-            - ../../base
-
-          # Add namespace to all resources
-          commonLabels:
-            environment: dev
-            branch: ${BRANCH_NAME}
-
-          # Patch ingress to use dev hostnames
-          patchesStrategicMerge:
-            - ingress-patch.yaml
-
-          # Override images with branch-specific tags
-          images:
-            - name: bubthegreat/kbk
-              newTag: ${BRANCH_NAME}-${SHORT_SHA}
-            - name: bubthegreat/kbk-sql
-              newTag: ${BRANCH_NAME}-${SHORT_SHA}
-          EOF
-
-          echo "Updated dev kustomization with branch ${BRANCH_NAME} and SHA ${SHORT_SHA}"
-
-      - name: Commit and push dev manifest changes
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-          if git diff --quiet; then
-            echo "No changes to commit"
-          else
-            git add k8s/overlays/dev/kustomization.yaml
-            git commit -m "chore: update dev overlay for branch ${{ needs.build-and-push.outputs.branch_name }} to ${{ needs.build-and-push.outputs.short_sha }} [skip ci]"
-            git push
-          fi
-
-      - name: Create deployment summary
+      - name: Create build summary
         run: |
           cat >> $GITHUB_STEP_SUMMARY << EOF
-          ## 🚀 Dev Deployment Summary
+          ## 🔨 Build Summary (Non-Production Branch)
 
           ### Branch
           - **Branch**: \`${{ needs.build-and-push.outputs.branch_name }}\`
@@ -244,19 +188,19 @@ jobs:
           - **KBK Image**: \`bubthegreat/kbk:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\`
           - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\`
 
-          ### Manifests Updated
-          - \`k8s/overlays/dev/kustomization.yaml\`
+          ### ⚠️ No Automatic Deployment
+          Images have been built and pushed to Docker Hub, but **manifests were not updated**.
 
-          ### Next Steps
-          ArgoCD will automatically sync the new images to **kbk-dev** namespace within ~3 minutes.
+          To deploy this branch to an environment, use the **Deploy Branch to Environment** workflow:
+          1. Go to Actions → Deploy Branch to Environment
+          2. Select your branch: \`${{ needs.build-and-push.outputs.branch_name }}\`
+          3. Choose target environment (dev/staging/prod)
+          4. Set "Build new Docker images?" to **NO** (images already built)
+          5. Click "Run workflow"
 
-          Monitor deployment:
-          \`\`\`bash
-          argocd app get kbk-dev
-          kubectl get pods -n kbk-dev -w
-          \`\`\`
-
-          ### Testing
-          Access your branch deployment at the dev environment endpoint.
+          ### Available Image Tags
+          - \`${{ needs.build-and-push.outputs.short_sha }}\` (commit SHA)
+          - \`${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\` (branch + SHA)
+          - \`${{ needs.build-and-push.outputs.branch_name }}-latest\` (branch latest)
           EOF
 

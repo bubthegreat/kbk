@@ -5,6 +5,7 @@ metadata:
     tilt.dev/down-policy: keep
   name: mysql-pvc
 spec:
+  storageClassName: longhorn-retain
   accessModes:
     - ReadWriteOnce
   resources:

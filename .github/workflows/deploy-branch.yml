@@ -4,9 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: 'Branch to deploy'
+        description: 'Branch to deploy (e.g., feature/my-feature, help-commands, etc.)'
         required: true
         type: string
+        default: 'master'
       environment:
         description: 'Target environment'
         required: true
@@ -19,7 +20,7 @@ on:
         description: 'Build new Docker images?'
         required: true
         type: boolean
-        default: true
+        default: false
 
 env:
   DOCKER_REGISTRY: docker.io
@@ -28,14 +29,48 @@ env:
   SQL_IMAGE_NAME: bubthegreat/kbk-sql
 
 jobs:
+  validate-branch:
+    name: Validate Branch
+    runs-on: ubuntu-latest
+    outputs:
+      branch_exists: ${{ steps.check.outputs.exists }}
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: List available branches
+        run: |
+          echo "### Available Branches" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          git branch -r | grep -v HEAD | sed 's/origin\///' | sort >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+      - name: Check if branch exists
+        id: check
+        run: |
+          if git show-ref --verify --quiet refs/remotes/origin/${{ inputs.branch }}; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "✅ Branch '${{ inputs.branch }}' exists" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "❌ Branch '${{ inputs.branch }}' does not exist" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
   build-images:
     name: Build Docker Images
     runs-on: ubuntu-latest
-    if: inputs.build_images == true
+    needs: validate-branch
+    if: inputs.build_images == true && needs.validate-branch.outputs.branch_exists == 'true'
     outputs:
       short_sha: ${{ steps.vars.outputs.short_sha }}
       branch_name: ${{ steps.vars.outputs.branch_name }}
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -47,7 +82,7 @@ jobs:
         id: vars
         run: |
           echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-          
+
           # Sanitize branch name for use in tags
           SAFE_BRANCH_NAME=$(echo "${{ inputs.branch }}" | sed 's/\//-/g')
           echo "branch_name=${SAFE_BRANCH_NAME}" >> $GITHUB_OUTPUT
@@ -102,11 +137,12 @@ jobs:
   get-sha:
     name: Get Branch SHA
     runs-on: ubuntu-latest
-    if: inputs.build_images == false
+    needs: validate-branch
+    if: inputs.build_images == false && needs.validate-branch.outputs.branch_exists == 'true'
     outputs:
       short_sha: ${{ steps.vars.outputs.short_sha }}
       branch_name: ${{ steps.vars.outputs.branch_name }}
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -124,8 +160,8 @@ jobs:
   update-manifests:
     name: Update Manifests for ${{ inputs.environment }}
     runs-on: ubuntu-latest
-    needs: [build-images, get-sha]
-    if: always() && (needs.build-images.result == 'success' || needs.get-sha.result == 'success')
+    needs: [validate-branch, build-images, get-sha]
+    if: always() && needs.validate-branch.outputs.branch_exists == 'true' && (needs.build-images.result == 'success' || needs.get-sha.result == 'success')
     
     steps:
       - name: Checkout code
@@ -177,7 +213,10 @@ jobs:
 
           commonLabels:
             environment: staging
-            branch: ${BRANCH_NAME}
+
+          commonAnnotations:
+            deployed-branch: ${BRANCH_NAME}
+            deployed-sha: ${SHORT_SHA}
 
           patchesStrategicMerge:
             - ingress-patch.yaml
@@ -212,7 +251,10 @@ jobs:
 
           commonLabels:
             environment: dev
-            branch: ${BRANCH_NAME}
+
+          commonAnnotations:
+            deployed-branch: ${BRANCH_NAME}
+            deployed-sha: ${SHORT_SHA}
 
           patchesStrategicMerge:
             - ingress-patch.yaml

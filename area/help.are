@@ -1152,6 +1152,47 @@ name unusable.  It may only be removed by editing the file, for this reason
 freeze is usually preferred.
 ~
 
+59 LTRACK~
+Syntax: ltrack <name/date/hostname/ip/vnum> [type]
+        ltrack % [type]
+
+LTRACK is a login tracking command that queries the traffic database to show
+login and logout history for players. It searches across multiple fields and
+returns up to 100 matching records, ordered by time.
+
+Search Parameters:
+  name     - Player character name (supports wildcards)
+  date     - Date/time string to search for
+  hostname - Hostname or partial hostname
+  ip       - IP address
+  vnum     - Room vnum where login/logout occurred
+  %        - Wildcard to show all recent login records
+
+Optional Type Filter:
+  new      - Show only new character creation events
+  in       - Show only login events
+  out      - Show only logout events
+  (none)   - Show all event types
+
+Output Format:
+  Each line shows: timestamp, event type, room vnum, player@hostname (IP)
+  Event types: NEW CHAR, LOGIN, LOG OUT, AUTOQUIT
+
+Examples:
+  ltrack bubthegreat       - Show all login activity for player 'bubthegreat'
+  ltrack %                 - Show last 100 login/logout events for all players
+  ltrack % in              - Show last 100 login events only
+  ltrack 192.168           - Show logins from IP addresses matching pattern
+  ltrack 2026-01-05        - Show logins on a specific date
+
+Notes:
+- Results are limited to 100 records
+- Wildcards work with SQL LIKE pattern matching
+- Useful for tracking player activity and investigating issues
+
+See also: SOCKETS WHO FINGER
+~
+
 57 DISCONNECT~
 Syntax: disconnect <name>
 

@@ -618,7 +618,11 @@ void do_ltrack(CHAR_DATA *ch, char *argument)
 	// If you don't know how to use the command, you should feel bad son.
 	if (arg1[0] == '\0')
 	{
-		return send_to_char("Syntax: ltrack <name/date/hostname/ip/vnum> [type]\n\r", ch);
+		send_to_char("Syntax: ltrack <name/date/hostname/ip/vnum> [type]\n\r", ch);
+		send_to_char("        ltrack % [type]\n\r", ch);
+		send_to_char("Type can be: new, in, or out\n\r", ch);
+		send_to_char("Use '%' to show all recent login records (limit 100)\n\r", ch);
+		return;
 	}
 
 	if (arg2[0] != '\0')
