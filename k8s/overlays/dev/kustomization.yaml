@@ -7,11 +7,15 @@ resources:
   - namespace.yaml
   - ../../base
 
-# Add namespace to all resources
 commonLabels:
   environment: dev
+  branch: help-commands
 
-# Patch ingress to use dev hostnames
 patchesStrategicMerge:
   - ingress-patch.yaml
 
+images:
+  - name: bubthegreat/kbk
+    newTag: help-commands-6ad9c61
+  - name: bubthegreat/kbk-sql
+    newTag: help-commands-6ad9c61
