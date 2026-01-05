@@ -20,7 +20,7 @@ spec:
             claimName: mysql-pvc
       containers:
         - name: mysql
-          image: bubthegreat/kbk-sql:834c6fc
+          image: bubthegreat/kbk-sql:d3bc563
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
