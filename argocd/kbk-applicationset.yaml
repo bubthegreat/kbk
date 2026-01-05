@@ -48,13 +48,16 @@ spec:
           - CreateNamespace=true
           - PrunePropagationPolicy=foreground
           - PruneLast=true
+        managedNamespaceMetadata:
+          annotations:
+            argocd.argoproj.io/sync-options: PrunePropagationPolicy=foreground,PruneLast=true
         retry:
           limit: 5
           backoff:
             duration: 5s
             factor: 2
             maxDuration: 3m
-      
+
       # Ignore differences in certain fields that are expected to change
       ignoreDifferences:
         - group: apps
@@ -66,4 +69,6 @@ spec:
           jsonPointers:
             - /spec/volumeName
             - /status
+            - /metadata/annotations
+            - /metadata/finalizers
 
