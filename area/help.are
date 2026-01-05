@@ -1066,6 +1066,43 @@ Notes:
 See also: STAT DUMP VLIST
 ~
 
+60 LAGOUT~
+Syntax: lagout <character>
+
+LAGOUT is an administrative command used to apply a forced lag state to a
+player character. This command is primarily used to stop spammers or players
+who are abusing game mechanics through rapid command execution.
+
+When executed, LAGOUT applies a 24-pulse wait state to the target character,
+effectively preventing them from executing any commands for a brief period.
+This gives immortals time to investigate the situation or allows the player
+to calm down if they're spamming commands.
+
+Usage:
+  lagout <player name>
+
+Effects:
+- Applies a 24-pulse wait state to the target
+- Prevents the target from executing commands during the wait period
+- Does not send any message to the target or the immortal
+- Silent operation for discreet moderation
+
+Common Use Cases:
+- Stopping players who are spamming commands
+- Preventing abuse of movement or communication commands
+- Giving time to investigate suspicious behavior
+- Temporarily halting automated scripts or bots
+
+Notes:
+- This command requires level 60 immortal access
+- The command operates silently with no feedback messages
+- If the character name is not found, the command fails silently
+- The wait state duration is fixed at 24 pulses
+- This is a temporary measure; use FREEZE for longer-term restrictions
+
+See also: FREEZE DISCONNECT DENY
+~
+
 58 ALLOW BAN PERMBAN~
 Syntax: allow <site>
 	ban <site> <newbies/all/permit>

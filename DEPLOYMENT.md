@@ -91,6 +91,112 @@ kubectl get pods -n kbk-dev
 - ✅ Easy rollback - revert Git commit
 - ✅ Audit trail - all changes in Git history
 
+## Automated CI/CD Pipeline
+
+### Overview
+
+Every push to GitHub automatically triggers a build and deployment:
+
+| Branch Type | Builds | Deploys To | Manifest Updated |
+|-------------|--------|------------|------------------|
+| `master` or `main` | ✅ | `kbk-prod` | `k8s/base/*.yaml` |
+| Any other branch | ✅ | `kbk-dev` | `k8s/overlays/dev/kustomization.yaml` |
+
+### Development Workflow (Feature Branches)
+
+**1. Create and push a feature branch:**
+```bash
+git checkout -b feature/add-help-commands
+# Make your changes to src/ or area/
+git add .
+git commit -m "feat: add help entries for missing commands"
+git push origin feature/add-help-commands
+```
+
+**2. Automatic build and deployment** (~5-10 minutes):
+- GitHub Actions builds Docker images
+- Images are tagged with branch name: `feature-add-help-commands-abc1234`
+- Images pushed to Docker Hub
+- `k8s/overlays/dev/kustomization.yaml` is updated
+- ArgoCD syncs to `kbk-dev` namespace
+
+**3. Test your changes:**
+```bash
+# Watch the deployment
+kubectl get pods -n kbk-dev -w
+
+# Check the deployed image
+kubectl get deployment -n kbk-dev kbk-deployment -o jsonpath='{.spec.template.spec.containers[0].image}'
+
+# Connect to dev environment and test
+telnet kbk-dev.yourdomain.com 4000
+```
+
+**4. Merge to production when ready:**
+```bash
+git checkout master
+git merge feature/add-help-commands
+git push origin master
+```
+→ Automatically deploys to `kbk-prod` namespace
+
+### Production Workflow (Master/Main)
+
+**Push to master:**
+```bash
+git checkout master
+# Make changes or merge a feature branch
+git push origin master
+```
+
+**Automatic deployment:**
+- GitHub Actions builds Docker images
+- Images are tagged with SHA and `latest`
+- Base manifests in `k8s/base/` are updated
+- ArgoCD syncs to `kbk-prod` namespace
+
+### Image Tags
+
+**Production (master/main) creates:**
+- `bubthegreat/kbk:latest`
+- `bubthegreat/kbk:abc1234` (SHA)
+- `bubthegreat/kbk:20260104-123456-abc1234` (timestamp)
+- `bubthegreat/kbk:master-abc1234`
+- `bubthegreat/kbk:master-latest`
+
+**Development (branches) creates:**
+- `bubthegreat/kbk:abc1234` (SHA)
+- `bubthegreat/kbk:20260104-123456-abc1234` (timestamp)
+- `bubthegreat/kbk:feature-add-help-abc1234`
+- `bubthegreat/kbk:feature-add-help-latest`
+
+### Monitoring CI/CD
+
+**GitHub Actions:**
+- View workflow runs: https://github.com/bubthegreat/kbk/actions
+- Check build logs and deployment summaries
+
+**ArgoCD:**
+```bash
+# Check production
+argocd app get kbk-prod
+
+# Check development
+argocd app get kbk-dev
+
+# Force sync if needed
+argocd app sync kbk-dev
+```
+
+**Kubernetes:**
+```bash
+# Watch production pods
+kubectl get pods -n kbk-prod -w
+
+# Watch development pods
+kubectl get pods -n kbk-dev -w
+```
+
 ### Deployment Method 2: Manual kubectl (For Testing/Development)
 
 Use this for quick testing or when ArgoCD is not available.
