@@ -7,6 +7,7 @@ This directory contains ArgoCD ApplicationSet and Application manifests for auto
 - `kbk-app-of-apps.yaml` - **App of Apps** - Single Application that manages everything (recommended)
 - `kbk-applicationset.yaml` - ApplicationSet that deploys all KBK environments (prod, staging, dev)
 - `ingress-nginx-tcp-config.yaml` - Application for managing the ingress-nginx TCP ConfigMap
+- `cluster-resources.yaml` - Application for cluster-wide resources (StorageClass, etc.)
 - `kustomization.yaml` - Kustomize file for the App of Apps pattern
 
 ## Prerequisites
@@ -30,6 +31,7 @@ kubectl apply -f argocd/kbk-app-of-apps.yaml
 This single Application will:
 - Deploy the ApplicationSet (which creates kbk-prod, kbk-staging, kbk-dev)
 - Deploy the ingress-nginx TCP config
+- Deploy cluster-wide resources (StorageClass)
 - Auto-sync all changes from GitHub
 
 ### Option 2: Apply manifests individually
@@ -40,6 +42,9 @@ kubectl apply -f argocd/kbk-applicationset.yaml
 
 # Apply the ingress-nginx TCP config
 kubectl apply -f argocd/ingress-nginx-tcp-config.yaml
+
+# Apply cluster-wide resources
+kubectl apply -f argocd/cluster-resources.yaml
 ```
 
 ### Option 3: Using ArgoCD CLI
