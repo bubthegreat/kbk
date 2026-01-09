@@ -788,8 +788,8 @@ void do_commands(CHAR_DATA *ch, char *argument)
 				sn = skill_lookup(cmd_table[cmd].name);
 				if (sn >= 0)
 				{
-					/* This is a skill - only show if character has learned it */
-					if (ch->pcdata->learned[sn] <= 0)
+					/* This is a skill - only show if character has actually learned it (>1%) */
+					if (ch->pcdata->learned[sn] <= 1)
 						show_cmd = FALSE;
 				}
 			}
