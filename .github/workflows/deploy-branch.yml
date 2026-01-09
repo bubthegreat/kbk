@@ -70,6 +70,7 @@ jobs:
     outputs:
       short_sha: ${{ steps.vars.outputs.short_sha }}
       branch_name: ${{ steps.vars.outputs.branch_name }}
+      mysql_changed: ${{ steps.mysql_changes.outputs.changed }}
 
     steps:
       - name: Checkout code
@@ -86,6 +87,18 @@ jobs:
           # Sanitize branch name for use in tags
           SAFE_BRANCH_NAME=$(echo "${{ inputs.branch }}" | sed 's/\//-/g')
           echo "branch_name=${SAFE_BRANCH_NAME}" >> $GITHUB_OUTPUT
+
+      - name: Check for MySQL changes
+        id: mysql_changes
+        run: |
+          # Check if mysql directory has changed in this commit
+          if git diff --name-only HEAD~1 HEAD | grep -q '^mysql/'; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "MySQL files changed - will rebuild SQL image"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No MySQL changes detected - skipping SQL image build"
+          fi
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -117,6 +130,7 @@ jobs:
 
       - name: Extract metadata for SQL image
         id: meta-sql
+        if: steps.mysql_changes.outputs.changed == 'true'
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.SQL_IMAGE_NAME }}
@@ -126,6 +140,7 @@ jobs:
             type=raw,value=${{ steps.vars.outputs.branch_name }}-latest
 
       - name: Build and push SQL image
+        if: steps.mysql_changes.outputs.changed == 'true'
         uses: docker/build-push-action@v5
         with:
           context: ./mysql
