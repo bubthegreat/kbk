@@ -767,6 +767,8 @@ void do_commands(CHAR_DATA *ch, char *argument)
 	int cmd;
 	int col;
 	int trust;
+	int sn;
+	bool show_cmd;
 
 	col = 0;
 	trust = get_trust(ch);
@@ -778,10 +780,27 @@ void do_commands(CHAR_DATA *ch, char *argument)
 		/* Only show commands the character has access to and that should be shown */
 		if (cmd_table[cmd].level <= trust && cmd_table[cmd].show)
 		{
-			sprintf(buf, "%-12s", cmd_table[cmd].name);
-			send_to_char(buf, ch);
-			if (++col % 6 == 0)
-				send_to_char("\n\r", ch);
+			show_cmd = TRUE;
+
+			/* Check if this command is a skill/spell/power */
+			if (!IS_NPC(ch))
+			{
+				sn = skill_lookup(cmd_table[cmd].name);
+				if (sn >= 0)
+				{
+					/* This is a skill - only show if character has learned it */
+					if (ch->pcdata->learned[sn] <= 0)
+						show_cmd = FALSE;
+				}
+			}
+
+			if (show_cmd)
+			{
+				sprintf(buf, "%-12s", cmd_table[cmd].name);
+				send_to_char(buf, ch);
+				if (++col % 6 == 0)
+					send_to_char("\n\r", ch);
+			}
 		}
 	}
 
