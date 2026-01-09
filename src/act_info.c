@@ -761,6 +761,45 @@ void do_socials(CHAR_DATA *ch, char *argument)
 }
 
 /* List all available commands for the character */
+/* Helper function to find skill by command name, handling space variations */
+int find_skill_by_command(const char *cmd_name)
+{
+	int sn;
+	char skill_name[MAX_STRING_LENGTH];
+	int i, j, len;
+
+	/* First try exact match */
+	sn = skill_lookup(cmd_name);
+	if (sn >= 0)
+		return sn;
+
+	/* Try searching through all skills to find a match where the skill name
+	 * without spaces matches the command name */
+	for (sn = 0; sn < MAX_SKILL; sn++)
+	{
+		if (skill_table[sn].name == NULL)
+			break;
+
+		/* Create a version of the skill name without spaces */
+		j = 0;
+		len = strlen(skill_table[sn].name);
+		for (i = 0; i < len && j < MAX_STRING_LENGTH - 1; i++)
+		{
+			if (skill_table[sn].name[i] != ' ')
+			{
+				skill_name[j++] = skill_table[sn].name[i];
+			}
+		}
+		skill_name[j] = '\0';
+
+		/* Compare the space-stripped skill name with the command name */
+		if (!str_cmp(skill_name, cmd_name))
+			return sn;
+	}
+
+	return -1;
+}
+
 void do_commands(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -785,11 +824,15 @@ void do_commands(CHAR_DATA *ch, char *argument)
 			/* Check if this command is a skill/spell/power */
 			if (!IS_NPC(ch))
 			{
-				sn = skill_lookup(cmd_table[cmd].name);
+				sn = find_skill_by_command(cmd_table[cmd].name);
 				if (sn >= 0)
 				{
-					/* This is a skill - only show if character has actually learned it (>1%) */
-					if (ch->pcdata->learned[sn] <= 1)
+					/* This is a skill - only show if:
+					 * 1. Character has actually learned it (>1%), AND
+					 * 2. It's available to their class (skill_level < LEVEL_HERO)
+					 */
+					if (ch->pcdata->learned[sn] <= 1 ||
+					    skill_table[sn].skill_level[ch->class] >= LEVEL_HERO)
 						show_cmd = FALSE;
 				}
 			}
