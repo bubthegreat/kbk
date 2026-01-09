@@ -180,7 +180,7 @@ typedef void SET_ITEM_PROG args((CHAR_DATA * ch, int arg2, bool arg3));
 #define MAX_KEY_HASH 1024
 #define MAX_STRING_LENGTH 4608
 #define MAX_INPUT_LENGTH 256
-#define PAGELEN 20
+#define PAGELEN 0  /* Default scroll/paging size for new players (0 = disabled) */
 
 /*
  * Game parameters.
