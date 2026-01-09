@@ -585,9 +585,19 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 		while ((row = mysql_fetch_row(res)) != NULL)
 		{
 			member_count++;
-			ttime = atoi(row[9]);
-			strftime(time, 255, "%A %b %e", localtime(&ttime));
-			sprintf(buf, "%-11s     %-10s\n\r", row[1], time);
+
+			// Safety checks for NULL values
+			// Schema: name(0), level(1), race(2), class(3), cabal(4), sex(5), alignment(6), ethos(7), ctime(8)
+			if (row[0] == NULL || row[8] == NULL)
+				continue;
+
+			ttime = atoi(row[8]);
+			struct tm *timeinfo = localtime(&ttime);
+			if (timeinfo == NULL)
+				continue;
+
+			strftime(time, 255, "%A %b %e", timeinfo);
+			sprintf(buf, "%-11s     %-10s\n\r", row[0], time);
 			add_buf(buffer, buf);
 		}
 		mysql_free_result(res);
