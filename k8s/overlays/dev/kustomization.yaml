@@ -9,13 +9,16 @@ resources:
 
 commonLabels:
   environment: dev
-  branch: help-commands
+
+commonAnnotations:
+  deployed-branch: cabalstats-fix
+  deployed-sha: ad89169
 
 patchesStrategicMerge:
   - ingress-patch.yaml
 
 images:
   - name: bubthegreat/kbk
-    newTag: help-commands-6ad9c61
+    newTag: cabalstats-fix-ad89169
   - name: bubthegreat/kbk-sql
-    newTag: help-commands-6ad9c61
+    newTag: cabalstats-fix-ad89169
