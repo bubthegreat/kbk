@@ -30,6 +30,7 @@ jobs:
       short_sha: ${{ steps.vars.outputs.short_sha }}
       branch_name: ${{ steps.vars.outputs.branch_name }}
       is_main_branch: ${{ steps.vars.outputs.is_main_branch }}
+      mysql_changed: ${{ steps.mysql_changes.outputs.changed }}
 
     steps:
       - name: Checkout code
@@ -54,6 +55,18 @@ jobs:
             echo "is_main_branch=true" >> $GITHUB_OUTPUT
           else
             echo "is_main_branch=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check for MySQL changes
+        id: mysql_changes
+        run: |
+          # Check if mysql directory has changed in this commit
+          if git diff --name-only HEAD~1 HEAD | grep -q '^mysql/'; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "MySQL files changed - will rebuild SQL image"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No MySQL changes detected - skipping SQL image build"
           fi
 
       - name: Set up Docker Buildx
@@ -90,6 +103,7 @@ jobs:
 
       - name: Extract metadata for SQL image
         id: meta-sql
+        if: steps.mysql_changes.outputs.changed == 'true'
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.SQL_IMAGE_NAME }}
@@ -101,6 +115,7 @@ jobs:
             type=raw,value=${{ steps.vars.outputs.branch_name }}-latest
 
       - name: Build and push SQL image
+        if: steps.mysql_changes.outputs.changed == 'true'
         uses: docker/build-push-action@v5
         with:
           context: ./mysql
@@ -130,8 +145,13 @@ jobs:
           # Update KBK deployment base manifest
           sed -i "s|image: bubthegreat/kbk:.*|image: bubthegreat/kbk:${SHORT_SHA}|g" k8s/base/kbk-deployment.yaml
 
-          # Update MySQL deployment base manifest
-          sed -i "s|image: bubthegreat/kbk-sql:.*|image: bubthegreat/kbk-sql:${SHORT_SHA}|g" k8s/base/mysql-deployment.yaml
+          # Update MySQL deployment base manifest only if MySQL files changed
+          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+            sed -i "s|image: bubthegreat/kbk-sql:.*|image: bubthegreat/kbk-sql:${SHORT_SHA}|g" k8s/base/mysql-deployment.yaml
+            echo "Updated MySQL deployment manifest"
+          else
+            echo "Skipped MySQL deployment manifest update (no changes)"
+          fi
 
       - name: Commit and push manifest changes
         run: |
@@ -141,8 +161,16 @@ jobs:
           if git diff --quiet; then
             echo "No changes to commit"
           else
-            git add k8s/base/kbk-deployment.yaml k8s/base/mysql-deployment.yaml
-            git commit -m "chore: update production image tags to ${{ needs.build-and-push.outputs.short_sha }} [skip ci]"
+            git add k8s/base/kbk-deployment.yaml
+
+            # Only add MySQL manifest if it was updated
+            if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+              git add k8s/base/mysql-deployment.yaml
+              git commit -m "chore: update production image tags to ${{ needs.build-and-push.outputs.short_sha }} (KBK + MySQL) [skip ci]"
+            else
+              git commit -m "chore: update production image tags to ${{ needs.build-and-push.outputs.short_sha }} (KBK only) [skip ci]"
+            fi
+
             git push
           fi
 
@@ -153,11 +181,31 @@ jobs:
 
           ### Images Built and Pushed
           - **KBK Image**: \`bubthegreat/kbk:${{ needs.build-and-push.outputs.short_sha }}\`
-          - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.short_sha }}\`
+          EOF
+
+          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+            cat >> $GITHUB_STEP_SUMMARY << EOF
+          - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.short_sha }}\` ✅ **Updated**
+          EOF
+          else
+            cat >> $GITHUB_STEP_SUMMARY << EOF
+          - **SQL Image**: ⏭️ **Skipped** (no MySQL changes detected)
+          EOF
+          fi
+
+          cat >> $GITHUB_STEP_SUMMARY << EOF
 
           ### Manifests Updated
           - \`k8s/base/kbk-deployment.yaml\`
+          EOF
+
+          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+            cat >> $GITHUB_STEP_SUMMARY << EOF
           - \`k8s/base/mysql-deployment.yaml\`
+          EOF
+          fi
+
+          cat >> $GITHUB_STEP_SUMMARY << EOF
 
           ### Next Steps
           ArgoCD will automatically sync the new images to production within ~3 minutes.
@@ -186,7 +234,19 @@ jobs:
 
           ### Images Built and Pushed
           - **KBK Image**: \`bubthegreat/kbk:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\`
-          - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\`
+          EOF
+
+          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+            cat >> $GITHUB_STEP_SUMMARY << EOF
+          - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\` ✅ **Built**
+          EOF
+          else
+            cat >> $GITHUB_STEP_SUMMARY << EOF
+          - **SQL Image**: ⏭️ **Skipped** (no MySQL changes detected)
+          EOF
+          fi
+
+          cat >> $GITHUB_STEP_SUMMARY << EOF
 
           ### ⚠️ No Automatic Deployment
           Images have been built and pushed to Docker Hub, but **manifests were not updated**.
