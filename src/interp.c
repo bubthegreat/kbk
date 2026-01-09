@@ -338,6 +338,7 @@ const struct cmd_type cmd_table[] =
         {"forage", do_forage, POS_STANDING, 0, LOG_NORMAL, 1, 1},
         {"fwood", do_findwood, POS_STANDING, 0, LOG_NORMAL, 1, 1},
         {"carve", do_carve, POS_STANDING, 0, LOG_NORMAL, 1, 1},
+        {"protect", do_protect, POS_DEAD, L1, LOG_ALWAYS, 1, 0},  // Immortal command - must come before "protection"
         {"protection", do_protection_heat_cold, POS_STANDING, 0, LOG_NORMAL, 1, 1},
         {"disperse", do_disperse, POS_STANDING, 0, LOG_NORMAL, 1, 1},
         {"binds", do_bind, POS_STANDING, 0, LOG_NORMAL, 1, 0},
@@ -455,7 +456,6 @@ const struct cmd_type cmd_table[] =
         {"pload", do_pload, POS_DEAD, ML, LOG_ALWAYS, 1, 0},
         {"punload", do_punload, POS_DEAD, ML, LOG_ALWAYS, 1, 0},
         {"permban", do_permban, POS_DEAD, 59, LOG_ALWAYS, 1, 0},
-        {"protect", do_protect, POS_DEAD, L1, LOG_ALWAYS, 1, 0},
         {"reboo", do_reboo, POS_DEAD, L3, LOG_NORMAL, 0, 0},
         {"reboot", do_reboot, POS_DEAD, 60, LOG_ALWAYS, 1, 0},
         {"copyover", do_copyover, POS_DEAD, 60, LOG_ALWAYS, 1, 0},
