@@ -37,11 +37,16 @@
 
 void init_mysql(void)
 {
+	my_bool reconnect = 1;
+
 	if (!mysql_init(&conn))
 	{
 		n_logf("Init_mysql: mysql_init() failed. Reason: %s", mysql_error(&conn));
 		return;
 	}
+
+	// Enable automatic reconnection
+	mysql_options(&conn, MYSQL_OPT_RECONNECT, &reconnect);
 
 	if ((mysql_real_connect(&conn, SQL_SERVER, SQL_USER, SQL_PWD, SQL_DB, 0, NULL, 0)) == NULL)
 	{
@@ -61,6 +66,38 @@ void close_db(void)
 	return;
 }
 
+/*
+ * Ensure MySQL connection is alive, reconnect if necessary.
+ * Returns TRUE if connection is good, FALSE otherwise.
+ */
+bool ensure_mysql_connection(void)
+{
+	// Check if connection is alive
+	if (mysql_ping(&conn) == 0)
+	{
+		return TRUE;
+	}
+
+	// Connection is dead, try to reconnect
+	n_logf("MySQL connection lost (Error: %s), attempting to reconnect...", mysql_error(&conn));
+
+	// Close the stale connection
+	mysql_close(&conn);
+
+	// Reinitialize
+	init_mysql();
+
+	// Verify the new connection
+	if (mysql_ping(&conn) == 0)
+	{
+		log_string("MySQL reconnection successful.");
+		return TRUE;
+	}
+
+	n_logf("MySQL reconnection failed: %s", mysql_error(&conn));
+	return FALSE;
+}
+
 int mysql_safe_query(char *fmt, ...)
 {
 	va_list argp;
@@ -74,6 +111,13 @@ int mysql_safe_query(char *fmt, ...)
 
 	*query = '\0';
 	*safe = '\0';
+
+	// Ensure connection is alive before executing query
+	if (!ensure_mysql_connection())
+	{
+		n_logf("MySQL query aborted: connection unavailable");
+		return -1;
+	}
 
 	va_start(argp, fmt);
 
