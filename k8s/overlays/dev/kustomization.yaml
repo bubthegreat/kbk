@@ -11,14 +11,14 @@ commonLabels:
   environment: dev
 
 commonAnnotations:
-  deployed-branch: cabalstats-fix
-  deployed-sha: ad89169
+  deployed-branch: color-coded-room-names
+  deployed-sha: 77d70d0
 
 patchesStrategicMerge:
   - ingress-patch.yaml
 
 images:
   - name: bubthegreat/kbk
-    newTag: cabalstats-fix-ad89169
+    newTag: color-coded-room-names-77d70d0
   - name: bubthegreat/kbk-sql
-    newTag: cabalstats-fix-ad89169
+    newTag: color-coded-room-names-77d70d0
