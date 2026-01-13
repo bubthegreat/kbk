@@ -7,6 +7,7 @@ MYSQL conn;
 
 void init_mysql args((void));
 void close_db args((void));
+bool ensure_mysql_connection args((void));
 int mysql_safe_query args((char *fmt, ...));
 void login_log args((CHAR_DATA * ch, int type));
 void saveCharmed args((CHAR_DATA * ch));
