@@ -116,27 +116,26 @@ jobs:
   test:
     name: Run Tests
     runs-on: ubuntu-latest
-    needs: build
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Install build dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gcc libc6-dev libmysqlclient-dev
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
 
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc libc6-dev
+
       - name: Run Go tests
         run: |
-          cd src/go/tests
+          cd src/go
           echo "Running Go tests..."
-          CGO_ENABLED=1 go test -v .
+          CGO_ENABLED=1 go test -v ./...
           echo "✅ All Go tests passed"
 
   push:
