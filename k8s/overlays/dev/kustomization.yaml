@@ -11,13 +11,12 @@ commonLabels:
   environment: dev
 
 commonAnnotations:
-  deployed-branch: knights-rule
-  deployed-sha: 313de19
+  deployed-branch: compiler-fixes
+  deployed-sha: 850d5e5
 
 patchesStrategicMerge:
   - ingress-patch.yaml
-  - kbk-configmap.yaml
 
 images:
   - name: bubthegreat/kbk
-    newTag: knights-rule-313de19
+    newTag: compiler-fixes-850d5e5
