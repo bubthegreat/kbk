@@ -592,11 +592,36 @@ within your area, including monsters.
 0 HELP~
 Syntax: help
 	help <keyword>
+	help <number>
 
 HELP without any arguments shows a one-page command summary.
 
 HELP <keyword> shows a page of help on that keyword.  The keywords include
 all the commands, spells, and skills listed in the game.
+
+HELP <number> shows a specific help file by its ID number. This is useful
+when multiple help files match the same keyword.
+
+Multiple Matches:
+When you search for a keyword that matches multiple help files, you will
+see a "Did you mean" list showing all matching help files with their:
+  - Help ID number (for direct lookup)
+  - Level requirement
+  - Full keyword list
+
+Example:
+  > help classes
+  Multiple help topics found. Did you mean:
+
+    #252  - [Level  0] CLASSES CLASS
+    #3024 - [Level 52] CLASSES
+
+  Use 'help <number>' to view a specific help file.
+
+You can then use 'help 252' to view the player classes help, or
+'help 3024' to view the immortal classes command help.
+
+See also: COMMANDS WIZHELP
 ~
 
 0 DESCRIPTION~

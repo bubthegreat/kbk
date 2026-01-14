@@ -2565,41 +2565,142 @@ void do_weather(CHAR_DATA *ch, char *argument)
 void do_help(CHAR_DATA *ch, char *argument)
 {
 	HELP_DATA *pHelp;
+	HELP_DATA *matches[100]; /* Store up to 100 matching help files */
 	BUFFER *output;
 	bool found = FALSE;
 	char argall[MAX_INPUT_LENGTH], argone[MAX_INPUT_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	int level;
+	int match_count = 0;
+	int help_id = 0;
+	int target_id = -1;
+	bool lookup_by_id = FALSE;
 
 	output = new_buf();
 
 	if (argument[0] == '\0')
 		argument = "summary";
 
-	argall[0] = '\0';
-	while (argument[0] != '\0')
+	/* Check if looking up by ID (e.g., "help 252" or "help #252") */
+	if (argument[0] == '#')
 	{
-		argument = one_argument(argument, argone);
-		if (argall[0] != '\0')
-			strcat(argall, " ");
-		strcat(argall, argone);
+		lookup_by_id = TRUE;
+		target_id = atoi(argument + 1);
+	}
+	else if (is_number(argument))
+	{
+		lookup_by_id = TRUE;
+		target_id = atoi(argument);
 	}
 
+	if (!lookup_by_id)
+	{
+		argall[0] = '\0';
+		while (argument[0] != '\0')
+		{
+			argument = one_argument(argument, argone);
+			if (argall[0] != '\0')
+				strcat(argall, " ");
+			strcat(argall, argone);
+		}
+	}
+
+	/* First pass: collect all matching help files */
 	for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next)
 	{
 		level = (pHelp->level < 0) ? -1 * pHelp->level - 1 : pHelp->level;
 
+		/* Check access permissions */
 		if (level > get_trust(ch))
 		{
 			if (pHelp->level < 61)
+			{
+				help_id++;
 				continue;
+			}
 			if ((pHelp->level == 61 && ch->cabal != CABAL_ANCIENT) || (pHelp->level == 62 && ch->cabal != CABAL_ARCANA) || (pHelp->level == 63 && ch->cabal != CABAL_BOUNTY) || (pHelp->level == 64 && ch->cabal != CABAL_KNIGHT) || (pHelp->level == 65 && ch->cabal != CABAL_OUTLAW)
 				//|| ( pHelp->level == 66 && ch->cabal != CABAL_ENFORCER)
 				|| (pHelp->level == 66 && ch->cabal != CABAL_RAGER) || (pHelp->level == 67 && ch->cabal != CABAL_SYLVAN))
+			{
+				help_id++;
 				continue;
+			}
 		}
 
-		if (is_name(argall, pHelp->keyword))
+		/* Check if this help file matches */
+		if (lookup_by_id)
 		{
+			if (help_id == target_id)
+			{
+				matches[match_count++] = pHelp;
+				break;
+			}
+		}
+		else if (is_name(argall, pHelp->keyword))
+		{
+			if (match_count < 100)
+				matches[match_count++] = pHelp;
+		}
+
+		help_id++;
+	}
+
+	/* If we found multiple matches, show a "did you mean" list */
+	if (match_count > 1 && !lookup_by_id)
+	{
+		int i;
+		send_to_char("Multiple help topics found. Did you mean:\n\r\n\r", ch);
+
+		help_id = 0;
+		for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next)
+		{
+			level = (pHelp->level < 0) ? -1 * pHelp->level - 1 : pHelp->level;
+
+			/* Check access permissions */
+			if (level > get_trust(ch))
+			{
+				if (pHelp->level < 61)
+				{
+					help_id++;
+					continue;
+				}
+				if ((pHelp->level == 61 && ch->cabal != CABAL_ANCIENT) || (pHelp->level == 62 && ch->cabal != CABAL_ARCANA) || (pHelp->level == 63 && ch->cabal != CABAL_BOUNTY) || (pHelp->level == 64 && ch->cabal != CABAL_KNIGHT) || (pHelp->level == 65 && ch->cabal != CABAL_OUTLAW)
+					//|| ( pHelp->level == 66 && ch->cabal != CABAL_ENFORCER)
+					|| (pHelp->level == 66 && ch->cabal != CABAL_RAGER) || (pHelp->level == 67 && ch->cabal != CABAL_SYLVAN))
+				{
+					help_id++;
+					continue;
+				}
+			}
+
+			/* Check if this is one of our matches */
+			for (i = 0; i < match_count; i++)
+			{
+				if (matches[i] == pHelp)
+				{
+					sprintf(buf, "  {c#{W%-4d{x - {c[{WLevel %2d{c]{x %s\n\r",
+						help_id, pHelp->level, pHelp->keyword);
+					send_to_char(buf, ch);
+					break;
+				}
+			}
+
+			help_id++;
+		}
+
+		send_to_char("\n\rUse '{Whelp <number>{x' to view a specific help file.\n\r", ch);
+		free_buf(output);
+		return;
+	}
+
+	/* Display the help file(s) */
+	if (match_count > 0)
+	{
+		int i;
+		for (i = 0; i < match_count; i++)
+		{
+			pHelp = matches[i];
+
 			if (found)
 				add_buf(output,
 						"\n\r============================================================\n\r\n\r");
