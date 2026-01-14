@@ -132,19 +132,19 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcat(buf, "(Invis) ");
 
 	if (IS_AFFECTED(ch, AFF_DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
-		strcat(buf, "(Red Aura) ");
+		strcat(buf, "{r(Red Aura){x ");
 
 	if (IS_AFFECTED(ch, AFF_DETECT_GOOD) && IS_OBJ_STAT(obj, ITEM_BLESS))
-		strcat(buf, "(Blue Aura) ");
+		strcat(buf, "{C(Blue Aura){x ");
 
 	if (IS_AFFECTED(ch, AFF_DETECT_MAGIC) && IS_OBJ_STAT(obj, ITEM_MAGIC))
-		strcat(buf, "(Magical) ");
+		strcat(buf, "{Y(Magical){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
-		strcat(buf, "(Glowing) ");
+		strcat(buf, "{y(Glowing){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_HUM))
-		strcat(buf, "(Humming) ");
+		strcat(buf, "{W(Humming){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_HIDDEN) && IS_IMMORTAL(ch))
 		strcat(buf, "(Hidden) ");
