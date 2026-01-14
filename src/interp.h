@@ -533,6 +533,7 @@ DECLARE_DO_FUN(do_oedit);
 DECLARE_DO_FUN(do_otype);
 DECLARE_DO_FUN(do_wflag);
 DECLARE_DO_FUN(do_progset);
+DECLARE_DO_FUN(do_testcrash);
 
 DECLARE_DO_FUN(do_mpsave);
 DECLARE_DO_FUN(do_mpedit);

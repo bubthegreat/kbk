@@ -1,18 +1,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: kbk-staging
+namespace: kbk-local
 
 resources:
   - namespace.yaml
   - ../../base
 
-# Add namespace to all resources
 commonLabels:
-  environment: staging
+  environment: local
 
-# Patch ingress to use staging hostname
 patchesStrategicMerge:
-  - ingress-patch.yaml
   - kbk-configmap.yaml
+  - kbk-pvc-patch.yaml
+  - mysql-pvc-patch.yaml
 

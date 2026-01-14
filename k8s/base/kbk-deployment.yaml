@@ -55,6 +55,12 @@ spec:
         - name: kbk
           image: bubthegreat/kbk:c88401a
           imagePullPolicy: Always
+          env:
+            - name: ENABLE_GDB_DEBUGGING
+              valueFrom:
+                configMapKeyRef:
+                  name: kbk-config
+                  key: ENABLE_GDB_DEBUGGING
           ports:
             - containerPort: 8989
               name: telnet

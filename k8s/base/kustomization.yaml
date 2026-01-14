@@ -10,4 +10,5 @@ resources:
   - kbk-pvc.yaml
   - kbk-service-http.yaml
   - kbk-ingress.yaml
+  - kbk-configmap.yaml
 

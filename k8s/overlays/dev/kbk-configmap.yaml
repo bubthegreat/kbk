@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kbk-config
+data:
+  # Enable GDB debugging in dev environment for crash analysis
+  ENABLE_GDB_DEBUGGING: "true"
+

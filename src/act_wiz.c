@@ -8216,3 +8216,27 @@ void do_global_get(CHAR_DATA *ch, char *argument)
 	}
 	return;
 }
+
+/* Test command to intentionally crash for debugging core dumps */
+void do_testcrash(CHAR_DATA *ch, char *argument)
+{
+	char *null_ptr = NULL;
+
+	if (get_trust(ch) < MAX_LEVEL)
+	{
+		send_to_char("Huh?\n\r", ch);
+		return;
+	}
+
+	send_to_char("Intentionally crashing the MUD for core dump testing...\n\r", ch);
+	send_to_char("Check kubectl logs after restart for the stack trace!\n\r", ch);
+
+	/* Give a moment for the message to be sent */
+	sleep(1);
+
+	/* Intentional segfault - dereference null pointer */
+	*null_ptr = 42;
+
+	/* This line will never be reached */
+	send_to_char("This should never print.\n\r", ch);
+}

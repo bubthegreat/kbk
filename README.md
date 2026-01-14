@@ -11,7 +11,7 @@ Install tilt from **[here](https://docs.tilt.dev/install.html)**
 Running:
 
 ```
-git clone https://gitlab.com/bubthegreat/kbk.git
+git clone https://github.com/bubthegreat/kbk.git
 cd kbk
 tilt up
 ```

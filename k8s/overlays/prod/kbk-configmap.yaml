@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kbk-config
+data:
+  # Disable GDB debugging in production for best performance
+  # Will still attempt to reproduce crashes if they occur
+  ENABLE_GDB_DEBUGGING: "false"
+
