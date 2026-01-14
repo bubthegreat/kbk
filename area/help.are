@@ -1391,6 +1391,40 @@ command, and then moving you back (if the command didn't change your
 location).
 ~
 
+54 COPYOVER~
+Syntax: copyover
+
+COPYOVER performs a "hot reboot" of the MUD server, allowing you to update
+the executable without disconnecting players. This is useful for applying
+code changes, bug fixes, or updates without disrupting gameplay.
+
+What happens during a copyover:
+- All areas are saved (asave world)
+- All players are restored to full health/mana/moves
+- All players are forced to save
+- Player connections are preserved through the restart
+- The server executable is reloaded
+- Players reconnect automatically to their saved state
+- Players see: "You struggle to fight off the soul-wrenching sound..."
+
+Important notes:
+- Temporary affects (like channel, tripwire) are stripped before copyover
+- Players in combat or with pending actions may experience interruption
+- The copyover process takes only a few seconds
+- If copyover fails, the server will attempt to recover gracefully
+- Immortals are notified when a copyover is initiated
+
+Use this instead of a full shutdown/restart when you need to:
+- Apply code changes from a recompile
+- Update the server binary
+- Fix bugs without kicking players offline
+
+WARNING: Only use copyover after thoroughly testing code changes. A crash
+during copyover can be more disruptive than a planned shutdown.
+
+See also: SHUTDOWN ASAVE RESTORE
+~
+
 54 ECHO GECHO PECHO~
 Syntax: echo  <message>
 	gecho <message>
