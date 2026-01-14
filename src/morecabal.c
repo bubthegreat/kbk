@@ -2064,23 +2064,39 @@ void spell_dragonweapon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 }
 
-void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+void do_dragonarmor(CHAR_DATA *ch, char *argument)
 {
 	char buf[MSL], arg[MIL];
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf;
+	AFFECT_DATA af;
 	int ac_value;
+	int chance;
+	int level;
 
-	target_name = one_argument(target_name, arg);
+	if ((chance = get_skill(ch, gsn_dragonarmor)) == 0)
+	{
+		send_to_char("You don't know how to forge dragonarmor.\n\r", ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_dragonarmor))
+	{
+		send_to_char("You're not up to forging more dragonarmor yet.\n\r", ch);
+		return;
+	}
+
+	one_argument(argument, arg);
 
 	buf[0] = '\0';
 	if (arg[0] == '\0')
 	{
-		send_to_char("Syntax: call 'dragonarmor' <type>\n\r", ch);
+		send_to_char("Syntax: dragonarmor <type>\n\r", ch);
 		send_to_char("Possible armor types: helm, legs, arms, hands, feet, shield, waist, wrists\n\r", ch);
 		return;
 	}
 
+	level = ch->level;
 	obj = create_object(get_obj_index(OBJ_VNUM_DRAGONARMOR), level);
 	ac_value = level / 10;
 
@@ -2207,7 +2223,7 @@ void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	// Add hitroll bonus (8 pieces * 5 = 40 total, ~15 more than outfit's ~25)
 	paf = new_affect();
-	paf->type = sn;
+	paf->type = gsn_dragonarmor;
 	paf->level = level;
 	paf->duration = -1;
 	paf->location = APPLY_HITROLL;
@@ -2218,7 +2234,7 @@ void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	// Add damroll bonus (8 pieces * 5 = 40 total, ~15 more than outfit's ~25)
 	paf = new_affect();
-	paf->type = sn;
+	paf->type = gsn_dragonarmor;
 	paf->level = level;
 	paf->duration = -1;
 	paf->location = APPLY_DAMROLL;
@@ -2229,7 +2245,7 @@ void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	// Add AC bonus
 	paf = new_affect();
-	paf->type = sn;
+	paf->type = gsn_dragonarmor;
 	paf->level = level;
 	paf->duration = -1;
 	paf->location = APPLY_AC;
@@ -2241,6 +2257,21 @@ void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	obj_to_char(obj, ch);
 	act("You forge $p from gleaming dragonscales!", ch, obj, NULL, TO_CHAR);
 	act("$n forges $p from gleaming dragonscales!", ch, obj, NULL, TO_ROOM);
+
+	// Add cooldown affect
+	init_affect(&af);
+	af.aftype = AFT_POWER;
+	af.where = TO_AFFECTS;
+	af.type = gsn_dragonarmor;
+	af.level = 51;
+	af.duration = 40;
+	af.location = APPLY_NONE;
+	af.modifier = 0;
+	af.bitvector = 0;
+	af.affect_list_msg = str_dup("prevents usage of dragonarmor");
+	affect_to_char(ch, &af);
+
+	check_improve(ch, gsn_dragonarmor, TRUE, 4);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 }
 
