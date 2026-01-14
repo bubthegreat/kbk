@@ -1554,11 +1554,407 @@ Notes:
 See also: BRANDS WEAR REMOVE EQUIPMENT
 ~
 
+58 FINGER~
+Syntax: finger <character>
+        finger <character> history
+        finger <character> equipment
+        finger <character> description
+
+FINGER is an immortal command that allows you to view detailed information
+about a player character's file, even when they are offline. This command
+reads directly from the player file (.plr) and displays various statistics
+and information.
+
+Default Usage (finger <character>):
+Displays comprehensive character information including:
+- Name, title, sex, level, class, race
+- Alignment, ethos, empire status
+- Cabal membership and induction status
+- Kill statistics (PK, mob kills, deaths)
+- Constitution, age modifier, hometown
+- Login information and last site
+- Play time and security level
+- Equipment summary (if available)
+
+Optional Arguments:
+- history      : Shows the character's administrative history
+- equipment    : Displays detailed equipment list with vnums
+- description  : Shows the character's description
+
+The command will search both active player files and the dead_char
+directory for deleted characters.
+
+Notes:
+- Reads directly from player files, works offline
+- Shows last 5 login sites
+- Equipment shows item vnums for reference
+- Useful for investigating player issues
+- Can view deleted characters in dead_char folder
+
+See also: STAT MSTAT HISTORY
+~
+
+58 DAMAGE~
+Syntax: damage <character> <amount> <noun>
+
+DAMAGE is an immortal command that allows you to inflict a specific amount
+of damage to a character with a custom damage noun (the source/type of
+damage displayed in the message).
+
+Parameters:
+- character : The target to damage (must be in the same room)
+- amount    : Numerical damage value to inflict
+- noun      : The damage source description (e.g., "divine wrath", "fire")
+
+Example:
+  damage bob 50 divine retribution
+
+This would deal 50 damage to Bob with the message showing "divine retribution"
+as the damage source.
+
+Notes:
+- All three parameters are required
+- Target must be in the same room as you
+- Amount must be a valid number
+- The noun can be multiple words
+- Useful for testing damage mechanics or punishment
+- This action is logged
+
+See also: SMITE SLAY
+~
+
+56 QCRUMBLE~
+Syntax: qcrumble <item> <character>
+
+QCRUMBLE (Quiet Crumble) is an immortal command that silently destroys an
+item from a character's inventory without notifying the character or others
+in the room. Only the immortal using the command sees a confirmation message.
+
+This command:
+1. Locates the specified character in the same room
+2. Finds the item in their inventory
+3. Destroys the item completely
+4. Shows only the immortal a confirmation message
+
+The command will fail if:
+- Either argument is missing
+- The character is not in the same room
+- The item is not found in the character's inventory
+
+Differences from CRUMBLE:
+- QCRUMBLE: Silent to everyone except the immortal
+- CRUMBLE: Shows messages to the victim and immortal
+
+Notes:
+- Character must be in the same room
+- Only works on inventory items (not equipped items)
+- The item is permanently destroyed
+- This action is logged
+- Use with caution as it's invisible to the player
+
+See also: CRUMBLE PURGE
+~
+
+58 HISTORY~
+Syntax: history <character>
+        history <character> + <text>
+        history <character> -
+        history <character> show
+        history <character> add
+        history <character> clear
+
+HISTORY is an immortal command for managing administrative notes and records
+on player characters. It maintains a permanent log of administrative actions,
+warnings, and important events related to a player.
+
+Commands:
+- history <char>       : Display the character's history
+- history <char> + <text> : Add text to temporary buffer
+- history <char> -     : Remove last line from temporary buffer
+- history <char> show  : Display the temporary buffer
+- history <char> add   : Write temporary buffer to pfile
+- history <char> clear : Clear all history (IMP only, level 60)
+
+The history system uses a two-stage process:
+1. Build entries in a temporary buffer using the + command
+2. Commit the buffer to the permanent history using 'add'
+
+Each history entry includes:
+- The immortal who added it
+- Timestamp of when it was added
+- Character's played hours at the time
+- The history text
+
+For offline characters, the command automatically uses 'finger <char> history'
+to display their history from the player file.
+
+Access Control:
+- Cannot view/edit history of equal or higher level immortals (unless level 60)
+- Only level 60+ can use the 'clear' command
+- History is automatically added for certain actions (empowerment, leader status, etc.)
+
+Notes:
+- History is saved to the player file
+- Useful for tracking warnings, punishments, and administrative actions
+- Can be viewed offline via 'finger <char> history'
+- Important for maintaining accountability
+
+See also: FINGER EMPOWER LEADER
+~
+
+55 CRUMBLE~
+Syntax: crumble <character> <inv|eq> <item>
+
+CRUMBLE is an immortal command that destroys an item from a character's
+inventory or equipment. Unlike QCRUMBLE, this command shows messages to
+both the victim and the immortal.
+
+Parameters:
+- character : The target character
+- inv|eq    : Specify 'inventory' or 'equipment'
+- item      : The item to destroy
+
+The command:
+1. Locates the specified character
+2. Finds the item in either inventory or equipment
+3. If equipment, unequips the item first
+4. Destroys the item completely
+5. Shows messages to victim and immortal
+
+Messages Shown:
+- To victim: "<item> crumbles into dust."
+- To immortal: "<victim>: <item> crumbles into dust."
+
+The command will fail if:
+- Any argument is missing
+- The character is not found
+- The item is not found in the specified location
+
+Notes:
+- Can target both inventory and equipped items
+- Item is permanently destroyed
+- Visible to the victim
+- This action is logged
+- Use QCRUMBLE for silent removal
+
+See also: QCRUMBLE PURGE
+~
+
+57 NOCHANNELS~
+Syntax: nochannels <character>
+
+NOCHANNELS is a punishment command that toggles a player's ability to use
+communication channels. When active, the player cannot use channels like
+auction, chat, music, question, etc.
+
+This command:
+1. Locates the specified character in the game world
+2. Toggles the COMM_NOCHANNELS flag
+3. Notifies the victim and the immortal
+4. Broadcasts the action on wiznet
+
+When Applied:
+- Player sees: "The gods have revoked your channel privileges."
+- Immortal sees: "NOCHANNELS set."
+- Wiznet: "<Immortal> revokes <player>'s channels."
+
+When Removed:
+- Player sees: "The gods have restored your channel privileges."
+- Immortal sees: "NOCHANNELS removed."
+- Wiznet: "<Immortal> restores channels to <player>"
+
+The command will fail if:
+- No character name is provided
+- The character is not found
+- The target's trust level is >= the immortal's trust level
+
+Notes:
+- This is a toggle command (on/off)
+- Affects all communication channels
+- Does not affect tells or says
+- Commonly used for spam punishment
+- The flag persists across logins
+- This action is logged and broadcast
+
+See also: FREEZE SILENCE DENY
+~
+
+54 BRANDS~
+Syntax: brands <character>
+
+BRANDS is an immortal command that applies a punishment brand to a character.
+A brand is a special item that is equipped in the WEAR_BRAND slot and marks
+the character for administrative purposes.
+
+This command:
+1. Locates the specified character in the game world
+2. Checks if they already have a brand
+3. Creates a new brand object
+4. Equips the brand on the character
+
+The command will fail if:
+- No character name is provided
+- The character is not found
+- You try to brand yourself
+- The character already has a brand
+
+Brand Characteristics:
+- Worn in the WEAR_BRAND equipment slot
+- Cannot be removed by the player
+- Visible to other players
+- Persists across logins
+- Used to mark punished or flagged players
+
+Notes:
+- Only one brand can be worn at a time
+- Use UNBRANDS to remove a brand
+- This action is logged
+- Brands are typically used for punishment or tracking
+- The brand object is created from a specific vnum
+
+See also: UNBRANDS SMITE NOCHANNELS
+~
+
 57 SLAY~
 Syntax: slay <character>
 
 Slay kills a character in cold blood, no saving throw.  Best not to use this
 command on players if you enjoy being a god.
+~
+
+57 CLEARREPLY~
+Syntax: clearreply
+        clearreply <character>
+
+CLEARREPLY is an immortal command that clears reply targets for characters.
+When players use the 'reply' command, it sends a tell to the last person
+who sent them a tell. This command clears those reply pointers.
+
+Usage:
+- clearreply          : Clears all replies pointing to you
+- clearreply <char>   : Clears the specified character's reply target
+
+Without Arguments:
+Loops through all connected players and clears any reply pointers that
+point to you. Useful if you're being spammed with replies or want to
+ensure no one can reply to you.
+
+With Character Argument:
+Clears the specified character's reply target, preventing them from
+using the 'reply' command until they receive a new tell.
+
+The command will fail if:
+- The specified character is not found
+- The specified character is an NPC
+
+Notes:
+- Useful for stopping reply spam
+- Does not prevent new tells, only replies
+- Shows confirmation message for each cleared reply
+- Can be used to troubleshoot reply issues
+
+See also: TELL REPLY
+~
+
+51 PREFIX~
+Syntax: prefix
+        prefix <text>
+
+PREFIX is an immortal command that sets a prefix to be automatically
+prepended to all your commands. This is useful for immortals who want
+to add a consistent prefix to their actions or communications.
+
+Usage:
+- prefix          : Clears your current prefix
+- prefix <text>   : Sets your prefix to the specified text
+
+When a prefix is set, it will be added to the beginning of your commands
+before they are processed.
+
+Examples:
+  prefix [Testing]
+
+Now all your commands will be prefixed with "[Testing]"
+
+To Remove:
+  prefix
+
+This clears your prefix.
+
+Notes:
+- The prefix persists until you clear it or log out
+- Cannot abbreviate the 'prefix' command itself
+- Shows confirmation when set, changed, or cleared
+- Useful for testing or role-playing purposes
+- Does not affect all command types
+
+See also: IMMTALK WIZNET
+~
+
+51 PUNLOAD~
+Syntax: punload <character>
+
+PUNLOAD is an immortal command that removes a player character from the
+game world and saves them back to their player file. This is the opposite
+of PLOAD and is used to unload characters that were loaded with PLOAD.
+
+This command:
+1. Locates the specified character in the game world
+2. Verifies they don't have an active connection (descriptor)
+3. Moves them to their recall room if they have one
+4. Saves the character to their player file
+5. Removes them from the game (quit process)
+6. Shows messages to the room and immortal
+
+Messages:
+- To room: "<Immortal> has released <character> back to the pattern."
+- To immortal: "You release <character> back to the pattern."
+
+The command will fail if:
+- No character name is provided
+- The character is not found in the game world
+- The character has an active connection (is a real player)
+
+Notes:
+- Only works on PLOAD'ed characters (no descriptor)
+- Character is saved before being removed
+- Cannot punload actual connected players
+- Useful for cleaning up after using PLOAD
+- The character can be PLOAD'ed again later
+
+See also: PLOAD
+~
+
+51 TICKFORCE FORCETICK~
+Syntax: tickforce
+        forcetick
+
+TICKFORCE (also FORCETICK) is an immortal command that immediately triggers
+a game tick, forcing all tick-based updates to occur instantly rather than
+waiting for the normal tick timer.
+
+This command executes:
+- Weather update
+- Character update (HP/mana/move regeneration, affects, etc.)
+- Object update (decay, timers, etc.)
+- Age update (character aging)
+- Room update (room affects, etc.)
+
+The command also broadcasts "TICK!" on wiznet so all immortals are aware
+that a forced tick has occurred.
+
+Usage:
+Simply type 'tickforce' or 'forcetick' with no arguments.
+
+Notes:
+- Useful for testing tick-based mechanics
+- Helpful for speeding up affect durations during testing
+- Can be used to help players recover faster
+- Does not reset the normal tick timer
+- All immortals see the TICK! wiznet message
+- Use sparingly as it affects all players
+
+See also: RESTORE ADVANCE
 ~
 
 55 TRANSFER TELEPORT~
@@ -1568,9 +1964,374 @@ Syntax: transfer <character>
 	transfer all <location>
 
 Transfer transfers the target character, or ALL player characters,
-to your current location (default) or to a specified location. Trans all 
+to your current location (default) or to a specified location. Trans all
 should almost never be used, as 100 players popping into one room can have
-horrible effects on slow links. Teleport is a synonym for transfer. 
+horrible effects on slow links. Teleport is a synonym for transfer.
+~
+
+55 INFO~
+Syntax: info
+        info room
+        info rflag
+        info obj
+        info type <item_type>
+        info mob
+
+INFO is an immortal command that displays detailed information about
+objects, mobiles, and rooms in your current area. It provides formatted
+lists useful for area building and review.
+
+Commands:
+- info          : Shows syntax help
+- info room     : Lists all rooms with vnum, heal rate, mana rate, and name
+- info rflag    : Lists all rooms with their room flags
+- info obj      : Lists all objects with vnum, level, limit, material, and short desc
+- info type <type> : Lists objects of a specific type (e.g., weapon, armor, food)
+- info mob      : Lists all mobiles with vnum, level, count, wealth, and short desc
+
+The command operates on your current area (the area of the room you're in),
+showing only objects, mobiles, and rooms within that area's vnum range.
+
+Output Format Examples:
+  info obj:
+  Vnum    Lvl  Lim  Material   Short Desc
+  [12345] [25] [5]  steel      a sharp sword
+
+  info mob:
+  Vnum    Lvl  #Mob Wealth     Short Desc
+  [12350] [30] [2]  [5000]     a city guard
+
+For 'info type', if no type is specified, it shows a list of valid
+object types.
+
+Notes:
+- Only shows data for your current area
+- Useful for area review and building
+- Output is formatted for easy reading
+- Can be used to find specific items or mobs
+- Type names must match exactly (use info type for list)
+
+See also: VLIST STAT MSTAT OSTAT RSTAT
+~
+
+51 ASTRIP~
+Syntax: astrip
+        astrip <character>
+
+ASTRIP (Affect Strip) is an immortal command that removes all strippable
+affects from a character. This is useful for clearing temporary affects,
+debuffs, or spell effects.
+
+Usage:
+- astrip          : Strips all strippable affects from yourself
+- astrip <char>   : Strips all strippable affects from the target
+
+The command removes only affects that are marked as "strippable" in the
+code. This typically includes:
+- Most spell effects
+- Temporary skill effects
+- Debuffs and curses
+- Timed affects
+
+Affects that are NOT stripped:
+- Permanent affects
+- Racial abilities
+- Class abilities
+- Non-strippable flags
+
+Messages:
+- When targeting others: "All strippable affects removed from <character>."
+- When targeting self: "All strippable affects removed from yourself."
+
+The command will fail if:
+- The specified character is not found in the game world
+
+Notes:
+- Useful for debugging affect issues
+- Helpful for cleaning up after testing
+- Does not remove permanent or non-strippable affects
+- Can be used on yourself or others
+- Affects are removed immediately
+
+See also: RESTORE DISPEL
+~
+
+51 EMPOWER~
+Syntax: empower <character> <yes|no>
+
+EMPOWER is an immortal command that grants or revokes special empowerment
+status to a player character. Empowerment typically grants special privileges
+or abilities to the character.
+
+Parameters:
+- character : The target player character
+- yes|no    : Whether to grant (yes) or revoke (no) empowerment
+
+When Granting (yes):
+- Player sees: "You have been empowered by the Immortals."
+- Immortal sees: "OK."
+- Wiznet: "<Immortal> empowers <player>."
+- History: "AUTO: Empowered by <immortal>."
+
+When Revoking (no):
+- Player sees: "The Immortals have revoked your empowerment!"
+- Immortal sees: "OK."
+- Wiznet: "<Immortal> revokes <player>'s empowerment."
+- History: "AUTO: Unempowered by <immortal>."
+
+The command will fail if:
+- Arguments are missing or invalid
+- The character is not found
+- The character is an NPC
+- Trying to empower someone already empowered
+- Trying to unempower someone not empowered
+
+Notes:
+- Sets/removes the PLR_EMPOWERED flag
+- Action is logged to player's history
+- Broadcast on wiznet
+- Persists across logins
+- Check current status with STAT
+
+See also: TRUST LEADER HISTORY
+~
+
+51 RAFFECTS~
+Syntax: raffects
+
+RAFFECTS (Room Affects) is an immortal command that displays all affects
+currently active on your current room. This is useful for debugging room
+spells, area effects, and environmental affects.
+
+The command shows for each room affect:
+- Type (Spell, Skill, Power, or Commune)
+- Skill/spell name
+- What it modifies and by how much
+- Duration remaining (in hours)
+- Affect type (flag-bits, const-bits, or aff-bits)
+- Owner of the affect (who cast it)
+- Level of the affect
+
+Example Output:
+  The room is affected by:
+  Spell: 'wall of fire' modifies none by 0 for 5 hours with aff-bits NULL,
+  owner Gandalf, level 30.
+
+If the room has no affects:
+  "The room is not affected by anything."
+
+Notes:
+- Shows only affects on your current room
+- Useful for debugging area spells
+- Displays owner information if available
+- Shows exact duration remaining
+- No arguments required
+
+See also: AFFECTS STAT RSTAT
+~
+
+54 LEADER~
+Syntax: leader <character>
+
+LEADER is an immortal command that toggles a player's cabal leader status,
+granting or revoking their ability to induct new members into their cabal.
+
+This command:
+1. Locates the specified character in the game world
+2. Toggles their CABAL_LEADER induction status
+3. Notifies the player and immortal
+4. Adds an entry to the player's history
+
+When Granting Leader Status:
+- Player sees: "You have been given the power to INDUCT!"
+- Immortal sees: "You have given <player> the power to induct."
+- History: "AUTO: Made cabal leader by <immortal>."
+
+When Revoking Leader Status:
+- Player sees: "Your power to INDUCT has been taken away!"
+- Immortal sees: "You have taken away <player>'s power to induct."
+- History: "AUTO: Cabal leader status revoked by <immortal>."
+
+The command will fail if:
+- No character name is provided
+- The character is not found
+- The character is an NPC
+- Used by an NPC
+- Used by an immortal below level 54
+
+Notes:
+- This is a toggle command (on/off)
+- Grants/revokes INDUCT command access
+- Action is logged to player's history
+- Player must be in a cabal for this to be meaningful
+- Persists across logins
+
+See also: INDUCT CABAL HISTORY
+~
+
+51 AREALINKS~
+Syntax: arealinks all
+        arealinks all <filename>
+
+AREALINKS is an immortal command that analyzes and reports all connections
+between different areas in the game world. It shows which rooms in each
+area have exits that lead to rooms in other areas.
+
+Usage:
+- arealinks all           : Display results to screen
+- arealinks all <file>    : Write results to specified file
+
+The command loops through all areas and rooms, checking each exit to see
+if it leads to a different area. For each area, it shows:
+- Area name and vnum range
+- List of rooms with external links
+- Direction of the link
+- Destination area name and room vnum
+
+Example Output:
+  *** Midgaard (1000 to 1299) ***
+    (1001) links north to The Forest (2000)
+    (1050) links east to The Desert (3015)
+
+  *** The Forest (2000 to 2199) ***
+    No external links found.
+
+If a filename is provided, the output is written to that file instead of
+being displayed on screen.
+
+Notes:
+- Scans all areas in the game
+- Useful for area builders and world design
+- Helps identify isolated or well-connected areas
+- Can generate large output for big worlds
+- File output useful for offline analysis
+- Only checks 5 directions (not down)
+
+See also: AREAS VLIST GOTO
+~
+
+51 PRACLIST~
+Syntax: praclist <character>
+
+PRACLIST is an immortal command that displays a complete list of all skills
+and spells that a character has learned, along with their proficiency
+percentages and remaining practice sessions.
+
+The command shows:
+- All learned skills/spells for the character's class
+- Current proficiency percentage for each
+- Skills in red if they require specialization but character isn't specced
+- Number of practice sessions remaining
+
+Output Format:
+  skill_name               75%  skill_name2              82%  skill_name3              91%
+  skill_name4              45%  skill_name5              100% skill_name6              23%
+
+  15 practice sessions left.
+
+Skills shown in {R red {x are specialization skills that the character
+hasn't specialized in.
+
+The command will fail if:
+- No character name is provided
+- The character is not found in the game world
+- The character is an NPC
+
+Notes:
+- Shows only skills available to the character's class
+- Displays current learned percentage
+- Useful for checking character progression
+- Shows practice sessions remaining
+- Output is formatted in 3 columns
+- Specialization skills highlighted in red
+
+See also: PRACTICE SKILLS SPELLS STAT
+~
+
+51 PLOAD~
+Syntax: pload <character>
+
+PLOAD (Player Load) is an immortal command that loads an offline player
+character into the game world. This allows immortals to interact with,
+examine, or modify a character's data even when the player is not logged in.
+
+This command:
+1. Checks if the character is already connected
+2. Loads the character from their player file
+3. Adds them to the game world
+4. Places them in your current room
+5. Loads any charmed followers they had
+
+Messages:
+- To room: "<Immortal> has pulled <character> from the pattern!"
+- To immortal: "You pull <character> from the pattern!"
+
+The command will fail if:
+- No character name is provided
+- The character is already connected (online)
+- The character file cannot be found or loaded
+
+Important Notes:
+- Character is loaded WITHOUT a descriptor (not a real connection)
+- Character appears in your current room
+- Any charmed followers are also loaded
+- Use PUNLOAD to remove them when done
+- Character can be examined with STAT, modified with SET, etc.
+- Changes are saved when you PUNLOAD them
+- DO NOT leave PLOAD'ed characters in the game
+
+Warning:
+Always PUNLOAD characters when finished. Leaving them loaded can cause
+issues with the player file and game state.
+
+See also: PUNLOAD STAT SET
+~
+
+51 MULTICHECK~
+Syntax: multicheck
+
+MULTICHECK is an immortal command that scans all connected players and
+identifies any characters connecting from the same host/IP address. This
+is useful for detecting multiplaying (one person playing multiple characters
+simultaneously).
+
+The command:
+1. Scans all connected descriptors
+2. Sorts them by hostname
+3. Identifies connections from the same host
+4. Displays matching connections
+
+Output Format:
+  [Descriptor Connection_State] Character@Hostname
+  [Descriptor Connection_State] Character@Hostname
+
+  X user(s)
+
+Example:
+  [  5  9] Gandalf@example.com
+  [ 12  9] Saruman@example.com
+
+  2 users
+
+The connection state number indicates what stage of connection the
+descriptor is in (9 = CON_PLAYING means fully connected and playing).
+
+If no matches are found:
+  "No matches were found."
+
+The command will fail if:
+- Only 1 player is connected (need at least 2 to compare)
+- More than 80 characters are connected (hardcoded limit)
+
+Notes:
+- Useful for detecting multiplaying violations
+- Shows both character name and hostname
+- Includes characters at all connection states
+- Limited to 80 characters maximum
+- Does not automatically punish, only reports
+- Some matches may be legitimate (same household, etc.)
+
+See also: SOCKETS WHO USERS
 ~
 
 52 CLASSES~
