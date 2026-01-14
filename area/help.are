@@ -1431,6 +1431,104 @@ is only usable by creators and implementors.  Restore should be used sparingly
 or not at all.
 ~
 
+54 SMITE~
+Syntax: smite <victim> <hp%> <mana%> <move%> <position> <equipment>
+
+SMITE is a powerful punishment command that allows immortals to inflict
+divine retribution upon a character. It reduces their stats, changes their
+position, and can destroy equipment as a form of disciplinary action.
+
+Parameters:
+  <victim>     - Target character to smite
+  <hp%>        - Percentage of HP to reduce to (0-95)
+  <mana%>      - Percentage of mana to reduce to (0-95)
+  <move%>      - Percentage of moves to reduce to (0-95)
+  <position>   - Position to set (0=dead, 1=mortal, 2=incap, 3=stunned,
+                 4=sleeping, 5=resting, 6=sitting, 7=fighting, 8=standing)
+  <equipment>  - Equipment slot to destroy (0-20, see wear locations)
+
+Default Values (if not specified):
+  - HP: 50%
+  - Mana: 0%
+  - Move: 0%
+  - Position: unchanged
+  - Equipment: none destroyed
+
+Flavor Messages (based on immortal's alignment):
+  - Good alignment: "holy power"
+  - Neutral alignment: "divine fury"
+  - Evil alignment: "infernal power"
+
+Custom Smite Message:
+  - If you have set a custom smite message (ch->pcdata->smite), it will
+    be displayed to the victim
+
+Examples:
+  smite bubthegreat 10 0 0 4 0    - Reduce to 10% HP, 0 mana/moves, sleeping
+  smite troublemaker 1 0 0 2 16   - Near death, incap, destroy wielded weapon
+  smite cheater 50                - Simple 50% HP reduction
+
+Equipment Slot Numbers:
+  0=light, 1-2=fingers, 3-4=neck, 5=body, 6=head, 7=legs, 8=feet,
+  9=hands, 10=arms, 11=shield, 12=about, 13=waist, 14-15=wrists,
+  16=wield, 17=hold, 18=dual_wield, 19=brand, 20=strapped
+
+Notes:
+  - Cannot smite characters of equal or higher trust level
+  - Does NOT work on NPCs (switched immortals are blocked)
+  - Automatically adds entry to victim's player history
+  - Use sparingly and only for serious infractions
+  - Consider using less severe punishments first
+
+Warnings:
+  - This is a severe punishment command
+  - Destroying equipment is permanent
+  - Use only when justified by serious rule violations
+  - Document the reason in player history or notes
+
+See also: SLAY FREEZE DENY NOEMOTE NOTELL
+~
+
+54 UNBRANDS~
+Syntax: unbrands <character>
+
+UNBRANDS removes a brand from a character. Brands are special items worn
+in the WEAR_BRAND slot that mark a character as belonging to a specific
+group, faction, or having a particular status.
+
+What it does:
+  - Removes the brand object from the target's WEAR_BRAND slot
+  - Unequips and extracts (destroys) the brand
+  - Sends messages to both the immortal and the victim
+  - Adds an automatic entry to the victim's player history
+
+Restrictions:
+  - Minimum level 53 required
+  - Cannot unbrand yourself
+  - Cannot unbrand NPCs
+  - Target must be online
+  - Target must actually have a brand equipped
+
+Messages:
+  - To immortal: "You have unbranded that person."
+  - To victim: "Your brand is painfully removed."
+  - History: "AUTO: Unbranded by <immortal name>."
+
+Use Cases:
+  - Removing faction/cabal brands when a player leaves
+  - Removing punishment brands
+  - Correcting mistakenly applied brands
+  - Removing brands as part of character cleanup
+
+Notes:
+  - The brand object is permanently destroyed (extracted)
+  - This action is logged in the player's history
+  - The removal is described as painful to the victim
+  - Cannot be undone - the brand must be reapplied if needed
+
+See also: BRANDS WEAR REMOVE EQUIPMENT
+~
+
 57 SLAY~
 Syntax: slay <character>
 
@@ -4091,6 +4189,54 @@ return your character to 'safe' status if you change your mind after the
 first delete.
 ~
 
+52 XLOOK~
+Syntax: xlook <character>
+
+XLOOK (Extended Look) is an immortal command that provides detailed
+information about a character's location and equipment, even if they are
+not in the same room as you. This is useful for monitoring players,
+investigating issues, or checking equipment remotely.
+
+Information Displayed:
+1. Character's current location:
+   - Room name
+   - Room vnum
+   - Area name
+
+2. Complete equipment list with vnums:
+   - All worn equipment slots
+   - Object short descriptions
+   - Object vnums in brackets [vnum]
+   - Wear location for each item
+
+3. Additional details:
+   - Shows all equipment slots (light, fingers, neck, body, etc.)
+   - Displays "(nothing)" for empty slots
+   - Works on both players and NPCs
+   - Can see invisible/hidden characters
+
+Examples:
+  xlook bubthegreat        - View location and equipment of player
+  xlook guard              - View location and equipment of NPC
+
+Use Cases:
+  - Checking what equipment a player has without being in the same room
+  - Investigating potential item duplication or cheating
+  - Verifying limited item distribution
+  - Monitoring player locations remotely
+  - Checking if players have specific quest items
+  - Debugging equipment-related issues
+
+Notes:
+  - Requires line of sight (can_see check)
+  - Shows complete equipment with vnums for easy identification
+  - Does not alert the target that they are being observed
+  - Works across the entire MUD (not limited to same area)
+  - Useful for remote player assistance
+
+See also: STAT LOOK VNUM OTRACK WHERE
+~
+
 52 CLONE~
 Syntax:
   clone obj <object>
@@ -4101,7 +4247,7 @@ The clone command duplicates an object or mobile.  The level of item or mobile
 that may be cloned depends on your level.  The target object or mob must be in
 the same room as you, or in your posession.  Strung and set information is
 preserved by clone, as well as any spell effects and container contents or
-mobile inventory, except for items which are too high for you to clone.  
+mobile inventory, except for items which are too high for you to clone.
 Strung extended descriptions on objects are not kept, however.
 ~
 
