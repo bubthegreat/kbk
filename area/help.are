@@ -1425,6 +1425,74 @@ during copyover can be more disruptive than a planned shutdown.
 See also: SHUTDOWN ASAVE RESTORE
 ~
 
+60 ACCESS~
+Syntax: access <player>
+
+ACCESS toggles a player's ability to use the Builder channel. This is used
+to grant or revoke access to the special communication channel for area
+builders and developers who are not immortals.
+
+When you use this command:
+- If the player does NOT have builder access: Grants them access
+- If the player DOES have builder access: Removes their access
+
+The Builder channel allows non-immortal builders to communicate with each
+other and with immortals about area development, OLC work, and building
+projects without cluttering other channels.
+
+Players with builder access can use the 'builder' command to send messages
+to the builder channel.
+
+Notes:
+- Only works on player characters (not NPCs)
+- The player must be online to grant/revoke access
+- Builder access persists across logins (saved in pfile)
+- This does NOT grant OLC permissions - use 'aedit security' for that
+
+See also: BUILDER AEDIT SECURITY
+~
+
+60 TESTCRASH~
+Syntax: testcrash
+
+WARNING: This command intentionally crashes the MUD server!
+
+TESTCRASH is a debugging command that causes a segmentation fault to test
+crash handling, core dump generation, and automatic restart mechanisms.
+
+What happens when you use this command:
+1. A warning message is sent to you
+2. The server waits 1 second (to send the message)
+3. The server crashes with a SIGSEGV (segmentation fault)
+4. The startup script detects the crash
+5. If ENABLE_GDB_DEBUGGING=true: Stack trace is captured immediately
+6. If ENABLE_GDB_DEBUGGING=false: Attempts to analyze core dump
+7. The server automatically restarts
+
+Use this command to:
+- Test crash detection and logging systems
+- Verify core dump generation is working
+- Test automatic restart mechanisms
+- Verify GDB debugging configuration
+- Practice crash recovery procedures
+
+IMPORTANT WARNINGS:
+- This WILL disconnect all players
+- This WILL interrupt all gameplay
+- Only use in development/testing environments
+- NEVER use on production without warning players first
+- Make sure you understand the crash recovery process
+
+After using testcrash, check:
+- kubectl logs (for stack trace)
+- Core dump files (if generated)
+- Restart time and player reconnection
+
+This command is restricted to MAX_LEVEL (implementors only).
+
+See also: SHUTDOWN COPYOVER
+~
+
 54 ECHO GECHO PECHO~
 Syntax: echo  <message>
 	gecho <message>
