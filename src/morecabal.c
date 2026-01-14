@@ -2205,13 +2205,24 @@ void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	obj->level = level;
 	obj->timer = 24;
 
-	// Add hitroll bonus
+	// Add hitroll bonus (8 pieces * 5 = 40 total, ~15 more than outfit's ~25)
 	paf = new_affect();
 	paf->type = sn;
 	paf->level = level;
 	paf->duration = -1;
 	paf->location = APPLY_HITROLL;
-	paf->modifier = level / 15;
+	paf->modifier = 5;
+	paf->bitvector = 0;
+	paf->next = obj->affected;
+	obj->affected = paf;
+
+	// Add damroll bonus (8 pieces * 5 = 40 total, ~15 more than outfit's ~25)
+	paf = new_affect();
+	paf->type = sn;
+	paf->level = level;
+	paf->duration = -1;
+	paf->location = APPLY_DAMROLL;
+	paf->modifier = 5;
 	paf->bitvector = 0;
 	paf->next = obj->affected;
 	obj->affected = paf;
