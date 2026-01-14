@@ -848,8 +848,6 @@ const char *upstring(const char *i)
 {
 	static char buf[MAX_STRING_LENGTH];
 	char *o;
-	const char * or ;
-	or = i;
 
 	for (o = buf; *i && o - buf < sizeof(buf) - 1; i++, o++)
 	{
@@ -1027,7 +1025,7 @@ void do_whisper(CHAR_DATA *ch, char *argument)
 void do_pray(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
-	char *check, buf[MSL];
+	char buf[MSL];
 
 	if (argument[0] == '\0')
 	{
@@ -1040,8 +1038,6 @@ void do_pray(CHAR_DATA *ch, char *argument)
 		send_to_char("You can't pray.\n\r", ch);
 		return;
 	}
-
-	check = str_dup(argument);
 
 	WAIT_STATE(ch, 10);
 	send_to_char("You pray to the heavens!\n\r", ch);

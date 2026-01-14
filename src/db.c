@@ -3949,16 +3949,16 @@ void do_dump(CHAR_DATA *ch, char *argument)
 	for (fch = char_free; fch != NULL; fch = fch->next)
 		count2++;
 
-	fprintf(fp, "Mobs	%4d (%8d bytes), %2d free (%d bytes)\n",
-			count, count * (sizeof(*fch)), count2, count2 * (sizeof(*fch)));
+	fprintf(fp, "Mobs	%4d (%8lu bytes), %2d free (%lu bytes)\n",
+			count, (unsigned long)(count * (sizeof(*fch))), count2, (unsigned long)(count2 * (sizeof(*fch))));
 
 	/* pcdata */
 	count = 0;
 	for (pc = pcdata_free; pc != NULL; pc = pc->next)
 		count++;
 
-	fprintf(fp, "Pcdata	%4d (%8d bytes), %2d free (%d bytes)\n",
-			num_pcs, num_pcs * (sizeof(*pc)), count, count * (sizeof(*pc)));
+	fprintf(fp, "Pcdata	%4d (%8lu bytes), %2d free (%lu bytes)\n",
+			num_pcs, (unsigned long)(num_pcs * (sizeof(*pc))), count, (unsigned long)(count * (sizeof(*pc))));
 
 	/* descriptors */
 	count = 0;
@@ -3968,8 +3968,8 @@ void do_dump(CHAR_DATA *ch, char *argument)
 	for (d = descriptor_free; d != NULL; d = d->next)
 		count2++;
 
-	fprintf(fp, "Descs	%4d (%8d bytes), %2d free (%d bytes)\n",
-			count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
+	fprintf(fp, "Descs	%4d (%8lu bytes), %2d free (%lu bytes)\n",
+			count, (unsigned long)(count * (sizeof(*d))), count2, (unsigned long)(count2 * (sizeof(*d))));
 
 	/* object prototypes */
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
@@ -3995,16 +3995,16 @@ void do_dump(CHAR_DATA *ch, char *argument)
 	for (obj = obj_free; obj != NULL; obj = obj->next)
 		count2++;
 
-	fprintf(fp, "Objs	%4d (%8d bytes), %2d free (%d bytes)\n",
-			count, count * (sizeof(*obj)), count2, count2 * (sizeof(*obj)));
+	fprintf(fp, "Objs	%4d (%8lu bytes), %2d free (%lu bytes)\n",
+			count, (unsigned long)(count * (sizeof(*obj))), count2, (unsigned long)(count2 * (sizeof(*obj))));
 
 	/* affects */
 	count = 0;
 	for (af = affect_free; af != NULL; af = af->next)
 		count++;
 
-	fprintf(fp, "Affects	%4d (%8d bytes), %2d free (%d bytes)\n",
-			aff_count, aff_count * (sizeof(*af)), count, count * (sizeof(*af)));
+	fprintf(fp, "Affects	%4d (%8lu bytes), %2d free (%lu bytes)\n",
+			aff_count, (unsigned long)(aff_count * (sizeof(*af))), count, (unsigned long)(count * (sizeof(*af))));
 
 	/* rooms */
 	fprintf(fp, "Rooms	%4ld (%8ld bytes)\n",

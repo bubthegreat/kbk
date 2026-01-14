@@ -1583,8 +1583,6 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	CHAR_DATA *ch;
 	OBJ_DATA *fobj;
 	OBJ_DATA *fobj_next;
-	char *pwdnew;
-	char *p;
 	int iClass;
 	int race, i, type, sn, iCabal;
 	bool fOld;
@@ -3751,10 +3749,10 @@ bool can_join_cabal(CHAR_DATA *ch, int cabal)
 	else
 		iEthos = ETHOS_L;
 
-	if (!cabal_restr_table[cabal].acc_align & iAlign)
+	if (!(cabal_restr_table[cabal].acc_align & iAlign))
 		return FALSE;
 
-	if (!cabal_restr_table[cabal].acc_ethos & iEthos)
+	if (!(cabal_restr_table[cabal].acc_ethos & iEthos))
 		return FALSE;
 
 	if (cabal_restr_table[cabal].acc_class[ch->class] == 0)

@@ -3762,11 +3762,8 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	 */
 	if (level <= victim->level)
 	{
-		int temp_prac;
-
 		send_to_char("You lower their level!\n\r", ch);
 		send_to_char("{b****{x OOOOHHHHHHHHHH  NNNNOOOO {b****{x\n\r", victim);
-		temp_prac = victim->practice;
 		victim->level = 1;
 		victim->exp_total = 1;
 		victim->exp = exp_per_level(victim);
@@ -6311,7 +6308,7 @@ void do_history(CHAR_DATA *ch, char *argument)
 	{
 		if (argument[0] != '\0')
 		{
-			obuf[0] = (int)NULL;
+			obuf[0] = '\0';
 			if (victim->pcdata->temp_history_buffer)
 			{
 				strcat(obuf, victim->pcdata->temp_history_buffer);
@@ -6364,7 +6361,7 @@ void do_history(CHAR_DATA *ch, char *argument)
 				}
 			}
 		}
-		obuf[0] = (int)NULL;
+		obuf[0] = '\0';
 		free_string(victim->pcdata->temp_history_buffer);
 		victim->pcdata->temp_history_buffer = str_dup(obuf);
 		show_temp_history(ch, victim);
@@ -6385,7 +6382,7 @@ void add_history(CHAR_DATA *ch, CHAR_DATA *victim, char *string)
 	if (IS_NPC(victim))
 		return;
 	if (victim->pcdata->history_buffer)
-		sprintf(buf, victim->pcdata->history_buffer);
+		sprintf(buf, "%s", victim->pcdata->history_buffer);
 	else
 		strcpy(buf, "");
 
@@ -6558,8 +6555,7 @@ void do_vostat(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *obj;
 	bool found = FALSE;
 	long vnum, nMatch = 0;
-	char *blah;
-	blah = one_argument(argument, arg1);
+	one_argument(argument, arg1);
 
 	if (arg1[0] == '\0')
 	{
@@ -7749,7 +7745,7 @@ void do_arealinks(CHAR_DATA *ch, char *argument)
 			/* First things, add area name  and vnums to the buffer */
 			sprintf(buf, "*** %s (%ld to %ld) ***\n\r",
 					parea->name, parea->min_vnum, parea->max_vnum);
-			fp ? fprintf(fp, buf) : add_buf(buffer, buf);
+			fp ? fprintf(fp, "%s", buf) : add_buf(buffer, buf);
 
 			/* Now let's start looping through all the rooms. */
 			found = FALSE;
@@ -7789,7 +7785,7 @@ void do_arealinks(CHAR_DATA *ch, char *argument)
 								if (fp == NULL)
 									add_buf(buffer, buf);
 								else
-									fprintf(fp, buf);
+									fprintf(fp, "%s", buf);
 							}
 						}
 					}
@@ -7918,7 +7914,7 @@ void do_arealinks(CHAR_DATA *ch, char *argument)
 						if (fp == NULL)
 							send_to_char(buf, ch);
 						else
-							fprintf(fp, buf);
+							fprintf(fp, "%s", buf);
 					}
 				}
 			}

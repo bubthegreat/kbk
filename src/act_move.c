@@ -67,7 +67,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	AFFECT_DATA snareaf;
 	ROOM_AFFECT_DATA *snareaffect, *dragaf;
 	bool snaretripped;
-	int odir, centcount, c, invnum, move;
+	int odir, centcount, c, move;
 	char buf[MAX_STRING_LENGTH], buf2[MSL];
 	bool room_has_pc;
 	snaremaker = NULL;
@@ -80,8 +80,6 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (!ch->in_room)
 		return;
-
-	invnum = ch->in_room->vnum;
 
 	if (is_centurion(ch))
 		return;

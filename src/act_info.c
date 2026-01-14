@@ -303,10 +303,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH], message[MAX_STRING_LENGTH];
 	int sn_faerie_fog;
-	OBJ_DATA *obj;
 	buf[0] = '\0';
-
-	obj = get_eq_char(victim, WEAR_HEAD);
 
 	sn_faerie_fog = skill_lookup("faerie fog");
 
@@ -1774,7 +1771,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 	extern char *const dir_name[];
 	char buf[MAX_STRING_LENGTH];
 	EXIT_DATA *pexit;
-	bool found, nonobvious;
+	bool found;
 	bool fAuto;
 	int door;
 
@@ -1798,7 +1795,6 @@ void do_exits(CHAR_DATA *ch, char *argument)
 		sprintf(buf, "Obvious exits:\n\r");
 
 	found = FALSE;
-	nonobvious = FALSE;
 	for (door = 0; door <= 5; door++)
 	{
 		if ((pexit = ch->in_room->exit[door]) != NULL && pexit->u1.to_room != NULL && can_see_room(ch, pexit->u1.to_room) && !IS_SET(pexit->exit_info, EX_CLOSED) && !IS_SET(pexit->exit_info, EX_NONOBVIOUS))
@@ -2878,13 +2874,11 @@ void do_who(CHAR_DATA *ch, char *argument)
 	char abuf[100];
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
-	bool OVERRIDE = FALSE;
 	int iClass;
 	int iRace;
 	int iCabal;
 	int iLevelLower;
 	int iLevelUpper;
-	int nNumber;
 	int nMatch;
 	bool rgfClass[MAX_CLASS];
 	bool rgfRace[MAX_PC_RACE];
@@ -2921,7 +2915,6 @@ void do_who(CHAR_DATA *ch, char *argument)
 	/*
 	 * Parse arguments.
 	 */
-	nNumber = 0;
 	for (;;)
 	{
 		char arg[MAX_STRING_LENGTH];
@@ -3122,7 +3115,6 @@ void do_who(CHAR_DATA *ch, char *argument)
 				break;
 			}
 		}
-		OVERRIDE = FALSE;
 		/*
 		 * Format it up.
 		 */
@@ -4998,11 +4990,6 @@ void do_lore(CHAR_DATA *ch, char *argument)
 
 char *get_descr_form(CHAR_DATA *ch, CHAR_DATA *looker, bool get_long)
 {
-	char buf[MAX_STRING_LENGTH];
-	char *buf2;
-
-	buf[0] = '\0';
-	buf2 = "";
 	if (get_long && !is_affected(ch, gsn_cloak_form))
 		return ch->long_descr;
 	if (get_long && is_affected(ch, gsn_cloak_form))
