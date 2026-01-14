@@ -7,6 +7,12 @@ import (
 	"unsafe"
 )
 
+// strCmp is the internal implementation
+// Returns true if strings are different, false if they are the same
+func strCmp(a, b string) bool {
+	return !strings.EqualFold(a, b)
+}
+
 // StrCmp performs case-insensitive string comparison.
 // Returns 1 (true) if strings are different, 0 (false) if they are the same.
 // This matches the C convention where str_cmp returns TRUE if different.
@@ -19,15 +25,16 @@ func StrCmp(astr *C.char, bstr *C.char) C.int {
 		return 1 // Different (TRUE in C)
 	}
 
-	a := C.GoString(astr)
-	b := C.GoString(bstr)
-
-	// Case-insensitive comparison
-	if strings.EqualFold(a, b) {
-		return 0 // Same (FALSE in C)
+	if strCmp(C.GoString(astr), C.GoString(bstr)) {
+		return 1 // Different (TRUE in C)
 	}
+	return 0 // Same (FALSE in C)
+}
 
-	return 1 // Different (TRUE in C)
+// strPrefix is the internal implementation
+// Returns true if a is NOT a prefix of b, false if it is
+func strPrefix(a, b string) bool {
+	return !strings.HasPrefix(strings.ToLower(b), strings.ToLower(a))
 }
 
 // StrPrefix checks if astr is a case-insensitive prefix of bstr.
@@ -42,15 +49,16 @@ func StrPrefix(astr *C.char, bstr *C.char) C.int {
 		return 1 // Not a prefix (TRUE in C)
 	}
 
-	a := strings.ToLower(C.GoString(astr))
-	b := strings.ToLower(C.GoString(bstr))
-
-	// Check if a is a prefix of b
-	if strings.HasPrefix(b, a) {
-		return 0 // Is a prefix (FALSE in C)
+	if strPrefix(C.GoString(astr), C.GoString(bstr)) {
+		return 1 // Not a prefix (TRUE in C)
 	}
+	return 0 // Is a prefix (FALSE in C)
+}
 
-	return 1 // Not a prefix (TRUE in C)
+// strSuffix is the internal implementation
+// Returns true if a is NOT a suffix of b, false if it is
+func strSuffix(a, b string) bool {
+	return !strings.HasSuffix(strings.ToLower(b), strings.ToLower(a))
 }
 
 // StrSuffix checks if astr is a case-insensitive suffix of bstr.
@@ -65,15 +73,16 @@ func StrSuffix(astr *C.char, bstr *C.char) C.int {
 		return 1 // Not a suffix (TRUE in C)
 	}
 
-	a := strings.ToLower(C.GoString(astr))
-	b := strings.ToLower(C.GoString(bstr))
-
-	// Check if a is a suffix of b
-	if strings.HasSuffix(b, a) {
-		return 0 // Is a suffix (FALSE in C)
+	if strSuffix(C.GoString(astr), C.GoString(bstr)) {
+		return 1 // Not a suffix (TRUE in C)
 	}
+	return 0 // Is a suffix (FALSE in C)
+}
 
-	return 1 // Not a suffix (TRUE in C)
+// strInfix is the internal implementation
+// Returns true if a is NOT found in b, false if it is found
+func strInfix(a, b string) bool {
+	return !strings.Contains(strings.ToLower(b), strings.ToLower(a))
 }
 
 // StrInfix checks if astr appears anywhere in bstr (case-insensitive).
@@ -88,15 +97,26 @@ func StrInfix(astr *C.char, bstr *C.char) C.int {
 		return 1 // Not found (TRUE in C)
 	}
 
-	a := strings.ToLower(C.GoString(astr))
-	b := strings.ToLower(C.GoString(bstr))
+	if strInfix(C.GoString(astr), C.GoString(bstr)) {
+		return 1 // Not found (TRUE in C)
+	}
+	return 0 // Found (FALSE in C)
+}
 
-	// Check if a is contained in b
-	if strings.Contains(b, a) {
-		return 0 // Found (FALSE in C)
+// capitalize is the internal implementation
+func capitalize(s string) string {
+	if len(s) == 0 {
+		return ""
 	}
 
-	return 1 // Not found (TRUE in C)
+	// Convert to lowercase
+	lower := strings.ToLower(s)
+
+	// Capitalize first character
+	runes := []rune(lower)
+	runes[0] = unicode.ToUpper(runes[0])
+
+	return string(runes)
 }
 
 // Capitalize returns a string with the first letter capitalized and the rest lowercase.
@@ -110,20 +130,13 @@ func Capitalize(str *C.char) *C.char {
 		return C.CString("")
 	}
 
-	s := C.GoString(str)
-	if len(s) == 0 {
-		return C.CString("")
-	}
-
-	// Convert to lowercase
-	lower := strings.ToLower(s)
-
-	// Capitalize first character
-	runes := []rune(lower)
-	runes[0] = unicode.ToUpper(runes[0])
-
-	result := string(runes)
+	result := capitalize(C.GoString(str))
 	return C.CString(result)
+}
+
+// smashTilde is the internal implementation
+func smashTilde(s string) string {
+	return strings.ReplaceAll(s, "~", "-")
 }
 
 // SmashTilde replaces all tilde characters (~) with dashes (-).
@@ -140,7 +153,7 @@ func SmashTilde(str *C.char) {
 	s := C.GoString(str)
 
 	// Replace tildes with dashes
-	modified := strings.ReplaceAll(s, "~", "-")
+	modified := smashTilde(s)
 
 	// Copy back to C string (in place modification)
 	// Note: This assumes the C string has enough space

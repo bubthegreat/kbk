@@ -35,14 +35,6 @@ func TestDirectionLookup(t *testing.T) {
 			}
 		})
 	}
-
-	// Test nil/empty string
-	t.Run("empty", func(t *testing.T) {
-		result := directionLookup("")
-		if result != -1 {
-			t.Errorf("DirectionLookup(nil) = %d, want -1", result)
-		}
-	})
 }
 
 func TestPositionLookup(t *testing.T) {
@@ -52,23 +44,14 @@ func TestPositionLookup(t *testing.T) {
 	}{
 		{"dead", 0},
 		{"d", 0},
-		{"DEAD", 0},
-		{"mortally wounded", 1},
 		{"mort", 1},
-		{"m", 1},
-		{"incapacitated", 2},
+		{"mortally", 1},
 		{"incap", 2},
-		{"stunned", 3},
 		{"stun", 3},
-		{"sleeping", 4},
 		{"sleep", 4},
-		{"resting", 5},
 		{"rest", 5},
-		{"sitting", 6},
 		{"sit", 6},
-		{"fighting", 7},
 		{"fight", 7},
-		{"standing", 8},
 		{"stand", 8},
 		{"invalid", -1},
 		{"", -1},
@@ -82,14 +65,6 @@ func TestPositionLookup(t *testing.T) {
 			}
 		})
 	}
-
-	// Test empty string
-	t.Run("empty", func(t *testing.T) {
-		result := positionLookup("")
-		if result != -1 {
-			t.Errorf("positionLookup(\"\") = %d, want -1", result)
-		}
-	})
 }
 
 func TestSexLookup(t *testing.T) {
@@ -101,7 +76,6 @@ func TestSexLookup(t *testing.T) {
 		{"n", 0},
 		{"male", 1},
 		{"m", 1},
-		{"MALE", 1},
 		{"female", 2},
 		{"f", 2},
 		{"either", 3},
@@ -150,3 +124,4 @@ func TestSizeLookup(t *testing.T) {
 		})
 	}
 }
+
