@@ -7670,6 +7670,108 @@ spell will cause undead in the room to run away, while evil-aligned characters u
 spell have a chance to bring undead under their control.
 ~
 
+53 ALLCABALS~
+Syntax: allcabals
+
+ALLCABALS is an immortal command that toggles your ability to monitor all
+cabal communication channels simultaneously. This is a powerful monitoring
+tool for immortals.
+
+When enabled:
+- You will hear all messages sent on every cabal channel
+- Messages appear with the cabal's who_name prefix (e.g., [ANCIENT], [KNIGHT])
+- You see communications from all cabals regardless of your own cabal membership
+- Useful for monitoring cabal activity, investigating issues, or staying
+  informed about game-wide cabal interactions
+
+When disabled:
+- You will only hear cabal channels you would normally have access to
+- Returns you to standard cabal communication visibility
+
+Usage:
+Type 'allcabals' once to enable monitoring of all cabal channels.
+Type 'allcabals' again to disable and return to normal cabal channel access.
+
+The command will confirm the state change:
+- "You will now hear all Cabal channels." (when enabled)
+- "You will no longer hear all Cabal channels." (when disabled)
+
+This command is particularly useful for:
+- Monitoring inter-cabal conflicts and diplomacy
+- Investigating reports of cabal-related rule violations
+- Understanding cabal dynamics and player interactions
+- Providing support for cabal-related issues
+- Observing game-wide cabal activity patterns
+
+Note: This command only affects cabal channels (CB command). It does not
+affect other communication channels like tells, says, or yells.
+
+See also: CB CABAL SNOOP EAVESDROP
+~
+
+54 PKTRACK~
+Syntax: pktrack <wins/losses/all/date/location> <value>
+
+PKTRACK is an immortal command that queries the player-kill (PK) database
+to track and analyze PK activity. This command searches historical PK logs
+stored in the MySQL database and displays matching records.
+
+Search Options:
+
+  pktrack wins <player name>
+    - Shows all PK victories where the specified player was the killer
+    - Displays who they killed, where, and when
+    - Useful for tracking a player's offensive PK activity
+
+  pktrack losses <player name>
+    - Shows all PK deaths where the specified player was killed
+    - Displays who killed them, where, and when
+    - Useful for tracking a player's defensive PK record
+
+  pktrack all <player name>
+    - Shows all PK records involving the specified player
+    - Includes both kills and deaths
+    - Provides a complete PK history for the player
+
+  pktrack date <date pattern>
+    - Searches for PK records matching a specific date/time pattern
+    - Uses regex pattern matching on the timestamp field
+    - Example: "pktrack date 2026-01" shows all PKs in January 2026
+
+  pktrack location <room name pattern>
+    - Searches for PKs that occurred in rooms matching the pattern
+    - Uses regex pattern matching on room names
+    - Example: "pktrack location temple" shows PKs in temple areas
+
+Output Information:
+Each PK record typically displays:
+- Killer's name (who performed the kill)
+- Victim's name (who was killed)
+- Location (room name where the PK occurred)
+- Timestamp (date and time of the PK)
+
+Usage Examples:
+  pktrack wins Conan          - Show all of Conan's PK victories
+  pktrack losses Valeria      - Show all times Valeria was killed
+  pktrack all Thulsa          - Show complete PK history for Thulsa
+  pktrack date 2026-01-14     - Show all PKs on January 14, 2026
+  pktrack location arena      - Show all PKs in arena locations
+
+This command is useful for:
+- Investigating PK-related complaints or disputes
+- Analyzing PK patterns and hotspots
+- Tracking serial PKers or harassment
+- Reviewing historical PK activity
+- Generating statistics on PK behavior
+- Verifying player claims about PK incidents
+
+Note: The search uses regex pattern matching, so partial names and patterns
+will return all matching records. The database only contains PK records for
+non-newbie players (players past the newbie protection threshold).
+
+See also: FINGER LTRACK OTRACK WHERE
+~
+
 0 $~
 
 #$
