@@ -1975,7 +1975,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		col = 0;
 		for (race = 0; race < MAX_CLASS; race++)
 		{
-			if (race == class_lookup("bard") || race == class_lookup("druid"))
+			if (race == class_lookup("bard") || race == class_lookup("channeler"))
 				continue;
 			((class_table[race].xpadd == 0) ? sprintf(buf, "     %-15s", class_table[race].name) : sprintf(buf, "     %-15s", class_table[race].name));
 

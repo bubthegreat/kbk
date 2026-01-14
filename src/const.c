@@ -450,9 +450,9 @@ const struct pc_race_type pc_race_table[] =
 
         {"troll", "Troll", ALIGN_E, 450, {"regeneration", "enhanced damage", "bash", "door bash"}, {1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0}, {3, -3, -2, -2, 3}, {24, 16, 17, 17, 24}, SIZE_LARGE, FALSE},
 
-        {"cloud", "Cloud", ALIGN_N, 500, {"door bash", "enhanced damage", "bash"}, {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1}, {3, -2, -2, -1, 3}, {24, 16, 17, 18, 23}, SIZE_HUGE, FALSE},
+        {"cloud", "Cloud", ALIGN_N, 500, {"door bash", "enhanced damage", "bash"}, {1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1}, {3, -2, -2, -1, 3}, {24, 16, 17, 18, 23}, SIZE_HUGE, FALSE},
 
-        {"gnome", "Gnome", ALIGN_N, 200, {"staves", "wands"}, {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1}, {-2, 3, 2, 0, -1}, {18, 23, 25, 20, 19}, SIZE_SMALL, FALSE},
+        {"gnome", "Gnome", ALIGN_N, 200, {"staves", "wands"}, {1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1}, {-2, 3, 2, 0, -1}, {18, 23, 25, 20, 19}, SIZE_SMALL, FALSE},
 
         {"draconian", "Draco", ALIGN_E, 300, {"breath fire"}, {1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1}, {2, 1, -1, 0, 0}, {22, 23, 21, 18, 20}, SIZE_MEDIUM, FALSE},
 
@@ -471,7 +471,7 @@ const struct pc_race_type pc_race_table[] =
 
         {"angel", "Angel", ALIGN_G, 0, {}, {1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1}, {0, 0, 0, 0, 0}, {25, 25, 25, 25, 25}, SIZE_MEDIUM, TRUE},
 
-        {"wood-elf", "W-Elf", ALIGN_N, 340, {"dispel magic", "forest blending"}, {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0}, {-2, 3, 1, -2, -1}, {19, 24, 21, 25, 18}, SIZE_MEDIUM, FALSE},
+        {"wood-elf", "W-Elf", ALIGN_N, 340, {"dispel magic", "forest blending"}, {1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0}, {-2, 3, 1, -2, -1}, {19, 24, 21, 25, 18}, SIZE_MEDIUM, FALSE},
 
         {"illithid", "Illd", ALIGN_E, 350, {"hand to hand", "psionic blast"}, {0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0}, {-3, 3, 2, 0, -2}, {16, 25, 23, 20, 18}, SIZE_MEDIUM, FALSE},
 
