@@ -4,6 +4,7 @@ NOCRYPT	=
 C_FLAGS = -Wall $(PROF) $(NOCRYPT)
 L_FLAGS =  $(PROF)
 E_FLAGS = `mysql_config --cflags --libs` -lcrypt
+GO_LIB  = libkbkgo.a
 
 O_FILES = act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o \
 	alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o \
@@ -14,16 +15,37 @@ O_FILES = act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o \
 	iprog.o mprog.o rprog.o bounty.o mysql.o newbit.o ranger.o \
 	note.o queststore.o
 
-pos2: $(O_FILES)
+# Default target
+all: pos2
+
+.PHONY: all clean backup areabackup fullbackup playerbackup
+
+# Build Go library first
+$(GO_LIB):
+	@echo "Building Go library..."
+	@cd go && chmod +x build.sh && ./build.sh
+	@echo "Go library built successfully"
+
+pos2: $(GO_LIB) $(O_FILES)
 	rm -f pos2
-	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
-	mv pos2 /kbk/area
+	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(GO_LIB) $(E_FLAGS) -lpthread
+	@if [ -d /kbk/area ]; then \
+		echo "Moving pos2 to /kbk/area..."; \
+		cp pos2 /kbk/area/pos2; \
+		echo "pos2 installed to /kbk/area"; \
+	else \
+		echo "Built pos2 successfully (keeping in src/ directory)"; \
+	fi
 	cd ..
 
-pos2-ci: $(O_FILES)
+pos2-ci: $(GO_LIB) $(O_FILES)
 	rm -f pos2
-	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
-	mv pos2 ../area
+	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(GO_LIB) $(E_FLAGS) -lpthread
+	@if [ -d ../area ]; then \
+		mv pos2 ../area; \
+	else \
+		echo "Built pos2 successfully (keeping in src/ directory)"; \
+	fi
 	cd ..
 
 .c.o: merc.h
@@ -31,6 +53,8 @@ pos2-ci: $(O_FILES)
 
 clean:
 	rm -f *.o
+	rm -f $(GO_LIB) libkbkgo.h
+	@cd go && go clean
 
 backup:
 	@tar -cpf `date +%m.%d.%y-%I%M`.src.tar.gz -z *.c *.h

@@ -21,12 +21,10 @@ env:
   SQL_IMAGE_NAME: bubthegreat/kbk-sql
 
 jobs:
-  build-and-push:
-    name: Build and Push Docker Images
+  build:
+    name: Build Docker Images
     runs-on: ubuntu-latest
     outputs:
-      kbk_image_tag: ${{ steps.meta.outputs.tags }}
-      sql_image_tag: ${{ steps.meta-sql.outputs.tags }}
       short_sha: ${{ steps.vars.outputs.short_sha }}
       branch_name: ${{ steps.vars.outputs.branch_name }}
       is_main_branch: ${{ steps.vars.outputs.is_main_branch }}
@@ -36,7 +34,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history for better commit info
+          fetch-depth: 0
 
       - name: Set up variables
         id: vars
@@ -72,64 +70,161 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Build KBK image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          load: true
+          tags: kbk:${{ steps.vars.outputs.short_sha }}
+          cache-from: type=registry,ref=${{ env.KBK_IMAGE_NAME }}:buildcache
+
+      - name: Build SQL image
+        if: steps.mysql_changes.outputs.changed == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          context: ./mysql
+          file: ./mysql/Dockerfile
+          load: true
+          tags: kbk-sql:${{ steps.vars.outputs.short_sha }}
+          cache-from: type=registry,ref=${{ env.SQL_IMAGE_NAME }}:buildcache
+
+      - name: Save KBK image
+        run: |
+          docker save kbk:${{ steps.vars.outputs.short_sha }} | gzip > /tmp/kbk-image.tar.gz
+
+      - name: Save SQL image
+        if: steps.mysql_changes.outputs.changed == 'true'
+        run: |
+          docker save kbk-sql:${{ steps.vars.outputs.short_sha }} | gzip > /tmp/kbk-sql-image.tar.gz
+
+      - name: Upload KBK image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kbk-image
+          path: /tmp/kbk-image.tar.gz
+          retention-days: 1
+
+      - name: Upload SQL image artifact
+        if: steps.mysql_changes.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: kbk-sql-image
+          path: /tmp/kbk-sql-image.tar.gz
+          retention-days: 1
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc libc6-dev
+
+      - name: Run Go tests
+        run: |
+          cd src/go
+          echo "Running Go tests..."
+          CGO_ENABLED=1 go test -v ./...
+          echo "✅ All Go tests passed"
+
+  push:
+    name: Push Docker Images
+    runs-on: ubuntu-latest
+    needs: [build, test]
+
+    steps:
+      - name: Download KBK image
+        uses: actions/download-artifact@v4
+        with:
+          name: kbk-image
+          path: /tmp
+
+      - name: Download SQL image
+        if: needs.build.outputs.mysql_changed == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: kbk-sql-image
+          path: /tmp
+
+      - name: Load KBK image
+        run: |
+          docker load < /tmp/kbk-image.tar.gz
+
+      - name: Load SQL image
+        if: needs.build.outputs.mysql_changed == 'true'
+        run: |
+          docker load < /tmp/kbk-sql-image.tar.gz
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Extract metadata for KBK image
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.KBK_IMAGE_NAME }}
-          tags: |
-            type=raw,value=latest,enable=${{ steps.vars.outputs.is_main_branch == 'true' }}
-            type=sha,prefix=,format=short
-            type=raw,value=${{ steps.vars.outputs.timestamp }}-${{ steps.vars.outputs.short_sha }}
-            type=raw,value=${{ steps.vars.outputs.branch_name }}-${{ steps.vars.outputs.short_sha }}
-            type=raw,value=${{ steps.vars.outputs.branch_name }}-latest
+      - name: Tag and push KBK image
+        run: |
+          SHORT_SHA="${{ needs.build.outputs.short_sha }}"
+          BRANCH_NAME="${{ needs.build.outputs.branch_name }}"
+          IS_MAIN="${{ needs.build.outputs.is_main_branch }}"
 
-      - name: Build and push KBK image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.KBK_IMAGE_NAME }}:buildcache
-          cache-to: type=registry,ref=${{ env.KBK_IMAGE_NAME }}:buildcache,mode=max
+          # Tag with all variants
+          docker tag kbk:${SHORT_SHA} ${{ env.KBK_IMAGE_NAME }}:${SHORT_SHA}
+          docker tag kbk:${SHORT_SHA} ${{ env.KBK_IMAGE_NAME }}:${BRANCH_NAME}-${SHORT_SHA}
+          docker tag kbk:${SHORT_SHA} ${{ env.KBK_IMAGE_NAME }}:${BRANCH_NAME}-latest
 
-      - name: Extract metadata for SQL image
-        id: meta-sql
-        if: steps.mysql_changes.outputs.changed == 'true'
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.SQL_IMAGE_NAME }}
-          tags: |
-            type=raw,value=latest,enable=${{ steps.vars.outputs.is_main_branch == 'true' }}
-            type=sha,prefix=,format=short
-            type=raw,value=${{ steps.vars.outputs.timestamp }}-${{ steps.vars.outputs.short_sha }}
-            type=raw,value=${{ steps.vars.outputs.branch_name }}-${{ steps.vars.outputs.short_sha }}
-            type=raw,value=${{ steps.vars.outputs.branch_name }}-latest
+          if [[ "$IS_MAIN" == "true" ]]; then
+            docker tag kbk:${SHORT_SHA} ${{ env.KBK_IMAGE_NAME }}:latest
+          fi
 
-      - name: Build and push SQL image
-        if: steps.mysql_changes.outputs.changed == 'true'
-        uses: docker/build-push-action@v5
-        with:
-          context: ./mysql
-          file: ./mysql/Dockerfile
-          push: true
-          tags: ${{ steps.meta-sql.outputs.tags }}
-          labels: ${{ steps.meta-sql.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.SQL_IMAGE_NAME }}:buildcache
-          cache-to: type=registry,ref=${{ env.SQL_IMAGE_NAME }}:buildcache,mode=max
+          # Push all tags
+          docker push ${{ env.KBK_IMAGE_NAME }}:${SHORT_SHA}
+          docker push ${{ env.KBK_IMAGE_NAME }}:${BRANCH_NAME}-${SHORT_SHA}
+          docker push ${{ env.KBK_IMAGE_NAME }}:${BRANCH_NAME}-latest
 
-  update-manifests-prod:
+          if [[ "$IS_MAIN" == "true" ]]; then
+            docker push ${{ env.KBK_IMAGE_NAME }}:latest
+          fi
+
+      - name: Tag and push SQL image
+        if: needs.build.outputs.mysql_changed == 'true'
+        run: |
+          SHORT_SHA="${{ needs.build.outputs.short_sha }}"
+          BRANCH_NAME="${{ needs.build.outputs.branch_name }}"
+          IS_MAIN="${{ needs.build.outputs.is_main_branch }}"
+
+          # Tag with all variants
+          docker tag kbk-sql:${SHORT_SHA} ${{ env.SQL_IMAGE_NAME }}:${SHORT_SHA}
+          docker tag kbk-sql:${SHORT_SHA} ${{ env.SQL_IMAGE_NAME }}:${BRANCH_NAME}-${SHORT_SHA}
+          docker tag kbk-sql:${SHORT_SHA} ${{ env.SQL_IMAGE_NAME }}:${BRANCH_NAME}-latest
+
+          if [[ "$IS_MAIN" == "true" ]]; then
+            docker tag kbk-sql:${SHORT_SHA} ${{ env.SQL_IMAGE_NAME }}:latest
+          fi
+
+          # Push all tags
+          docker push ${{ env.SQL_IMAGE_NAME }}:${SHORT_SHA}
+          docker push ${{ env.SQL_IMAGE_NAME }}:${BRANCH_NAME}-${SHORT_SHA}
+          docker push ${{ env.SQL_IMAGE_NAME }}:${BRANCH_NAME}-latest
+
+          if [[ "$IS_MAIN" == "true" ]]; then
+            docker push ${{ env.SQL_IMAGE_NAME }}:latest
+          fi
+
+  update-manifests:
     name: Update Production Manifests
     runs-on: ubuntu-latest
-    needs: build-and-push
+    needs: [build, push]
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
 
     steps:
@@ -140,13 +235,13 @@ jobs:
 
       - name: Update image tags in base manifests
         run: |
-          SHORT_SHA="${{ needs.build-and-push.outputs.short_sha }}"
+          SHORT_SHA="${{ needs.build.outputs.short_sha }}"
 
           # Update KBK deployment base manifest
           sed -i "s|image: bubthegreat/kbk:.*|image: bubthegreat/kbk:${SHORT_SHA}|g" k8s/base/kbk-deployment.yaml
 
           # Update MySQL deployment base manifest only if MySQL files changed
-          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+          if [[ "${{ needs.build.outputs.mysql_changed }}" == "true" ]]; then
             sed -i "s|image: bubthegreat/kbk-sql:.*|image: bubthegreat/kbk-sql:${SHORT_SHA}|g" k8s/base/mysql-deployment.yaml
             echo "Updated MySQL deployment manifest"
           else
@@ -164,103 +259,13 @@ jobs:
             git add k8s/base/kbk-deployment.yaml
 
             # Only add MySQL manifest if it was updated
-            if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
+            if [[ "${{ needs.build.outputs.mysql_changed }}" == "true" ]]; then
               git add k8s/base/mysql-deployment.yaml
-              git commit -m "chore: update production image tags to ${{ needs.build-and-push.outputs.short_sha }} (KBK + MySQL) [skip ci]"
+              git commit -m "chore: update production image tags to ${{ needs.build.outputs.short_sha }} (KBK + MySQL) [skip ci]"
             else
-              git commit -m "chore: update production image tags to ${{ needs.build-and-push.outputs.short_sha }} (KBK only) [skip ci]"
+              git commit -m "chore: update production image tags to ${{ needs.build.outputs.short_sha }} (KBK only) [skip ci]"
             fi
 
             git push
           fi
-
-      - name: Create deployment summary
-        run: |
-          cat >> $GITHUB_STEP_SUMMARY << EOF
-          ## 🚀 Production Deployment Summary
-
-          ### Images Built and Pushed
-          - **KBK Image**: \`bubthegreat/kbk:${{ needs.build-and-push.outputs.short_sha }}\`
-          EOF
-
-          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
-            cat >> $GITHUB_STEP_SUMMARY << EOF
-          - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.short_sha }}\` ✅ **Updated**
-          EOF
-          else
-            cat >> $GITHUB_STEP_SUMMARY << EOF
-          - **SQL Image**: ⏭️ **Skipped** (no MySQL changes detected)
-          EOF
-          fi
-
-          cat >> $GITHUB_STEP_SUMMARY << EOF
-
-          ### Manifests Updated
-          - \`k8s/base/kbk-deployment.yaml\`
-          EOF
-
-          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
-            cat >> $GITHUB_STEP_SUMMARY << EOF
-          - \`k8s/base/mysql-deployment.yaml\`
-          EOF
-          fi
-
-          cat >> $GITHUB_STEP_SUMMARY << EOF
-
-          ### Next Steps
-          ArgoCD will automatically sync the new images to production within ~3 minutes.
-
-          Monitor deployment:
-          \`\`\`bash
-          argocd app get kbk-prod
-          kubectl get pods -n kbk-prod -w
-          \`\`\`
-          EOF
-
-  build-summary:
-    name: Build Summary (Non-Production)
-    runs-on: ubuntu-latest
-    needs: build-and-push
-    if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main'
-
-    steps:
-      - name: Create build summary
-        run: |
-          cat >> $GITHUB_STEP_SUMMARY << EOF
-          ## 🔨 Build Summary (Non-Production Branch)
-
-          ### Branch
-          - **Branch**: \`${{ needs.build-and-push.outputs.branch_name }}\`
-
-          ### Images Built and Pushed
-          - **KBK Image**: \`bubthegreat/kbk:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\`
-          EOF
-
-          if [[ "${{ needs.build-and-push.outputs.mysql_changed }}" == "true" ]]; then
-            cat >> $GITHUB_STEP_SUMMARY << EOF
-          - **SQL Image**: \`bubthegreat/kbk-sql:${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\` ✅ **Built**
-          EOF
-          else
-            cat >> $GITHUB_STEP_SUMMARY << EOF
-          - **SQL Image**: ⏭️ **Skipped** (no MySQL changes detected)
-          EOF
-          fi
-
-          cat >> $GITHUB_STEP_SUMMARY << EOF
-
-          ### ⚠️ No Automatic Deployment
-          Images have been built and pushed to Docker Hub, but **manifests were not updated**.
-
-          To deploy this branch to an environment, use the **Deploy Branch to Environment** workflow:
-          1. Go to Actions → Deploy Branch to Environment
-          2. Select your branch: \`${{ needs.build-and-push.outputs.branch_name }}\`
-          3. Choose target environment (dev/staging/prod)
-          4. Set "Build new Docker images?" to **NO** (images already built)
-          5. Click "Run workflow"
-
-          ### Available Image Tags
-          - \`${{ needs.build-and-push.outputs.short_sha }}\` (commit SHA)
-          - \`${{ needs.build-and-push.outputs.branch_name }}-${{ needs.build-and-push.outputs.short_sha }}\` (branch + SHA)
-          - \`${{ needs.build-and-push.outputs.branch_name }}-latest\` (branch latest)
-          EOF
 

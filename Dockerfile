@@ -12,9 +12,18 @@ RUN apt-get -y update && \
         libc6-dbg \
         telnet \
         curl \
-        ca-certificates && \
+        ca-certificates \
+        wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Install Go 1.22
+RUN wget -q https://go.dev/dl/go1.22.0.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz && \
+    rm go1.22.0.linux-amd64.tar.gz
+
+ENV PATH="/usr/local/go/bin:${PATH}"
+ENV GOPATH="/go"
 
 COPY ./area /kbk/area
 COPY ./data /kbk/data

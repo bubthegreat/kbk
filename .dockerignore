@@ -1,1 +1,5 @@
 */localxfer/*
+src/*.o
+src/pos2
+src/libkbkgo.a
+src/libkbkgo.h
