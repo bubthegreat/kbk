@@ -11,3 +11,6 @@ resources:
 commonLabels:
   environment: prod
 
+patchesStrategicMerge:
+  - kbk-configmap.yaml
+
