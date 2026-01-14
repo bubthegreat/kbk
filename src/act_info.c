@@ -138,10 +138,10 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcat(buf, "{C(Blue Aura){x ");
 
 	if (IS_AFFECTED(ch, AFF_DETECT_MAGIC) && IS_OBJ_STAT(obj, ITEM_MAGIC))
-		strcat(buf, "{Y(Magical){x ");
+		strcat(buf, "{y(Magical){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
-		strcat(buf, "{y(Glowing){x ");
+		strcat(buf, "{Y(Glowing){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_HUM))
 		strcat(buf, "{W(Humming){x ");
