@@ -470,6 +470,7 @@ DECLARE_DO_FUN(do_divine_intervention);
 DECLARE_DO_FUN(do_creep);
 DECLARE_DO_FUN(do_dragonsword);
 DECLARE_DO_FUN(do_dragonplate);
+DECLARE_DO_FUN(do_dragonarmor);
 DECLARE_DO_FUN(do_honorable_combat);
 DECLARE_DO_FUN(do_ccb);
 DECLARE_DO_FUN(do_stun);
