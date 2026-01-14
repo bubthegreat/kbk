@@ -4,8 +4,6 @@ import (
 	"testing"
 )
 
-import "C"
-
 func TestNumberRange(t *testing.T) {
 	// Test edge cases
 	t.Run("both_zero", func(t *testing.T) {
@@ -190,4 +188,3 @@ func TestURange(t *testing.T) {
 		t.Error("URange(0, 15, 10) should be 10")
 	}
 }
-

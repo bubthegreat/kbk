@@ -2,13 +2,7 @@ package main
 
 import (
 	"testing"
-	"unsafe"
 )
-
-/*
-#include <stdlib.h>
-*/
-import "C"
 
 func TestDirectionLookup(t *testing.T) {
 	tests := []struct {
@@ -35,19 +29,16 @@ func TestDirectionLookup(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.input, func(t *testing.T) {
-			cstr := C.CString(tt.input)
-			defer C.free(unsafe.Pointer(cstr))
-
-			result := DirectionLookup(cstr)
-			if int(result) != tt.expected {
-				t.Errorf("DirectionLookup(%q) = %d, want %d", tt.input, result, tt.expected)
+			result := directionLookup(tt.input)
+			if result != tt.expected {
+				t.Errorf("directionLookup(%q) = %d, want %d", tt.input, result, tt.expected)
 			}
 		})
 	}
 
-	// Test nil pointer
-	t.Run("nil", func(t *testing.T) {
-		result := DirectionLookup(nil)
+	// Test nil/empty string
+	t.Run("empty", func(t *testing.T) {
+		result := directionLookup("")
 		if result != -1 {
 			t.Errorf("DirectionLookup(nil) = %d, want -1", result)
 		}
@@ -85,21 +76,18 @@ func TestPositionLookup(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.input, func(t *testing.T) {
-			cstr := C.CString(tt.input)
-			defer C.free(unsafe.Pointer(cstr))
-
-			result := PositionLookup(cstr)
-			if int(result) != tt.expected {
-				t.Errorf("PositionLookup(%q) = %d, want %d", tt.input, result, tt.expected)
+			result := positionLookup(tt.input)
+			if result != tt.expected {
+				t.Errorf("positionLookup(%q) = %d, want %d", tt.input, result, tt.expected)
 			}
 		})
 	}
 
-	// Test nil pointer
-	t.Run("nil", func(t *testing.T) {
-		result := PositionLookup(nil)
+	// Test empty string
+	t.Run("empty", func(t *testing.T) {
+		result := positionLookup("")
 		if result != -1 {
-			t.Errorf("PositionLookup(nil) = %d, want -1", result)
+			t.Errorf("positionLookup(\"\") = %d, want -1", result)
 		}
 	})
 }
@@ -124,12 +112,9 @@ func TestSexLookup(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.input, func(t *testing.T) {
-			cstr := C.CString(tt.input)
-			defer C.free(unsafe.Pointer(cstr))
-
-			result := SexLookup(cstr)
-			if int(result) != tt.expected {
-				t.Errorf("SexLookup(%q) = %d, want %d", tt.input, result, tt.expected)
+			result := sexLookup(tt.input)
+			if result != tt.expected {
+				t.Errorf("sexLookup(%q) = %d, want %d", tt.input, result, tt.expected)
 			}
 		})
 	}
@@ -158,12 +143,9 @@ func TestSizeLookup(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.input, func(t *testing.T) {
-			cstr := C.CString(tt.input)
-			defer C.free(unsafe.Pointer(cstr))
-
-			result := SizeLookup(cstr)
-			if int(result) != tt.expected {
-				t.Errorf("SizeLookup(%q) = %d, want %d", tt.input, result, tt.expected)
+			result := sizeLookup(tt.input)
+			if result != tt.expected {
+				t.Errorf("sizeLookup(%q) = %d, want %d", tt.input, result, tt.expected)
 			}
 		})
 	}

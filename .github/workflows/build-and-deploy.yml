@@ -119,20 +119,24 @@ jobs:
     needs: build
 
     steps:
-      - name: Download KBK image
-        uses: actions/download-artifact@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc libc6-dev libmysqlclient-dev
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          name: kbk-image
-          path: /tmp
+          go-version: '1.22'
 
-      - name: Load KBK image
+      - name: Run Go tests
         run: |
-          docker load < /tmp/kbk-image.tar.gz
-
-      - name: Run Go tests in container
-        run: |
-          echo "Running Go tests in Docker container..."
-          docker run --rm -e CGO_ENABLED=1 kbk:${{ needs.build.outputs.short_sha }} /bin/bash -c "cd /kbk/src/go && go test -v ./..."
+          cd src/go/tests
+          echo "Running Go tests..."
+          CGO_ENABLED=1 go test -v .
           echo "✅ All Go tests passed"
 
   push:

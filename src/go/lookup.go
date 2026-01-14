@@ -5,19 +5,11 @@ import (
 	"strings"
 )
 
-// DirectionLookup converts a direction string to a numeric direction value.
-// Returns -1 if the direction is not recognized.
-// Matches the C function: int direction_lookup(char *dir)
-//
-//export DirectionLookup
-func DirectionLookup(dir *C.char) C.int {
-	if dir == nil {
-		return -1
-	}
+// directionLookup is the internal implementation
+func directionLookup(dirStr string) int {
+	dirLower := strings.ToLower(dirStr)
 
-	dirStr := strings.ToLower(C.GoString(dir))
-
-	switch dirStr {
+	switch dirLower {
 	case "n", "north":
 		return 0
 	case "e", "east":
@@ -33,6 +25,19 @@ func DirectionLookup(dir *C.char) C.int {
 	default:
 		return -1
 	}
+}
+
+// DirectionLookup converts a direction string to a numeric direction value.
+// Returns -1 if the direction is not recognized.
+// Matches the C function: int direction_lookup(char *dir)
+//
+//export DirectionLookup
+func DirectionLookup(dir *C.char) C.int {
+	if dir == nil {
+		return -1
+	}
+
+	return C.int(directionLookup(C.GoString(dir)))
 }
 
 // Position table matching the C implementation
@@ -51,17 +56,8 @@ var positionTable = []struct {
 	{"standing", "stand"},
 }
 
-// PositionLookup finds a position by name with case-insensitive prefix matching.
-// Returns -1 if not found.
-// Matches the C function: int position_lookup(const char *name)
-//
-//export PositionLookup
-func PositionLookup(name *C.char) C.int {
-	if name == nil {
-		return -1
-	}
-
-	nameStr := C.GoString(name)
+// positionLookup is the internal implementation
+func positionLookup(nameStr string) int {
 	if len(nameStr) == 0 {
 		return -1
 	}
@@ -72,12 +68,25 @@ func PositionLookup(name *C.char) C.int {
 	for i, pos := range positionTable {
 		if len(pos.name) > 0 && pos.name[0] == firstChar {
 			if strings.HasPrefix(strings.ToLower(pos.name), nameLower) {
-				return C.int(i)
+				return i
 			}
 		}
 	}
 
 	return -1
+}
+
+// PositionLookup finds a position by name with case-insensitive prefix matching.
+// Returns -1 if not found.
+// Matches the C function: int position_lookup(const char *name)
+//
+//export PositionLookup
+func PositionLookup(name *C.char) C.int {
+	if name == nil {
+		return -1
+	}
+
+	return C.int(positionLookup(C.GoString(name)))
 }
 
 // Sex table matching the C implementation
@@ -90,17 +99,8 @@ var sexTable = []struct {
 	{"either"},
 }
 
-// SexLookup finds a sex value by name with case-insensitive prefix matching.
-// Returns -1 if not found.
-// Matches the C function: int sex_lookup(const char *name)
-//
-//export SexLookup
-func SexLookup(name *C.char) C.int {
-	if name == nil {
-		return -1
-	}
-
-	nameStr := C.GoString(name)
+// sexLookup is the internal implementation
+func sexLookup(nameStr string) int {
 	if len(nameStr) == 0 {
 		return -1
 	}
@@ -111,12 +111,25 @@ func SexLookup(name *C.char) C.int {
 	for i, sex := range sexTable {
 		if len(sex.name) > 0 && sex.name[0] == firstChar {
 			if strings.HasPrefix(strings.ToLower(sex.name), nameLower) {
-				return C.int(i)
+				return i
 			}
 		}
 	}
 
 	return -1
+}
+
+// SexLookup finds a sex value by name with case-insensitive prefix matching.
+// Returns -1 if not found.
+// Matches the C function: int sex_lookup(const char *name)
+//
+//export SexLookup
+func SexLookup(name *C.char) C.int {
+	if name == nil {
+		return -1
+	}
+
+	return C.int(sexLookup(C.GoString(name)))
 }
 
 // Size table matching the C implementation
@@ -131,17 +144,8 @@ var sizeTable = []struct {
 	{"giant"},
 }
 
-// SizeLookup finds a size value by name with case-insensitive prefix matching.
-// Returns -1 if not found.
-// Matches the C function: int size_lookup(const char *name)
-//
-//export SizeLookup
-func SizeLookup(name *C.char) C.int {
-	if name == nil {
-		return -1
-	}
-
-	nameStr := C.GoString(name)
+// sizeLookup is the internal implementation
+func sizeLookup(nameStr string) int {
 	if len(nameStr) == 0 {
 		return -1
 	}
@@ -152,7 +156,7 @@ func SizeLookup(name *C.char) C.int {
 	for i, size := range sizeTable {
 		if len(size.name) > 0 && size.name[0] == firstChar {
 			if strings.HasPrefix(strings.ToLower(size.name), nameLower) {
-				return C.int(i)
+				return i
 			}
 		}
 	}
@@ -160,3 +164,15 @@ func SizeLookup(name *C.char) C.int {
 	return -1
 }
 
+// SizeLookup finds a size value by name with case-insensitive prefix matching.
+// Returns -1 if not found.
+// Matches the C function: int size_lookup(const char *name)
+//
+//export SizeLookup
+func SizeLookup(name *C.char) C.int {
+	if name == nil {
+		return -1
+	}
+
+	return C.int(sizeLookup(C.GoString(name)))
+}
