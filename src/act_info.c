@@ -1236,7 +1236,7 @@ void do_prompt(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!strcmp(argument, "default"))
-		strcpy(buf, "%W <%h/%l%%hp %m/%j%%m %v/%k%%mv> (%Q qc) %I ");
+		strcpy(buf, "%W <%h/%l%%hp %m/%j%%m %v/%k%%mv> (%Q qc) %I %T");
 	else
 	{
 		if (strlen(argument) > 75)
