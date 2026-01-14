@@ -36,7 +36,6 @@
 // Thanks to Dev for original Bounty Cabal code.
 
 #include "include.h"
-char *target_name;
 
 void bounty_log(char *string)
 {

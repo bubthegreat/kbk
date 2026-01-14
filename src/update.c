@@ -53,8 +53,6 @@ void iprog_pulse_update args((bool isTick));
 void healing_sleep_wakeup args((CHAR_DATA * ch));
 void updateRaceAff args((CHAR_DATA * ch));
 
-bool arena;
-
 /* used for saving */
 int reverse_d args((int dir));
 int save_number = 0;

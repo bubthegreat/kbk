@@ -52,7 +52,6 @@ void obj_brandish_phylactery args((CHAR_DATA * ch, OBJ_DATA *obj));
 void recite_libram_conjuration args((CHAR_DATA * ch, CHAR_DATA *victim, OBJ_DATA *scroll, OBJ_DATA *obj, bool fRead));
 void brandish_sceptre_dead args((CHAR_DATA * ch, OBJ_DATA *obj));
 void save_cabal_items args((void));
-bool arena;
 void check_eagle_eyes(CHAR_DATA *ch, CHAR_DATA *victim);
 bool is_affected_obj args((OBJ_DATA * obj, int sn));
 bool remove_offhand_obj(CHAR_DATA *ch, bool fReplace);
@@ -3294,7 +3293,7 @@ bool cant_carry(CHAR_DATA *ch, OBJ_DATA *obj)
 
 bool is_restricted(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-    int restrict;
+    int restrict_val;
     bool status;
     char *race;
 
@@ -3305,31 +3304,31 @@ bool is_restricted(CHAR_DATA *ch, OBJ_DATA *obj)
         return TRUE;
 
     race = race_table[ch->race].name;
-    restrict = obj->pIndexData->restrict_flags;
+    restrict_val = obj->pIndexData->restrict_flags;
 
     status = FALSE;
 
     // CABAL RESTRICTION
-    if ((IS_SET(restrict, ANCIENT_ONLY) && ch->cabal != CABAL_ANCIENT) || (IS_SET(restrict, ARCANA_ONLY) && ch->cabal != CABAL_ARCANA) || (IS_SET(restrict, RAGER_ONLY) && ch->cabal != CABAL_RAGER) || (IS_SET(restrict, OUTLAW_ONLY) && ch->cabal != CABAL_OUTLAW) || (IS_SET(restrict, BOUNTY_ONLY) && ch->cabal != CABAL_BOUNTY) || (IS_SET(restrict, KNIGHT_ONLY) && ch->cabal != CABAL_KNIGHT) || (IS_SET(restrict, SYLVAN_ONLY) && ch->cabal != CABAL_SYLVAN))
+    if ((IS_SET(restrict_val, ANCIENT_ONLY) && ch->cabal != CABAL_ANCIENT) || (IS_SET(restrict_val, ARCANA_ONLY) && ch->cabal != CABAL_ARCANA) || (IS_SET(restrict_val, RAGER_ONLY) && ch->cabal != CABAL_RAGER) || (IS_SET(restrict_val, OUTLAW_ONLY) && ch->cabal != CABAL_OUTLAW) || (IS_SET(restrict_val, BOUNTY_ONLY) && ch->cabal != CABAL_BOUNTY) || (IS_SET(restrict_val, KNIGHT_ONLY) && ch->cabal != CABAL_KNIGHT) || (IS_SET(restrict_val, SYLVAN_ONLY) && ch->cabal != CABAL_SYLVAN))
         status = TRUE;
 
     // RACE RESTRICTION
-    if ((IS_SET(restrict, HUMAN_ONLY) && str_cmp(race, "human")) || (IS_SET(restrict, ELF_ONLY) && str_cmp(race, "elf")) || (IS_SET(restrict, DARK_ONLY) && str_cmp(race, "dark-elf")) || (IS_SET(restrict, GIANT_ONLY) && (str_cmp(race, "cloud") && str_cmp(race, "storm") && str_cmp(race, "fire"))) || (IS_SET(restrict, TROLL_ONLY) && str_cmp(race, "troll")) || (IS_SET(restrict, CENTAUR_ONLY) && str_cmp(race, "centaur")) || (IS_SET(restrict, GNOME_ONLY) && str_cmp(race, "gnome")) || (IS_SET(restrict, DWARF_ONLY) && (str_cmp(race, "dwarf") && str_cmp(race, "duergar"))) || (IS_SET(restrict, DRACONIAN_ONLY) && str_cmp(race, "draconian")))
+    if ((IS_SET(restrict_val, HUMAN_ONLY) && str_cmp(race, "human")) || (IS_SET(restrict_val, ELF_ONLY) && str_cmp(race, "elf")) || (IS_SET(restrict_val, DARK_ONLY) && str_cmp(race, "dark-elf")) || (IS_SET(restrict_val, GIANT_ONLY) && (str_cmp(race, "cloud") && str_cmp(race, "storm") && str_cmp(race, "fire"))) || (IS_SET(restrict_val, TROLL_ONLY) && str_cmp(race, "troll")) || (IS_SET(restrict_val, CENTAUR_ONLY) && str_cmp(race, "centaur")) || (IS_SET(restrict_val, GNOME_ONLY) && str_cmp(race, "gnome")) || (IS_SET(restrict_val, DWARF_ONLY) && (str_cmp(race, "dwarf") && str_cmp(race, "duergar"))) || (IS_SET(restrict_val, DRACONIAN_ONLY) && str_cmp(race, "draconian")))
         status = TRUE;
 
     // CLASS RESTRICTION
-    if ((IS_SET(restrict, RANGER_ONLY) && ch->class != CLASS_RANGER) || (IS_SET(restrict, ANTI_PALADIN_ONLY) && ch->class != CLASS_ANTI_PALADIN) || (IS_SET(restrict, WARRIOR_ONLY) && ch->class != CLASS_WARRIOR) || (IS_SET(restrict, ASSASSIN_ONLY) && ch->class != CLASS_ASSASSIN) || (IS_SET(restrict, PALADIN_ONLY) && ch->class != CLASS_PALADIN) || (IS_SET(restrict, THIEF_ONLY) && ch->class != CLASS_THIEF) || (IS_SET(restrict, NECROMANCER_ONLY) && ch->class != CLASS_NECROMANCER) || (IS_SET(restrict, CHANNELER_ONLY) && ch->class != CLASS_CHANNELER) || (IS_SET(restrict, ELEMENTALIST_ONLY) && ch->class != CLASS_ELEMENTALIST) || (IS_SET(restrict, HEALER_ONLY) && ch->class != CLASS_HEALER) || (IS_SET(restrict, ZEALOT_ONLY) && ch->class != CLASS_ZEALOT) || (IS_SET(restrict, BARD_ONLY) && ch->class != CLASS_BARD))
+    if ((IS_SET(restrict_val, RANGER_ONLY) && ch->class != CLASS_RANGER) || (IS_SET(restrict_val, ANTI_PALADIN_ONLY) && ch->class != CLASS_ANTI_PALADIN) || (IS_SET(restrict_val, WARRIOR_ONLY) && ch->class != CLASS_WARRIOR) || (IS_SET(restrict_val, ASSASSIN_ONLY) && ch->class != CLASS_ASSASSIN) || (IS_SET(restrict_val, PALADIN_ONLY) && ch->class != CLASS_PALADIN) || (IS_SET(restrict_val, THIEF_ONLY) && ch->class != CLASS_THIEF) || (IS_SET(restrict_val, NECROMANCER_ONLY) && ch->class != CLASS_NECROMANCER) || (IS_SET(restrict_val, CHANNELER_ONLY) && ch->class != CLASS_CHANNELER) || (IS_SET(restrict_val, ELEMENTALIST_ONLY) && ch->class != CLASS_ELEMENTALIST) || (IS_SET(restrict_val, HEALER_ONLY) && ch->class != CLASS_HEALER) || (IS_SET(restrict_val, ZEALOT_ONLY) && ch->class != CLASS_ZEALOT) || (IS_SET(restrict_val, BARD_ONLY) && ch->class != CLASS_BARD))
         status = TRUE;
 
     // MAGE ONLY
-    if (IS_SET(restrict, MAGE_ONLY))
+    if (IS_SET(restrict_val, MAGE_ONLY))
     {
         if (ch->class != CLASS_ANTI_PALADIN && ch->class != CLASS_CHANNELER && ch->class != CLASS_NECROMANCER && ch->class != CLASS_ELEMENTALIST)
             status = TRUE;
     }
 
     // NEWBIE ONLY
-    /*    if (IS_SET(restrict, NEWBIE_ONLY) && ch->pcdata->newbie!=TRUE)
+    /*    if (IS_SET(restrict_val, NEWBIE_ONLY) && ch->pcdata->newbie!=TRUE)
             status = TRUE; */
 
     return status;

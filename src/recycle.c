@@ -738,6 +738,7 @@ void free_had(HELP_AREA *had)
 }
 
 HELP_DATA *help_free;
+HELP_DATA *help_last;
 
 HELP_DATA *new_help(void)
 {
@@ -764,7 +765,6 @@ void free_help(HELP_DATA *help)
 }
 
 /* stuff for recyling notes */
-NOTE_DATA *note_free;
 
 NOTE_DATA *new_note()
 {

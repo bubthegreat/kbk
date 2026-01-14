@@ -46,7 +46,6 @@ bool check_chargeset args((CHAR_DATA * ch, CHAR_DATA *victim));
 int is_spec_skill args((int sn));
 bool is_specced args((CHAR_DATA * ch, int spec));
 int battlecry_multiplier args((CHAR_DATA * ch, int dt));
-char *target_name;
 void clean_mud args((void));
 bool check_dodge args((CHAR_DATA * ch, CHAR_DATA *victim, int dt));
 

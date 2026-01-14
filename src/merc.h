@@ -89,11 +89,9 @@ int system();
 #define const
 #endif
 typedef int sh_int;
-typedef int bool;
 #define unix
 #else
 typedef short int sh_int;
-typedef unsigned char bool;
 #endif
 
 /* ea */
@@ -3373,6 +3371,10 @@ extern sh_int count_data[40000];
 extern int top_mprog_index;
 extern char last_command[MSL];
 extern time_t boot_time;
+extern bool arena;
+extern bool wizlock;
+extern bool newlock;
+extern char *target_name;
 
 /*
  * OS-dependent declarations.

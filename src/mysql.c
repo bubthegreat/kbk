@@ -35,9 +35,11 @@
  ***************************************************************************/
 #include "include.h"
 
+MYSQL conn;
+
 void init_mysql(void)
 {
-	my_bool reconnect = 1;
+	bool reconnect = true;
 
 	if (!mysql_init(&conn))
 	{

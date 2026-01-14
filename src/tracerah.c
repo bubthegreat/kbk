@@ -35,8 +35,6 @@
  ***************************************************************************/
 #include "include.h"
 
-char *target_name;
-
 void printCabalInfo();
 
 CHAR_DATA *get_cabal_guardian(int cabal)

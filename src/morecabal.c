@@ -35,7 +35,6 @@
  ***************************************************************************/
 #include "include.h"
 
-char *target_name;
 int empire_lookup args((const char *name));
 
 DECLARE_DO_FUN(do_yell);

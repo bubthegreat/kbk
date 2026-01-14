@@ -34,7 +34,6 @@
 
 char *garble(CHAR_DATA *ch, char *i);
 const char *upstring(const char *i);
-bool arena;
 
 /* RT code to delete yourself */
 

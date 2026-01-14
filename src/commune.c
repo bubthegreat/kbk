@@ -35,8 +35,6 @@
  ***************************************************************************/
 #include "include.h"
 
-char *target_name;
-
 void do_supps(CHAR_DATA *ch, char *argument)
 {
     BUFFER *buffer;

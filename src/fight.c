@@ -69,7 +69,6 @@ void do_strap args((CHAR_DATA * victim, OBJ_DATA *strap));
 bool check_unholy_bless args((CHAR_DATA * ch, CHAR_DATA *victim));
 void check_cheap_shot args((CHAR_DATA * ch, CHAR_DATA *victim));
 void check_parting_blow args((CHAR_DATA * ch, CHAR_DATA *victim));
-bool arena;
 bool check_distance args((CHAR_DATA * ch, CHAR_DATA *victim, int dt));
 bool check_ironhands args((CHAR_DATA * ch, CHAR_DATA *victim, int dt));
 bool check_unarmed_defense args((CHAR_DATA * ch, CHAR_DATA *victim, int dt));

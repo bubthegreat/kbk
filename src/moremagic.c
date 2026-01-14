@@ -33,8 +33,6 @@
 
 #include "include.h"
 
-char *target_name;
-
 void spell_self_immolation(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af;
