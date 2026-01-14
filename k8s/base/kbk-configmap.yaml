@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kbk-config
+data:
+  # Enable running under gdb for crash debugging
+  # Set to "true" to run under gdb (slower but captures crashes)
+  # Set to "false" for normal operation (will still try to reproduce crashes)
+  ENABLE_GDB_DEBUGGING: "false"
+

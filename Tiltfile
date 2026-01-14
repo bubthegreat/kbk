@@ -2,8 +2,8 @@
 allow_k8s_contexts('docker-desktop')
 
 # Define the services using Docker Compose
-docker_build('kbk-sql', 'mysql/')
-docker_build('kbk', 
+docker_build('bubthegreat/kbk-sql', 'mysql/')
+docker_build('bubthegreat/kbk',
     context='./',
     dockerfile='Dockerfile',
     live_update=[
@@ -21,10 +21,8 @@ docker_build('kbk',
     ]
 )
 
-# Load the Kubernetes manifests
-k8s_yaml('k8s/mysql-deployment.yaml')
-k8s_yaml('k8s/kbk-deployment.yaml')
-
+# Load the Kubernetes manifests using kustomize local overlay
+k8s_yaml(kustomize('k8s/overlays/local'))
 
 k8s_resource(workload='kbk-deployment', port_forwards=8989)
 k8s_resource(workload='mysql-deployment', port_forwards=3306)

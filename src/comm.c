@@ -657,8 +657,7 @@ void init_descriptor(int control)
 				(addr >> 24) & 0xFF, (addr >> 16) & 0xFF,
 				(addr >> 8) & 0xFF, (addr) & 0xFF);
 		dnew->ip = str_dup(buf);
-		sprintf(log_buf, "Sock.sinaddr:  %s", buf);
-		log_string(log_buf);
+		/* Removed verbose connection logging - only log actual issues */
 		from = gethostbyaddr((char *)&sock.sin_addr,
 							 sizeof(sock.sin_addr), AF_INET);
 
@@ -680,9 +679,11 @@ void init_descriptor(int control)
 							"You're sitebanned. Go away.\n\r", 0);
 		close(desc);
 		free_descriptor(dnew);
+		sprintf(log_buf, "Blocked banned site: %s", dnew->host);
+		log_string(log_buf);
 		return;
 	}
-	log_string("You're not site banned, that's good.");
+	/* Removed verbose "not banned" logging - only log when someone IS banned */
 	/*
 	 * Init descriptor data.
 	 */
@@ -854,7 +855,14 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		}
 		else if (nRead == 0)
 		{
-			log_string("EOF encountered on read.");
+			/* Only log EOF if the connection actually sent some data */
+			/* Silent EOFs are typically health checks/probes */
+			if (iStart > 0)
+			{
+				sprintf(log_buf, "Client disconnected unexpectedly from %s (received %d bytes)",
+					d->host ? d->host : "unknown", iStart);
+				log_string(log_buf);
+			}
 			return FALSE;
 		}
 		else if (errno == EAGAIN)

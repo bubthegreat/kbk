@@ -478,6 +478,7 @@ const struct cmd_type cmd_table[] =
         {"restore", do_restore, POS_DEAD, L5, LOG_ALWAYS, 1, 0},
         {"sla", do_sla, POS_DEAD, L3, LOG_NORMAL, 0, 0},
         {"slay", do_slay, POS_DEAD, L3, LOG_ALWAYS, 1, 0},
+        {"testcrash", do_testcrash, POS_DEAD, ML, LOG_ALWAYS, 1, 0},
         {"teleport", do_teleport, POS_DEAD, L5, LOG_ALWAYS, 1, 0},
         {"transfer", do_transfer, POS_DEAD, L5, LOG_ALWAYS, 1, 0},
         {"at", do_at, POS_DEAD, L6, LOG_NORMAL, 1, 0},
