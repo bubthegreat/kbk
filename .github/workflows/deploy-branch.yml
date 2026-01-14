@@ -200,21 +200,40 @@ jobs:
         run: |
           SHORT_SHA="${{ steps.vars.outputs.short_sha }}"
           BRANCH_NAME="${{ steps.vars.outputs.branch_name }}"
+          MYSQL_CHANGED="${{ needs.build-images.outputs.mysql_changed }}"
 
-          # Update base manifests
+          # Update KBK deployment
           sed -i "s|image: bubthegreat/kbk:.*|image: bubthegreat/kbk:${BRANCH_NAME}-${SHORT_SHA}|g" k8s/base/kbk-deployment.yaml
-          sed -i "s|image: bubthegreat/kbk-sql:.*|image: bubthegreat/kbk-sql:${BRANCH_NAME}-${SHORT_SHA}|g" k8s/base/mysql-deployment.yaml
 
-          echo "Updated production base manifests to ${BRANCH_NAME}-${SHORT_SHA}"
+          # Only update MySQL deployment if MySQL files changed
+          if [ "$MYSQL_CHANGED" == "true" ]; then
+            sed -i "s|image: bubthegreat/kbk-sql:.*|image: bubthegreat/kbk-sql:${BRANCH_NAME}-${SHORT_SHA}|g" k8s/base/mysql-deployment.yaml
+            echo "Updated production base manifests (KBK + MySQL) to ${BRANCH_NAME}-${SHORT_SHA}"
+          else
+            echo "Updated production base manifests (KBK only) to ${BRANCH_NAME}-${SHORT_SHA}"
+            echo "MySQL manifest not updated (no MySQL changes detected)"
+          fi
 
       - name: Update manifests for staging
         if: inputs.environment == 'staging'
         run: |
           SHORT_SHA="${{ steps.vars.outputs.short_sha }}"
           BRANCH_NAME="${{ steps.vars.outputs.branch_name }}"
+          MYSQL_CHANGED="${{ needs.build-images.outputs.mysql_changed }}"
 
           # Create/update staging overlay
           mkdir -p k8s/overlays/kbk-staging
+
+          # Build images section conditionally
+          IMAGES_SECTION="images:
+            - name: bubthegreat/kbk
+              newTag: ${BRANCH_NAME}-${SHORT_SHA}"
+
+          if [ "$MYSQL_CHANGED" == "true" ]; then
+            IMAGES_SECTION="${IMAGES_SECTION}
+            - name: bubthegreat/kbk-sql
+              newTag: ${BRANCH_NAME}-${SHORT_SHA}"
+          fi
 
           cat > k8s/overlays/kbk-staging/kustomization.yaml << EOF
           apiVersion: kustomize.config.k8s.io/v1beta1
@@ -236,23 +255,35 @@ jobs:
           patchesStrategicMerge:
             - ingress-patch.yaml
 
-          images:
-            - name: bubthegreat/kbk
-              newTag: ${BRANCH_NAME}-${SHORT_SHA}
-            - name: bubthegreat/kbk-sql
-              newTag: ${BRANCH_NAME}-${SHORT_SHA}
+          ${IMAGES_SECTION}
           EOF
 
-          echo "Updated staging overlay to ${BRANCH_NAME}-${SHORT_SHA}"
+          if [ "$MYSQL_CHANGED" == "true" ]; then
+            echo "Updated staging overlay (KBK + MySQL) to ${BRANCH_NAME}-${SHORT_SHA}"
+          else
+            echo "Updated staging overlay (KBK only) to ${BRANCH_NAME}-${SHORT_SHA}"
+          fi
 
       - name: Update manifests for dev
         if: inputs.environment == 'dev'
         run: |
           SHORT_SHA="${{ steps.vars.outputs.short_sha }}"
           BRANCH_NAME="${{ steps.vars.outputs.branch_name }}"
+          MYSQL_CHANGED="${{ needs.build-images.outputs.mysql_changed }}"
 
           # Create/update dev overlay
           mkdir -p k8s/overlays/dev
+
+          # Build images section conditionally
+          IMAGES_SECTION="images:
+            - name: bubthegreat/kbk
+              newTag: ${BRANCH_NAME}-${SHORT_SHA}"
+
+          if [ "$MYSQL_CHANGED" == "true" ]; then
+            IMAGES_SECTION="${IMAGES_SECTION}
+            - name: bubthegreat/kbk-sql
+              newTag: ${BRANCH_NAME}-${SHORT_SHA}"
+          fi
 
           cat > k8s/overlays/dev/kustomization.yaml << EOF
           apiVersion: kustomize.config.k8s.io/v1beta1
@@ -274,14 +305,14 @@ jobs:
           patchesStrategicMerge:
             - ingress-patch.yaml
 
-          images:
-            - name: bubthegreat/kbk
-              newTag: ${BRANCH_NAME}-${SHORT_SHA}
-            - name: bubthegreat/kbk-sql
-              newTag: ${BRANCH_NAME}-${SHORT_SHA}
+          ${IMAGES_SECTION}
           EOF
 
-          echo "Updated dev overlay to ${BRANCH_NAME}-${SHORT_SHA}"
+          if [ "$MYSQL_CHANGED" == "true" ]; then
+            echo "Updated dev overlay (KBK + MySQL) to ${BRANCH_NAME}-${SHORT_SHA}"
+          else
+            echo "Updated dev overlay (KBK only) to ${BRANCH_NAME}-${SHORT_SHA}"
+          fi
 
       - name: Commit and push manifest changes
         run: |
@@ -305,6 +336,7 @@ jobs:
           BRANCH_NAME="${{ steps.vars.outputs.branch_name }}"
           SHORT_SHA="${{ steps.vars.outputs.short_sha }}"
           ENV="${{ inputs.environment }}"
+          MYSQL_CHANGED="${{ needs.build-images.outputs.mysql_changed }}"
 
           cat >> $GITHUB_STEP_SUMMARY << EOF
           ## 🚀 Manual Deployment Summary
@@ -316,14 +348,24 @@ jobs:
 
           ### Images Deployed
           - **KBK Image**: \`bubthegreat/kbk:${BRANCH_NAME}-${SHORT_SHA}\`
-          - **SQL Image**: \`bubthegreat/kbk-sql:${BRANCH_NAME}-${SHORT_SHA}\`
+          EOF
+
+          if [ "$MYSQL_CHANGED" == "true" ]; then
+            echo "- **SQL Image**: \`bubthegreat/kbk-sql:${BRANCH_NAME}-${SHORT_SHA}\` ✅ **Updated**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- **SQL Image**: ⏭️ **Skipped** (no MySQL changes detected)" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          cat >> $GITHUB_STEP_SUMMARY << EOF
 
           ### Manifests Updated
           EOF
 
           if [ "${ENV}" == "prod" ]; then
             echo "- \`k8s/base/kbk-deployment.yaml\`" >> $GITHUB_STEP_SUMMARY
-            echo "- \`k8s/base/mysql-deployment.yaml\`" >> $GITHUB_STEP_SUMMARY
+            if [ "$MYSQL_CHANGED" == "true" ]; then
+              echo "- \`k8s/base/mysql-deployment.yaml\`" >> $GITHUB_STEP_SUMMARY
+            fi
           else
             echo "- \`k8s/overlays/${ENV}/kustomization.yaml\`" >> $GITHUB_STEP_SUMMARY
           fi

@@ -77,6 +77,44 @@ void showEq(CHAR_DATA *victim, CHAR_DATA *ch);
 void showInventory(CHAR_DATA *victim, CHAR_DATA *ch);
 bool isNewbie args((CHAR_DATA * ch));
 char *weapon_name_lookup args((int type));
+char *get_room_color args((int sector_type));
+
+/*
+ * Get color code for room name based on sector type.
+ * Returns color code string for use in room name display.
+ */
+char *get_room_color(int sector_type)
+{
+	switch (sector_type)
+	{
+		case SECT_INSIDE:      // Inside - white (civilized)
+		case SECT_CITY:        // City - white (civilized)
+		case SECT_ROAD:        // Road - white (civilized)
+			return "{W";
+
+		case SECT_FIELD:       // Field - green (wilderness)
+		case SECT_FOREST:      // Forest - green (wilderness)
+			return "{g";
+
+		case SECT_HILLS:       // Hills - yellow (wilderness)
+		case SECT_DESERT:      // Desert - yellow (wilderness)
+			return "{y";
+
+		case SECT_MOUNTAIN:    // Mountain - dark grey (wilderness)
+			return "{D";
+
+		case SECT_WATER_SWIM:  // Water - blue (ocean/water)
+		case SECT_WATER_NOSWIM:// Deep water - blue (ocean/water)
+		case SECT_UNDERWATER:  // Underwater - cyan (ocean/water)
+			return "{c";
+
+		case SECT_AIR:         // Air - light cyan (sky)
+			return "{C";
+
+		default:               // Unknown - white
+			return "{W";
+	}
+}
 
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
@@ -1461,8 +1499,8 @@ void do_look(CHAR_DATA *ch, char *argument)
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto"))
 	{
 		/* 'look' or 'look auto' */
-		// Get that colored room name bruh.
-		sprintf(buf, "{W%s{x", ch->in_room->name);
+		// Get that colored room name based on sector type
+		sprintf(buf, "%s%s{x", get_room_color(ch->in_room->sector_type), ch->in_room->name);
 		send_to_char(buf, ch);
 
 		if ((IS_IMMORTAL(ch)) &&
