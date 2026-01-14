@@ -7670,6 +7670,65 @@ spell will cause undead in the room to run away, while evil-aligned characters u
 spell have a chance to bring undead under their control.
 ~
 
+55 ARESET~
+Syntax: areset <filename>
+        areset <vnum>
+
+ARESET is an immortal command that manually forces an area to reset immediately,
+regardless of the area's age or whether players are present. This command allows
+immortals to refresh an area's mobiles, objects, and room states on demand.
+
+How Area Resets Work:
+Normally, areas reset automatically based on age:
+- Areas reset at 3 area-minutes if empty of players
+- Areas reset at 15 area-minutes regardless of player presence
+- Players receive a warning at 14 area-minutes
+- An area-minute varies between 30-90 seconds (average 60 seconds)
+
+What ARESET Does:
+When you use ARESET, the area immediately:
+- Respawns all mobiles according to the area's reset commands
+- Recreates objects in their designated locations
+- Resets door states (locked/unlocked, open/closed)
+- Restores room exits to their default configuration
+- Resets the area's age to a random value between 0-3 area-minutes
+
+Usage:
+  areset midgaard.are    - Reset by filename
+  areset 1               - Reset by area vnum
+
+The command accepts either:
+- The area's filename (e.g., "midgaard.are", "newbie.are")
+- The area's vnum (numeric identifier)
+
+Notifications:
+- You receive confirmation: "Area: <name> has been reset."
+- Other immortals see via wiznet: "Area: <name> has just been reset by <your name>."
+- Players in the area are NOT warned (unlike automatic resets)
+
+Common Uses:
+- Testing area changes after editing
+- Respawning quest mobiles or objects
+- Clearing out killed mobiles for players
+- Fixing stuck or broken area states
+- Refreshing limited items that have been taken
+- Debugging area reset commands
+
+Important Notes:
+- This command does NOT save players or their positions
+- Mobiles currently in combat or charmed are handled by reset logic
+- Objects held by players are NOT affected
+- Use with caution in areas with active players, as it may disrupt gameplay
+- Some special areas (like newbie areas) have modified reset timers
+
+Related Commands:
+- FRESET: Force reset of your current area
+- AREAS: List all areas
+- GOTO: Travel to a specific room to check reset results
+
+See also: AREAS FRESET GOTO RESETS
+~
+
 53 ALLCABALS~
 Syntax: allcabals
 
