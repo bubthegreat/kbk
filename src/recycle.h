@@ -66,6 +66,7 @@ void free_gen_data args((GEN_DATA * gen));
 
 /* extra descr recycling */
 #define ED EXTRA_DESCR_DATA
+extern ED *extra_descr_free;
 ED *new_extra_descr args((void));
 void free_extra_descr args((EXTRA_DESCR_DATA * ed));
 #undef ED
@@ -115,11 +116,14 @@ char *buf_string args((BUFFER * buffer));
 
 HELP_AREA *new_had args((void));
 void free_had args((HELP_AREA * had));
+extern HELP_DATA *help_free;
+extern HELP_DATA *help_last;
 HELP_DATA *new_help args((void));
 void free_help args((HELP_DATA *));
 
 /* note recycling */
 #define ND NOTE_DATA
+extern ND *note_free;
 ND *new_note args((void));
 void free_note args((NOTE_DATA * note));
 #undef ND

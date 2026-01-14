@@ -1,4 +1,4 @@
-MYSQL conn;
+extern MYSQL conn;
 
 #define SQL_SERVER "kbk-sql"
 #define SQL_USER "kbkuser"

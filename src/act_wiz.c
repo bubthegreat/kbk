@@ -41,9 +41,6 @@ struct multdata
 };
 
 void log_naughty args((CHAR_DATA * ch, char *argument, int logtype));
-bool arena;
-bool wizlock;
-bool newlock;
 bool write_to_descriptor args((int desc, char *txt, int length));
 int close args((int fd));
 void print_obj_types(CHAR_DATA *ch);

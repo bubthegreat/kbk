@@ -55,7 +55,6 @@ extern AFFECT_DATA *affect_free;
 
 char *flag_name_lookup args((long bitv, const struct flag_type *flag_table));
 HELP_DATA *help_first;
-HELP_DATA *help_last;
 
 HELP_AREA *had_list;
 

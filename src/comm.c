@@ -47,8 +47,6 @@ void announce_login args((CHAR_DATA * ch));
 void announce_logout args((CHAR_DATA * ch));
 const char *lowstring(const char *i);
 void reverse_word args((char *w, int n));
-bool wizlock = FALSE;
-bool newlock = FALSE;
 void init_signals args((void));
 void do_auto_shutdown args((void));
 

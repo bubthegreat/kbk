@@ -126,7 +126,7 @@ struct hometown_type
     int pit;
     int align;
     int ethos;
-    int restrict;
+    int restrict_flags;
 };
 
 struct bounty_type

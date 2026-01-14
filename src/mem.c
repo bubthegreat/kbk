@@ -59,16 +59,12 @@ extern long top_room;
 extern int top_mprog_index;
 
 AREA_DATA *area_free;
-EXTRA_DESCR_DATA *extra_descr_free;
 EXIT_DATA *exit_free;
 ROOM_INDEX_DATA *room_index_free;
 OBJ_INDEX_DATA *obj_index_free;
 SHOP_DATA *shop_free;
 MOB_INDEX_DATA *mob_index_free;
 RESET_DATA *reset_free;
-HELP_DATA *help_free;
-
-HELP_DATA *help_last;
 
 void free_extra_descr(EXTRA_DESCR_DATA *pExtra);
 void free_affect(AFFECT_DATA *af);

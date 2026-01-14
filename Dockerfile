@@ -1,20 +1,20 @@
-FROM ubuntu:trusty
+FROM ubuntu:24.04
 
-RUN apt-get -y update
-
-# Installation steps
-RUN apt-get -y install make
-RUN apt-get -y install gcc
-RUN apt-get -y install libmysqlclient-dev
-RUN apt-get -y install csh
-RUN apt-get -y install git-all
-RUN apt-get -y install libc6-dbg
-RUN apt-get -y install gdb
-RUN apt-get -y install vim
-RUN apt-get -y install mysql-client
-RUN apt-get -y install telnet
-RUN apt-get -y install bash
-RUN apt-get -y install curl
+# Install required packages in a single layer to reduce image size
+RUN apt-get -y update && \
+    apt-get -y install --no-install-recommends \
+        make \
+        gcc \
+        libc6-dev \
+        libmysqlclient-dev \
+        default-mysql-client \
+        gdb \
+        libc6-dbg \
+        telnet \
+        curl \
+        ca-certificates && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY ./area /kbk/area
 COPY ./data /kbk/data

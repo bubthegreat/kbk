@@ -41,7 +41,6 @@ DECLARE_DO_FUN(do_say);
 int is_spec_skill args((int sn));
 int is_mob_spec args((int sn));
 bool is_specced args((CHAR_DATA * ch, int spec));
-char *target_name;
 
 int weapon_num_lookup args((const char *name));
 char *weapon_name_lookup args((int type));
