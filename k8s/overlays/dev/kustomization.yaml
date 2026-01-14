@@ -11,14 +11,12 @@ commonLabels:
   environment: dev
 
 commonAnnotations:
-  deployed-branch: color-coded-room-names
-  deployed-sha: 77d70d0
+  deployed-branch: knights-rule
+  deployed-sha: 313de19
 
 patchesStrategicMerge:
   - ingress-patch.yaml
 
 images:
   - name: bubthegreat/kbk
-    newTag: color-coded-room-names-77d70d0
-  - name: bubthegreat/kbk-sql
-    newTag: color-coded-room-names-77d70d0
+    newTag: knights-rule-313de19
