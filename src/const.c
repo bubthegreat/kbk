@@ -6609,6 +6609,21 @@ const struct skill_type skill_table[MAX_SKILL] =
          "",
          CMD_POWER},
 
+        {"dragonarmor",
+         {51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51},
+         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+         spell_dragonarmor,
+         TAR_IGNORE,
+         POS_STANDING,
+         &gsn_dragonarmor,
+         SLOT(0),
+         80,
+         18,
+         "",
+         "!DragonArmor!",
+         "",
+         CMD_POWER},
+
         {"blademaster",
          {51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51},
          {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -10540,7 +10555,7 @@ const struct group_type group_table[MAX_GROUP] =
         are now done in act_wiz.c's do_induct() function. These entries just make
         it easier to see what abilities each cabal gets. (Ceran) */
         {"ancient", {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {"eye of the predator", "eyes of intrigue", "mantle of maehslin", "shadowgate", "shroud", "cloak", "eavesdrop"}},
-        {"knight", {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {"lightwalk", "dragonplate", "dragonweapon", "blademaster", "truestrike"}},
+        {"knight", {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {"lightwalk", "dragonplate", "dragonweapon", "dragonarmor", "blademaster", "truestrike"}},
         {"arcana", {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {"channel", "venueport", "scourge", "scrying", "counterspell"}},
         {"rager", {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {"spellbane", "resistance", "bandage", "trophy", "bloodthirst", "blitz", "true sight", "hallow cry"}},
         {"enforcer", {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {"guard call", "shackles", "vigilance", "shield of order", "hand of vengeance"}},

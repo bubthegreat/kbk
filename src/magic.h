@@ -359,6 +359,7 @@ DECLARE_SPELL_FUN(spell_duo_dimension);
 DECLARE_SPELL_FUN(spell_protection);
 DECLARE_SPELL_FUN(spell_prismatic_spray);
 DECLARE_SPELL_FUN(spell_dragonweapon);
+DECLARE_SPELL_FUN(spell_dragonarmor);
 DECLARE_SPELL_FUN(spell_healing_sleep); // Tracerah
 DECLARE_SPELL_FUN(spell_sunray);
 DECLARE_SPELL_FUN(spell_armor_of_thorns);

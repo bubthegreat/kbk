@@ -1446,6 +1446,7 @@ void free_bitmask args((BITMASK * pBmask));
 #define OBJ_VNUM_DRAGONSWORD 4503
 #define OBJ_VNUM_DRAGONPLATE 4506
 #define OBJ_VNUM_DRAGON_WEAPON 9
+#define OBJ_VNUM_DRAGONARMOR 4507
 #define OBJ_VNUM_EMPERORTHRONE 8102
 
 #define OBJ_VNUM_SHIELD_ORDER 4523
@@ -3033,6 +3034,7 @@ extern sh_int gsn_ranger_staff;        /* ranger staff skill -Dioxide */
 extern sh_int gsn_creep;               /* creep skill -Dioxide */
 extern sh_int gsn_dragonsword;
 extern sh_int gsn_dragonplate;
+extern sh_int gsn_dragonarmor;
 extern sh_int gsn_unholy_timer;
 extern sh_int gsn_honorable_combat;
 extern sh_int gsn_chaos_blade;

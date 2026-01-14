@@ -2064,6 +2064,175 @@ void spell_dragonweapon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 }
 
+void spell_dragonarmor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	char buf[MSL], arg[MIL];
+	OBJ_DATA *obj;
+	AFFECT_DATA *paf;
+	int ac_value;
+
+	target_name = one_argument(target_name, arg);
+
+	buf[0] = '\0';
+	if (arg[0] == '\0')
+	{
+		send_to_char("Syntax: call 'dragonarmor' <type>\n\r", ch);
+		send_to_char("Possible armor types: helm, legs, arms, hands, feet, shield, waist, wrists\n\r", ch);
+		return;
+	}
+
+	obj = create_object(get_obj_index(OBJ_VNUM_DRAGONARMOR), level);
+	ac_value = level / 10;
+
+	if (!str_cmp(arg, "helm") || !str_cmp(arg, "head"))
+	{
+		free_string(obj->name);
+		strcat(buf, "a gleaming dragonscale helm");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lies here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_HEAD;
+		obj->weight = 15;
+	}
+	else if (!str_cmp(arg, "legs"))
+	{
+		free_string(obj->name);
+		strcat(buf, "gleaming dragonscale leggings");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lie here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_LEGS;
+		obj->weight = 20;
+	}
+	else if (!str_cmp(arg, "arms"))
+	{
+		free_string(obj->name);
+		strcat(buf, "gleaming dragonscale sleeves");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lie here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_ARMS;
+		obj->weight = 18;
+	}
+	else if (!str_cmp(arg, "hands") || !str_cmp(arg, "gloves"))
+	{
+		free_string(obj->name);
+		strcat(buf, "gleaming dragonscale gauntlets");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lie here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_HANDS;
+		obj->weight = 12;
+	}
+	else if (!str_cmp(arg, "feet") || !str_cmp(arg, "boots"))
+	{
+		free_string(obj->name);
+		strcat(buf, "gleaming dragonscale boots");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lie here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_FEET;
+		obj->weight = 14;
+	}
+	else if (!str_cmp(arg, "shield"))
+	{
+		free_string(obj->name);
+		strcat(buf, "a gleaming dragonscale shield");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lies here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_SHIELD;
+		obj->weight = 25;
+		ac_value = (ac_value * 3) / 2; // Shields get better AC
+	}
+	else if (!str_cmp(arg, "waist") || !str_cmp(arg, "belt"))
+	{
+		free_string(obj->name);
+		strcat(buf, "a gleaming dragonscale belt");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lies here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_WAIST;
+		obj->weight = 8;
+	}
+	else if (!str_cmp(arg, "wrists") || !str_cmp(arg, "wrist"))
+	{
+		free_string(obj->name);
+		strcat(buf, "gleaming dragonscale bracers");
+		obj->name = str_dup(buf);
+		free_string(obj->short_descr);
+		obj->short_descr = str_dup(buf);
+		strcat(buf, " lie here.");
+		free_string(obj->description);
+		obj->description = str_dup(capitalize(buf));
+		obj->wear_flags = ITEM_WEAR_WRIST;
+		obj->weight = 10;
+	}
+	else
+	{
+		send_to_char("You can't make dragonarmor like that!\n\r", ch);
+		send_to_char("Possible armor types: helm, legs, arms, hands, feet, shield, waist, wrists\n\r", ch);
+		extract_obj(obj);
+		return;
+	}
+
+	// Set armor values (pierce, bash, slash, exotic)
+	obj->value[0] = ac_value;
+	obj->value[1] = ac_value;
+	obj->value[2] = ac_value;
+	obj->value[3] = ac_value;
+	obj->level = level;
+	obj->timer = 24;
+
+	// Add hitroll bonus
+	paf = new_affect();
+	paf->type = sn;
+	paf->level = level;
+	paf->duration = -1;
+	paf->location = APPLY_HITROLL;
+	paf->modifier = level / 15;
+	paf->bitvector = 0;
+	paf->next = obj->affected;
+	obj->affected = paf;
+
+	// Add AC bonus
+	paf = new_affect();
+	paf->type = sn;
+	paf->level = level;
+	paf->duration = -1;
+	paf->location = APPLY_AC;
+	paf->modifier = -(level / 8);
+	paf->bitvector = 0;
+	paf->next = obj->affected;
+	obj->affected = paf;
+
+	obj_to_char(obj, ch);
+	act("You forge $p from gleaming dragonscales!", ch, obj, NULL, TO_CHAR);
+	act("$n forges $p from gleaming dragonscales!", ch, obj, NULL, TO_ROOM);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+}
+
 void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *vch;

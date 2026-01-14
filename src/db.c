@@ -348,6 +348,7 @@ sh_int gsn_ranger_staff;		/* Ranger staff skill - Dioxide */
 sh_int gsn_creep;				/* creep skill - Dioxide */
 sh_int gsn_dragonsword;
 sh_int gsn_dragonplate;
+sh_int gsn_dragonarmor;
 sh_int gsn_unholy_timer;
 sh_int gsn_honorable_combat;
 sh_int gsn_chaos_blade;

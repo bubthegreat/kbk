@@ -848,6 +848,7 @@ void easy_induct(CHAR_DATA *ch, char *argument)
 		ch->pcdata->learned[skill_lookup("lightwalk")] = 75;
 		ch->pcdata->learned[skill_lookup("dragonplate")] = 75;
 		ch->pcdata->learned[skill_lookup("dragonweapon")] = 75;
+		ch->pcdata->learned[skill_lookup("dragonarmor")] = 75;
 		ch->pcdata->learned[skill_lookup("blademaster")] = 75;
 		ch->pcdata->learned[skill_lookup("truestrike")] = 75;
 	}
