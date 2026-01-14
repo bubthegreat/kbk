@@ -270,9 +270,13 @@ void do_skills(CHAR_DATA *ch, char *argument)
 	int sn, level, min_lev = 1, max_lev = LEVEL_HERO;
 	bool fAll = FALSE, found = FALSE;
 	char buf[MAX_STRING_LENGTH];
+	char skill_filter[MAX_INPUT_LENGTH];
+	bool fFilter = FALSE;
 
 	if (IS_NPC(ch))
 		return;
+
+	skill_filter[0] = '\0';
 
 	if (argument[0] != '\0')
 	{
@@ -283,41 +287,45 @@ void do_skills(CHAR_DATA *ch, char *argument)
 			argument = one_argument(argument, arg);
 			if (!is_number(arg))
 			{
-				send_to_char("Arguments must be numerical or all.\n\r", ch);
-				return;
+				/* Not a number, treat as skill name filter */
+				strcpy(skill_filter, arg);
+				fFilter = TRUE;
 			}
-			max_lev = atoi(arg);
-
-			if (max_lev < 1 || max_lev > LEVEL_HERO)
+			else
 			{
-				sprintf(buf, "Levels must be between 1 and %d.\n\r", LEVEL_HERO);
-				send_to_char(buf, ch);
-				return;
-			}
-
-			if (argument[0] != '\0')
-			{
-				argument = one_argument(argument, arg);
-				if (!is_number(arg))
-				{
-					send_to_char("Arguments must be numerical or all.\n\r", ch);
-					return;
-				}
-				min_lev = max_lev;
 				max_lev = atoi(arg);
 
 				if (max_lev < 1 || max_lev > LEVEL_HERO)
 				{
-					sprintf(buf,
-							"Levels must be between 1 and %d.\n\r", LEVEL_HERO);
+					sprintf(buf, "Levels must be between 1 and %d.\n\r", LEVEL_HERO);
 					send_to_char(buf, ch);
 					return;
 				}
 
-				if (min_lev > max_lev)
+				if (argument[0] != '\0')
 				{
-					send_to_char("That would be silly.\n\r", ch);
-					return;
+					argument = one_argument(argument, arg);
+					if (!is_number(arg))
+					{
+						send_to_char("Arguments must be numerical or all.\n\r", ch);
+						return;
+					}
+					min_lev = max_lev;
+					max_lev = atoi(arg);
+
+					if (max_lev < 1 || max_lev > LEVEL_HERO)
+					{
+						sprintf(buf,
+								"Levels must be between 1 and %d.\n\r", LEVEL_HERO);
+						send_to_char(buf, ch);
+						return;
+					}
+
+					if (min_lev > max_lev)
+					{
+						send_to_char("That would be silly.\n\r", ch);
+						return;
+					}
 				}
 			}
 		}
@@ -342,6 +350,10 @@ void do_skills(CHAR_DATA *ch, char *argument)
 		&&  ch->pcdata->learned[sn] > 0)*/
 		if ((level = skill_table[sn].skill_level[ch->class]) < LEVEL_HERO + 1 && level >= min_lev && level <= max_lev && skill_table[sn].spell_fun == spell_null && ch->pcdata->learned[sn] > 0)
 		{
+			/* If filtering by skill name, check if the filter matches */
+			if (fFilter && str_infix(skill_filter, skill_table[sn].name))
+				continue;
+
 			found = TRUE;
 			level = skill_table[sn].skill_level[ch->class];
 			if (ch->level < level)
@@ -365,7 +377,13 @@ void do_skills(CHAR_DATA *ch, char *argument)
 
 	if (!found)
 	{
-		send_to_char("No skills found.\n\r", ch);
+		if (fFilter)
+		{
+			sprintf(buf, "You don't know any skill matching '%s'.\n\r", skill_filter);
+			send_to_char(buf, ch);
+		}
+		else
+			send_to_char("No skills found.\n\r", ch);
 		return;
 	}
 
