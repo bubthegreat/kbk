@@ -5,7 +5,10 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   selector:
     matchLabels:
       app: kbk
@@ -14,6 +17,8 @@ spec:
       labels:
         app: kbk
     spec:
+      # Reduce termination grace period for faster shutdowns
+      terminationGracePeriodSeconds: 10
       volumes:
         - name: kbk-player-storage
           persistentVolumeClaim:
@@ -33,11 +38,15 @@ spec:
               if [ ! -f /kbk-persistent/player/Player.lst ]; then
                 echo "Initializing player directory..."
                 cp -r /kbk/player/* /kbk-persistent/player/ || true
+              else
+                echo "Player directory already initialized, skipping..."
               fi
               # Copy sys files if volume is empty
               if [ ! -f /kbk-persistent/sys/bugs.txt ]; then
                 echo "Initializing sys directory..."
                 cp -r /kbk/sys/* /kbk-persistent/sys/ || true
+              else
+                echo "Sys directory already initialized, skipping..."
               fi
               echo "Initialization complete!"
           volumeMounts:
@@ -51,6 +60,34 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8989
+              name: telnet
+          # Add readiness probe to know when app is ready
+          readinessProbe:
+            tcpSocket:
+              port: 8989
+            initialDelaySeconds: 5
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          # Add liveness probe to detect if app is hung
+          livenessProbe:
+            tcpSocket:
+              port: 8989
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          # Add startup probe for initial startup (more lenient)
+          startupProbe:
+            tcpSocket:
+              port: 8989
+            initialDelaySeconds: 0
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 30
           volumeMounts:
             - name: kbk-player-storage
               mountPath: /kbk/player

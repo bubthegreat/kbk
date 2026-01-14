@@ -14,6 +14,8 @@ spec:
       labels:
         app: mysql
     spec:
+      # Reduce termination grace period for faster shutdowns
+      terminationGracePeriodSeconds: 15
       volumes:
         - name: mysql-persistent-storage
           persistentVolumeClaim:
@@ -29,6 +31,43 @@ spec:
                   key: kbk-sql-root-password
           ports:
             - containerPort: 3306
+              name: mysql
+          # Add readiness probe so KBK knows when MySQL is ready
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - "mysqladmin ping -u root -p$MYSQL_ROOT_PASSWORD"
+            initialDelaySeconds: 5
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          # Add liveness probe
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - "mysqladmin ping -u root -p$MYSQL_ROOT_PASSWORD"
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
+          # Add startup probe for initial startup
+          startupProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - "mysqladmin ping -u root -p$MYSQL_ROOT_PASSWORD"
+            initialDelaySeconds: 0
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 60
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
