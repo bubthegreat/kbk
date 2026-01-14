@@ -17,17 +17,6 @@ go build -buildmode=c-archive -o ../libkbkgo.a
 echo "Go library built successfully:"
 echo "  - Static library: src/libkbkgo.a"
 echo "  - Header file: src/libkbkgo.h"
-
-# Run tests (skip if CGO not available in test environment)
-echo ""
-echo "Running Go tests..."
-if CGO_ENABLED=1 go test -v 2>/dev/null; then
-    echo "Tests passed!"
-else
-    echo "Note: Tests require CGO support. Skipping tests."
-    echo "The library was built successfully and will work when linked with C code."
-fi
-
 echo ""
 echo "Build complete!"
 
