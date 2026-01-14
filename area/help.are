@@ -1152,6 +1152,59 @@ name unusable.  It may only be removed by editing the file, for this reason
 freeze is usually preferred.
 ~
 
+58 OTRACK~
+Syntax: otrack <item name>
+        otrack <vnum>
+
+OTRACK (Object Track) searches all player files to find who is carrying a
+specific item, even if those players are not currently logged in. This is
+extremely useful for tracking limited items, rare equipment, or investigating
+item duplication issues.
+
+How it works:
+1. Searches the object database for an item matching the name or vnum
+2. Uses grep to scan all player files (*.plr) for that object's vnum
+3. Reports which characters are carrying the item
+4. Shows item limit information (total limit and current count)
+
+Search Methods:
+  <item name>  - Searches by item keywords (e.g., "sword" or "flaming")
+  <vnum>       - Searches by exact object vnum (e.g., "1234")
+
+Output Information:
+  - Item short description and vnum
+  - Item limit (limtotal) and current count (limcount)
+  - List of all characters carrying the item (numbered)
+  - Message if no players currently hold the item
+
+Examples:
+  otrack sword             - Find all instances of items with "sword" in name
+  otrack 1234              - Find all instances of object vnum 1234
+  otrack flaming           - Find items with "flaming" in keywords
+
+Use Cases:
+  - Tracking limited items to verify limit enforcement
+  - Finding who has specific quest items
+  - Investigating potential item duplication bugs
+  - Locating rare equipment for rebalancing
+  - Auditing powerful items in circulation
+
+Notes:
+  - Searches ALL player files, including offline players
+  - Does NOT search dead character files
+  - Only searches saved player files (recent pickups may not show)
+  - Uses system grep command (may be slow with many players)
+  - If searching by name, finds first matching object in database
+
+Technical Details:
+  - Scans player files in PLAYER_DIR (typically /kbk/player/)
+  - Uses grep to search for "Vnum <number>$" pattern
+  - Results are written to temporary file and parsed
+  - Character names are extracted from file paths
+
+See also: VNUM STAT FINGER LTRACK
+~
+
 59 LTRACK~
 Syntax: ltrack <name/date/hostname/ip/vnum> [type]
         ltrack % [type]
@@ -1310,6 +1363,58 @@ character from anywhere in the world.
 Purge will not get rid of PC's, or objects or mobiles with a NOPURGE flag
 set (i.e. the pit, the fountain, shopkeepers, Hassan).  Mobiles may be
 purged if they are called directly by name.
+~
+
+56 RASTRIP~
+Syntax: rastrip
+        rastrip <location>
+
+RASTRIP (Room Affect Strip) removes ALL affects from a room. This is useful
+for clearing room-based spells, skills, and environmental effects that may
+be causing problems or need to be reset.
+
+Usage:
+  rastrip           - Strips all affects from your current room
+  rastrip <vnum>    - Strips all affects from the specified room vnum
+  rastrip <name>    - Strips all affects from a named location
+
+What gets removed:
+- All room affects (ROOM_AFFECT_DATA structures)
+- Spell effects on the room (e.g., wall of fire, blade barrier)
+- Skill effects on the room (e.g., snares, traps, ranger abilities)
+- Environmental effects applied to the room
+- Any timed room-based effects
+
+Common room affects that can be stripped:
+- Wall spells (wall of fire, wall of ice, etc.)
+- Blade barrier and similar defensive spells
+- Ranger snares and traps (dragsnare, etc.)
+- Darkness/light effects
+- Fog, mist, or obscurement effects
+- Cabal-specific room effects
+- Any other magical or skill-based room modifications
+
+Examples:
+  rastrip                  - Clear all affects from current room
+  rastrip 3001             - Clear all affects from room vnum 3001
+  rastrip temple           - Clear all affects from "temple" location
+
+Notes:
+- This removes ALL room affects, not just specific ones
+- Does NOT affect permanent room flags (use redit for that)
+- Does NOT affect room sector type or other base properties
+- Useful for debugging stuck room effects
+- Can be used to clear problematic spell interactions
+- The room name is shown in the confirmation message
+
+Use Cases:
+- Clearing bugged or stuck room spells
+- Resetting rooms after testing
+- Removing unwanted environmental effects
+- Cleaning up after combat with room-affecting abilities
+- Debugging room affect issues
+
+See also: RAFFECTS PEACE RESTORE ASTRIP
 ~
 
 56 RESTORE~
