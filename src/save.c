@@ -662,7 +662,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	ch->act = PLR_NOSUMMON;
 	ch->comm = COMM_COMBINE | COMM_PROMPT;
 	ch->extracted = FALSE;
-	ch->prompt = str_dup("<%hhp %mm %vmv> ");
+	ch->prompt = str_dup("%W <%h/%l%%hp %m/%j%%m %v/%k%%mv> (%Q qc) %I ");
 	ch->pcdata->confirm_delete = FALSE;
 	ch->pcdata->pwd = str_dup("");
 	ch->pcdata->bamfin = str_dup("");
