@@ -126,7 +126,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		return buf;
 
 	if (affect_find_obj(obj, skill_lookup("unholy bless")) != NULL)
-		strcat(buf, "(Unholy Blessing) ");
+		strcat(buf, "{R(Unholy Blessing){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		strcat(buf, "(Invis) ");
@@ -147,7 +147,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcat(buf, "{W(Humming){x ");
 
 	if (IS_OBJ_STAT(obj, ITEM_HIDDEN) && IS_IMMORTAL(ch))
-		strcat(buf, "(Hidden) ");
+		strcat(buf, "{b(Hidden){x ");
 
 	if (fShort)
 	{
@@ -324,43 +324,61 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (isNewbie(victim))
-		strcat(buf, "(NEWBIE) ");
+    	strcat(buf, "{C(NEWBIE){x ");
+
 	if (IS_AFFECTED(victim, AFF_INVISIBLE))
-		strcat(buf, "(Invis) ");
+		strcat(buf, "{c(Invis){x ");
+
 	if (victim->invis_level > LEVEL_HERO)
-		strcat(buf, "(Wizi) ");
+		strcat(buf, "{C(Wizi){x ");
+
 	if (is_affected(victim, gsn_earthfade))
-		strcat(buf, "(Earthfade) ");
+		strcat(buf, "{y(Earthfade){x ");
+
 	if (IS_AFFECTED(victim, AFF_HIDE))
-		strcat(buf, "(Hide) ");
+		strcat(buf, "{b(Hide){x ");
+
 	if (get_skill(victim, skill_lookup("veil of the opaque")) == 100)
-		strcat(buf, "(Veiled) ");
+		strcat(buf, "{b(Veiled){x ");
+
 	if (is_affected(victim, skill_lookup("aura")))
-		strcat(buf, "(Aura) ");
+		strcat(buf, "{w(Aura){x ");
+
 	if (IS_AFFECTED(victim, AFF_CAMOUFLAGE))
-		strcat(buf, "(Camouflage) ");
+		strcat(buf, "{g(Camouflage){x ");
+
 	if (IS_AFFECTED(victim, AFF_CHARM))
-		strcat(buf, "(Charmed) ");
+		strcat(buf, "{m(Charmed){x ");
+
 	if (IS_AFFECTED(victim, AFF_PASS_DOOR))
-		strcat(buf, "(Translucent) ");
+		strcat(buf, "{W(Translucent){x ");
+
 	if (IS_AFFECTED(victim, AFF_FAERIE_FIRE))
-		strcat(buf, "(Pink Aura) ");
+		strcat(buf, "{M(Pink Aura){x ");
+
 	if (is_affected(victim, gsn_incandescense))
-		strcat(buf, "(Glowing) ");
+		strcat(buf, "{Y(Glowing){x ");
+
 	if (is_affected(victim, sn_faerie_fog))
-		strcat(buf, "(Purple Aura) ");
+		strcat(buf, "{m(Purple Aura){x ");
+
 	if (victim->ghost > 0)
-		strcat(buf, "(Ghost) ");
+		strcat(buf, "{w(Ghost){x ");
+
 	if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
-		strcat(buf, "(Red Aura) ");
+		strcat(buf, "{R(Red Aura){x ");
+
 	if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
-		strcat(buf, "(Golden Aura) ");
+		strcat(buf, "{Y(Golden Aura){x ");
+
 	if (IS_AFFECTED(victim, AFF_SANCTUARY) && !is_affected(victim, gsn_shroud))
-		strcat(buf, "(White Aura) ");
+		strcat(buf, "{W(White Aura){x ");
+
 	if (is_affected(victim, gsn_shroud))
-		strcat(buf, "(Black Aura) ");
+		strcat(buf, "{D(Black Aura){x ");
+
 	if (is_affected(victim, gsn_snare))
-		strcat(buf, "(Ensnared) ");
+		strcat(buf, "{g(Ensnared){x ");
 
 	if (!IS_NPC(victim) && is_affected(victim, gsn_cloak_form) && (ch->level > LEVEL_HERO || ch->cabal == CABAL_ANCIENT))
 	{
