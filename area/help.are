@@ -3985,6 +3985,7 @@ The Knights of Thera strive to uphold truth and justice in Thera.
 
 RESTRICTED ALIGN: Must be Good
 POWERS: Dragonplate
+	Dragonarmor
 	Truestrike
 	Blademaster
 	Dragonweapon
@@ -5381,8 +5382,21 @@ of great force.
 1 DRAGONPLATE~
 Syntax: dragonplate
 
-A Knight of Thera can use this skill to create a powerful battle armor 
+A Knight of Thera can use this skill to create a powerful battle armor
 which will absorb even the strongest of magicks.
+~
+
+1 DRAGONARMOR~
+Syntax: call 'dragonarmor' <type>
+
+With this power, a Knight of Thera can forge gleaming dragonscale armor
+for various equipment slots. The armor provides excellent protection and
+enhances the knight's combat prowess.
+
+Available armor types: helm, legs, arms, hands, feet, shield, waist, wrists
+
+Each piece provides armor class bonuses and combat enhancements befitting
+a Knight of Thera.
 ~
 
 1 DRAGONWEAPON~
