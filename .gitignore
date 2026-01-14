@@ -4,3 +4,4 @@ terraform/.terraform/
 log/
 area/*.so
 localxfer/*
+*.o
