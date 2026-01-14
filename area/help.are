@@ -1548,6 +1548,57 @@ should almost never be used, as 100 players popping into one room can have
 horrible effects on slow links. Teleport is a synonym for transfer. 
 ~
 
+52 CLASSES~
+Syntax: classes
+
+CLASSES is an immortal command that displays which character classes are
+available for each playable race in the game. This is useful for quickly
+checking race/class combinations without having to look at code or tables.
+
+Output Format:
+The command displays each race name followed by the classes available to
+that race, organized as:
+
+  <Race Name>:
+  <class1> <class2> <class3> ...
+
+Example Output:
+  Human:
+  warrior thief healer priest paladin anti-paladin ranger ...
+
+  Elf:
+  warrior thief healer priest paladin ranger ...
+
+  Dwarf:
+  warrior thief healer priest ...
+
+How it works:
+- Iterates through all PC races (race_table entries with pc_race = true)
+- For each race, checks pc_race_table[race].classes[class] array
+- Displays class names where the value is 1 (allowed)
+- Stops when it reaches non-PC races
+
+Use Cases:
+- Quick reference for valid race/class combinations
+- Helping players choose race/class during character creation
+- Verifying class availability when making balance changes
+- Checking which classes are restricted for certain races
+
+Technical Details:
+- Reads from pc_race_table structure
+- Uses race_table for race names
+- Uses class_table for class names
+- Only shows PC races (not monster races)
+
+Notes:
+- This is a read-only informational command
+- Does not modify any game data
+- Available to all immortals (level 52+)
+- Output may vary based on custom race/class configurations
+
+See also: HELP CLASSES (player version), RACES, STAT
+~
+
 54 ARENA~
 Syntax: arena
 
