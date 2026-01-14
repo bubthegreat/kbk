@@ -408,6 +408,7 @@ const struct cmd_type cmd_table[] =
         {"executioner", do_executioners_grace, POS_STANDING, 0, LOG_NORMAL, 1, 0},
         {"dragonsword", do_dragonsword, POS_STANDING, 0, LOG_NORMAL, 1, 0},
         {"dragonplate", do_dragonplate, POS_STANDING, 0, LOG_NORMAL, 1, 0},
+        {"dragonarmor", do_dragonarmor, POS_STANDING, 0, LOG_NORMAL, 1, 0},
         {"honorable", do_honorable_combat, POS_STANDING, 0, LOG_NORMAL, 1, 0},
         {"stun", do_stun, POS_FIGHTING, 0, LOG_NORMAL, 1, 1},
         {"gouge", do_gouge, POS_FIGHTING, 0, LOG_NORMAL, 1, 1},

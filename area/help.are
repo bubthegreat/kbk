@@ -5387,7 +5387,7 @@ which will absorb even the strongest of magicks.
 ~
 
 1 DRAGONARMOR~
-Syntax: call 'dragonarmor' <type>
+Syntax: dragonarmor <type>
 
 With this power, a Knight of Thera can forge gleaming dragonscale armor
 for various equipment slots. The armor provides excellent protection and
