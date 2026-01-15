@@ -3,4 +3,6 @@ terraform/.terraform/
 .vscode/
 log/
 area/*.so
-localxfer/*
+*/localxfer/*
+src/*.o
+src/pos2
