@@ -399,11 +399,11 @@ void game_loop_mac_msdos(void)
 #if defined(unix)
 void game_loop_unix(int control)
 {
-	
+
 	static struct timeval null_time;
 	struct timeval last_time;
 
-	// signal( SIGPIPE, SIG_IGN );
+	signal( SIGPIPE, SIG_IGN );
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t)last_time.tv_sec;
 
