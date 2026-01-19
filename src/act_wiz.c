@@ -7075,6 +7075,10 @@ void copyover_recover()
 			do_look(d->character, "auto");
 
 			d->connected = CON_PLAYING;
+
+			/* Enable telnet GA by default for all players */
+			SET_BIT(d->character->comm, COMM_TELNET_GA);
+
 			reset_char(d->character);
 		}
 	}

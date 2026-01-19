@@ -2438,6 +2438,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		char_list = ch;
 		d->connected = CON_PLAYING;
 
+		/* Enable telnet GA by default for all players */
+		SET_BIT(ch->comm, COMM_TELNET_GA);
+
 		reset_char(ch);
 		free_string(ch->pcdata->logon_time);
 		ch->pcdata->logon_time = str_dup(ctime(&current_time));
@@ -2494,6 +2497,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			SET_BIT(ch->act, PLR_AUTOEXIT);
 			SET_BIT(ch->act, PLR_AUTOGOLD);
 			SET_BIT(ch->act, PLR_COLOR);
+			SET_BIT(ch->comm, COMM_TELNET_GA);
 
 			send_to_char("Autoassist, autoexit and autogold have been set.\n\r", ch);
 			send_to_char("Type 'newbie off' to remove your NEWBIE PROTECTION.\n\r", ch);
@@ -2759,6 +2763,9 @@ bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
 				WAIT_STATE(ch, PULSE_VIOLENCE * 4);
 				// Echo?
 				d->connected = CON_PLAYING;
+
+				/* Enable telnet GA by default for all players */
+				SET_BIT(ch->comm, COMM_TELNET_GA);
 			}
 			return TRUE;
 		}
