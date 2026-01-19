@@ -27,7 +27,7 @@ spec:
           emptyDir: {}
       initContainers:
         - name: init-kbk-data
-          image: bubthegreat/kbk:3d19ad6
+          image: bubthegreat/kbk:a4375f6
           command: ['sh', '-c']
           args:
             - |
@@ -53,7 +53,7 @@ spec:
               mountPath: /kbk-persistent/sys
       containers:
         - name: kbk
-          image: bubthegreat/kbk:3d19ad6
+          image: bubthegreat/kbk:a4375f6
           imagePullPolicy: Always
           env:
             - name: ENABLE_GDB_DEBUGGING
