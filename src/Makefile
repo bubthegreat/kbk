@@ -3,7 +3,7 @@ PROF	= -g
 NOCRYPT	=
 C_FLAGS = -Wall $(PROF) $(NOCRYPT)
 L_FLAGS =  $(PROF)
-E_FLAGS = `mysql_config --cflags --libs` -lcrypt
+E_FLAGS = -lsqlite3 -lcrypt
 
 O_FILES = act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o \
 	alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o \
@@ -11,23 +11,23 @@ O_FILES = act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o \
 	save.o skills.o special.o tables.o update.o morecabal.o morefight.o \
 	extra.o moremagic.o titles.o necro.o olc.o olc_act.o \
 	assassin.o olc_save.o mem.o string.o bit.o commune.o tracerah.o \
-	iprog.o mprog.o rprog.o bounty.o mysql.o newbit.o ranger.o \
+	iprog.o mprog.o rprog.o bounty.o sqlite.o newbit.o ranger.o \
 	note.o queststore.o
 
 pos2: $(O_FILES)
 	rm -f pos2
-	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
-	mv pos2 /kbk/area
+	$(CC) $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
+	@if [ -d /kbk/area ]; then mv pos2 /kbk/area; else cp pos2 ../area/; fi
 	cd ..
 
 pos2-ci: $(O_FILES)
 	rm -f pos2
-	$(CC) -I/usr/include/mysql $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
+	$(CC) $(L_FLAGS) -o pos2 $(O_FILES) $(E_FLAGS)
 	mv pos2 ../area
 	cd ..
 
 .c.o: merc.h
-	$(CC) -I/usr/include/mysql -c $(C_FLAGS) $<
+	$(CC) -c $(C_FLAGS) $<
 
 clean:
 	rm -f *.o
