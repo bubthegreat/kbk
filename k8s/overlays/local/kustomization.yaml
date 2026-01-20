@@ -13,5 +13,4 @@ commonLabels:
 patchesStrategicMerge:
   - kbk-configmap.yaml
   - kbk-pvc-patch.yaml
-  - mysql-pvc-patch.yaml
 
