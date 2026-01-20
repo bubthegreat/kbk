@@ -2864,6 +2864,7 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
         attack = attack_table[0].name;
     }
 
+    roll = number_percent();
     if (chance - roll >= 40)
     {
         sprintf(buf1, "You masterfully deflect $n's %s with your hands.", attack);

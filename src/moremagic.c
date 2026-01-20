@@ -1440,7 +1440,7 @@ void spell_group_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target
 
 	old_room = ch->in_room;
 
-	spell_teleport(skill_lookup("teleport"), level, ch, ch, (int)NULL);
+	spell_teleport(skill_lookup("teleport"), level, ch, ch, TARGET_CHAR);
 
 	if (ch->in_room != old_room)
 	{

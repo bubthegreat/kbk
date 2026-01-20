@@ -1753,7 +1753,8 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
     {
         if (paf_old->type == paf->type)
         {
-            paf->level = (paf->level += paf_old->level) / 2;
+            paf->level += paf_old->level;
+            paf->level = paf->level / 2;
             if (paf_old->duration <= 20)
                 paf->duration += paf_old->duration;
             else
@@ -2772,11 +2773,11 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, char *argument)
     for (wch = char_list; wch != NULL; wch = wch->next)
     {
         if (!IS_NPC(wch) && (is_affected(wch, gsn_cloak_form)) && (IS_IMMORTAL(ch) || ch->cabal == CABAL_ANCIENT))
-            sprintf(name, wch->original_name);
+            sprintf(name, "%s", wch->original_name);
         else if (!IS_NPC(wch) && (is_affected(wch, gsn_cloak_form)) && IS_SET(wch->act, PLR_CRIMINAL) && ch->cabal == cabal_lookup("enforcer"))
-            sprintf(name, wch->original_name);
+            sprintf(name, "%s", wch->original_name);
         else
-            sprintf(name, wch->name);
+            sprintf(name, "%s", wch->name);
 
         if (wch->in_room == NULL || !can_see(ch, wch) || !is_name(arg, name))
             continue;
@@ -4176,7 +4177,8 @@ void affect_join_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
     {
         if (paf_old->type == paf->type)
         {
-            paf->level = (paf->level += paf_old->level) / 2;
+            paf->level += paf_old->level;
+            paf->level = paf->level / 2;
             paf->duration += paf_old->duration;
             paf->modifier += paf_old->modifier;
             affect_remove_room(room, paf_old);

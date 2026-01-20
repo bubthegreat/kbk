@@ -1,0 +1,921 @@
+gcc -c -Wall -g  act_comm.c
+act_comm.c: In function ‘do_immtalk’:
+act_comm.c:688:24: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4603 [-Wformat-overflow=]
+  688 |   sprintf(buf, " (%s): %s", timestamp(), buf2);
+      |                        ^~                ~~~~
+act_comm.c:688:3: note: ‘sprintf’ output 6 or more bytes (assuming 4613) into a destination of size 4608
+  688 |   sprintf(buf, " (%s): %s", timestamp(), buf2);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_comm.c:686:29: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4599 [-Wformat-overflow=]
+  686 |   sprintf(buf, " (%s) [%d]: %s", timestamp(), level, buf2);
+      |                             ^~                       ~~~~
+act_comm.c:686:3: note: ‘sprintf’ output 10 or more bytes (assuming 4617) into a destination of size 4608
+  686 |   sprintf(buf, " (%s) [%d]: %s", timestamp(), level, buf2);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_comm.c:692:27: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4600 [-Wformat-overflow=]
+  692 |  sprintf(buf2, "{g[IMM] %s%s{x\n\r", ch->original_name, buf);
+      |                           ^~                            ~~~
+act_comm.c:692:2: note: ‘sprintf’ output 13 or more bytes (assuming 4620) into a destination of size 4608
+  692 |  sprintf(buf2, "{g[IMM] %s%s{x\n\r", ch->original_name, buf);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_comm.c:709:29: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4600 [-Wformat-overflow=]
+  709 |    sprintf(buf2, "{g[IMM] %s%s{x\n\r", ch->original_name, buf);
+      |                             ^~                            ~~~
+act_comm.c:709:4: note: ‘sprintf’ output 13 or more bytes (assuming 4620) into a destination of size 4608
+  709 |    sprintf(buf2, "{g[IMM] %s%s{x\n\r", ch->original_name, buf);
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  act_enter.c
+act_enter.c: In function ‘do_path’:
+act_enter.c:319:27: warning: ‘sprintf’ may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  319 |        sprintf(buf2, "%d%s", count, buf);
+      |                           ^
+act_enter.c:319:8: note: ‘sprintf’ output between 2 and 4619 bytes into a destination of size 4608
+  319 |        sprintf(buf2, "%d%s", count, buf);
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_enter.c:332:44: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4578 [-Wformat-overflow=]
+  332 |          "Shortest path to %s is %d steps: %s.\n\r",
+      |                                            ^~
+  333 |          GetName(victim),
+  334 |          pexit->u1.to_room->distance_from_source, buf2);
+      |                                                   ~~~~
+act_enter.c:331:8: note: ‘sprintf’ output 34 or more bytes (assuming 4641) into a destination of size 4608
+  331 |        sprintf(buf,
+      |        ^~~~~~~~~~~~
+  332 |          "Shortest path to %s is %d steps: %s.\n\r",
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  333 |          GetName(victim),
+      |          ~~~~~~~~~~~~~~~~
+  334 |          pexit->u1.to_room->distance_from_source, buf2);
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_enter.c:324:44: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4578 [-Wformat-overflow=]
+  324 |          "Shortest path to %s is %d steps: %s.\n\r",
+      |                                            ^~
+  325 |          destination->area->name,
+  326 |          pexit->u1.to_room->distance_from_source, buf2);
+      |                                                   ~~~~
+act_enter.c:323:8: note: ‘sprintf’ output 34 or more bytes (assuming 4641) into a destination of size 4608
+  323 |        sprintf(buf,
+      |        ^~~~~~~~~~~~
+  324 |          "Shortest path to %s is %d steps: %s.\n\r",
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  325 |          destination->area->name,
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~
+  326 |          pexit->u1.to_room->distance_from_source, buf2);
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_enter.c:306:31: warning: ‘sprintf’ may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  306 |            sprintf(buf2, "%c%s",
+      |                               ^
+act_enter.c:306:12: note: ‘sprintf’ output between 2 and 4609 bytes into a destination of size 4608
+  306 |            sprintf(buf2, "%c%s",
+      |            ^~~~~~~~~~~~~~~~~~~~~
+  307 |              dir_name[door2][0], buf);
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~
+act_enter.c:300:31: warning: ‘%s’ directive writing up to 4607 bytes into a region of size between 4596 and 4606 [-Wformat-overflow=]
+  300 |            sprintf(buf2, "%c%d%s",
+      |                               ^~
+  301 |              dir_name[door2][0], count,
+  302 |              buf);
+      |              ~~~               
+act_enter.c:300:12: note: ‘sprintf’ output between 3 and 4620 bytes into a destination of size 4608
+  300 |            sprintf(buf2, "%c%d%s",
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+  301 |              dir_name[door2][0], count,
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  302 |              buf);
+      |              ~~~~
+gcc -c -Wall -g  act_info.c
+gcc -c -Wall -g  act_move.c
+gcc -c -Wall -g  act_obj.c
+gcc -c -Wall -g  act_wiz.c
+act_wiz.c: In function ‘do_mstat’:
+act_wiz.c:2793:19: warning: ‘: '’ directive writing 3 bytes into a region of size between 1 and 4608 [-Wformat-overflow=]
+ 2793 |   sprintf(buf, "%s: '%s' %s%s%s", buf2,
+      |                   ^~~
+act_wiz.c:2793:3: note: ‘sprintf’ output 6 or more bytes (assuming 4613) into a destination of size 4608
+ 2793 |   sprintf(buf, "%s: '%s' %s%s%s", buf2,
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2794 |     skill_table[(int)paf->type].name,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2795 |     paf->name ? "(" : "", paf->name ? paf->name : "", paf->name ? ") " : "");
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+act_wiz.c: In function ‘do_history’:
+act_wiz.c:6256:24: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4601 [-Wformat-overflow=]
+ 6256 |   sprintf(buf, "finger %s history", arg1);
+      |                        ^~           ~~~~
+act_wiz.c:6256:3: note: ‘sprintf’ output between 16 and 4623 bytes into a destination of size 4608
+ 6256 |   sprintf(buf, "finger %s history", arg1);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  alias.c
+gcc -c -Wall -g  ban.c
+ban.c: In function ‘ban_site’:
+ban.c:162:33: warning: ‘%-12s’ directive writing 12 or more bytes into a region of size between 0 and 4577 [-Wformat-overflow=]
+  162 |             sprintf(buf, "%-30s %-12s %-5d %-7s  %s\n\r",
+      |                                 ^~~~~
+ban.c:162:13: note: ‘sprintf’ output 62 or more bytes (assuming 4639) into a destination of size 4608
+  162 |             sprintf(buf, "%-30s %-12s %-5d %-7s  %s\n\r",
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     buf2, pban->banner, pban->level,
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                     IS_SET(pban->ban_flags, BAN_NEWBIES) ? "newbies" : IS_SET(pban->ban_flags, BAN_PERMIT) ? "permit"
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                                                    : IS_SET(pban->ban_flags, BAN_ALL)      ? "all"
+      |                                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                                                                                            : "",
+      |                                                                                                            ~~~~~
+  167 |                     IS_SET(pban->ban_flags,
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                            BAN_PERMANENT)
+      |                            ~~~~~~~~~~~~~~
+  169 |                         ? "perm"
+      |                         ~~~~~~~~
+  170 |                         : "temp");
+      |                         ~~~~~~~~~
+gcc -c -Wall -g  comm.c
+comm.c: In function ‘act_new’:
+comm.c:3029:7: warning: variable ‘fColor’ set but not used [-Wunused-but-set-variable]
+ 3029 |  bool fColor = FALSE;
+      |       ^~~~~~
+comm.c: In function ‘announce_login’:
+comm.c:3234:19: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4606 [-Wformat-overflow=]
+ 3234 |  sprintf(rbuf, "{c%s{x", buf);
+      |                   ^~     ~~~
+comm.c:3234:2: note: ‘sprintf’ output between 5 and 4612 bytes into a destination of size 4608
+ 3234 |  sprintf(rbuf, "{c%s{x", buf);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+comm.c: In function ‘announce_logout’:
+comm.c:3254:19: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4606 [-Wformat-overflow=]
+ 3254 |  sprintf(rbuf, "{c%s{x", buf);
+      |                   ^~     ~~~
+comm.c:3254:2: note: ‘sprintf’ output between 5 and 4612 bytes into a destination of size 4608
+ 3254 |  sprintf(rbuf, "{c%s{x", buf);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  const.c
+gcc -c -Wall -g  db.c
+db.c: In function ‘new_load_area’:
+db.c:1205:7: warning: variable ‘fMatch’ set but not used [-Wunused-but-set-variable]
+ 1205 |  bool fMatch;
+      |       ^~~~~~
+db.c: In function ‘do_llimit’:
+db.c:4518:20: warning: ‘%s’ directive writing up to 255 bytes into a region of size 97 [-Wformat-overflow=]
+ 4518 |  sprintf(pbuf, "ls %s > %s", catplr, PLAYER_LIST);
+      |                    ^~        ~~~~~~
+db.c:4518:2: note: ‘sprintf’ output between 29 and 284 bytes into a destination of size 100
+ 4518 |  sprintf(pbuf, "ls %s > %s", catplr, PLAYER_LIST);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  db2.c
+gcc -c -Wall -g  effects.c
+gcc -c -Wall -g  fight.c
+fight.c: In function ‘one_hit_new’:
+fight.c:809:38: warning: variable ‘exeresult’ set but not used [-Wunused-but-set-variable]
+  809 |     bool result, truestrike = FALSE, exeresult;
+      |                                      ^~~~~~~~~
+fight.c: In function ‘damage_newer’:
+fight.c:1597:22: warning: variable ‘af’ set but not used [-Wunused-but-set-variable]
+ 1597 |         AFFECT_DATA *af;
+      |                      ^~
+fight.c:1439:9: warning: variable ‘originaldam’ set but not used [-Wunused-but-set-variable]
+ 1439 |     int originaldam;
+      |         ^~~~~~~~~~~
+fight.c: In function ‘damage_calculate’:
+fight.c:1942:9: warning: variable ‘originaldam’ set but not used [-Wunused-but-set-variable]
+ 1942 |     int originaldam;
+      |         ^~~~~~~~~~~
+fight.c:1941:10: warning: variable ‘immune’ set but not used [-Wunused-but-set-variable]
+ 1941 |     bool immune;
+      |          ^~~~~~
+fight.c: In function ‘check_spin’:
+fight.c:3293:9: warning: variable ‘tmp_dt’ set but not used [-Wunused-but-set-variable]
+ 3293 |     int tmp_dt, victim_hitroll, ch_hitroll, roll;
+      |         ^~~~~~
+fight.c: In function ‘raw_kill_new’:
+fight.c:3966:12: warning: variable ‘cloak’ set but not used [-Wunused-but-set-variable]
+ 3966 |     int i, cloak = 0;
+      |            ^~~~~
+fight.c: In function ‘disarm’:
+fight.c:4993:15: warning: unused variable ‘secondary’ [-Wunused-variable]
+ 4993 |     OBJ_DATA *secondary;
+      |               ^~~~~~~~~
+fight.c: In function ‘do_circle_stab’:
+fight.c:6213:10: warning: variable ‘attempt_dual’ set but not used [-Wunused-but-set-variable]
+ 6213 |     bool attempt_dual;
+      |          ^~~~~~~~~~~~
+fight.c: In function ‘do_swordplay’:
+fight.c:10611:67: warning: variable ‘secondary’ set but not used [-Wunused-but-set-variable]
+10611 |     OBJ_DATA *wield = get_eq_char(ch, WEAR_WIELD), *victimWield, *secondary;
+      |                                                                   ^~~~~~~~~
+fight.c: In function ‘check_block’:
+fight.c:2867:16: warning: ‘roll’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 2867 |     if (chance - roll >= 40)
+      |         ~~~~~~~^~~~~~
+gcc -c -Wall -g  handler.c
+handler.c: In function ‘affect_join’:
+handler.c:1756:24: warning: operation on ‘paf->level’ may be undefined [-Wsequence-point]
+ 1756 |             paf->level = (paf->level += paf_old->level) / 2;
+      |             ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+handler.c:1749:10: warning: variable ‘found’ set but not used [-Wunused-but-set-variable]
+ 1749 |     bool found;
+      |          ^~~~~
+handler.c: In function ‘equip_char’:
+handler.c:2159:10: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+ 2159 |     bool status;
+      |          ^~~~~~
+handler.c: In function ‘get_char_world’:
+handler.c:2775:13: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2775 |             sprintf(name, wch->original_name);
+      |             ^~~~~~~
+handler.c:2777:13: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2777 |             sprintf(name, wch->original_name);
+      |             ^~~~~~~
+handler.c:2779:13: warning: format not a string literal and no format arguments [-Wformat-security]
+ 2779 |             sprintf(name, wch->name);
+      |             ^~~~~~~
+handler.c: In function ‘restrict_bit_name’:
+handler.c:3358:7: warning: type of ‘restrict_flags’ defaults to ‘int’ [-Wimplicit-int]
+ 3358 | char *restrict_bit_name(restrict_flags)
+      |       ^~~~~~~~~~~~~~~~~
+handler.c: In function ‘affect_join_room’:
+handler.c:4179:24: warning: operation on ‘paf->level’ may be undefined [-Wsequence-point]
+ 4179 |             paf->level = (paf->level += paf_old->level) / 2;
+      |             ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+handler.c:4172:10: warning: variable ‘found’ set but not used [-Wunused-but-set-variable]
+ 4172 |     bool found;
+      |          ^~~~~
+gcc -c -Wall -g  healer.c
+healer.c: In function ‘do_heal’:
+healer.c:45:11: warning: variable ‘words’ set but not used [-Wunused-but-set-variable]
+   45 |     char *words;
+      |           ^~~~~
+gcc -c -Wall -g  interp.c
+gcc -c -Wall -g  lookup.c
+gcc -c -Wall -g  magic.c
+magic.c: In function ‘spell_acid_breath’:
+magic.c:5365:14: warning: variable ‘hp_dam’ set but not used [-Wunused-but-set-variable]
+ 5365 |     int dam, hp_dam, dice_dam, hpch;
+      |              ^~~~~~
+magic.c: In function ‘spell_fire_breath’:
+magic.c:5401:14: warning: variable ‘hp_dam’ set but not used [-Wunused-but-set-variable]
+ 5401 |     int dam, hp_dam, dice_dam;
+      |              ^~~~~~
+magic.c: In function ‘spell_frost_breath’:
+magic.c:5471:14: warning: variable ‘hp_dam’ set but not used [-Wunused-but-set-variable]
+ 5471 |     int dam, hp_dam, dice_dam, hpch;
+      |              ^~~~~~
+magic.c: In function ‘spell_gas_breath’:
+magic.c:5538:14: warning: variable ‘hp_dam’ set but not used [-Wunused-but-set-variable]
+ 5538 |     int dam, hp_dam, dice_dam, hpch;
+      |              ^~~~~~
+magic.c: In function ‘spell_lightning_breath’:
+magic.c:5583:14: warning: variable ‘hp_dam’ set but not used [-Wunused-but-set-variable]
+ 5583 |     int dam, hp_dam, dice_dam, hpch;
+      |              ^~~~~~
+magic.c: In function ‘spell_animate_object’:
+magic.c:8105:35: warning: variable ‘acm’ set but not used [-Wunused-but-set-variable]
+ 8105 |     int ilevel, type, chance, ac, acm;
+      |                                   ^~~
+magic.c:8105:31: warning: variable ‘ac’ set but not used [-Wunused-but-set-variable]
+ 8105 |     int ilevel, type, chance, ac, acm;
+      |                               ^~
+magic.c: In function ‘spell_dispel_magic’:
+magic.c:10565:10: warning: variable ‘found’ set but not used [-Wunused-but-set-variable]
+10565 |     bool found = FALSE;
+      |          ^~~~~
+magic.c: In function ‘say_spell’:
+magic.c:235:42: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4586 [-Wformat-overflow=]
+  235 |     sprintf(buf2, "$n utters the words, '%s'.", buf);
+      |                                          ^~     ~~~
+magic.c:235:5: note: ‘sprintf’ output between 25 and 4632 bytes into a destination of size 4608
+  235 |     sprintf(buf2, "$n utters the words, '%s'.", buf);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  recycle.c
+gcc -c -Wall -g  save.c
+gcc -c -Wall -g  skills.c
+skills.c: In function ‘do_spells’:
+skills.c:126:7: warning: variable ‘fAll’ set but not used [-Wunused-but-set-variable]
+  126 |  bool fAll = FALSE, found = FALSE;
+      |       ^~~~
+skills.c: In function ‘do_skills’:
+skills.c:270:7: warning: variable ‘fAll’ set but not used [-Wunused-but-set-variable]
+  270 |  bool fAll = FALSE, found = FALSE;
+      |       ^~~~
+gcc -c -Wall -g  special.c
+special.c: In function ‘spec_executioner’:
+special.c:964:11: warning: variable ‘crime’ set but not used [-Wunused-but-set-variable]
+  964 |     char *crime;
+      |           ^~~~~
+special.c: In function ‘spec_legionlord’:
+special.c:3473:25: warning: variable ‘num’ set but not used [-Wunused-but-set-variable]
+ 3473 |     int sn, dam, level, num;
+      |                         ^~~
+special.c:3473:18: warning: variable ‘level’ set but not used [-Wunused-but-set-variable]
+ 3473 |     int sn, dam, level, num;
+      |                  ^~~~~
+special.c:3471:11: warning: variable ‘msg’ set but not used [-Wunused-but-set-variable]
+ 3471 |     char *msg;
+      |           ^~~
+special.c: In function ‘spec_blitz’:
+special.c:4001:22: warning: variable ‘imod’ set but not used [-Wunused-but-set-variable]
+ 4001 |     int chance = 80, imod;
+      |                      ^~~~
+special.c: In function ‘spec_meph’:
+special.c:4509:61: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ 4509 |     (*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, (int)NULL);
+      |                                                             ^
+gcc -c -Wall -g  tables.c
+gcc -c -Wall -g  update.c
+gcc -c -Wall -g  morecabal.c
+morecabal.c: In function ‘do_honorable_combat’:
+morecabal.c:495:48: warning: ‘%s’ directive writing up to 255 bytes into a region of size 227 [-Wformat-overflow=]
+  495 |   sprintf(buf, "Help! %s is forcing me to duel %s!", PERS(ch, victim), buf2);
+      |                                                ^~                      ~~~~
+morecabal.c:495:3: note: ‘sprintf’ output 31 or more bytes (assuming 286) into a destination of size 256
+  495 |   sprintf(buf, "Help! %s is forcing me to duel %s!", PERS(ch, victim), buf2);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+morecabal.c:492:53: warning: ‘%s’ directive writing up to 255 bytes into a region of size 222 [-Wformat-overflow=]
+  492 |   sprintf(buf, "Help! %s is calling me away to duel %s!", PERS(ch, victim), buf2);
+      |                                                     ^~                      ~~~~
+morecabal.c:492:3: note: ‘sprintf’ output 36 or more bytes (assuming 291) into a destination of size 256
+  492 |   sprintf(buf, "Help! %s is calling me away to duel %s!", PERS(ch, victim), buf2);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+morecabal.c: In function ‘do_bloodoath’:
+morecabal.c:929:18: warning: ‘ preblood’ directive writing 9 bytes into a region of size between 1 and 4608 [-Wformat-overflow=]
+  929 |  sprintf(buf, "%s preblood", arg1);
+      |                  ^~~~~~~~~
+morecabal.c:929:2: note: ‘sprintf’ output between 10 and 4617 bytes into a destination of size 4608
+  929 |  sprintf(buf, "%s preblood", arg1);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+morecabal.c: In function ‘do_citizen’:
+morecabal.c:948:18: warning: ‘ citizen’ directive writing 8 bytes into a region of size between 1 and 4608 [-Wformat-overflow=]
+  948 |  sprintf(buf, "%s citizen", arg1);
+      |                  ^~~~~~~~
+morecabal.c:948:2: note: ‘sprintf’ output between 9 and 4616 bytes into a destination of size 4608
+  948 |  sprintf(buf, "%s citizen", arg1);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+morecabal.c: In function ‘do_anathema’:
+morecabal.c:967:18: warning: ‘ anathema’ directive writing 9 bytes into a region of size between 1 and 4608 [-Wformat-overflow=]
+  967 |  sprintf(buf, "%s anathema", arg1);
+      |                  ^~~~~~~~~
+morecabal.c:967:2: note: ‘sprintf’ output between 10 and 4617 bytes into a destination of size 4608
+  967 |  sprintf(buf, "%s anathema", arg1);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  morefight.c
+morefight.c: In function ‘do_whirl’:
+morefight.c:686:7: warning: variable ‘exeresult’ set but not used [-Wunused-but-set-variable]
+  686 |  bool exeresult;
+      |       ^~~~~~~~~
+gcc -c -Wall -g  extra.c
+extra.c: In function ‘do_snare’:
+extra.c:450:26: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+  450 |  if (!isInWilderness(ch) &&
+extra.c: In function ‘do_finger’:
+extra.c:821:45: warning: variable ‘bcredits’ set but not used [-Wunused-but-set-variable]
+  821 |   con = 0, stat = 25, died = 0, agemod = 0, bcredits = 0, hometown = 0, aobj = -1, lobj = -1, timeplayed = -1,
+      |                                             ^~~~~~~~
+extra.c: In function ‘do_shieldbash_templar’:
+extra.c:2970:6: warning: variable ‘check’ set but not used [-Wunused-but-set-variable]
+ 2970 |  int check;
+      |      ^~~~~
+extra.c:2969:12: warning: variable ‘obj_templar’ set but not used [-Wunused-but-set-variable]
+ 2969 |  OBJ_DATA *obj_templar;
+      |            ^~~~~~~~~~~
+extra.c: In function ‘do_shieldbash’:
+extra.c:3127:12: warning: variable ‘obj_templar’ set but not used [-Wunused-but-set-variable]
+ 3127 |  OBJ_DATA *obj_templar;
+      |            ^~~~~~~~~~~
+extra.c: In function ‘do_powers’:
+extra.c:3471:7: warning: variable ‘fAll’ set but not used [-Wunused-but-set-variable]
+ 3471 |  bool fAll = FALSE, found = FALSE;
+      |       ^~~~
+extra.c: In function ‘update_sitetrack’:
+extra.c:782:23: warning: ‘%s’ directive writing up to 4607 bytes into a region of size between 0 and 4607 [-Wformat-overflow=]
+  782 |   sprintf(string, "%s %s %s %s %s", site1, site2, site3, site4, site5);
+      |                       ^~                   ~~~~~
+extra.c:782:3: note: ‘sprintf’ output between 5 and 23040 bytes into a destination of size 4608
+  782 |   sprintf(string, "%s %s %s %s %s", site1, site2, site3, site4, site5);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extra.c: In function ‘do_finger’:
+extra.c:864:18: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4596 [-Wformat-overflow=]
+  864 |  sprintf(dir, "%s%s%s", PLAYER_DIR, arg1, ".plr");
+      |                  ^~                 ~~~~
+extra.c:864:2: note: ‘sprintf’ output between 17 and 4624 bytes into a destination of size 4608
+  864 |  sprintf(dir, "%s%s%s", PLAYER_DIR, arg1, ".plr");
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extra.c:865:29: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4586 [-Wformat-overflow=]
+  865 |  sprintf(dir2, "%sdead_char/%s%s", PLAYER_DIR, arg1, ".plr");
+      |                             ^~                 ~~~~
+extra.c:865:2: note: ‘sprintf’ output between 27 and 4634 bytes into a destination of size 4608
+  865 |  sprintf(dir2, "%sdead_char/%s%s", PLAYER_DIR, arg1, ".plr");
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extra.c: In function ‘do_otrack’:
+extra.c:1227:38: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4590 [-Wformat-overflow=]
+ 1227 |   sprintf(buf, "%d) %s is carried by %s\n\r", numMatches, pObjIndex->short_descr, newbuf);
+      |                                      ^~                                           ~~~~~~
+extra.c:1227:3: note: ‘sprintf’ output 21 or more bytes (assuming 4628) into a destination of size 4608
+ 1227 |   sprintf(buf, "%d) %s is carried by %s\n\r", numMatches, pObjIndex->short_descr, newbuf);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extra.c: In function ‘do_divine_intervention’:
+extra.c:2709:35: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4592 [-Wformat-overflow=]
+ 2709 |   sprintf(buf, "%s is cursed with %s.\n\r", victim->name, arg2);
+      |                                   ^~                      ~~~~
+extra.c:2709:3: note: ‘sprintf’ output 20 or more bytes (assuming 4627) into a destination of size 4608
+ 2709 |   sprintf(buf, "%s is cursed with %s.\n\r", victim->name, arg2);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extra.c:2703:36: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4591 [-Wformat-overflow=]
+ 2703 |   sprintf(buf, "%s is blessed with %s.\n\r", victim->name, arg2);
+      |                                    ^~                      ~~~~
+extra.c:2703:3: note: ‘sprintf’ output 21 or more bytes (assuming 4628) into a destination of size 4608
+ 2703 |   sprintf(buf, "%s is blessed with %s.\n\r", victim->name, arg2);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+extra.c: In function ‘do_ccb’:
+extra.c:2752:30: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4601 [-Wformat-overflow=]
+ 2752 |   sprintf(buf, "%s%s (%s): {c%s{x\n\r",
+      |                              ^~
+......
+ 2755 |     arg2);
+      |     ~~~~                      
+extra.c:2752:3: note: ‘sprintf’ output 12 or more bytes (assuming 4619) into a destination of size 4608
+ 2752 |   sprintf(buf, "%s%s (%s): {c%s{x\n\r",
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2753 |     cabal_table[cabal].who_name,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2754 |     IS_NPC(ch) ? ch->short_descr : ch->name, timestamp(),
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2755 |     arg2);
+      |     ~~~~~
+extra.c:2747:25: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4604 [-Wformat-overflow=]
+ 2747 |   sprintf(buf, "%s%s: {c%s{x\n\r",
+      |                         ^~
+......
+ 2750 |     arg2);
+      |     ~~~~                 
+extra.c:2747:3: note: ‘sprintf’ output 9 or more bytes (assuming 4616) into a destination of size 4608
+ 2747 |   sprintf(buf, "%s%s: {c%s{x\n\r",
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2748 |     cabal_table[cabal].who_name,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2749 |     IS_NPC(ch) ? ch->short_descr : ch->name,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2750 |     arg2);
+      |     ~~~~~
+extra.c:2771:33: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4601 [-Wformat-overflow=]
+ 2771 |      sprintf(buf, "%s%s (%s): {c%s{x\n\r",
+      |                                 ^~
+......
+ 2774 |        arg2);
+      |        ~~~~                      
+extra.c:2771:6: note: ‘sprintf’ output 12 or more bytes (assuming 4619) into a destination of size 4608
+ 2771 |      sprintf(buf, "%s%s (%s): {c%s{x\n\r",
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2772 |        cabal_table[cabal].who_name,
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2773 |        PERS(ch, d->character), timestamp(),
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2774 |        arg2);
+      |        ~~~~~
+extra.c:2766:28: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4604 [-Wformat-overflow=]
+ 2766 |      sprintf(buf, "%s%s: {c%s{x\n\r",
+      |                            ^~
+......
+ 2769 |        arg2);
+      |        ~~~~                 
+extra.c:2766:6: note: ‘sprintf’ output 9 or more bytes (assuming 4616) into a destination of size 4608
+ 2766 |      sprintf(buf, "%s%s: {c%s{x\n\r",
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2767 |        cabal_table[cabal].who_name,
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2768 |        PERS(ch, d->character),
+      |        ~~~~~~~~~~~~~~~~~~~~~~~
+ 2769 |        arg2);
+      |        ~~~~~
+gcc -c -Wall -g  moremagic.c
+moremagic.c: In function ‘spell_group_teleport’:
+moremagic.c:1443:58: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ 1443 |  spell_teleport(skill_lookup("teleport"), level, ch, ch, (int)NULL);
+      |                                                          ^
+moremagic.c: In function ‘spell_doublecast’:
+moremagic.c:2365:42: warning: variable ‘targetTwo’ set but not used [-Wunused-but-set-variable]
+ 2365 |  char *spellOne, *spellTwo, *targetOne, *targetTwo;
+      |                                          ^~~~~~~~~
+gcc -c -Wall -g  titles.c
+gcc -c -Wall -g  necro.c
+gcc -c -Wall -g  olc.c
+olc.c: In function ‘do_progset’:
+olc.c:1563:27: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4598 [-Wformat-overflow=]
+ 1563 |   sprintf(buf, "Room prog %s for room %ld set at %s\n\r", arg3, vnum, argument);
+      |                           ^~                              ~~~~
+olc.c:1563:3: note: ‘sprintf’ output 32 or more bytes (assuming 4639) into a destination of size 4608
+ 1563 |   sprintf(buf, "Room prog %s for room %ld set at %s\n\r", arg3, vnum, argument);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+olc.c:1549:26: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4599 [-Wformat-overflow=]
+ 1549 |   sprintf(buf, "Mob prog %s for mobile %ld set at %s\n\r", arg3, vnum, argument);
+      |                          ^~                                ~~~~
+olc.c:1549:3: note: ‘sprintf’ output 33 or more bytes (assuming 4640) into a destination of size 4608
+ 1549 |   sprintf(buf, "Mob prog %s for mobile %ld set at %s\n\r", arg3, vnum, argument);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+olc.c:1535:26: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4599 [-Wformat-overflow=]
+ 1535 |   sprintf(buf, "Obj prog %s for object %ld set at %s\n\r", arg3, vnum, argument);
+      |                          ^~                                ~~~~
+olc.c:1535:3: note: ‘sprintf’ output 33 or more bytes (assuming 4640) into a destination of size 4608
+ 1535 |   sprintf(buf, "Obj prog %s for object %ld set at %s\n\r", arg3, vnum, argument);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  olc_act.c
+olc_act.c: In function ‘aedit_builder’:
+olc_act.c:872:39: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+  872 |     if (strstr(pArea->builders, name) != '\0')
+      |                                       ^~
+olc_act.c:872:9: note: did you mean to dereference the pointer?
+  872 |     if (strstr(pArea->builders, name) != '\0')
+      |         ^
+olc_act.c:888:45: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+  888 |         if (strstr(pArea->builders, "None") != '\0')
+      |                                             ^~
+olc_act.c:888:13: note: did you mean to dereference the pointer?
+  888 |         if (strstr(pArea->builders, "None") != '\0')
+      |             ^
+olc_act.c: In function ‘oedit_ed’:
+olc_act.c:3359:27: warning: variable ‘ped’ set but not used [-Wunused-but-set-variable]
+ 3359 |         EXTRA_DESCR_DATA *ped = NULL;
+      |                           ^~~
+gcc -c -Wall -g  assassin.c
+gcc -c -Wall -g  olc_save.c
+olc_save.c: In function ‘save_resets’:
+olc_save.c:572:18: warning: variable ‘pLastObj’ set but not used [-Wunused-but-set-variable]
+  572 |  OBJ_INDEX_DATA *pLastObj;
+      |                  ^~~~~~~~
+olc_save.c: In function ‘do_asave’:
+olc_save.c:966:8: warning: variable ‘fp’ set but not used [-Wunused-but-set-variable]
+  966 |  FILE *fp;
+      |        ^~
+gcc -c -Wall -g  mem.c
+gcc -c -Wall -g  string.c
+string.c: In function ‘numlines’:
+string.c:623:25: warning: ‘%s’ directive writing up to 4607 bytes into a region of size between 4595 and 4604 [-Wformat-overflow=]
+  623 |     sprintf(buf2, "%2d. %s\n\r", cnt++, tmpb);
+      |                         ^~              ~~~~
+string.c:623:5: note: ‘sprintf’ output between 7 and 4623 bytes into a destination of size 4608
+  623 |     sprintf(buf2, "%2d. %s\n\r", cnt++, tmpb);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -c -Wall -g  bit.c
+gcc -c -Wall -g  commune.c
+commune.c: In function ‘do_supps’:
+commune.c:45:10: warning: variable ‘fAll’ set but not used [-Wunused-but-set-variable]
+   45 |     bool fAll = FALSE, found = FALSE;
+      |          ^~~~
+commune.c: In function ‘do_commune’:
+commune.c:193:17: warning: variable ‘af’ set but not used [-Wunused-but-set-variable]
+  193 |     AFFECT_DATA af;
+      |                 ^~
+gcc -c -Wall -g  tracerah.c
+gcc -c -Wall -g  iprog.c
+gcc -c -Wall -g  mprog.c
+mprog.c: In function ‘death_prog_outer_guardian’:
+mprog.c:233:7: warning: variable ‘found’ set but not used [-Wunused-but-set-variable]
+  233 |  bool found = FALSE;
+      |       ^~~~~
+gcc -c -Wall -g  rprog.c
+gcc -c -Wall -g  bounty.c
+gcc -c -Wall -g  sqlite.c
+gcc -c -Wall -g  newbit.c
+newbit.c: In function ‘free_bitmask’:
+newbit.c:163:6: warning: variable ‘found’ set but not used [-Wunused-but-set-variable]
+  163 |  int found = 1;
+      |      ^~~~~
+gcc -c -Wall -g  ranger.c
+gcc -c -Wall -g  note.c
+note.c: In function ‘parse_note’:
+note.c:278:10: warning: variable ‘fAll’ set but not used [-Wunused-but-set-variable]
+  278 |     bool fAll;
+      |          ^~~~
+gcc -c -Wall -g  queststore.c
+queststore.c: In function ‘do_redeeminfo’:
+queststore.c:121:46: warning: ‘%s’ directive writing up to 4607 bytes into a region of size 4584 [-Wformat-overflow=]
+  121 |    sprintf(buf2, "\n\nREWARD DESCRIPTION:\n  %s\n\r",
+      |                                              ^~
+queststore.c:121:4: note: ‘sprintf’ output between 27 and 4634 bytes into a destination of size 4608
+  121 |    sprintf(buf2, "\n\nREWARD DESCRIPTION:\n  %s\n\r",
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  122 |      quest_reward_table[looper].description);
+      |      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c: In function ‘do_redeem’:
+queststore.c:530:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  530 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:530:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  530 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  531 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  532 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  533 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  534 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  535 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  536 |                  : "",
+      |                  ~~~~~
+  537 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:518:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  518 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:518:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  518 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  519 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  520 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  521 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  522 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  523 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  524 |                  : "",
+      |                  ~~~~~
+  525 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:477:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  477 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:477:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  477 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  478 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  479 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  480 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  481 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  482 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  483 |                  : "",
+      |                  ~~~~~
+  484 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:465:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  465 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:465:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  465 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  466 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  467 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  468 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  469 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  470 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  471 |                  : "",
+      |                  ~~~~~
+  472 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:424:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  424 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:424:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  424 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  425 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  426 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  427 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  428 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  429 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  430 |                  : "",
+      |                  ~~~~~
+  431 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:412:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  412 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:412:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  412 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  413 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  414 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  415 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  416 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  417 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  418 |                  : "",
+      |                  ~~~~~
+  419 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:371:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  371 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:371:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  371 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  372 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  373 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  374 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  375 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  376 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  377 |                  : "",
+      |                  ~~~~~
+  378 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:359:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  359 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:359:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  359 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  360 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  361 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  362 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  363 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  364 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  365 |                  : "",
+      |                  ~~~~~
+  366 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:318:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  318 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:318:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  318 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  319 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  320 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  321 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  322 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  323 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  324 |                  : "",
+      |                  ~~~~~
+  325 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:306:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  306 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:306:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  306 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  307 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  308 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  309 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  310 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  311 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  312 |                  : "",
+      |                  ~~~~~
+  313 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:273:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  273 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:273:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  273 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  274 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  275 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  276 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  277 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  278 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  279 |                  : "",
+      |                  ~~~~~
+  280 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:261:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  261 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:261:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  261 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  262 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  263 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  264 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  265 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  266 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  267 |                  : "",
+      |                  ~~~~~
+  268 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:228:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  228 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:228:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  228 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  229 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  230 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  231 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  232 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  233 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  234 |                  : "",
+      |                  ~~~~~
+  235 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:216:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  216 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:216:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  216 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  217 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  218 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  219 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  220 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  221 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  222 |                  : "",
+      |                  ~~~~~
+  223 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:183:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  183 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |                            ^~~
+queststore.c:183:6: note: ‘sprintf’ output 43 or more bytes (assuming 4626) into a destination of size 4608
+  183 |      sprintf(buf, "%-24s %s%5d credits    ", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  184 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  185 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  186 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  187 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  188 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  189 |                  : "",
+      |                  ~~~~~
+  190 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+queststore.c:171:28: warning: ‘%5d’ directive writing between 5 and 11 bytes into a region of size between 0 and 4583 [-Wformat-overflow=]
+  171 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |                            ^~~
+queststore.c:171:6: note: ‘sprintf’ output 40 or more bytes (assuming 4623) into a destination of size 4608
+  171 |      sprintf(buf, "%-24s %s%5d credits\n", name,
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  172 |        digits == 7 ? "    " : digits > 5 ? "     "
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 |               : digits > 4   ? "      "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~
+  174 |               : digits > 3   ? "        "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  175 |               : digits > 2   ? "         "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  176 |               : digits > 1   ? "          "
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  177 |                  : "",
+      |                  ~~~~~
+  178 |        quest_reward_table[looper].price);
+      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rm -f pos2
+gcc -g -o pos2 act_comm.o act_enter.o act_info.o act_move.o act_obj.o act_wiz.o alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o handler.o healer.o interp.o lookup.o magic.o recycle.o save.o skills.o special.o tables.o update.o morecabal.o morefight.o extra.o moremagic.o titles.o necro.o olc.o olc_act.o assassin.o olc_save.o mem.o string.o bit.o commune.o tracerah.o iprog.o mprog.o rprog.o bounty.o sqlite.o newbit.o ranger.o note.o queststore.o -lsqlite3 -lcrypt
+cd ..

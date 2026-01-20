@@ -4487,7 +4487,7 @@ void do_llimit(CHAR_DATA *ch, char *argument)
 	char strPlr[MAX_INPUT_LENGTH];
 	char catplr[MAX_INPUT_LENGTH];
 	char chkbuf[MAX_STRING_LENGTH];
-	char pbuf[100];
+	char pbuf[512];  /* Increased from 100 to accommodate full path + command */
 	OBJ_INDEX_DATA *lObjIndex;
 	OBJ_DATA *obj;
 	int i;

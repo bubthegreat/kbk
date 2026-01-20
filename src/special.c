@@ -4506,7 +4506,7 @@ bool spec_meph(CHAR_DATA *ch)
     }
     if ((sn = skill_lookup(spell)) < 0)
         return FALSE;
-    (*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, (int)NULL);
+    (*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR);
     return TRUE;
 }
 
