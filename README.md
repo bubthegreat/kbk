@@ -1,5 +1,10 @@
 Current status: __ALIVE__ but buggy
 
+# TODO: 
+
+1. Make `l n` direction commands default to directions not gear
+2. Add `scan all` functionality
+
 # Installing your own instance
 
 To Get things running:
