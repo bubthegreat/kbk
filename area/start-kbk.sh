@@ -3,9 +3,6 @@
 # Set the port number.
 KBK_PORT=8989
 KBK_LOG_INDEX=0
-MYSQL_AVAIL=false
-MAX_WAIT=60
-WAIT_COUNT=0
 
 # Enable core dumps
 ulimit -c unlimited
@@ -13,25 +10,9 @@ echo "Core dumps enabled - ulimit -c: $(ulimit -c)"
 echo "Core pattern: $(cat /proc/sys/kernel/core_pattern 2>/dev/null || echo 'unable to read')"
 echo "Current directory: $(pwd)"
 
-# Wait for mysql service to be ready:
-echo "Waiting for MySQL to be ready..."
-until $MYSQL_AVAIL; do
-    # Simple TCP connection check - doesn't require authentication
-    if timeout 1 bash -c "cat < /dev/null > /dev/tcp/kbk-sql/3306" 2>/dev/null; then
-        echo 'MySQL port is open, waiting 2 more seconds for initialization...'
-        sleep 2
-        MYSQL_AVAIL=true
-    else
-        echo "MySQL is unavailable - sleeping (attempt $WAIT_COUNT/$MAX_WAIT)"
-        sleep 1
-        WAIT_COUNT=$((WAIT_COUNT + 1))
-        if [ $WAIT_COUNT -ge $MAX_WAIT ]; then
-            echo "ERROR: MySQL did not become available within $MAX_WAIT seconds"
-            exit 1
-        fi
-    fi
-done
-echo "MySQL is ready!"
+# Note: MySQL connection check is now handled by the MUD server itself
+# The server will exit cleanly with a proper error message if it can't connect
+echo "Starting KBK MUD server..."
 
 # Set limits.
 if [ -f "shutdown.txt" ] ; then
@@ -76,6 +57,16 @@ while true; do
             echo "CRASH DETECTED - $(date)"
             echo "Stack trace captured above by gdb"
             echo "========================================"
+        elif grep -q "exited with code 1" /tmp/gdb_output.log; then
+            EXIT_CODE=1
+            echo ""
+            echo "========================================"
+            echo "FATAL STARTUP ERROR - $(date)"
+            echo "Check logs above for details"
+            echo "Container will exit - fix the issue and restart"
+            echo "========================================"
+            rm -f /tmp/gdb_output.log
+            exit 1
         else
             EXIT_CODE=1
         fi
@@ -91,6 +82,19 @@ while true; do
         EXIT_CODE=$?
 
         echo "pos2 exited with code: $EXIT_CODE"
+
+        # Exit code 1 = fatal startup error (e.g., MySQL connection failure)
+        # Don't restart in this case - let the container exit so it can be debugged
+        if [ $EXIT_CODE -eq 1 ]; then
+            echo ""
+            echo "========================================"
+            echo "FATAL STARTUP ERROR - $(date)"
+            echo "Server exited with code 1"
+            echo "Check logs above for details"
+            echo "Container will exit - fix the issue and restart"
+            echo "========================================"
+            exit 1
+        fi
 
         # If it crashed, re-run under gdb to get a stack trace
         # Exit codes 128+N indicate death by signal N
