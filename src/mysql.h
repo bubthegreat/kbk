@@ -1,14 +1,13 @@
-extern MYSQL conn;
-
 #define SQL_SERVER "kbk-sql"
 #define SQL_USER "kbkuser"
 #define SQL_PWD "kbkpassword"
 #define SQL_DB "kbkdatabase"
 
+MYSQL *get_mysql_connection args((void));
 void init_mysql args((void));
 void close_db args((void));
-bool ensure_mysql_connection args((void));
 int mysql_safe_query args((char *fmt, ...));
+MYSQL_RES *mysql_safe_query_with_result args((char *fmt, ...));
 void login_log args((CHAR_DATA * ch, int type));
 void saveCharmed args((CHAR_DATA * ch));
 void loadCharmed args((CHAR_DATA * ch));

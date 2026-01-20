@@ -3900,7 +3900,12 @@ void do_memory(CHAR_DATA *ch, char *argument)
 			nAllocPerm, sAllocPerm);
 	send_to_char(buf, ch);
 
-	printf_to_char(ch, "MySQL Connection Active: %s\n\r", mysql_ping(&conn) == 0 ? "YES" : mysql_error(&conn));
+	// Test MySQL connectivity
+	MYSQL *test_conn = get_mysql_connection();
+	printf_to_char(ch, "MySQL Connection Active: %s\n\r", test_conn ? "YES" : "NO");
+	if (test_conn)
+		mysql_close(test_conn);
+
 	printf_to_char(ch, "Obsidian Prince Timer  : %d\n\r", obsidian_prince_timer);
 
 	return;

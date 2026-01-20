@@ -44,22 +44,19 @@ extern char strArea[MAX_INPUT_LENGTH];
 
 void parse_note(CHAR_DATA *ch, char *argument, int type);
 bool hide_note(CHAR_DATA *ch, MYSQL_ROW row);
-char *escape_string args((char *string));
-
-char *escape_string(char *string)
-{
-  char txt[MSL];
-  mysql_escape_string(txt, string, strlen(string));
-  return str_dup(txt);
-}
 
 int count_spool(CHAR_DATA *ch, int type)
 {
   int count = 0;
   MYSQL_RES *res;
   MYSQL_ROW row;
-  mysql_safe_query("SELECT * FROM notes WHERE type=%d", type);
-  res = mysql_store_result(&conn);
+
+  res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d", type);
+  if (res == NULL)
+  {
+    return 0;
+  }
+
   while ((row = mysql_fetch_row(res)))
   {
     if (!hide_note(ch, row))
@@ -124,10 +121,8 @@ void do_changes(CHAR_DATA *ch, char *argument)
 
 void append_note(NOTE_DATA *pnote)
 {
-  char query[MSL];
-  sprintf(query, "INSERT INTO notes VALUES(%d,\"%s\",'%s',\"%s\",\"%s\",\"%s\",%ld)",
-          pnote->type, pnote->sender, pnote->date, pnote->to_list, pnote->subject, escape_string(pnote->text), pnote->date_stamp);
-  mysql_query(&conn, query);
+  mysql_safe_query("INSERT INTO notes VALUES(%d,\"%s\",'%s',\"%s\",\"%s\",\"%s\",%ld)",
+          pnote->type, pnote->sender, pnote->date, pnote->to_list, pnote->subject, pnote->text, pnote->date_stamp);
 }
 
 bool is_note_to(CHAR_DATA *ch, char *sender, char *to_list)
@@ -290,8 +285,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     {
       /* read next unread note */
       vnum = 0;
-      mysql_safe_query("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
-      res = mysql_store_result(&conn);
+      res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+      if (res == NULL)
+      {
+        send_to_char("Database error.\n\r", ch);
+        return;
+      }
       while ((row = mysql_fetch_row(res)))
       {
         if (!hide_note(ch, row))
@@ -323,8 +322,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     }
 
     vnum = 0;
-    mysql_safe_query("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
-    res = mysql_store_result(&conn);
+    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    if (res == NULL)
+    {
+      send_to_char("Database error.\n\r", ch);
+      return;
+    }
     while ((row = mysql_fetch_row(res)))
     {
       if (is_note_to(ch, row[1], row[3]) && (vnum++ == anum))
@@ -347,8 +350,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
   if (!str_prefix(arg, "list"))
   {
     vnum = 0;
-    mysql_safe_query("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
-    res = mysql_store_result(&conn);
+    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    if (res == NULL)
+    {
+      send_to_char("Database error.\n\r", ch);
+      return;
+    }
 
     while ((row = mysql_fetch_row(res)))
     {
@@ -393,8 +400,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     anum = atoi(argument);
     vnum = 0;
-    mysql_safe_query("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
-    res = mysql_store_result(&conn);
+    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    if (res == NULL)
+    {
+      send_to_char("Database error.\n\r", ch);
+      return;
+    }
     while ((row = mysql_fetch_row(res)))
     {
       if (!str_cmp(ch->original_name, row[1]) && vnum++ == anum)
@@ -418,8 +429,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     anum = atoi(argument);
     vnum = 0;
-    mysql_safe_query("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
-    res = mysql_store_result(&conn);
+    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    if (!res)
+    {
+      send_to_char("Error accessing notes.\n\r", ch);
+      return;
+    }
     while ((row = mysql_fetch_row(res)))
     {
       if (is_note_to(ch, row[1], row[3]) && vnum++ == anum)
