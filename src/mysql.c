@@ -35,71 +35,59 @@
  ***************************************************************************/
 #include "include.h"
 
-MYSQL conn;
+/*
+ * Get a new MySQL connection.
+ * Caller is responsible for calling mysql_close() when done.
+ * Returns NULL on failure.
+ */
+MYSQL *get_mysql_connection(void)
+{
+	MYSQL *conn = mysql_init(NULL);
+
+	if (!conn)
+	{
+		n_logf("get_mysql_connection: mysql_init() failed");
+		return NULL;
+	}
+
+	if (!mysql_real_connect(conn, SQL_SERVER, SQL_USER, SQL_PWD, SQL_DB, 0, NULL, 0))
+	{
+		n_logf("get_mysql_connection: mysql_real_connect() failed. Reason: %s", mysql_error(conn));
+		return NULL;
+	}
+
+	return conn;
+}
 
 void init_mysql(void)
 {
-	bool reconnect = true;
+	// Test that we can connect to the database
+	MYSQL *test_conn = get_mysql_connection();
 
-	if (!mysql_init(&conn))
+	if (test_conn)
 	{
-		n_logf("Init_mysql: mysql_init() failed. Reason: %s", mysql_error(&conn));
-		return;
+		log_string("Mysql_init: Successfully tested connection to MySQL database.");
+		mysql_close(test_conn);
 	}
-
-	// Enable automatic reconnection
-	mysql_options(&conn, MYSQL_OPT_RECONNECT, &reconnect);
-
-	if ((mysql_real_connect(&conn, SQL_SERVER, SQL_USER, SQL_PWD, SQL_DB, 0, NULL, 0)) == NULL)
+	else
 	{
-		mysql_close(&conn);
-		n_logf("Init_mysql: mysql_real_connect() failed. Reason: %s", mysql_error(&conn));
-		return;
+		log_string("Mysql_init: WARNING - Could not connect to MySQL database!");
 	}
-
-	log_string("Mysql_init: Established connection to MySQL database.");
 	return;
 }
 
 void close_db(void)
 {
-	log_string("Close_db: mysql_close() invoked.");
-	mysql_close(&conn);
+	// No-op now since we don't keep persistent connections
+	log_string("Close_db: No persistent connection to close.");
 	return;
 }
 
 /*
- * Ensure MySQL connection is alive, reconnect if necessary.
- * Returns TRUE if connection is good, FALSE otherwise.
+ * Execute a query that doesn't need results (INSERT, UPDATE, DELETE).
+ * Opens connection, executes query, closes connection immediately.
+ * Returns 0 on success, -1 on failure.
  */
-bool ensure_mysql_connection(void)
-{
-	// Check if connection is alive
-	if (mysql_ping(&conn) == 0)
-	{
-		return TRUE;
-	}
-
-	// Connection is dead, try to reconnect
-	n_logf("MySQL connection lost (Error: %s), attempting to reconnect...", mysql_error(&conn));
-
-	// Close the stale connection
-	mysql_close(&conn);
-
-	// Reinitialize
-	init_mysql();
-
-	// Verify the new connection
-	if (mysql_ping(&conn) == 0)
-	{
-		log_string("MySQL reconnection successful.");
-		return TRUE;
-	}
-
-	n_logf("MySQL reconnection failed: %s", mysql_error(&conn));
-	return FALSE;
-}
-
 int mysql_safe_query(char *fmt, ...)
 {
 	va_list argp;
@@ -110,14 +98,16 @@ int mysql_safe_query(char *fmt, ...)
 	char safe[MAX_STRING_LENGTH];
 	char query[MAX_STRING_LENGTH];
 	int result = -1;
+	MYSQL *conn = NULL;
 
 	*query = '\0';
 	*safe = '\0';
 
-	// Ensure connection is alive before executing query
-	if (!ensure_mysql_connection())
+	// Get a fresh connection for this query
+	conn = get_mysql_connection();
+	if (!conn)
 	{
-		n_logf("MySQL query aborted: connection unavailable");
+		n_logf("MySQL query aborted: could not establish connection");
 		return -1;
 	}
 
@@ -143,7 +133,7 @@ int mysql_safe_query(char *fmt, ...)
 				out += sprintf(out, " ");
 				break;
 			}
-			mysql_real_escape_string(&conn, safe, s, strlen(s));
+			mysql_real_escape_string(conn, safe, s, strlen(s));
 			out += sprintf(out, "%s", safe);
 			*safe = '\0';
 			break;
@@ -156,8 +146,19 @@ int mysql_safe_query(char *fmt, ...)
 			out += sprintf(out, "%f", j);
 			break;
 		case 'l':
-			l = va_arg(argp, long int);
-			out += sprintf(out, "%ld", l);
+			// Check if next character is 'd' for %ld format
+			if (*(p + 1) == 'd')
+			{
+				p++; // consume the 'd'
+				l = va_arg(argp, long int);
+				out += sprintf(out, "%ld", l);
+			}
+			else
+			{
+				// Just %l by itself (shouldn't happen, but handle it)
+				l = va_arg(argp, long int);
+				out += sprintf(out, "%ld", l);
+			}
 			break;
 		case '%':
 			out += sprintf(out, "%%");
@@ -168,13 +169,125 @@ int mysql_safe_query(char *fmt, ...)
 
 	va_end(argp);
 
-	result = (mysql_real_query(&conn, query, strlen(query)));
+	result = (mysql_real_query(conn, query, strlen(query)));
 
-	if (mysql_error(&conn)[0] != '\0')
+	if (mysql_error(conn)[0] != '\0')
 	{
-		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(&conn), mysql_error(&conn), query);
+		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(conn), mysql_error(conn), query);
 	}
 
+	// Close the connection immediately after the query
+
+	return result;
+}
+
+/*
+ * Execute a query and return the result set.
+ * Connection is automatically closed after storing results in client memory.
+ * Caller MUST call mysql_free_result() when done.
+ * Returns NULL on failure.
+ */
+MYSQL_RES *mysql_safe_query_with_result(char *fmt, ...)
+{
+	va_list argp;
+	int i = 0;
+	double j = 0;
+	long int l = 0;
+	char *s = 0, *out = 0, *p = 0;
+	char safe[MAX_STRING_LENGTH];
+	char query[MAX_STRING_LENGTH];
+	MYSQL_RES *result = NULL;
+	MYSQL *conn = NULL;
+
+	*query = '\0';
+	*safe = '\0';
+
+	// Get a fresh connection for this query
+	conn = get_mysql_connection();
+	if (!conn)
+	{
+		n_logf("MySQL query aborted: could not establish connection");
+		return NULL;
+	}
+
+	va_start(argp, fmt);
+
+	for (p = fmt, out = query; *p != '\0'; p++)
+	{
+		if (*p != '%')
+		{
+			*out++ = *p;
+			continue;
+		}
+		switch (*++p)
+		{
+		case 'c':
+			i = va_arg(argp, int);
+			out += sprintf(out, "%c", i);
+			break;
+		case 's':
+			s = va_arg(argp, char *);
+			if (!s)
+			{
+				out += sprintf(out, " ");
+				break;
+			}
+			mysql_real_escape_string(conn, safe, s, strlen(s));
+			out += sprintf(out, "%s", safe);
+			*safe = '\0';
+			break;
+		case 'd':
+			i = va_arg(argp, int);
+			out += sprintf(out, "%d", i);
+			break;
+		case 'f':
+			j = va_arg(argp, double);
+			out += sprintf(out, "%f", j);
+			break;
+		case 'l':
+			// Check if next character is 'd' for %ld format
+			if (*(p + 1) == 'd')
+			{
+				p++; // consume the 'd'
+				l = va_arg(argp, long int);
+				out += sprintf(out, "%ld", l);
+			}
+			else
+			{
+				// Just %l by itself (shouldn't happen, but handle it)
+				l = va_arg(argp, long int);
+				out += sprintf(out, "%ld", l);
+			}
+			break;
+		case '%':
+			out += sprintf(out, "%%");
+			break;
+		}
+	}
+	*out = '\0';
+
+	va_end(argp);
+
+	if (mysql_real_query(conn, query, strlen(query)) != 0)
+	{
+		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(conn), mysql_error(conn), query);
+		return NULL;
+	}
+
+	// Store result - this copies all data to client memory
+	result = mysql_store_result(conn);
+
+	if (mysql_error(conn)[0] != '\0')
+	{
+		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(conn), mysql_error(conn), query);
+		if (result)
+			mysql_free_result(result);
+		return NULL;
+	}
+
+	// Close connection immediately - result set has all data in client memory
+
+	// Return result set - caller MUST free with mysql_free_result()
 	return result;
 }
 
@@ -196,31 +309,30 @@ void do_pktrack(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "wins"))
-		mysql_safe_query("SELECT * FROM pklogs WHERE killer RLIKE '%s'", argument);
+		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE killer RLIKE '%s'", argument);
 	else if (!str_cmp(arg1, "losses"))
-		mysql_safe_query("SELECT * FROM pklogs WHERE dead RLIKE '%s'", argument);
+		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE dead RLIKE '%s'", argument);
 	else if (!str_cmp(arg1, "all"))
-		mysql_safe_query("SELECT * FROM pklogs WHERE killer RLIKE '%s' OR dead RLIKE '%s'", argument, argument);
+		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE killer RLIKE '%s' OR dead RLIKE '%s'", argument, argument);
 	else if (!str_cmp(arg1, "date"))
-		mysql_safe_query("SELECT * FROM pklogs WHERE time RLIKE '%s'", argument);
+		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE time RLIKE '%s'", argument);
 	else if (!str_cmp(arg1, "location"))
-		mysql_safe_query("SELECT * FROM pklogs WHERE room RLIKE '%s'", argument);
+		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE room RLIKE '%s'", argument);
 	else
 		return send_to_char("Invalid option.\n\r", ch);
-
-	res_set = mysql_store_result(&conn);
 
 	if (res_set == NULL)
 	{
 		send_to_char("Error accessing results.\n\r", ch);
 		return;
 	}
-	else if (!mysql_affected_rows(&conn))
+	else if (mysql_num_rows(res_set) == 0)
 	{
 		send_to_char("No results found.\n\r", ch);
+		mysql_free_result(res_set);
 		return;
 	}
-	else if (res_set)
+	else
 	{
 		while ((row = mysql_fetch_row(res_set)) != NULL)
 		{
@@ -235,15 +347,14 @@ void do_pktrack(CHAR_DATA *ch, char *argument)
 		}
 		if (!found)
 		{
-			return send_to_char("No matching results found.\n\r", ch);
+			send_to_char("No matching results found.\n\r", ch);
+		}
+		else
+		{
+			page_to_char(buf_string(buffer), ch);
 		}
 		mysql_free_result(res_set);
-		page_to_char(buf_string(buffer), ch);
 		free_buf(buffer);
-	}
-	else
-	{
-		send_to_char("Unknown error!\n\r", ch);
 	}
 	return;
 }
@@ -316,12 +427,15 @@ void loadCharmed(CHAR_DATA *ch)
 	AFFECT_DATA af;
 
 	// Get charmies from database
-	mysql_safe_query("SELECT * FROM charmed WHERE owner='%s'", ch->original_name);
-	result = mysql_store_result(&conn);
+	result = mysql_safe_query_with_result("SELECT * FROM charmed WHERE owner='%s'", ch->original_name);
 
 	// Nothing to do if we have no results.
-	if ((!result) || !mysql_affected_rows(&conn))
+	if (!result || mysql_num_rows(result) == 0)
+	{
+		if (result)
+			mysql_free_result(result);
 		return;
+	}
 
 	// Load up them bad boys.
 	while ((row = mysql_fetch_row(result)) != NULL)
@@ -419,8 +533,7 @@ void printCharmed(CHAR_DATA *ch, char *name)
 	char buf[MSL];
 
 	// Select all the charmies of this person.
-	mysql_safe_query("SELECT * FROM charmed WHERE owner='%s'", name);
-	result = mysql_store_result(&conn);
+	result = mysql_safe_query_with_result("SELECT * FROM charmed WHERE owner='%s'", name);
 
 	buffer = new_buf();
 
@@ -445,7 +558,10 @@ void printCharmed(CHAR_DATA *ch, char *name)
 	else
 	{
 		printf_to_char(ch, "No charmed mobs have been recorded for %s.\n\r", name);
+		if (result)
+			mysql_free_result(result);
 	}
+	free_buf(buffer);
 	return;
 }
 
@@ -620,8 +736,15 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 	buffer = new_buf();
 
 	// If they've gotten past the gatekeepers, they should be allowed to see this.
-	mysql_safe_query("SELECT * FROM `player_data` WHERE cabal=%d AND LEVEL <= %d", cabal, ch->level);
-	res = mysql_store_result(&conn);
+	res = mysql_safe_query_with_result("SELECT * FROM `player_data` WHERE cabal=%d AND LEVEL <= %d", cabal, ch->level);
+
+	if (!res)
+	{
+		send_to_char("Error accessing member list.\n\r", ch);
+		free_buf(buffer);
+		return;
+	}
+
 	member_count = mysql_num_rows(res);
 
 	send_to_char("Member Name     Last Login\n\r-----------     ----------\n\r", ch);
@@ -655,7 +778,7 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 		send_to_char("DB Error.\n\r", ch);
 	}
 
-	printf_to_char(ch, "\n\rTotal Members Found: %d.\n\r", mysql_affected_rows(&conn));
+	printf_to_char(ch, "\n\rTotal Members Found: %d.\n\r", member_count);
 	return;
 }
 
@@ -702,7 +825,7 @@ void do_ltrack(CHAR_DATA *ch, char *argument)
 	// using the variable...?
 	sprintf(buf, "%d", type);
 
-	mysql_safe_query("SELECT name, INET_NTOA(ip), hostname, time, type, vnum FROM traffic WHERE (name LIKE '%s' OR INET_NTOA(ip) LIKE '%s' OR hostname LIKE '%%%s%%' or `time` LIKE '%s' or vnum like '%s') %s%s ORDER BY `time` ASC LIMIT 100",
+	results = mysql_safe_query_with_result("SELECT name, INET_NTOA(ip), hostname, time, type, vnum FROM traffic WHERE (name LIKE '%s' OR INET_NTOA(ip) LIKE '%s' OR hostname LIKE '%%%s%%' or `time` LIKE '%s' or vnum like '%s') %s%s ORDER BY `time` ASC LIMIT 100",
 					 arg1,
 					 arg1,
 					 arg1,
@@ -711,16 +834,17 @@ void do_ltrack(CHAR_DATA *ch, char *argument)
 					 type > -1 ? "AND type=" : "",
 					 type > -1 ? buf : "");
 
-	results = mysql_store_result(&conn);
-
 	if (results == NULL)
 	{
 		send_to_char("Database error encountered.\n\r", ch);
+		free_buf(buffer);
 		return;
 	}
-	else if (!mysql_affected_rows(&conn))
+	else if (mysql_num_rows(results) == 0)
 	{
 		send_to_char("No matching results were found.\n\r", ch);
+		mysql_free_result(results);
+		free_buf(buffer);
 		return;
 	}
 	else

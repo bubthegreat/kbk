@@ -150,14 +150,14 @@ void do_topbounties(CHAR_DATA *ch, char *argument)
 
 	send_to_char("      The Top Ten Most Wanted:\n\r", ch);
 
-	mysql_safe_query("SELECT * FROM bounties ORDER BY amount DESC LIMIT 10");
-	res = mysql_store_result(&conn);
+	res = mysql_safe_query_with_result("SELECT * FROM bounties ORDER BY amount DESC LIMIT 10");
 	if (res == NULL)
 	{
 		return send_to_char("Database error.\n\r", ch);
 	}
-	else if (!mysql_affected_rows(&conn))
+	else if (mysql_num_rows(res) == 0)
 	{
+		mysql_free_result(res);
 		return send_to_char("No bounties have been recorded.\n\r", ch);
 	}
 	else
@@ -233,8 +233,7 @@ void record_bounty(CHAR_DATA *ch, CHAR_DATA *victim, int amount)
 
 	n_logf("Recording bounty on %s for %d gold.", victim->original_name, amount);
 
-	mysql_safe_query("SELECT * FROM bounties WHERE victim='%s'", victim->original_name);
-	res = mysql_store_result(&conn);
+	res = mysql_safe_query_with_result("SELECT * FROM bounties WHERE victim='%s'", victim->original_name);
 
 	if (res == NULL)
 	{
@@ -242,7 +241,7 @@ void record_bounty(CHAR_DATA *ch, CHAR_DATA *victim, int amount)
 		return;
 	}
 
-	int f = mysql_affected_rows(&conn);
+	int f = mysql_num_rows(res);
 
 	n_logf("Rows: %d", f);
 
