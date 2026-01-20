@@ -52,7 +52,9 @@ MYSQL *get_mysql_connection(void)
 
 	if (!mysql_real_connect(conn, SQL_SERVER, SQL_USER, SQL_PWD, SQL_DB, 0, NULL, 0))
 	{
-		n_logf("get_mysql_connection: mysql_real_connect() failed. Reason: %s", mysql_error(conn));
+		n_logf("get_mysql_connection: Failed to connect to MySQL");
+		n_logf("  Error %d: %s", mysql_errno(conn), mysql_error(conn));
+		mysql_close(conn);
 		return NULL;
 	}
 
@@ -66,12 +68,25 @@ void init_mysql(void)
 
 	if (test_conn)
 	{
-		log_string("Mysql_init: Successfully tested connection to MySQL database.");
+		log_string("Mysql_init: Successfully connected to MySQL database.");
 		mysql_close(test_conn);
 	}
 	else
 	{
-		log_string("Mysql_init: WARNING - Could not connect to MySQL database!");
+		// Fatal error - cannot start without database
+		log_string("========================================");
+		log_string("FATAL ERROR: Cannot connect to MySQL database!");
+		log_string("Server: " SQL_SERVER);
+		log_string("Database: " SQL_DB);
+		log_string("User: " SQL_USER);
+		log_string("Please check:");
+		log_string("  1. MySQL server is running");
+		log_string("  2. Database credentials are correct");
+		log_string("  3. Database exists and user has permissions");
+		log_string("  4. Network connectivity to MySQL server");
+		log_string("========================================");
+		log_string("Server startup ABORTED.");
+		exit(1);
 	}
 	return;
 }
