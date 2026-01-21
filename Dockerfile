@@ -6,8 +6,8 @@ RUN apt-get -y update && \
         make \
         gcc \
         libc6-dev \
-        libmysqlclient-dev \
-        default-mysql-client \
+        libsqlite3-dev \
+        sqlite3 \
         gdb \
         libc6-dbg \
         telnet \

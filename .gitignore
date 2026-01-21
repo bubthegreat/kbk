@@ -6,3 +6,14 @@ area/*.so
 */localxfer/*
 src/*.o
 src/pos2
+area/pos2
+
+# SQLite database - contains sensitive player data
+data/kbk.db
+data/kbk.db-journal
+data/kbk.db-wal
+data/kbk.db-shm
+
+# Backup files
+*.backup
+data/*.backup
