@@ -15,12 +15,15 @@ def main():
     window_width, window_height = config.get_window_size()
 
     # Configure viewport
+    # Note: vsync=False helps prevent freezing on some Linux systems with MESA/ZINK
     dpg.create_viewport(
         title="KBK Area Editor",
         width=window_width,
         height=window_height,
         min_width=1024,
-        min_height=768
+        min_height=768,
+        vsync=False,  # Disable vsync to prevent freezing during resize/maximize
+        resizable=True
     )
 
     # Setup DearPyGui
