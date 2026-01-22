@@ -1,0 +1,27 @@
+[project]
+name = "area-editor"
+version = "0.1.0"
+description = "GUI-based area editor for KBK MUD"
+readme = "README.md"
+authors = [
+    { name = "Micheal Taylor", email = "bubthegreat@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "dearpygui>=2.1.1",
+]
+
+[project.scripts]
+area-editor = "area_editor.main:main"
+
+[build-system]
+requires = ["uv_build>=0.8.2,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "pytest-xdist>=3.8.0",
+    "ruff>=0.14.13",
+]
