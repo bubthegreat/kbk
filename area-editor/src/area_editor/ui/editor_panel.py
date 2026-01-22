@@ -3,6 +3,7 @@ Editor panel for editing areas, rooms, objects, and mobiles.
 """
 import dearpygui.dearpygui as dpg
 from area_editor.app_state import app_state
+from area_editor.ui.mud_terminal import MudTerminal
 
 
 class EditorPanel:
@@ -15,6 +16,7 @@ class EditorPanel:
         self.welcome_group_id = None
         self.editor_group_id = None
         self.current_vnum = None  # Track current item being edited
+        self.mud_terminal = MudTerminal()  # MUD terminal instance
     
     def create(self):
         """Create the editor panel."""
@@ -132,6 +134,11 @@ class EditorPanel:
         if hasattr(self.main_window, 'status_bar'):
             self.main_window.status_bar.set_file_info(app_state.get_file_info())
 
+    def _on_open_terminal(self, sender, app_data, user_data):
+        """Handle opening the MUD terminal for a room."""
+        room_vnum = user_data
+        self.mud_terminal.open(room_vnum)
+
     def _on_room_link_clicked(self, sender, app_data, user_data):
         """Handle clicking on a room link in exits."""
         room_vnum = user_data
@@ -181,7 +188,16 @@ class EditorPanel:
         self.current_vnum = room_vnum
 
         with dpg.group(parent=self.editor_group_id):
-            dpg.add_text(f"Room #{room_vnum}", color=(200, 200, 100))
+            # Header with room number and terminal button
+            with dpg.group(horizontal=True):
+                dpg.add_text(f"Room #{room_vnum}", color=(200, 200, 100))
+                dpg.add_spacer(width=20)
+                dpg.add_button(
+                    label="Open Terminal",
+                    callback=self._on_open_terminal,
+                    user_data=room_vnum,
+                    small=True
+                )
             dpg.add_separator()
             dpg.add_spacer(height=10)
 
