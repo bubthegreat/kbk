@@ -194,6 +194,23 @@ area-editor/
   - Updates tree selection, editor panel, and properties panel automatically
   - **Note**: Hotkeys work globally when not typing in a text field
   - **Bug fix**: Fixed TypeError when accessing app_state selection (was trying to unpack Room object)
+- [x] Implemented MUD Terminal Simulator
+  - **"Open Terminal" button** in room editor opens a MUD-like terminal
+  - **Movement commands**: north (n), south (s), east (e), west (w), up (u), down (d)
+  - **Look command**: look (shows current room), look <target> (looks at specific things)
+  - **Extra descriptions**: Can look at room extra descriptions by keyword
+  - **Room display**: Shows room name, description, and available exits
+  - **Auto-show room**: Room is displayed automatically when terminal opens
+  - **Auto-scroll**: Terminal automatically scrolls to bottom when new output is added
+  - **Help command**: Shows available commands
+  - **Quit command**: Closes the terminal window
+  - **Command repeat**: Press Enter on empty input to repeat last command
+  - **Auto-focus**: Input field stays focused after each command for continuous typing
+  - **Auto-select**: Previous command stays highlighted - type to replace, Enter to repeat
+  - **Color-coded output**: Room names (cyan), exits (gold), commands (green), errors (red), etc.
+  - **Selectable text**: All terminal output is selectable for copy/paste
+  - Provides a player's-eye view of the area for testing navigation and descriptions
+  - Simplified simulator - no combat, timing, or lag mechanics
 - [ ] Add area creation functionality
 - [ ] Implement basic validation
 - [ ] Implement .are file writer (to save changes)
