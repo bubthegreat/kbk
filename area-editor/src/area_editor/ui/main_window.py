@@ -138,8 +138,10 @@ class MainWindow:
         app_state.select_item('room', new_vnum)
 
         # Update tree selection
-        if hasattr(self, 'area_tree'):
+        if hasattr(self, 'area_tree') and app_state.current_area_id:
             tree = self.area_tree
+            area_id = app_state.current_area_id
+
             # Deselect previous item
             if tree.current_selection and tree.current_selection in tree.selectable_items:
                 prev_id = tree.selectable_items[tree.current_selection]
@@ -147,9 +149,9 @@ class MainWindow:
                     dpg.set_value(prev_id, False)
 
             # Select new item
-            tree.current_selection = ('room', new_vnum)
-            if ('room', new_vnum) in tree.selectable_items:
-                new_id = tree.selectable_items[('room', new_vnum)]
+            tree.current_selection = (area_id, 'room', new_vnum)
+            if (area_id, 'room', new_vnum) in tree.selectable_items:
+                new_id = tree.selectable_items[(area_id, 'room', new_vnum)]
                 if dpg.does_item_exist(new_id):
                     dpg.set_value(new_id, True)
 
@@ -173,10 +175,12 @@ class MainWindow:
                 return
 
             # Load into app state
-            app_state.load_area(area, Path(filepath))
+            filepath_obj = Path(filepath)
+            app_state.load_area(area, filepath_obj)
+            area_id = filepath_obj.name  # Use filename as area ID
 
             # Update UI
-            self.area_tree.populate_from_area(area)
+            self.area_tree.populate_from_area(area, area_id)
             self.status_bar.set_status("Area loaded successfully", color=(100, 255, 100))
             self.status_bar.set_file_info(app_state.get_file_info())
 

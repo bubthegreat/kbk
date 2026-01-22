@@ -115,7 +115,7 @@ class PropertiesPanel:
             dpg.add_text(f"AC Pierce: {mob.ac_pierce}", color=(120, 120, 120))
             dpg.add_text(f"AC Bash: {mob.ac_bash}", color=(120, 120, 120))
             dpg.add_text(f"AC Slash: {mob.ac_slash}", color=(120, 120, 120))
-            dpg.add_text(f"AC Magic: {mob.ac_magic}", color=(120, 120, 120))
+            dpg.add_text(f"AC Exotic: {mob.ac_exotic}", color=(120, 120, 120))
 
     def show_area_properties(self, area: Area):
         """Show properties for an area."""
