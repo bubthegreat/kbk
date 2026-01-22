@@ -225,6 +225,9 @@ class MudTerminal:
         # Room description (normal color)
         self._add_output(room.description, color=(200, 200, 200))
 
+        # Blank line after description
+        self._add_output("")
+
         # Exits (in yellow/gold color)
         if room.exits:
             exit_names = []
@@ -246,9 +249,8 @@ class MudTerminal:
                     mob = app_state.current_area.mobiles[mob_vnum]
                     mobiles_here.append(mob)
 
-        # Display mobiles
+        # Display mobiles (no blank line before them)
         if mobiles_here:
-            self._add_output("")  # Blank line before mobiles
             for mob in mobiles_here:
                 # Show the mobile's long description (how they appear in the room)
                 if mob.long_description:

@@ -205,12 +205,104 @@ End
 #0
 
 #MOBDATA
+#1050
+NAME   innkeeper barkeep~
+SHORT  the innkeeper~
+LONG   The innkeeper stands behind the bar, polishing mugs with a friendly smile.~
+DESCR
+A portly man with a stained apron and a welcoming demeanor. He's seen
+countless adventurers pass through these doors over the years.
+~
+RACE   human~
+ACT    AB
+AFF    0
+ALIGN  500
+LEVEL  15
+HROLL  5
+DROLL  2d6+100
+MANA   100d10+500
+HP     10d10+200
+GOLD   500
+POS    standing standing
+SEX    male
+End
+
+#1051
+NAME   shopkeeper merchant~
+SHORT  the shopkeeper~
+LONG   The shopkeeper watches you carefully from behind the counter.~
+DESCR
+A wary-looking merchant with sharp eyes and quick hands. He knows the value
+of every item in his store and won't be cheated.
+~
+RACE   human~
+ACT    AB
+AFF    0
+ALIGN  0
+LEVEL  12
+HROLL  4
+DROLL  2d5+80
+MANA   80d10+400
+HP     8d10+150
+GOLD   1000
+POS    standing standing
+SEX    male
+End
+
+#1052
+NAME   guard town watchman~
+SHORT  a town guard~
+LONG   A town guard stands here, watching for trouble.~
+DESCR
+A sturdy guard in leather armor, armed with a short sword. He keeps a
+watchful eye on the town square.
+~
+RACE   human~
+ACT    A
+AFF    0
+ALIGN  750
+LEVEL  10
+HROLL  6
+DROLL  2d5+60
+MANA   50d10+300
+HP     8d10+120
+GOLD   100
+POS    standing standing
+SEX    male
+End
+
+#1053
+NAME   rat giant rodent~
+SHORT  a giant rat~
+LONG   A giant rat scurries through the refuse, its eyes gleaming in the darkness.~
+DESCR
+A mangy, disease-ridden rat the size of a small dog. Its teeth are yellow
+and sharp, and it looks hungry.
+~
+RACE   unique~
+ACT    0
+AFF    I
+ALIGN  -500
+LEVEL  3
+HROLL  2
+DROLL  1d4+10
+MANA   20d10+50
+HP     3d10+20
+GOLD   0
+POS    standing standing
+SEX    none
+End
+
 #0
 
 #OBJDATA
 #0
 
 #RESETS
+M 0 1050 1 1001 1
+M 0 1051 1 1002 1
+M 0 1052 2 1000 2
+M 0 1053 3 1006 3
 S
 
 #SPECIALS
