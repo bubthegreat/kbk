@@ -15,12 +15,12 @@ class MenuBar:
     
     def create(self):
         """Create the menu bar."""
-        # Create file dialog (hidden by default)
+        # Create file dialog (hidden by default) - supports multiple file selection
         with dpg.file_dialog(
             directory_selector=False,
             show=False,
             callback=self._file_dialog_callback,
-            file_count=1,
+            file_count=0,  # 0 = unlimited file selection
             width=700,
             height=400,
             tag="file_dialog"
@@ -64,12 +64,12 @@ class MenuBar:
                 dpg.add_menu_item(label="About", callback=self._on_about)
     
     def _file_dialog_callback(self, sender, app_data):
-        """Handle file dialog selection."""
+        """Handle file dialog selection - supports multiple files."""
         selections = app_data.get('selections', {})
         if selections:
-            # Get the first selected file
-            filepath = list(selections.values())[0]
-            self.main_window.open_area_file(filepath)
+            # Load all selected files
+            for filepath in selections.values():
+                self.main_window.open_area_file(filepath)
 
     def _on_new_area(self):
         """Handle New Area menu item."""

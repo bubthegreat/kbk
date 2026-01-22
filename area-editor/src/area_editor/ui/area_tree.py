@@ -17,6 +17,7 @@ class AreaTree:
         self.selectable_items = {}  # Maps (area_id, item_type, vnum) -> selectable_id
         self.current_selection = None  # Currently selected (area_id, item_type, vnum)
         self.no_areas_placeholder_id = None
+        self.error_theme_id = None  # Theme for items with errors
     
     def create(self):
         """Create the area tree view."""
@@ -66,26 +67,24 @@ class AreaTree:
 
         app_state.select_item(item_type, vnum)
 
-        # Update editor panel and properties panel
+        # Update editor panel (properties are now embedded in editor)
         if item_type == 'room':
-            room = app_state.current_area.rooms.get(vnum)
             self.main_window.editor_panel.show_room_editor(vnum)
-            if hasattr(self.main_window, 'properties_panel') and room:
-                self.main_window.properties_panel.show_room_properties(room, vnum)
         elif item_type == 'object':
-            obj = app_state.current_area.objects.get(vnum)
             self.main_window.editor_panel.show_object_editor(vnum)
-            if hasattr(self.main_window, 'properties_panel') and obj:
-                self.main_window.properties_panel.show_object_properties(obj, vnum)
         elif item_type == 'mobile':
-            mob = app_state.current_area.mobiles.get(vnum)
             self.main_window.editor_panel.show_mobile_editor(vnum)
-            if hasattr(self.main_window, 'properties_panel') and mob:
-                self.main_window.properties_panel.show_mobile_properties(mob, vnum)
         elif item_type == 'area':
             self.main_window.editor_panel.show_area_editor()
-            if hasattr(self.main_window, 'properties_panel') and app_state.current_area:
-                self.main_window.properties_panel.show_area_properties(app_state.current_area)
+
+    def _get_error_theme(self):
+        """Get or create a theme for items with validation errors."""
+        if self.error_theme_id is None or not dpg.does_item_exist(self.error_theme_id):
+            with dpg.theme() as self.error_theme_id:
+                with dpg.theme_component(dpg.mvAll):
+                    # Red text color for errors
+                    dpg.add_theme_color(dpg.mvThemeCol_Text, (255, 100, 100), category=dpg.mvThemeCat_Core)
+        return self.error_theme_id
 
     def populate_from_area(self, area: Area, area_id: str):
         """Add an area to the tree.
@@ -110,9 +109,19 @@ class AreaTree:
                 del self.selectable_items[key]
 
         # Create area node
+        # Collapse by default if multiple areas are loaded, expand if only one
+        num_areas = len(app_state.areas)
+        default_open = (num_areas == 1)
+
+        # If we're adding a second area, collapse all existing area nodes
+        if num_areas == 2:
+            for existing_area_id, existing_node_id in self.area_nodes.items():
+                if dpg.does_item_exist(existing_node_id):
+                    dpg.set_value(existing_node_id, False)  # Collapse the node
+
         with dpg.tree_node(
             label=f"{area.name} ({area.min_vnum}-{area.max_vnum})",
-            default_open=True,
+            default_open=default_open,
             parent=self.tree_id
         ) as area_node_id:
             self.area_nodes[area_id] = area_node_id
@@ -125,17 +134,35 @@ class AreaTree:
             )
             self.selectable_items[(area_id, 'area', 0)] = item_id
 
-            # Rooms section
+            # Rooms section - collapse if multiple areas
             if area.rooms:
-                with dpg.tree_node(label=f"Rooms ({len(area.rooms)})", default_open=True):
+                with dpg.tree_node(label=f"Rooms ({len(area.rooms)})", default_open=default_open):
                     for vnum in sorted(area.rooms.keys()):
                         room = area.rooms[vnum]
                         label = f"#{vnum}: {room.name}" if room.name else f"#{vnum}"
-                        item_id = dpg.add_selectable(
-                            label=label,
-                            callback=self._on_item_clicked,
-                            user_data=(area_id, 'room', vnum)
-                        )
+
+                        # Check if room has validation errors
+                        has_errors = app_state.has_validation_errors('room', vnum, area_id)
+
+                        # Add warning icon and color if there are errors
+                        if has_errors:
+                            label = f"⚠ {label}"
+                            # Create a group with colored text
+                            with dpg.group(horizontal=True):
+                                item_id = dpg.add_selectable(
+                                    label=label,
+                                    callback=self._on_item_clicked,
+                                    user_data=(area_id, 'room', vnum)
+                                )
+                                # Apply red color to indicate error
+                                dpg.bind_item_theme(item_id, self._get_error_theme())
+                        else:
+                            item_id = dpg.add_selectable(
+                                label=label,
+                                callback=self._on_item_clicked,
+                                user_data=(area_id, 'room', vnum)
+                            )
+
                         self.selectable_items[(area_id, 'room', vnum)] = item_id
 
             # Objects section
