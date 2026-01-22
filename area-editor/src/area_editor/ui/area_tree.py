@@ -13,29 +13,32 @@ class AreaTree:
         """Initialize the area tree."""
         self.main_window = main_window
         self.tree_id = None
-        self.area_node_id = None
-        self.selectable_items = {}  # Maps (item_type, vnum) -> selectable_id
-        self.current_selection = None  # Currently selected (item_type, vnum)
+        self.area_nodes = {}  # Maps area_id -> tree_node_id
+        self.selectable_items = {}  # Maps (area_id, item_type, vnum) -> selectable_id
+        self.current_selection = None  # Currently selected (area_id, item_type, vnum)
+        self.no_areas_placeholder_id = None
     
     def create(self):
         """Create the area tree view."""
         dpg.add_text("Area Explorer", color=(200, 200, 200))
         dpg.add_separator()
-        
+
         # Search box
         dpg.add_input_text(
             label="Search",
             hint="Search areas, rooms, objects...",
             callback=self._on_search
         )
-        
+
         dpg.add_separator()
-        
+
         # Tree view
         with dpg.tree_node(label="Areas", default_open=True) as self.tree_id:
-            # Placeholder content - will be populated when areas are loaded
-            with dpg.tree_node(label="No areas loaded", leaf=True):
-                pass
+            # Placeholder content - will be removed when first area is loaded
+            self.no_areas_placeholder_id = dpg.add_text(
+                "No areas loaded",
+                color=(120, 120, 120)
+            )
     
     def _on_search(self, sender, app_data):
         """Handle search input."""
@@ -43,7 +46,7 @@ class AreaTree:
 
     def _on_item_clicked(self, sender, app_data, user_data):
         """Handle tree item click."""
-        item_type, vnum = user_data
+        area_id, item_type, vnum = user_data
 
         # Deselect previous item
         if self.current_selection and self.current_selection in self.selectable_items:
@@ -52,7 +55,15 @@ class AreaTree:
                 dpg.set_value(prev_id, False)
 
         # Select new item
-        self.current_selection = (item_type, vnum)
+        self.current_selection = (area_id, item_type, vnum)
+
+        # Set the current area if it changed
+        if app_state.current_area_id != area_id:
+            app_state.set_current_area(area_id)
+            # Update status bar
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
         app_state.select_item(item_type, vnum)
 
         # Update editor panel and properties panel
@@ -76,28 +87,43 @@ class AreaTree:
             if hasattr(self.main_window, 'properties_panel') and app_state.current_area:
                 self.main_window.properties_panel.show_area_properties(app_state.current_area)
 
-    def populate_from_area(self, area: Area):
-        """Populate the tree with data from an area."""
-        # Clear existing tree content and selection tracking
-        if self.area_node_id and dpg.does_item_exist(self.area_node_id):
-            dpg.delete_item(self.area_node_id)
+    def populate_from_area(self, area: Area, area_id: str):
+        """Add an area to the tree.
 
-        self.selectable_items.clear()
-        self.current_selection = None
+        Args:
+            area: The area to add
+            area_id: Unique identifier for the area (usually filename)
+        """
+        # Remove "No areas loaded" placeholder if it exists
+        if self.no_areas_placeholder_id and dpg.does_item_exist(self.no_areas_placeholder_id):
+            dpg.delete_item(self.no_areas_placeholder_id)
+            self.no_areas_placeholder_id = None
+
+        # If area already exists, remove it first
+        if area_id in self.area_nodes:
+            old_node_id = self.area_nodes[area_id]
+            if dpg.does_item_exist(old_node_id):
+                dpg.delete_item(old_node_id)
+            # Remove old selectable items for this area
+            keys_to_remove = [k for k in self.selectable_items.keys() if k[0] == area_id]
+            for key in keys_to_remove:
+                del self.selectable_items[key]
 
         # Create area node
         with dpg.tree_node(
             label=f"{area.name} ({area.min_vnum}-{area.max_vnum})",
             default_open=True,
             parent=self.tree_id
-        ) as self.area_node_id:
+        ) as area_node_id:
+            self.area_nodes[area_id] = area_node_id
+
             # Add area info as clickable item
             item_id = dpg.add_selectable(
                 label=f"Area Info",
                 callback=self._on_item_clicked,
-                user_data=('area', 0)
+                user_data=(area_id, 'area', 0)
             )
-            self.selectable_items[('area', 0)] = item_id
+            self.selectable_items[(area_id, 'area', 0)] = item_id
 
             # Rooms section
             if area.rooms:
@@ -108,9 +134,9 @@ class AreaTree:
                         item_id = dpg.add_selectable(
                             label=label,
                             callback=self._on_item_clicked,
-                            user_data=('room', vnum)
+                            user_data=(area_id, 'room', vnum)
                         )
-                        self.selectable_items[('room', vnum)] = item_id
+                        self.selectable_items[(area_id, 'room', vnum)] = item_id
 
             # Objects section
             if area.objects:
@@ -121,9 +147,9 @@ class AreaTree:
                         item_id = dpg.add_selectable(
                             label=label,
                             callback=self._on_item_clicked,
-                            user_data=('object', vnum)
+                            user_data=(area_id, 'object', vnum)
                         )
-                        self.selectable_items[('object', vnum)] = item_id
+                        self.selectable_items[(area_id, 'object', vnum)] = item_id
 
             # Mobiles section
             if area.mobiles:
@@ -134,7 +160,7 @@ class AreaTree:
                         item_id = dpg.add_selectable(
                             label=label,
                             callback=self._on_item_clicked,
-                            user_data=('mobile', vnum)
+                            user_data=(area_id, 'mobile', vnum)
                         )
-                        self.selectable_items[('mobile', vnum)] = item_id
+                        self.selectable_items[(area_id, 'mobile', vnum)] = item_id
 

@@ -1,5 +1,19 @@
 # KBK Area Editor - Development Progress
 
+# Guidelines for AI Agents
+
+1. When adding features, ensure that test.are is updated with a new room that supports that new feature.  The rooms should follow minimalistic standards that still follow a fantasy theme.  The main theme of the test area should follow the Legend of the Red Dragon MUD theme.  
+3. When exceptions are found they shoudl be fixed without removing functionality that already existed without explicit user direction to do so.
+4. When fixing exceptions, add new rooms that have specific conditions that cause the exception.  
+5. When adding new features or updating existing ones, they should be added to a FEATURES.md file.  It should outline the existing features in a way that ensures AI knows which things that we have to make sure we keep when adjusting code. The format should be as follows:
+    - Feature Name
+    - Description of feature
+    - How to test the feature
+    - Any additional notes
+    - End
+6. When adding new they should be added in the standard uv format with uv add and use uv to regenerate the lock file.  Do not edit the lock file directly.
+7. When adding new features, add new tests to ensure that the feature works as expected.  The tests should be added to the tests folder in the standard python unittest format.  The tests should be able to be run with uv run pytest -v.  If new dependencies are needed for the tests, add them with uv add and regenerate the lock file.  Do not edit the lock file directly.  Dependencies that are added specifically for testing and development and not use should be added with the --dev flag.
+
 ## Completed Tasks
 
 ### Phase 1: Foundation ✅
