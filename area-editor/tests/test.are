@@ -1,0 +1,222 @@
+#AREADATA
+Name        The Village of Turgon~
+Builders    TestBuilder~
+VNUMs       1000 1099
+Security    1
+Recall      1000
+End
+
+#ROOMDATA
+#1000
+NAME   The Town Square~
+DESCR
+You stand in the bustling town square of Turgon, a small village nestled
+in the shadow of the Red Dragon's mountain. Cobblestone streets radiate
+outward in all directions. A weathered fountain sits in the center, its
+water long since dried up. The village inn lies to the north, while the
+general store is to the east. A narrow alley leads south, and the town
+gate stands to the west.
+~
+FLAGS  0
+Sect   1
+DOOR 0
+The village inn beckons with warm light and the smell of ale.
+~
+inn door~
+0 0 1001
+DOOR 1
+The general store's wooden sign creaks in the wind.
+~
+store door~
+0 0 1002
+DOOR 2
+A dark alley disappears into shadows.
+~
+~
+0 0 1003
+DOOR 3
+The town gate leads out to the wilderness.
+~
+gate~
+0 0 1004
+EDESC fountain dried~
+The fountain is made of cracked stone, its basin filled with dead leaves
+and debris. It hasn't held water in years.
+~
+EDESC cobblestone streets~
+The cobblestones are worn smooth by countless footsteps over the years.
+~
+End
+
+#1001
+NAME   The Village Inn~
+DESCR
+The inn is warm and inviting, with a crackling fireplace and sturdy wooden
+tables. The innkeeper stands behind the bar, polishing mugs. A staircase
+leads up to the guest rooms, and the town square is back to the south.
+~
+FLAGS  8
+Sect   0
+DOOR 2
+The town square lies to the south.
+~
+~
+0 0 1000
+DOOR 4
+A narrow staircase leads up to the guest rooms.
+~
+~
+0 0 1005
+EDESC fireplace~
+The fireplace crackles merrily, casting dancing shadows on the walls.
+~
+EDESC bar innkeeper~
+The innkeeper is a portly man with a friendly smile and a stained apron.
+~
+End
+
+#1002
+NAME   The General Store~
+DESCR
+Shelves line the walls of this cramped store, filled with adventuring
+supplies and basic goods. The shopkeeper eyes you warily from behind
+the counter. The town square is back to the west.
+~
+FLAGS  8
+Sect   0
+DOOR 3
+The town square is to the west.
+~
+~
+0 0 1000
+EDESC shelves supplies~
+The shelves are stocked with rope, torches, rations, and other essentials
+for adventurers brave enough to face the Red Dragon.
+~
+End
+
+#1003
+NAME   A Dark Alley~
+DESCR
+This narrow alley reeks of garbage and worse. Shadows cling to the walls,
+and you hear the scurrying of rats in the darkness. The alley continues
+east to a dead end, while the town square is back to the north.
+~
+FLAGS  1
+Sect   0
+DOOR 0
+The town square is to the north.
+~
+~
+0 0 1000
+DOOR 1
+The alley continues east into deeper darkness.
+~
+~
+0 0 1006
+EDESC rats~
+You see several large rats scurrying through the garbage.
+~
+EDESC garbage shadows~
+The shadows seem almost alive in this forsaken place.
+~
+End
+
+#1004
+NAME   The Town Gate~
+DESCR
+Massive wooden gates stand open here, leading out to the wilderness beyond.
+Guards stand watch, keeping an eye out for monsters and bandits. The town
+square is back to the east, and the wilderness road leads west.
+~
+FLAGS  0
+Sect   2
+DOOR 1
+The town square is to the east.
+~
+~
+0 0 1000
+DOOR 3
+The wilderness road stretches west into the unknown.
+~
+~
+0 0 1007
+EDESC gates guards~
+The guards wear simple leather armor and carry spears. They nod at you
+as you pass.
+~
+End
+
+#1005
+NAME   The Guest Rooms~
+DESCR
+A simple hallway with several doors leading to modest guest rooms. The
+rooms are clean but sparse, with just a bed and a small table. The
+staircase leads back down to the inn.
+~
+FLAGS  8
+Sect   0
+DOOR 5
+The staircase leads down to the inn.
+~
+~
+0 0 1001
+End
+
+#1006
+NAME   Dead End~
+DESCR
+The alley ends here in a pile of refuse and broken crates. There's nowhere
+to go but back west. You hear something moving in the shadows...
+~
+FLAGS  1
+Sect   0
+DOOR 3
+The alley continues west.
+~
+~
+0 0 1003
+EDESC crates refuse~
+The crates are rotted and broken, their contents long since looted or
+spoiled.
+~
+End
+
+#1007
+NAME   The Wilderness Road~
+DESCR
+The road stretches through sparse grassland, leading away from the safety
+of Turgon. To the west, you can see the foothills of the Red Dragon's
+mountain rising in the distance. The town gate is back to the east.
+~
+FLAGS  0
+Sect   2
+DOOR 1
+The town gate is to the east.
+~
+~
+0 0 1004
+EDESC mountain foothills~
+The mountain looms ominously in the distance, smoke rising from its peak.
+They say the Red Dragon makes its lair there.
+~
+End
+
+#0
+
+#MOBDATA
+#0
+
+#OBJDATA
+#0
+
+#RESETS
+S
+
+#SPECIALS
+S
+
+#SHOPS
+0
+
+#$

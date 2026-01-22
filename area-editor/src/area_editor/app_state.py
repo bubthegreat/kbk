@@ -4,6 +4,7 @@ Application state manager for the Area Editor.
 from typing import Optional, Dict
 from pathlib import Path
 from area_editor.models.area import Area
+from area_editor.validation import ValidationResult
 
 
 class AppState:
@@ -14,6 +15,7 @@ class AppState:
         self.areas: Dict[str, Area] = {}  # Maps area_id (filename) -> Area
         self.area_files: Dict[str, Path] = {}  # Maps area_id -> filepath
         self.area_modified: Dict[str, bool] = {}  # Maps area_id -> is_modified
+        self.validation_results: Dict[str, ValidationResult] = {}  # Maps area_id -> ValidationResult
         self.current_area_id: Optional[str] = None  # Currently active area
         self.selected_item_type: Optional[str] = None  # 'room', 'object', 'mobile', 'area'
         self.selected_item_vnum: Optional[int] = None
@@ -123,6 +125,47 @@ class AppState:
 
         modified_marker = "*" if self.is_modified else ""
         return f"{self.current_file.name}{modified_marker} - {len(self.current_area.rooms)} rooms, {len(self.current_area.objects)} objects, {len(self.current_area.mobiles)} mobiles"
+
+    def set_validation_result(self, area_id: str, result: ValidationResult):
+        """Store validation results for an area.
+
+        Args:
+            area_id: ID of the area
+            result: Validation results
+        """
+        self.validation_results[area_id] = result
+
+    def get_validation_result(self, area_id: Optional[str] = None) -> Optional[ValidationResult]:
+        """Get validation results for an area.
+
+        Args:
+            area_id: ID of the area. If None, uses current area.
+
+        Returns:
+            ValidationResult if available, None otherwise
+        """
+        if area_id is None:
+            area_id = self.current_area_id
+        if area_id:
+            return self.validation_results.get(area_id)
+        return None
+
+    def has_validation_errors(self, item_type: str, item_vnum: int, area_id: Optional[str] = None) -> bool:
+        """Check if an item has validation errors.
+
+        Args:
+            item_type: Type of item ('room', 'object', 'mobile')
+            item_vnum: Vnum of the item
+            area_id: ID of the area. If None, uses current area.
+
+        Returns:
+            True if the item has validation errors
+        """
+        result = self.get_validation_result(area_id)
+        if result:
+            errors = result.get_errors_for_item(item_type, item_vnum)
+            return len(errors) > 0
+        return False
 
 
 # Global application state instance

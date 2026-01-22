@@ -8,51 +8,65 @@ from area_editor.app_state import app_state
 class MudTerminal:
     """Simple MUD terminal for testing area navigation and look commands."""
 
-    def __init__(self):
-        """Initialize the MUD terminal."""
+    def __init__(self, main_window=None):
+        """Initialize the MUD terminal.
+
+        Args:
+            main_window: Reference to the main window for updating UI selection
+        """
+        self.main_window = main_window
         self.window_id = None
         self.output_container_id = None
         self.input_id = None
         self.current_room_vnum = None
         self.command_history = []
         self.history_index = -1
+        self.navigating_internally = False  # Flag to track if we're navigating from within terminal
 
-    def open(self, room_vnum: int):
-        """Open the terminal at the specified room."""
+    def open(self, room_vnum: int, clear_history: bool = True):
+        """Open the terminal at the specified room.
+
+        Args:
+            room_vnum: The room to open the terminal at
+            clear_history: If True, clear the terminal output. If False, keep existing history.
+        """
         if not app_state.current_area:
             return
 
         self.current_room_vnum = room_vnum
 
-        # Create or show window
+        # Create or show terminal in right sidebar
         if self.window_id and dpg.does_item_exist(self.window_id):
             dpg.show_item(self.window_id)
-            self._clear_output()
+            if clear_history:
+                self._clear_output()
         else:
-            self._create_window()
+            self._create_embedded_terminal()
 
-        # Show initial room
-        self._show_room()
+        # Show initial room (only if clearing history or terminal just created)
+        if clear_history or not dpg.does_item_exist(self.output_container_id):
+            self._show_room()
 
         # Focus the input field
         if self.input_id and dpg.does_item_exist(self.input_id):
             dpg.focus_item(self.input_id)
 
-    def _create_window(self):
-        """Create the terminal window."""
-        with dpg.window(
-            label="MUD Terminal",
-            width=800,
-            height=600,
-            pos=(100, 100),
-            on_close=self._on_close,
-            tag="mud_terminal_window"
-        ) as self.window_id:
-            # Output area - using a group to hold colored text widgets
+    def _create_embedded_terminal(self):
+        """Create the terminal embedded in the right sidebar."""
+        # Clear the terminal container
+        if dpg.does_item_exist("terminal_container"):
+            dpg.delete_item("terminal_container", children_only=True)
+
+        # Create terminal UI inside the container
+        with dpg.group(parent="terminal_container") as self.window_id:
+            # Output area - using a child window to hold colored text widgets
             with dpg.child_window(
+                width=-1,  # Fill available width
                 height=-40,
                 border=True,
-                tag="mud_output_window"
+                tag="mud_output_window",
+                horizontal_scrollbar=False,  # Disable horizontal scrollbar
+                no_scrollbar=False  # Keep vertical scrollbar
             ) as self.output_container_id:
                 pass
 
@@ -67,10 +81,6 @@ class MudTerminal:
                     auto_select_all=True  # Auto-select all text when focused
                 )
 
-    def _on_close(self):
-        """Handle window close."""
-        pass
-
     def _clear_output(self):
         """Clear the output text."""
         if self.output_container_id and dpg.does_item_exist(self.output_container_id):
@@ -84,7 +94,12 @@ class MudTerminal:
             color: RGB tuple for text color (default: light gray)
         """
         if self.output_container_id and dpg.does_item_exist(self.output_container_id):
-            dpg.add_text(text, parent=self.output_container_id, color=color, wrap=760)
+            # Get the container width and wrap text to fit
+            container_width = dpg.get_item_width(self.output_container_id)
+            # Subtract some padding for scrollbar and borders
+            wrap_width = max(container_width - 20, 100) if container_width > 0 else -1
+
+            dpg.add_text(text, parent=self.output_container_id, color=color, wrap=wrap_width)
             # Auto-scroll to bottom
             dpg.set_y_scroll(self.output_container_id, -1.0)
 
@@ -111,13 +126,13 @@ class MudTerminal:
         self._process_command(command)
 
         # Keep the command in the input field (highlighted/selected)
-        dpg.set_value(self.input_id, command)
-
-        # Focus the input field and select all text
-        dpg.focus_item(self.input_id)
-        # Note: DearPyGui doesn't have a direct "select all" API, but setting the value
-        # and focusing will allow the user to start typing to replace it, or press
-        # Enter to repeat it
+        if self.input_id and dpg.does_item_exist(self.input_id):
+            dpg.set_value(self.input_id, command)
+            # Focus the input field and select all text
+            dpg.focus_item(self.input_id)
+            # Note: DearPyGui doesn't have a direct "select all" API, but setting the value
+            # and focusing will allow the user to start typing to replace it, or press
+            # Enter to repeat it
 
     def _process_command(self, command: str):
         """Process a MUD command."""
@@ -140,9 +155,17 @@ class MudTerminal:
         # Help
         elif cmd in ['help', 'h', '?']:
             self._show_help()
-        # Quit
+        # Quit - clear terminal and show placeholder
         elif cmd in ['quit', 'q', 'exit']:
-            dpg.hide_item(self.window_id)
+            self._clear_output()
+            self.current_room_vnum = None
+            if dpg.does_item_exist("terminal_container"):
+                dpg.delete_item("terminal_container", children_only=True)
+                dpg.add_text(
+                    "Select a room and click 'Open Terminal' to start",
+                    parent="terminal_container",
+                    color=(120, 120, 120)
+                )
         else:
             self._add_output("Huh?", color=(255, 150, 150))
 
@@ -183,6 +206,12 @@ class MudTerminal:
         self._add_output("")  # Blank line
         self._show_room()
 
+        # Update UI selection to match the new room
+        # Set flag to indicate we're navigating internally (don't clear history)
+        self.navigating_internally = True
+        self._update_ui_selection(new_room_vnum)
+        self.navigating_internally = False
+
     def _show_room(self):
         """Display the current room."""
         room = app_state.current_area.rooms.get(self.current_room_vnum)
@@ -207,21 +236,26 @@ class MudTerminal:
         else:
             self._add_output("Exits: none", color=(255, 220, 100))
 
-        # Objects in room (simplified - just show all objects for now)
-        # In a real MUD, this would be filtered by resets
-        objects_here = []
-        for obj in app_state.current_area.objects.values():
-            # For simplicity, we'll just show a few objects as examples
-            # In reality, you'd need to check resets to see what's in the room
-            pass
-
-        # Mobiles in room (simplified - just show all mobiles for now)
-        # In a real MUD, this would be filtered by resets
+        # Find mobiles in this room by checking resets
         mobiles_here = []
-        for mob in app_state.current_area.mobiles.values():
-            # For simplicity, we'll just show a few mobiles as examples
-            # In reality, you'd need to check resets to see what's in the room
-            pass
+        for reset in app_state.current_area.resets:
+            if reset.command == 'M' and reset.arg3 == self.current_room_vnum:
+                # This is a mobile reset for this room
+                mob_vnum = reset.arg1
+                if mob_vnum in app_state.current_area.mobiles:
+                    mob = app_state.current_area.mobiles[mob_vnum]
+                    mobiles_here.append(mob)
+
+        # Display mobiles
+        if mobiles_here:
+            self._add_output("")  # Blank line before mobiles
+            for mob in mobiles_here:
+                # Show the mobile's long description (how they appear in the room)
+                if mob.long_description:
+                    self._add_output(mob.long_description.strip(), color=(200, 200, 255))
+                else:
+                    # Fallback to short description if no long description
+                    self._add_output(f"{mob.short_description} is here.", color=(200, 200, 255))
 
         self._add_output("")  # Blank line
 
@@ -259,7 +293,47 @@ class MudTerminal:
         self._add_output("Available Commands:", color=(100, 200, 255))
         self._add_output("  Movement: north (n), south (s), east (e), west (w), up (u), down (d)", color=(200, 200, 200))
         self._add_output("  Look: look, look <target>", color=(200, 200, 200))
-        self._add_output("  Other: help, quit", color=(200, 200, 200))
+        self._add_output("  Other: help, quit (closes terminal)", color=(200, 200, 200))
         self._add_output("", color=(200, 200, 200))
         self._add_output("This is a simplified MUD simulator for testing area navigation.", color=(180, 180, 180))
+
+    def _update_ui_selection(self, room_vnum: int):
+        """Update the UI selection to match the current room.
+
+        Args:
+            room_vnum: The room vnum to select in the UI
+        """
+        if not self.main_window or not app_state.current_area_id:
+            return
+
+        # Update app state selection
+        app_state.select_item('room', room_vnum)
+
+        # Update tree selection
+        if hasattr(self.main_window, 'area_tree'):
+            tree = self.main_window.area_tree
+            area_id = app_state.current_area_id
+
+            # Deselect previous item
+            if tree.current_selection and tree.current_selection in tree.selectable_items:
+                prev_id = tree.selectable_items[tree.current_selection]
+                if dpg.does_item_exist(prev_id):
+                    dpg.set_value(prev_id, False)
+
+            # Select new item
+            tree.current_selection = (area_id, 'room', room_vnum)
+            if (area_id, 'room', room_vnum) in tree.selectable_items:
+                new_id = tree.selectable_items[(area_id, 'room', room_vnum)]
+                if dpg.does_item_exist(new_id):
+                    dpg.set_value(new_id, True)
+
+        # Update editor panel
+        if hasattr(self.main_window, 'editor_panel'):
+            self.main_window.editor_panel.show_room_editor(room_vnum)
+
+        # Update properties panel
+        if hasattr(self.main_window, 'properties_panel'):
+            room = app_state.current_area.rooms.get(room_vnum)
+            if room:
+                self.main_window.properties_panel.show_room_properties(room, room_vnum)
 
