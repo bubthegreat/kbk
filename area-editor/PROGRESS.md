@@ -170,7 +170,30 @@ area-editor/
   - Shows loaded file name
   - Displays item counts (rooms, objects, mobiles)
   - Shows modification status with asterisk
-- [ ] Add edit functionality to editor panels (currently read-only)
+- [x] Add edit functionality to editor panels
+  - **Room editor**: Editable name and description fields, displays extra descriptions with keywords and text
+  - **Object editor**: Editable short and long description fields, displays extra descriptions with keywords and text
+  - **Mobile editor**: Editable short and long description fields
+  - **Area editor**: Editable area name field
+  - All changes tracked with `app_state.mark_modified()`
+  - Status bar shows asterisk (*) when file is modified
+  - Real-time updates to data models on field changes
+- [x] Implemented properties panel
+  - **Room properties**: Shows exit count, extra descriptions, sector, flags, exit directions
+  - **Object properties**: Shows type, level, weight, cost, material, extra descriptions, affects
+  - **Mobile properties**: Shows race, level, alignment, combat stats (hit dice, damage, AC)
+  - **Area properties**: Shows VNUM range, security, builders, content counts
+  - Updates automatically when items are selected
+  - Provides quick reference information alongside the main editor
+  - **Note**: Extra descriptions are being parsed correctly (arkham.are: 46/67 objects, 4/174 rooms have EDESCs)
+- [x] Implemented keyboard navigation
+  - **Up Arrow (↑)**: Navigate to previous room in VNUM order
+  - **Down Arrow (↓)**: Navigate to next room in VNUM order
+  - Only active when a room is selected
+  - Wraps around (last room → first room, first room → last room)
+  - Updates tree selection, editor panel, and properties panel automatically
+  - **Note**: Hotkeys work globally when not typing in a text field
+  - **Bug fix**: Fixed TypeError when accessing app_state selection (was trying to unpack Room object)
 - [ ] Add area creation functionality
 - [ ] Implement basic validation
 - [ ] Implement .are file writer (to save changes)
@@ -178,7 +201,7 @@ area-editor/
 ## Next Steps
 
 ### Immediate (Phase 3 Continuation)
-1. Add edit functionality to editor panels (currently read-only)
+1. ~~Add edit functionality to editor panels (currently read-only)~~ ✅ DONE
 2. Implement .are file writer to save changes
 3. Add area creation functionality
 4. Implement basic validation

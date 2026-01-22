@@ -23,6 +23,7 @@ class MainWindow:
         self.editor_panel = EditorPanel(self)
         self.properties_panel = PropertiesPanel()
         self.status_bar = StatusBar()
+        self.key_handler = None
     
     def create(self):
         """Create the main window and all its components."""
@@ -36,7 +37,7 @@ class MainWindow:
         ) as self.window_id:
             # Menu bar
             self.menu_bar.create()
-            
+
             # Main content area with horizontal split
             with dpg.group(horizontal=True):
                 # Left sidebar - Area tree
@@ -47,7 +48,7 @@ class MainWindow:
                     tag="left_sidebar"
                 ):
                     self.area_tree.create()
-                
+
                 # Center panel - Editor
                 with dpg.child_window(
                     width=-350,
@@ -56,7 +57,7 @@ class MainWindow:
                     tag="center_panel"
                 ):
                     self.editor_panel.create()
-                
+
                 # Right sidebar - Properties
                 with dpg.child_window(
                     width=350,
@@ -65,7 +66,7 @@ class MainWindow:
                     tag="right_sidebar"
                 ):
                     self.properties_panel.create()
-            
+
             # Status bar at bottom
             with dpg.child_window(
                 height=25,
@@ -73,6 +74,90 @@ class MainWindow:
                 tag="status_bar_container"
             ):
                 self.status_bar.create()
+
+        # Set up keyboard handlers
+        self._setup_keyboard_handlers()
+
+    def _setup_keyboard_handlers(self):
+        """Set up keyboard handlers for navigation."""
+        with dpg.handler_registry():
+            dpg.add_key_press_handler(dpg.mvKey_Up, callback=self._on_key_up)
+            dpg.add_key_press_handler(dpg.mvKey_Down, callback=self._on_key_down)
+
+    def _on_key_up(self):
+        """Handle up arrow key - navigate to previous room."""
+        self._navigate_room(-1)
+
+    def _on_key_down(self):
+        """Handle down arrow key - navigate to next room."""
+        self._navigate_room(1)
+
+    def _navigate_room(self, direction: int):
+        """Navigate to the previous or next room in the list.
+
+        Args:
+            direction: -1 for previous, 1 for next
+        """
+        if not app_state.current_area:
+            return
+
+        # Get current selection
+        item_type = app_state.selected_item_type
+        current_vnum = app_state.selected_item_vnum
+
+        # Only navigate if a room is currently selected
+        if item_type != 'room' or current_vnum is None:
+            return
+
+        # Get sorted list of room vnums
+        room_vnums = sorted(app_state.current_area.rooms.keys())
+
+        if not room_vnums:
+            return
+
+        # Find current index
+        try:
+            current_index = room_vnums.index(current_vnum)
+        except ValueError:
+            # Current room not found, select first room
+            current_index = 0
+
+        # Calculate new index
+        new_index = current_index + direction
+
+        # Wrap around if needed
+        if new_index < 0:
+            new_index = len(room_vnums) - 1
+        elif new_index >= len(room_vnums):
+            new_index = 0
+
+        # Get new room vnum
+        new_vnum = room_vnums[new_index]
+
+        # Update selection
+        app_state.select_item('room', new_vnum)
+
+        # Update tree selection
+        if hasattr(self, 'area_tree'):
+            tree = self.area_tree
+            # Deselect previous item
+            if tree.current_selection and tree.current_selection in tree.selectable_items:
+                prev_id = tree.selectable_items[tree.current_selection]
+                if dpg.does_item_exist(prev_id):
+                    dpg.set_value(prev_id, False)
+
+            # Select new item
+            tree.current_selection = ('room', new_vnum)
+            if ('room', new_vnum) in tree.selectable_items:
+                new_id = tree.selectable_items[('room', new_vnum)]
+                if dpg.does_item_exist(new_id):
+                    dpg.set_value(new_id, True)
+
+        # Update editor panel
+        room = app_state.current_area.rooms.get(new_vnum)
+        if room:
+            self.editor_panel.show_room_editor(new_vnum)
+            self.properties_panel.show_room_properties(room, new_vnum)
 
     def open_area_file(self, filepath: str):
         """Open and load an area file."""
