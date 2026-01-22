@@ -55,15 +55,26 @@ class AreaTree:
         self.current_selection = (item_type, vnum)
         app_state.select_item(item_type, vnum)
 
-        # Update editor panel
+        # Update editor panel and properties panel
         if item_type == 'room':
+            room = app_state.current_area.rooms.get(vnum)
             self.main_window.editor_panel.show_room_editor(vnum)
+            if hasattr(self.main_window, 'properties_panel') and room:
+                self.main_window.properties_panel.show_room_properties(room, vnum)
         elif item_type == 'object':
+            obj = app_state.current_area.objects.get(vnum)
             self.main_window.editor_panel.show_object_editor(vnum)
+            if hasattr(self.main_window, 'properties_panel') and obj:
+                self.main_window.properties_panel.show_object_properties(obj, vnum)
         elif item_type == 'mobile':
+            mob = app_state.current_area.mobiles.get(vnum)
             self.main_window.editor_panel.show_mobile_editor(vnum)
+            if hasattr(self.main_window, 'properties_panel') and mob:
+                self.main_window.properties_panel.show_mobile_properties(mob, vnum)
         elif item_type == 'area':
             self.main_window.editor_panel.show_area_editor()
+            if hasattr(self.main_window, 'properties_panel') and app_state.current_area:
+                self.main_window.properties_panel.show_area_properties(app_state.current_area)
 
     def populate_from_area(self, area: Area):
         """Populate the tree with data from an area."""

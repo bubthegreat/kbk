@@ -14,6 +14,7 @@ class EditorPanel:
         self.current_editor = None
         self.welcome_group_id = None
         self.editor_group_id = None
+        self.current_vnum = None  # Track current item being edited
     
     def create(self):
         """Create the editor panel."""
@@ -53,6 +54,84 @@ class EditorPanel:
         if self.editor_group_id:
             dpg.configure_item(self.editor_group_id, show=True)
 
+    def _on_room_field_changed(self, sender, app_data, user_data):
+        """Handle room field changes."""
+        field_name, room_vnum = user_data
+        room = app_state.current_area.rooms.get(room_vnum)
+        if not room:
+            return
+
+        # Update the room field
+        if field_name == 'name':
+            room.name = app_data
+        elif field_name == 'description':
+            room.description = app_data
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Update status bar
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+    def _on_object_field_changed(self, sender, app_data, user_data):
+        """Handle object field changes."""
+        field_name, obj_vnum = user_data
+        obj = app_state.current_area.objects.get(obj_vnum)
+        if not obj:
+            return
+
+        # Update the object field
+        if field_name == 'short_description':
+            obj.short_description = app_data
+        elif field_name == 'long_description':
+            obj.long_description = app_data
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Update status bar
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+    def _on_mobile_field_changed(self, sender, app_data, user_data):
+        """Handle mobile field changes."""
+        field_name, mob_vnum = user_data
+        mob = app_state.current_area.mobiles.get(mob_vnum)
+        if not mob:
+            return
+
+        # Update the mobile field
+        if field_name == 'short_description':
+            mob.short_description = app_data
+        elif field_name == 'long_description':
+            mob.long_description = app_data
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Update status bar
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+    def _on_area_field_changed(self, sender, app_data, user_data):
+        """Handle area field changes."""
+        field_name = user_data
+        area = app_state.current_area
+        if not area:
+            return
+
+        # Update the area field
+        if field_name == 'name':
+            area.name = app_data
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Update status bar
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
     def _on_room_link_clicked(self, sender, app_data, user_data):
         """Handle clicking on a room link in exits."""
         room_vnum = user_data
@@ -78,8 +157,11 @@ class EditorPanel:
                     if dpg.does_item_exist(new_id):
                         dpg.set_value(new_id, True)
 
-            # Show the room editor
+            # Show the room editor and update properties panel
+            room = app_state.current_area.rooms.get(room_vnum)
             self.show_room_editor(room_vnum)
+            if hasattr(self.main_window, 'properties_panel') and room:
+                self.main_window.properties_panel.show_room_properties(room, room_vnum)
         else:
             # Room doesn't exist - show error in status bar
             if hasattr(self.main_window, 'status_bar'):
@@ -96,6 +178,7 @@ class EditorPanel:
 
         self._clear_editor()
         self._show_editor()
+        self.current_vnum = room_vnum
 
         with dpg.group(parent=self.editor_group_id):
             dpg.add_text(f"Room #{room_vnum}", color=(200, 200, 100))
@@ -103,7 +186,12 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Name:", color=(150, 150, 150))
-            dpg.add_input_text(default_value=room.name, width=-1)
+            dpg.add_input_text(
+                default_value=room.name,
+                width=-1,
+                callback=self._on_room_field_changed,
+                user_data=('name', room_vnum)
+            )
             dpg.add_spacer(height=10)
 
             dpg.add_text("Description:", color=(150, 150, 150))
@@ -111,7 +199,9 @@ class EditorPanel:
                 default_value=room.description,
                 multiline=True,
                 height=100,
-                width=-1
+                width=-1,
+                callback=self._on_room_field_changed,
+                user_data=('description', room_vnum)
             )
             dpg.add_spacer(height=10)
 
@@ -140,8 +230,19 @@ class EditorPanel:
             if room.extra_descriptions:
                 dpg.add_spacer(height=10)
                 dpg.add_text(f"Extra Descriptions ({len(room.extra_descriptions)}):", color=(150, 150, 150))
-                for edesc in room.extra_descriptions:
-                    dpg.add_text(f"  Keywords: {edesc.keywords}", color=(120, 120, 120))
+                dpg.add_spacer(height=5)
+                for i, edesc in enumerate(room.extra_descriptions, 1):
+                    dpg.add_text(f"EDESC #{i}:", color=(180, 180, 120))
+                    dpg.add_text(f"Keywords: {edesc.keywords}", color=(120, 120, 120))
+                    dpg.add_spacer(height=3)
+                    dpg.add_input_text(
+                        default_value=edesc.description,
+                        multiline=True,
+                        height=80,
+                        width=-1,
+                        readonly=True  # Make read-only for now
+                    )
+                    dpg.add_spacer(height=10)
 
     def show_object_editor(self, obj_vnum):
         """Show the object editor for the specified object."""
@@ -151,6 +252,7 @@ class EditorPanel:
 
         self._clear_editor()
         self._show_editor()
+        self.current_vnum = obj_vnum
 
         with dpg.group(parent=self.editor_group_id):
             dpg.add_text(f"Object #{obj_vnum}", color=(200, 200, 100))
@@ -158,11 +260,21 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Short Description:", color=(150, 150, 150))
-            dpg.add_input_text(default_value=obj.short_description, width=-1)
+            dpg.add_input_text(
+                default_value=obj.short_description,
+                width=-1,
+                callback=self._on_object_field_changed,
+                user_data=('short_description', obj_vnum)
+            )
             dpg.add_spacer(height=10)
 
             dpg.add_text("Long Description:", color=(150, 150, 150))
-            dpg.add_input_text(default_value=obj.long_description, width=-1)
+            dpg.add_input_text(
+                default_value=obj.long_description,
+                width=-1,
+                callback=self._on_object_field_changed,
+                user_data=('long_description', obj_vnum)
+            )
             dpg.add_spacer(height=10)
 
             dpg.add_text(f"Item Type: {obj.item_type}", color=(150, 150, 150))
@@ -177,6 +289,23 @@ class EditorPanel:
                 for affect in obj.affects:
                     dpg.add_text(f"  {affect.apply_type}: {affect.modifier}", color=(120, 120, 120))
 
+            if obj.extra_descriptions:
+                dpg.add_spacer(height=10)
+                dpg.add_text(f"Extra Descriptions ({len(obj.extra_descriptions)}):", color=(150, 150, 150))
+                dpg.add_spacer(height=5)
+                for i, edesc in enumerate(obj.extra_descriptions, 1):
+                    dpg.add_text(f"EDESC #{i}:", color=(180, 180, 120))
+                    dpg.add_text(f"Keywords: {edesc.keywords}", color=(120, 120, 120))
+                    dpg.add_spacer(height=3)
+                    dpg.add_input_text(
+                        default_value=edesc.description,
+                        multiline=True,
+                        height=80,
+                        width=-1,
+                        readonly=True  # Make read-only for now
+                    )
+                    dpg.add_spacer(height=10)
+
     def show_mobile_editor(self, mob_vnum):
         """Show the mobile editor for the specified mobile."""
         mob = app_state.current_area.mobiles.get(mob_vnum)
@@ -185,6 +314,7 @@ class EditorPanel:
 
         self._clear_editor()
         self._show_editor()
+        self.current_vnum = mob_vnum
 
         with dpg.group(parent=self.editor_group_id):
             dpg.add_text(f"Mobile #{mob_vnum}", color=(200, 200, 100))
@@ -192,7 +322,12 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Short Description:", color=(150, 150, 150))
-            dpg.add_input_text(default_value=mob.short_description, width=-1)
+            dpg.add_input_text(
+                default_value=mob.short_description,
+                width=-1,
+                callback=self._on_mobile_field_changed,
+                user_data=('short_description', mob_vnum)
+            )
             dpg.add_spacer(height=10)
 
             dpg.add_text("Long Description:", color=(150, 150, 150))
@@ -200,7 +335,9 @@ class EditorPanel:
                 default_value=mob.long_description,
                 multiline=True,
                 height=60,
-                width=-1
+                width=-1,
+                callback=self._on_mobile_field_changed,
+                user_data=('long_description', mob_vnum)
             )
             dpg.add_spacer(height=10)
 
@@ -219,6 +356,7 @@ class EditorPanel:
 
         self._clear_editor()
         self._show_editor()
+        self.current_vnum = None  # Area doesn't have a vnum
 
         with dpg.group(parent=self.editor_group_id):
             dpg.add_text("Area Information", color=(200, 200, 100))
@@ -226,7 +364,12 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Area Name:", color=(150, 150, 150))
-            dpg.add_input_text(default_value=area.name, width=-1)
+            dpg.add_input_text(
+                default_value=area.name,
+                width=-1,
+                callback=self._on_area_field_changed,
+                user_data='name'
+            )
             dpg.add_spacer(height=10)
 
             dpg.add_text(f"VNUM Range: {area.min_vnum} - {area.max_vnum}", color=(150, 150, 150))
