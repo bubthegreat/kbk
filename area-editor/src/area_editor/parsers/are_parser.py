@@ -538,14 +538,84 @@ class AreParser(BaseParser):
     def _parse_resets_section(self):
         """Parse the #RESETS section."""
         print(f"Parsing RESETS section at line {self.line_number}")
-        # TODO: Implement reset parsing
-        pass
-    
+        from area_editor.models.reset import Reset
+
+        while True:
+            raw_line = self.file.readline()
+            if not raw_line:  # EOF
+                break
+
+            self.line_number += 1
+            line = raw_line.strip()
+
+            # End of resets section
+            if line.startswith('S') or line.startswith('#'):
+                break
+
+            # Skip empty lines
+            if not line:
+                continue
+
+            # Parse reset command
+            parts = line.split()
+            if len(parts) < 1:
+                continue
+
+            command = parts[0]
+
+            # Parse arguments based on command type
+            reset = Reset(command=command)
+
+            if len(parts) >= 5:
+                # Most resets have format: COMMAND arg0 arg1 arg2 arg3 [arg4]
+                # arg0 is usually 0 (unused), so we skip it
+                reset.arg1 = int(parts[2])  # vnum or value
+                reset.arg2 = int(parts[3])  # max count or value
+                reset.arg3 = int(parts[4])  # room vnum or value
+                if len(parts) >= 6:
+                    reset.arg4 = int(parts[5])  # max in room or value
+
+            self.area.resets.append(reset)
+            print(f"  Parsed reset: {command} {reset.arg1} {reset.arg2} {reset.arg3} {reset.arg4}")
+
     def _parse_shops_section(self):
         """Parse the #SHOPS section."""
         print(f"Parsing SHOPS section at line {self.line_number}")
-        # TODO: Implement shop parsing
-        pass
+        from area_editor.models.shop import Shop
+
+        while True:
+            raw_line = self.file.readline()
+            if not raw_line:  # EOF
+                break
+
+            self.line_number += 1
+            line = raw_line.strip()
+
+            # End of shops section
+            if line.startswith('0') or line.startswith('#'):
+                break
+
+            # Skip empty lines
+            if not line:
+                continue
+
+            # Parse shop line
+            # Format: keeper buy_type0 buy_type1 buy_type2 buy_type3 buy_type4 profit_buy profit_sell open_hour close_hour
+            parts = line.split()
+            if len(parts) < 10:
+                continue
+
+            shop = Shop(
+                keeper=int(parts[0]),
+                buy_types=[int(parts[1]), int(parts[2]), int(parts[3]), int(parts[4]), int(parts[5])],
+                profit_buy=int(parts[6]),
+                profit_sell=int(parts[7]),
+                open_hour=int(parts[8]),
+                close_hour=int(parts[9])
+            )
+
+            self.area.shops.append(shop)
+            print(f"  Parsed shop: keeper={shop.keeper}")
     
     def _parse_specials_section(self):
         """Parse the #SPECIALS section."""
