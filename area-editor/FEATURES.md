@@ -275,3 +275,72 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Mobile Resets in Rooms
+
+**Description**: Add and manage mobile (NPC) spawns in rooms through the room editor's Mobiles tab.
+
+**How to Test**:
+1. Open an area file (e.g., `tests/test.are`)
+2. Select a room from the Area Explorer
+3. Click on the "Mobiles" tab in the room editor
+4. Click "+ Add Mobile to Room" to open the mobile selection modal
+5. In the modal:
+   - Select which mobile to spawn from the dropdown (shows all mobiles in the area)
+   - Set "Max in World" (maximum instances in entire game)
+   - Set "Max in Room" (maximum instances in this specific room)
+   - Click "Add Mobile" to create the spawn, or "Cancel" to abort
+6. For existing mobile spawns, you can:
+   - Change which mobile spawns using the dropdown
+   - Adjust max in world and max in room values
+   - Click "Delete" to remove the spawn
+7. Save the area and verify the mobile resets are written correctly
+
+**Additional Notes**:
+- Mobile resets use the 'M' command in the #RESETS section
+- Format: `M 0 <mobile_vnum> <max_world> <room_vnum> <max_room>`
+- The "0" is the if_flag (always 0 in modern ROM)
+- Mobile resets are stored in `area.resets` list
+- Each mobile reset creates one spawn point for that mobile in the room
+- Multiple resets can spawn the same mobile in different rooms
+- The MUD terminal will show mobiles in rooms based on these resets
+- Deleting a mobile reset removes the spawn point but doesn't delete the mobile definition
+
+**Related Tests**: `tests/test_mobile_resets.py`
+
+---
+
+## Shop Assignment to Mobiles
+
+**Description**: Assign shops to mobiles, allowing them to buy and sell items to players.
+
+**How to Test**:
+1. Open an area file (e.g., `tests/test.are`)
+2. Select a room that has a mobile spawn (see "Mobile Resets in Rooms" feature)
+3. Click on the "Mobiles" tab in the room editor
+4. Find a mobile in the list and click "Add Shop" button
+5. A shop editor modal will appear with the following settings:
+   - Buy Profit %: Percentage the shop pays when buying from players (default: 120%)
+   - Sell Profit %: Percentage the shop charges when selling to players (default: 80%)
+   - Open Hour: Hour the shop opens (0-23, default: 0)
+   - Close Hour: Hour the shop closes (0-23, default: 23)
+   - Item Types to Buy: Up to 5 item type numbers the shop will purchase (0 = none)
+6. Click "Save" to create the shop
+7. Click "Edit Shop" to modify an existing shop
+8. Click "Remove Shop" to delete the shop from the mobile
+9. Save the area and verify the shop is written to the #SHOPS section
+
+**Additional Notes**:
+- Shops are stored in `area.shops` list
+- Format in #SHOPS section: `<keeper_vnum> <type1> <type2> <type3> <type4> <type5> <profit_buy> <profit_sell> <open_hour> <close_hour>`
+- Each mobile can have only one shop
+- The shop is linked to the mobile via the keeper vnum
+- Item type numbers correspond to ROM item types (see ROM documentation)
+- Profit percentages: 100% = nominal price, >100% = markup, <100% = discount
+- Shop hours use 24-hour format (0 = midnight, 12 = noon, 23 = 11 PM)
+- Shops are validated to ensure the keeper mobile exists in the area
+- The shop interface is accessible from any room where the mobile spawns
+
+**Related Tests**: `tests/test_mobile_resets.py::test_parse_shops`, `tests/test_mobile_resets.py::test_create_shop`
+
+---
+

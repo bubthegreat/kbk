@@ -173,8 +173,9 @@ class AreWriter:
 
     def _write_reset(self, f: TextIO, reset: Reset) -> None:
         """Write a single reset command."""
-        # Format: <command> <arg1> <arg2> <arg3> <arg4>
-        f.write(f"{reset.command} {reset.arg1} {reset.arg2} {reset.arg3} {reset.arg4}\n")
+        # Format: <command> <if_flag> <arg1> <arg2> <arg3> <arg4>
+        # if_flag is always 0 in modern ROM
+        f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2} {reset.arg3} {reset.arg4}\n")
 
     def _write_shops_section(self, f: TextIO) -> None:
         """Write the #SHOPS section."""
