@@ -48,41 +48,52 @@ class MainWindow:
             left_width = max(self.left_sidebar_width, 200)
             right_width = max(self.right_sidebar_width, 80)
 
-            with dpg.group(horizontal=True):
-                # Left sidebar - Area tree (LOCKED to left, minimum 200px)
-                with dpg.child_window(
-                    width=left_width,
-                    height=-25,
-                    border=True,
-                    tag="left_sidebar"
-                ):
-                    self.area_tree.create()
+            # Use a table with resizable columns for the main layout
+            with dpg.table(
+                header_row=False,
+                resizable=True,
+                policy=dpg.mvTable_SizingFixedFit,
+                borders_innerV=True,
+                height=-25,
+                tag="main_layout_table"
+            ):
+                # Add three columns: left sidebar, center panel, right sidebar
+                dpg.add_table_column(init_width_or_weight=left_width, width_fixed=True, tag="left_column")
+                dpg.add_table_column(width_stretch=True, init_width_or_weight=1.0, tag="center_column")
+                dpg.add_table_column(init_width_or_weight=right_width, width_fixed=True, tag="right_column")
 
-                # Center panel - Editor (fills remaining space)
-                # Using negative width to fill remaining space after accounting for right sidebar
-                with dpg.child_window(
-                    width=-right_width,
-                    height=-25,
-                    border=True,
-                    tag="center_panel"
-                ):
-                    self.editor_panel.create()
+                # Single row containing all three panels
+                with dpg.table_row():
+                    # Left sidebar - Area tree
+                    with dpg.table_cell():
+                        with dpg.child_window(
+                            border=True,
+                            tag="left_sidebar"
+                        ):
+                            self.area_tree.create()
 
-                # Right sidebar - MUD Terminal (LOCKED to right, minimum 80px)
-                with dpg.child_window(
-                    width=right_width,
-                    height=-25,
-                    border=True,
-                    tag="right_sidebar"
-                ):
-                    # MUD Terminal will be created here by editor_panel when needed
-                    dpg.add_text("MUD Terminal", color=(200, 200, 200))
-                    dpg.add_separator()
-                    with dpg.group(tag="terminal_container"):
-                        dpg.add_text(
-                            "Select a room and click 'Open Terminal' to start",
-                            color=(120, 120, 120)
-                        )
+                    # Center panel - Editor
+                    with dpg.table_cell():
+                        with dpg.child_window(
+                            border=True,
+                            tag="center_panel"
+                        ):
+                            self.editor_panel.create()
+
+                    # Right sidebar - MUD Terminal
+                    with dpg.table_cell():
+                        with dpg.child_window(
+                            border=True,
+                            tag="right_sidebar"
+                        ):
+                            # MUD Terminal will be created here by editor_panel when needed
+                            dpg.add_text("MUD Terminal", color=(200, 200, 200))
+                            dpg.add_separator()
+                            with dpg.group(tag="terminal_container"):
+                                dpg.add_text(
+                                    "Select a room and click 'Open Terminal' to start",
+                                    color=(120, 120, 120)
+                                )
 
             # Status bar at bottom
             with dpg.child_window(
@@ -95,9 +106,6 @@ class MainWindow:
         # Set up keyboard handlers
         self._setup_keyboard_handlers()
 
-        # Set up resize callback to save panel sizes
-        self._setup_resize_callback()
-
     def _setup_keyboard_handlers(self):
         """Set up keyboard handlers for navigation."""
         with dpg.handler_registry():
@@ -106,12 +114,7 @@ class MainWindow:
             # Ctrl+S for save
             dpg.add_key_press_handler(dpg.mvKey_S, callback=self._on_key_save)
 
-    def _setup_resize_callback(self):
-        """Set up callback to save panel sizes when they change."""
-        # We don't need resize callbacks anymore since panels are fixed
-        # The layout is: [fixed left] [flexible center] [fixed right]
-        # DearPyGui handles this automatically with negative width on center
-        pass
+
 
     def _on_key_up(self):
         """Handle up arrow key - navigate to previous room."""
@@ -245,4 +248,6 @@ class MainWindow:
             print(f"Error loading area file: {e}")
             import traceback
             traceback.print_exc()
+
+
 
