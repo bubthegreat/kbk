@@ -38,7 +38,9 @@ class Config:
                 "left_sidebar_width": 300,
                 "right_sidebar_width": 980,
                 "window_width": 1600,
-                "window_height": 900
+                "window_height": 900,
+                "font_scale": 1.0,  # Default font scale (1.0 = 100%)
+                "font_scale_auto": True  # Whether to auto-scale based on resolution
             },
             "recent_files": []
         }
@@ -127,13 +129,39 @@ class Config:
 
     def set_window_size(self, width: int, height: int):
         """Set the window size.
-        
+
         Args:
             width: Width in pixels
             height: Height in pixels
         """
         self.set("ui.window_width", width)
         self.set("ui.window_height", height)
+
+    def get_font_scale(self) -> float:
+        """Get the font scale.
+
+        Returns:
+            Font scale multiplier (1.0 = 100%)
+        """
+        return self.get("ui.font_scale", self._get_default_config()["ui"]["font_scale"])
+
+    def set_font_scale(self, scale: float, auto: bool = False):
+        """Set the font scale.
+
+        Args:
+            scale: Font scale multiplier (1.0 = 100%)
+            auto: Whether this is an auto-detected scale (True) or user-set (False)
+        """
+        self.set("ui.font_scale", scale)
+        self.set("ui.font_scale_auto", auto)
+
+    def is_font_scale_auto(self) -> bool:
+        """Check if font scale should be auto-detected.
+
+        Returns:
+            True if font scale should be auto-detected based on resolution
+        """
+        return self.get("ui.font_scale_auto", self._get_default_config()["ui"]["font_scale_auto"])
 
 
 # Global configuration instance

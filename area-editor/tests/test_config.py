@@ -16,12 +16,14 @@ def test_config_default_values():
         config.config_dir = Path(tmpdir)
         config.config_file = config.config_dir / "config.json"
         config._load()
-        
+
         # Check default values
         assert config.get("ui.left_sidebar_width") == 300
         assert config.get("ui.right_sidebar_width") == 980
         assert config.get("ui.window_width") == 1600
         assert config.get("ui.window_height") == 900
+        assert config.get("ui.font_scale") == 1.0
+        assert config.get("ui.font_scale_auto") == True
 
 
 def test_config_save_and_load():
@@ -86,15 +88,47 @@ def test_config_nested_keys():
         config.config_dir = Path(tmpdir)
         config.config_file = config.config_dir / "config.json"
         config._load()
-        
+
         # Set nested values
         config.set("editor.font.size", 14)
         config.set("editor.font.family", "monospace")
-        
+
         # Get nested values
         assert config.get("editor.font.size") == 14
         assert config.get("editor.font.family") == "monospace"
-        
+
         # Get with default
         assert config.get("editor.font.color", "#ffffff") == "#ffffff"
+
+
+def test_config_get_set_font_scale():
+    """Test the convenience methods for font scale."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        config = Config()
+        config.config_dir = Path(tmpdir)
+        config.config_file = config.config_dir / "config.json"
+        config._load()
+
+        # Default font scale should be 1.0 with auto enabled
+        assert config.get_font_scale() == 1.0
+        assert config.is_font_scale_auto() == True
+
+        # Set font scale manually (disables auto)
+        config.set_font_scale(1.5, auto=False)
+        assert config.get_font_scale() == 1.5
+        assert config.is_font_scale_auto() == False
+
+        # Set font scale with auto enabled
+        config.set_font_scale(1.25, auto=True)
+        assert config.get_font_scale() == 1.25
+        assert config.is_font_scale_auto() == True
+
+        # Save and reload
+        config.save()
+        config2 = Config()
+        config2.config_dir = Path(tmpdir)
+        config2.config_file = config2.config_dir / "config.json"
+        config2._load()
+        assert config2.get_font_scale() == 1.25
+        assert config2.is_font_scale_auto() == True
 

@@ -33,6 +33,39 @@ def main():
     # Setup DearPyGui
     dpg.setup_dearpygui()
 
+    # Apply font scaling based on saved preference or auto-detect
+    if config.is_font_scale_auto():
+        # Auto-detect appropriate font scale based on resolution
+        # Baseline: 1920x1080 = 2.0x scale (doubled for better readability)
+        # Scale proportionally based on the geometric mean of width and height ratios
+        # This ensures fonts scale appropriately for different aspect ratios
+        baseline_width = 1920.0
+        baseline_height = 1080.0
+
+        width_ratio = window_width / baseline_width
+        height_ratio = window_height / baseline_height
+
+        # Use geometric mean to balance width and height scaling
+        # This prevents over-scaling on ultra-wide or over-scaling on tall screens
+        import math
+        base_scale = math.sqrt(width_ratio * height_ratio)
+
+        # Double the scale factor for better readability
+        font_scale = base_scale * 2.0
+
+        # Clamp to reasonable range (0.75x to 3.0x)
+        font_scale = max(0.75, min(3.0, font_scale))
+
+        # Round to nearest 0.25 for cleaner scaling
+        font_scale = round(font_scale * 4) / 4
+
+        config.set_font_scale(font_scale, auto=True)
+    else:
+        # Use manually set font scale
+        font_scale = config.get_font_scale()
+
+    dpg.set_global_font_scale(font_scale)
+
     # Create main window
     main_window = MainWindow()
     main_window.create()
