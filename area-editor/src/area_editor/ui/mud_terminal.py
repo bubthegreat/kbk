@@ -485,13 +485,9 @@ class MudTerminal:
         # Display mobiles (no blank line before them)
         if mobiles_here:
             for i, mob in enumerate(mobiles_here):
-                # Show the mobile's long description (how they appear in the room)
-                if mob.long_description:
-                    wrapped = textwrap.fill(mob.long_description.strip(), width=80)
-                    self._add_output(wrapped, color=(200, 200, 255))
-                else:
-                    # Fallback to short description if no long description
-                    self._add_output(f"{mob.short_description} is here.", color=(200, 200, 255))
+                # Show the mobile's short description (how they appear in the room)
+                # In ROM MUDs, short_description is what appears in room listings
+                self._add_output(mob.short_description, color=(200, 200, 255))
 
                 # NOTE: Equipment/inventory is NOT shown here - only when you 'look' at the mobile
 
@@ -683,8 +679,9 @@ class MudTerminal:
                 # Check if target matches this mobile's keywords or description
                 if (target in mob.short_description.lower() or
                     target in mob.keywords.lower()):
-                    # Show mobile description (DESCR field, not LONG)
-                    desc = mob.description or mob.long_description or mob.short_description
+                    # Show mobile long description (what you see when examining)
+                    # In ROM MUDs: long_description is the detailed description shown on examine
+                    desc = mob.long_description or mob.short_description
                     # Preserve paragraph breaks in mobile descriptions
                     if desc:
                         paragraphs = desc.split('\n\n')

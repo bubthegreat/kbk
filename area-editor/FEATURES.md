@@ -275,6 +275,40 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Creating New Mobiles
+
+**Description**: Create new mobiles (NPCs) in the area with a user-friendly modal interface.
+
+**How to Test**:
+1. Open an area file or create a new area
+2. Go to any room's "Mobiles" tab in the room editor
+3. Click "Create New Mobile" button
+4. In the modal, fill in:
+   - **Vnum**: Auto-assigned (next available in area range)
+   - **Keywords**: Space-separated words for targeting (e.g., "guard town soldier")
+   - **Short Description**: How the mobile appears in the room (e.g., "a town guard")
+   - **Long Description** (optional): Detailed description when examining (e.g., "This guard watches over the town.")
+   - **Level**: Mobile's level (1-60)
+   - **Alignment**: -1000 (evil) to 1000 (good), 0 = neutral
+5. Click "Create Mobile" to create the mobile
+6. The mobile editor will open automatically
+7. If creating from a room's Mobiles tab, you'll be prompted to add the mobile to that room
+
+**Additional Notes**:
+- Automatically assigns next available vnum in the area's range
+- Creates sensible defaults for stats based on level (HP, mana, damage dice, etc.)
+- Mobile appears in the Area Explorer under "Mobiles" section
+- Can also be triggered when trying to add a mobile to a room when none exist
+- All mobile fields can be edited after creation in the mobile editor
+- **ROM MUD Field Mapping**:
+  - `short_description`: Appears in room listings (e.g., "a town guard")
+  - `long_description`: Shown when you examine/look at the mobile
+  - `description`: Additional detailed text (DESCR field in ROM format)
+
+**Related Tests**: N/A (UI feature)
+
+---
+
 ## Bidirectional Dig Command
 
 **Description**: Create new rooms or link to existing rooms with automatic bidirectional exits using the `dig` command in the MUD terminal.
@@ -331,6 +365,7 @@ This document outlines all implemented features in the Area Editor. This ensures
 2. Select a room from the Area Explorer
 3. Click on the "Mobiles" tab in the room editor
 4. Click "+ Add Mobile to Room" to open the mobile selection modal
+   - If no mobiles exist, you'll be prompted to create one first
 5. In the modal:
    - Select which mobile to spawn from the dropdown (shows all mobiles in the area)
    - Set "Max in World" (maximum instances in entire game)
