@@ -34,6 +34,32 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Command Line File Loading
+
+**Description**: Load area files directly from the command line for testing and convenience.
+
+**How to Test**:
+1. Run `uv run area-editor --help` to see usage
+2. Run `uv run area-editor --file tests/test.are` to load test.are on startup
+3. Run `uv run area-editor -f ../area/limbo.are` to load limbo.are on startup
+4. Verify the file loads automatically when the editor opens
+5. Test error handling: `uv run area-editor --file nonexistent.are` (should show error and exit)
+
+**Additional Notes**:
+- Uses Python's `argparse` module for command line parsing
+- Validates file existence before launching GUI
+- Warns if file doesn't have `.are` extension but still loads it
+- File path can be relative or absolute
+- Useful for:
+  - **Testing**: Quickly load test files during development
+  - **Convenience**: Skip the File > Open dialog for frequently edited files
+  - **Automation**: Script the editor to open specific files
+- Syntax: `area-editor [-f|--file PATH]`
+
+**Related Files**: `src/area_editor/main.py`, `src/area_editor/__main__.py`
+
+---
+
 ## File Parsing
 
 **Description**: Parse .are files in the ROM 2.4 format with support for AREADATA, ROOMDATA, MOBDATA, and OBJDATA sections.

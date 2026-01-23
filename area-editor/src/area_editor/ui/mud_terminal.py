@@ -22,6 +22,7 @@ class MudTerminal:
         self.command_history = []
         self.history_index = -1
         self.navigating_internally = False  # Flag to track if we're navigating from within terminal
+        self.output_buffer = []  # Buffer to accumulate all output text (for copying)
 
     def open(self, room_vnum: int, clear_history: bool = True):
         """Open the terminal at the specified room.
@@ -59,14 +60,17 @@ class MudTerminal:
 
         # Create terminal UI inside the container
         with dpg.group(parent="terminal_container") as self.window_id:
+            # Copy button at the top
+            dpg.add_button(label="Copy to Clipboard", callback=self._copy_to_clipboard, width=-1)
+
             # Output area - using a child window to hold colored text widgets
             with dpg.child_window(
-                width=-1,  # Fill available width
-                height=-40,
+                width=-1,
+                height=-60,  # Adjusted to account for copy button
                 border=True,
                 tag="mud_output_window",
-                horizontal_scrollbar=False,  # Disable horizontal scrollbar
-                no_scrollbar=False  # Keep vertical scrollbar
+                horizontal_scrollbar=False,
+                no_scrollbar=False
             ) as self.output_container_id:
                 pass
 
@@ -83,6 +87,7 @@ class MudTerminal:
 
     def _clear_output(self):
         """Clear the output text."""
+        self.output_buffer = []
         if self.output_container_id and dpg.does_item_exist(self.output_container_id):
             dpg.delete_item(self.output_container_id, children_only=True)
 
@@ -93,15 +98,23 @@ class MudTerminal:
             text: The text to add
             color: RGB tuple for text color (default: light gray)
         """
+        # Add to buffer for clipboard copying
+        self.output_buffer.append(text)
+
         if self.output_container_id and dpg.does_item_exist(self.output_container_id):
             # Get the container width and wrap text to fit
             container_width = dpg.get_item_width(self.output_container_id)
-            # Subtract some padding for scrollbar and borders
             wrap_width = max(container_width - 20, 100) if container_width > 0 else -1
 
             dpg.add_text(text, parent=self.output_container_id, color=color, wrap=wrap_width)
             # Auto-scroll to bottom
             dpg.set_y_scroll(self.output_container_id, -1.0)
+
+    def _copy_to_clipboard(self):
+        """Copy all terminal output to clipboard."""
+        if self.output_buffer:
+            full_text = "\n".join(self.output_buffer)
+            dpg.set_clipboard_text(full_text)
 
     def _on_command(self, sender, app_data):
         """Handle command input."""

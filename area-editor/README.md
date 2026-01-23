@@ -29,6 +29,10 @@ uv sync
 
 # Run the application
 uv run area-editor
+
+# Or run with a file to load on startup
+uv run area-editor --file tests/test.are
+uv run area-editor -f ../area/limbo.are
 ```
 
 ### System Library Requirements
@@ -90,11 +94,32 @@ area-editor/
 
 ## Usage
 
+### Basic Usage
+
 1. Launch the application: `uv run area-editor`
 2. Use File > Open Area to load an existing .are file
 3. Navigate the area tree to select items to edit
 4. Edit properties in the center and right panels
 5. Save changes with File > Save
+
+### Command Line Options
+
+```bash
+# Show help
+uv run area-editor --help
+
+# Load a specific file on startup
+uv run area-editor --file tests/test.are
+uv run area-editor -f ../area/limbo.are
+
+# Start with no file loaded
+uv run area-editor
+```
+
+This is especially useful for:
+- **Testing**: Quickly load test files during development
+- **Convenience**: Skip the File > Open dialog for frequently edited files
+- **Automation**: Script the editor to open specific files
 
 ## Roadmap
 
