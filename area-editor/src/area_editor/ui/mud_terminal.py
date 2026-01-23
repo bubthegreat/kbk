@@ -573,9 +573,20 @@ class MudTerminal:
                 self._add_output(wrapped, color=(200, 200, 200))
                 return
 
-        # Check objects (simplified)
-        for obj in app_state.current_area.objects.values():
-            if target in obj.short_description.lower():
+        # Check objects in this room only
+        # Build list of objects here (same as in _show_room)
+        objects_here = []
+        for reset in app_state.current_area.resets:
+            if reset.command == 'O' and reset.arg3 == self.current_room_vnum:
+                obj_vnum = reset.arg1
+                if obj_vnum in app_state.current_area.objects:
+                    objects_here.append(app_state.current_area.objects[obj_vnum])
+
+        # Check each object in the room
+        for obj in objects_here:
+            # Check if target matches object's keywords or short description
+            if (target in obj.short_description.lower() or
+                target in obj.keywords.lower()):
                 desc = obj.long_description or obj.short_description
                 wrapped = textwrap.fill(desc.strip(), width=80)
                 self._add_output(wrapped, color=(150, 255, 150))
@@ -595,11 +606,18 @@ class MudTerminal:
                 mob = app_state.current_area.mobiles[mob_vnum]
                 # Check if target matches this mobile's keywords or description
                 if (target in mob.short_description.lower() or
-                    target in mob.name.lower()):
-                    # Show mobile description
-                    desc = mob.long_description or mob.short_description
-                    wrapped = textwrap.fill(desc.strip(), width=80)
-                    self._add_output(wrapped, color=(255, 200, 150))
+                    target in mob.keywords.lower()):
+                    # Show mobile description (DESCR field, not LONG)
+                    desc = mob.description or mob.long_description or mob.short_description
+                    # Preserve paragraph breaks in mobile descriptions
+                    if desc:
+                        paragraphs = desc.split('\n\n')
+                        wrapped_paragraphs = []
+                        for para in paragraphs:
+                            if para.strip():
+                                wrapped_paragraphs.append(textwrap.fill(para.strip(), width=80))
+                        wrapped_description = '\n\n'.join(wrapped_paragraphs)
+                        self._add_output(wrapped_description, color=(255, 200, 150))
                     # Show equipment and inventory for this specific mobile
                     self._show_mobile_equipment(mob, i, mobile_resets)
                     return
