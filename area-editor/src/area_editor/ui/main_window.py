@@ -103,6 +103,8 @@ class MainWindow:
         with dpg.handler_registry():
             dpg.add_key_press_handler(dpg.mvKey_Up, callback=self._on_key_up)
             dpg.add_key_press_handler(dpg.mvKey_Down, callback=self._on_key_down)
+            # Ctrl+S for save
+            dpg.add_key_press_handler(dpg.mvKey_S, callback=self._on_key_save)
 
     def _setup_resize_callback(self):
         """Set up callback to save panel sizes when they change."""
@@ -118,6 +120,12 @@ class MainWindow:
     def _on_key_down(self):
         """Handle down arrow key - navigate to next room."""
         self._navigate_room(1)
+
+    def _on_key_save(self):
+        """Handle Ctrl+S key - save current area."""
+        # Check if Ctrl is pressed
+        if dpg.is_key_down(dpg.mvKey_LControl) or dpg.is_key_down(dpg.mvKey_RControl):
+            self.editor_panel._on_save_shortcut()
 
     def _navigate_room(self, direction: int):
         """Navigate to the previous or next room in the list.
