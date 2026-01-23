@@ -451,6 +451,67 @@ class EditorPanel:
             dpg.add_text(f"AC Slash: {mob.ac_slash}", color=(120, 120, 120))
             dpg.add_text(f"AC Exotic: {mob.ac_exotic}", color=(120, 120, 120))
 
+            # Show equipment and inventory from resets
+            self._show_mobile_equipment_in_editor(mob_vnum)
+
+    def _show_mobile_equipment_in_editor(self, mob_vnum: int):
+        """Show equipment and inventory for a mobile in the editor.
+
+        Args:
+            mob_vnum: The mobile vnum to show equipment for
+        """
+        # Wear location names
+        wear_locations = {
+            0: "as a light", 1: "on left finger", 2: "on right finger",
+            3: "around neck", 4: "around neck", 5: "on body", 6: "on head",
+            7: "on legs", 8: "on feet", 9: "on hands", 10: "on arms",
+            11: "as a shield", 12: "about body", 13: "around waist",
+            14: "on left wrist", 15: "on right wrist", 16: "wielded", 17: "held in hand"
+        }
+
+        # Find all M resets for this mobile
+        equipment = []
+        inventory = []
+
+        for i, reset in enumerate(app_state.current_area.resets):
+            if reset.command == 'M' and reset.arg1 == mob_vnum:
+                # Found a mobile reset for this mobile
+                # Look for E and G resets that follow
+                for j in range(i + 1, len(app_state.current_area.resets)):
+                    next_reset = app_state.current_area.resets[j]
+
+                    # Stop at next mobile, object, or end
+                    if next_reset.command in ['M', 'O', 'S']:
+                        break
+
+                    if next_reset.command == 'E':
+                        # Equipment reset
+                        obj_vnum = next_reset.arg1
+                        wear_loc = next_reset.arg3
+                        if obj_vnum in app_state.current_area.objects:
+                            obj = app_state.current_area.objects[obj_vnum]
+                            loc_name = wear_locations.get(wear_loc, f"in slot {wear_loc}")
+                            equipment.append((obj, loc_name))
+
+                    elif next_reset.command == 'G':
+                        # Give (inventory) reset
+                        obj_vnum = next_reset.arg1
+                        if obj_vnum in app_state.current_area.objects:
+                            obj = app_state.current_area.objects[obj_vnum]
+                            inventory.append(obj)
+
+        # Only display if mobile has equipment or inventory
+        if equipment or inventory:
+            dpg.add_spacer(height=10)
+            dpg.add_text("Equipment & Inventory", color=(150, 150, 150))
+            dpg.add_spacer(height=5)
+
+            for obj, loc_name in equipment:
+                dpg.add_text(f"  {loc_name}: {obj.short_description}", color=(120, 120, 120))
+
+            for obj in inventory:
+                dpg.add_text(f"  carrying: {obj.short_description}", color=(120, 120, 120))
+
     def show_area_editor(self):
         """Show the area editor for the current area."""
         area = app_state.current_area

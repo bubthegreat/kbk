@@ -16,10 +16,14 @@ def main():
 
     # Configure viewport
     # Note: vsync=False helps prevent freezing on some Linux systems with MESA/ZINK
+    # x_pos=0, y_pos=0 ensures the viewport starts at the correct position
+    # This is critical for proper mouse coordinate mapping
     dpg.create_viewport(
         title="KBK Area Editor",
         width=window_width,
         height=window_height,
+        x_pos=0,
+        y_pos=0,
         min_width=1024,
         min_height=768,
         vsync=False,  # Disable vsync to prevent freezing during resize/maximize
@@ -36,7 +40,7 @@ def main():
     # Show viewport
     dpg.show_viewport()
 
-    # Set primary window
+    # Set as primary window - this makes it fill the viewport automatically
     dpg.set_primary_window(main_window.window_id, True)
 
     # Start render loop

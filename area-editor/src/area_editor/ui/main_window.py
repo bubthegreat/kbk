@@ -37,6 +37,7 @@ class MainWindow:
             no_close=True,
             no_collapse=True,
             no_move=True,
+            no_resize=True,
             no_title_bar=True
         ) as self.window_id:
             # Menu bar
