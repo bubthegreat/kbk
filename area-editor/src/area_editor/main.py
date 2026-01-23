@@ -1,6 +1,9 @@
 """
 Main entry point for the KBK Area Editor application.
 """
+import argparse
+import sys
+from pathlib import Path
 import dearpygui.dearpygui as dpg
 from area_editor.ui.main_window import MainWindow
 from area_editor.config import config
@@ -8,6 +11,40 @@ from area_editor.config import config
 
 def main():
     """Initialize and run the Area Editor application."""
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description="KBK Area Editor - A GUI editor for MUD area files",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  area-editor                           # Start with no file loaded
+  area-editor --file tests/test.are     # Load test.are on startup
+  area-editor -f ../area/limbo.are      # Load limbo.are on startup
+        """
+    )
+    parser.add_argument(
+        '-f', '--file',
+        type=str,
+        metavar='PATH',
+        help='Area file (.are) to load on startup'
+    )
+
+    args = parser.parse_args()
+
+    # Validate file path if provided
+    file_to_load = None
+    if args.file:
+        file_path = Path(args.file)
+        if not file_path.exists():
+            print(f"Error: File not found: {args.file}", file=sys.stderr)
+            sys.exit(1)
+        if not file_path.is_file():
+            print(f"Error: Not a file: {args.file}", file=sys.stderr)
+            sys.exit(1)
+        if not file_path.suffix == '.are':
+            print(f"Warning: File does not have .are extension: {args.file}", file=sys.stderr)
+        file_to_load = str(file_path.resolve())
+
     # Create DearPyGui context
     dpg.create_context()
 
@@ -75,6 +112,12 @@ def main():
 
     # Set as primary window - this makes it fill the viewport automatically
     dpg.set_primary_window(main_window.window_id, True)
+
+    # Load file if specified on command line
+    if file_to_load:
+        # Need to render one frame first to ensure UI is ready
+        dpg.render_dearpygui_frame()
+        main_window.open_area_file(file_to_load)
 
     # Start render loop
     dpg.start_dearpygui()
