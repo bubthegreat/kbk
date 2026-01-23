@@ -286,9 +286,7 @@ class MudTerminal:
                     # Fallback to short description if no long description
                     self._add_output(f"{mob.short_description} is here.", color=(200, 200, 255))
 
-                # Show equipment and inventory for this mobile
-                # Find E (equip) and G (give) resets that follow this M reset
-                self._show_mobile_equipment(mob, i, mobile_resets)
+                # NOTE: Equipment/inventory is NOT shown here - only when you 'look' at the mobile
 
         # Display objects on the ground
         if objects_here:
@@ -310,27 +308,35 @@ class MudTerminal:
             mobile_index: Index of this mobile in the mobile_resets list
             mobile_resets: List of all M resets in this room
         """
-        # Wear location names
+        # Wear location names (matching MUD format)
         wear_locations = {
-            0: "as a light",
-            1: "on left finger",
-            2: "on right finger",
-            3: "around neck",
-            4: "around neck",
-            5: "on body",
-            6: "on head",
-            7: "on legs",
-            8: "on feet",
-            9: "on hands",
-            10: "on arms",
-            11: "as a shield",
-            12: "about body",
-            13: "around waist",
-            14: "on left wrist",
-            15: "on right wrist",
-            16: "wielded",
-            17: "held in hand"
+            0: "<used as light>    ",
+            1: "<worn on finger>   ",
+            2: "<worn on finger>   ",
+            3: "<worn around neck> ",
+            4: "<worn around neck> ",
+            5: "<worn on body>     ",
+            6: "<worn on head>     ",
+            7: "<worn on legs>     ",
+            8: "<worn on feet>     ",
+            9: "<worn on hands>    ",
+            10: "<worn on arms>     ",
+            11: "<worn as shield>   ",
+            12: "<worn about body>  ",
+            13: "<worn about waist> ",
+            14: "<worn around wrist>",
+            15: "<worn around wrist>",
+            16: "<mainhand wielded> ",
+            17: "<offhand wielded>  "
         }
+
+        # Object extra flags for visual effects
+        ITEM_GLOW = 1
+        ITEM_HUM = 2
+        ITEM_DARK = 3
+        ITEM_EVIL = 5
+        ITEM_MAGIC = 7
+        ITEM_BLESS = 9
 
         # Find the position of this mobile's reset in the full reset list
         # E and G resets apply to the most recent M reset
@@ -375,15 +381,49 @@ class MudTerminal:
                     obj = app_state.current_area.objects[obj_vnum]
                     inventory.append(obj)
 
-        # Only display if mobile has equipment or inventory
-        if equipment or inventory:
-            # Display equipment
-            for obj, loc_name in equipment:
-                self._add_output(f"  ...{loc_name}: {obj.short_description}", color=(180, 220, 180))
+        # Helper function to check if a bit is set in extra_flags
+        def has_flag(obj, flag_bit):
+            """Check if an object has a specific extra flag bit set."""
+            # The extra_flags is stored as an integer with bits set
+            # Bit 1 = ITEM_GLOW, Bit 2 = ITEM_HUM, etc.
+            return (obj.extra_flags & (1 << (flag_bit - 1))) != 0
 
-            # Display inventory (carried items)
-            for obj in inventory:
-                self._add_output(f"  ...carrying: {obj.short_description}", color=(180, 220, 180))
+        # Helper function to get flag prefix for an object
+        def get_flag_prefix(obj):
+            """Get the flag prefix string like '(Glowing) (Humming)' for an object."""
+            flags = []
+            if has_flag(obj, ITEM_GLOW):
+                flags.append("(Glowing)")
+            if has_flag(obj, ITEM_HUM):
+                flags.append("(Humming)")
+            if has_flag(obj, ITEM_DARK):
+                flags.append("(Dark)")
+            if has_flag(obj, ITEM_EVIL):
+                flags.append("(Red Aura)")
+            if has_flag(obj, ITEM_MAGIC):
+                flags.append("(Magical)")
+            if has_flag(obj, ITEM_BLESS):
+                flags.append("(Blue Aura)")
+            return " ".join(flags) + " " if flags else ""
+
+        # Display equipment - only show slots that have items
+        # Only show equipment if mobile has any
+        if equipment or inventory:
+            # Create a dict of worn equipment by slot
+            worn_items = {}
+            for obj, loc_name in equipment:
+                worn_items[loc_name] = obj
+
+            # Display only equipped items (skip empty slots)
+            for slot_num in sorted(wear_locations.keys()):
+                loc_label = wear_locations[slot_num]
+                if loc_label in worn_items:
+                    obj = worn_items[loc_label]
+                    flag_prefix = get_flag_prefix(obj)
+                    self._add_output(f"{loc_label} {flag_prefix}{obj.short_description}", color=(200, 200, 200))
+
+            # Display inventory (carried items) - not shown in equipment list
+            # These are shown separately if needed
 
     def _look_at(self, target: str):
         """Look at a specific target."""
@@ -406,11 +446,26 @@ class MudTerminal:
                 self._add_output(obj.long_description or obj.short_description, color=(150, 255, 150))
                 return
 
-        # Check mobiles (simplified)
-        for mob in app_state.current_area.mobiles.values():
-            if target in mob.short_description.lower():
-                self._add_output(mob.long_description or mob.short_description, color=(255, 200, 150))
-                return
+        # Check mobiles in this room
+        # Build list of mobiles here (same as in _show_room)
+        mobile_resets = []
+        for reset in app_state.current_area.resets:
+            if reset.command == 'M' and reset.arg3 == self.current_room_vnum:
+                mobile_resets.append(reset)
+
+        # Check each mobile in the room
+        for i, reset in enumerate(mobile_resets):
+            mob_vnum = reset.arg1
+            if mob_vnum in app_state.current_area.mobiles:
+                mob = app_state.current_area.mobiles[mob_vnum]
+                # Check if target matches this mobile's keywords or description
+                if (target in mob.short_description.lower() or
+                    target in mob.name.lower()):
+                    # Show mobile description
+                    self._add_output(mob.long_description or mob.short_description, color=(255, 200, 150))
+                    # Show equipment and inventory for this specific mobile
+                    self._show_mobile_equipment(mob, i, mobile_resets)
+                    return
 
         self._add_output("You don't see that here.", color=(180, 180, 180))
 
