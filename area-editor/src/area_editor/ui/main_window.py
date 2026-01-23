@@ -44,23 +44,21 @@ class MainWindow:
             self.menu_bar.create()
 
             # Main content area with horizontal split
-            # Calculate actual widths to ensure they're fixed
-            left_width = max(self.left_sidebar_width, 200)
-            right_width = max(self.right_sidebar_width, 80)
-
-            # Use a table with resizable columns for the main layout
+            # Use proportional widths: 20% left, 30% center, 50% right
+            # Using mvTable_SizingStretchProp for percentage-based widths
             with dpg.table(
                 header_row=False,
                 resizable=True,
-                policy=dpg.mvTable_SizingFixedFit,
+                policy=dpg.mvTable_SizingStretchProp,
                 borders_innerV=True,
                 height=-25,
                 tag="main_layout_table"
             ):
-                # Add three columns: left sidebar, center panel, right sidebar
-                dpg.add_table_column(init_width_or_weight=left_width, width_fixed=True, tag="left_column")
-                dpg.add_table_column(width_stretch=True, init_width_or_weight=1.0, tag="center_column")
-                dpg.add_table_column(init_width_or_weight=right_width, width_fixed=True, tag="right_column")
+                # Add three columns with proportional widths (percentages)
+                # init_width_or_weight is a proportion (0.0 to 1.0) when using StretchProp policy
+                dpg.add_table_column(init_width_or_weight=0.20, tag="left_column")   # 20% - navigation tree
+                dpg.add_table_column(init_width_or_weight=0.30, tag="center_column") # 30% - editor
+                dpg.add_table_column(init_width_or_weight=0.50, tag="right_column")  # 50% - MUD terminal
 
                 # Single row containing all three panels
                 with dpg.table_row():
