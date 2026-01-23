@@ -363,11 +363,8 @@ class EditorPanel:
 
         # Check if mobiles exist
         if not app_state.current_area.mobiles:
-            if hasattr(self.main_window, 'status_bar'):
-                self.main_window.status_bar.set_status(
-                    "No mobiles defined in area. Create a mobile first.",
-                    color=(255, 100, 100)
-                )
+            # Show option to create a new mobile
+            self._show_create_mobile_prompt(room_vnum)
             return
 
         # Show modal to select mobile
@@ -513,6 +510,315 @@ class EditorPanel:
 
         # Create a modal window for editing the shop
         self._show_shop_editor_modal(shop, mob_vnum)
+
+    def _show_create_mobile_prompt(self, room_vnum=None):
+        """Show a prompt to create a new mobile when none exist."""
+        modal_tag = "create_mobile_prompt"
+        with dpg.window(
+            label="No Mobiles Found",
+            modal=True,
+            show=True,
+            width=400,
+            height=200,
+            pos=[400, 250],
+            tag=modal_tag
+        ):
+            dpg.add_text("No mobiles exist in this area yet.", color=(200, 200, 100))
+            dpg.add_spacer(height=10)
+            dpg.add_text("Would you like to create a new mobile?", color=(150, 150, 150))
+            dpg.add_spacer(height=20)
+
+            with dpg.group(horizontal=True):
+                dpg.add_button(
+                    label="Create New Mobile",
+                    callback=lambda: self._on_create_mobile_from_prompt(modal_tag, room_vnum),
+                    width=150
+                )
+                dpg.add_button(
+                    label="Cancel",
+                    callback=lambda: dpg.delete_item(modal_tag),
+                    width=100
+                )
+
+    def _on_create_mobile_from_prompt(self, modal_tag, room_vnum):
+        """Handle creating a mobile from the prompt."""
+        dpg.delete_item(modal_tag)
+        self._show_create_mobile_modal(room_vnum)
+
+    def _show_create_mobile_modal(self, room_vnum=None):
+        """Show a modal window for creating a new mobile."""
+        from area_editor.models.mobile import Mobile
+
+        # Find next available vnum
+        area = app_state.current_area
+        next_vnum = None
+        for vnum in range(area.min_vnum, area.max_vnum + 1):
+            if vnum not in area.mobiles:
+                next_vnum = vnum
+                break
+
+        if next_vnum is None:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    f"No available vnums in area range {area.min_vnum}-{area.max_vnum}",
+                    color=(255, 100, 100)
+                )
+            return
+
+        modal_tag = "create_mobile_modal"
+        with dpg.window(
+            label="Create New Mobile",
+            modal=True,
+            show=True,
+            width=600,
+            height=500,
+            pos=[300, 150],
+            tag=modal_tag
+        ):
+            dpg.add_text("Create New Mobile", color=(200, 200, 100))
+            dpg.add_separator()
+            dpg.add_spacer(height=10)
+
+            # Vnum (read-only)
+            with dpg.group(horizontal=True):
+                dpg.add_text("Vnum:", color=(150, 150, 150))
+                dpg.add_spacer(width=85)
+                dpg.add_text(f"#{next_vnum}", color=(100, 255, 100))
+                dpg.add_text("(auto-assigned)", color=(120, 120, 120))
+
+            dpg.add_spacer(height=10)
+
+            # Keywords
+            dpg.add_text("Keywords:", color=(150, 150, 150))
+            dpg.add_text("(Space-separated words for targeting, e.g., 'guard town soldier')", color=(120, 120, 120))
+            dpg.add_input_text(
+                default_value="",
+                width=-1,
+                tag="new_mobile_keywords"
+            )
+
+            dpg.add_spacer(height=10)
+
+            # Short description
+            dpg.add_text("Short Description:", color=(150, 150, 150))
+            dpg.add_text("(How the mobile appears in the room, e.g., 'a town guard')", color=(120, 120, 120))
+            dpg.add_input_text(
+                default_value="",
+                width=-1,
+                tag="new_mobile_short_desc"
+            )
+
+            dpg.add_spacer(height=10)
+
+            # Long description
+            dpg.add_text("Long Description (optional):", color=(150, 150, 150))
+            dpg.add_text("(Detailed description when examining, e.g., 'This guard watches over the town.')", color=(120, 120, 120))
+            dpg.add_input_text(
+                default_value="",
+                width=-1,
+                tag="new_mobile_long_desc"
+            )
+
+            dpg.add_spacer(height=10)
+
+            # Level
+            with dpg.group(horizontal=True):
+                dpg.add_text("Level:", color=(150, 150, 150))
+                dpg.add_spacer(width=75)
+                dpg.add_input_int(
+                    default_value=1,
+                    width=100,
+                    tag="new_mobile_level",
+                    min_value=1,
+                    max_value=60,
+                    min_clamped=True,
+                    max_clamped=True
+                )
+
+            dpg.add_spacer(height=10)
+
+            # Alignment
+            with dpg.group(horizontal=True):
+                dpg.add_text("Alignment:", color=(150, 150, 150))
+                dpg.add_spacer(width=45)
+                dpg.add_input_int(
+                    default_value=0,
+                    width=100,
+                    tag="new_mobile_alignment",
+                    min_value=-1000,
+                    max_value=1000,
+                    min_clamped=True,
+                    max_clamped=True
+                )
+                dpg.add_text("(-1000 = evil, 0 = neutral, 1000 = good)", color=(120, 120, 120))
+
+            dpg.add_spacer(height=20)
+
+            # Buttons
+            with dpg.group(horizontal=True):
+                dpg.add_button(
+                    label="Create Mobile",
+                    callback=self._on_create_mobile_save,
+                    user_data=(next_vnum, room_vnum),
+                    width=150
+                )
+                dpg.add_button(
+                    label="Cancel",
+                    callback=lambda: dpg.delete_item(modal_tag),
+                    width=100
+                )
+
+    def _on_create_mobile_save(self, sender, app_data, user_data):
+        """Handle save button in create mobile modal."""
+        from area_editor.models.mobile import Mobile
+
+        next_vnum, room_vnum = user_data
+        modal_tag = "create_mobile_modal"
+
+        # Get values from inputs
+        keywords = dpg.get_value("new_mobile_keywords").strip()
+        short_desc = dpg.get_value("new_mobile_short_desc").strip()
+        long_desc = dpg.get_value("new_mobile_long_desc").strip()
+        level = dpg.get_value("new_mobile_level")
+        alignment = dpg.get_value("new_mobile_alignment")
+
+        # Validate required fields
+        if not keywords:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    "Keywords are required",
+                    color=(255, 100, 100)
+                )
+            return
+
+        if not short_desc:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    "Short description is required",
+                    color=(255, 100, 100)
+                )
+            return
+
+        # Create new mobile with defaults
+        # Note: In ROM MUDs:
+        # - short_description: appears in room listings (e.g., "a town guard")
+        # - long_description: shown when you examine/look at the mobile
+        new_mobile = Mobile(
+            vnum=next_vnum,
+            keywords=keywords,
+            short_description=short_desc,
+            long_description=long_desc if long_desc else "You see nothing special about them.\n",
+            description="",  # Additional description text (DESCR field)
+            level=level,
+            alignment=alignment,
+            race="human",
+            sex="none",
+            act_flags="",
+            affected_flags="",
+            hit_dice=f"{level}d8+{level*10}",
+            mana_dice=f"{level}d10+{level*5}",
+            damage_dice=f"{max(1, level//5)}d{max(4, level//3)}+{level//2}",
+            ac_pierce=0,
+            ac_bash=0,
+            ac_slash=0,
+            ac_exotic=0,
+            hitroll=level,
+            gold=level * 10,
+            start_position="stand",
+            default_position="stand",
+            size="medium",
+            material="flesh"
+        )
+
+        # Add to area
+        app_state.current_area.mobiles[next_vnum] = new_mobile
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Close modal
+        dpg.delete_item(modal_tag)
+
+        # Refresh area tree to show new mobile
+        if hasattr(self.main_window, 'area_tree'):
+            self.main_window.area_tree.refresh()
+
+        # Show the mobile editor
+        self.show_mobile_editor(next_vnum)
+
+        # If we came from a room, offer to add it to that room
+        if room_vnum is not None:
+            self._show_add_mobile_to_room_prompt(next_vnum, room_vnum)
+
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_status(
+                f"Created mobile #{next_vnum}: {short_desc}",
+                color=(100, 255, 100)
+            )
+
+    def _show_add_mobile_to_room_prompt(self, mob_vnum, room_vnum):
+        """Ask if user wants to add the newly created mobile to the room."""
+        modal_tag = "add_mobile_to_room_prompt"
+        mob = app_state.current_area.mobiles.get(mob_vnum)
+        room = app_state.current_area.rooms.get(room_vnum)
+
+        if not mob or not room:
+            return
+
+        with dpg.window(
+            label="Add to Room?",
+            modal=True,
+            show=True,
+            width=450,
+            height=180,
+            pos=[400, 250],
+            tag=modal_tag
+        ):
+            dpg.add_text(f"Mobile created: {mob.short_description}", color=(100, 255, 100))
+            dpg.add_spacer(height=10)
+            dpg.add_text(f"Add this mobile to room #{room_vnum}: {room.name}?", color=(150, 150, 150))
+            dpg.add_spacer(height=20)
+
+            with dpg.group(horizontal=True):
+                dpg.add_button(
+                    label="Yes, Add to Room",
+                    callback=lambda: self._on_add_new_mobile_to_room(modal_tag, mob_vnum, room_vnum),
+                    width=150
+                )
+                dpg.add_button(
+                    label="No, Thanks",
+                    callback=lambda: dpg.delete_item(modal_tag),
+                    width=100
+                )
+
+    def _on_add_new_mobile_to_room(self, modal_tag, mob_vnum, room_vnum):
+        """Add the newly created mobile to the room."""
+        from area_editor.models.reset import Reset
+
+        # Create mobile reset
+        new_reset = Reset(
+            command='M',
+            arg1=mob_vnum,
+            arg2=1,  # max in world
+            arg3=room_vnum,
+            arg4=1   # max in room
+        )
+
+        # Add to resets
+        app_state.current_area.resets.append(new_reset)
+        app_state.mark_modified()
+
+        # Close modal
+        dpg.delete_item(modal_tag)
+
+        # Show room editor with mobiles tab
+        self.show_room_editor(room_vnum)
+
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_status(
+                f"Added mobile to room #{room_vnum}",
+                color=(100, 255, 100)
+            )
 
     def _show_add_mobile_modal(self, room_vnum):
         """Show a modal window for selecting which mobile to add to the room."""
@@ -831,7 +1137,9 @@ class EditorPanel:
             return
 
         # Update the mobile field
-        if field_name == 'short_description':
+        if field_name == 'keywords':
+            mob.keywords = app_data
+        elif field_name == 'short_description':
             mob.short_description = app_data
         elif field_name == 'long_description':
             mob.long_description = app_data
@@ -1471,15 +1779,26 @@ class EditorPanel:
                                 )
 
                 dpg.add_spacer(height=5)
+        else:
+            # No mobiles in room yet
+            dpg.add_text("No mobiles in this room yet.", color=(120, 120, 120))
+            dpg.add_spacer(height=10)
 
-        # Add mobile button
-        dpg.add_button(
-            label="+ Add Mobile to Room",
-            callback=self._on_add_mobile_reset_clicked,
-            user_data=room_vnum,
-            width=200,
-            height=25
-        )
+        # Buttons
+        with dpg.group(horizontal=True):
+            dpg.add_button(
+                label="+ Add Mobile to Room",
+                callback=self._on_add_mobile_reset_clicked,
+                user_data=room_vnum,
+                width=200,
+                height=25
+            )
+            dpg.add_button(
+                label="Create New Mobile",
+                callback=lambda: self._show_create_mobile_modal(room_vnum),
+                width=200,
+                height=25
+            )
 
     def show_object_editor(self, obj_vnum):
         """Show the object editor for the specified object."""
@@ -1724,7 +2043,20 @@ class EditorPanel:
             dpg.add_separator()
             dpg.add_spacer(height=10)
 
+            # Keywords (NAME field in ROM format)
+            dpg.add_text("Keywords:", color=(150, 150, 150))
+            dpg.add_text("(Space-separated words for targeting, e.g., 'guard town soldier')", color=(120, 120, 120))
+            dpg.add_input_text(
+                default_value=mob.keywords,
+                width=-1,
+                callback=self._on_mobile_field_changed,
+                user_data=('keywords', mob_vnum)
+            )
+            dpg.add_spacer(height=10)
+
+            # Short Description (SHORT field in ROM format)
             dpg.add_text("Short Description:", color=(150, 150, 150))
+            dpg.add_text("(What appears in the room, e.g., 'a town guard')", color=(120, 120, 120))
             dpg.add_input_text(
                 default_value=mob.short_description,
                 width=-1,
@@ -1733,8 +2065,9 @@ class EditorPanel:
             )
             dpg.add_spacer(height=10)
 
+            # Long Description (LONG field in ROM format)
             dpg.add_text("Long Description:", color=(150, 150, 150))
-            dpg.add_text("(Auto-wraps at 80 characters when you unfocus, auto-resizes to fit content)", color=(120, 120, 120))
+            dpg.add_text("(What you see when you 'look' at the mobile - auto-wraps at 80 characters)", color=(120, 120, 120))
             # Use wrapped text input that auto-wraps at 80 characters and auto-resizes
             wrapped_input = WrappedTextInput(
                 default_value=mob.long_description,
@@ -1747,9 +2080,9 @@ class EditorPanel:
             wrapped_input.create()
             dpg.add_spacer(height=10)
 
-            # Description (detailed description shown when looking at mobile)
-            dpg.add_text("Description:", color=(150, 150, 150))
-            dpg.add_text("(Shown when players 'look' at the mobile)", color=(120, 120, 120))
+            # Description (DESCR field in ROM format)
+            dpg.add_text("Description (DESCR):", color=(150, 150, 150))
+            dpg.add_text("(Additional description text - rarely used)", color=(120, 120, 120))
             dpg.add_input_text(
                 default_value=mob.description,
                 multiline=True,
@@ -1904,12 +2237,13 @@ class EditorPanel:
             with dpg.group(horizontal=True):
                 dpg.add_text("Sex:", color=(150, 150, 150))
                 sex_items = ["none", "male", "female", "either"]
-                sex_value = sex_items[mob.sex] if 0 <= mob.sex < len(sex_items) else "none"
+                # mob.sex is a string, not an index
+                sex_value = mob.sex if mob.sex in sex_items else "none"
                 dpg.add_combo(
                     items=sex_items,
                     default_value=sex_value,
                     width=150,
-                    callback=lambda s, a, u: self._on_mobile_field_changed(s, sex_items.index(a), u),
+                    callback=lambda s, a, u: self._on_mobile_field_changed(s, a, u),
                     user_data=('sex', mob_vnum)
                 )
 
@@ -1917,25 +2251,38 @@ class EditorPanel:
             with dpg.group(horizontal=True):
                 dpg.add_text("Size:", color=(150, 150, 150))
                 size_items = ["tiny", "small", "medium", "large", "huge", "giant"]
-                size_value = size_items[mob.size] if 0 <= mob.size < len(size_items) else "medium"
+                # mob.size is a string, not an index
+                size_value = mob.size if mob.size in size_items else "medium"
                 dpg.add_combo(
                     items=size_items,
                     default_value=size_value,
                     width=150,
-                    callback=lambda s, a, u: self._on_mobile_field_changed(s, size_items.index(a), u),
+                    callback=lambda s, a, u: self._on_mobile_field_changed(s, a, u),
                     user_data=('size', mob_vnum)
                 )
 
             # Material
             with dpg.group(horizontal=True):
                 dpg.add_text("Material:", color=(150, 150, 150))
-                dpg.add_input_text(
-                    default_value=mob.material,
+                material_items = [
+                    "flesh", "bone", "stone", "wood", "iron", "steel", "bronze",
+                    "copper", "silver", "gold", "platinum", "mithril", "adamantite",
+                    "cloth", "leather", "hide", "fur", "silk", "wool",
+                    "glass", "crystal", "diamond", "ruby", "emerald", "sapphire",
+                    "water", "ice", "fire", "air", "earth", "energy",
+                    "paper", "parchment", "vellum", "food", "organic",
+                    "plastic", "rubber", "ceramic", "porcelain",
+                    "ethereal", "shadow", "light", "darkness", "void"
+                ]
+                # mob.material is a string
+                material_value = mob.material if mob.material in material_items else (mob.material if mob.material else "flesh")
+                dpg.add_combo(
+                    items=material_items,
+                    default_value=material_value,
                     width=200,
-                    callback=self._on_mobile_field_changed,
+                    callback=lambda s, a, u: self._on_mobile_field_changed(s, a, u),
                     user_data=('material', mob_vnum)
                 )
-                dpg.add_text("(e.g., flesh, stone, wood)", color=(100, 100, 100))
 
             dpg.add_spacer(height=10)
 
@@ -1949,24 +2296,26 @@ class EditorPanel:
             # Start Position
             with dpg.group(horizontal=True):
                 dpg.add_text("Start Position:", color=(150, 150, 150))
-                start_pos_value = position_items[mob.start_position] if 0 <= mob.start_position < len(position_items) else "standing"
+                # mob.start_position is a string, not an index
+                start_pos_value = mob.start_position if mob.start_position in position_items else "standing"
                 dpg.add_combo(
                     items=position_items,
                     default_value=start_pos_value,
                     width=150,
-                    callback=lambda s, a, u: self._on_mobile_field_changed(s, position_items.index(a), u),
+                    callback=lambda s, a, u: self._on_mobile_field_changed(s, a, u),
                     user_data=('start_position', mob_vnum)
                 )
 
             # Default Position
             with dpg.group(horizontal=True):
                 dpg.add_text("Default Position:", color=(150, 150, 150))
-                default_pos_value = position_items[mob.default_position] if 0 <= mob.default_position < len(position_items) else "standing"
+                # mob.default_position is a string, not an index
+                default_pos_value = mob.default_position if mob.default_position in position_items else "standing"
                 dpg.add_combo(
                     items=position_items,
                     default_value=default_pos_value,
                     width=150,
-                    callback=lambda s, a, u: self._on_mobile_field_changed(s, position_items.index(a), u),
+                    callback=lambda s, a, u: self._on_mobile_field_changed(s, a, u),
                     user_data=('default_position', mob_vnum)
                 )
 

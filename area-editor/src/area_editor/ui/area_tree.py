@@ -191,3 +191,9 @@ class AreaTree:
                         )
                         self.selectable_items[(area_id, 'mobile', vnum)] = item_id
 
+    def refresh(self):
+        """Refresh the area tree to reflect current state."""
+        # Rebuild the tree for the current area
+        if app_state.current_area and app_state.current_area_id:
+            self.populate_from_area(app_state.current_area, app_state.current_area_id)
+
