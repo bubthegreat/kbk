@@ -17,3 +17,7 @@ data/kbk.db-shm
 # Backup files
 *.backup
 data/*.backup
+
+# pycache and pyc
+__pycache__/
+*.pyc

@@ -4,6 +4,36 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Font Scaling
+
+**Description**: Automatic font scaling based on screen resolution with manual override options.
+
+**How to Test**:
+1. Run `uv run python -m area_editor`
+2. By default, font size auto-scales relative to 1920x1080 baseline (doubled for readability):
+   - Uses geometric mean of width/height ratios, then doubles it
+   - Example: 1280x720 → 1.25x, 1920x1080 → 2.0x, 2388x1495 → 2.5x, 3840x2160 → 3.0x
+   - Rounds to nearest 0.25 increment (0.75, 1.0, 1.25, 1.5, etc.)
+   - Recalculates every time you launch based on current window size
+3. View > Font Size > Select "Auto (Based on Resolution)" to re-enable auto-scaling
+4. View > Font Size > Select manual sizes (75% to 300%) to disable auto-scaling
+5. Close and reopen - preference is saved (auto or manual)
+
+**Additional Notes**:
+- Uses DearPyGui's `set_global_font_scale()` function
+- Font scale stored in config: `~/.kbk_area_editor/config.json`
+- Baseline: 1920x1080 = 2.0x (doubled for better readability)
+- Auto-scaling formula: `sqrt((width/1920) * (height/1080)) * 2.0`
+- Clamped to range: 0.75x to 3.0x
+- Default mode: Auto-scaling enabled (`font_scale_auto: true`)
+- Manual mode: Selecting a specific size disables auto-scaling
+- Available manual sizes: 75%, 100%, 125%, 150%, 175%, 200%, 250%, 300%
+- Changes apply immediately without restart
+
+**Related Tests**: `tests/test_config.py::test_config_get_set_font_scale`
+
+---
+
 ## File Parsing
 
 **Description**: Parse .are files in the ROM 2.4 format with support for AREADATA, ROOMDATA, MOBDATA, and OBJDATA sections.
