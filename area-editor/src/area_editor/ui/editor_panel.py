@@ -357,6 +357,431 @@ class EditorPanel:
         elif item_type == 'object':
             self.show_object_editor(item_vnum)
 
+    def _on_add_mobile_reset_clicked(self, sender, app_data, user_data):
+        """Handle add mobile reset button click - show modal to select mobile."""
+        room_vnum = user_data
+
+        # Check if mobiles exist
+        if not app_state.current_area.mobiles:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    "No mobiles defined in area. Create a mobile first.",
+                    color=(255, 100, 100)
+                )
+            return
+
+        # Show modal to select mobile
+        self._show_add_mobile_modal(room_vnum)
+
+    def _on_delete_mobile_reset_clicked(self, sender, app_data, user_data):
+        """Handle delete mobile reset button click."""
+        room_vnum, reset_index = user_data
+
+        if reset_index < len(app_state.current_area.resets):
+            # Delete the reset
+            del app_state.current_area.resets[reset_index]
+
+            # Mark as modified
+            app_state.mark_modified()
+
+            # Refresh the editor
+            self.show_room_editor(room_vnum)
+
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    f"Deleted mobile reset from room #{room_vnum}",
+                    color=(100, 255, 100)
+                )
+
+    def _on_mobile_reset_field_changed(self, sender, app_data, user_data):
+        """Handle mobile reset field changes."""
+        field_name, reset_index = user_data
+
+        if reset_index >= len(app_state.current_area.resets):
+            return
+
+        reset = app_state.current_area.resets[reset_index]
+
+        # Update the field
+        if field_name == 'mobile_vnum':
+            # Parse vnum from combo selection (format: "#vnum: description")
+            vnum_str = app_data.split(':')[0].strip('#')
+            try:
+                reset.arg1 = int(vnum_str)
+            except ValueError:
+                return
+        elif field_name == 'max_world':
+            reset.arg2 = app_data
+        elif field_name == 'max_room':
+            reset.arg4 = app_data
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Auto-save
+        self._auto_save()
+
+    def _on_add_shop_clicked(self, sender, app_data, user_data):
+        """Handle add shop button click."""
+        from area_editor.models.shop import Shop
+
+        mob_vnum = user_data
+
+        # Check if shop already exists
+        for shop in app_state.current_area.shops:
+            if shop.keeper == mob_vnum:
+                if hasattr(self.main_window, 'status_bar'):
+                    self.main_window.status_bar.set_status(
+                        f"Mobile #{mob_vnum} already has a shop",
+                        color=(255, 100, 100)
+                    )
+                return
+
+        # Create a new shop
+        new_shop = Shop(
+            keeper=mob_vnum,
+            buy_types=[0, 0, 0, 0, 0],  # No item types by default
+            profit_buy=120,  # 120% markup when buying from players
+            profit_sell=80,  # 80% markdown when selling to players
+            open_hour=0,
+            close_hour=23
+        )
+
+        # Add to shops list
+        app_state.current_area.shops.append(new_shop)
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Refresh the editor
+        if self.current_vnum:
+            self.show_room_editor(self.current_vnum)
+
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_status(
+                f"Added shop to mobile #{mob_vnum}",
+                color=(100, 255, 100)
+            )
+
+    def _on_remove_shop_clicked(self, sender, app_data, user_data):
+        """Handle remove shop button click."""
+        mob_vnum = user_data
+
+        # Find and remove the shop
+        for i, shop in enumerate(app_state.current_area.shops):
+            if shop.keeper == mob_vnum:
+                del app_state.current_area.shops[i]
+
+                # Mark as modified
+                app_state.mark_modified()
+
+                # Refresh the editor
+                if self.current_vnum:
+                    self.show_room_editor(self.current_vnum)
+
+                if hasattr(self.main_window, 'status_bar'):
+                    self.main_window.status_bar.set_status(
+                        f"Removed shop from mobile #{mob_vnum}",
+                        color=(100, 255, 100)
+                    )
+                return
+
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_status(
+                f"No shop found for mobile #{mob_vnum}",
+                color=(255, 100, 100)
+            )
+
+    def _on_edit_shop_clicked(self, sender, app_data, user_data):
+        """Handle edit shop button click."""
+        mob_vnum = user_data
+
+        # Find the shop
+        shop = None
+        for s in app_state.current_area.shops:
+            if s.keeper == mob_vnum:
+                shop = s
+                break
+
+        if not shop:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    f"No shop found for mobile #{mob_vnum}",
+                    color=(255, 100, 100)
+                )
+            return
+
+        # Create a modal window for editing the shop
+        self._show_shop_editor_modal(shop, mob_vnum)
+
+    def _show_add_mobile_modal(self, room_vnum):
+        """Show a modal window for selecting which mobile to add to the room."""
+        from area_editor.models.reset import Reset
+
+        # Create modal window
+        modal_tag = f"add_mobile_modal_{room_vnum}"
+        with dpg.window(
+            label=f"Add Mobile to Room #{room_vnum}",
+            modal=True,
+            show=True,
+            width=500,
+            height=300,
+            pos=[300, 200],
+            tag=modal_tag
+        ):
+            dpg.add_text("Select Mobile to Add", color=(200, 200, 100))
+            dpg.add_separator()
+            dpg.add_spacer(height=10)
+
+            # Mobile selector
+            with dpg.group(horizontal=True):
+                dpg.add_text("Mobile:", color=(150, 150, 150))
+                dpg.add_spacer(width=40)
+
+                # Create list of available mobiles
+                mobile_items = [f"#{vnum}: {m.short_description}" for vnum, m in sorted(app_state.current_area.mobiles.items())]
+                mobile_vnums = [vnum for vnum in sorted(app_state.current_area.mobiles.keys())]
+
+                dpg.add_combo(
+                    items=mobile_items,
+                    default_value=mobile_items[0] if mobile_items else "",
+                    width=300,
+                    tag=f"add_mobile_combo_{room_vnum}"
+                )
+
+            dpg.add_spacer(height=10)
+
+            # Max in world
+            with dpg.group(horizontal=True):
+                dpg.add_text("Max in World:", color=(150, 150, 150))
+                dpg.add_spacer(width=10)
+                dpg.add_input_int(
+                    default_value=1,
+                    width=100,
+                    tag=f"add_mobile_max_world_{room_vnum}",
+                    min_value=1,
+                    min_clamped=True
+                )
+                dpg.add_text("(Maximum instances in entire game)", color=(120, 120, 120))
+
+            # Max in room
+            with dpg.group(horizontal=True):
+                dpg.add_text("Max in Room:", color=(150, 150, 150))
+                dpg.add_spacer(width=15)
+                dpg.add_input_int(
+                    default_value=1,
+                    width=100,
+                    tag=f"add_mobile_max_room_{room_vnum}",
+                    min_value=1,
+                    min_clamped=True
+                )
+                dpg.add_text("(Maximum instances in this room)", color=(120, 120, 120))
+
+            dpg.add_spacer(height=20)
+
+            # Buttons
+            with dpg.group(horizontal=True):
+                dpg.add_button(
+                    label="Add Mobile",
+                    callback=self._on_add_mobile_modal_save,
+                    user_data=(room_vnum, mobile_vnums),
+                    width=120
+                )
+                dpg.add_button(
+                    label="Cancel",
+                    callback=lambda: dpg.delete_item(modal_tag),
+                    width=100
+                )
+
+    def _on_add_mobile_modal_save(self, sender, app_data, user_data):
+        """Handle save button in add mobile modal."""
+        from area_editor.models.reset import Reset
+
+        room_vnum, mobile_vnums = user_data
+        modal_tag = f"add_mobile_modal_{room_vnum}"
+
+        # Get selected mobile from combo
+        combo_value = dpg.get_value(f"add_mobile_combo_{room_vnum}")
+
+        # Extract vnum from combo value (format: "#1050: the innkeeper")
+        selected_index = 0
+        mobile_items = [f"#{vnum}: {app_state.current_area.mobiles[vnum].short_description}"
+                       for vnum in mobile_vnums]
+
+        for idx, item in enumerate(mobile_items):
+            if item == combo_value:
+                selected_index = idx
+                break
+
+        selected_vnum = mobile_vnums[selected_index]
+
+        # Get max values
+        max_world = dpg.get_value(f"add_mobile_max_world_{room_vnum}")
+        max_room = dpg.get_value(f"add_mobile_max_room_{room_vnum}")
+
+        # Create new reset
+        new_reset = Reset(
+            command='M',
+            arg1=selected_vnum,  # mobile vnum
+            arg2=max_world,      # max in world
+            arg3=room_vnum,      # room vnum
+            arg4=max_room        # max in room
+        )
+
+        # Add to resets list
+        app_state.current_area.resets.append(new_reset)
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Close modal
+        dpg.delete_item(modal_tag)
+
+        # Refresh the editor
+        self.show_room_editor(room_vnum)
+
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_status(
+                f"Added mobile #{selected_vnum} to room #{room_vnum}",
+                color=(100, 255, 100)
+            )
+
+    def _show_shop_editor_modal(self, shop, mob_vnum):
+        """Show a modal window for editing shop details."""
+        # Create modal window
+        with dpg.window(
+            label=f"Edit Shop for Mobile #{mob_vnum}",
+            modal=True,
+            show=True,
+            width=500,
+            height=400,
+            pos=[300, 200],
+            tag=f"shop_editor_modal_{mob_vnum}"
+        ):
+            dpg.add_text("Shop Settings", color=(200, 200, 100))
+            dpg.add_separator()
+            dpg.add_spacer(height=10)
+
+            # Profit buy
+            with dpg.group(horizontal=True):
+                dpg.add_text("Buy Profit %:", color=(150, 150, 150))
+                dpg.add_spacer(width=20)
+                dpg.add_input_int(
+                    default_value=shop.profit_buy,
+                    width=100,
+                    tag=f"shop_profit_buy_{mob_vnum}",
+                    min_value=1,
+                    min_clamped=True
+                )
+                dpg.add_text("(Shop pays this % when buying from players)", color=(120, 120, 120))
+
+            # Profit sell
+            with dpg.group(horizontal=True):
+                dpg.add_text("Sell Profit %:", color=(150, 150, 150))
+                dpg.add_spacer(width=20)
+                dpg.add_input_int(
+                    default_value=shop.profit_sell,
+                    width=100,
+                    tag=f"shop_profit_sell_{mob_vnum}",
+                    min_value=1,
+                    min_clamped=True
+                )
+                dpg.add_text("(Shop charges this % when selling to players)", color=(120, 120, 120))
+
+            # Open hour
+            with dpg.group(horizontal=True):
+                dpg.add_text("Open Hour:", color=(150, 150, 150))
+                dpg.add_spacer(width=35)
+                dpg.add_input_int(
+                    default_value=shop.open_hour,
+                    width=100,
+                    tag=f"shop_open_hour_{mob_vnum}",
+                    min_value=0,
+                    max_value=23,
+                    min_clamped=True,
+                    max_clamped=True
+                )
+                dpg.add_text("(0-23)", color=(120, 120, 120))
+
+            # Close hour
+            with dpg.group(horizontal=True):
+                dpg.add_text("Close Hour:", color=(150, 150, 150))
+                dpg.add_spacer(width=30)
+                dpg.add_input_int(
+                    default_value=shop.close_hour,
+                    width=100,
+                    tag=f"shop_close_hour_{mob_vnum}",
+                    min_value=0,
+                    max_value=23,
+                    min_clamped=True,
+                    max_clamped=True
+                )
+                dpg.add_text("(0-23)", color=(120, 120, 120))
+
+            dpg.add_spacer(height=10)
+            dpg.add_text("Item Types to Buy (0 = none):", color=(150, 150, 150))
+            dpg.add_text("(Item type numbers - see ROM documentation)", color=(120, 120, 120))
+
+            # Buy types (5 slots)
+            for i in range(5):
+                with dpg.group(horizontal=True):
+                    dpg.add_text(f"Type {i+1}:", color=(150, 150, 150))
+                    dpg.add_spacer(width=20)
+                    dpg.add_input_int(
+                        default_value=shop.buy_types[i] if i < len(shop.buy_types) else 0,
+                        width=100,
+                        tag=f"shop_buy_type_{mob_vnum}_{i}",
+                        min_value=0,
+                        min_clamped=True
+                    )
+
+            dpg.add_spacer(height=20)
+
+            # Buttons
+            with dpg.group(horizontal=True):
+                dpg.add_button(
+                    label="Save",
+                    callback=self._on_shop_editor_save,
+                    user_data=(shop, mob_vnum),
+                    width=100
+                )
+                dpg.add_button(
+                    label="Cancel",
+                    callback=lambda: dpg.delete_item(f"shop_editor_modal_{mob_vnum}"),
+                    width=100
+                )
+
+    def _on_shop_editor_save(self, sender, app_data, user_data):
+        """Save shop editor changes."""
+        shop, mob_vnum = user_data
+
+        # Update shop values from inputs
+        shop.profit_buy = dpg.get_value(f"shop_profit_buy_{mob_vnum}")
+        shop.profit_sell = dpg.get_value(f"shop_profit_sell_{mob_vnum}")
+        shop.open_hour = dpg.get_value(f"shop_open_hour_{mob_vnum}")
+        shop.close_hour = dpg.get_value(f"shop_close_hour_{mob_vnum}")
+
+        # Update buy types
+        shop.buy_types = []
+        for i in range(5):
+            shop.buy_types.append(dpg.get_value(f"shop_buy_type_{mob_vnum}_{i}"))
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Close modal
+        dpg.delete_item(f"shop_editor_modal_{mob_vnum}")
+
+        # Refresh the editor
+        if self.current_vnum:
+            self.show_room_editor(self.current_vnum)
+
+        if hasattr(self.main_window, 'status_bar'):
+            self.main_window.status_bar.set_status(
+                f"Updated shop for mobile #{mob_vnum}",
+                color=(100, 255, 100)
+            )
+
     def _on_object_field_changed(self, sender, app_data, user_data):
         """Handle object field changes."""
         field_name, obj_vnum = user_data
@@ -700,6 +1125,11 @@ class EditorPanel:
                     dpg.add_spacer(height=10)
                     self._show_extra_descriptions_editor(room, room_vnum)
 
+                # Mobiles Tab
+                with dpg.tab(label="Mobiles"):
+                    dpg.add_spacer(height=10)
+                    self._show_mobiles_editor(room, room_vnum)
+
             dpg.add_spacer(height=10)
             dpg.add_text("Properties", color=(200, 200, 200))
             dpg.add_separator()
@@ -905,6 +1335,148 @@ class EditorPanel:
             label="+ Add Extra Description",
             callback=self._on_add_extra_desc_clicked,
             user_data=('room', room_vnum),
+            width=200,
+            height=25
+        )
+
+    def _show_mobiles_editor(self, room, room_vnum):
+        """Show the mobiles editor section for managing mobile resets and shops."""
+        from area_editor.models.reset import Reset
+        from area_editor.models.shop import Shop
+
+        # Get all mobile resets for this room
+        mobile_resets = []
+        for i, reset in enumerate(app_state.current_area.resets):
+            if reset.command == 'M' and reset.arg3 == room_vnum:
+                mobile_resets.append((i, reset))
+
+        dpg.add_text(f"Mobiles in Room ({len(mobile_resets)}):", color=(150, 150, 150))
+        dpg.add_text("(Mobiles that spawn in this room)", color=(120, 120, 120))
+        dpg.add_spacer(height=5)
+
+        if mobile_resets:
+            for reset_index, reset in mobile_resets:
+                mob_vnum = reset.arg1
+                mob = app_state.current_area.mobiles.get(mob_vnum)
+
+                with dpg.child_window(height=200, border=True):
+                    # Header with mobile info and delete button
+                    with dpg.group(horizontal=True):
+                        if mob:
+                            dpg.add_text(f"Mobile #{mob_vnum}: {mob.short_description}", color=(200, 200, 100))
+                        else:
+                            dpg.add_text(f"Mobile #{mob_vnum} (NOT FOUND)", color=(255, 100, 100))
+                        dpg.add_spacer(width=10)
+                        dpg.add_button(
+                            label="Delete",
+                            callback=self._on_delete_mobile_reset_clicked,
+                            user_data=(room_vnum, reset_index),
+                            width=80,
+                            height=20
+                        )
+
+                    dpg.add_separator()
+                    dpg.add_spacer(height=5)
+
+                    # Mobile vnum selector
+                    with dpg.group(horizontal=True):
+                        dpg.add_text("Mobile:", color=(150, 150, 150))
+                        dpg.add_spacer(width=40)
+
+                        # Create list of available mobiles
+                        mobile_items = [f"#{vnum}: {m.short_description}" for vnum, m in sorted(app_state.current_area.mobiles.items())]
+                        if mobile_items:
+                            current_index = 0
+                            for idx, (vnum, m) in enumerate(sorted(app_state.current_area.mobiles.items())):
+                                if vnum == mob_vnum:
+                                    current_index = idx
+                                    break
+
+                            dpg.add_combo(
+                                items=mobile_items,
+                                default_value=mobile_items[current_index] if current_index < len(mobile_items) else mobile_items[0],
+                                width=300,
+                                callback=self._on_mobile_reset_field_changed,
+                                user_data=('mobile_vnum', reset_index)
+                            )
+                        else:
+                            dpg.add_text("No mobiles defined in area", color=(255, 100, 100))
+
+                    # Max in world
+                    with dpg.group(horizontal=True):
+                        dpg.add_text("Max in World:", color=(150, 150, 150))
+                        dpg.add_spacer(width=10)
+                        dpg.add_input_int(
+                            default_value=reset.arg2,
+                            width=100,
+                            callback=self._on_mobile_reset_field_changed,
+                            user_data=('max_world', reset_index),
+                            min_value=1,
+                            min_clamped=True
+                        )
+                        dpg.add_text("(Maximum instances in entire game)", color=(120, 120, 120))
+
+                    # Max in room
+                    with dpg.group(horizontal=True):
+                        dpg.add_text("Max in Room:", color=(150, 150, 150))
+                        dpg.add_spacer(width=15)
+                        dpg.add_input_int(
+                            default_value=reset.arg4,
+                            width=100,
+                            callback=self._on_mobile_reset_field_changed,
+                            user_data=('max_room', reset_index),
+                            min_value=1,
+                            min_clamped=True
+                        )
+                        dpg.add_text("(Maximum instances in this room)", color=(120, 120, 120))
+
+                    dpg.add_spacer(height=5)
+
+                    # Shop assignment
+                    if mob:
+                        # Check if this mobile has a shop
+                        shop = None
+                        for s in app_state.current_area.shops:
+                            if s.keeper == mob_vnum:
+                                shop = s
+                                break
+
+                        with dpg.group(horizontal=True):
+                            dpg.add_text("Shop:", color=(150, 150, 150))
+                            dpg.add_spacer(width=55)
+                            if shop:
+                                dpg.add_text("✓ Has Shop", color=(100, 255, 100))
+                                dpg.add_button(
+                                    label="Edit Shop",
+                                    callback=self._on_edit_shop_clicked,
+                                    user_data=mob_vnum,
+                                    width=100,
+                                    height=20
+                                )
+                                dpg.add_button(
+                                    label="Remove Shop",
+                                    callback=self._on_remove_shop_clicked,
+                                    user_data=mob_vnum,
+                                    width=100,
+                                    height=20
+                                )
+                            else:
+                                dpg.add_text("No Shop", color=(150, 150, 150))
+                                dpg.add_button(
+                                    label="Add Shop",
+                                    callback=self._on_add_shop_clicked,
+                                    user_data=mob_vnum,
+                                    width=100,
+                                    height=20
+                                )
+
+                dpg.add_spacer(height=5)
+
+        # Add mobile button
+        dpg.add_button(
+            label="+ Add Mobile to Room",
+            callback=self._on_add_mobile_reset_clicked,
+            user_data=room_vnum,
             width=200,
             height=25
         )
