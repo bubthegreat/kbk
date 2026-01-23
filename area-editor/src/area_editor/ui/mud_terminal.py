@@ -1,8 +1,12 @@
 """
 MUD Terminal - A simple terminal simulator for testing area navigation.
 """
+import textwrap
 import dearpygui.dearpygui as dpg
+from pathlib import Path
 from area_editor.app_state import app_state
+from area_editor.models.room import Room, Exit
+from area_editor.writers.are_writer import AreWriter
 
 
 class MudTerminal:
@@ -159,6 +163,13 @@ class MudTerminal:
         # Movement commands
         if cmd in ['north', 'n', 'south', 's', 'east', 'e', 'west', 'w', 'up', 'u', 'down', 'd']:
             self._move(cmd)
+        # Dig commands
+        elif cmd == 'dig':
+            if args and args[0] in ['north', 'n', 'south', 's', 'east', 'e', 'west', 'w', 'up', 'u', 'down', 'd']:
+                self._dig(args[0])
+            else:
+                self._add_output("Usage: dig <direction>", color=(255, 200, 100))
+                self._add_output("  Directions: north, south, east, west, up, down", color=(200, 200, 200))
         # Look commands
         elif cmd in ['look', 'l']:
             if args:
@@ -225,6 +236,113 @@ class MudTerminal:
         self._update_ui_selection(new_room_vnum)
         self.navigating_internally = False
 
+    def _dig(self, direction: str):
+        """Dig a new room in the specified direction."""
+        # Map direction names to numbers
+        dir_map = {
+            'north': 0, 'n': 0,
+            'east': 1, 'e': 1,
+            'south': 2, 's': 2,
+            'west': 3, 'w': 3,
+            'up': 4, 'u': 4,
+            'down': 5, 'd': 5
+        }
+
+        # Reverse direction map for creating bidirectional exits
+        reverse_dir = {0: 2, 1: 3, 2: 0, 3: 1, 4: 5, 5: 4}
+
+        dir_num = dir_map.get(direction)
+        if dir_num is None:
+            return
+
+        room = app_state.current_area.rooms.get(self.current_room_vnum)
+        if not room:
+            return
+
+        # Check if exit already exists
+        if dir_num in room.exits:
+            self._add_output("There is already an exit in that direction.", color=(255, 200, 100))
+            return
+
+        # Find next available vnum in the area
+        area = app_state.current_area
+        next_vnum = None
+        for vnum in range(area.min_vnum, area.max_vnum + 1):
+            if vnum not in area.rooms:
+                next_vnum = vnum
+                break
+
+        if next_vnum is None:
+            self._add_output("ERROR: No available vnums in this area!", color=(255, 100, 100))
+            self._add_output(f"Area range: {area.min_vnum}-{area.max_vnum}", color=(200, 200, 200))
+            return
+
+        # Create the new room
+        new_room = Room(
+            vnum=next_vnum,
+            name="A New Room",
+            description="This is a newly created room. Edit this description to describe what the room looks like.\n",
+            room_flags=0,
+            sector_type=0,  # Inside
+            area_number=0
+        )
+
+        # Add the new room to the area
+        area.rooms[next_vnum] = new_room
+
+        # Create exit from current room to new room
+        room.exits[dir_num] = Exit(
+            direction=dir_num,
+            to_room=next_vnum,
+            description="",
+            keywords="",
+            locks=0,
+            key_vnum=0
+        )
+
+        # Create reverse exit from new room back to current room
+        reverse_dir_num = reverse_dir[dir_num]
+        new_room.exits[reverse_dir_num] = Exit(
+            direction=reverse_dir_num,
+            to_room=self.current_room_vnum,
+            description="",
+            keywords="",
+            locks=0,
+            key_vnum=0
+        )
+
+        # Save the area file if we have a file path
+        if app_state.current_file:
+            try:
+                writer = AreWriter(area)
+                writer.write(app_state.current_file)
+                self._add_output(f"Created room #{next_vnum} to the {direction}.", color=(100, 255, 100))
+                # Mark the area as modified
+                app_state.mark_modified()
+            except Exception as e:
+                self._add_output(f"ERROR: Failed to save area file: {e}", color=(255, 100, 100))
+                # Remove the room and exits since we couldn't save
+                del area.rooms[next_vnum]
+                del room.exits[dir_num]
+                return
+        else:
+            self._add_output(f"Created room #{next_vnum} to the {direction}.", color=(100, 255, 100))
+            self._add_output("WARNING: No area file loaded, changes not saved!", color=(255, 200, 100))
+
+        # Move to the new room
+        self.current_room_vnum = next_vnum
+        self._add_output("")  # Blank line
+        self._show_room()
+
+        # Refresh the area tree to show the new room
+        if self.main_window and hasattr(self.main_window, 'area_tree') and app_state.current_area_id:
+            self.main_window.area_tree.populate_from_area(area, app_state.current_area_id)
+
+        # Update UI selection to match the new room
+        self.navigating_internally = True
+        self._update_ui_selection(next_vnum)
+        self.navigating_internally = False
+
     def _show_room(self):
         """Display the current room."""
         room = app_state.current_area.rooms.get(self.current_room_vnum)
@@ -235,8 +353,20 @@ class MudTerminal:
         # Room name (in cyan color)
         self._add_output(room.name, color=(100, 200, 255))
 
-        # Room description (normal color)
-        self._add_output(room.description, color=(200, 200, 200))
+        # Room description (normal color) - wrapped at 80 characters
+        # Preserve paragraph breaks (blank lines) by processing each paragraph separately
+        description = room.description.strip()
+        if description:
+            # Split by double newlines to preserve paragraph breaks
+            paragraphs = description.split('\n\n')
+            wrapped_paragraphs = []
+            for para in paragraphs:
+                # Wrap each paragraph individually
+                if para.strip():
+                    wrapped_paragraphs.append(textwrap.fill(para.strip(), width=80))
+            # Join paragraphs with blank lines
+            wrapped_description = '\n\n'.join(wrapped_paragraphs)
+            self._add_output(wrapped_description, color=(200, 200, 200))
 
         # Blank line after description
         self._add_output("")
@@ -281,7 +411,8 @@ class MudTerminal:
             for i, mob in enumerate(mobiles_here):
                 # Show the mobile's long description (how they appear in the room)
                 if mob.long_description:
-                    self._add_output(mob.long_description.strip(), color=(200, 200, 255))
+                    wrapped = textwrap.fill(mob.long_description.strip(), width=80)
+                    self._add_output(wrapped, color=(200, 200, 255))
                 else:
                     # Fallback to short description if no long description
                     self._add_output(f"{mob.short_description} is here.", color=(200, 200, 255))
@@ -293,7 +424,8 @@ class MudTerminal:
             for obj in objects_here:
                 # Show the object's long description (how it appears in the room)
                 if obj.long_description:
-                    self._add_output(obj.long_description.strip(), color=(150, 255, 150))
+                    wrapped = textwrap.fill(obj.long_description.strip(), width=80)
+                    self._add_output(wrapped, color=(150, 255, 150))
                 else:
                     # Fallback to short description
                     self._add_output(f"{obj.short_description} is here.", color=(150, 255, 150))
@@ -437,13 +569,16 @@ class MudTerminal:
         for edesc in room.extra_descriptions:
             keywords = edesc.keywords.lower().split()
             if target in keywords:
-                self._add_output(edesc.description, color=(200, 200, 200))
+                wrapped = textwrap.fill(edesc.description.strip(), width=80)
+                self._add_output(wrapped, color=(200, 200, 200))
                 return
 
         # Check objects (simplified)
         for obj in app_state.current_area.objects.values():
             if target in obj.short_description.lower():
-                self._add_output(obj.long_description or obj.short_description, color=(150, 255, 150))
+                desc = obj.long_description or obj.short_description
+                wrapped = textwrap.fill(desc.strip(), width=80)
+                self._add_output(wrapped, color=(150, 255, 150))
                 return
 
         # Check mobiles in this room
@@ -462,7 +597,9 @@ class MudTerminal:
                 if (target in mob.short_description.lower() or
                     target in mob.name.lower()):
                     # Show mobile description
-                    self._add_output(mob.long_description or mob.short_description, color=(255, 200, 150))
+                    desc = mob.long_description or mob.short_description
+                    wrapped = textwrap.fill(desc.strip(), width=80)
+                    self._add_output(wrapped, color=(255, 200, 150))
                     # Show equipment and inventory for this specific mobile
                     self._show_mobile_equipment(mob, i, mobile_resets)
                     return
@@ -473,6 +610,7 @@ class MudTerminal:
         """Show available commands."""
         self._add_output("Available Commands:", color=(100, 200, 255))
         self._add_output("  Movement: north (n), south (s), east (e), west (w), up (u), down (d)", color=(200, 200, 200))
+        self._add_output("  Building: dig <direction> - Create a new room in that direction", color=(200, 200, 200))
         self._add_output("  Look: look, look <target>", color=(200, 200, 200))
         self._add_output("  Other: help, quit (closes terminal)", color=(200, 200, 200))
         self._add_output("", color=(200, 200, 200))

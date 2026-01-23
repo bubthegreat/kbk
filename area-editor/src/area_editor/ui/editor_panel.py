@@ -4,6 +4,8 @@ Editor panel for editing areas, rooms, objects, and mobiles.
 import dearpygui.dearpygui as dpg
 from area_editor.app_state import app_state
 from area_editor.ui.mud_terminal import MudTerminal
+from area_editor.ui.wrapped_text_input import WrappedTextInput
+from area_editor.writers.are_writer import AreWriter
 
 
 class EditorPanel:
@@ -76,6 +78,9 @@ class EditorPanel:
         if hasattr(self.main_window, 'status_bar'):
             self.main_window.status_bar.set_file_info(app_state.get_file_info())
 
+        # Auto-save to disk
+        self._auto_save()
+
     def _on_object_field_changed(self, sender, app_data, user_data):
         """Handle object field changes."""
         field_name, obj_vnum = user_data
@@ -95,6 +100,9 @@ class EditorPanel:
         # Update status bar
         if hasattr(self.main_window, 'status_bar'):
             self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+        # Auto-save to disk
+        self._auto_save()
 
     def _on_mobile_field_changed(self, sender, app_data, user_data):
         """Handle mobile field changes."""
@@ -116,6 +124,9 @@ class EditorPanel:
         if hasattr(self.main_window, 'status_bar'):
             self.main_window.status_bar.set_file_info(app_state.get_file_info())
 
+        # Auto-save to disk
+        self._auto_save()
+
     def _on_area_field_changed(self, sender, app_data, user_data):
         """Handle area field changes."""
         field_name = user_data
@@ -133,6 +144,86 @@ class EditorPanel:
         # Update status bar
         if hasattr(self.main_window, 'status_bar'):
             self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+        # Auto-save to disk
+        self._auto_save()
+
+    def _auto_save(self):
+        """Auto-save the current area to disk and refresh tree."""
+        if not app_state.current_area or not app_state.current_file:
+            return
+
+        try:
+            # Write the area to disk
+            writer = AreWriter(app_state.current_area)
+            writer.write(app_state.current_file)
+
+            # Clear the modified flag
+            app_state.area_modified[app_state.current_area_id] = False
+
+            # Refresh the tree view to show updated room/object/mobile names
+            if hasattr(self.main_window, 'area_tree') and app_state.current_area_id:
+                self.main_window.area_tree.populate_from_area(
+                    app_state.current_area,
+                    app_state.current_area_id
+                )
+
+            # Update status bar (quietly, no success message for auto-save)
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+        except Exception as e:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    f"Error auto-saving: {e}",
+                    color=(255, 100, 100)
+                )
+            print(f"Error auto-saving area file: {e}")
+            import traceback
+            traceback.print_exc()
+
+    def _on_save_shortcut(self):
+        """Handle Ctrl+S save shortcut."""
+        if not app_state.current_area or not app_state.current_file:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    "No area file to save",
+                    color=(255, 100, 100)
+                )
+            return
+
+        try:
+            # Write the area to disk
+            writer = AreWriter(app_state.current_area)
+            writer.write(app_state.current_file)
+
+            # Clear the modified flag
+            app_state.area_modified[app_state.current_area_id] = False
+
+            # Refresh the tree view to show updated names
+            if hasattr(self.main_window, 'area_tree') and app_state.current_area_id:
+                self.main_window.area_tree.populate_from_area(
+                    app_state.current_area,
+                    app_state.current_area_id
+                )
+
+            # Update status bar with success message
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    f"Saved {app_state.current_file.name}",
+                    color=(100, 255, 100)
+                )
+                self.main_window.status_bar.set_file_info(app_state.get_file_info())
+
+        except Exception as e:
+            if hasattr(self.main_window, 'status_bar'):
+                self.main_window.status_bar.set_status(
+                    f"Error saving file: {e}",
+                    color=(255, 100, 100)
+                )
+            print(f"Error saving area file: {e}")
+            import traceback
+            traceback.print_exc()
 
     def _on_room_link_clicked(self, sender, app_data, user_data):
         """Handle clicking on a room link in exits."""
@@ -220,14 +311,17 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Description:", color=(150, 150, 150))
-            dpg.add_input_text(
+            dpg.add_text("(Auto-wraps at 80 characters when you unfocus, auto-resizes to fit content)", color=(120, 120, 120))
+            # Use wrapped text input that auto-wraps at 80 characters and auto-resizes
+            wrapped_input = WrappedTextInput(
                 default_value=room.description,
-                multiline=True,
-                height=100,
-                width=-1,
                 callback=self._on_room_field_changed,
-                user_data=('description', room_vnum)
+                user_data=('description', room_vnum),
+                width=-1,
+                min_height=60,
+                line_height=20
             )
+            wrapped_input.create()
             dpg.add_spacer(height=10)
 
             dpg.add_text(f"Sector Type: {room.sector_type}", color=(150, 150, 150))
@@ -319,12 +413,17 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Long Description:", color=(150, 150, 150))
-            dpg.add_input_text(
+            dpg.add_text("(Auto-wraps at 80 characters when you unfocus, auto-resizes to fit content)", color=(120, 120, 120))
+            # Use wrapped text input that auto-wraps at 80 characters and auto-resizes
+            wrapped_input = WrappedTextInput(
                 default_value=obj.long_description,
-                width=-1,
                 callback=self._on_object_field_changed,
-                user_data=('long_description', obj_vnum)
+                user_data=('long_description', obj_vnum),
+                width=-1,
+                min_height=40,
+                line_height=20
             )
+            wrapped_input.create()
             dpg.add_spacer(height=10)
 
             dpg.add_text(f"Item Type: {obj.item_type}", color=(150, 150, 150))
@@ -408,14 +507,17 @@ class EditorPanel:
             dpg.add_spacer(height=10)
 
             dpg.add_text("Long Description:", color=(150, 150, 150))
-            dpg.add_input_text(
+            dpg.add_text("(Auto-wraps at 80 characters when you unfocus, auto-resizes to fit content)", color=(120, 120, 120))
+            # Use wrapped text input that auto-wraps at 80 characters and auto-resizes
+            wrapped_input = WrappedTextInput(
                 default_value=mob.long_description,
-                multiline=True,
-                height=60,
-                width=-1,
                 callback=self._on_mobile_field_changed,
-                user_data=('long_description', mob_vnum)
+                user_data=('long_description', mob_vnum),
+                width=-1,
+                min_height=40,
+                line_height=20
             )
+            wrapped_input.create()
             dpg.add_spacer(height=10)
 
             dpg.add_text(f"Race: {mob.race}", color=(150, 150, 150))

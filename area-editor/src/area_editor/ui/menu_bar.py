@@ -4,6 +4,8 @@ Menu bar component for the Area Editor.
 import dearpygui.dearpygui as dpg
 from pathlib import Path
 from area_editor.config import config
+from area_editor.templates import create_new_area
+from area_editor.writers.are_writer import AreWriter
 
 
 class MenuBar:
@@ -16,7 +18,7 @@ class MenuBar:
     
     def create(self):
         """Create the menu bar."""
-        # Create file dialog (hidden by default) - supports multiple file selection
+        # Create file dialog for opening (hidden by default) - supports multiple file selection
         with dpg.file_dialog(
             directory_selector=False,
             show=False,
@@ -25,6 +27,20 @@ class MenuBar:
             width=700,
             height=400,
             tag="file_dialog"
+        ):
+            dpg.add_file_extension(".are", color=(150, 255, 150, 255))
+            dpg.add_file_extension(".*")
+
+        # Create save file dialog for new areas (hidden by default)
+        with dpg.file_dialog(
+            directory_selector=False,
+            show=False,
+            callback=self._save_new_area_callback,
+            file_count=1,  # Single file selection for saving
+            width=700,
+            height=400,
+            tag="save_new_area_dialog",
+            default_filename="newarea"
         ):
             dpg.add_file_extension(".are", color=(150, 255, 150, 255))
             dpg.add_file_extension(".*")
@@ -84,9 +100,50 @@ class MenuBar:
             for filepath in selections.values():
                 self.main_window.open_area_file(filepath)
 
+    def _save_new_area_callback(self, sender, app_data):
+        """Handle save file dialog for new area."""
+        # Get the file path from the dialog
+        filepath = app_data.get('file_path_name')
+        if not filepath:
+            print("Error: No file path provided")
+            return
+
+        filepath_obj = Path(filepath)
+
+        # Ensure .are extension
+        if filepath_obj.suffix != '.are':
+            filepath_obj = filepath_obj.with_suffix('.are')
+
+        try:
+            # Create a new area with default values
+            # Use filename (without extension) as area name
+            area_name = filepath_obj.stem.replace('_', ' ').title()
+
+            # Create the area with a single default room
+            area = create_new_area(
+                name=area_name,
+                author="Builder",
+                min_vnum=1000,
+                max_vnum=1099
+            )
+
+            # Write the area to disk
+            writer = AreWriter(area)
+            writer.write(filepath_obj)
+
+            # Load the newly created area into the editor
+            self.main_window.open_area_file(str(filepath_obj))
+
+            print(f"Created new area: {filepath_obj}")
+        except Exception as e:
+            print(f"Error creating new area: {e}")
+            import traceback
+            traceback.print_exc()
+
     def _on_new_area(self):
         """Handle New Area menu item."""
-        print("New Area clicked")
+        # Show the save file dialog
+        dpg.show_item("save_new_area_dialog")
 
     def _on_open_area(self):
         """Handle Open Area menu item."""

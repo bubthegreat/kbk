@@ -115,11 +115,9 @@ Examples:
 
     # Load file if specified on command line
     if file_to_load:
-        # Need to render one frame first to ensure UI is ready
-        dpg.render_dearpygui_frame()
         main_window.open_area_file(file_to_load)
 
-    # Start render loop
+    # Start DearPyGui
     dpg.start_dearpygui()
 
     # Save window size before cleanup

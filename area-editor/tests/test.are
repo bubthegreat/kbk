@@ -356,9 +356,16 @@ O 0 1003 0 1001 0
 S
 
 #SPECIALS
+M 1052 spec_guard
 S
 
 #SHOPS
 0
+
+#IMPROGS
+E
+
+#HELPS
+-1 $~
 
 #$
