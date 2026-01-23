@@ -240,7 +240,10 @@ class MudTerminal:
             self._add_output("Exits: none", color=(255, 220, 100))
 
         # Find mobiles in this room by checking resets
+        # We need to track which mobile reset we're on for equipment/inventory
         mobiles_here = []
+        mobile_resets = []  # Track reset objects for equipment lookup
+
         for reset in app_state.current_area.resets:
             if reset.command == 'M' and reset.arg3 == self.current_room_vnum:
                 # This is a mobile reset for this room
@@ -248,10 +251,21 @@ class MudTerminal:
                 if mob_vnum in app_state.current_area.mobiles:
                     mob = app_state.current_area.mobiles[mob_vnum]
                     mobiles_here.append(mob)
+                    mobile_resets.append(reset)
+
+        # Find objects on the ground (O resets)
+        objects_here = []
+        for reset in app_state.current_area.resets:
+            if reset.command == 'O' and reset.arg3 == self.current_room_vnum:
+                # This is an object reset for this room
+                obj_vnum = reset.arg1
+                if obj_vnum in app_state.current_area.objects:
+                    obj = app_state.current_area.objects[obj_vnum]
+                    objects_here.append(obj)
 
         # Display mobiles (no blank line before them)
         if mobiles_here:
-            for mob in mobiles_here:
+            for i, mob in enumerate(mobiles_here):
                 # Show the mobile's long description (how they appear in the room)
                 if mob.long_description:
                     self._add_output(mob.long_description.strip(), color=(200, 200, 255))
@@ -259,7 +273,104 @@ class MudTerminal:
                     # Fallback to short description if no long description
                     self._add_output(f"{mob.short_description} is here.", color=(200, 200, 255))
 
+                # Show equipment and inventory for this mobile
+                # Find E (equip) and G (give) resets that follow this M reset
+                self._show_mobile_equipment(mob, i, mobile_resets)
+
+        # Display objects on the ground
+        if objects_here:
+            for obj in objects_here:
+                # Show the object's long description (how it appears in the room)
+                if obj.long_description:
+                    self._add_output(obj.long_description.strip(), color=(150, 255, 150))
+                else:
+                    # Fallback to short description
+                    self._add_output(f"{obj.short_description} is here.", color=(150, 255, 150))
+
         self._add_output("")  # Blank line
+
+    def _show_mobile_equipment(self, mob, mobile_index: int, mobile_resets: list):
+        """Show equipment and inventory for a mobile.
+
+        Args:
+            mob: The mobile object
+            mobile_index: Index of this mobile in the mobile_resets list
+            mobile_resets: List of all M resets in this room
+        """
+        # Wear location names
+        wear_locations = {
+            0: "as a light",
+            1: "on left finger",
+            2: "on right finger",
+            3: "around neck",
+            4: "around neck",
+            5: "on body",
+            6: "on head",
+            7: "on legs",
+            8: "on feet",
+            9: "on hands",
+            10: "on arms",
+            11: "as a shield",
+            12: "about body",
+            13: "around waist",
+            14: "on left wrist",
+            15: "on right wrist",
+            16: "wielded",
+            17: "held in hand"
+        }
+
+        # Find the position of this mobile's reset in the full reset list
+        # E and G resets apply to the most recent M reset
+        mobile_reset_index = -1
+        m_count = 0
+        for i, reset in enumerate(app_state.current_area.resets):
+            if reset.command == 'M':
+                if m_count == mobile_index and reset.arg3 == self.current_room_vnum:
+                    mobile_reset_index = i
+                    break
+                if reset.arg3 == self.current_room_vnum:
+                    m_count += 1
+
+        if mobile_reset_index == -1:
+            return
+
+        # Find E (equip) and G (give) resets that follow this M reset
+        # They apply until we hit another M, O, or S reset
+        equipment = []
+        inventory = []
+
+        for i in range(mobile_reset_index + 1, len(app_state.current_area.resets)):
+            reset = app_state.current_area.resets[i]
+
+            # Stop at next mobile, object, or end
+            if reset.command in ['M', 'O', 'S']:
+                break
+
+            if reset.command == 'E':
+                # Equipment reset
+                obj_vnum = reset.arg1
+                wear_loc = reset.arg3
+                if obj_vnum in app_state.current_area.objects:
+                    obj = app_state.current_area.objects[obj_vnum]
+                    loc_name = wear_locations.get(wear_loc, f"in slot {wear_loc}")
+                    equipment.append((obj, loc_name))
+
+            elif reset.command == 'G':
+                # Give (inventory) reset
+                obj_vnum = reset.arg1
+                if obj_vnum in app_state.current_area.objects:
+                    obj = app_state.current_area.objects[obj_vnum]
+                    inventory.append(obj)
+
+        # Only display if mobile has equipment or inventory
+        if equipment or inventory:
+            # Display equipment
+            for obj, loc_name in equipment:
+                self._add_output(f"  ...{loc_name}: {obj.short_description}", color=(180, 220, 180))
+
+            # Display inventory (carried items)
+            for obj in inventory:
+                self._add_output(f"  ...carrying: {obj.short_description}", color=(180, 220, 180))
 
     def _look_at(self, target: str):
         """Look at a specific target."""

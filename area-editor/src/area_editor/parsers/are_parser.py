@@ -354,6 +354,26 @@ class AreParser(BaseParser):
                             if len(extra_parts) >= 4:
                                 obj.extra_value4 = int(extra_parts[3])
 
+                    elif keyword == 'VALUES':
+                        # Read item values (weapon damage, armor AC, etc.)
+                        # Just store as type_values for now
+                        if len(parts) > 1:
+                            obj.type_values = parts[1].split()
+
+                    elif keyword == 'STATS':
+                        # Read level, weight, cost, condition
+                        # Format: STATS <level> <weight> <cost> <condition>
+                        if len(parts) > 1:
+                            stats_parts = parts[1].split()
+                            if len(stats_parts) >= 1:
+                                obj.level = int(stats_parts[0])
+                            if len(stats_parts) >= 2:
+                                obj.weight = int(stats_parts[1])
+                            if len(stats_parts) >= 3:
+                                obj.cost = int(stats_parts[2])
+                            if len(stats_parts) >= 4:
+                                obj.condition = stats_parts[3]  # Can be 'P' or number
+
                     elif keyword == 'WEAR':
                         # Read wear flags
                         obj.wear_flags = parts[1] if len(parts) > 1 else ""
