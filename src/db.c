@@ -767,7 +767,7 @@ void boot_db()
 		}
 	}
 
-	init_mysql();
+	init_sqlite();
 	/*
 	 * Read in all the area files.
 	 */
@@ -1361,8 +1361,8 @@ void load_helps(FILE *fp, char *fname)
 		pHelp->keyword = keyword;
 		pHelp->text = fread_string(fp);
 
-		// mysql_safe_query("DELETE FROM helpfiles");
-		/*mysql_safe_query("INSERT INTO helpfiles VALUES(%d, '%s', '%s', %d)",
+		// sqlite_safe_query("DELETE FROM helpfiles");
+		/*sqlite_safe_query("INSERT INTO helpfiles VALUES(%d, '%s', '%s', %d)",
 			pHelp->level,
 			pHelp->keyword,
 			pHelp->text,
@@ -3901,10 +3901,10 @@ void do_memory(CHAR_DATA *ch, char *argument)
 	send_to_char(buf, ch);
 
 	// Test MySQL connectivity
-	MYSQL *test_conn = get_mysql_connection();
+	sqlite3 *test_conn = get_sqlite_connection();
 	printf_to_char(ch, "MySQL Connection Active: %s\n\r", test_conn ? "YES" : "NO");
 	if (test_conn)
-		mysql_close(test_conn);
+		sqlite3_close(test_conn);
 
 	printf_to_char(ch, "Obsidian Prince Timer  : %d\n\r", obsidian_prince_timer);
 

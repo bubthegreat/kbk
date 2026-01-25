@@ -33,57 +33,61 @@
  *	In using this code you agree to comply with the Tartarus license   *
  *       found in the file /Tartarus/doc/tartarus.doc                       *
  ***************************************************************************/
+
+/***************************************************************************
+ *  SQLite3 Database Interface - Converted from MySQL                      *
+ *  Provides simpler deployment with file-based database                   *
+ ***************************************************************************/
+
 #include "include.h"
 
 /*
- * Get a new MySQL connection.
- * Caller is responsible for calling mysql_close() when done.
+ * Get a new SQLite3 connection.
+ * Caller is responsible for calling sqlite3_close() when done.
  * Returns NULL on failure.
  */
-MYSQL *get_mysql_connection(void)
+sqlite3 *get_sqlite_connection(void)
 {
-	MYSQL *conn = mysql_init(NULL);
+	sqlite3 *db = NULL;
+	int rc;
 
-	if (!conn)
+	rc = sqlite3_open(SQLITE_DB_PATH, &db);
+
+	if (rc != SQLITE_OK)
 	{
-		n_logf("get_mysql_connection: mysql_init() failed");
+		n_logf("get_sqlite_connection: Failed to open database");
+		n_logf("  Error: %s", sqlite3_errmsg(db));
+		if (db)
+			sqlite3_close(db);
 		return NULL;
 	}
 
-	if (!mysql_real_connect(conn, SQL_SERVER, SQL_USER, SQL_PWD, SQL_DB, 0, NULL, 0))
-	{
-		n_logf("get_mysql_connection: Failed to connect to MySQL");
-		n_logf("  Error %d: %s", mysql_errno(conn), mysql_error(conn));
-		mysql_close(conn);
-		return NULL;
-	}
+	// Enable foreign keys (off by default in SQLite)
+	sqlite3_exec(db, "PRAGMA foreign_keys = ON;", NULL, NULL, NULL);
 
-	return conn;
+	return db;
 }
 
-void init_mysql(void)
+void init_sqlite(void)
 {
-	// Test that we can connect to the database
-	MYSQL *test_conn = get_mysql_connection();
+	sqlite3 *test_db = get_sqlite_connection();
 
-	if (test_conn)
+	if (test_db)
 	{
-		log_string("Mysql_init: Successfully connected to MySQL database.");
-		mysql_close(test_conn);
+		log_string("init_sqlite: Successfully connected to SQLite database.");
+		sqlite3_close(test_db);
 	}
 	else
 	{
 		// Fatal error - cannot start without database
 		log_string("========================================");
-		log_string("FATAL ERROR: Cannot connect to MySQL database!");
-		log_string("Server: " SQL_SERVER);
-		log_string("Database: " SQL_DB);
-		log_string("User: " SQL_USER);
+		log_string("FATAL ERROR: Cannot connect to SQLite database!");
+		log_string("Database path: " SQLITE_DB_PATH);
 		log_string("Please check:");
-		log_string("  1. MySQL server is running");
-		log_string("  2. Database credentials are correct");
-		log_string("  3. Database exists and user has permissions");
-		log_string("  4. Network connectivity to MySQL server");
+		log_string("  1. Database file exists and is readable");
+		log_string("  2. Directory has proper permissions");
+		log_string("  3. Database is not corrupted");
+		log_string("  4. Disk space is available");
 		log_string("========================================");
 		log_string("Server startup ABORTED.");
 		exit(1);
@@ -93,9 +97,40 @@ void init_mysql(void)
 
 void close_db(void)
 {
-	// No-op now since we don't keep persistent connections
+	// No-op since we don't keep persistent connections
 	log_string("Close_db: No persistent connection to close.");
 	return;
+}
+
+/*
+ * Helper function to escape strings for SQLite.
+ * SQLite uses single quotes, and escapes them by doubling.
+ * Returns escaped string in static buffer.
+ */
+static char *sqlite_escape_string(const char *str)
+{
+	static char escaped[MAX_STRING_LENGTH * 2];
+	char *out = escaped;
+	const char *in = str;
+
+	if (!str)
+		return "";
+
+	while (*in && (out - escaped) < (MAX_STRING_LENGTH * 2 - 2))
+	{
+		if (*in == '\'')
+		{
+			*out++ = '\'';
+			*out++ = '\'';
+		}
+		else
+		{
+			*out++ = *in;
+		}
+		in++;
+	}
+	*out = '\0';
+	return escaped;
 }
 
 /*
@@ -103,26 +138,25 @@ void close_db(void)
  * Opens connection, executes query, closes connection immediately.
  * Returns 0 on success, -1 on failure.
  */
-int mysql_safe_query(char *fmt, ...)
+int sqlite_safe_query(char *fmt, ...)
 {
 	va_list argp;
 	int i = 0;
 	double j = 0;
 	long int l = 0;
 	char *s = 0, *out = 0, *p = 0;
-	char safe[MAX_STRING_LENGTH];
 	char query[MAX_STRING_LENGTH];
 	int result = -1;
-	MYSQL *conn = NULL;
+	sqlite3 *db = NULL;
+	char *err_msg = NULL;
 
 	*query = '\0';
-	*safe = '\0';
 
 	// Get a fresh connection for this query
-	conn = get_mysql_connection();
-	if (!conn)
+	db = get_sqlite_connection();
+	if (!db)
 	{
-		n_logf("MySQL query aborted: could not establish connection");
+		n_logf("SQLite query aborted: could not establish connection");
 		return -1;
 	}
 
@@ -148,9 +182,7 @@ int mysql_safe_query(char *fmt, ...)
 				out += sprintf(out, " ");
 				break;
 			}
-			mysql_real_escape_string(conn, safe, s, strlen(s));
-			out += sprintf(out, "%s", safe);
-			*safe = '\0';
+			out += sprintf(out, "%s", sqlite_escape_string(s));
 			break;
 		case 'd':
 			i = va_arg(argp, int);
@@ -184,49 +216,114 @@ int mysql_safe_query(char *fmt, ...)
 
 	va_end(argp);
 
-	result = (mysql_real_query(conn, query, strlen(query)));
+	result = sqlite3_exec(db, query, NULL, NULL, &err_msg);
 
-	if (mysql_error(conn)[0] != '\0')
+	if (result != SQLITE_OK)
 	{
-		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(conn), mysql_error(conn), query);
+		n_logf("SQLite Error: %s\n\r--- Offending Query ---\n\r%s\n\r", err_msg, query);
+		sqlite3_free(err_msg);
+		sqlite3_close(db);
+		return -1;
 	}
 
 	// Close the connection immediately after the query
-
-	return result;
+	sqlite3_close(db);
+	return 0;
 }
 
 /*
- * Execute a query and return the result set.
- * Connection is automatically closed after storing results in client memory.
- * Caller MUST call mysql_free_result() when done.
+ * Fetch the next row from a result set.
+ * Returns NULL when no more rows available.
+ * Compatible with mysql_fetch_row().
+ */
+SQL_ROW sqlite_fetch_row(SQL_RES *res)
+{
+	if (!res || res->current_row >= res->num_rows)
+		return NULL;
+
+	return res->rows[res->current_row++];
+}
+
+/*
+ * Get the number of rows in a result set.
+ * Compatible with mysql_num_rows().
+ */
+int sqlite_num_rows(SQL_RES *res)
+{
+	if (!res)
+		return 0;
+	return res->num_rows;
+}
+
+/*
+ * Free a result set and close the associated database connection.
+ * Compatible with mysql_free_result().
+ */
+void sqlite_free_result(SQL_RES *res)
+{
+	int i, j;
+
+	if (!res)
+		return;
+
+	// Free all row data
+	if (res->rows)
+	{
+		for (i = 0; i < res->num_rows; i++)
+		{
+			if (res->rows[i])
+			{
+				for (j = 0; j < res->num_cols; j++)
+				{
+					if (res->rows[i][j])
+						free(res->rows[i][j]);
+				}
+				free(res->rows[i]);
+			}
+		}
+		free(res->rows);
+	}
+
+	// Close database connection
+	if (res->db)
+		sqlite3_close(res->db);
+
+	free(res);
+}
+
+/*
+ * Execute a query and return results in MySQL-compatible format.
+ * Stores all results in memory, closes database connection.
+ * Caller MUST call sqlite_free_result() when done.
  * Returns NULL on failure.
  */
-MYSQL_RES *mysql_safe_query_with_result(char *fmt, ...)
+SQL_RES *sqlite_safe_query_with_result(char *fmt, ...)
 {
 	va_list argp;
-	int i = 0;
+	int i = 0, row_idx = 0, col_idx = 0;
 	double j = 0;
 	long int l = 0;
 	char *s = 0, *out = 0, *p = 0;
-	char safe[MAX_STRING_LENGTH];
 	char query[MAX_STRING_LENGTH];
-	MYSQL_RES *result = NULL;
-	MYSQL *conn = NULL;
+	sqlite3_stmt *stmt = NULL;
+	sqlite3 *db = NULL;
+	SQL_RES *result = NULL;
+	int rc, num_cols;
+	const char *col_text;
 
 	*query = '\0';
-	*safe = '\0';
 
 	// Get a fresh connection for this query
-	conn = get_mysql_connection();
-	if (!conn)
+	db = get_sqlite_connection();
+	if (!db)
 	{
-		n_logf("MySQL query aborted: could not establish connection");
+		n_logf("SQLite query aborted: could not establish connection");
 		return NULL;
 	}
 
 	va_start(argp, fmt);
 
+	// Build query string
 	for (p = fmt, out = query; *p != '\0'; p++)
 	{
 		if (*p != '%')
@@ -247,9 +344,7 @@ MYSQL_RES *mysql_safe_query_with_result(char *fmt, ...)
 				out += sprintf(out, " ");
 				break;
 			}
-			mysql_real_escape_string(conn, safe, s, strlen(s));
-			out += sprintf(out, "%s", safe);
-			*safe = '\0';
+			out += sprintf(out, "%s", sqlite_escape_string(s));
 			break;
 		case 'd':
 			i = va_arg(argp, int);
@@ -260,16 +355,14 @@ MYSQL_RES *mysql_safe_query_with_result(char *fmt, ...)
 			out += sprintf(out, "%f", j);
 			break;
 		case 'l':
-			// Check if next character is 'd' for %ld format
 			if (*(p + 1) == 'd')
 			{
-				p++; // consume the 'd'
+				p++;
 				l = va_arg(argp, long int);
 				out += sprintf(out, "%ld", l);
 			}
 			else
 			{
-				// Just %l by itself (shouldn't happen, but handle it)
 				l = va_arg(argp, long int);
 				out += sprintf(out, "%ld", l);
 			}
@@ -280,36 +373,86 @@ MYSQL_RES *mysql_safe_query_with_result(char *fmt, ...)
 		}
 	}
 	*out = '\0';
-
 	va_end(argp);
 
-	if (mysql_real_query(conn, query, strlen(query)) != 0)
+	// Prepare statement
+	rc = sqlite3_prepare_v2(db, query, -1, &stmt, NULL);
+	if (rc != SQLITE_OK)
 	{
-		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(conn), mysql_error(conn), query);
+		n_logf("SQLite Error: %s\n\r--- Offending Query ---\n\r%s\n\r", sqlite3_errmsg(db), query);
+		sqlite3_close(db);
 		return NULL;
 	}
 
-	// Store result - this copies all data to client memory
-	result = mysql_store_result(conn);
-
-	if (mysql_error(conn)[0] != '\0')
+	// Allocate result structure
+	result = (SQL_RES *)malloc(sizeof(SQL_RES));
+	if (!result)
 	{
-		n_logf("MySQL Error %d: %s\n\r--- Offending Query ---\n\r%s\n\r", mysql_errno(conn), mysql_error(conn), query);
-		if (result)
-			mysql_free_result(result);
+		sqlite3_finalize(stmt);
+		sqlite3_close(db);
 		return NULL;
 	}
 
-	// Close connection immediately - result set has all data in client memory
+	result->db = db;
+	result->current_row = 0;
+	result->num_cols = sqlite3_column_count(stmt);
+	num_cols = result->num_cols;
 
-	// Return result set - caller MUST free with mysql_free_result()
+	// Count rows first
+	result->num_rows = 0;
+	while (sqlite3_step(stmt) == SQLITE_ROW)
+		result->num_rows++;
+
+	// Reset statement to fetch data
+	sqlite3_reset(stmt);
+
+	// Allocate rows array
+	result->rows = (char ***)malloc(sizeof(char **) * result->num_rows);
+	if (!result->rows)
+	{
+		sqlite3_finalize(stmt);
+		sqlite3_close(db);
+		free(result);
+		return NULL;
+	}
+
+	// Fetch all rows
+	row_idx = 0;
+	while (sqlite3_step(stmt) == SQLITE_ROW)
+	{
+		result->rows[row_idx] = (char **)malloc(sizeof(char *) * num_cols);
+		if (!result->rows[row_idx])
+		{
+			sqlite_free_result(result);
+			sqlite3_finalize(stmt);
+			return NULL;
+		}
+
+		for (col_idx = 0; col_idx < num_cols; col_idx++)
+		{
+			col_text = (const char *)sqlite3_column_text(stmt, col_idx);
+			if (col_text)
+			{
+				result->rows[row_idx][col_idx] = strdup(col_text);
+			}
+			else
+			{
+				result->rows[row_idx][col_idx] = strdup("");
+			}
+		}
+		row_idx++;
+	}
+
+	sqlite3_finalize(stmt);
+	// Note: db connection stays open, will be closed in sqlite_free_result()
+
 	return result;
 }
 
 void do_pktrack(CHAR_DATA *ch, char *argument)
 {
-	MYSQL_ROW row;
-	MYSQL_RES *res_set;
+	SQL_ROW row;
+	SQL_RES *res_set;
 	BUFFER *buffer;
 	char arg1[MSL];
 	char buf[MSL];
@@ -324,15 +467,15 @@ void do_pktrack(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "wins"))
-		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE killer RLIKE '%s'", argument);
+		res_set = sqlite_safe_query_with_result("SELECT * FROM pklogs WHERE killer LIKE '%s'", argument);
 	else if (!str_cmp(arg1, "losses"))
-		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE dead RLIKE '%s'", argument);
+		res_set = sqlite_safe_query_with_result("SELECT * FROM pklogs WHERE dead LIKE '%s'", argument);
 	else if (!str_cmp(arg1, "all"))
-		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE killer RLIKE '%s' OR dead RLIKE '%s'", argument, argument);
+		res_set = sqlite_safe_query_with_result("SELECT * FROM pklogs WHERE killer LIKE '%s' OR dead LIKE '%s'", argument, argument);
 	else if (!str_cmp(arg1, "date"))
-		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE time RLIKE '%s'", argument);
+		res_set = sqlite_safe_query_with_result("SELECT * FROM pklogs WHERE time LIKE '%s'", argument);
 	else if (!str_cmp(arg1, "location"))
-		res_set = mysql_safe_query_with_result("SELECT * FROM pklogs WHERE room RLIKE '%s'", argument);
+		res_set = sqlite_safe_query_with_result("SELECT * FROM pklogs WHERE room LIKE '%s'", argument);
 	else
 		return send_to_char("Invalid option.\n\r", ch);
 
@@ -341,15 +484,15 @@ void do_pktrack(CHAR_DATA *ch, char *argument)
 		send_to_char("Error accessing results.\n\r", ch);
 		return;
 	}
-	else if (mysql_num_rows(res_set) == 0)
+	else if (sqlite_num_rows(res_set) == 0)
 	{
 		send_to_char("No results found.\n\r", ch);
-		mysql_free_result(res_set);
+		sqlite_free_result(res_set);
 		return;
 	}
 	else
 	{
-		while ((row = mysql_fetch_row(res_set)) != NULL)
+		while ((row = sqlite_fetch_row(res_set)) != NULL)
 		{
 			sprintf(buf, "%3d) %s killed %s at %s on %s",
 					++i,
@@ -368,7 +511,7 @@ void do_pktrack(CHAR_DATA *ch, char *argument)
 		{
 			page_to_char(buf_string(buffer), ch);
 		}
-		mysql_free_result(res_set);
+		sqlite_free_result(res_set);
 		free_buf(buffer);
 	}
 	return;
@@ -388,7 +531,8 @@ void login_log(CHAR_DATA *ch, int type)
 		sprintf(vbuf, "%ld", ch->in_room->vnum);
 	}
 	// Insert the info into the traffic tables.
-	mysql_safe_query("INSERT INTO traffic VALUES('%s', INET_ATON(\'%s\'), '%s', CURRENT_TIMESTAMP, %d, '%s')",
+	// Note: IP stored as text in SQLite3 instead of MySQL's INET_ATON integer format
+	sqlite_safe_query("INSERT INTO traffic VALUES('%s', '%s', '%s', datetime('now'), %d, '%s')",
 					 ch->original_name,
 					 type == LTYPE_AUTO ? ch->desc->ip : ch->desc->ip,
 					 type == LTYPE_AUTO ? ch->desc->host : ch->desc->host,
@@ -406,7 +550,7 @@ void saveCharmed(CHAR_DATA *ch)
 		return;
 	}
 	// Clear out any previous charmies from the database
-	if (mysql_safe_query("DELETE FROM charmed WHERE owner='%s'", ch->original_name) != 0)
+	if (sqlite_safe_query("DELETE FROM charmed WHERE owner='%s'", ch->original_name) != 0)
 	{
 		return;
 	}
@@ -415,7 +559,7 @@ void saveCharmed(CHAR_DATA *ch)
 	{
 		if (charm->in_room == ch->in_room && charm->leader == ch && IS_NPC(charm))
 		{
-			mysql_safe_query("INSERT INTO charmed VALUES('%s','%d','%s','%s','%s',%d,%d,%d,%d,%d,%d,%d)",
+			sqlite_safe_query("INSERT INTO charmed VALUES('%s','%d','%s','%s','%s',%d,%d,%d,%d,%d,%d,%d)",
 							 charm->leader->original_name,
 							 charm->pIndexData->vnum,
 							 charm->name,
@@ -435,25 +579,25 @@ void saveCharmed(CHAR_DATA *ch)
 
 void loadCharmed(CHAR_DATA *ch)
 {
-	MYSQL_ROW row;
-	MYSQL_RES *result;
+	SQL_ROW row;
+	SQL_RES *result;
 	CHAR_DATA *mob;
 	long vnum = 0;
 	AFFECT_DATA af;
 
 	// Get charmies from database
-	result = mysql_safe_query_with_result("SELECT * FROM charmed WHERE owner='%s'", ch->original_name);
+	result = sqlite_safe_query_with_result("SELECT * FROM charmed WHERE owner='%s'", ch->original_name);
 
 	// Nothing to do if we have no results.
-	if (!result || mysql_num_rows(result) == 0)
+	if (!result || sqlite_num_rows(result) == 0)
 	{
 		if (result)
-			mysql_free_result(result);
+			sqlite_free_result(result);
 		return;
 	}
 
 	// Load up them bad boys.
-	while ((row = mysql_fetch_row(result)) != NULL)
+	while ((row = sqlite_fetch_row(result)) != NULL)
 	{
 		vnum = atoi(row[1]);
 		// If it doesn't have a valid vnum, skip it.
@@ -535,30 +679,30 @@ void loadCharmed(CHAR_DATA *ch)
 			act("$N materializes and nods loyally towards you.", ch, 0, mob, TO_CHAR);
 		}
 	}
-	mysql_free_result(result);
+	sqlite_free_result(result);
 	return;
 }
 
 void printCharmed(CHAR_DATA *ch, char *name)
 {
-	MYSQL_ROW row;
-	MYSQL_RES *result;
+	SQL_ROW row;
+	SQL_RES *result;
 	BUFFER *buffer;
 	int c = 0;
 	char buf[MSL];
 
 	// Select all the charmies of this person.
-	result = mysql_safe_query_with_result("SELECT * FROM charmed WHERE owner='%s'", name);
+	result = sqlite_safe_query_with_result("SELECT * FROM charmed WHERE owner='%s'", name);
 
 	buffer = new_buf();
 
 	// If we have a non-empty result, print that bitch out.
-	if (result && mysql_num_rows(result))
+	if (result && sqlite_num_rows(result))
 	{
 		send_to_char("Num Vnum     Charmed Name\n\r", ch);
 		send_to_char("--------------------------------------------------\n\r", ch);
 		// Go through and calculate how many of each charmie they have
-		while ((row = mysql_fetch_row(result)))
+		while ((row = sqlite_fetch_row(result)))
 		{
 			c++;
 			sprintf(buf, "%-2d) %-6ld - %s\n\r", c, (long)atoi(row[1]), row[3]);
@@ -567,14 +711,14 @@ void printCharmed(CHAR_DATA *ch, char *name)
 		// Give them the result.
 		page_to_char(buf_string(buffer), ch);
 		// Free up memory.
-		mysql_free_result(result);
+		sqlite_free_result(result);
 		free_buf(buffer);
 	}
 	else
 	{
 		printf_to_char(ch, "No charmed mobs have been recorded for %s.\n\r", name);
 		if (result)
-			mysql_free_result(result);
+			sqlite_free_result(result);
 	}
 	free_buf(buffer);
 	return;
@@ -598,7 +742,7 @@ void do_charmed(CHAR_DATA *ch, char *argument)
 void pruneDatabase(void)
 {
 	// Notes
-	if (mysql_safe_query("DELETE FROM notes WHERE timestamp + 2592000 < %d", current_time) != 0)
+	if (sqlite_safe_query("DELETE FROM notes WHERE timestamp + 2592000 < %d", current_time) != 0)
 	{
 		n_logf("MySQL: Failed to clean notes table.");
 	}
@@ -608,7 +752,7 @@ void pruneDatabase(void)
 	}
 
 	// Logins
-	if (mysql_safe_query("DELETE FROM logins WHERE ctime + 5184000 < %d", current_time) != 0)
+	if (sqlite_safe_query("DELETE FROM logins WHERE ctime + 5184000 < %d", current_time) != 0)
 	{
 		n_logf("MySQL: Failed to clean logins table.");
 	}
@@ -622,9 +766,9 @@ void pruneDatabase(void)
 
 void updatePlayerAuth(CHAR_DATA *ch)
 {
-	mysql_safe_query("DELETE FROM player_auth WHERE name='%s'",
+	sqlite_safe_query("DELETE FROM player_auth WHERE name='%s'",
 					 ch->original_name);
-	mysql_safe_query("INSERT INTO player_auth VALUES('%s','%s',%d)",
+	sqlite_safe_query("INSERT INTO player_auth VALUES('%s','%s',%d)",
 					 ch->original_name,
 					 ch->pcdata->pwd,
 					 ch->level);
@@ -637,7 +781,7 @@ void delete_char(char *name, bool save_pfile)
 	name = capitalize(name);
 
 	// Wipe bounties
-	if (mysql_safe_query("DELETE FROM bounties WHERE victim='%s'", name))
+	if (sqlite_safe_query("DELETE FROM bounties WHERE victim='%s'", name))
 	{
 		n_logf("Delete_char: Wiped bounties for %s.", name);
 	}
@@ -646,7 +790,7 @@ void delete_char(char *name, bool save_pfile)
 		n_logf("Delete_char: Failed to wipe bounties for %s.", name);
 	}
 	// Wipe charmies
-	if (mysql_safe_query("DELETE FROM charmed WHERE owner='%s'", name))
+	if (sqlite_safe_query("DELETE FROM charmed WHERE owner='%s'", name))
 	{
 		n_logf("Delete_char: wiped saved charmed mobs for %s.", name);
 	}
@@ -655,7 +799,7 @@ void delete_char(char *name, bool save_pfile)
 		n_logf("Delete_char: Failed to wipe charmed mobs for %s.", name);
 	}
 	// Wipe pklogs
-	if (mysql_safe_query("DELETE FROM pklogs WHERE dead='%s' OR killer='%s'", name, name))
+	if (sqlite_safe_query("DELETE FROM pklogs WHERE dead='%s' OR killer='%s'", name, name))
 	{
 		n_logf("Delete_char: wiping pklogs for %s.", name);
 	}
@@ -681,9 +825,9 @@ void updatePlayerDb(CHAR_DATA *ch)
 	if (IS_NPC(ch))
 		return;
 	// Clear out old info
-	mysql_safe_query("DELETE FROM `player_data` WHERE name='%s'", ch->original_name);
+	sqlite_safe_query("DELETE FROM player_data WHERE name='%s'", ch->original_name);
 	// Add new info.
-	mysql_safe_query("INSERT INTO `player_data` VALUES('%s',%d,%d,%d,%d,%d,%d,%d,%d)",
+	sqlite_safe_query("INSERT INTO player_data VALUES('%s',%d,%d,%d,%d,%d,%d,%d,%d)",
 					 ch->original_name,
 					 ch->level,
 					 ch->race,
@@ -698,8 +842,8 @@ void updatePlayerDb(CHAR_DATA *ch)
 
 void do_cabalstat(CHAR_DATA *ch, char *argument)
 {
-	MYSQL_ROW row;
-	MYSQL_RES *res;
+	SQL_ROW row;
+	SQL_RES *res;
 	int cabal = 0, member_count = 0;
 	char buf[MSL], time[255], arg[MIL];
 	BUFFER *buffer;
@@ -751,7 +895,7 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 	buffer = new_buf();
 
 	// If they've gotten past the gatekeepers, they should be allowed to see this.
-	res = mysql_safe_query_with_result("SELECT * FROM `player_data` WHERE cabal=%d AND LEVEL <= %d", cabal, ch->level);
+	res = sqlite_safe_query_with_result("SELECT * FROM player_data WHERE cabal=%d AND level <= %d", cabal, ch->level);
 
 	if (!res)
 	{
@@ -760,31 +904,41 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	member_count = mysql_num_rows(res);
-
 	send_to_char("Member Name     Last Login\n\r-----------     ----------\n\r", ch);
 	// Count the number of members for the cabals and print that shit out.
 	if (res)
 	{
-		while ((row = mysql_fetch_row(res)) != NULL)
+		while ((row = sqlite_fetch_row(res)) != NULL)
 		{
 			member_count++;
 
 			// Safety checks for NULL values
 			// Schema: name(0), level(1), race(2), class(3), cabal(4), sex(5), alignment(6), ethos(7), ctime(8)
-			if (row[0] == NULL || row[8] == NULL)
+			if (row[0] == NULL)
 				continue;
 
-			ttime = atoi(row[8]);
-			struct tm *timeinfo = localtime(&ttime);
-			if (timeinfo == NULL)
-				continue;
-
-			strftime(time, 255, "%A %b %e", timeinfo);
-			sprintf(buf, "%-11s     %-10s\n\r", row[0], time);
+			// Show N/A if no login time available
+			if (row[8] == NULL || row[8][0] == '\0' || atoi(row[8]) == 0)
+			{
+				sprintf(buf, "%-11s     N/A\n\r", row[0]);
+			}
+			else
+			{
+				ttime = atoi(row[8]);
+				struct tm *timeinfo = localtime(&ttime);
+				if (timeinfo == NULL)
+				{
+					sprintf(buf, "%-11s     N/A\n\r", row[0]);
+				}
+				else
+				{
+					strftime(time, 255, "%A %b %e", timeinfo);
+					sprintf(buf, "%-11s     %-10s\n\r", row[0], time);
+				}
+			}
 			add_buf(buffer, buf);
 		}
-		mysql_free_result(res);
+		sqlite_free_result(res);
 		page_to_char(buf_string(buffer), ch);
 		free_buf(buffer);
 	}
@@ -799,8 +953,8 @@ void do_cabalstat(CHAR_DATA *ch, char *argument)
 
 void do_ltrack(CHAR_DATA *ch, char *argument)
 {
-	MYSQL_ROW row;
-	MYSQL_RES *results;
+	SQL_ROW row;
+	SQL_RES *results;
 	BUFFER *buffer;
 	char arg1[MIL];
 	char arg2[MIL];
@@ -840,7 +994,8 @@ void do_ltrack(CHAR_DATA *ch, char *argument)
 	// using the variable...?
 	sprintf(buf, "%d", type);
 
-	results = mysql_safe_query_with_result("SELECT name, INET_NTOA(ip), hostname, time, type, vnum FROM traffic WHERE (name LIKE '%s' OR INET_NTOA(ip) LIKE '%s' OR hostname LIKE '%%%s%%' or `time` LIKE '%s' or vnum like '%s') %s%s ORDER BY `time` ASC LIMIT 100",
+	// Note: IP stored as text in SQLite3, no need for INET_NTOA conversion
+	results = sqlite_safe_query_with_result("SELECT name, ip, hostname, time, type, vnum FROM traffic WHERE (name LIKE '%s' OR ip LIKE '%s' OR hostname LIKE '%%%s%%' or time LIKE '%s' or vnum like '%s') %s%s ORDER BY time ASC LIMIT 100",
 					 arg1,
 					 arg1,
 					 arg1,
@@ -855,16 +1010,16 @@ void do_ltrack(CHAR_DATA *ch, char *argument)
 		free_buf(buffer);
 		return;
 	}
-	else if (mysql_num_rows(results) == 0)
+	else if (sqlite_num_rows(results) == 0)
 	{
 		send_to_char("No matching results were found.\n\r", ch);
-		mysql_free_result(results);
+		sqlite_free_result(results);
 		free_buf(buffer);
 		return;
 	}
 	else
 	{
-		while ((row = mysql_fetch_row(results)) != NULL)
+		while ((row = sqlite_fetch_row(results)) != NULL)
 		{
 			type = atoi(row[4]);
 			sprintf(buf, "%s : %-8s [%-5ld] %s@%s (%s)\n\r",
@@ -878,7 +1033,7 @@ void do_ltrack(CHAR_DATA *ch, char *argument)
 					row[1]);
 			add_buf(buffer, buf);
 		}
-		mysql_free_result(results);
+		sqlite_free_result(results);
 		page_to_char(buf_string(buffer), ch);
 		free_buf(buffer);
 	}

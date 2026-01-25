@@ -54,7 +54,7 @@
 #include <sys/socket.h>
 #include <sys/resource.h>
 #include <signal.h>
-#include <mysql.h>
+#include <sqlite3.h>
 #include <limits.h>
 
 // Local
@@ -67,4 +67,4 @@
 #include "magic.h"
 #include "db.h"
 #include "telnet.h"
-#include "mysql.h"
+#include "sqlite.h"

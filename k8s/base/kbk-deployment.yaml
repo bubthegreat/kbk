@@ -23,6 +23,9 @@ spec:
         - name: kbk-sys-storage
           persistentVolumeClaim:
             claimName: kbk-sys-pvc
+        - name: kbk-data-storage
+          persistentVolumeClaim:
+            claimName: kbk-data-pvc
         - name: kbk-files
           emptyDir: {}
       initContainers:
@@ -45,12 +48,23 @@ spec:
               else
                 echo "Sys directory already initialized, skipping..."
               fi
+              # Initialize SQLite database if it doesn't exist
+              if [ ! -f /kbk-persistent/data/kbk.db ]; then
+                echo "Initializing SQLite database..."
+                mkdir -p /kbk-persistent/data
+                sqlite3 /kbk-persistent/data/kbk.db < /kbk/data/init_sqlite.sql
+                echo "SQLite database initialized"
+              else
+                echo "SQLite database already exists, skipping..."
+              fi
               echo "Initialization complete!"
           volumeMounts:
             - name: kbk-player-storage
               mountPath: /kbk-persistent/player
             - name: kbk-sys-storage
               mountPath: /kbk-persistent/sys
+            - name: kbk-data-storage
+              mountPath: /kbk-persistent/data
       containers:
         - name: kbk
           image: bubthegreat/kbk:39945ae
@@ -96,6 +110,8 @@ spec:
               mountPath: /kbk/player
             - name: kbk-sys-storage
               mountPath: /kbk/sys
+            - name: kbk-data-storage
+              mountPath: /kbk/data
             - name: kbk-files
               mountPath: /kbk/localxfer
 

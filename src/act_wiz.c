@@ -595,6 +595,9 @@ void do_induct(CHAR_DATA *ch, char *argument)
 			sprintf(buf, "AUTO: Uninducted from %s by %s.\n\r", cabal ? capitalize(cabal_table[cabal].name) : "-", ch->original_name);
 			if (!IS_IMMORTAL(victim))
 				add_history(NULL, victim, buf);
+
+			// Update the database to remove cabal membership
+			updatePlayerDb(victim);
 			return;
 		}
 	}
@@ -716,6 +719,9 @@ void do_induct(CHAR_DATA *ch, char *argument)
 		set_extitle(victim, ", Knight of Thera");
 	if (victim->cabal == CABAL_BOUNTY)
 		set_extitle(victim, ", Neophyte Hunter");
+
+	// Update the database with new cabal membership
+	updatePlayerDb(victim);
 }
 
 void do_leaderpeek(CHAR_DATA *ch, char *argument)

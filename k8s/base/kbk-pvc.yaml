@@ -25,4 +25,18 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    tilt.dev/down-policy: keep
+  name: kbk-data-pvc
+spec:
+  storageClassName: longhorn-retain
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
 

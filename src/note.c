@@ -43,26 +43,26 @@ extern FILE *fpArea;
 extern char strArea[MAX_INPUT_LENGTH];
 
 void parse_note(CHAR_DATA *ch, char *argument, int type);
-bool hide_note(CHAR_DATA *ch, MYSQL_ROW row);
+bool hide_note(CHAR_DATA *ch, SQL_ROW row);
 
 int count_spool(CHAR_DATA *ch, int type)
 {
   int count = 0;
-  MYSQL_RES *res;
-  MYSQL_ROW row;
+  SQL_RES *res;
+  SQL_ROW row;
 
-  res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d", type);
+  res = sqlite_safe_query_with_result("SELECT * FROM notes WHERE type=%d", type);
   if (res == NULL)
   {
     return 0;
   }
 
-  while ((row = mysql_fetch_row(res)))
+  while ((row = sqlite_fetch_row(res)))
   {
     if (!hide_note(ch, row))
       count++;
   }
-  mysql_free_result(res);
+  sqlite_free_result(res);
   return count;
 }
 
@@ -121,7 +121,7 @@ void do_changes(CHAR_DATA *ch, char *argument)
 
 void append_note(NOTE_DATA *pnote)
 {
-  mysql_safe_query("INSERT INTO notes VALUES(%d,\"%s\",'%s',\"%s\",\"%s\",\"%s\",%ld)",
+  sqlite_safe_query("INSERT INTO notes VALUES(%d,\"%s\",'%s',\"%s\",\"%s\",\"%s\",%ld)",
           pnote->type, pnote->sender, pnote->date, pnote->to_list, pnote->subject, pnote->text, pnote->date_stamp);
 }
 
@@ -168,7 +168,7 @@ void note_attach(CHAR_DATA *ch, int type)
   return;
 }
 
-bool hide_note(CHAR_DATA *ch, MYSQL_ROW row)
+bool hide_note(CHAR_DATA *ch, SQL_ROW row)
 {
   time_t last_read;
 
@@ -238,8 +238,8 @@ void update_read(CHAR_DATA *ch, long stamp, int type)
 void parse_note(CHAR_DATA *ch, char *argument, int type)
 {
   BUFFER *buffer;
-  MYSQL_RES *res;
-  MYSQL_ROW row;
+  SQL_RES *res;
+  SQL_ROW row;
   char buf[MAX_STRING_LENGTH];
   char arg[MAX_INPUT_LENGTH];
   char *list_name;
@@ -285,13 +285,13 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     {
       /* read next unread note */
       vnum = 0;
-      res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+      res = sqlite_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
       if (res == NULL)
       {
         send_to_char("Database error.\n\r", ch);
         return;
       }
-      while ((row = mysql_fetch_row(res)))
+      while ((row = sqlite_fetch_row(res)))
       {
         if (!hide_note(ch, row))
         {
@@ -299,7 +299,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
           send_to_char(buf, ch);
           page_to_char(row[5], ch);
           update_read(ch, atol(row[6]), atoi(row[0]));
-          mysql_free_result(res);
+          sqlite_free_result(res);
           return;
         }
         else if (is_note_to(ch, row[1], row[3]))
@@ -307,7 +307,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
       }
       sprintf(buf, "You have no unread %s.\n\r", list_name);
       send_to_char(buf, ch);
-      mysql_free_result(res);
+      sqlite_free_result(res);
       return;
     }
     else if (is_number(argument))
@@ -322,13 +322,13 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
     }
 
     vnum = 0;
-    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    res = sqlite_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
     if (res == NULL)
     {
       send_to_char("Database error.\n\r", ch);
       return;
     }
-    while ((row = mysql_fetch_row(res)))
+    while ((row = sqlite_fetch_row(res)))
     {
       if (is_note_to(ch, row[1], row[3]) && (vnum++ == anum))
       {
@@ -336,28 +336,28 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
         send_to_char(buf, ch);
         page_to_char(row[5], ch);
         update_read(ch, atol(row[6]), atoi(row[0]));
-        mysql_free_result(res);
+        sqlite_free_result(res);
         return;
       }
     }
 
     sprintf(buf, "There aren't that many %s.\n\r", list_name);
     send_to_char(buf, ch);
-    mysql_free_result(res);
+    sqlite_free_result(res);
     return;
   }
 
   if (!str_prefix(arg, "list"))
   {
     vnum = 0;
-    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    res = sqlite_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
     if (res == NULL)
     {
       send_to_char("Database error.\n\r", ch);
       return;
     }
 
-    while ((row = mysql_fetch_row(res)))
+    while ((row = sqlite_fetch_row(res)))
     {
       if (is_note_to(ch, row[1], row[3]))
       {
@@ -389,7 +389,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
         break;
       }
     }
-    mysql_free_result(res);
+    sqlite_free_result(res);
     return;
   }
 
@@ -400,25 +400,25 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     anum = atoi(argument);
     vnum = 0;
-    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    res = sqlite_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
     if (res == NULL)
     {
       send_to_char("Database error.\n\r", ch);
       return;
     }
-    while ((row = mysql_fetch_row(res)))
+    while ((row = sqlite_fetch_row(res)))
     {
       if (!str_cmp(ch->original_name, row[1]) && vnum++ == anum)
       {
-        mysql_safe_query("DELETE FROM notes WHERE timestamp=%s AND sender=\"%s\"", row[6], row[1]);
+        sqlite_safe_query("DELETE FROM notes WHERE timestamp=%s AND sender=\"%s\"", row[6], row[1]);
         send_to_char("Ok.\n\r", ch);
-        mysql_free_result(res);
+        sqlite_free_result(res);
         return;
       }
     }
 
     send_to_char("You must provide the number of a note you have written to remove.\n\r", ch);
-    mysql_free_result(res);
+    sqlite_free_result(res);
     return;
   }
 
@@ -429,26 +429,26 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
     anum = atoi(argument);
     vnum = 0;
-    res = mysql_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
+    res = sqlite_safe_query_with_result("SELECT * FROM notes WHERE type=%d ORDER BY timestamp ASC", type);
     if (!res)
     {
       send_to_char("Error accessing notes.\n\r", ch);
       return;
     }
-    while ((row = mysql_fetch_row(res)))
+    while ((row = sqlite_fetch_row(res)))
     {
       if (is_note_to(ch, row[1], row[3]) && vnum++ == anum)
       {
-        mysql_safe_query("DELETE FROM notes WHERE timestamp=%s AND sender=\"%s\"", row[6], row[1]);
+        sqlite_safe_query("DELETE FROM notes WHERE timestamp=%s AND sender=\"%s\"", row[6], row[1]);
         send_to_char("Ok.\n\r", ch);
-        mysql_free_result(res);
+        sqlite_free_result(res);
         return;
       }
     }
 
     sprintf(buf, "There aren't that many %s.", list_name);
     send_to_char(buf, ch);
-    mysql_free_result(res);
+    sqlite_free_result(res);
     return;
   }
 

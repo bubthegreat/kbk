@@ -145,28 +145,28 @@ void bounty_cb(char *string)
 void do_topbounties(CHAR_DATA *ch, char *argument)
 {
 	int pnum = 0;
-	MYSQL_ROW row;
-	MYSQL_RES *res;
+	SQL_ROW row;
+	SQL_RES *res;
 
 	send_to_char("      The Top Ten Most Wanted:\n\r", ch);
 
-	res = mysql_safe_query_with_result("SELECT * FROM bounties ORDER BY amount DESC LIMIT 10");
+	res = sqlite_safe_query_with_result("SELECT * FROM bounties ORDER BY amount DESC LIMIT 10");
 	if (res == NULL)
 	{
 		return send_to_char("Database error.\n\r", ch);
 	}
-	else if (mysql_num_rows(res) == 0)
+	else if (sqlite_num_rows(res) == 0)
 	{
-		mysql_free_result(res);
+		sqlite_free_result(res);
 		return send_to_char("No bounties have been recorded.\n\r", ch);
 	}
 	else
 	{
-		while ((row = mysql_fetch_row(res)) != NULL)
+		while ((row = sqlite_fetch_row(res)) != NULL)
 		{
 			printf_to_char(ch, "%2i) %-15s %d gold\n\r", ++pnum, row[2], atoi(row[0]));
 		}
-		mysql_free_result(res);
+		sqlite_free_result(res);
 	}
 	return;
 }
@@ -198,7 +198,7 @@ void do_bounty(CHAR_DATA *ch, char *argument)
 		sprintf(tempstr, "%ld", victim->pcdata->bounty);
 		act("The bounty on $N's head has been cleared. (formerly $t gold)", ch, tempstr, victim, TO_CHAR);
 		victim->pcdata->bounty = 0;
-		mysql_safe_query("DELETE FROM bounties WHERE victim='%s'", victim->original_name);
+		sqlite_safe_query("DELETE FROM bounties WHERE victim='%s'", victim->original_name);
 		return;
 	}
 	if (!is_number(arg2))
@@ -224,7 +224,7 @@ void do_bounty(CHAR_DATA *ch, char *argument)
 
 void record_bounty(CHAR_DATA *ch, CHAR_DATA *victim, int amount)
 {
-	MYSQL_RES *res;
+	SQL_RES *res;
 
 	if (!ch)
 		return;
@@ -233,21 +233,21 @@ void record_bounty(CHAR_DATA *ch, CHAR_DATA *victim, int amount)
 
 	n_logf("Recording bounty on %s for %d gold.", victim->original_name, amount);
 
-	res = mysql_safe_query_with_result("SELECT * FROM bounties WHERE victim='%s'", victim->original_name);
+	res = sqlite_safe_query_with_result("SELECT * FROM bounties WHERE victim='%s'", victim->original_name);
 
 	if (res == NULL)
 	{
-		log_string("Record_bounty: NULL MYSQL_RES");
+		log_string("Record_bounty: NULL SQL_RES");
 		return;
 	}
 
-	int f = mysql_num_rows(res);
+	int f = sqlite_num_rows(res);
 
 	n_logf("Rows: %d", f);
 
 	if (f == 0)
 	{
-		mysql_safe_query("INSERT INTO bounties VALUES(%d, '%s', '%s', %d)",
+		sqlite_safe_query("INSERT INTO bounties VALUES(%d, '%s', '%s', %d)",
 						 amount,
 						 ch->original_name,
 						 victim->original_name,
@@ -255,9 +255,9 @@ void record_bounty(CHAR_DATA *ch, CHAR_DATA *victim, int amount)
 	}
 	else
 	{
-		mysql_safe_query("UPDATE bounties SET amount=amount+%d WHERE victim='%s'", amount, victim->original_name);
+		sqlite_safe_query("UPDATE bounties SET amount=amount+%d WHERE victim='%s'", amount, victim->original_name);
 	}
-	mysql_free_result(res);
+	sqlite_free_result(res);
 	return;
 }
 
@@ -298,7 +298,7 @@ void pay_bounty(CHAR_DATA *ch, CHAR_DATA *victim)
 		victim->pcdata->bounty_credits -= URANGE(0, lostbounty, 5);
 	}
 	// process_bounty(victim->name,victim->pcdata->bounty);
-	mysql_safe_query("DELETE FROM bounties WHERE victim='%s'", victim->original_name);
+	sqlite_safe_query("DELETE FROM bounties WHERE victim='%s'", victim->original_name);
 	return;
 }
 

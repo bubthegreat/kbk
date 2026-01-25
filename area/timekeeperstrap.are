@@ -1,0 +1,996 @@
+#AREADATA
+Name        Timekeeperstrap~
+Builders    Builder~
+VNUMs       1000 1099
+Security    9
+Recall      1000
+End
+
+#MOBDATA
+#0
+
+#OBJDATA
+#0
+
+#ROOMDATA
+#1000
+NAME   The Edge Of The Collapsed Landslide~
+DESCR
+This is going to be the landslide that opened a hidden entrance to the tunnel that leads to the timekeepers trap
+~
+FLAGS  0
+Sect   5
+DOOR 0
+~
+~
+0 0 1001
+DOOR 1
+~
+~
+0 0 1011
+DOOR 3
+~
+~
+0 0 1015
+End
+
+#1001
+NAME   A narrow cave entrance~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1002
+DOOR 2
+~
+~
+0 0 1000
+End
+
+#1002
+NAME   A narrow cave entrance~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1003
+DOOR 2
+~
+~
+0 0 1001
+End
+
+#1003
+NAME   A side tunnel in the cave~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1004
+DOOR 3
+~
+~
+0 0 1002
+End
+
+#1004
+NAME   A side tunnel in the cave~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1005
+DOOR 2
+~
+~
+0 0 1003
+End
+
+#1005
+NAME   Entrance to a cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1008
+DOOR 1
+~
+~
+0 0 1006
+DOOR 2
+~
+~
+0 0 1004
+DOOR 3
+~
+~
+0 0 1007
+End
+
+#1006
+NAME   The small cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1009
+DOOR 3
+~
+~
+0 0 1005
+End
+
+#1007
+NAME   The small cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1010
+DOOR 1
+~
+~
+0 0 1005
+End
+
+#1008
+NAME   The small cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1045
+DOOR 1
+~
+~
+0 0 1009
+DOOR 2
+~
+~
+0 0 1005
+DOOR 3
+~
+~
+0 0 1010
+End
+
+#1009
+NAME   The small cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1044
+DOOR 2
+~
+~
+0 0 1006
+DOOR 3
+~
+~
+0 0 1008
+End
+
+#1010
+NAME   The smooth wall of the cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1046
+DOOR 1
+~
+~
+0 0 1008
+DOOR 2
+~
+~
+0 0 1007
+End
+
+#1011
+NAME   The Edge Of The Collapsed Landslide~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 1
+~
+~
+0 0 1012
+DOOR 3
+~
+~
+0 0 1000
+End
+
+#1012
+NAME   The Edge Of The Collapsed Landslide~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 0
+~
+~
+0 0 1013
+DOOR 3
+~
+~
+0 0 1011
+End
+
+#1013
+NAME   The Edge Of The Collapsed Landslide~
+DESCR
+The south exit here should be non obvious, and you have to move a large pile of
+rocks to get there.  
+~
+FLAGS  0
+Sect   5
+DOOR 1
+~
+~
+0 0 1014
+DOOR 2
+~
+~
+0 0 1012
+End
+
+#1014
+NAME   A small animal trail on the mountain~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 2
+~
+~
+0 0 1016
+DOOR 3
+~
+~
+0 0 1013
+End
+
+#1015
+NAME   A Large Boulder~
+DESCR
+As you follow the western edge of the landslide you come to a gigantic boulder that seems to have fallen.  It's massive girth extends into the forest line to the south, leaving no obvious path to continue this direction.  
+~
+FLAGS  0
+Sect   5
+DOOR 1
+~
+~
+0 0 1000
+End
+
+#1016
+NAME   A small animal trail on the mountain~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 0
+~
+~
+0 0 1014
+DOOR 2
+~
+~
+0 0 1017
+End
+
+#1017
+NAME   A small animal trail on the mountain~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 0
+~
+~
+0 0 1016
+DOOR 1
+~
+~
+0 0 1018
+End
+
+#1018
+NAME   A small animal trail on the mountain~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 3
+~
+~
+0 0 1017
+DOOR 5
+~
+~
+0 0 1019
+End
+
+#1019
+NAME   A small animal trail on the hillside~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   4
+DOOR 1
+~
+~
+0 0 1020
+DOOR 4
+~
+~
+0 0 1018
+End
+
+#1020
+NAME   A small animal trail on the hillside~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   5
+DOOR 1
+~
+~
+0 0 1021
+DOOR 3
+~
+~
+0 0 1019
+End
+
+#1021
+NAME   A small animal trail on the hillside~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   4
+DOOR 1
+~
+~
+0 0 1022
+DOOR 3
+~
+~
+0 0 1020
+End
+
+#1022
+NAME   A small animal trail on the hillside~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   4
+DOOR 2
+~
+~
+0 0 1023
+DOOR 3
+~
+~
+0 0 1021
+End
+
+#1023
+NAME   A small animal trail on the hillside~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   4
+DOOR 0
+~
+~
+0 0 1022
+DOOR 1
+~
+~
+0 0 1024
+End
+
+#1024
+NAME   Edge of a Grassy Field~
+DESCR
+This west entrance should be non-obvious and hidden, but you should just be able
+to walk through it to the small animal trail.
+
+Off to the west you see the mountainside.~
+FLAGS  0
+Sect   2
+DOOR 0
+~
+~
+0 0 1027
+DOOR 1
+~
+~
+0 0 1025
+DOOR 3
+~
+~
+0 0 1023
+End
+
+#1025
+NAME   Edge of a Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1026
+DOOR 1
+~
+~
+0 0 1032
+DOOR 3
+~
+~
+0 0 1024
+End
+
+#1026
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1030
+DOOR 1
+~
+~
+0 0 1028
+DOOR 2
+~
+~
+0 0 1025
+DOOR 3
+~
+~
+0 0 1027
+End
+
+#1027
+NAME   Edge of a Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1031
+DOOR 1
+~
+~
+0 0 1026
+DOOR 2
+~
+~
+0 0 1024
+End
+
+#1028
+NAME   In A Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1029
+DOOR 1
+~
+~
+0 0 1033
+DOOR 2
+~
+~
+0 0 1032
+DOOR 3
+~
+~
+0 0 1026
+End
+
+#1029
+NAME   End of A Small Animal Trail~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1040
+DOOR 2
+~
+~
+0 0 1028
+DOOR 3
+~
+~
+0 0 1030
+End
+
+#1030
+NAME   Edge of a Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1029
+DOOR 2
+~
+~
+0 0 1026
+DOOR 3
+~
+~
+0 0 1031
+End
+
+#1031
+NAME   Edge of a Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1030
+DOOR 2
+~
+~
+0 0 1027
+End
+
+#1032
+NAME   Edge of a Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1028
+DOOR 1
+~
+~
+0 0 1034
+DOOR 3
+~
+~
+0 0 1025
+End
+
+#1033
+NAME   In Front of a Hermits House~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1035
+DOOR 2
+~
+~
+0 0 1034
+DOOR 3
+~
+~
+0 0 1028
+End
+
+#1034
+NAME   Edge of a Grassy Field~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1033
+DOOR 3
+~
+~
+0 0 1032
+End
+
+#1035
+NAME   Inside a Hermit's House~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1036
+DOOR 3
+~
+~
+0 0 1033
+End
+
+#1036
+NAME   Bedroom of a Hermits House~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1037
+DOOR 3
+~
+~
+0 0 1035
+End
+
+#1037
+NAME   Behind a Hermits House~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+~
+~
+0 0 1036
+DOOR 5
+~
+~
+0 0 1038
+End
+
+#1038
+NAME   Down the Well~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+~
+~
+0 0 1039
+DOOR 4
+~
+~
+0 0 1037
+End
+
+#1039
+NAME   The Secret Workshop~
+DESCR
+This room should have some weird devices and things and some notes exaplaining to look for a hidden switch that looks like a triangular rock.  This lock will actually open the tunnel to the timekeepers trap when you find it.~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1038
+DOOR 1
+~
+~
+0 0 1052
+End
+
+#1040
+NAME   A Small Animal Trail~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1041
+DOOR 2
+~
+~
+0 0 1029
+End
+
+#1041
+NAME   A Small Animal Trail~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1042
+DOOR 3
+~
+~
+0 0 1040
+End
+
+#1042
+NAME   End Of The Road~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1043
+DOOR 3
+~
+~
+0 0 1041
+End
+
+#1043
+NAME   The Poorly Maintained Road~
+DESCR
+This is the entrance to the area for the Timekeepers Trap.
+
+You notice a small sign post with some writing on it.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+~
+~
+0 0 1042
+EDESC sign post~
+WARNING: Roads are unmaintained beyond this point.  Caution should be taken for landslides and wild animals.~
+End
+
+#1044
+NAME   The Caverns End~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+~
+~
+0 0 1009
+DOOR 3
+~
+~
+0 0 1045
+End
+
+#1045
+NAME   The smooth wall of the cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1044
+DOOR 2
+~
+~
+0 0 1008
+DOOR 3
+~
+~
+0 0 1046
+End
+
+#1046
+NAME   The sharp corner of the cavern~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+~
+~
+0 0 1045
+DOOR 2
+~
+~
+0 0 1010
+DOOR 5
+~
+~
+0 0 1047
+End
+
+#1047
+NAME   A smooth Metal Tunnel~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1048
+DOOR 4
+~
+~
+0 0 1046
+End
+
+#1048
+NAME   A smooth Metal Tunnel~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1049
+DOOR 2
+~
+~
+0 0 1047
+End
+
+#1049
+NAME   A smooth Metal Tunnel~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1050
+DOOR 2
+~
+~
+0 0 1048
+End
+
+#1050
+NAME   The Odd Metal Door~
+DESCR
+This is the actual entrance to the timekeepers lair.  It opens at noon every day.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+~
+~
+0 0 1051
+DOOR 2
+~
+~
+0 0 1049
+End
+
+#1051
+NAME   The Waiting Room~
+DESCR
+This is an odd waiting room - but it's entire purpose is that depending on what time you go north to go inside, you will get a different set of rooms to interact with.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+~
+~
+0 0 1050
+End
+
+#1052
+NAME   The End of Time~
+DESCR
+Time seems to speed up as you move, accelerating until there is a blur of white
+streaming past you faster than you can comprehend.  Suddenly, everything stops,
+and there is only black.  There is nothing here.  You aren't exactly floating,
+it's just that...there is just...nothing.  ~
+FLAGS  295182337
+Sect   9
+End
+
+#0
+
+#SPECIALS
+S
+
+#RESETS
+S
+
+#SHOPS
+0
+
+#$

@@ -2651,7 +2651,7 @@ void temp_death_log(CHAR_DATA *killer, CHAR_DATA *dead)
 	if (dead == killer)
 		return;
 
-	mysql_safe_query("INSERT INTO pklogs VALUES('%s', '%s', '%s', '%s')",
+	sqlite_safe_query("INSERT INTO pklogs VALUES('%s', '%s', '%s', '%s')",
 					 dead->original_name, killer->original_name, killer->in_room->name, (char *)ctime(&current_time));
 
 	killer->pcdata->kills[PK_KILLS]++;
