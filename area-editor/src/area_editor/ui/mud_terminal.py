@@ -166,10 +166,20 @@ class MudTerminal:
         # Dig commands
         elif cmd == 'dig':
             if args and args[0] in ['north', 'n', 'south', 's', 'east', 'e', 'west', 'w', 'up', 'u', 'down', 'd']:
-                self._dig(args[0])
+                # Check if a target vnum was provided
+                target_vnum = None
+                if len(args) > 1:
+                    try:
+                        target_vnum = int(args[1])
+                    except ValueError:
+                        self._add_output(f"Invalid vnum: {args[1]}", color=(255, 100, 100))
+                        return
+                self._dig(args[0], target_vnum)
             else:
-                self._add_output("Usage: dig <direction>", color=(255, 200, 100))
+                self._add_output("Usage: dig <direction> [vnum]", color=(255, 200, 100))
                 self._add_output("  Directions: north, south, east, west, up, down", color=(200, 200, 200))
+                self._add_output("  If vnum is provided, links to existing room with bidirectional exit", color=(200, 200, 200))
+                self._add_output("  If vnum is omitted, creates a new room", color=(200, 200, 200))
         # Look commands
         elif cmd in ['look', 'l']:
             if args:
@@ -236,8 +246,13 @@ class MudTerminal:
         self._update_ui_selection(new_room_vnum)
         self.navigating_internally = False
 
-    def _dig(self, direction: str):
-        """Dig a new room in the specified direction."""
+    def _dig(self, direction: str, target_vnum: int = None):
+        """Dig a new room or link to an existing room in the specified direction.
+
+        Args:
+            direction: Direction to dig (north, south, east, west, up, down)
+            target_vnum: Optional vnum of existing room to link to. If None, creates a new room.
+        """
         # Map direction names to numbers
         dir_map = {
             'north': 0, 'n': 0,
@@ -264,84 +279,145 @@ class MudTerminal:
             self._add_output("There is already an exit in that direction.", color=(255, 200, 100))
             return
 
-        # Find next available vnum in the area
         area = app_state.current_area
-        next_vnum = None
-        for vnum in range(area.min_vnum, area.max_vnum + 1):
-            if vnum not in area.rooms:
-                next_vnum = vnum
-                break
 
-        if next_vnum is None:
-            self._add_output("ERROR: No available vnums in this area!", color=(255, 100, 100))
-            self._add_output(f"Area range: {area.min_vnum}-{area.max_vnum}", color=(200, 200, 200))
-            return
-
-        # Create the new room
-        new_room = Room(
-            vnum=next_vnum,
-            name="A New Room",
-            description="This is a newly created room. Edit this description to describe what the room looks like.\n",
-            room_flags=0,
-            sector_type=0,  # Inside
-            area_number=0
-        )
-
-        # Add the new room to the area
-        area.rooms[next_vnum] = new_room
-
-        # Create exit from current room to new room
-        room.exits[dir_num] = Exit(
-            direction=dir_num,
-            to_room=next_vnum,
-            description="",
-            keywords="",
-            locks=0,
-            key_vnum=0
-        )
-
-        # Create reverse exit from new room back to current room
-        reverse_dir_num = reverse_dir[dir_num]
-        new_room.exits[reverse_dir_num] = Exit(
-            direction=reverse_dir_num,
-            to_room=self.current_room_vnum,
-            description="",
-            keywords="",
-            locks=0,
-            key_vnum=0
-        )
-
-        # Save the area file if we have a file path
-        if app_state.current_file:
-            try:
-                writer = AreWriter(area)
-                writer.write(app_state.current_file)
-                self._add_output(f"Created room #{next_vnum} to the {direction}.", color=(100, 255, 100))
-                # Mark the area as modified
-                app_state.mark_modified()
-            except Exception as e:
-                self._add_output(f"ERROR: Failed to save area file: {e}", color=(255, 100, 100))
-                # Remove the room and exits since we couldn't save
-                del area.rooms[next_vnum]
-                del room.exits[dir_num]
+        # If target_vnum is provided, link to existing room
+        if target_vnum is not None:
+            # Check if target room exists
+            if target_vnum not in area.rooms:
+                self._add_output(f"ERROR: Room #{target_vnum} does not exist!", color=(255, 100, 100))
                 return
+
+            target_room = area.rooms[target_vnum]
+
+            # Create exit from current room to target room
+            room.exits[dir_num] = Exit(
+                direction=dir_num,
+                to_room=target_vnum,
+                description="",
+                keywords="",
+                locks=0,
+                key_vnum=0
+            )
+
+            # Create reverse exit from target room back to current room
+            reverse_dir_num = reverse_dir[dir_num]
+            target_room.exits[reverse_dir_num] = Exit(
+                direction=reverse_dir_num,
+                to_room=self.current_room_vnum,
+                description="",
+                keywords="",
+                locks=0,
+                key_vnum=0
+            )
+
+            # Save the area file if we have a file path
+            if app_state.current_file:
+                try:
+                    writer = AreWriter(area)
+                    writer.write(app_state.current_file)
+                    self._add_output(f"Two-way link established to room #{target_vnum}.", color=(100, 255, 100))
+                    # Mark the area as modified
+                    app_state.mark_modified()
+                except Exception as e:
+                    self._add_output(f"ERROR: Failed to save area file: {e}", color=(255, 100, 100))
+                    # Remove the exits since we couldn't save
+                    del room.exits[dir_num]
+                    del target_room.exits[reverse_dir_num]
+                    return
+            else:
+                self._add_output(f"Two-way link established to room #{target_vnum}.", color=(100, 255, 100))
+                self._add_output("WARNING: No area file loaded, changes not saved!", color=(255, 200, 100))
+
+            # Move to the target room
+            self.current_room_vnum = target_vnum
+            self._add_output("")  # Blank line
+            self._show_room()
+
+            # Update UI selection to match the target room
+            self.navigating_internally = True
+            self._update_ui_selection(target_vnum)
+            self.navigating_internally = False
+
         else:
-            self._add_output(f"Created room #{next_vnum} to the {direction}.", color=(100, 255, 100))
-            self._add_output("WARNING: No area file loaded, changes not saved!", color=(255, 200, 100))
+            # Original behavior: create a new room
+            # Find next available vnum in the area
+            next_vnum = None
+            for vnum in range(area.min_vnum, area.max_vnum + 1):
+                if vnum not in area.rooms:
+                    next_vnum = vnum
+                    break
 
-        # Move to the new room
-        self.current_room_vnum = next_vnum
-        self._add_output("")  # Blank line
-        self._show_room()
+            if next_vnum is None:
+                self._add_output("ERROR: No available vnums in this area!", color=(255, 100, 100))
+                self._add_output(f"Area range: {area.min_vnum}-{area.max_vnum}", color=(200, 200, 200))
+                return
 
-        # Refresh the area tree to show the new room
-        if self.main_window and hasattr(self.main_window, 'area_tree') and app_state.current_area_id:
-            self.main_window.area_tree.populate_from_area(area, app_state.current_area_id)
+            # Create the new room
+            new_room = Room(
+                vnum=next_vnum,
+                name="A New Room",
+                description="This is a newly created room. Edit this description to describe what the room looks like.\n",
+                room_flags=0,
+                sector_type=0,  # Inside
+                area_number=0
+            )
 
-        # Update UI selection to match the new room
-        self.navigating_internally = True
-        self._update_ui_selection(next_vnum)
-        self.navigating_internally = False
+            # Add the new room to the area
+            area.rooms[next_vnum] = new_room
+
+            # Create exit from current room to new room
+            room.exits[dir_num] = Exit(
+                direction=dir_num,
+                to_room=next_vnum,
+                description="",
+                keywords="",
+                locks=0,
+                key_vnum=0
+            )
+
+            # Create reverse exit from new room back to current room
+            reverse_dir_num = reverse_dir[dir_num]
+            new_room.exits[reverse_dir_num] = Exit(
+                direction=reverse_dir_num,
+                to_room=self.current_room_vnum,
+                description="",
+                keywords="",
+                locks=0,
+                key_vnum=0
+            )
+
+            # Save the area file if we have a file path
+            if app_state.current_file:
+                try:
+                    writer = AreWriter(area)
+                    writer.write(app_state.current_file)
+                    self._add_output(f"Created room #{next_vnum} to the {direction}.", color=(100, 255, 100))
+                    # Mark the area as modified
+                    app_state.mark_modified()
+                except Exception as e:
+                    self._add_output(f"ERROR: Failed to save area file: {e}", color=(255, 100, 100))
+                    # Remove the room and exits since we couldn't save
+                    del area.rooms[next_vnum]
+                    del room.exits[dir_num]
+                    return
+            else:
+                self._add_output(f"Created room #{next_vnum} to the {direction}.", color=(100, 255, 100))
+                self._add_output("WARNING: No area file loaded, changes not saved!", color=(255, 200, 100))
+
+            # Move to the new room
+            self.current_room_vnum = next_vnum
+            self._add_output("")  # Blank line
+            self._show_room()
+
+            # Refresh the area tree to show the new room
+            if self.main_window and hasattr(self.main_window, 'area_tree') and app_state.current_area_id:
+                self.main_window.area_tree.populate_from_area(area, app_state.current_area_id)
+
+            # Update UI selection to match the new room
+            self.navigating_internally = True
+            self._update_ui_selection(next_vnum)
+            self.navigating_internally = False
 
     def _show_room(self):
         """Display the current room."""
@@ -628,7 +704,9 @@ class MudTerminal:
         """Show available commands."""
         self._add_output("Available Commands:", color=(100, 200, 255))
         self._add_output("  Movement: north (n), south (s), east (e), west (w), up (u), down (d)", color=(200, 200, 200))
-        self._add_output("  Building: dig <direction> - Create a new room in that direction", color=(200, 200, 200))
+        self._add_output("  Building:", color=(200, 200, 200))
+        self._add_output("    dig <direction>       - Create a new room in that direction", color=(200, 200, 200))
+        self._add_output("    dig <direction> <vnum> - Link to existing room with bidirectional exit", color=(200, 200, 200))
         self._add_output("  Look: look, look <target>", color=(200, 200, 200))
         self._add_output("  Other: help, quit (closes terminal)", color=(200, 200, 200))
         self._add_output("", color=(200, 200, 200))
