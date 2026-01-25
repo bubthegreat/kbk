@@ -275,6 +275,53 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Bidirectional Dig Command
+
+**Description**: Create new rooms or link to existing rooms with automatic bidirectional exits using the `dig` command in the MUD terminal.
+
+**How to Test**:
+1. Load `tests/test.are`
+2. Click on Room #1000 (The Town Square)
+3. Click "Open Terminal" button
+4. **Test creating a new room**:
+   - Type `dig up` and press Enter
+   - A new room is created with the next available vnum
+   - An exit "up" is created from Town Square to the new room
+   - An exit "down" is automatically created from the new room back to Town Square
+   - You are automatically moved to the new room
+   - The area file is saved automatically
+5. **Test linking to an existing room**:
+   - Navigate to a room (e.g., Room #1002 - General Store)
+   - Type `dig south 1004` to link to the Village Gate (room #1004)
+   - A bidirectional link is created: south from Store to Gate, north from Gate to Store
+   - You are automatically moved to the target room
+   - The area file is saved automatically
+6. **Test error handling**:
+   - Try `dig north` in a direction that already has an exit (should show error)
+   - Try `dig east 9999` to link to a non-existent room (should show error)
+   - Try `dig invalid` with invalid direction (should show usage)
+
+**Additional Notes**:
+- **Syntax**: `dig <direction> [vnum]`
+  - `dig <direction>` - Creates a new room in that direction with bidirectional exits
+  - `dig <direction> <vnum>` - Links to existing room with bidirectional exits
+- **Directions**: north (n), south (s), east (e), west (w), up (u), down (d)
+- **Bidirectional exits**: Always creates reverse exit automatically
+  - north ↔ south
+  - east ↔ west
+  - up ↔ down
+- **Auto-save**: Changes are saved to the area file immediately
+- **Auto-navigation**: After digging, you are moved to the new/target room
+- **UI sync**: The area tree is refreshed to show new rooms
+- **Vnum allocation**: When creating new rooms, uses the next available vnum in the area's range
+- **Error prevention**: Prevents creating duplicate exits in the same direction
+- **Validation**: Checks that target room exists before creating link
+- Based on the ROM MUD OLC (Online Creation) `dig` and `link` commands
+
+**Related Tests**: `tests/test_mud_terminal.py::test_dig_command_creates_new_room`, `tests/test_mud_terminal.py::test_dig_command_links_to_existing_room`, `tests/test_mud_terminal.py::test_dig_command_prevents_duplicate_exits`
+
+---
+
 ## Mobile Resets in Rooms
 
 **Description**: Add and manage mobile (NPC) spawns in rooms through the room editor's Mobiles tab.
