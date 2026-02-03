@@ -21,14 +21,17 @@ This is going to be the landslide that opened a hidden entrance to the tunnel th
 FLAGS  0
 Sect   5
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31001
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31011
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31015
@@ -42,10 +45,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31002
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31000
@@ -59,10 +64,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31003
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31001
@@ -76,10 +83,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31004
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31002
@@ -93,10 +102,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31005
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31003
@@ -110,18 +121,22 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31008
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31006
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31004
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31007
@@ -135,10 +150,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31009
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31005
@@ -152,10 +169,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31010
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31005
@@ -169,18 +188,22 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31045
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31009
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31005
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31010
@@ -194,14 +217,17 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31044
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31006
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31008
@@ -215,14 +241,17 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31046
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31008
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31007
@@ -236,10 +265,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31012
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31000
@@ -253,10 +284,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31013
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31011
@@ -271,10 +304,12 @@ rocks to get there.
 FLAGS  0
 Sect   5
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31014
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31012
@@ -288,10 +323,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31016
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31013
@@ -305,6 +342,7 @@ As you follow the western edge of the landslide you come to a gigantic boulder t
 FLAGS  0
 Sect   5
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31000
@@ -318,10 +356,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31014
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31017
@@ -335,10 +375,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31016
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31018
@@ -352,10 +394,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31017
 DOOR 5
+You see nothing special here.
 ~
 ~
 0 0 31019
@@ -369,10 +413,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   4
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31020
 DOOR 4
+You see nothing special here.
 ~
 ~
 0 0 31018
@@ -386,10 +432,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   5
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31021
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31019
@@ -403,10 +451,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   4
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31022
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31020
@@ -420,10 +470,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   4
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31023
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31021
@@ -437,10 +489,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   4
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31022
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31024
@@ -456,14 +510,17 @@ Off to the west you see the mountainside.~
 FLAGS  0
 Sect   2
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31027
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31025
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31023
@@ -477,14 +534,17 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31026
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31032
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31024
@@ -498,18 +558,22 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31030
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31028
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31025
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31027
@@ -523,14 +587,17 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31031
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31026
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31024
@@ -544,18 +611,22 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31029
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31033
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31032
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31026
@@ -567,16 +638,19 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   3
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31040
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31028
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31030
@@ -588,16 +662,19 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31029
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31026
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31031
@@ -609,12 +686,14 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31030
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31027
@@ -626,16 +705,19 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31028
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31034
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31025
@@ -647,16 +729,19 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31035
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31034
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31028
@@ -668,12 +753,14 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31033
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31032
@@ -687,10 +774,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31036
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31033
@@ -704,10 +793,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31037
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31035
@@ -719,12 +810,14 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   3
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31036
 DOOR 5
+You see nothing special here.
 ~
 ~
 0 0 31038
@@ -736,12 +829,14 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   6
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31039
 DOOR 4
+You see nothing special here.
 ~
 ~
 0 0 31037
@@ -751,13 +846,15 @@ End
 NAME   The Secret Workshop~
 DESCR
 This room should have some weird devices and things and some notes exaplaining to look for a hidden switch that looks like a triangular rock.  This lock will actually open the tunnel to the timekeepers trap when you find it.~
-FLAGS  0
+FLAGS  8
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31038
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31052
@@ -769,12 +866,14 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   3
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31041
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31029
@@ -786,12 +885,14 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   3
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31042
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31040
@@ -800,35 +901,81 @@ End
 #31042
 NAME   End Of The Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The road abruptly ends here at a broken stone wall that seems to have fallen
+into disrepair just like the approaching road.  A few of the walls stones have
+come looe from the mortar holding it together, showing the original lumber
+beneath used to support it.  To the west there is a small meadow of red sandy
+dirt with sparse vegtetation.  The meadow goes a ways to the west, and to the
+north.  To the south the forest is tick enough that it doesn't seem reasonable
+to pass, and to the north the looming mountains tower over everything, including the clouds.
 ~
 FLAGS  0
-Sect   0
+Sect   11
+DOOR 0
+You see the looming piedmont in the distance.~
+~
+0 0 0
 DOOR 1
+The broken cobblestone seems to improve going this direction.
 ~
 ~
 0 0 31043
+DOOR 2
+The forest swallows up the south side of the road.~
+~
+0 0 0
 DOOR 3
+You see a small animal trail off the road just past a crumbled stone wall.
 ~
 ~
 0 0 31041
+DOOR 5
+The stone here is broken and uneven, some of the cobblestones cracked in odd places.~
+~
+0 0 0
 End
 
 #31043
 NAME   The Poorly Maintained Road~
 DESCR
-This is the entrance to the area for the Timekeepers Trap.
-
-You notice a small sign post with some writing on it.
-~
+As you continue down this road the maintenance becomes poorer and poorer until
+it's obvious that no one has come this way in years.  The cobblestone still is
+visible here and there, but overall it almost looks like a dirt road at this
+point.  You can see the road continues a bit further to the west of you, but
+seems to end at the treeline a bit further.  To the north you can see the
+towering heights of mountainst hat no one has survived passing over.  Their
+snowy peaks loom in the distance, uncaring of the matters below.  The air is
+crisp, almost stale, despite being so far from civilizationt hat there is no
+evidence of people existing at all in any polace you look.~
 FLAGS  0
-Sect   0
+Sect   11
+DOOR 0
+You see the looming piedmont in the distance.~
+~
+0 0 0
+DOOR 1
+You can see the last portion of road that's been maintained a few hundred feet this way.~
+~
+0 0 0
+DOOR 2
+The forest swallows up the south side of the road.~
+~
+0 0 0
 DOOR 3
+You see the end of the maintained road, and some rough road beyond.
 ~
 ~
 0 0 31042
+DOOR 5
+The cobblestones below your feet are covered in mud and dirt that is reddish-orange clay on top of the dark gray cobblestone.~
+~
+0 0 0
 EDESC sign post~
 WARNING: Roads are unmaintained beyond this point.  Caution should be taken for landslides and wild animals.~
+EDESC stone cobblestone~
+The stones here once were part of a well built cobblestone road, now in ruins.  You see mud from rain and floods carrying dirt across the road and never being removed.~
+EDESC mountain mountains~
+The mountains loom - distant, but somehow pressing down onto the hills with their presence.~
 End
 
 #31044
@@ -836,13 +983,15 @@ NAME   The Caverns End~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
-FLAGS  0
-Sect   0
+FLAGS  8
+Sect   5
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31009
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31045
@@ -854,16 +1003,19 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   5
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31044
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31008
 DOOR 3
+You see nothing special here.
 ~
 ~
 0 0 31046
@@ -875,16 +1027,19 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   0
+Sect   5
 DOOR 1
+You see nothing special here.
 ~
 ~
 0 0 31045
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31010
 DOOR 5
+You see nothing special here.
 ~
 ~
 0 0 31047
@@ -898,10 +1053,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31048
 DOOR 4
+You see nothing special here.
 ~
 ~
 0 0 31046
@@ -915,10 +1072,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31049
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31047
@@ -932,10 +1091,12 @@ This is a newly created room. Edit this description to describe what the room lo
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31050
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31048
@@ -949,10 +1110,12 @@ This is the actual entrance to the timekeepers lair.  It opens at noon every day
 FLAGS  0
 Sect   0
 DOOR 0
+You see nothing special here.
 ~
 ~
 0 0 31051
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31049
@@ -966,6 +1129,7 @@ This is an odd waiting room - but it's entire purpose is that depending on what 
 FLAGS  0
 Sect   0
 DOOR 2
+You see nothing special here.
 ~
 ~
 0 0 31050

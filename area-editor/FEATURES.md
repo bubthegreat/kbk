@@ -426,3 +426,60 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Direction Descriptions & Exits
+
+**Description**: All 6 cardinal directions (north, east, south, west, up, down) ALWAYS have editable descriptions that default to "You see nothing special here." No need to click "Add Description" - all directions are always visible and editable.
+
+**How to Test**:
+1. Run `uv run python -m area_editor`
+2. Open or create an area file
+3. Select a room in the area tree
+4. Go to the "Exits" tab in the Room Editor panel
+5. You'll see all 6 directions listed with editable fields (north, east, south, west, up, down)
+6. Each direction shows:
+   - **Description field**: Defaults to "You see nothing special here." - edit this to customize
+   - **To Room field**: Set to 0 for description-only (no actual exit), or a room vnum for an actual exit
+   - **Keywords field**: Optional keywords for the direction (e.g., "gate iron massive")
+   - **Lock Flags field**: Lock status (0=open, 1=door, 2=pickproof)
+7. Edit any field to customize the direction
+8. When you edit a field, the exit object is automatically created if it doesn't exist
+9. Save the area file and verify descriptions persist
+10. Use the MUD Terminal to test the "look" command:
+    - Type `look north` or `l n` to see the north direction's description
+    - Works for all 6 directions: north/n, east/e, south/s, west/w, up/u, down/d
+    - If a direction has keywords, they'll be displayed
+    - If it's an actual exit (to_room > 0), you'll see which room it leads to
+
+**Additional Notes**:
+- **Key Concept**: Directions can have descriptions without being passable exits
+  - `to_room = 0`: Description only, players can't go that way (e.g., "A wall blocks the path")
+    - These directions are NOT shown in the "Exits:" line
+    - Players can still use `look north` to see the description
+    - Players CANNOT move in this direction (will get "Alas, you cannot go that way.")
+  - `to_room > 0`: Actual exit, players can travel to that room
+    - These directions ARE shown in the "Exits:" line
+    - Players can move in this direction
+- **UI Improvement**: No more "Add Description" button - all 6 directions are ALWAYS visible with editable fields
+- The default description is set in the `Exit` dataclass in `models/room.py`
+- Direction descriptions are stored in the DOOR section of .are files
+- Format in .are file:
+  ```
+  DOOR <direction>
+  <description>~
+  <keywords>~
+  <locks> <key_vnum> <to_room>
+  ```
+- Direction numbers: 0=north, 1=east, 2=south, 3=west, 4=up, 5=down
+- The parser correctly reads direction descriptions from existing .are files
+- The writer correctly writes direction descriptions to .are files
+- **MUD Terminal "look" command**: Players can use `look north` or `l n` to examine any direction
+  - Shows the direction's description (even if to_room = 0)
+  - Shows keywords if present
+  - Shows which room the exit leads to (if to_room > 0)
+- **MUD Terminal "Exits:" line**: Only shows directions where to_room > 0 (actual passable exits)
+- This allows for rich environmental storytelling (e.g., "The mountain looms to the north" even if you can't climb it)
+
+**Related Tests**: `tests/test_exit_descriptions.py`
+
+---
+

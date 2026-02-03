@@ -223,8 +223,8 @@ class MudTerminal:
         if not room:
             return
 
-        # Check if exit exists
-        if dir_num not in room.exits:
+        # Check if exit exists and is passable (to_room > 0)
+        if dir_num not in room.exits or room.exits[dir_num].to_room == 0:
             self._add_output("Alas, you cannot go that way.", color=(255, 200, 100))
             return
 
@@ -293,22 +293,14 @@ class MudTerminal:
             # Create exit from current room to target room
             room.exits[dir_num] = Exit(
                 direction=dir_num,
-                to_room=target_vnum,
-                description="",
-                keywords="",
-                locks=0,
-                key_vnum=0
+                to_room=target_vnum
             )
 
             # Create reverse exit from target room back to current room
             reverse_dir_num = reverse_dir[dir_num]
             target_room.exits[reverse_dir_num] = Exit(
                 direction=reverse_dir_num,
-                to_room=self.current_room_vnum,
-                description="",
-                keywords="",
-                locks=0,
-                key_vnum=0
+                to_room=self.current_room_vnum
             )
 
             # Save the area file if we have a file path
@@ -369,22 +361,14 @@ class MudTerminal:
             # Create exit from current room to new room
             room.exits[dir_num] = Exit(
                 direction=dir_num,
-                to_room=next_vnum,
-                description="",
-                keywords="",
-                locks=0,
-                key_vnum=0
+                to_room=next_vnum
             )
 
             # Create reverse exit from new room back to current room
             reverse_dir_num = reverse_dir[dir_num]
             new_room.exits[reverse_dir_num] = Exit(
                 direction=reverse_dir_num,
-                to_room=self.current_room_vnum,
-                description="",
-                keywords="",
-                locks=0,
-                key_vnum=0
+                to_room=self.current_room_vnum
             )
 
             # Save the area file if we have a file path
@@ -447,13 +431,16 @@ class MudTerminal:
         # Blank line after description
         self._add_output("")
 
-        # Exits (in yellow/gold color)
-        if room.exits:
-            exit_names = []
-            dir_names = ['north', 'east', 'south', 'west', 'up', 'down']
-            for dir_num in sorted(room.exits.keys()):
-                if dir_num < len(dir_names):
-                    exit_names.append(dir_names[dir_num])
+        # Exits (in yellow/gold color) - only show actual exits (to_room > 0)
+        exit_names = []
+        dir_names = ['north', 'east', 'south', 'west', 'up', 'down']
+        for dir_num in sorted(room.exits.keys()):
+            exit_obj = room.exits[dir_num]
+            # Only show exits that actually lead somewhere (to_room > 0)
+            if exit_obj.to_room > 0 and dir_num < len(dir_names):
+                exit_names.append(dir_names[dir_num])
+
+        if exit_names:
             self._add_output(f"Exits: {' '.join(exit_names)}", color=(255, 220, 100))
         else:
             self._add_output("Exits: none", color=(255, 220, 100))
@@ -636,6 +623,40 @@ class MudTerminal:
             return
 
         target = target.lower()
+
+        # Check if looking at a direction
+        dir_map = {
+            'north': 0, 'n': 0,
+            'east': 1, 'e': 1,
+            'south': 2, 's': 2,
+            'west': 3, 'w': 3,
+            'up': 4, 'u': 4,
+            'down': 5, 'd': 5
+        }
+
+        if target in dir_map:
+            dir_num = dir_map[target]
+            # Check if there's an exit/direction description
+            if dir_num in room.exits:
+                exit_obj = room.exits[dir_num]
+                # Show the description
+                wrapped = textwrap.fill(exit_obj.description.strip(), width=80)
+                self._add_output(wrapped, color=(200, 200, 200))
+
+                # If there are keywords, show them
+                if exit_obj.keywords:
+                    self._add_output(f"Keywords: {exit_obj.keywords}", color=(150, 150, 150))
+
+                # If it's an actual exit (to_room > 0), mention that
+                if exit_obj.to_room > 0:
+                    direction_names = ['north', 'east', 'south', 'west', 'up', 'down']
+                    dir_name = direction_names[dir_num]
+                    self._add_output(f"You can go {dir_name} to room #{exit_obj.to_room}.", color=(150, 150, 150))
+                return
+            else:
+                # No description for this direction, use default
+                self._add_output("You see nothing special here.", color=(200, 200, 200))
+                return
 
         # Check extra descriptions
         for edesc in room.extra_descriptions:

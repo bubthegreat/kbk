@@ -113,8 +113,13 @@ class EditorPanel:
         """Handle exit field changes."""
         field_name, room_vnum, direction = user_data
         room = app_state.current_area.rooms.get(room_vnum)
-        if not room or direction not in room.exits:
+        if not room:
             return
+
+        # Create exit if it doesn't exist (this happens when user edits a direction for the first time)
+        if direction not in room.exits:
+            from area_editor.models.room import Exit
+            room.exits[direction] = Exit(direction=direction, to_room=0)
 
         exit_obj = room.exits[direction]
 
@@ -225,6 +230,26 @@ class EditorPanel:
         # Refresh the editor to show the updated key
         self.show_room_editor(room_vnum)
 
+    def _on_add_direction_description_clicked(self, sender, app_data, user_data):
+        """Handle add direction description button click."""
+        room_vnum, direction = user_data
+        room = app_state.current_area.rooms.get(room_vnum)
+        if not room:
+            return
+
+        # Add a new direction description (with to_room=0, meaning no actual exit)
+        from area_editor.models.room import Exit
+        room.exits[direction] = Exit(
+            direction=direction,
+            to_room=0  # 0 means description only, no actual exit
+        )
+
+        # Mark as modified
+        app_state.mark_modified()
+
+        # Refresh the editor
+        self.show_room_editor(room_vnum)
+
     def _on_add_exit_clicked(self, sender, app_data, user_data):
         """Handle add exit button click."""
         room_vnum = user_data
@@ -239,11 +264,7 @@ class EditorPanel:
                 from area_editor.models.room import Exit
                 room.exits[direction] = Exit(
                     direction=direction,
-                    to_room=0,
-                    description="",
-                    keywords="",
-                    locks=0,
-                    key_vnum=0
+                    to_room=0
                 )
 
                 # Mark as modified
@@ -1463,133 +1484,99 @@ class EditorPanel:
 
     def _show_exits_editor(self, room, room_vnum):
         """Show the exits editor section."""
-        dpg.add_text(f"Exits ({len(room.exits)}):", color=(150, 150, 150))
-        dpg.add_text("(Edit exit properties below)", color=(120, 120, 120))
+        dpg.add_text("Direction Descriptions & Exits:", color=(150, 150, 150))
+        dpg.add_text("(All 6 directions always have descriptions. Set 'To Room' to 0 for description-only, or a room vnum for an actual exit)", color=(120, 120, 120))
         dpg.add_spacer(height=5)
 
         direction_names = ['north', 'east', 'south', 'west', 'up', 'down']
 
-        # Display existing exits with edit controls
-        if room.exits:
-            for direction in sorted(room.exits.keys()):
-                exit_obj = room.exits[direction]
-                dir_name = direction_names[direction] if direction < len(direction_names) else f"dir{direction}"
+        # Display ALL 6 directions with edit controls
+        for direction in range(6):
+            # Get existing exit or use default values
+            exit_obj = room.exits.get(direction)
+            dir_name = direction_names[direction]
 
-                with dpg.child_window(height=240, border=True):
-                    # Header with direction and delete button
-                    with dpg.group(horizontal=True):
-                        dpg.add_text(f"Exit: {dir_name.upper()}", color=(200, 200, 100))
-                        dpg.add_spacer(width=10)
-                        dpg.add_button(
-                            label="Delete Exit",
-                            callback=self._on_delete_exit_clicked,
-                            user_data=(room_vnum, direction),
-                            width=100,
-                            height=20
-                        )
+            # If no exit exists, use default values for display
+            if exit_obj is None:
+                description = "You see nothing special here."
+                to_room = 0
+                keywords = ""
+                locks = 0
+                key_vnum = 0
+            else:
+                description = exit_obj.description
+                to_room = exit_obj.to_room
+                keywords = exit_obj.keywords
+                locks = exit_obj.locks
+                key_vnum = exit_obj.key_vnum
 
-                    dpg.add_separator()
-                    dpg.add_spacer(height=5)
+            # Determine if this is an actual exit (to_room > 0) or just a description
+            is_actual_exit = to_room > 0
 
-                    # To Room field with navigation button
-                    with dpg.group(horizontal=True):
-                        dpg.add_text("To Room:", color=(150, 150, 150))
-                        dpg.add_input_int(
-                            default_value=exit_obj.to_room,
-                            width=100,
-                            callback=self._on_exit_field_changed,
-                            user_data=('to_room', room_vnum, direction)
-                        )
-                        dpg.add_button(
-                            label=f"Go to #{exit_obj.to_room}",
-                            callback=self._on_room_link_clicked,
-                            user_data=exit_obj.to_room,
-                            width=100,
-                            height=20
-                        )
+            with dpg.child_window(height=200, border=True):
+                # Header with direction
+                with dpg.group(horizontal=True):
+                    if is_actual_exit:
+                        dpg.add_text(f"{dir_name.upper()}", color=(200, 200, 100))
+                        dpg.add_text(f"(Exit to room #{to_room})", color=(150, 150, 150))
+                    else:
+                        dpg.add_text(f"{dir_name.upper()}", color=(150, 150, 150))
+                        dpg.add_text("(description only)", color=(100, 100, 100))
 
-                    # Description field
-                    with dpg.group(horizontal=True):
-                        dpg.add_text("Description:", color=(150, 150, 150))
-                        dpg.add_input_text(
-                            default_value=exit_obj.description,
-                            width=400,
-                            callback=self._on_exit_field_changed,
-                            user_data=('description', room_vnum, direction)
-                        )
+                dpg.add_separator()
+                dpg.add_spacer(height=5)
 
-                    # Keywords field
-                    with dpg.group(horizontal=True):
-                        dpg.add_text("Keywords:", color=(150, 150, 150))
-                        dpg.add_input_text(
-                            default_value=exit_obj.keywords,
-                            width=400,
-                            callback=self._on_exit_field_changed,
-                            user_data=('keywords', room_vnum, direction)
-                        )
-
-                    # Lock Flags field
-                    with dpg.group(horizontal=True):
-                        dpg.add_text("Lock Flags:", color=(150, 150, 150))
-                        dpg.add_input_int(
-                            default_value=exit_obj.locks,
-                            width=100,
-                            callback=self._on_exit_field_changed,
-                            user_data=('locks', room_vnum, direction)
-                        )
-
-                    dpg.add_spacer(height=5)
-
-                    # Key selector - improved UI
-                    dpg.add_text("Key:", color=(150, 150, 150))
-                    with dpg.group(horizontal=True):
-                        # Get all key objects in the area
-                        key_objects = []
-                        if app_state.current_area:
-                            for obj_vnum, obj in app_state.current_area.objects.items():
-                                if obj.item_type.lower() == "key":
-                                    key_objects.append((obj_vnum, obj.short_description))
-
-                        # Build combo items
-                        key_items = ["(No Key)"]
-                        key_vnums = [-1]  # -1 means no key
-                        for vnum, desc in sorted(key_objects):
-                            key_items.append(f"#{vnum}: {desc}")
-                            key_vnums.append(vnum)
-
-                        # Find current selection
-                        current_key_vnum = exit_obj.key_vnum if exit_obj.key_vnum > 0 else -1
-                        if current_key_vnum in key_vnums:
-                            default_value = key_items[key_vnums.index(current_key_vnum)]
-                        else:
-                            default_value = "(No Key)"
-
-                        dpg.add_combo(
-                            items=key_items,
-                            default_value=default_value,
-                            width=300,
-                            callback=lambda s, a, u: self._on_key_selected(s, a, u, key_items, key_vnums),
-                            user_data=(room_vnum, direction)
-                        )
-
-                        dpg.add_button(
-                            label="Create New Key",
-                            callback=self._on_create_key_clicked,
-                            user_data=(room_vnum, direction),
-                            width=120,
-                            height=20
-                        )
+                # Description field (always shown)
+                dpg.add_text("Description:", color=(150, 150, 150))
+                dpg.add_input_text(
+                    default_value=description,
+                    width=-1,
+                    callback=self._on_exit_field_changed,
+                    user_data=('description', room_vnum, direction)
+                )
 
                 dpg.add_spacer(height=5)
 
-        # Add exit button
-        dpg.add_button(
-            label="+ Add New Exit",
-            callback=self._on_add_exit_clicked,
-            user_data=room_vnum,
-            width=150,
-            height=25
-        )
+                # To Room field with navigation button
+                with dpg.group(horizontal=True):
+                    dpg.add_text("To Room:", color=(150, 150, 150))
+                    dpg.add_text("(0 = description only)", color=(100, 100, 100))
+                    dpg.add_input_int(
+                        default_value=to_room,
+                        width=100,
+                        callback=self._on_exit_field_changed,
+                        user_data=('to_room', room_vnum, direction)
+                    )
+                    if to_room > 0:
+                        dpg.add_button(
+                            label=f"Go to #{to_room}",
+                            callback=self._on_room_link_clicked,
+                            user_data=to_room,
+                            width=100,
+                            height=20
+                        )
+
+                # Keywords field
+                with dpg.group(horizontal=True):
+                    dpg.add_text("Keywords:", color=(150, 150, 150))
+                    dpg.add_input_text(
+                        default_value=keywords,
+                        width=300,
+                        callback=self._on_exit_field_changed,
+                        user_data=('keywords', room_vnum, direction)
+                    )
+
+                # Lock Flags field
+                with dpg.group(horizontal=True):
+                    dpg.add_text("Lock Flags:", color=(150, 150, 150))
+                    dpg.add_input_int(
+                        default_value=locks,
+                        width=100,
+                        callback=self._on_exit_field_changed,
+                        user_data=('locks', room_vnum, direction)
+                    )
+
+                dpg.add_spacer(height=5)
 
     def _show_extra_descriptions_editor(self, room, room_vnum):
         """Show the extra descriptions editor section."""

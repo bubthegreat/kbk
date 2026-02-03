@@ -111,6 +111,9 @@ def test_validate_room_exits():
     # Add exit from room1 to non-existent room (invalid)
     room1.exits[1] = Exit(direction=1, to_room=2000)
 
+    # Add description-only direction (to_room=0) - should NOT trigger validation error
+    room1.exits[2] = Exit(direction=2, to_room=0, description="A solid wall blocks the path.")
+
     area.rooms[1000] = room1
     area.rooms[1001] = room2
 
@@ -118,6 +121,7 @@ def test_validate_room_exits():
     result = validator.validate()
 
     # Should have 1 warning for the missing room reference
+    # Should NOT have a warning for the description-only direction (to_room=0)
     assert result.has_warnings()
     errors = result.get_errors_for_item("room", 1000)
     assert len(errors) == 1

@@ -8,9 +8,9 @@ from typing import Dict, List, Optional
 @dataclass
 class Exit:
     """Represents a room exit."""
-    
+
     direction: int  # 0=north, 1=east, 2=south, 3=west, 4=up, 5=down
-    description: str = ""
+    description: str = "You see nothing special here."
     keywords: str = ""
     locks: int = 0  # 0=open, 1=door, 2=pickproof
     key_vnum: int = 0

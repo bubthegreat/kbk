@@ -120,13 +120,17 @@ class AreaValidator:
         for vnum, room in self.area.rooms.items():
             for direction, exit_data in room.exits.items():
                 target_vnum = exit_data.to_room
-                
+
+                # Skip validation for description-only directions (to_room = 0)
+                if target_vnum == 0:
+                    continue
+
                 # Check if target room exists in this area
                 if target_vnum not in self.area.rooms:
                     # This might be a cross-area exit, so it's a warning not an error
                     direction_names = ["north", "east", "south", "west", "up", "down"]
                     dir_name = direction_names[direction] if 0 <= direction < 6 else str(direction)
-                    
+
                     self.result.add_error(ValidationError(
                         error_type="missing_room",
                         severity="warning",
