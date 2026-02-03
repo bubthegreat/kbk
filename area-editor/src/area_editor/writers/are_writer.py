@@ -101,8 +101,15 @@ class AreWriter:
         type_values_str = " ".join(str(v) for v in obj.type_values) if obj.type_values else "0"
         f.write(f"TYPE   {obj.item_type} {type_values_str}\n")
 
-        # EXTRA line (only 2 values in the correct format)
-        f.write(f"EXTRA  {obj.extra_flags} {obj.extra_value2}\n")
+        # EXTRA line - bitmask format: <masks> <bits> [<set> <tar_mask>]...
+        # If no flags set: EXTRA 0 0
+        # If flags set: EXTRA <masks> <bits> <set> <tar_mask>
+        if obj.extra_flags == 0 and obj.extra_value2 == 0:
+            # No flags set
+            f.write(f"EXTRA  0 0\n")
+        else:
+            # Flags set - write all 4 values
+            f.write(f"EXTRA  {obj.extra_flags} {obj.extra_value2} {obj.extra_value3} {obj.extra_value4}\n")
 
         # WEAR line (just the flags, no extra values)
         f.write(f"WEAR   {obj.wear_flags}\n")
