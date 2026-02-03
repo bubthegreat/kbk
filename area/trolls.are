@@ -183,10 +183,10 @@ End
 NAME   blood-covered blood axe~
 SHORT  a blood-covered axe~
 DESCR  A blood-covered axe is here.~
-MAT    none~
+MAT    iron~
 TYPE   weapon 0 0 0 0 0
 EXTRA  1 3
-WEAR   AN 0 0
+WEAR   AN
 LEVEL  40
 WEIGHT 23
 COST   600
@@ -197,10 +197,10 @@ End
 NAME   deadly bow~
 SHORT  a deadly bow~
 DESCR  A deadly bow rests here in a pool of blood.~
-MAT    none~
+MAT    wood~
 TYPE   weapon 0 0 0 0 0
 EXTRA  1 1
-WEAR   AN 0 0
+WEAR   AN
 LEVEL  45
 WEIGHT 12
 COST   9000
@@ -211,10 +211,10 @@ End
 NAME   signet ring~
 SHORT  a Varggin Shih signet ring~
 DESCR  A silver ring is here, the signet of Varggin Shih adorns it.~
-MAT    none~
+MAT    silver~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 5
-WEAR   AB 0 0
+WEAR   AB
 LEVEL  50
 WEIGHT 4
 COST   9000
@@ -225,10 +225,10 @@ End
 NAME   crude iron belt~
 SHORT  a crude iron belt~
 DESCR  A crude-looking iron belt is here.~
-MAT    none~
+MAT    iron~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 3
-WEAR   AL 0 0
+WEAR   AL
 LEVEL  50
 WEIGHT 13
 COST   9000
@@ -242,7 +242,7 @@ DESCR  A dirty helm of blackened furs is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AE 0 0
+WEAR   AE
 LEVEL  50
 WEIGHT 16
 COST   9000
@@ -256,7 +256,7 @@ DESCR  A large hoof of a centaur is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 2
-WEAR   AO 0 0
+WEAR   AO
 LEVEL  50
 WEIGHT 8
 COST   9000
@@ -270,7 +270,7 @@ DESCR  Some blood-covered battle armor is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AD 0 0
+WEAR   AD
 LEVEL  50
 WEIGHT 21
 COST   9000
@@ -284,7 +284,7 @@ DESCR  A strange smelly potion is here.~
 MAT    none~
 TYPE   potion 0 0 0 0 0
 EXTRA  1 1
-WEAR   A 0 0
+WEAR   A
 LEVEL  55
 WEIGHT 7
 COST   9000
@@ -298,7 +298,7 @@ DESCR  A wicked iron longsword is here.~
 MAT    none~
 TYPE   weapon 0 0 0 0 0
 EXTRA  1 2
-WEAR   AN 0 0
+WEAR   AN
 LEVEL  50
 WEIGHT 24
 COST   9000
@@ -312,7 +312,7 @@ DESCR  A large staff is here.~
 MAT    none~
 TYPE   weapon 0 0 0 0 0
 EXTRA  1 2
-WEAR   AN 0 0
+WEAR   AN
 LEVEL  45
 WEIGHT 32
 COST   9000
@@ -326,7 +326,7 @@ DESCR  A strange black potion is here.~
 MAT    none~
 TYPE   potion 0 0 0 0 0
 EXTRA  1 2
-WEAR   A 0 0
+WEAR   A
 LEVEL  50
 WEIGHT 7
 COST   900
@@ -340,7 +340,7 @@ DESCR  A pile of bones is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AD 0 0
+WEAR   AD
 LEVEL  50
 WEIGHT 27
 COST   900
@@ -354,7 +354,7 @@ DESCR  A pile of bones is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AF 0 0
+WEAR   AF
 LEVEL  50
 WEIGHT 22
 COST   900
@@ -368,7 +368,7 @@ DESCR  A pile of bones is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AG 0 0
+WEAR   AG
 LEVEL  50
 WEIGHT 18
 COST   900
@@ -382,7 +382,7 @@ DESCR  A pile of bones is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AJ 0 0
+WEAR   AJ
 LEVEL  50
 WEIGHT 32
 COST   900
@@ -396,7 +396,7 @@ DESCR  A black robe is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 2
-WEAR   AK 0 0
+WEAR   AK
 LEVEL  50
 WEIGHT 7
 COST   900
@@ -410,7 +410,7 @@ DESCR  A large iron bracelet is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 5
-WEAR   AM 0 0
+WEAR   AM
 LEVEL  51
 WEIGHT 16
 COST   900
@@ -424,7 +424,7 @@ DESCR  A cracked skull of the shaman of Varggin Shih is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 3
-WEAR   AO 0 0
+WEAR   AO
 LEVEL  50
 WEIGHT 8
 COST   900
@@ -438,7 +438,7 @@ DESCR  A strange looking bone is humming here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AO 0 0
+WEAR   AO
 LEVEL  60
 WEIGHT 8
 COST   9000
@@ -452,7 +452,7 @@ DESCR  A pile of tough-looking fur is here.~
 MAT    none~
 TYPE   armor 0 0 0 0 0
 EXTRA  1 1
-WEAR   AF 0 0
+WEAR   AF
 LEVEL  40
 WEIGHT 17
 COST   900
@@ -1490,14 +1490,14 @@ The street, like anything you see around you, smells. A dim glow illuminates
 the area from an unknown source. Various grunts and howls can be heard coming 
 from the many homes that you see lining the street. You notice that there 
 was some fur tossed to the side of the road, most likely the source of the 
-horrid smell.
+horrid smell.  The street here has odd cobblestones popping out of the dirt.
 ~
 FLAGS  1
 Sect   11
 DOOR 0
 You see the remnants of an old road that must have been abandoned once the trolls took over this place.  You just might be able to crawl through the brush.~
-~
-0 0 31043
+remnants road~
+2048 0 31043
 DOOR 1
 ~
 ~

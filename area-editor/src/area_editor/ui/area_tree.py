@@ -98,10 +98,17 @@ class AreaTree:
             dpg.delete_item(self.no_areas_placeholder_id)
             self.no_areas_placeholder_id = None
 
-        # If area already exists, remove it first
-        if area_id in self.area_nodes:
+        # If area already exists, save its state before removing
+        was_open = None
+
+        # Check if we have a saved state from rebuild_all_areas
+        if hasattr(self, '_saved_state'):
+            was_open = self._saved_state
+        elif area_id in self.area_nodes:
             old_node_id = self.area_nodes[area_id]
             if dpg.does_item_exist(old_node_id):
+                # Save current open/closed state (True = open, False = closed)
+                was_open = dpg.get_value(old_node_id)
                 dpg.delete_item(old_node_id)
             # Remove old selectable items for this area
             keys_to_remove = [k for k in self.selectable_items.keys() if k[0] == area_id]
@@ -109,9 +116,14 @@ class AreaTree:
                 del self.selectable_items[key]
 
         # Create area node
-        # Collapse by default if multiple areas are loaded, expand if only one
+        # If refreshing, preserve previous state; otherwise collapse by default if multiple areas
         num_areas = len(app_state.areas)
-        default_open = (num_areas == 1)
+        if was_open is not None:
+            # Preserve previous state when refreshing
+            default_open = was_open
+        else:
+            # New area: collapse by default if multiple areas are loaded, expand if only one
+            default_open = (num_areas == 1)
 
         # If we're adding a second area, collapse all existing area nodes
         if num_areas == 2:
@@ -196,4 +208,41 @@ class AreaTree:
         # Rebuild the tree for the current area
         if app_state.current_area and app_state.current_area_id:
             self.populate_from_area(app_state.current_area, app_state.current_area_id)
+
+    def rebuild_all_areas(self):
+        """Rebuild the entire area tree in sorted order by vnum range."""
+        # Save all current open/closed states
+        saved_states = {}
+        for area_id, node_id in self.area_nodes.items():
+            if dpg.does_item_exist(node_id):
+                saved_states[area_id] = dpg.get_value(node_id)
+
+        # Clear all area nodes
+        for area_id in list(self.area_nodes.keys()):
+            node_id = self.area_nodes[area_id]
+            if dpg.does_item_exist(node_id):
+                dpg.delete_item(node_id)
+
+        self.area_nodes.clear()
+        self.selectable_items.clear()
+
+        # Sort areas by min_vnum
+        sorted_areas = sorted(
+            app_state.areas.items(),
+            key=lambda x: x[1].min_vnum
+        )
+
+        # Rebuild in sorted order
+        for area_id, area in sorted_areas:
+            # Temporarily restore saved state for this area
+            if area_id in saved_states:
+                self._saved_state = saved_states[area_id]
+            else:
+                self._saved_state = None
+
+            self.populate_from_area(area, area_id)
+
+        # Clean up temporary state
+        if hasattr(self, '_saved_state'):
+            delattr(self, '_saved_state')
 

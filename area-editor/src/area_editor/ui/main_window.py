@@ -178,11 +178,10 @@ class MainWindow:
             tree = self.area_tree
             area_id = app_state.current_area_id
 
-            # Deselect previous item
-            if tree.current_selection and tree.current_selection in tree.selectable_items:
-                prev_id = tree.selectable_items[tree.current_selection]
-                if dpg.does_item_exist(prev_id):
-                    dpg.set_value(prev_id, False)
+            # Deselect ALL selectable items to ensure only one is highlighted
+            for item_key, item_id in tree.selectable_items.items():
+                if dpg.does_item_exist(item_id):
+                    dpg.set_value(item_id, False)
 
             # Select new item
             tree.current_selection = (area_id, 'room', new_vnum)
@@ -195,6 +194,39 @@ class MainWindow:
         room = app_state.current_area.rooms.get(new_vnum)
         if room:
             self.editor_panel.show_room_editor(new_vnum)
+
+    def _revalidate_all_areas(self):
+        """Re-validate all loaded areas (useful after loading a new area for cross-area validation)."""
+        print("Re-validating all loaded areas for cross-area validation...")
+        for area_id, area in app_state.areas.items():
+            validator = AreaValidator(area, area_id, app_state.areas)
+            validation_result = validator.validate()
+            app_state.set_validation_result(area_id, validation_result)
+
+            # Log summary
+            if validation_result.has_errors() or validation_result.has_warnings():
+                print(f"  {area_id}: {len(validation_result.errors)} errors, {len(validation_result.warnings)} warnings")
+            else:
+                print(f"  {area_id}: No errors or warnings")
+
+        # Refresh the area tree to update validation error indicators
+        self._refresh_area_tree()
+
+    def _refresh_area_tree(self):
+        """Refresh the area tree to update validation error indicators."""
+        # Save current selection
+        current_selection = self.area_tree.current_selection if hasattr(self.area_tree, 'current_selection') else None
+
+        # Rebuild the tree for all areas
+        for area_id, area in app_state.areas.items():
+            self.area_tree.populate_from_area(area, area_id)
+
+        # Restore selection if it still exists
+        if current_selection and current_selection in self.area_tree.selectable_items:
+            item_id = self.area_tree.selectable_items[current_selection]
+            if dpg.does_item_exist(item_id):
+                dpg.set_value(item_id, True)
+                self.area_tree.current_selection = current_selection
 
     def open_area_file(self, filepath: str):
         """Open and load an area file."""
@@ -214,21 +246,22 @@ class MainWindow:
             app_state.load_area(area, filepath_obj)
             area_id = filepath_obj.name  # Use filename as area ID
 
-            # Run validation (pass all loaded areas for cross-area validation)
-            validator = AreaValidator(area, area_id, app_state.areas)
-            validation_result = validator.validate()
-            app_state.set_validation_result(area_id, validation_result)
+            # Re-validate ALL loaded areas (since cross-area links may now be valid)
+            self._revalidate_all_areas()
+
+            # Get validation result for the newly loaded area
+            validation_result = app_state.validation_results.get(area_id)
 
             # Log validation results
-            if validation_result.has_errors():
+            if validation_result and validation_result.has_errors():
                 print(f"Validation found {len(validation_result.errors)} error(s) in {area_id}")
                 for error in validation_result.errors[:5]:  # Show first 5 errors
                     print(f"  {error}")
-            if validation_result.has_warnings():
+            if validation_result and validation_result.has_warnings():
                 print(f"Validation found {len(validation_result.warnings)} warning(s) in {area_id}")
 
-            # Update UI
-            self.area_tree.populate_from_area(area, area_id)
+            # Update UI - rebuild all areas in sorted order by vnum
+            self.area_tree.rebuild_all_areas()
 
             # Update status bar with validation info
             status_msg = "Area loaded successfully"

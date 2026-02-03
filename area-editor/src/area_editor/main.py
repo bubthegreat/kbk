@@ -116,6 +116,44 @@ Examples:
     # Load file if specified on command line
     if file_to_load:
         main_window.open_area_file(file_to_load)
+    else:
+        # Auto-load areas from area.lst if configured
+        from area_editor.parsers.area_list_parser import get_area_files
+        area_files = get_area_files()
+
+        if area_files:
+            # Get areas directory from config
+            areas_dir_str = config.get("paths.areas_directory")
+
+            if areas_dir_str is None:
+                # Search default locations relative to current working directory
+                search_dirs = [
+                    Path.cwd() / "area",  # From repo root
+                    Path.cwd(),  # From area directory itself
+                    Path.cwd() / "../area",  # From area-editor directory
+                ]
+
+                for search_dir in search_dirs:
+                    if search_dir.exists() and search_dir.is_dir():
+                        areas_dir = search_dir
+                        break
+                else:
+                    print("Warning: Could not find area directory")
+                    areas_dir = Path.cwd() / "area"  # Default fallback
+            else:
+                # Use configured path (can be absolute or relative to cwd)
+                areas_dir = Path(areas_dir_str)
+                if not areas_dir.is_absolute():
+                    areas_dir = Path.cwd() / areas_dir
+
+            # Load each area file
+            for area_file in area_files:
+                area_path = areas_dir / area_file
+                if area_path.exists() and area_path.suffix == '.are':
+                    try:
+                        main_window.open_area_file(str(area_path.resolve()))
+                    except Exception as e:
+                        print(f"Warning: Failed to load {area_file}: {e}")
 
     # Start DearPyGui
     dpg.start_dearpygui()

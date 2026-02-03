@@ -1,495 +1,317 @@
 #AREADATA
-Name Thalos~
-Builders None~
-VNUMs 5200 5299
-Credits {10 25} Drkside Thalos~
-Security 9
-Xplore 0
+Name        Thalos~
+Builders    None~
+VNUMs       5200 5299
+Security    9
+Recall      5200
 End
-
-
 
 #MOBDATA
 #5200
-NAME  oldstyle beholder~
-SHORT The mighty beholder~
-LONG  You meet a beholder's deadly gaze! 
+NAME   oldstyle beholder~
+SHORT  The mighty beholder~
+LONG   You meet a beholder's deadly gaze! 
 ~
 DESCR
 It has a large central eye that projects an anti-magic ray and ten
 eyestalks atop the round body which can do anything from charm you to
 disintegrate you. Beholders are not known for their personality. 
 ~
-RACE  human~
-ACT   ABFHR
-AFF   0
-OFF   FU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN -870
-GROUP 0
-LEVEL 25
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 5d10+500
-MDICE 25d9+100
-DDICE 4d4+6
-REGEN 0
-DTYPE none
-AC    -6 -6 -6 2
-POS   stand stand
-SEX   none
-GOLD  1128
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ABFHR
+AFF    0
+ALIGN  -870
+LEVEL  25
+HROLL  0
+DDICE  4d4+6
+MDICE  25d9+100
+HDICE  5d10+500
+GOLD   1128
+POS    stand stand
+SEX    none
 End
 
 #5201
-NAME  oldstyle lamia beast~
-SHORT The lamia~
-LONG  A strange lamia stands here waiting for her next meal. 
+NAME   oldstyle lamia beast~
+SHORT  The lamia~
+LONG   A strange lamia stands here waiting for her next meal. 
 ~
 DESCR
 This is a creature with the upper torso of a beautiful woman, but the
 lower body of a four-legged beast. She licks her lips as she looks at you
 greedily. 
 ~
-RACE  human~
-ACT   ACFG
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN -999
-GROUP 0
-LEVEL 9
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d6+110
-MDICE 4d9+100
-DDICE 1d8+2
-REGEN 0
-DTYPE none
-AC    2 2 2 8
-POS   stand stand
-SEX   female
-GOLD  50
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ACFG
+AFF    0
+ALIGN  -999
+LEVEL  9
+HROLL  0
+DDICE  1d8+2
+MDICE  4d9+100
+HDICE  2d6+110
+GOLD   50
+POS    stand stand
+SEX    female
 End
 
 #5202
-NAME  oldstyle mimic chest~
-SHORT The mimic~
-LONG  A strong chest lies in one corner of the room. 
+NAME   oldstyle mimic chest~
+SHORT  The mimic~
+LONG   A strong chest lies in one corner of the room. 
 ~
 DESCR
 A strong, wooden chest bound with iron straps and a heavy pad-lock on the
 front. 
 ~
-RACE  human~
-ACT   ABCFGH
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN 10
-GROUP 0
-LEVEL 11
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d8+134
-MDICE 5d9+100
-DDICE 1d10+2
-REGEN 0
-DTYPE none
-AC    1 1 1 8
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ABCFGH
+AFF    0
+ALIGN  10
+LEVEL  11
+HROLL  0
+DDICE  1d10+2
+MDICE  5d9+100
+HDICE  2d8+134
+GOLD   0
+POS    stand stand
+SEX    none
 End
 
 #5203
-NAME  oldstyle mimic boulder~
-SHORT The mimic~
-LONG  Two skeletons lie crushed under a large boulder. 
+NAME   oldstyle mimic boulder~
+SHORT  The mimic~
+LONG   Two skeletons lie crushed under a large boulder. 
 ~
 DESCR
 ~
-RACE  human~
-ACT   ABCFGH
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN -10
-GROUP 0
-LEVEL 11
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d8+134
-MDICE 5d9+100
-DDICE 1d10+2
-REGEN 0
-DTYPE none
-AC    1 1 1 8
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ABCFGH
+AFF    0
+ALIGN  -10
+LEVEL  11
+HROLL  0
+DDICE  1d10+2
+MDICE  5d9+100
+HDICE  2d8+134
+GOLD   0
+POS    stand stand
+SEX    none
 End
 
 #5204
-NAME  oldstyle mimic floor~
-SHORT The mimic~
-LONG  The stone floor of this house has been ripped apart. 
+NAME   oldstyle mimic floor~
+SHORT  The mimic~
+LONG   The stone floor of this house has been ripped apart. 
 ~
 DESCR
 ~
-RACE  human~
-ACT   ABCFGH
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN -140
-GROUP 0
-LEVEL 11
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d8+134
-MDICE 5d9+100
-DDICE 1d10+2
-REGEN 0
-DTYPE none
-AC    1 1 1 8
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ABCFGH
+AFF    0
+ALIGN  -140
+LEVEL  11
+HROLL  0
+DDICE  1d10+2
+MDICE  5d9+100
+HDICE  2d8+134
+GOLD   0
+POS    stand stand
+SEX    none
 End
 
 #5205
-NAME  oldstyle mimic pottery~
-SHORT The mimic~
-LONG  Some broken shards of pottery lie strewn about the floor. 
+NAME   oldstyle mimic pottery~
+SHORT  The mimic~
+LONG   Some broken shards of pottery lie strewn about the floor. 
 ~
 DESCR
 ~
-RACE  human~
-ACT   ABCFGH
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN 200
-GROUP 0
-LEVEL 11
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d8+134
-MDICE 5d9+100
-DDICE 1d10+2
-REGEN 0
-DTYPE none
-AC    1 1 1 8
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ABCFGH
+AFF    0
+ALIGN  200
+LEVEL  11
+HROLL  0
+DDICE  1d10+2
+MDICE  5d9+100
+HDICE  2d8+134
+GOLD   0
+POS    stand stand
+SEX    none
 End
 
 #5206
-NAME  oldstyle mimic planks~
-SHORT The mimic~
-LONG  A few wooden planks lie stacked on a low shelf. 
+NAME   oldstyle mimic planks~
+SHORT  The mimic~
+LONG   A few wooden planks lie stacked on a low shelf. 
 ~
 DESCR
 ~
-RACE  human~
-ACT   ABCFGH
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN 0
-GROUP 0
-LEVEL 11
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d8+134
-MDICE 5d9+100
-DDICE 1d10+2
-REGEN 0
-DTYPE none
-AC    1 1 1 8
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    ABCFGH
+AFF    0
+ALIGN  0
+LEVEL  11
+HROLL  0
+DDICE  1d10+2
+MDICE  5d9+100
+HDICE  2d8+134
+GOLD   0
+POS    stand stand
+SEX    none
 End
 
 #5207
-NAME  oldstyle lizard horned~
-SHORT The horned lizard~
-LONG  A small horned lizard flicks his tongue and slithers away. 
+NAME   oldstyle lizard horned~
+SHORT  The horned lizard~
+LONG   A small horned lizard flicks his tongue and slithers away. 
 ~
 DESCR
 A cute little lizard, that is, if you like reptiles! 
 ~
-RACE  lizard~
-ACT   AH
-AFF   0
-OFF   EFNR
-IMM   0
-RES   L
-VULN  I
-WSPEC 0
-ALIGN 0
-GROUP 0
-LEVEL 3
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 2d6+35
-MDICE 1d9+100
-DDICE 1d6+0
-REGEN 0
-DTYPE none
-AC    7 7 7 10
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  AGXc
-PARTS ACDEFHKQV
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   lizard~
+ACT    AH
+AFF    0
+ALIGN  0
+LEVEL  3
+HROLL  0
+DDICE  1d6+0
+MDICE  1d9+100
+HDICE  2d6+35
+GOLD   0
+POS    stand stand
+SEX    none
 End
 
 #5208
-NAME  oldstyle golem stone~
-SHORT The stone golem~
-LONG  In the corner you see a large, stone golem faithfully standing watch. 
+NAME   oldstyle golem stone~
+SHORT  The stone golem~
+LONG   In the corner you see a large, stone golem faithfully standing watch. 
 ~
 DESCR
 It is a big chunk of rock that has been magically formed into a giant
 stone creature. He stands here still guarding the city. 
 ~
-RACE  human~
-ACT   AB
-AFF   0
-OFF   EFNU
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN 600
-GROUP 0
-LEVEL 25
-HROLL 0
-ENHA  100.00%
-MATER none~
-HDICE 5d10+550
-MDICE 12d9+100
-DDICE 2d10+7
-REGEN 0
-DTYPE none
-AC    -7 -7 -7 6
-POS   stand stand
-SEX   none
-GOLD  212
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
+RACE   human~
+ACT    AB
+AFF    0
+ALIGN  600
+LEVEL  25
+HROLL  0
+DDICE  2d10+7
+MDICE  12d9+100
+HDICE  5d10+550
+GOLD   212
+POS    stand stand
+SEX    none
 End
 
 #0
-
-
 
 #OBJDATA
 #5200
 NAME   mithril vest~
 SHORT  a mithril vest~
-DESCR 
-A vest made of mithril plates lies heaped on the floor.~
+DESCR  A vest made of mithril plates lies heaped on the floor.~
 MAT    mineral~
 TYPE   armor ABCD BDE AE BE 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AD
 LEVEL  26
 WEIGHT 27
 COST   7600
 COND   100
-Affect O 19 1 0
-Affect O 1 2 0
 End
 
 #5201
 NAME   helm mithril~
 SHORT  a mithril helm~
-DESCR 
-Here lies a large mithril helm.~
+DESCR  Here lies a large mithril helm.~
 MAT    mineral~
 TYPE   armor ABD CE ACD BCD 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AE
 LEVEL  27
 WEIGHT 21
 COST   3400
 COND   100
-Affect O 18 2 0
 End
 
 #5202
 NAME   gauntlets mithril~
 SHORT  a pair of mithril gauntlets~
-DESCR 
-A pair of mithril gauntlets rests on the ground.~
+DESCR  A pair of mithril gauntlets rests on the ground.~
 MAT    mineral~
 TYPE   armor D ABCD BD BD 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AH
 LEVEL  25
 WEIGHT 16
 COST   2700
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
 End
 
 #5203
 NAME   sleeves mithril~
 SHORT  some mithril sleeves~
-DESCR 
-A set of mithril sleeves lies on the ground.~
+DESCR  A set of mithril sleeves lies on the ground.~
 MAT    mineral~
 TYPE   armor BD AE ABD CD 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AI
 LEVEL  25
 WEIGHT 21
 COST   2700
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
 End
 
 #5204
 NAME   boots mithril~
 SHORT  a pair of mithril boots~
-DESCR 
-A pair of mithril boots stands has been left here.~
+DESCR  A pair of mithril boots stands has been left here.~
 MAT    mineral~
 TYPE   armor D ABCD BD BD 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AG
 LEVEL  25
 WEIGHT 18
 COST   3100
 COND   100
-Affect O 18 1 0
-Affect O 2 1 0
 End
 
 #5205
 NAME   leggings mithril~
 SHORT  a set of mithril leggings~
-DESCR 
-A set of mithril leggings lie here unattended.~
+DESCR  A set of mithril leggings lie here unattended.~
 MAT    mineral~
 TYPE   armor D ABCD BD BD 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AF
 LEVEL  25
 WEIGHT 22
 COST   3100
 COND   100
-Affect O 18 1 0
-Affect O 2 1 0
 End
 
 #5206
 NAME   girth mithril~
 SHORT  a mithril girth~
-DESCR 
-A large iron girth lies at your feet.~
+DESCR  A large iron girth lies at your feet.~
 MAT    mineral~
 TYPE   armor D BCD AD AD 0
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AL
 LEVEL  26
 WEIGHT 10
 COST   5200
 COND   100
-Affect O 5 2 0
 End
 
 #5207
 NAME   breast plate iron~
 SHORT  a battered iron breast plate~
-DESCR 
-A battered iron breast plate lies here.~
+DESCR  A battered iron breast plate lies here.~
 MAT    mineral~
 TYPE   armor 0 0 0 0 0
 EXTRA  0 0
@@ -498,34 +320,29 @@ LEVEL  4
 WEIGHT 27
 COST   9100
 COND   100
-Affect O 18 -6 0
 End
 
 #5208
 NAME   shield iron~
 SHORT  a sturdy iron shield~
-DESCR 
-A small, but sturdy, iron shield has been left here.~
+DESCR  A small, but sturdy, iron shield has been left here.~
 MAT    mineral~
 TYPE   armor BCE BCF DE BDE 0
-EXTRA  1 2 0 576
+EXTRA  1 2
 WEAR   AJ
 LEVEL  24
 WEIGHT 32
 COST   4400
 COND   100
-Affect O 20 -2 0
-Affect O 20 -2 0
 End
 
 #5210
 NAME   potion black~
 SHORT  a black potion~
-DESCR 
-A jet black potion sits upright waiting to be taken.~
+DESCR  A jet black potion sits upright waiting to be taken.~
 MAT    mineral~
 TYPE   potion 16 'blindness' 'cure poison' 'giant strength' ''
-EXTRA  1 2 0 96
+EXTRA  1 2
 WEAR   A
 LEVEL  11
 WEIGHT 8
@@ -536,11 +353,10 @@ End
 #5211
 NAME   potion orange~
 SHORT  an orange potion~
-DESCR 
-A small orange potion lies here.~
+DESCR  A small orange potion lies here.~
 MAT    mineral~
 TYPE   potion 20 'detect hidden' '' '' ''
-EXTRA  1 2 0 96
+EXTRA  1 2
 WEAR   A
 LEVEL  4
 WEIGHT 8
@@ -551,11 +367,10 @@ End
 #5214
 NAME   ball quartz~
 SHORT  a smooth quartz ball~
-DESCR 
-A smooth quartz ball lies here gleaming.~
+DESCR  A smooth quartz ball lies here gleaming.~
 MAT    mineral~
 TYPE   light 0 0 ABCFGHIJ 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AO
 LEVEL  0
 WEIGHT 8
@@ -566,11 +381,10 @@ End
 #5215
 NAME   scroll tattered~
 SHORT  a tattered scroll~
-DESCR 
-A worn and tattered scroll has been left here.~
+DESCR  A worn and tattered scroll has been left here.~
 MAT    mineral~
 TYPE   scroll 24 'enchant weapon' '' '' ''
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   A
 LEVEL  8
 WEIGHT 8
@@ -581,11 +395,10 @@ End
 #5216
 NAME   scroll bound~
 SHORT  a bound scroll~
-DESCR 
-A bound scroll of detection lies at your feet.~
+DESCR  A bound scroll of detection lies at your feet.~
 MAT    mineral~
 TYPE   scroll 15 'detect evil' 'detect invis' 'detect magic' ''
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   A
 LEVEL  0
 WEIGHT 8
@@ -596,41 +409,35 @@ End
 #5217
 NAME   flute silver~
 SHORT  a silver flute~
-DESCR 
-A brilliant silver flute glimmers from beneath a rock.~
+DESCR  A brilliant silver flute glimmers from beneath a rock.~
 MAT    mineral~
 TYPE   instrument 0 0 0 0 0
-EXTRA  1 2 0 65
+EXTRA  1 2
 WEAR   AO
 LEVEL  9
 WEIGHT 8
 COST   3300
 COND   100
-Affect O 2 -2 0
 End
 
 #5218
 NAME   talisman demon~
 SHORT  a demon-faced talisman~
-DESCR 
-A demon-faced talisman glares at you angrily.~
+DESCR  A demon-faced talisman glares at you angrily.~
 MAT    mineral~
 TYPE   jewelry 0 0 0 0 0
-EXTRA  1 2 0 65
+EXTRA  1 2
 WEAR   AC
 LEVEL  0
 WEIGHT 10
 COST   0
 COND   100
-Affect O 1 -10 0
-Affect O 2 -8 0
 End
 
 #5219
 NAME   venison chunk~
 SHORT  a chunk of venison~
-DESCR 
-A large chunk of venison sits here ready to be eaten.~
+DESCR  A large chunk of venison sits here ready to be eaten.~
 MAT    mineral~
 TYPE   food 0 0 0 0 0
 EXTRA  0 0
@@ -644,8 +451,7 @@ End
 #5220
 NAME   fountain water~
 SHORT  a large cracked fountain~
-DESCR 
-Some stagnant water lies in the bottom of the fountain.~
+DESCR  Some stagnant water lies in the bottom of the fountain.~
 MAT    mineral~
 TYPE   fountain 10 10 'water' 0 0
 EXTRA  0 0
@@ -659,25 +465,21 @@ End
 #5221
 NAME   two-handed two sword~
 SHORT  a two-handed sword~
-DESCR 
-A nice two-handed sword hangs on a hook in the wall.~
+DESCR  A nice two-handed sword hangs on a hook in the wall.~
 MAT    mineral~
 TYPE   weapon sword 2 12 chop F
-EXTRA  1 2 0 1088
+EXTRA  1 2
 WEAR   AN
 LEVEL  26
 WEIGHT 20
 COST   3300
 COND   100
-Affect O 18 2 0
-Affect O 19 3 0
 End
 
 #5222
 NAME   robe black silk~
 SHORT  a black silk robe~
-DESCR 
-A black silk robe lies heaped in one corner.~
+DESCR  A black silk robe lies heaped in one corner.~
 MAT    mineral~
 TYPE   armor 0 0 0 0 0
 EXTRA  0 0
@@ -686,30 +488,26 @@ LEVEL  5
 WEIGHT 21
 COST   410
 COND   100
-Affect O 12 10 0
 End
 
 #5223
 NAME   cloak green~
 SHORT  a dark green cloak~
-DESCR 
-A beautiful dark green cloak has been dropped by someone.~
+DESCR  A beautiful dark green cloak has been dropped by someone.~
 MAT    mineral~
 TYPE   armor C D AC AC 0
-EXTRA  1 2 0 576
+EXTRA  1 2
 WEAR   AC
 LEVEL  20
 WEIGHT 10
 COST   1600
 COND   100
-Affect O 13 5 0
 End
 
 #5224
 NAME   seal ebony~
 SHORT  an engraved ebony seal~
-DESCR 
-A small, engraved ebony seal is here.~
+DESCR  A small, engraved ebony seal is here.~
 MAT    mineral~
 TYPE   key 0 0 0 0 0
 EXTRA  0 0
@@ -723,8 +521,7 @@ End
 #5225
 NAME   desk curved~
 SHORT  the desk~
-DESCR 
-A dirty, crumbling curved desk is here.~
+DESCR  A dirty, crumbling curved desk is here.~
 MAT    mineral~
 TYPE   container 100 ACD 5224 100 100
 EXTRA  0 0
@@ -738,8 +535,7 @@ End
 #5226
 NAME   seal ivory~
 SHORT  an engraved ivory seal~
-DESCR 
-A small, engraved ivory seal lies here.~
+DESCR  A small, engraved ivory seal lies here.~
 MAT    mineral~
 TYPE   key 0 0 0 0 0
 EXTRA  0 0
@@ -753,8 +549,7 @@ End
 #5227
 NAME   cabinet glass~
 SHORT  the glass cabinet~
-DESCR 
-A broken glass cabinet is here.~
+DESCR  A broken glass cabinet is here.~
 MAT    mineral~
 TYPE   container 500 ACD 5226 100 100
 EXTRA  0 0
@@ -768,8 +563,7 @@ End
 #5228
 NAME   arm rotted~
 SHORT  a rotten arm~
-DESCR 
-A rotted arm floats lazily by your feet.~
+DESCR  A rotted arm floats lazily by your feet.~
 MAT    mineral~
 TYPE   food 0 0 0 0 0
 EXTRA  0 0
@@ -783,120 +577,105 @@ End
 #5230
 NAME   stone pale blue~
 SHORT  a pale blue stone~
-DESCR 
-A pale blue stone sits here.~
+DESCR  A pale blue stone sits here.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  5
 WEIGHT 8
 COST   550
 COND   100
-Affect O 1 1 0
 End
 
 #5231
 NAME   stone scarlet blue~
 SHORT  a scarlet and blue stone~
-DESCR 
-A pretty scarlet and blue stone has been dropped here.~
+DESCR  A pretty scarlet and blue stone has been dropped here.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  5
 WEIGHT 8
 COST   550
 COND   100
-Affect O 3 1 0
 End
 
 #5232
 NAME   stone blue incandescent~
 SHORT  an incandescent blue stone~
-DESCR 
-A small incandescent blue stone lies here.~
+DESCR  A small incandescent blue stone lies here.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  5
 WEIGHT 8
 COST   550
 COND   100
-Affect O 4 1 0
 End
 
 #5233
 NAME   stone red deep~
 SHORT  a deep red stone~
-DESCR 
-Someone has left a deep red stone here.~
+DESCR  Someone has left a deep red stone here.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  5
 WEIGHT 8
 COST   550
 COND   100
-Affect O 2 1 0
 End
 
 #5234
 NAME   stone pink~
 SHORT  a pink stone~
-DESCR 
-A tiny pink stone lies at your feet.~
+DESCR  A tiny pink stone lies at your feet.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  5
 WEIGHT 8
 COST   550
 COND   100
-Affect O 5 1 0
 End
 
 #5235
 NAME   stone pearly white~
 SHORT  a pearly white stone~
-DESCR 
-This pearly white stone would probably sell for a good price.~
+DESCR  This pearly white stone would probably sell for a good price.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  5
 WEIGHT 8
 COST   11
 COND   100
-Affect O 13 1 0
 End
 
 #5237
 NAME   stone lavender green~
 SHORT  a lavender and green stone~
-DESCR 
-A stunning lavender and green stone rests on the ground.~
+DESCR  A stunning lavender and green stone rests on the ground.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  0
 WEIGHT 8
 COST   150
 COND   100
-Affect O 20 -1 0
 End
 
 #5239
 NAME   stone grey dull~
 SHORT  a dull grey stone~
-DESCR 
-You can barely make out a dull grey stone on the ground.~
+DESCR  You can barely make out a dull grey stone on the ground.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
 EXTRA  0 0
@@ -910,43 +689,38 @@ End
 #5241
 NAME   stone pink green~
 SHORT  a pink and green stone~
-DESCR 
-A bright pink and green stone has been left here.~
+DESCR  A bright pink and green stone has been left here.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  0
 WEIGHT 8
 COST   500
 COND   100
-Affect O 18 -5 0
 End
 
 #5243
 NAME   stone clear~
 SHORT  a clear stone~
-DESCR 
-A odd clear stone lies at your feet.~
+DESCR  A odd clear stone lies at your feet.~
 MAT    mineral~
 TYPE   gem 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AQ
 LEVEL  0
 WEIGHT 8
 COST   100
 COND   100
-Affect O 17 3 0
 End
 
 #5250
 NAME   mandolin~
 SHORT  a mandolin~
-DESCR 
-A mandolin lies against the wall.~
+DESCR  A mandolin lies against the wall.~
 MAT    mineral~
 TYPE   staff 13 3 3 'cure critical' 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AO
 LEVEL  9
 WEIGHT 8
@@ -957,39 +731,32 @@ End
 #5251
 NAME   harp golden~
 SHORT  a golden harp~
-DESCR 
-A battered golden harp has been tipped over.~
+DESCR  A battered golden harp has been tipped over.~
 MAT    mineral~
 TYPE   instrument 0 0 0 0 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AO
 LEVEL  7
 WEIGHT 8
 COST   2700
 COND   100
-Affect O 2 -2 0
 End
 
 #5252
 NAME   long dagger slim~
 SHORT  a long slim dagger~
-DESCR 
-A long slim dagger has been left here.~
+DESCR  A long slim dagger has been left here.~
 MAT    mineral~
 TYPE   weapon dagger 2 5 pierce 0
-EXTRA  1 1 0 64
+EXTRA  1 1
 WEAR   AN
 LEVEL  8
 WEIGHT 5
 COST   590
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
 End
 
 #0
-
-
 
 #ROOMDATA
 #5200
@@ -1002,7 +769,7 @@ by you into the deserted, and seemingly destroyed, city.
 FLAGS  0
 Sect   1
 DOOR 1
-You see a trail out of this blasted place. 
+You see a trail out of this blasted place.
 ~
 ~
 0 0 5256
@@ -1024,22 +791,22 @@ north and south. Howls and screams echo through the deserted city.
 FLAGS  0
 Sect   1
 DOOR 0
-It's a dark alley. 
+It's a dark alley.
 ~
 ~
 0 0 5239
 DOOR 1
-The entrance to the city lies this way. 
+The entrance to the city lies this way.
 ~
 ~
 0 0 5200
 DOOR 2
-It's a dark alley. 
+It's a dark alley.
 ~
 ~
 0 0 5255
 DOOR 3
-Main Street lies this way. 
+Main Street lies this way.
 ~
 ~
 0 0 5202
@@ -1057,7 +824,7 @@ see a large domed building, relatively intact.
 FLAGS  0
 Sect   1
 DOOR 0
-The remnants of a store lie this way. 
+The remnants of a store lie this way.
 ~
 ~
 0 0 5236
@@ -1066,12 +833,12 @@ DOOR 1
 ~
 0 0 5201
 DOOR 2
-It looks like what used to be the main building in the city. 
+It looks like what used to be the main building in the city.
 ~
 ~
 0 0 5232
 DOOR 3
-A withered garden path lies this way. 
+A withered garden path lies this way.
 ~
 ~
 0 0 5203
@@ -1088,17 +855,17 @@ feet. A sudden volley of howls pierces the air.
 FLAGS  0
 Sect   1
 DOOR 0
-The garden path continues around the building. 
+The garden path continues around the building.
 ~
 ~
 0 0 5204
 DOOR 1
-This is the main street leading to the city's entrance 
+This is the main street leading to the city's entrance
 ~
 ~
 0 0 5202
 DOOR 2
-The garden path continues around the building. 
+The garden path continues around the building.
 ~
 ~
 0 0 5206
@@ -1121,17 +888,17 @@ feet. A sudden volley of howls pierces the air.
 FLAGS  0
 Sect   1
 DOOR 0
-A side street leads off to the northern half of the city. 
+A side street leads off to the northern half of the city.
 ~
 ~
 0 0 5211
 DOOR 2
-The garden path continues around the building. 
+The garden path continues around the building.
 ~
 ~
 0 0 5203
 DOOR 3
-The garden path continues around the building. 
+The garden path continues around the building.
 ~
 ~
 0 0 5205
@@ -1148,7 +915,7 @@ feet. A sudden volley of howls pierces the air.
 FLAGS  0
 Sect   1
 DOOR 1
-The garden path continues around the building. 
+The garden path continues around the building.
 ~
 ~
 0 0 5204
@@ -1171,12 +938,12 @@ feet. A sudden volley of howls pierces the air.
 FLAGS  0
 Sect   1
 DOOR 0
-The garden path continues around the building. 
+The garden path continues around the building.
 ~
 ~
 0 0 5203
 DOOR 2
-A small side street leads to the southern half of the city. 
+A small side street leads to the southern half of the city.
 ~
 ~
 0 0 5212
@@ -1198,12 +965,12 @@ the ground.
 ~
 0 0 5225
 DOOR 2
-Rotted remains of fruits and vegetables lie strewn about. 
+Rotted remains of fruits and vegetables lie strewn about.
 ~
 ~
 0 0 5220
 DOOR 3
-The market place continues. 
+The market place continues.
 ~
 ~
 0 0 5208
@@ -1218,12 +985,12 @@ side, filled with remnants of fine foods and exquisite goods.
 FLAGS  0
 Sect   1
 DOOR 0
-Tattered carpets and ruined bales of silk sit idly by a run down stand. 
+Tattered carpets and ruined bales of silk sit idly by a run down stand.
 ~
 ~
 0 0 5222
 DOOR 1
-The center of the market lies this way. 
+The center of the market lies this way.
 ~
 ~
 0 0 5207
@@ -1272,16 +1039,16 @@ DOOR 0
 ~
 0 0 5209
 DOOR 1
-A small doorway leads into a partially collapsed house. 
+A small doorway leads into a partially collapsed house.
 ~
 ~
-A -1 5244
+1 -1 5244
 DOOR 2
 ~
 ~
 0 0 5211
 DOOR 3
-A small clay dwelling sits here. 
+A small clay dwelling sits here.
 ~
 ~
 0 0 5226
@@ -1301,17 +1068,17 @@ DOOR 0
 ~
 0 0 5210
 DOOR 1
-An unusually tall dwelling stands looming over you. 
+An unusually tall dwelling stands looming over you.
 ~
 ~
 0 0 5237
 DOOR 2
-A garden path circles around the temple. 
+A garden path circles around the temple.
 ~
 ~
 0 0 5204
 DOOR 3
-Here lies a small stone house with a thatched roof. 
+Here lies a small stone house with a thatched roof.
 ~
 ~
 0 0 5227
@@ -1328,12 +1095,12 @@ is a hole in the wall of a very large structure to the east.
 FLAGS  0
 Sect   1
 DOOR 0
-A small garden path encircles the temple. 
+A small garden path encircles the temple.
 ~
 ~
 0 0 5206
 DOOR 1
-This possibly could be the city hall. 
+This possibly could be the city hall.
 ~
 ~
 0 0 5232
@@ -1342,7 +1109,7 @@ DOOR 2
 ~
 0 0 5213
 DOOR 3
-Inside the building you see long pieces of metal, an oven, and some anvils. 
+Inside the building you see long pieces of metal, an oven, and some anvils.
 ~
 ~
 0 0 5221
@@ -1437,12 +1204,12 @@ at the stench. South is one of the city watchtowers.
 FLAGS  0
 Sect   1
 DOOR 0
-You see the back-side of the market place meat stand. 
+You see the back-side of the market place meat stand.
 ~
 ~
 0 0 5217
 DOOR 2
-A tall watchtower stands a silent vigil over the city. 
+A tall watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5215
@@ -1459,12 +1226,12 @@ screaming makes you realize why this is so.
 FLAGS  0
 Sect   1
 DOOR 0
-The market place lies this way. 
+The market place lies this way.
 ~
 ~
 0 0 5208
 DOOR 1
-This is a cart full of rotted vegetables and fruits. 
+This is a cart full of rotted vegetables and fruits.
 ~
 ~
 0 0 5220
@@ -1483,12 +1250,12 @@ watchtowers.
 FLAGS  0
 Sect   1
 DOOR 1
-A small side street greets you. 
+A small side street greets you.
 ~
 ~
 0 0 5214
 DOOR 3
-A tall watchtower stands a silent vigil over the city. 
+A tall watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5215
@@ -1505,7 +1272,7 @@ is a tattered, jet-black banner with the symbol of the Darkside set upon it.
 FLAGS  0
 Sect   1
 DOOR 1
-A small side street runs past the building. 
+A small side street runs past the building.
 ~
 ~
 0 0 5213
@@ -1520,12 +1287,12 @@ all about what seems to be the last remaining bits of food left in the city.
 FLAGS  0
 Sect   1
 DOOR 0
-The market place is deserted. 
+The market place is deserted.
 ~
 ~
 0 0 5207
 DOOR 3
-A strong stench emanates from the meat stand next to you. 
+A strong stench emanates from the meat stand next to you.
 ~
 ~
 0 0 5217
@@ -1541,7 +1308,7 @@ and weaponry are left.
 FLAGS  0
 Sect   1
 DOOR 1
-A small side street runs past the building. 
+A small side street runs past the building.
 ~
 ~
 0 0 5212
@@ -1562,12 +1329,12 @@ DOOR 0
 ~
 0 0 5223
 DOOR 1
-A fine jewelry stand lies in ruin next to you. 
+A fine jewelry stand lies in ruin next to you.
 ~
 ~
 0 0 5225
 DOOR 2
-The market place is deserted. 
+The market place is deserted.
 ~
 ~
 0 0 5208
@@ -1582,7 +1349,7 @@ south there lies a market stand full of torn clothes and rugs.
 FLAGS  0
 Sect   1
 DOOR 0
-A tall watchtower stands a silent vigil over the city. 
+A tall watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5224
@@ -1609,7 +1376,7 @@ DOOR 2
 ~
 0 0 5223
 DOOR 4
-Above you looms a tall watchtower. 
+Above you looms a tall watchtower.
 ~
 ~
 0 0 5246
@@ -1625,12 +1392,12 @@ would have any value anymore.
 FLAGS  0
 Sect   1
 DOOR 2
-The market place is deserted. 
+The market place is deserted.
 ~
 ~
 0 0 5207
 DOOR 3
-Next to you is a stand full of ruined clothes and rugs. 
+Next to you is a stand full of ruined clothes and rugs.
 ~
 ~
 0 0 5222
@@ -1646,7 +1413,7 @@ a while. Almost nothing remains of this humble abode.
 FLAGS  0
 Sect   1
 DOOR 1
-Outside is a small side street. 
+Outside is a small side street.
 ~
 ~
 0 0 5210
@@ -1662,7 +1429,7 @@ down and a hot wind gusts through the hollow dwelling.
 FLAGS  0
 Sect   1
 DOOR 1
-A small side street runs past the house. 
+A small side street runs past the house.
 ~
 ~
 0 0 5211
@@ -1697,7 +1464,7 @@ wind.
 FLAGS  0
 Sect   1
 DOOR 0
-A small side street runs past the shop. 
+A small side street runs past the shop.
 ~
 ~
 0 0 5214
@@ -1716,7 +1483,7 @@ leaving a gaping hole above.
 FLAGS  0
 Sect   1
 DOOR 3
-A small side street runs past the tavern. 
+A small side street runs past the tavern.
 ~
 ~
 0 0 5213
@@ -1734,7 +1501,7 @@ vine-covered archway leading out into a private courtyard.
 FLAGS  0
 Sect   1
 DOOR 0
-The long hallway leads back to the main reception area of the city hall. 
+The long hallway leads back to the main reception area of the city hall.
 ~
 ~
 0 0 5232
@@ -1756,17 +1523,17 @@ south and east.
 FLAGS  0
 Sect   1
 DOOR 0
-Main street runs past the city hall. 
+Main street runs past the city hall.
 ~
 ~
 0 0 5202
 DOOR 1
-A hallway leads to the east wing of the city hall. 
+A hallway leads to the east wing of the city hall.
 ~
 ~
 0 0 5233
 DOOR 2
-A hallway leads to the south wing of the city hall. 
+A hallway leads to the south wing of the city hall.
 ~
 ~
 0 0 5231
@@ -1830,7 +1597,7 @@ and to the city hall.
 FLAGS  0
 Sect   1
 DOOR 1
-The alley runs by this building. 
+The alley runs by this building.
 ~
 ~
 0 0 5255
@@ -1846,7 +1613,7 @@ housed here. A shrieking howl chills your blood.
 FLAGS  0
 Sect   1
 DOOR 2
-Main street runs past this ruined home. 
+Main street runs past this ruined home.
 ~
 ~
 0 0 5202
@@ -1869,7 +1636,7 @@ DOOR 1
 ~
 0 0 5238
 DOOR 3
-A small side street winds past the dwelling. 
+A small side street winds past the dwelling.
 ~
 ~
 0 0 5211
@@ -1911,7 +1678,7 @@ DOOR 0
 ~
 0 0 5240
 DOOR 2
-Main street runs past here. 
+Main street runs past here.
 ~
 ~
 0 0 5201
@@ -1927,7 +1694,7 @@ debris.
 FLAGS  0
 Sect   1
 DOOR 0
-A tall watchtower stands a silent vigil over the city. 
+A tall watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5241
@@ -1954,7 +1721,7 @@ DOOR 3
 ~
 0 0 5243
 DOOR 4
-Winds howl high above your head in the tower above. 
+Winds howl high above your head in the tower above.
 ~
 ~
 0 0 5248
@@ -1998,7 +1765,7 @@ to the south.
 FLAGS  0
 Sect   1
 DOOR 1
-A watchtower stands a silent vigil over the city. 
+A watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5241
@@ -2007,7 +1774,7 @@ DOOR 2
 ~
 0 0 5242
 DOOR 3
-A side street runs by here. 
+A side street runs by here.
 ~
 ~
 0 0 5209
@@ -2028,7 +1795,7 @@ DOOR 1
 ~
 0 0 5242
 DOOR 3
-A small side street runs past the house. 
+A small side street runs past the house.
 ~
 ~
 0 0 5210
@@ -2055,7 +1822,7 @@ place stood for so long.
 FLAGS  0
 Sect   1
 DOOR 5
-The city lies below. 
+The city lies below.
 ~
 ~
 0 0 5224
@@ -2071,7 +1838,7 @@ desert stretches to the horizon. No wonder this place stood for so long.
 FLAGS  0
 Sect   1
 DOOR 5
-The city lies below. 
+The city lies below.
 ~
 ~
 0 0 5215
@@ -2087,7 +1854,7 @@ stretches to the horizon. No wonder this place stood for so long.
 FLAGS  0
 Sect   1
 DOOR 5
-The city lies below. 
+The city lies below.
 ~
 ~
 0 0 5241
@@ -2107,12 +1874,12 @@ four archways and howls and screams can be heard from all parts of the city.
 FLAGS  0
 Sect   1
 DOOR 0
-A side street leads to the northern half of the city. 
+A side street leads to the northern half of the city.
 ~
 ~
 0 0 5205
 DOOR 1
-Main street leads out to the main gate of the city. 
+Main street leads out to the main gate of the city.
 ~
 ~
 0 0 5203
@@ -2127,12 +1894,12 @@ watchtowers.
 FLAGS  0
 Sect   1
 DOOR 1
-A tall watchtower stands a silent vigil over the city. 
+A tall watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5252
 DOOR 3
-A small side street greets you. 
+A small side street greets you.
 ~
 ~
 0 0 5214
@@ -2168,12 +1935,12 @@ A narrow alley leads south to one of the city watchtowers.
 FLAGS  0
 Sect   1
 DOOR 0
-The alley continues to the north. 
+The alley continues to the north.
 ~
 ~
 0 0 5255
 DOOR 2
-A tall watchtower stands a silent vigil over the city. 
+A tall watchtower stands a silent vigil over the city.
 ~
 ~
 0 0 5252
@@ -2189,15 +1956,15 @@ There is a small plaque on the stones.
 ~
 FLAGS  0
 Sect   1
-EDESC  sign plaque~
-This extension to Thalos, along with the dwarf forest, is made by Hatchet
-for any Merc Mud. Copyright 1992 
-~
 DOOR 5
-The city lies below. 
+The city lies below.
 ~
 ~
 0 0 5252
+EDESC sign plaque~
+This extension to Thalos, along with the dwarf forest, is made by Hatchet
+for any Merc Mud. Copyright 1992 
+~
 End
 
 #5255
@@ -2209,7 +1976,7 @@ watchtower. A ruined building is to the west.
 FLAGS  0
 Sect   1
 DOOR 0
-You see main street. 
+You see main street.
 ~
 ~
 0 0 5201
@@ -2218,7 +1985,7 @@ DOOR 2
 ~
 0 0 5253
 DOOR 3
-It looks in bad shape inside, but structurally intact. 
+It looks in bad shape inside, but structurally intact.
 ~
 ~
 0 0 5235
@@ -2234,12 +2001,12 @@ an uneasy feeling. To the east is your way back to home and safety.
 FLAGS  0
 Sect   2
 DOOR 1
-You see the trail. 
+You see the trail.
 ~
 ~
 0 0 5257
 DOOR 3
-You see Thalos! 
+You see Thalos!
 ~
 ~
 0 0 5200
@@ -2255,12 +2022,12 @@ T-intersection.
 FLAGS  0
 Sect   2
 DOOR 1
-You see the intersection. 
+You see the intersection.
 ~
 ~
 0 0 5258
 DOOR 3
-You see the trail continue on. 
+You see the trail continue on.
 ~
 ~
 0 0 5256
@@ -2275,17 +2042,17 @@ the east, you THINK you see a trail, but you can never be sure.
 FLAGS  0
 Sect   3
 DOOR 0
-You see the trail lead back north. 
+You see the trail lead back north.
 ~
 ~
 0 0 5259
 DOOR 1
-You can't see into the gloom of this forest. 
+You can't see into the gloom of this forest.
 ~
 ~
 0 0 5262
 DOOR 3
-You see the trail branch off. 
+You see the trail branch off.
 ~
 ~
 0 0 5257
@@ -2300,12 +2067,12 @@ cursed by a god to be short and dry. The trail leads north and south.
 FLAGS  0
 Sect   3
 DOOR 0
-You see the trail continue north. 
+You see the trail continue north.
 ~
 ~
 0 0 5260
 DOOR 2
-You see the trail continue south. 
+You see the trail continue south.
 ~
 ~
 0 0 5258
@@ -2320,12 +2087,12 @@ cursed by a god to be short and dry. The trail leads north and south.
 FLAGS  0
 Sect   3
 DOOR 0
-You see the trail continue north. 
+You see the trail continue north.
 ~
 ~
 0 0 5261
 DOOR 2
-You see the trail continue south. 
+You see the trail continue south.
 ~
 ~
 0 0 5259
@@ -2340,12 +2107,12 @@ trees. No grass grows on the ground.
 FLAGS  0
 Sect   3
 DOOR 0
-You see the trail continue north. 
+You see the trail continue north.
 ~
 ~
 0 0 3502
 DOOR 2
-You see the trail continue south. 
+You see the trail continue south.
 ~
 ~
 0 0 5260
@@ -2361,12 +2128,12 @@ dark toward the east.
 FLAGS  0
 Sect   3
 DOOR 1
-You see a darker part of the forest. 
+You see a darker part of the forest.
 ~
 ~
 0 0 5263
 DOOR 3
-You see the lighter forest and the T-intersection west. 
+You see the lighter forest and the T-intersection west.
 ~
 ~
 0 0 5258
@@ -2382,12 +2149,12 @@ from the west.
 FLAGS  0
 Sect   3
 DOOR 2
-You see nothing in the gloom south of you. 
+You see nothing in the gloom south of you.
 ~
 ~
 0 0 5264
 DOOR 3
-You see the dwarf forest. 
+You see the dwarf forest.
 ~
 ~
 0 0 5262
@@ -2403,12 +2170,12 @@ from the north.
 FLAGS  0
 Sect   3
 DOOR 0
-You see nothing in the gloom north of you. 
+You see nothing in the gloom north of you.
 ~
 ~
 0 0 5263
 DOOR 1
-You see nothing in the gloom east of you. 
+You see nothing in the gloom east of you.
 ~
 ~
 0 0 5265
@@ -2424,17 +2191,17 @@ west, and to the south you can make out some withered trees.
 FLAGS  0
 Sect   3
 DOOR 1
-You see nothing in the gloom east of you. 
+You see nothing in the gloom east of you.
 ~
 ~
 0 0 5266
 DOOR 2
-Entrance to the Dead forest 
+Entrance to the Dead forest
 ~
 ~
 0 0 24200
 DOOR 3
-You see nothing in the gloom west of you. 
+You see nothing in the gloom west of you.
 ~
 ~
 0 0 5264
@@ -2450,12 +2217,12 @@ into a valley and west.
 FLAGS  0
 Sect   3
 DOOR 3
-You see nothing in the gloom west of you. 
+You see nothing in the gloom west of you.
 ~
 ~
 0 0 5265
 DOOR 5
-You see the trail lead down into gloom. 
+You see the trail lead down into gloom.
 ~
 ~
 0 0 5267
@@ -2480,12 +2247,12 @@ DOOR 1
 DOOR 2
 ~
 ~
-N 0 5282
+8192 0 5282
 DOOR 3
-You see a dark fox hole. 
+You see a dark fox hole.
 ~
 hole fox~
-AB -1 5268
+3 -1 5268
 DOOR 4
 ~
 ~
@@ -2501,20 +2268,20 @@ and vomit.
 ~
 FLAGS  0
 Sect   3
-EDESC  skeleton skeletons~
-Something is strange about these skeletons. Upon further investigation,
-these skeletons appear illusionary. 
-~
 DOOR 1
-You see the exit from here! 
+You see the exit from here!
 ~
 fox hole~
-AB -1 5267
+3 -1 5267
 DOOR 2
-You see more of the cave. 
+You see more of the cave.
 ~
 ~
 0 0 5269
+EDESC skeleton skeletons~
+Something is strange about these skeletons. Upon further investigation,
+these skeletons appear illusionary. 
+~
 End
 
 #5269
@@ -2526,24 +2293,24 @@ writings are on this wall.
 ~
 FLAGS  0
 Sect   3
-EDESC  writings writing words~
-This cave along with the valley and dwarf forest is made by Hatchet for
-any Merc Mud. Copyright 1992 
-~
-EDESC  skeleton skeletons~
-Something is strange about these skeletons. Upon further investigation,
-these skeletons appear illusionary. 
-~
 DOOR 0
-You see more of the cave. 
+You see more of the cave.
 ~
 ~
 0 0 5268
 DOOR 5
-You see a path leading down into the dark gloom. 
+You see a path leading down into the dark gloom.
 ~
 ~
 0 0 5270
+EDESC writings writing words~
+This cave along with the valley and dwarf forest is made by Hatchet for
+any Merc Mud. Copyright 1992 
+~
+EDESC skeleton skeletons~
+Something is strange about these skeletons. Upon further investigation,
+these skeletons appear illusionary. 
+~
 End
 
 #5270
@@ -2554,24 +2321,24 @@ one back up north. All around you, you see skeletons.
 ~
 FLAGS  0
 Sect   3
-EDESC  skeleton skeletons~
-Something is strange about these skeletons. Upon further investigation,
-these skeletons appear illusionary. In fact, through the skeletons, you see
-a secret door! ! 
-~
 DOOR 3
 ~
 ~
-0 0 29900
+0 0 0
 DOOR 4
-You see your only way back up. 
+You see your only way back up.
 ~
 ~
 0 0 5269
 DOOR 5
 ~
 ~
-0 0 17096
+0 0 0
+EDESC skeleton skeletons~
+Something is strange about these skeletons. Upon further investigation,
+these skeletons appear illusionary. In fact, through the skeletons, you see
+a secret door! ! 
+~
 End
 
 #5271
@@ -2583,12 +2350,12 @@ dark valley. South is more of this valley.
 FLAGS  0
 Sect   3
 DOOR 0
-You see a trail away from this gloomy valley. 
+You see a trail away from this gloomy valley.
 ~
 ~
 0 0 5272
 DOOR 2
-You see more of this gloomy valley. 
+You see more of this gloomy valley.
 ~
 ~
 0 0 5267
@@ -2604,12 +2371,12 @@ brighter.
 FLAGS  0
 Sect   3
 DOOR 0
-You can actually see the trail north of you! 
+You can actually see the trail north of you!
 ~
 ~
 0 0 5273
 DOOR 2
-You can barely see the gloomy valley south of you. 
+You can barely see the gloomy valley south of you.
 ~
 ~
 0 0 5271
@@ -2625,17 +2392,17 @@ north. To the east, you see a small path into darkness.
 FLAGS  0
 Sect   3
 DOOR 0
-You see the dim trail lead north. 
+You see the dim trail lead north.
 ~
 ~
 0 0 5274
 DOOR 1
-You see the small path. 
+You see the small path.
 ~
 ~
 0 0 5280
 DOOR 2
-You see the dim trail lead south. 
+You see the dim trail lead south.
 ~
 ~
 0 0 5272
@@ -2651,12 +2418,12 @@ north.
 FLAGS  0
 Sect   3
 DOOR 0
-You see the dim trail lead north. 
+You see the dim trail lead north.
 ~
 ~
 0 0 5275
 DOOR 2
-You see the dim trail lead south. 
+You see the dim trail lead south.
 ~
 ~
 0 0 5273
@@ -2672,12 +2439,12 @@ than the one leading south.
 FLAGS  0
 Sect   3
 DOOR 2
-You see the dim trail lead south. 
+You see the dim trail lead south.
 ~
 ~
 0 0 5274
 DOOR 3
-You see the trail lead west. 
+You see the trail lead west.
 ~
 ~
 0 0 5276
@@ -2693,12 +2460,12 @@ east.
 FLAGS  0
 Sect   3
 DOOR 1
-The trail continues east to the dimmer parts of the forest. 
+The trail continues east to the dimmer parts of the forest.
 ~
 ~
 0 0 5275
 DOOR 3
-The trail continues west. 
+The trail continues west.
 ~
 ~
 0 0 5277
@@ -2717,12 +2484,12 @@ DOOR 0
 ~
 0 0 13000
 DOOR 1
-The trail continues east. 
+The trail continues east.
 ~
 ~
 0 0 5276
 DOOR 3
-The trail continues west. 
+The trail continues west.
 ~
 ~
 0 0 5278
@@ -2737,12 +2504,12 @@ looks dry around here. The trail leads east and west.
 FLAGS  0
 Sect   3
 DOOR 1
-The trail continues east. 
+The trail continues east.
 ~
 ~
 0 0 5277
 DOOR 3
-The trail continues west. 
+The trail continues west.
 ~
 ~
 0 0 5279
@@ -2758,12 +2525,12 @@ waterfall.
 FLAGS  0
 Sect   3
 DOOR 1
-The trail continues east. 
+The trail continues east.
 ~
 ~
 0 -1 5278
 DOOR 2
-You see a beautiful waterfall. 
+You see a beautiful waterfall.
 ~
 ~
 0 -1 5281
@@ -2779,12 +2546,12 @@ dismal path.
 FLAGS  0
 Sect   3
 DOOR 2
-You see the dark path. 
+You see the dark path.
 ~
 ~
 0 0 2300
 DOOR 3
-You see the trail back to the Dwarven Forest. 
+You see the trail back to the Dwarven Forest.
 ~
 ~
 0 0 5273
@@ -2801,7 +2568,7 @@ north and south.
 FLAGS  0
 Sect   4
 DOOR 0
-You see the trail leading north. 
+You see the trail leading north.
 ~
 ~
 0 0 5279
@@ -2810,7 +2577,6 @@ Beyond the waterfall, you see a muddy track.
 ~
 ~
 0 0 5700
-MHRATE -100 100
 End
 
 #5282
@@ -2826,7 +2592,7 @@ Sect   3
 DOOR 0
 ~
 ~
-N 0 5267
+8192 0 5267
 DOOR 2
 ~
 ~
@@ -2855,110 +2621,96 @@ End
 
 #0
 
-
-
 #SPECIALS
-M 5200 spec_cast_mage
 S
 
-
-
 #RESETS
-D 0 5267 3 1
-D 0 5268 1 1
+D 0 5267 3 1 0
+D 0 5268 1 1 0
 M 0 5201 12 5204 1
-E 0 5251 0 17
-E 0 5252 0 16
+E 0 5251 0 17 0
+E 0 5252 0 16 0
 M 0 5201 12 5205 1
-E 0 5230 0 17
-E 0 5252 0 16
+E 0 5230 0 17 0
+E 0 5252 0 16 0
 M 0 5201 12 5216 1
-E 0 5233 0 17
-E 0 5252 0 16
-O 0 5219 0 5217
+E 0 5233 0 17 0
+E 0 5252 0 16 0
+O 0 5219 0 5217 0
 M 0 5207 4 5217 2
 M 0 5201 12 5218 1
-E 0 5250 0 17
-E 0 5252 0 16
+E 0 5250 0 17 0
+E 0 5252 0 16 0
 M 0 5201 12 5219 1
-E 0 5231 0 17
-E 0 5252 0 16
+E 0 5231 0 17 0
+E 0 5252 0 16 0
 M 0 5204 1 5219 1
-G 0 5218 0
-G 0 5211 0
+G 0 0 0 0 0
+G 0 0 0 0 0
 M 0 5201 12 5220 1
-E 0 5252 0 16
+E 0 5252 0 16 0
 M 0 5201 12 5224 1
-E 0 5243 0 17
-E 0 5252 0 16
+E 0 5243 0 17 0
+E 0 5252 0 16 0
 M 0 5201 12 5226 1
-E 0 5235 0 17
-E 0 5252 0 16
+E 0 5235 0 17 0
+E 0 5252 0 16 0
 M 0 5203 1 5226 1
-G 0 5215 0
-G 0 5239 0
+G 0 0 0 0 0
+G 0 0 0 0 0
 M 0 5207 4 5227 2
-O 0 5207 0 5229
+O 0 5207 0 5229 0
 M 0 5202 1 5229 1
-G 0 5210 0
-E 0 5214 0 17
-O 0 5225 0 5231
+G 0 0 0 0 0
+E 0 5214 0 17 0
+O 0 5225 0 5231 0
 P 0 5215 4 5225 1
 P 0 5216 4 5225 1
 M 0 5201 12 5232 1
-E 0 5217 0 17
-E 0 5252 0 16
+E 0 5217 0 17 0
+E 0 5252 0 16 0
 M 0 5207 4 5232 2
-O 0 5227 0 5233
+O 0 5227 0 5233 0
 P 0 3105 8 5227 1
 M 0 5201 12 5234 1
-E 0 5232 0 17
-E 0 5252 0 16
-O 0 5220 0 5234
+E 0 5232 0 17 0
+E 0 5252 0 16 0
+O 0 5220 0 5234 0
 M 0 5201 12 5236 1
-E 0 5237 0 17
-E 0 5252 0 16
+E 0 5237 0 17 0
+E 0 5252 0 16 0
 M 0 5206 1 5236 1
-E 0 5222 0 12
+E 0 5222 0 12 0
 M 0 5205 1 5238 1
-E 0 5214 0 17
+E 0 5214 0 17 0
 M 0 5201 12 5240 1
-E 0 5241 0 17
-E 0 5252 0 16
-O 0 5228 0 5242
+E 0 5241 0 17 0
+E 0 5252 0 16 0
+O 0 5228 0 5242 0
 M 0 5207 4 5244 1
 M 0 5208 8 5246 2
-E 0 5221 0 16
-E 0 5226 0 17
-E 0 5203 0 10
+E 0 5221 0 16 0
+E 0 5226 0 17 0
+E 0 5203 0 10 0
 M 0 5208 8 5247 2
-E 0 5221 0 16
-E 0 5224 0 17
-E 0 5200 0 5
-E 0 5204 0 8
+E 0 5221 0 16 0
+E 0 5224 0 17 0
+E 0 5200 0 5 0
+E 0 5204 0 8 0
 M 0 5208 8 5248 2
-E 0 5221 0 16
-E 0 5205 0 7
-E 0 5206 0 13
+E 0 5221 0 16 0
+E 0 5205 0 7 0
+E 0 5206 0 13 0
 M 0 5200 1 5250 1
-E 0 5208 0 11
-E 0 5223 0 3
+E 0 5208 0 11 0
+E 0 5223 0 3 0
 M 0 5208 8 5254 2
-E 0 5221 0 16
-E 0 5201 0 6
-E 0 5202 0 9
+E 0 5221 0 16 0
+E 0 5201 0 6 0
+E 0 5202 0 9 0
 S
-
-
 
 #SHOPS
 0
-
-
-
-#IMPROGS
-E
-
-
 
 #$

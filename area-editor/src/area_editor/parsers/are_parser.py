@@ -388,7 +388,17 @@ class AreParser(BaseParser):
 
                     elif keyword == 'WEAR':
                         # Read wear flags
-                        obj.wear_flags = parts[1] if len(parts) > 1 else ""
+                        # Old format: WEAR <flags> 0 0
+                        # New format: WEAR <flags>
+                        # We only need the flags part
+                        if len(parts) > 1:
+                            wear_parts = parts[1].split()
+                            obj.wear_flags = wear_parts[0] if wear_parts else ""
+                            # Mark as old format if it has extra values
+                            if len(wear_parts) > 1:
+                                obj._loaded_from_old_format = True
+                        else:
+                            obj.wear_flags = ""
 
                     elif keyword == 'LEVEL':
                         # Read level

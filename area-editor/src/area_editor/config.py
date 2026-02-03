@@ -42,6 +42,14 @@ class Config:
                 "font_scale": 1.0,  # Default font scale (1.0 = 100%)
                 "font_scale_auto": True  # Whether to auto-scale based on resolution
             },
+            "paths": {
+                # Paths can be absolute or relative to current working directory
+                # For development: set to absolute paths or relative from where you run the command
+                # For packaged: set to relative paths from the package location
+                "materials_file": None,  # Path to materials.lst (None = use default search)
+                "areas_file": None,  # Path to area.lst file (None = don't auto-load)
+                "areas_directory": None  # Directory containing area files (None = use default search)
+            },
             "recent_files": []
         }
 

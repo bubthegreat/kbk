@@ -7,6 +7,86 @@ Recall      31000
 End
 
 #MOBDATA
+#31000
+NAME   timekeeper old man~
+SHORT  The Timekeeper is floating here.~
+LONG   This dude is OLD.  So old, in fact, that you can't see where his wrinkles start or end.~
+DESCR
+~
+RACE   human~
+ACT    
+AFF    
+ALIGN  0
+LEVEL  52
+HROLL  52
+DDICE  10d17+26
+MDICE  52d10+260
+HDICE  52d8+520
+GOLD   520
+POS    stand stand
+SEX    none
+End
+
+#31001
+NAME   grasshopper~
+SHORT  A green leaf-shaped grassoppher is here.~
+LONG   This grasshopper is bright green, with wings that are shaped just like a small green leaf.  It's legs are cocked back and ready to jump at a moments notice.~
+DESCR
+~
+RACE   human~
+ACT    
+AFF    
+ALIGN  0
+LEVEL  5
+HROLL  5
+DDICE  1d4+2
+MDICE  5d10+25
+HDICE  5d8+50
+GOLD   50
+POS    stand stand
+SEX    either
+End
+
+#31002
+NAME   painter turtle small~
+SHORT  A small painter turtle is here.~
+LONG   This small little painter turtle has red stripes on either side of his tiny head.  He must be a baby turtle, only about two or three inches wide at the thickest part of his shell.~
+DESCR
+~
+RACE   human~
+ACT    
+AFF    
+ALIGN  0
+LEVEL  1
+HROLL  1
+DDICE  1d4+0
+MDICE  1d10+5
+HDICE  1d8+10
+GOLD   10
+POS    stand stand
+SEX    none
+End
+
+#31003
+NAME   bandit man~
+SHORT  A bandit stands here blocking the road.~
+LONG   This bandit seems to be mostly human, but you can't really tell because of all of the clothing wrapped around him to keep the cold from biting.  Mostly in grays and blacks, it's no wonder you didn't notice him until you got here.~
+DESCR
+~
+RACE   human~
+ACT    
+AFF    
+ALIGN  -1000
+LEVEL  5
+HROLL  5
+DDICE  1d4+2
+MDICE  5d10+25
+HDICE  5d8+50
+GOLD   50
+POS    stand stand
+SEX    none
+End
+
 #0
 
 #OBJDATA
@@ -430,7 +510,7 @@ DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
 FLAGS  0
-Sect   5
+Sect   4
 DOOR 1
 You see nothing special here.
 ~
@@ -503,10 +583,12 @@ End
 #31024
 NAME   Edge of a Grassy Field~
 DESCR
-This west entrance should be non-obvious and hidden, but you should just be able
-to walk through it to the small animal trail.
-
-Off to the west you see the mountainside.~
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
+~
 FLAGS  0
 Sect   2
 DOOR 0
@@ -519,6 +601,10 @@ You see nothing special here.
 ~
 ~
 0 0 31025
+DOOR 2
+You see nothing special here.~
+~
+0 0 31053
 DOOR 3
 You see nothing special here.
 ~
@@ -529,10 +615,14 @@ End
 #31025
 NAME   Edge of a Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 0
 You see nothing special here.
 ~
@@ -543,6 +633,10 @@ You see nothing special here.
 ~
 ~
 0 0 31032
+DOOR 2
+You see nothing special here.~
+~
+0 0 31054
 DOOR 3
 You see nothing special here.
 ~
@@ -551,12 +645,16 @@ You see nothing special here.
 End
 
 #31026
-NAME   Center of a Grassy Field~
+NAME   A Small Pond In The Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
-Sect   0
+Sect   6
 DOOR 0
 You see nothing special here.
 ~
@@ -582,10 +680,14 @@ End
 #31027
 NAME   Edge of a Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 0
 You see nothing special here.
 ~
@@ -606,10 +708,14 @@ End
 #31028
 NAME   In A Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
-Sect   0
+Sect   2
 DOOR 0
 You see nothing special here.
 ~
@@ -635,7 +741,7 @@ End
 #31029
 NAME   End of A Small Animal Trail~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The animal trail opens up into a grassy field, surroundeed by mature trees.  It's a fairly large field, with a small spond in the middle.
 ~
 FLAGS  0
 Sect   3
@@ -659,7 +765,11 @@ End
 #31030
 NAME   Edge of a Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
 Sect   2
@@ -683,7 +793,11 @@ End
 #31031
 NAME   Edge of a Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
 Sect   2
@@ -702,7 +816,11 @@ End
 #31032
 NAME   Edge of a Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
 Sect   2
@@ -716,6 +834,10 @@ You see nothing special here.
 ~
 ~
 0 0 31034
+DOOR 2
+You see nothing special here.~
+~
+0 0 31055
 DOOR 3
 You see nothing special here.
 ~
@@ -726,7 +848,7 @@ End
 #31033
 NAME   In Front of a Hermits House~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This small cottage looks to be made of boulders from the mountain nearby, light gray and ireregularly shpaed, but somehow cemented together perfectly at each seam.  It looks as if the rocks just melted together where they were touching.  The cottage seems to lean slightly to the left as you look on it, with a small broken window on the right side, and the left side of the cottage has an old wooden door that looks sturdy, but aged with time.  The handle is smooth from use, but worn from the weather.  The ceiling of this cottage looks to be made of grass and dirt, with short green grasses covering the entirety.  The chimney towards the back has fallen over, with some of the stones still on the roof, and others on the ground nearby.
 ~
 FLAGS  0
 Sect   2
@@ -750,7 +872,11 @@ End
 #31034
 NAME   Edge of a Grassy Field~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
 ~
 FLAGS  0
 Sect   2
@@ -845,7 +971,12 @@ End
 #31039
 NAME   The Secret Workshop~
 DESCR
-This room should have some weird devices and things and some notes exaplaining to look for a hidden switch that looks like a triangular rock.  This lock will actually open the tunnel to the timekeepers trap when you find it.~
+This room should have some weird devices and things and some notes exaplaining
+to look for a hidden switch that looks like a triangular rock.  This lock will
+actually open the tunnel to the timekeepers trap when you find it.  Need to add
+some journals and things like that that show his last resort was going to be to
+try and stop himself from ever going down this path and accepted that to prevent
+a paradox he would also have to remove himself from time entirely.~
 FLAGS  8
 Sect   0
 DOOR 0
@@ -882,8 +1013,10 @@ End
 #31041
 NAME   A Small Animal Trail~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
-~
+This is a newly created room. Edit this description to describe what the room
+looks like.
+
+NOTE: This animal trail needs to be longer - it's way too short for following an old road that leads to the mountains.~
 FLAGS  0
 Sect   3
 DOOR 1
@@ -946,7 +1079,9 @@ seems to end at the treeline a bit further.  To the north you can see the
 towering heights of mountainst hat no one has survived passing over.  Their
 snowy peaks loom in the distance, uncaring of the matters below.  The air is
 crisp, almost stale, despite being so far from civilizationt hat there is no
-evidence of people existing at all in any polace you look.~
+evidence of people existing at all in any polace you look.
+
+NOTE: Add more rooms to walk through to get here - this isn't far enough to give it the feeling that we got closer to the mountains.  Add some dead ends for future expansion too.~
 FLAGS  0
 Sect   11
 DOOR 0
@@ -1146,12 +1281,165 @@ FLAGS  295182337
 Sect   9
 End
 
+#31053
+NAME   In A Grassy Field~
+DESCR
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.
+
+~
+FLAGS  0
+Sect   2
+DOOR 0
+You see nothing special here.~
+~
+0 0 31024
+DOOR 1
+You see nothing special here.~
+~
+0 0 31054
+End
+
+#31054
+NAME   In A Grassy Field~
+DESCR
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.  To the south you see an opening in the tree line that has a path into the woods.
+
+~
+FLAGS  0
+Sect   2
+DOOR 0
+You see nothing special here.~
+~
+0 0 31025
+DOOR 1
+You see nothing special here.~
+~
+0 0 31055
+DOOR 2
+You see nothing special here.~
+~
+0 0 31056
+DOOR 3
+You see nothing special here.~
+~
+0 0 31053
+End
+
+#31055
+NAME   In A Grassy Field~
+DESCR
+This field is full of short grasses and small wildflowers.  The air is crisp and
+clear, but a bit chilly because of the elevation.  The sky is dominated
+by the mountains to the north, even as close as you are to them.  Not too far to
+the west, you can see the forest ends at the base of the mountainside.  You can
+also see some recent landslides from this distance.~
+FLAGS  0
+Sect   2
+DOOR 0
+You see nothing special here.~
+~
+0 0 31032
+DOOR 3
+You see nothing special here.~
+~
+0 0 31054
+End
+
+#31056
+NAME   A Small Path Through The Woods~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   3
+DOOR 0
+You see nothing special here.~
+~
+0 0 31054
+DOOR 2
+You see nothing special here.~
+~
+0 0 31057
+End
+
+#31057
+NAME   A Small Path Through The Woods~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   3
+DOOR 0
+You see nothing special here.~
+~
+0 0 31056
+DOOR 1
+You see nothing special here.~
+~
+0 0 31058
+End
+
+#31058
+NAME   An Ancient Apple Tree~
+DESCR
+Beneath the leaves of this ancient apple tree you see hundreds of apples in various stages of rotting.  It's obvious that no one has tended this tree in some time.  Nearby you see the stump of a rotten apple tree that seems to have rotted and fallen over.  
+~
+FLAGS  0
+Sect   3
+DOOR 1
+You see nothing special here.~
+~
+0 0 31059
+DOOR 3
+You see nothing special here.~
+~
+0 0 31057
+End
+
+#31059
+NAME   The Rotting Apple Tree~
+DESCR
+This apple tree stump is surrounded by branches of a once great tree, now laid
+low.  It's branches would have been at least a hundred feet high.  Now the
+branches are strewn about this glade, some so rotten that they've been overcome
+with moss and fungus.  You see something odd and faded etched into the base of the trunk.
+~
+FLAGS  0
+Sect   3
+DOOR 3
+You see nothing special here.~
+~
+0 0 31058
+EDESC odd etching~
+Though it's very faded, you can make out the shape of a heart with the initials M and E carved in the middle.  The E seems to have been worn smooth.
+~
+End
+
 #0
 
 #SPECIALS
 S
 
 #RESETS
+M 0 31000 1 31052 1
+M 0 31001 5 31031 5
+M 0 31001 1 31025 1
+M 0 31001 1 31024 1
+M 0 31001 1 31030 1
+M 0 31001 1 31032 1
+M 0 31001 1 31034 1
+M 0 31001 1 31028 1
+M 0 31001 1 31027 1
+M 0 31002 1 31026 1
+M 0 31003 1 31043 1
 S
 
 #SHOPS

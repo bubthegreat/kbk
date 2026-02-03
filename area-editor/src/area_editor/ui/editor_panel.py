@@ -109,6 +109,33 @@ class EditorPanel:
         # Auto-save to disk
         self._auto_save()
 
+    def _on_door_preset_changed(self, sender, app_data, user_data):
+        """Handle door preset dropdown changes."""
+        room_vnum, direction = user_data
+
+        # Door preset configurations (name, flags value)
+        door_presets = {
+            "No Door (Passageway)": 0,
+            "Open Door": 1,  # door
+            "Closed Door": 3,  # door + closed
+            "Locked Door": 7,  # door + closed + locked
+            "Pickproof Locked Door": 15,  # door + closed + locked + pickproof
+            "Hidden Passage": 2048,  # nonobvious
+            "Hidden Door": 2049,  # door + nonobvious
+            "Hidden Closed Door": 2051,  # door + closed + nonobvious
+            "Hidden Locked Door": 2055,  # door + closed + locked + nonobvious
+            "Hidden Pickproof Locked Door": 2063,  # door + closed + locked + pickproof + nonobvious
+        }
+
+        # Get the flags value for the selected preset
+        flags_value = door_presets.get(app_data, 0)
+
+        # Update the exit with the new flags
+        self._on_exit_field_changed(sender, flags_value, ('locks', room_vnum, direction))
+
+        # Refresh the editor to show the updated flags
+        self.show_room_editor(room_vnum)
+
     def _on_exit_field_changed(self, sender, app_data, user_data):
         """Handle exit field changes."""
         field_name, room_vnum, direction = user_data
@@ -786,7 +813,12 @@ class EditorPanel:
         if not mob or not room:
             return
 
-        with dpg.window(
+        # Delete existing modal if it exists
+        if dpg.does_item_exist(modal_tag):
+            dpg.delete_item(modal_tag)
+
+        # Create window using add_window instead of context manager to avoid container stack issues
+        window_id = dpg.add_window(
             label="Add to Room?",
             modal=True,
             show=True,
@@ -794,23 +826,26 @@ class EditorPanel:
             height=180,
             pos=[400, 250],
             tag=modal_tag
-        ):
-            dpg.add_text(f"Mobile created: {mob.short_description}", color=(100, 255, 100))
-            dpg.add_spacer(height=10)
-            dpg.add_text(f"Add this mobile to room #{room_vnum}: {room.name}?", color=(150, 150, 150))
-            dpg.add_spacer(height=20)
+        )
 
-            with dpg.group(horizontal=True):
-                dpg.add_button(
-                    label="Yes, Add to Room",
-                    callback=lambda: self._on_add_new_mobile_to_room(modal_tag, mob_vnum, room_vnum),
-                    width=150
-                )
-                dpg.add_button(
-                    label="No, Thanks",
-                    callback=lambda: dpg.delete_item(modal_tag),
-                    width=100
-                )
+        dpg.add_text(f"Mobile created: {mob.short_description}", color=(100, 255, 100), parent=window_id)
+        dpg.add_spacer(height=10, parent=window_id)
+        dpg.add_text(f"Add this mobile to room #{room_vnum}: {room.name}?", color=(150, 150, 150), parent=window_id)
+        dpg.add_spacer(height=20, parent=window_id)
+
+        button_group = dpg.add_group(horizontal=True, parent=window_id)
+        dpg.add_button(
+            label="Yes, Add to Room",
+            callback=lambda: self._on_add_new_mobile_to_room(modal_tag, mob_vnum, room_vnum),
+            width=150,
+            parent=button_group
+        )
+        dpg.add_button(
+            label="No, Thanks",
+            callback=lambda: dpg.delete_item(modal_tag),
+            width=100,
+            parent=button_group
+        )
 
     def _on_add_new_mobile_to_room(self, modal_tag, mob_vnum, room_vnum):
         """Add the newly created mobile to the room."""
@@ -1134,7 +1169,15 @@ class EditorPanel:
         elif field_name == 'cost':
             obj.cost = app_data
         elif field_name == 'condition':
-            obj.condition = app_data
+            # Condition can be 'P' (perfect) or a number (0-100)
+            if app_data == 'P' or app_data == 'p':
+                obj.condition = 'P'
+            else:
+                try:
+                    obj.condition = int(app_data)
+                except ValueError:
+                    # Invalid input, keep current value
+                    pass
         elif field_name == 'extra_flags':
             obj.extra_flags = app_data
         elif field_name == 'wear_flags':
@@ -1566,15 +1609,67 @@ class EditorPanel:
                         user_data=('keywords', room_vnum, direction)
                     )
 
-                # Lock Flags field
+                dpg.add_spacer(height=5)
+
+                # Door Configuration Preset dropdown
+                dpg.add_text("Door Configuration:", color=(150, 150, 150))
+                door_preset_items = [
+                    "No Door (Passageway)",
+                    "Open Door",
+                    "Closed Door",
+                    "Locked Door",
+                    "Pickproof Locked Door",
+                    "Hidden Passage",
+                    "Hidden Door",
+                    "Hidden Closed Door",
+                    "Hidden Locked Door",
+                    "Hidden Pickproof Locked Door",
+                ]
+
+                # Determine which preset matches the current flags
+                door_presets_map = {
+                    0: "No Door (Passageway)",
+                    1: "Open Door",
+                    3: "Closed Door",
+                    7: "Locked Door",
+                    15: "Pickproof Locked Door",
+                    2048: "Hidden Passage",
+                    2049: "Hidden Door",
+                    2051: "Hidden Closed Door",
+                    2055: "Hidden Locked Door",
+                    2063: "Hidden Pickproof Locked Door",
+                }
+                current_preset = door_presets_map.get(locks, "No Door (Passageway)")
+
+                dpg.add_combo(
+                    items=door_preset_items,
+                    default_value=current_preset,
+                    width=300,
+                    callback=self._on_door_preset_changed,
+                    user_data=(room_vnum, direction)
+                )
+
+                dpg.add_spacer(height=5)
+
+                # Lock Flags field (manual override)
                 with dpg.group(horizontal=True):
-                    dpg.add_text("Lock Flags:", color=(150, 150, 150))
+                    dpg.add_text("Lock Flags (manual):", color=(150, 150, 150))
                     dpg.add_input_int(
                         default_value=locks,
                         width=100,
                         callback=self._on_exit_field_changed,
                         user_data=('locks', room_vnum, direction)
                     )
+                    # Show which flags are currently set
+                    from area_editor.constants import EXIT_FLAGS
+                    active_flags = []
+                    for flag_name, flag_value, _ in EXIT_FLAGS:
+                        if locks & flag_value:
+                            active_flags.append(flag_name)
+                    if active_flags:
+                        dpg.add_text(f"({', '.join(active_flags)})", color=(100, 200, 100))
+                    else:
+                        dpg.add_text("(no flags)", color=(100, 100, 100))
 
                 dpg.add_spacer(height=5)
 
@@ -1855,13 +1950,24 @@ class EditorPanel:
             # Material
             with dpg.group(horizontal=True):
                 dpg.add_text("Material:", color=(150, 150, 150))
-                dpg.add_input_text(
-                    default_value=obj.material,
+
+                # Import materials list
+                from area_editor.parsers.materials_parser import get_materials
+                materials = get_materials()
+
+                # Make sure current material is in the list
+                current_material = obj.material if obj.material else "iron"
+                if current_material not in materials:
+                    materials.append(current_material)
+
+                dpg.add_combo(
+                    items=sorted(materials),
+                    default_value=current_material,
                     width=200,
                     callback=self._on_object_field_changed,
                     user_data=('material', obj_vnum)
                 )
-                dpg.add_text("(e.g., iron, wood, cloth, gold)", color=(100, 100, 100))
+                dpg.add_text(f"({len(materials)} materials available)", color=(100, 100, 100))
 
             dpg.add_spacer(height=10)
 
@@ -1905,13 +2011,15 @@ class EditorPanel:
             # Condition
             with dpg.group(horizontal=True):
                 dpg.add_text("Condition:", color=(150, 150, 150))
-                dpg.add_input_int(
-                    default_value=obj.condition,
+                # Condition can be 'P' (perfect) or a number (0-100)
+                condition_str = str(obj.condition) if obj.condition is not None else "100"
+                dpg.add_input_text(
+                    default_value=condition_str,
                     width=100,
                     callback=self._on_object_field_changed,
                     user_data=('condition', obj_vnum)
                 )
-                dpg.add_text("(0-100, 100=perfect)", color=(100, 100, 100))
+                dpg.add_text("(0-100 or 'P' for perfect)", color=(100, 100, 100))
 
             dpg.add_spacer(height=10)
 

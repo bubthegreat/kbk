@@ -31,7 +31,7 @@ class Object:
     keywords: str = ""
     short_description: str = ""
     long_description: str = ""
-    material: str = "none"
+    material: str = "iron"  # Default to iron instead of none (MUD server doesn't like "none")
 
     # TYPE line - format varies by item type
     item_type: str = ""  # e.g., "weapon", "armor", "potion", "money"

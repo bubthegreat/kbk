@@ -27,6 +27,7 @@ class MudTerminal:
         self.history_index = -1
         self.navigating_internally = False  # Flag to track if we're navigating from within terminal
         self.output_buffer = []  # Buffer to accumulate all output text (for copying)
+        self.holylight = True  # Builder mode: shows room vnum, area, sector, all exits including nonobvious
 
     def open(self, room_vnum: int, clear_history: bool = True):
         """Open the terminal at the specified room.
@@ -189,6 +190,17 @@ class MudTerminal:
         # Help
         elif cmd in ['help', 'h', '?']:
             self._show_help()
+        # Holylight toggle
+        elif cmd == 'holylight':
+            self.holylight = not self.holylight
+            status = "ON" if self.holylight else "OFF"
+            self._add_output(f"Holylight is now {status}", color=(100, 255, 100))
+            if self.holylight:
+                self._add_output("  Builder mode: showing room vnum, area, sector, all exits", color=(150, 150, 150))
+            else:
+                self._add_output("  Player mode: hiding nonobvious exits and debug info", color=(150, 150, 150))
+            # Refresh the room display
+            self._show_room()
         # Quit - clear terminal and show placeholder
         elif cmd in ['quit', 'q', 'exit']:
             self._clear_output()
@@ -462,8 +474,19 @@ class MudTerminal:
             self._add_output(f"ERROR: Room #{self.current_room_vnum} does not exist!", color=(255, 100, 100))
             return
 
+        # Import here to avoid circular dependency
+        from area_editor.constants import get_sector_name
+
         # Room name (in cyan color)
-        self._add_output(room.name, color=(100, 200, 255))
+        room_name = room.name
+
+        # If holylight is ON, add builder info header
+        if self.holylight:
+            sector_name = get_sector_name(room.sector_type)
+            area_name = app_state.current_area.name if app_state.current_area else "Unknown"
+            room_name = f"{room_name} [Room: {self.current_room_vnum}] [Area: {area_name}] [Sector: {sector_name}]"
+
+        self._add_output(room_name, color=(100, 200, 255))
 
         # Room description (normal color) - wrapped at 80 characters
         # Preserve paragraph breaks (blank lines) by processing each paragraph separately
@@ -484,18 +507,40 @@ class MudTerminal:
         self._add_output("")
 
         # Exits (in yellow/gold color) - only show actual exits (to_room > 0)
+        # Filter nonobvious exits if holylight is OFF
         exit_names = []
         dir_names = ['north', 'east', 'south', 'west', 'up', 'down']
+        NONOBVIOUS_FLAG = 2048  # Exit flag for hidden/nonobvious exits
+
         for dir_num in sorted(room.exits.keys()):
             exit_obj = room.exits[dir_num]
             # Only show exits that actually lead somewhere (to_room > 0)
             if exit_obj.to_room > 0 and dir_num < len(dir_names):
-                exit_names.append(dir_names[dir_num])
+                is_nonobvious = (exit_obj.locks & NONOBVIOUS_FLAG) != 0
 
-        if exit_names:
-            self._add_output(f"Exits: {' '.join(exit_names)}", color=(255, 220, 100))
+                # If holylight is OFF, skip nonobvious exits
+                if not self.holylight and is_nonobvious:
+                    continue
+
+                # If holylight is ON and exit is nonobvious, mark it
+                if self.holylight and is_nonobvious:
+                    exit_names.append(f"{dir_names[dir_num]}(hidden)")
+                else:
+                    exit_names.append(dir_names[dir_num])
+
+        # Format exits display based on holylight mode
+        if self.holylight:
+            # Builder mode: use [Exits: ...] format
+            if exit_names:
+                self._add_output(f"[Exits: {' '.join(exit_names)}]", color=(255, 220, 100))
+            else:
+                self._add_output("[Exits: none]", color=(255, 220, 100))
         else:
-            self._add_output("Exits: none", color=(255, 220, 100))
+            # Player mode: use simple format
+            if exit_names:
+                self._add_output(f"Exits: {' '.join(exit_names)}", color=(255, 220, 100))
+            else:
+                self._add_output("Exits: none", color=(255, 220, 100))
 
         # Find mobiles in this room by checking resets
         # We need to track which mobile reset we're on for equipment/inventory
@@ -526,7 +571,14 @@ class MudTerminal:
             for i, mob in enumerate(mobiles_here):
                 # Show the mobile's short description (how they appear in the room)
                 # In ROM MUDs, short_description is what appears in room listings
-                self._add_output(mob.short_description, color=(200, 200, 255))
+                mob_desc = mob.short_description
+
+                # If holylight is ON, prepend [Mob: vnum]
+                if self.holylight:
+                    mob_vnum = mobile_resets[i].arg1
+                    mob_desc = f"[Mob: {mob_vnum}] {mob_desc}"
+
+                self._add_output(mob_desc, color=(200, 200, 255))
 
                 # NOTE: Equipment/inventory is NOT shown here - only when you 'look' at the mobile
 
@@ -691,6 +743,14 @@ class MudTerminal:
             # Check if there's an exit/direction description
             if dir_num in room.exits:
                 exit_obj = room.exits[dir_num]
+                NONOBVIOUS_FLAG = 2048
+                is_nonobvious = (exit_obj.locks & NONOBVIOUS_FLAG) != 0
+
+                # If holylight is OFF and exit is nonobvious, hide it
+                if not self.holylight and is_nonobvious:
+                    self._add_output("You see nothing special there.", color=(200, 200, 200))
+                    return
+
                 # Show the description
                 wrapped = textwrap.fill(exit_obj.description.strip(), width=80)
                 self._add_output(wrapped, color=(200, 200, 200))
@@ -703,11 +763,15 @@ class MudTerminal:
                 if exit_obj.to_room > 0:
                     direction_names = ['north', 'east', 'south', 'west', 'up', 'down']
                     dir_name = direction_names[dir_num]
-                    self._add_output(f"You can go {dir_name} to room #{exit_obj.to_room}.", color=(150, 150, 150))
+                    # In holylight mode, show room vnum
+                    if self.holylight:
+                        self._add_output(f"You can go {dir_name} to room #{exit_obj.to_room}.", color=(150, 150, 150))
+                    else:
+                        self._add_output(f"You can go {dir_name}.", color=(150, 150, 150))
                 return
             else:
                 # No description for this direction, use default
-                self._add_output("You see nothing special here.", color=(200, 200, 200))
+                self._add_output("You see nothing special there.", color=(200, 200, 200))
                 return
 
         # Check extra descriptions
@@ -778,6 +842,7 @@ class MudTerminal:
         self._add_output("    dig <direction>       - Create a new room in that direction", color=(200, 200, 200))
         self._add_output("    dig <direction> <vnum> - Link to existing room with bidirectional exit", color=(200, 200, 200))
         self._add_output("  Look: look, look <target>", color=(200, 200, 200))
+        self._add_output("  Builder: holylight - Toggle builder/player view mode", color=(200, 200, 200))
         self._add_output("  Other: help, quit (closes terminal)", color=(200, 200, 200))
         self._add_output("", color=(200, 200, 200))
         self._add_output("This is a simplified MUD simulator for testing area navigation.", color=(180, 180, 180))
