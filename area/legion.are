@@ -2679,8 +2679,8 @@ LEVEL  35
 WEIGHT 25
 COST   700
 COND   100
-Affect O 18 -2 0
 Affect O 19 7 0
+Affect O 18 -2 0
 EDESC guardian sword~
 This sword is heavy but deadly.
 ~
@@ -2699,9 +2699,9 @@ LEVEL  35
 WEIGHT 33
 COST   4000
 COND   100
-Affect O 13 20 0
-Affect O 5 1 0
 Affect O 19 2 0
+Affect O 5 1 0
+Affect O 13 20 0
 EDESC darkened platemail~
 It is dark and heavy, but polished to a brilliant sheen.
 ~
@@ -2721,9 +2721,9 @@ LEVEL  30
 WEIGHT 26
 COST   3000
 COND   100
-Affect O 18 1 0
-Affect O 19 2 0
 Affect O 13 10 0
+Affect O 19 2 0
+Affect O 18 1 0
 EDESC darkened helm~
 The helm looks heavy and strong.
 ~
@@ -2743,8 +2743,8 @@ LEVEL  52
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 EDESC guardian bow~
 The bow appears to be made of some magically preserved wood. There is an almost
 holy warmth that can be felt coming off it's surface.
@@ -2765,10 +2765,10 @@ LEVEL  51
 WEIGHT 34
 COST   20000
 COND   100
-Affect O 17 -8 0
-Affect O 18 3 0
-Affect O 19 3 0
 Affect O 24 -3 0
+Affect O 19 3 0
+Affect O 18 3 0
+Affect O 17 -8 0
 LIMIT  1
 End
 
@@ -2785,12 +2785,12 @@ LEVEL  46
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
-Affect O 17 -5 0
-Affect O 2 3 0
-Affect O 14 25 0
 Affect O 24 -5 0
+Affect O 14 25 0
+Affect O 2 3 0
+Affect O 17 -5 0
+Affect O 19 2 0
+Affect O 18 2 0
 LIMIT  1
 End
 
@@ -2807,8 +2807,9 @@ LEVEL  52
 WEIGHT 20
 COST   20000
 COND   100
-Affect O 19 -5 0
 Affect O 18 -5 0
+Affect O 19 -5 0
+LIMIT  2
 End
 
 #29712
@@ -2824,8 +2825,8 @@ LEVEL  35
 WEIGHT 25
 COST   4700
 COND   100
-Affect O 18 -2 0
 Affect O 19 7 0
+Affect O 18 -2 0
 EDESC guardian sword~
 This sword is heavy but deadly.
 ~
@@ -2845,9 +2846,9 @@ LEVEL  40
 WEIGHT 41
 COST   4700
 COND   100
-Affect O 18 2 0
-Affect O 1 1 0
 Affect O 17 -5 0
+Affect O 1 1 0
+Affect O 18 2 0
 LIMIT  10
 End
 
@@ -2864,8 +2865,8 @@ LEVEL  46
 WEIGHT 17
 COST   9000
 COND   100
-Affect O 18 4 0
 Affect O 19 6 0
+Affect O 18 4 0
 LIMIT  2
 End
 
@@ -2882,12 +2883,12 @@ LEVEL  49
 WEIGHT 34
 COST   20000
 COND   100
-Affect O 1 1 0
-Affect O 5 1 0
-Affect O 13 45 0
-Affect O 17 -9 0
-Affect O 18 4 0
 Affect O 19 3 0
+Affect O 18 4 0
+Affect O 17 -9 0
+Affect O 13 45 0
+Affect O 5 1 0
+Affect O 1 1 0
 EDESC suit darkened platemail~
 This is the standard battlearmor given to the commanders of Arkham's guard. In
 times past many other such suits have been made and been passed on, although
@@ -2910,10 +2911,10 @@ LEVEL  35
 WEIGHT 13
 COST   15000
 COND   100
-Affect O 19 3 0
-Affect O 17 -5 0
-Affect O 1 1 0
 Affect O 2 -2 0
+Affect O 1 1 0
+Affect O 17 -5 0
+Affect O 19 3 0
 EDESC belt darkened~
 This belt seems to be made of some stretched and bent pierce of darkened steel.
 It is not as flexible as normal belts but it provides much better protection
@@ -2935,8 +2936,8 @@ LEVEL  40
 WEIGHT 13
 COST   2000
 COND   100
-Affect O 18 -1 0
 Affect O 19 2 0
+Affect O 18 -1 0
 LIMIT  30
 End
 
@@ -2953,8 +2954,8 @@ LEVEL  40
 WEIGHT 18
 COST   2000
 COND   100
-Affect O 18 -2 0
 Affect O 19 3 0
+Affect O 18 -2 0
 LIMIT  30
 End
 
@@ -2971,8 +2972,8 @@ LEVEL  43
 WEIGHT 7
 COST   8000
 COND   100
-Affect O 18 -2 0
 Affect O 19 1 0
+Affect O 18 -2 0
 LIMIT  1
 End
 
@@ -2989,8 +2990,8 @@ LEVEL  39
 WEIGHT 34
 COST   800
 COND   100
-Affect O 19 2 0
 Affect O 24 -2 0
+Affect O 19 2 0
 LIMIT  25
 End
 
@@ -3043,10 +3044,10 @@ LEVEL  45
 WEIGHT 9
 COST   11000
 COND   100
-Affect O 3 1 0
-Affect O 4 1 0
-Affect O 12 25 0
 Affect O 17 -5 0
+Affect O 12 25 0
+Affect O 4 1 0
+Affect O 3 1 0
 LIMIT  15
 End
 
@@ -3060,11 +3061,11 @@ TYPE   weapon spear 2 30 acidbite F
 EXTRA  1 5 0 262230
 WEAR   AN
 LEVEL  53
-WEIGHT 26
+WEIGHT 32
 COST   8000
 COND   100
-Affect O 19 10 0
 Affect O 18 10 0
+Affect O 19 10 0
 LIMIT  1
 End
 
@@ -3081,10 +3082,10 @@ LEVEL  35
 WEIGHT 4
 COST   2000
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
-Affect O 13 20 0
 Affect O 12 20 0
+Affect O 13 20 0
+Affect O 19 1 0
+Affect O 18 1 0
 LIMIT  15
 End
 
@@ -3154,9 +3155,9 @@ LEVEL  42
 WEIGHT 5
 COST   12500
 COND   100
-Affect O 18 3 0
-Affect O 19 2 0
 Affect O 13 10 0
+Affect O 19 2 0
+Affect O 18 3 0
 LIMIT  3
 End
 
@@ -3173,9 +3174,9 @@ LEVEL  48
 WEIGHT 21
 COST   18000
 COND   100
-Affect O 19 3 0
-Affect O 18 3 0
 Affect O 24 -5 0
+Affect O 18 3 0
+Affect O 19 3 0
 LIMIT  1
 End
 
@@ -3192,9 +3193,9 @@ LEVEL  40
 WEIGHT 31
 COST   11000
 COND   100
-Affect O 18 -3 0
-Affect O 19 1 0
 Affect O 17 10 0
+Affect O 19 1 0
+Affect O 18 -3 0
 LIMIT  3
 End
 
@@ -3211,9 +3212,9 @@ LEVEL  25
 WEIGHT 34
 COST   20000
 COND   100
-Affect O 18 2 0
-Affect O 19 3 0
 Affect O 13 18 0
+Affect O 19 3 0
+Affect O 18 2 0
 LIMIT  1
 End
 
@@ -3230,11 +3231,11 @@ LEVEL  50
 WEIGHT 14
 COST   13000
 COND   100
-Affect O 3 1 0
-Affect O 4 1 0
-Affect O 17 -15 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 17 -15 0
+Affect O 4 1 0
+Affect O 3 1 0
 LIMIT  1
 End
 
@@ -3251,11 +3252,11 @@ LEVEL  50
 WEIGHT 14
 COST   14000
 COND   100
-Affect O 19 4 0
-Affect O 17 15 0
-Affect O 24 10 0
-Affect O 1 3 0
 Affect O 2 -3 0
+Affect O 1 3 0
+Affect O 24 10 0
+Affect O 17 15 0
+Affect O 19 4 0
 EDESC wings demon black feather~
 These wings are HUGE. They provide little protecton, in fact they even hinder
 movement and are probably going to get their wearer caught in some bad places
@@ -3278,10 +3279,10 @@ LEVEL  51
 WEIGHT 24
 COST   20000
 COND   100
-Affect O 18 -4 0
-Affect O 19 2 0
-Affect O 24 4 0
 Affect O 17 5 0
+Affect O 24 4 0
+Affect O 19 2 0
+Affect O 18 -4 0
 LIMIT  1
 End
 
@@ -3298,8 +3299,8 @@ LEVEL  51
 WEIGHT 17
 COST   20000
 COND   100
-Affect O 18 4 0
 Affect O 19 6 0
+Affect O 18 4 0
 LIMIT  1
 End
 
@@ -3316,8 +3317,8 @@ LEVEL  40
 WEIGHT 26
 COST   20000
 COND   100
-Affect O 19 4 0
 Affect O 24 4 0
+Affect O 19 4 0
 LIMIT  1
 End
 
@@ -3350,12 +3351,12 @@ LEVEL  50
 WEIGHT 9
 COST   7000
 COND   100
-Affect O 13 -100 0
-Affect O 14 100 0
-Affect O 1 -2 0
-Affect O 3 4 0
-Affect O 5 -4 0
 Affect O 24 -15 0
+Affect O 5 -4 0
+Affect O 3 4 0
+Affect O 1 -2 0
+Affect O 14 100 0
+Affect O 13 -100 0
 LIMIT  5
 End
 
@@ -3372,9 +3373,9 @@ LEVEL  48
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 18 -6 0
-Affect O 17 10 0
 Affect O 24 -7 0
+Affect O 17 10 0
+Affect O 18 -6 0
 EDESC hand lich~
 This hand provides a deadly conduit to the negative planes, unfortunately it
 is very hard to make contact with a victim as it has little range. This also
@@ -3397,10 +3398,10 @@ LEVEL  36
 WEIGHT 13
 COST   1400
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
-Affect O 13 15 0
 Affect O 12 15 0
+Affect O 13 15 0
+Affect O 19 1 0
+Affect O 18 1 0
 LIMIT  5
 End
 
@@ -3434,11 +3435,11 @@ LEVEL  51
 WEIGHT 21
 COST   20000
 COND   100
-Affect O 19 5 0
-Affect O 18 -3 0
-Affect O 2 -3 0
-Affect O 14 -40 0
 Affect O 17 -8 0
+Affect O 14 -40 0
+Affect O 2 -3 0
+Affect O 18 -3 0
+Affect O 19 5 0
 EDESC armguards arm demon scale greater~
 These scales have been forged into a set of extermely strong, very sharp
 armguards. The edges are sharp enough to cut steel and in combat would be
@@ -3461,10 +3462,10 @@ LEVEL  47
 WEIGHT 14
 COST   14000
 COND   100
-Affect O 2 3 0
-Affect O 18 2 0
-Affect O 19 3 0
 Affect O 17 -5 0
+Affect O 19 3 0
+Affect O 18 2 0
+Affect O 2 3 0
 LIMIT  1
 End
 
@@ -3497,10 +3498,10 @@ LEVEL  52
 WEIGHT 25
 COST   20000
 COND   100
-Affect O 18 3 0
-Affect O 19 5 0
-Affect O 17 -15 0
 Affect O 5 -2 0
+Affect O 17 -15 0
+Affect O 19 5 0
+Affect O 18 3 0
 EDESC unholy avenger~
 This dark blade appears to be made for pure destruction and hasn't even been
 given a basic cross-piece for defence. The blade, however, is of superb make
@@ -3555,9 +3556,9 @@ LEVEL  51
 WEIGHT 8
 COST   20000
 COND   100
-Affect O 5 -3 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 5 -3 0
 EDESC sceptre dead~
 This piece of bone is one of the specially enchanted relics of the underworld.
 Lord of the dead use them to hold sway over their minions, and it is rumoured
@@ -3579,9 +3580,9 @@ LEVEL  51
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 1 4 0
-Affect O 18 4 0
 Affect O 19 8 0
+Affect O 18 4 0
+Affect O 1 4 0
 LIMIT  5
 End
 
@@ -3598,9 +3599,9 @@ LEVEL  50
 WEIGHT 13
 COST   20000
 COND   100
-Affect O 1 4 0
-Affect O 5 3 0
 Affect O 19 2 0
+Affect O 5 3 0
+Affect O 1 4 0
 LIMIT  2
 End
 
@@ -3744,8 +3745,8 @@ LEVEL  33
 WEIGHT 18
 COST   3000
 COND   100
-Affect O 19 3 0
 Affect O 18 -1 0
+Affect O 19 3 0
 EDESC guardian bow~
 The bow appears to be made of some magically preserved wood. There is an almost
 holy warmth that can be felt coming off it's surface.
@@ -3765,10 +3766,10 @@ LEVEL  40
 WEIGHT 14
 COST   5000
 COND   100
-Affect O 12 20 0
-Affect O 13 20 0
-Affect O 3 2 0
 Affect O 17 -5 0
+Affect O 3 2 0
+Affect O 13 20 0
+Affect O 12 20 0
 LIMIT  3
 End
 
@@ -3839,12 +3840,12 @@ LEVEL  51
 WEIGHT 14
 COST   15000
 COND   100
-Affect O 12 30 0
-Affect O 13 30 0
-Affect O 3 2 0
-Affect O 19 2 0
-Affect O 17 -9 0
 Affect O 24 -5 0
+Affect O 17 -9 0
+Affect O 19 2 0
+Affect O 3 2 0
+Affect O 13 30 0
+Affect O 12 30 0
 LIMIT  1
 End
 
@@ -3882,12 +3883,12 @@ LEVEL  50
 WEIGHT 27
 COST   20000
 COND   100
-Affect O 17 -12 0
-Affect O 18 3 0
-Affect O 19 3 0
-Affect O 24 -2 0
-Affect O 6 2 0
 Affect O 13 15 0
+Affect O 6 2 0
+Affect O 24 -2 0
+Affect O 19 3 0
+Affect O 18 3 0
+Affect O 17 -12 0
 EDESC gold dragon skull helm~
 This helm looks like the pride and honor of some extremely exceptional smith.
 The workmanship is superb and it is a great tribute to the race of Gold dragons.
@@ -3908,9 +3909,9 @@ LEVEL  45
 WEIGHT 41
 COST   10000
 COND   100
-Affect O 19 2 0
-Affect O 13 15 0
 Affect O 17 -6 0
+Affect O 13 15 0
+Affect O 19 2 0
 LIMIT  2
 End
 
@@ -3927,10 +3928,10 @@ LEVEL  45
 WEIGHT 29
 COST   10000
 COND   100
-Affect O 19 3 0
-Affect O 14 -50 0
-Affect O 2 -2 0
 Affect O 17 -7 0
+Affect O 2 -2 0
+Affect O 14 -50 0
+Affect O 19 3 0
 LIMIT  2
 End
 
@@ -4071,10 +4072,10 @@ LEVEL  51
 WEIGHT 16
 COST   20000
 COND   100
-Affect O 18 6 0
-Affect O 19 6 0
-Affect O 13 -100 0
 Affect O 5 -10 0
+Affect O 13 -100 0
+Affect O 19 6 0
+Affect O 18 6 0
 EDESC hammer judgement~
 This is the hammer of Final judgement, used to condemn souls to the abyss. On
 the Final day of Judgement when all souls are judged this hammer is one of the
@@ -4136,10 +4137,10 @@ LEVEL  51
 WEIGHT 7
 COST   5000
 COND   100
-Affect O 17 -10 0
-Affect O 24 -4 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 24 -4 0
+Affect O 17 -10 0
 LIMIT  2
 End
 
@@ -4156,10 +4157,10 @@ LEVEL  51
 WEIGHT 7
 COST   5000
 COND   100
-Affect O 17 -10 0
-Affect O 24 -4 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 24 -4 0
+Affect O 17 -10 0
 LIMIT  2
 End
 
@@ -4191,11 +4192,11 @@ LEVEL  40
 WEIGHT 8
 COST   4000
 COND   100
-Affect O 1 2 0
-Affect O 5 2 0
-Affect O 13 20 0
-Affect O 18 3 0
 Affect O 19 5 0
+Affect O 18 3 0
+Affect O 13 20 0
+Affect O 5 2 0
+Affect O 1 2 0
 EDESC belt interlinking rose thorns~
 This belt is soaked in blood from it's previous owner. It seems to be made for
 torture rather than armor although anyone fighting with it could easily tear
@@ -4217,8 +4218,8 @@ LEVEL  35
 WEIGHT 9
 COST   500
 COND   100
-Affect O 5 -3 0
 Affect O 13 -25 0
+Affect O 5 -3 0
 EDESC white sacrificial gown~
 It seems to be decorated in dark runes of pain and sacrifice. Not a nice item
 at all.
@@ -4238,9 +4239,9 @@ LEVEL  40
 WEIGHT 5
 COST   4000
 COND   100
-Affect O 18 2 0
-Affect O 19 3 0
 Affect O 13 50 0
+Affect O 19 3 0
+Affect O 18 2 0
 EDESC harmony light~
 This light is the lasting peace of an elven maiden's inner soul. It has
 gathered her energy and built into a real power that helps the elf in a
@@ -4280,9 +4281,9 @@ LEVEL  45
 WEIGHT 5
 COST   5000
 COND   100
-Affect O 17 10 0
-Affect O 18 2 0
 Affect O 19 3 0
+Affect O 18 2 0
+Affect O 17 10 0
 LIMIT  6
 End
 
@@ -4299,11 +4300,11 @@ LEVEL  40
 WEIGHT 7
 COST   5000
 COND   100
-Affect O 4 2 0
-Affect O 12 20 0
-Affect O 13 20 0
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
+Affect O 13 20 0
+Affect O 12 20 0
+Affect O 4 2 0
 LIMIT  4
 End
 
@@ -4320,11 +4321,11 @@ LEVEL  40
 WEIGHT 13
 COST   5000
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
-Affect O 13 15 0
-Affect O 12 15 0
 Affect O 14 25 0
+Affect O 12 15 0
+Affect O 13 15 0
+Affect O 19 1 0
+Affect O 18 1 0
 LIMIT  3
 End
 
@@ -4341,9 +4342,9 @@ LEVEL  46
 WEIGHT 23
 COST   4000
 COND   100
-Affect O 2 -2 0
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
+Affect O 2 -2 0
 LIMIT  2
 End
 
@@ -4360,9 +4361,9 @@ LEVEL  50
 WEIGHT 19
 COST   1000
 COND   100
-Affect O 2 -3 0
-Affect O 18 -3 0
 Affect O 19 -3 0
+Affect O 18 -3 0
+Affect O 2 -3 0
 LIMIT  1
 End
 
@@ -4379,8 +4380,8 @@ LEVEL  35
 WEIGHT 25
 COST   6000
 COND   100
-Affect O 19 8 0
 Affect O 18 4 0
+Affect O 19 8 0
 LIMIT  10
 End
 
@@ -4397,8 +4398,8 @@ LEVEL  51
 WEIGHT 14
 COST   10000
 COND   100
-Affect O 2 3 0
 Affect O 24 -5 0
+Affect O 2 3 0
 LIMIT  1
 End
 
@@ -4415,9 +4416,9 @@ LEVEL  50
 WEIGHT 5
 COST   10000
 COND   100
-Affect O 3 3 0
-Affect O 4 3 0
 Affect O 12 30 0
+Affect O 4 3 0
+Affect O 3 3 0
 LIMIT  1
 End
 

@@ -3146,128 +3146,6 @@ AMOD  2
 QUEST 0
 End
 
-#3392
-NAME  A Devout Priest~
-SHORT A devout holy priest~
-LONG  A devout looking man wearing priestly robes with well-made armor
-~
-DESCR
-~
-RACE  human~
-ACT   A
-AFF   0
-OFF   0
-IMM   0
-RES   0
-VULN  0
-WSPEC 0
-ALIGN 0
-GROUP 0
-LEVEL 0
-HROLL 0
-ENHA  100.00%
-MATER unknown~
-HDICE 0d0+0
-MDICE 0d0+0
-DDICE 0d0+0
-REGEN 0
-DTYPE none
-AC    0 0 0 0
-POS   stand stand
-SEX   none
-GOLD  0
-FORM  0
-PARTS 0
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
-End
-
-#3393
-NAME  A Supreme Mage~
-SHORT A lovely female mage~
-LONG  A lovely looking woman sits here in this library, studying furiously
-~
-DESCR
-A beautiful woman with emmense magical power sits here reading and
-writing while at her desk.  She is garbed in elegent robes of wealthy
-material.  She has long hair that flows wildly about, almost as if desc it
-wavers due to her aura fluctuation.  She wears a pair of glasses on her face
-of intricate design, though the frames are quite simple and rectangular.  
-~
-RACE  human~
-ACT   ABGLR
-AFF   DEFH
-OFF   0
-IMM   ABCD
-RES   0
-VULN  0
-WSPEC 0
-ALIGN 0
-GROUP 0
-LEVEL 100
-HROLL 0
-ENHA  100.00%
-MATER flesh~
-HDICE 5d5+30000
-MDICE 5d5+30000
-DDICE 20d20+500
-REGEN 0
-DTYPE magic
-AC    0 0 0 0
-POS   stand stand
-SEX   male
-GOLD  0
-FORM  HV
-PARTS ABCDEF
-SIZE  medium
-DMOD  100
-AMOD  0
-QUEST 0
-End
-
-#3394
-NAME  Warrior Supreme~
-SHORT A supreme warrior~
-LONG  A supreme looking warrior tends to the training equipment in this room
-~
-DESCR
-A giant pale-skinned Titan is before you standing nearly 25' tall. 
-Bulging with muscles larger than moss, he seems quite intimidating until the
-slightly dumb smile across his face greets you.  
-~
-RACE  titan~
-ACT   ABGL
-AFF   DFVc
-OFF   FHK
-IMM   ABCD
-RES   DE
-VULN  0
-WSPEC F
-ALIGN 0
-GROUP 0
-LEVEL 100
-HROLL 150
-ENHA  100.00%
-MATER flesh~
-HDICE 30d30+20000
-MDICE 0d0+0
-DDICE 20d20+1000
-REGEN 0
-DTYPE none
-AC    0 0 0 0
-POS   stand stand
-SEX   male
-GOLD  0
-FORM  AHMV
-PARTS ABCDEFGHIJK
-SIZE  giant
-DMOD  100
-AMOD  10
-QUEST 0
-End
-
 #0
 
 
@@ -3597,7 +3475,7 @@ TYPE   weapon staff 1 8 pierce 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  4
-WEIGHT 22
+WEIGHT 25
 COST   84
 COND   100
 End
@@ -3612,7 +3490,7 @@ TYPE   weapon staff 1 8 pound F
 EXTRA  0 0
 WEAR   AN
 LEVEL  9
-WEIGHT 20
+WEIGHT 23
 COST   580
 COND   100
 Affect O 17 -2 0
@@ -3871,7 +3749,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  0 0
 WEAR   A
 LEVEL  0
-WEIGHT 25
+WEIGHT 6
 COST   2400
 COND   100
 EDESC raft~
@@ -3889,7 +3767,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  0 0
 WEAR   A
 LEVEL  0
-WEIGHT 25
+WEIGHT 6
 COST   3100
 COND   100
 EDESC canoe~
@@ -6294,41 +6172,6 @@ COST   0
 COND   100
 End
 
-#3393
-NAME   Sorceror's Staff~
-SHORT  a Sorcerer's staff~
-DESCR 
-A magical staff glows on the ground as if it would be a conduit to arcane ability~
-MAT    magic~
-TYPE   weapon staff 9 9 magic EF
-EXTRA  1 4 0 99
-WEAR   AN
-LEVEL  53
-WEIGHT 5
-COST   100000
-COND   100
-Affect O 13 100 0
-Affect O 12 300 0
-Affect O 18 6 0
-Affect O 19 6 0
-RESTR  b
-End
-
-#3399
-NAME   Key Newbie Supreme~
-SHORT  an old key with an 'N' on it~
-DESCR 
-A key lies on the ground with a carved "N" on it.~
-MAT    metal~
-TYPE   key 0 0 0 0 0
-EXTRA  1 5 0 1671176
-WEAR   A
-LEVEL  52
-WEIGHT 9
-COST   150000
-COND   100
-End
-
 #0
 
 
@@ -6368,7 +6211,7 @@ You see the entrance to Mud School.
 DOOR 5
 ~
 ~
-AB 0 28000
+0 0 28000
 End
 
 #3002
@@ -7682,10 +7525,6 @@ You see the southern end of the temple.
 ~
 ~
 0 -1 3001
-DOOR 5
-~
-~
-ABCFGM 3399 3399
 MHRATE 110 110
 End
 
@@ -7832,54 +7671,6 @@ DOOR 3
 ~
 0 0 3047
 MHRATE 100 200
-End
-
-#3092
-NAME   ~
-DESCR
-~
-FLAGS  4
-Sect   0
-End
-
-#3093
-NAME   ~
-DESCR
-~
-FLAGS  4
-Sect   0
-End
-
-#3094
-NAME   ~
-DESCR
-~
-FLAGS  4
-Sect   0
-End
-
-#3095
-NAME   ~
-DESCR
-~
-FLAGS  4
-Sect   0
-End
-
-#3096
-NAME   ~
-DESCR
-~
-FLAGS  4
-Sect   0
-End
-
-#3097
-NAME   A dark tunnel~
-DESCR
-~
-FLAGS  4
-Sect   0
 End
 
 #3100
@@ -8116,10 +7907,6 @@ DOOR 3
 ~
 ~
 0 -1 3107
-DOOR 5
-~
-~
-0 0 17958
 End
 
 #3109
@@ -10201,145 +9988,6 @@ DOOR 3
 0 -1 3369
 End
 
-#3392
-NAME   ~
-DESCR
-~
-FLAGS  0
-Sect   0
-DOOR 3
-~
-~
-0 0 3395
-End
-
-#3393
-NAME   A Mangificently Library~
-DESCR
-When first walking into this room, you notice a lovely chandelier just
-floading in the middle of the Library.  It lights the room so elegently, not
-too bright, and not too dim.  Aisle upon aisles fill the room with thousands
-of books dealing in the craft of magic and the arcane.  It is clean to the
-point that it is spotless.  The books are all in pristine order and
-maintained with the utmost of care.  When you walk down an aisle, you almost
-feel like it goes on forever though when you turn back to the main aisle,
-it's just a miner step back to the center.  
-~
-FLAGS  0
-Sect   0
-DOOR 1
-~
-~
-0 0 3395
-MHRATE 500 500
-End
-
-#3394
-NAME   A Large Training Room~
-DESCR
-This room is massive with a ceiling reaching nearly 50' tall.  There are
-all swords of training armor and weapons for those who might wish to partake
-in melee combat.  Dummies are lined up across the room and a large padded
-mat across the ground for practicing ground techniques with minimal injury. 
-The room looks as if it could fit a hundred of the massive titan that at
-first seemed large till you compared the Titan to this room.  
-~
-FLAGS  0
-Sect   0
-DOOR 2
-~
-~
-0 0 3395
-End
-
-#3395
-NAME   A small room with three doors~
-DESCR
-~
-FLAGS  0
-Sect   0
-DOOR 0
-~
-~
-0 0 3394
-DOOR 1
-~
-~
-0 0 3392
-DOOR 3
-~
-~
-0 0 3393
-DOOR 5
-~
-~
-0 0 3396
-End
-
-#3396
-NAME   A dark tunnel~
-DESCR
-~
-FLAGS  0
-Sect   0
-DOOR 2
-~
-~
-0 0 3397
-DOOR 4
-~
-~
-0 0 3395
-End
-
-#3397
-NAME   A dark tunnel~
-DESCR
-~
-FLAGS  0
-Sect   0
-DOOR 0
-~
-~
-0 0 3396
-DOOR 2
-~
-~
-0 0 3398
-End
-
-#3398
-NAME   A dark tunnel~
-DESCR
-~
-FLAGS  0
-Sect   0
-DOOR 0
-~
-~
-0 0 3397
-DOOR 2
-~
-~
-0 0 3399
-End
-
-#3399
-NAME   A dark tunnel~
-DESCR
-~
-FLAGS  0
-Sect   0
-DOOR 0
-~
-~
-0 0 3398
-DOOR 4
-~
-~
-ABCFGM 0 3054
-End
-
 #0
 
 
@@ -10351,7 +9999,6 @@ M 3120 spec_cast_cleric
 M 3141 spec_guard
 M 3143 spec_mayor
 M 3163 spec_nasty
-M 3394 spec_master_warrior
 M 3005 spec_thief
 M 3011 spec_executioner
 M 3012 spec_cast_adept
@@ -10378,9 +10025,6 @@ D 0 3142 2 2
 D 0 3143 0 2
 D 0 3160 0 2
 D 0 3161 2 2
-D 0 3399 4 2
-D 0 3001 5 1
-D 0 3054 5 2
 O 0 3134 0 3101
 O 0 3134 0 3102
 O 0 3134 0 3103
@@ -10709,8 +10353,6 @@ S
 3160 0 0 0 0 0 100 100 0 23
 3350 0 0 0 0 0 100 100 0 24
 3354 0 0 0 0 0 100 100 0 23
-3393 10 0 0 0 0 100 100 0 23
-3394 5 9 0 0 0 100 100 0 23
 3000 2 3 4 10 0 105 15 0 23
 3001 0 0 0 0 0 110 100 0 23
 3002 1 8 13 15 19 150 40 0 23

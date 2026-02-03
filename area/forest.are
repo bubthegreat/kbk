@@ -188,8 +188,8 @@ LEVEL  33
 WEIGHT 17
 COST   6000
 COND   100
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
 LIMIT  6
 End
 
@@ -206,9 +206,9 @@ LEVEL  35
 WEIGHT 16
 COST   12000
 COND   100
-Affect O 1 1 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 1 1 0
 LIMIT  5
 End
 
@@ -225,8 +225,8 @@ LEVEL  40
 WEIGHT 17
 COST   8000
 COND   100
-Affect O 18 -2 0
 Affect O 19 2 0
+Affect O 18 -2 0
 EDESC slayer sword troll-slayer~
 This sword seems to have been designed specifically for the slaying of trolls.
 Like someone wanted to have something special in case they needed to suddenly
@@ -248,8 +248,8 @@ LEVEL  42
 WEIGHT 6
 COST   9100
 COND   100
-Affect O 18 -2 0
 Affect O 19 4 0
+Affect O 18 -2 0
 LIMIT  5
 End
 

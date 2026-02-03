@@ -256,8 +256,8 @@ LEVEL  51
 WEIGHT 16
 COST   5000
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 End
 
 #3805
@@ -309,12 +309,6 @@ LEVEL  60
 WEIGHT 6
 COST   0
 COND   100
-EDESC manuscript~
-An assortment of pages have been bound together to form an unholy manuscript
-governing the religion of the Dracolich. Each page is formed from the flesh of
-an existing race within these realms, and written upon with their own 
-lifeblood. Perhaps start by reading the cover...
-~
 EDESC cover~
 The cover, as well as back, is formed from two scales of an onyx colored
 dragon. Some have rumored it to be two existing scales of Lord Erifdel's once
@@ -325,6 +319,12 @@ The Uteroi is only for the strong willed. Any else risk death.
  
 With those words ringing in your head, you have the option of looking at the
 firstpage.
+~
+EDESC manuscript~
+An assortment of pages have been bound together to form an unholy manuscript
+governing the religion of the Dracolich. Each page is formed from the flesh of
+an existing race within these realms, and written upon with their own 
+lifeblood. Perhaps start by reading the cover...
 ~
 RESTR  V
 End
@@ -359,8 +359,8 @@ LEVEL  55
 WEIGHT 3
 COST   0
 COND   100
-Affect O 18 9 0
 Affect O 19 9 0
+Affect O 18 9 0
 RESTR  V
 End
 
@@ -377,8 +377,8 @@ LEVEL  55
 WEIGHT 1
 COST   0
 COND   100
-Affect O 18 9 0
 Affect O 19 9 0
+Affect O 18 9 0
 RESTR  V
 End
 
@@ -412,8 +412,8 @@ LEVEL  52
 WEIGHT 18
 COST   0
 COND   100
-Affect O 18 15 0
 Affect O 19 15 0
+Affect O 18 15 0
 End
 
 #0

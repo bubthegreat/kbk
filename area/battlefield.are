@@ -428,10 +428,10 @@ LEVEL  53
 WEIGHT 16
 COST   5100
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 24 -7 0
 Affect O 17 -20 0
+Affect O 24 -7 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  5
 End
 
@@ -445,14 +445,14 @@ TYPE   weapon spear 10 6 pierce DF
 EXTRA  1 8 0 50862595
 WEAR   AN
 LEVEL  53
-WEIGHT 32
+WEIGHT 39
 COST   0
 COND   100
-Affect A 0 0 G
-Affect O 1 5 0
-Affect O 17 25 0
-Affect O 19 7 0
 Affect O 18 7 0
+Affect O 19 7 0
+Affect O 17 25 0
+Affect O 1 5 0
+Affect A 0 0 G
 LIMIT  3
 End
 
@@ -469,10 +469,10 @@ LEVEL  53
 WEIGHT 23
 COST   0
 COND   100
-Affect O 18 8 0
-Affect O 19 8 0
-Affect A 0 0 G
 Affect O 1 5 0
+Affect A 0 0 G
+Affect O 19 8 0
+Affect O 18 8 0
 LIMIT  3
 RESTR  O
 End
@@ -490,11 +490,11 @@ LEVEL  53
 WEIGHT 23
 COST   8000
 COND   100
-Affect A 0 0 C
-Affect O 17 -10 0
-Affect O 24 -2 0
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
+Affect O 24 -2 0
+Affect O 17 -10 0
+Affect A 0 0 C
 LIMIT  3
 End
 
@@ -511,11 +511,11 @@ LEVEL  54
 WEIGHT 26
 COST   0
 COND   100
-Affect O 13 15 0
-Affect O 4 2 0
-Affect O 3 2 0
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect O 3 2 0
+Affect O 4 2 0
+Affect O 13 15 0
 LIMIT  3
 End
 
@@ -532,13 +532,13 @@ LEVEL  54
 WEIGHT 28
 COST   0
 COND   100
-Affect R 0 0 Q
-Affect A 0 0 N
-Affect O 18 4 0
-Affect O 13 50 0
-Affect O 5 5 0
-Affect O 19 4 0
 Affect O 24 -7 0
+Affect O 19 4 0
+Affect O 5 5 0
+Affect O 13 50 0
+Affect O 18 4 0
+Affect A 0 0 N
+Affect R 0 0 Q
 LIMIT  3
 End
 
@@ -555,10 +555,10 @@ LEVEL  54
 WEIGHT 7
 COST   3000
 COND   100
-Affect O 19 3 0
-Affect O 18 3 0
-Affect R 0 0 N
 Affect A 0 0 O
+Affect R 0 0 N
+Affect O 18 3 0
+Affect O 19 3 0
 LIMIT  1
 End
 
@@ -575,12 +575,12 @@ LEVEL  54
 WEIGHT 3
 COST   0
 COND   100
-Affect A 0 0 G
-Affect O 14 75 0
-Affect O 2 2 0
-Affect O 24 -5 0
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
+Affect O 24 -5 0
+Affect O 2 2 0
+Affect O 14 75 0
+Affect A 0 0 G
 LIMIT  3
 End
 
@@ -597,10 +597,10 @@ LEVEL  54
 WEIGHT 39
 COST   0
 COND   100
-Affect O 13 25 0
-Affect O 20 -5 0
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
+Affect O 20 -5 0
+Affect O 13 25 0
 LIMIT  4
 RESTR  N
 End
@@ -618,11 +618,11 @@ LEVEL  54
 WEIGHT 23
 COST   0
 COND   100
-Affect O 14 50 0
-Affect O 13 10 0
-Affect O 18 5 0
-Affect O 19 5 0
 Affect O 24 -5 0
+Affect O 19 5 0
+Affect O 18 5 0
+Affect O 13 10 0
+Affect O 14 50 0
 LIMIT  3
 End
 
@@ -639,10 +639,10 @@ LEVEL  54
 WEIGHT 13
 COST   0
 COND   100
-Affect O 2 4 0
-Affect O 13 20 0
-Affect O 19 3 0
 Affect O 18 5 0
+Affect O 19 3 0
+Affect O 13 20 0
+Affect O 2 4 0
 LIMIT  3
 End
 
@@ -656,13 +656,13 @@ TYPE   weapon spear 3 20 light BF
 EXTRA  1 5 0 789505
 WEAR   AN
 LEVEL  53
-WEIGHT 20
+WEIGHT 25
 COST   20000
 COND   100
-Affect O 19 5 0
-Affect O 18 5 0
-Affect O 24 -5 0
 Affect O 13 25 0
+Affect O 24 -5 0
+Affect O 18 5 0
+Affect O 19 5 0
 LIMIT  1
 RESTR  F
 End
@@ -680,10 +680,10 @@ LEVEL  53
 WEIGHT 21
 COST   1000
 COND   100
-Affect O 19 8 0
-Affect O 18 8 0
-Affect O 24 -10 0
 Affect O 13 100 0
+Affect O 24 -10 0
+Affect O 18 8 0
+Affect O 19 8 0
 LIMIT  4
 RESTR  N
 End
@@ -701,9 +701,9 @@ LEVEL  55
 WEIGHT 4
 COST   0
 COND   100
-Affect O 19 5 0
-Affect O 13 50 0
 Affect O 12 -25 0
+Affect O 13 50 0
+Affect O 19 5 0
 LIMIT  2
 RESTR  F
 End

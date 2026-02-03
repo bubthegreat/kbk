@@ -1377,6 +1377,10 @@ return to the forest.
 ~
 FLAGS  0
 Sect   3
+EDESC  sign~
+The sign reads:
+   The Woodsman
+~
 EDESC  credits credit author~
 +-------------------------------------------------+
 | This zone originally written for Copper II DIKU |
@@ -1384,10 +1388,6 @@ EDESC  credits credit author~
 | Modification and alterations for MERCmud DIKU   |
 |   by VampLestat                        1 JAN 93 |
 +-------------------------------------------------+
-~
-EDESC  sign~
-The sign reads:
-   The Woodsman
 ~
 DOOR 0
 You can go north around the inn.

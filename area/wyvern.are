@@ -1171,9 +1171,9 @@ LEVEL  51
 WEIGHT 25
 COST   2500
 COND   100
-Affect O 2 -2 0
-Affect O 18 7 0
 Affect O 19 7 0
+Affect O 18 7 0
+Affect O 2 -2 0
 End
 
 #1605
@@ -1189,8 +1189,8 @@ LEVEL  15
 WEIGHT 17
 COST   1510
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #1606
@@ -1206,8 +1206,8 @@ LEVEL  14
 WEIGHT 18
 COST   1550
 COND   100
-Affect O 18 2 0
 Affect O 1 1 0
+Affect O 18 2 0
 End
 
 #1612
@@ -1223,8 +1223,8 @@ LEVEL  13
 WEIGHT 7
 COST   1530
 COND   100
-Affect O 1 5 0
 Affect O 13 35 0
+Affect O 1 5 0
 LIMIT  4
 End
 
@@ -1384,7 +1384,7 @@ TYPE   weapon staff 2 6 pound 0
 EXTRA  1 2 0 65
 WEAR   AN
 LEVEL  12
-WEIGHT 17
+WEIGHT 20
 COST   220
 COND   100
 Affect O 13 5 0
@@ -1403,8 +1403,8 @@ LEVEL  19
 WEIGHT 13
 COST   2500
 COND   100
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
 End
 
 #1711

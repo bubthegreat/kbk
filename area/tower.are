@@ -888,9 +888,9 @@ LEVEL  35
 WEIGHT 16
 COST   400
 COND   100
-Affect O 1 1 0
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
+Affect O 1 1 0
 End
 
 #11402
@@ -922,9 +922,9 @@ LEVEL  45
 WEIGHT 3
 COST   1000
 COND   100
-Affect O 19 2 0
-Affect O 13 25 0
 Affect O 1 1 0
+Affect O 13 25 0
+Affect O 19 2 0
 LIMIT  20
 End
 
@@ -938,14 +938,14 @@ TYPE   armor ABDEF ACDG BCDEF ABEF 0
 EXTRA  1 3 0 4114
 WEAR   AD
 LEVEL  45
-WEIGHT 27
+WEIGHT 26
 COST   900
 COND   100
-Affect O 1 2 0
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 5 2 0
 Affect O 17 -10 0
+Affect O 5 2 0
+Affect O 18 2 0
+Affect O 19 2 0
+Affect O 1 2 0
 LIMIT  5
 End
 
@@ -962,9 +962,9 @@ LEVEL  45
 WEIGHT 22
 COST   900
 COND   100
-Affect O 14 50 0
-Affect O 2 2 0
 Affect O 18 3 0
+Affect O 2 2 0
+Affect O 14 50 0
 LIMIT  6
 End
 
@@ -981,9 +981,9 @@ LEVEL  45
 WEIGHT 21
 COST   900
 COND   100
-Affect O 1 2 0
-Affect O 19 2 0
 Affect O 13 45 0
+Affect O 19 2 0
+Affect O 1 2 0
 LIMIT  7
 End
 
@@ -1000,8 +1000,8 @@ LEVEL  45
 WEIGHT 16
 COST   900
 COND   100
-Affect O 18 5 0
 Affect O 19 2 0
+Affect O 18 5 0
 LIMIT  2
 End
 
@@ -1046,12 +1046,12 @@ TYPE   armor ACDF CG BCF BCDE 0
 EXTRA  1 5 0 67332
 WEAR   AD
 LEVEL  52
-WEIGHT 21
+WEIGHT 20
 COST   9000
 COND   100
-Affect O 17 -35 0
-Affect O 23 -10 0
 Affect O 4 -6 0
+Affect O 23 -10 0
+Affect O 17 -35 0
 LIMIT  2
 End
 
@@ -1065,13 +1065,13 @@ TYPE   armor EG BCFG ABEG CG 0
 EXTRA  1 6 0 70465
 WEAR   AD
 LEVEL  52
-WEIGHT 27
+WEIGHT 26
 COST   9000
 COND   100
-Affect O 13 70 0
-Affect O 19 4 0
-Affect O 4 2 0
 Affect O 18 -5 0
+Affect O 4 2 0
+Affect O 19 4 0
+Affect O 13 70 0
 LIMIT  1
 End
 
@@ -1088,8 +1088,8 @@ LEVEL  52
 WEIGHT 10
 COST   9000
 COND   100
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
 EDESC talisman heads~
 The heads are of five different dragons, each screaming as if being trapped
 inside the talisman by some magical force.
@@ -1110,10 +1110,10 @@ LEVEL  52
 WEIGHT 13
 COST   9000
 COND   100
-Affect O 1 4 0
-Affect O 17 -20 0
-Affect O 19 4 0
 Affect O 13 35 0
+Affect O 19 4 0
+Affect O 17 -20 0
+Affect O 1 4 0
 LIMIT  2
 End
 
@@ -1130,8 +1130,8 @@ LEVEL  52
 WEIGHT 16
 COST   9000
 COND   100
-Affect O 13 20 0
 Affect O 19 4 0
+Affect O 13 20 0
 LIMIT  1
 End
 
@@ -1148,9 +1148,9 @@ LEVEL  50
 WEIGHT 4
 COST   9000
 COND   100
-Affect O 12 35 0
-Affect O 3 1 0
 Affect O 1 -2 0
+Affect O 3 1 0
+Affect O 12 35 0
 LIMIT  10
 End
 
@@ -1167,12 +1167,12 @@ LEVEL  50
 WEIGHT 21
 COST   2000
 COND   100
-Affect O 19 5 0
-Affect O 2 -3 0
-Affect O 13 35 0
-Affect O 24 10 0
-Affect O 3 -4 0
 Affect O 5 -4 0
+Affect O 3 -4 0
+Affect O 24 10 0
+Affect O 13 35 0
+Affect O 2 -3 0
+Affect O 19 5 0
 LIMIT  2
 End
 
@@ -1189,9 +1189,9 @@ LEVEL  30
 WEIGHT 7
 COST   500
 COND   100
-Affect O 18 2 0
-Affect O 2 2 0
 Affect O 23 -10 0
+Affect O 2 2 0
+Affect O 18 2 0
 LIMIT  10
 End
 
@@ -1208,8 +1208,8 @@ LEVEL  50
 WEIGHT 4
 COST   9000
 COND   100
-Affect O 19 1 0
 Affect O 13 20 0
+Affect O 19 1 0
 LIMIT  1
 End
 
@@ -1226,10 +1226,10 @@ LEVEL  51
 WEIGHT 16
 COST   900
 COND   100
-Affect O 3 3 0
-Affect O 5 2 0
-Affect O 18 4 0
 Affect O 19 2 0
+Affect O 18 4 0
+Affect O 5 2 0
+Affect O 3 3 0
 LIMIT  3
 End
 
@@ -1246,9 +1246,9 @@ LEVEL  50
 WEIGHT 12
 COST   900
 COND   100
-Affect O 19 3 0
-Affect O 13 45 0
 Affect O 1 1 0
+Affect O 13 45 0
+Affect O 19 3 0
 LIMIT  5
 End
 
@@ -1262,12 +1262,12 @@ TYPE   armor BDEF ABDEG ADG ABDF 0
 EXTRA  1 3 0 68096
 WEAR   AD
 LEVEL  51
-WEIGHT 27
+WEIGHT 26
 COST   9000
 COND   100
-Affect O 13 45 0
-Affect O 12 40 0
 Affect O 19 2 0
+Affect O 12 40 0
+Affect O 13 45 0
 LIMIT  4
 End
 
@@ -1284,9 +1284,9 @@ LEVEL  31
 WEIGHT 21
 COST   9000
 COND   100
-Affect O 1 2 0
-Affect O 13 20 0
 Affect O 19 3 0
+Affect O 13 20 0
+Affect O 1 2 0
 LIMIT  6
 End
 
@@ -1296,16 +1296,16 @@ SHORT  the freezing girdle of the White Dragon~
 DESCR 
 The frozen bones of the White Dragon are here in the form of a girdle.~
 MAT    dragonscale~
-TYPE   armor BDF BCEF CDF CF 0
+TYPE   armor BDF BCEF CDF ABF 0
 EXTRA  1 3 0 65793
 WEAR   AL
 LEVEL  51
 WEIGHT 10
 COST   9000
 COND   100
-Affect O 17 -25 0
-Affect O 12 10 0
 Affect O 19 2 0
+Affect O 12 10 0
+Affect O 17 -25 0
 LIMIT  9
 End
 
@@ -1322,10 +1322,10 @@ LEVEL  52
 WEIGHT 7
 COST   20000
 COND   100
-Affect O 12 50 0
-Affect O 3 7 0
-Affect O 4 7 0
 Affect O 17 -10 0
+Affect O 4 7 0
+Affect O 3 7 0
+Affect O 12 50 0
 EDESC orb dragonkind~
 It hums loudly when you touch the outer surface. The orb is cold to the 
 touch, yet is warm, as well. Feelings of passiveness and aggression mingle as
@@ -1348,8 +1348,8 @@ LEVEL  45
 WEIGHT 13
 COST   9000
 COND   100
-Affect O 13 25 0
 Affect O 23 -10 0
+Affect O 13 25 0
 LIMIT  17
 End
 
@@ -1366,9 +1366,9 @@ LEVEL  50
 WEIGHT 5
 COST   9000
 COND   100
-Affect O 18 -3 0
-Affect O 19 7 0
 Affect R 0 -1 J
+Affect O 19 7 0
+Affect O 18 -3 0
 LIMIT  3
 End
 
@@ -1385,10 +1385,10 @@ LEVEL  50
 WEIGHT 22
 COST   9000
 COND   100
-Affect O 19 3 0
-Affect O 24 -5 0
-Affect O 18 2 0
 Affect O 13 15 0
+Affect O 18 2 0
+Affect O 24 -5 0
+Affect O 19 3 0
 LIMIT  3
 End
 
@@ -1402,12 +1402,12 @@ TYPE   armor ADG ABCDEG ACDG ABCDEF 0
 EXTRA  1 2 0 65792
 WEAR   AD
 LEVEL  50
-WEIGHT 27
+WEIGHT 26
 COST   9000
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
 Affect O 13 15 0
+Affect O 19 2 0
+Affect O 18 2 0
 LIMIT  2
 End
 
@@ -1424,10 +1424,10 @@ LEVEL  50
 WEIGHT 16
 COST   9000
 COND   100
-Affect O 18 3 0
-Affect O 19 2 0
-Affect O 13 25 0
 Affect O 17 -10 0
+Affect O 13 25 0
+Affect O 19 2 0
+Affect O 18 3 0
 LIMIT  3
 End
 
@@ -1444,10 +1444,10 @@ LEVEL  50
 WEIGHT 18
 COST   9000
 COND   100
-Affect O 19 4 0
-Affect O 2 -3 0
-Affect O 1 2 0
 Affect O 20 10 0
+Affect O 1 2 0
+Affect O 2 -3 0
+Affect O 19 4 0
 LIMIT  1
 End
 
@@ -1461,12 +1461,12 @@ TYPE   armor ADG ABCDEG ACDG ABCDEF 0
 EXTRA  1 1 0 65536
 WEAR   AD
 LEVEL  50
-WEIGHT 27
+WEIGHT 26
 COST   7000
 COND   100
-Affect O 14 80 0
-Affect O 2 3 0
 Affect O 19 3 0
+Affect O 2 3 0
+Affect O 14 80 0
 LIMIT  2
 End
 
@@ -1500,8 +1500,8 @@ LEVEL  50
 WEIGHT 8
 COST   9000
 COND   100
-Affect O 19 2 0
 Affect O 13 50 0
+Affect O 19 2 0
 LIMIT  2
 End
 
@@ -1518,8 +1518,8 @@ LEVEL  60
 WEIGHT 6
 COST   9000
 COND   100
-Affect O 19 -2 0
 Affect O 1 -3 0
+Affect O 19 -2 0
 EDESC knife demon-headed~
 The knife looks to be extremely evil, radiating a red aura and almost 
 enveloping the surrounding good. A strange humming can be heard as you
@@ -1541,8 +1541,8 @@ LEVEL  50
 WEIGHT 8
 COST   9000
 COND   100
-Affect O 13 25 0
 Affect O 17 -10 0
+Affect O 13 25 0
 End
 
 #11436
@@ -1558,8 +1558,8 @@ LEVEL  50
 WEIGHT 17
 COST   9000
 COND   100
-Affect O 12 25 0
 Affect O 17 -10 0
+Affect O 12 25 0
 End
 
 #11437
@@ -1575,9 +1575,9 @@ LEVEL  55
 WEIGHT 13
 COST   20000
 COND   100
-Affect O 17 -10 0
-Affect O 13 20 0
 Affect O 12 25 0
+Affect O 13 20 0
+Affect O 17 -10 0
 LIMIT  18
 End
 
@@ -1594,11 +1594,11 @@ LEVEL  55
 WEIGHT 14
 COST   9000
 COND   100
-Affect O 3 3 0
-Affect O 18 4 0
-Affect O 12 20 0
-Affect O 13 20 0
 Affect R 0 -1 M
+Affect O 13 20 0
+Affect O 12 20 0
+Affect O 18 4 0
+Affect O 3 3 0
 LIMIT  1
 RESTR  b
 End
@@ -1616,11 +1616,11 @@ LEVEL  55
 WEIGHT 5
 COST   9000
 COND   100
-Affect O 12 50 0
-Affect O 24 -15 0
-Affect O 4 5 0
-Affect O 17 -14 0
 Affect O 3 5 0
+Affect O 17 -14 0
+Affect O 4 5 0
+Affect O 24 -15 0
+Affect O 12 50 0
 LIMIT  1
 End
 
@@ -1634,7 +1634,7 @@ TYPE   weapon staff 2 28 smash 0
 EXTRA  1 2 0 3
 WEAR   AN
 LEVEL  50
-WEIGHT 13
+WEIGHT 15
 COST   9000
 COND   100
 Affect O 13 45 0
@@ -1654,9 +1654,9 @@ LEVEL  50
 WEIGHT 16
 COST   9000
 COND   100
-Affect O 14 55 0
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
+Affect O 14 55 0
 LIMIT  1
 End
 
@@ -1673,10 +1673,10 @@ LEVEL  50
 WEIGHT 6
 COST   9000
 COND   100
-Affect O 14 30 0
-Affect O 18 3 0
-Affect O 2 2 0
 Affect O 19 2 0
+Affect O 2 2 0
+Affect O 18 3 0
+Affect O 14 30 0
 LIMIT  8
 End
 
@@ -1693,8 +1693,8 @@ LEVEL  35
 WEIGHT 10
 COST   9000
 COND   100
-Affect O 17 -14 0
 Affect O 19 2 0
+Affect O 17 -14 0
 LIMIT  30
 End
 
@@ -1711,8 +1711,8 @@ LEVEL  20
 WEIGHT 6
 COST   90
 COND   100
-Affect O 4 1 0
 Affect O 5 3 0
+Affect O 4 1 0
 End
 
 #11445
@@ -1744,9 +1744,6 @@ LEVEL  40
 WEIGHT 3
 COST   0
 COND   100
-EDESC scroll~
-You look at the writing on the scroll. It appears to be a letter.
-~
 EDESC letter~
 Dear Kinsdragon,
 How is life serving the great Lady of Magic? Surely not as
@@ -1780,6 +1777,9 @@ P.S.--Send the messenger who bears this scroll to visit our
 kinsdragon Garna. He stole a trinket of mine when he thought
 I wasn't looking, the fool. Garna will return it if she
 values her life after enjoying elf-meat.
+~
+EDESC scroll~
+You look at the writing on the scroll. It appears to be a letter.
 ~
 End
 
@@ -1982,9 +1982,9 @@ LEVEL  50
 WEIGHT 10
 COST   20000
 COND   100
-Affect O 13 50 0
-Affect O 23 -10 0
 Affect O 1 4 0
+Affect O 23 -10 0
+Affect O 13 50 0
 EDESC etched~
 You can barely make out the phrase "o'goth uns'aa" scratched into the pendant.
 ~
@@ -2004,9 +2004,9 @@ LEVEL  50
 WEIGHT 14
 COST   20000
 COND   100
-Affect O 18 2 0
-Affect O 18 5 0
 Affect O 12 25 0
+Affect O 18 5 0
+Affect O 18 2 0
 LIMIT  2
 End
 

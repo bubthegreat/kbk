@@ -1420,8 +1420,8 @@ LEVEL  20
 WEIGHT 4
 COST   1660
 COND   100
-Affect O 1 -1 0
 Affect A 0 0 B
+Affect O 1 -1 0
 End
 
 #1106
@@ -1434,7 +1434,7 @@ TYPE   weapon staff 2 1 thrust 0
 EXTRA  1 3 0 1090
 WEAR   AN
 LEVEL  16
-WEIGHT 13
+WEIGHT 15
 COST   500
 COND   100
 Affect O 18 2 0
@@ -1592,8 +1592,8 @@ LEVEL  6
 WEIGHT 6
 COST   480
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 End
 
 #1117

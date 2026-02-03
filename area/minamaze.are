@@ -526,9 +526,9 @@ LEVEL  35
 WEIGHT 13
 COST   1000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
 Affect O 1 1 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  20
 End
 
@@ -545,9 +545,9 @@ LEVEL  30
 WEIGHT 6
 COST   500
 COND   100
-Affect O 12 40 0
-Affect O 13 40 0
 Affect O 20 -5 0
+Affect O 13 40 0
+Affect O 12 40 0
 LIMIT  10
 End
 
@@ -564,9 +564,9 @@ LEVEL  40
 WEIGHT 16
 COST   4000
 COND   100
-Affect O 17 -7 0
-Affect O 13 20 0
 Affect O 4 2 0
+Affect O 13 20 0
+Affect O 17 -7 0
 LIMIT  5
 End
 
@@ -583,8 +583,8 @@ LEVEL  45
 WEIGHT 7
 COST   2000
 COND   100
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  4
 End
 
@@ -601,9 +601,9 @@ LEVEL  40
 WEIGHT 5
 COST   5000
 COND   100
-Affect O 17 -4 0
-Affect O 12 40 0
 Affect O 5 2 0
+Affect O 12 40 0
+Affect O 17 -4 0
 LIMIT  5
 End
 
@@ -620,10 +620,10 @@ LEVEL  45
 WEIGHT 7
 COST   6000
 COND   100
-Affect O 19 3 0
-Affect O 13 25 0
-Affect O 5 1 0
 Affect O 4 1 0
+Affect O 5 1 0
+Affect O 13 25 0
+Affect O 19 3 0
 LIMIT  4
 End
 
@@ -640,11 +640,11 @@ LEVEL  50
 WEIGHT 12
 COST   7000
 COND   100
-Affect O 19 4 0
-Affect O 18 2 0
-Affect O 14 10 0
-Affect O 13 50 0
 Affect O 1 1 0
+Affect O 13 50 0
+Affect O 14 10 0
+Affect O 18 2 0
+Affect O 19 4 0
 LIMIT  3
 End
 
@@ -661,11 +661,11 @@ LEVEL  50
 WEIGHT 13
 COST   4000
 COND   100
-Affect O 19 2 0
-Affect O 18 5 0
-Affect O 17 -10 0
-Affect O 6 1 0
 Affect O 3 2 0
+Affect O 6 1 0
+Affect O 17 -10 0
+Affect O 18 5 0
+Affect O 19 2 0
 LIMIT  3
 End
 
@@ -682,9 +682,9 @@ LEVEL  50
 WEIGHT 20
 COST   8000
 COND   100
-Affect O 19 6 0
-Affect O 18 5 0
 Affect O 13 50 0
+Affect O 18 5 0
+Affect O 19 6 0
 LIMIT  3
 End
 
@@ -701,10 +701,11 @@ LEVEL  55
 WEIGHT 9
 COST   15000
 COND   100
-Affect O 19 3 0
-Affect O 17 -15 0
-Affect O 13 75 0
 Affect O 5 2 0
+Affect O 13 75 0
+Affect O 17 -15 0
+Affect O 19 3 0
+LIMIT  2
 End
 
 #17912
@@ -720,10 +721,11 @@ LEVEL  55
 WEIGHT 21
 COST   12000
 COND   100
-Affect O 17 -5 0
-Affect O 13 50 0
-Affect O 12 50 0
 Affect O 4 3 0
+Affect O 12 50 0
+Affect O 13 50 0
+Affect O 17 -5 0
+LIMIT  2
 End
 
 #17913
@@ -739,10 +741,11 @@ LEVEL  55
 WEIGHT 22
 COST   18000
 COND   100
-Affect O 19 3 0
-Affect O 18 5 0
-Affect O 14 100 0
 Affect O 2 2 0
+Affect O 14 100 0
+Affect O 18 5 0
+Affect O 19 3 0
+LIMIT  2
 End
 
 #17914
@@ -758,10 +761,11 @@ LEVEL  55
 WEIGHT 16
 COST   12000
 COND   100
-Affect O 18 3 0
-Affect O 17 -10 0
-Affect O 12 75 0
 Affect O 2 3 0
+Affect O 12 75 0
+Affect O 17 -10 0
+Affect O 18 3 0
+LIMIT  2
 End
 
 #17915
@@ -792,8 +796,8 @@ LEVEL  45
 WEIGHT 12
 COST   6000
 COND   100
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  5
 End
 
@@ -810,10 +814,10 @@ LEVEL  1
 WEIGHT 25
 COST   1000
 COND   100
-Affect O 17 -5 0
-Affect O 14 25 0
-Affect O 13 25 0
 Affect O 12 25 0
+Affect O 13 25 0
+Affect O 14 25 0
+Affect O 17 -5 0
 LIMIT  3
 End
 
@@ -830,9 +834,9 @@ LEVEL  30
 WEIGHT 13
 COST   1500
 COND   100
-Affect O 19 2 0
-Affect O 18 1 0
 Affect O 12 20 0
+Affect O 18 1 0
+Affect O 19 2 0
 LIMIT  20
 End
 
@@ -849,9 +853,9 @@ LEVEL  30
 WEIGHT 17
 COST   1500
 COND   100
-Affect O 19 1 0
-Affect O 18 2 0
 Affect O 13 20 0
+Affect O 18 2 0
+Affect O 19 1 0
 LIMIT  20
 End
 
@@ -868,10 +872,10 @@ LEVEL  30
 WEIGHT 5
 COST   1500
 COND   100
-Affect O 19 1 0
-Affect O 18 1 0
-Affect O 13 10 0
 Affect O 12 10 0
+Affect O 13 10 0
+Affect O 18 1 0
+Affect O 19 1 0
 LIMIT  20
 End
 
@@ -989,10 +993,6 @@ pride in his work.
 ~
 FLAGS  0
 Sect   2
-DOOR 3
-~
-~
-0 0 17902
 DOOR 2
 ~
 ~
@@ -1005,6 +1005,10 @@ DOOR 0
 ~
 ~
 0 0 17913
+DOOR 3
+~
+~
+0 0 17902
 End
 
 #17904
@@ -1085,10 +1089,6 @@ DOOR 0
 ~
 ~
 0 0 17916
-DOOR 2
-~
-~
-0 0 17996
 DOOR 3
 ~
 ~
@@ -1097,6 +1097,10 @@ DOOR 1
 ~
 ~
 0 0 17907
+DOOR 2
+~
+~
+0 0 17996
 End
 
 #17907
@@ -1174,22 +1178,22 @@ again and mutter irritably to yourself.  Which way to go?
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17919
 DOOR 3
 ~
 ~
 0 0 17908
-DOOR 1
-~
-~
-0 0 17900
 DOOR 2
 ~
 ~
 0 0 17999
+DOOR 1
+~
+~
+0 0 17900
+DOOR 0
+~
+~
+0 0 17919
 End
 
 #17910
@@ -1272,10 +1276,6 @@ DOOR 1
 ~
 ~
 0 0 17913
-DOOR 2
-~
-~
-0 0 17902
 DOOR 3
 ~
 ~
@@ -1284,6 +1284,10 @@ DOOR 0
 ~
 ~
 0 0 17922
+DOOR 2
+~
+~
+0 0 17902
 End
 
 #17913
@@ -1359,22 +1363,22 @@ a more likely possibility, be lost in here forever.
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17905
-DOOR 0
-~
-~
-0 0 17925
 DOOR 1
 ~
 ~
 0 0 17916
+DOOR 2
+~
+~
+0 0 17905
 DOOR 3
 ~
 ~
 0 0 17914
+DOOR 0
+~
+~
+0 0 17925
 End
 
 #17916
@@ -1449,22 +1453,22 @@ something to help you figure out where you are.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17928
-DOOR 2
-~
-~
-0 0 17908
 DOOR 1
 ~
 ~
 0 0 17919
+DOOR 0
+~
+~
+0 0 17928
 DOOR 3
 ~
 ~
 0 0 17917
+DOOR 2
+~
+~
+0 0 17908
 End
 
 #17919
@@ -1540,14 +1544,6 @@ pride in his work.
 ~
 FLAGS  0
 Sect   2
-DOOR 3
-~
-~
-0 0 17920
-DOOR 1
-~
-~
-0 0 17922
 DOOR 2
 ~
 ~
@@ -1556,6 +1552,14 @@ DOOR 0
 ~
 ~
 0 0 17931
+DOOR 3
+~
+~
+0 0 17920
+DOOR 1
+~
+~
+0 0 17922
 End
 
 #17922
@@ -1614,14 +1618,14 @@ manicured labyrinth.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17934
 DOOR 2
 ~
 ~
 0 0 17914
+DOOR 0
+~
+~
+0 0 17934
 DOOR 1
 ~
 ~
@@ -1707,6 +1711,10 @@ again and mutter irritably to yourself.  Which way to go?
 ~
 FLAGS  0
 Sect   2
+DOOR 2
+~
+~
+0 0 17917
 DOOR 0
 ~
 ~
@@ -1715,10 +1723,6 @@ DOOR 3
 ~
 ~
 0 0 17926
-DOOR 2
-~
-~
-0 0 17917
 DOOR 1
 ~
 ~
@@ -1799,10 +1803,6 @@ if that means becoming more lost.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17940
 DOOR 2
 ~
 ~
@@ -1815,6 +1815,10 @@ DOOR 1
 ~
 ~
 0 0 17931
+DOOR 0
+~
+~
+0 0 17940
 End
 
 #17931
@@ -1890,22 +1894,22 @@ a more likely possibility, be lost in here forever.
 ~
 FLAGS  0
 Sect   2
-DOOR 3
-~
-~
-0 0 17932
 DOOR 1
 ~
 ~
 0 0 17934
-DOOR 0
-~
-~
-0 0 17943
 DOOR 2
 ~
 ~
 0 0 17923
+DOOR 0
+~
+~
+0 0 17943
+DOOR 3
+~
+~
+0 0 17932
 End
 
 #17934
@@ -1980,6 +1984,10 @@ something to help you figure out where you are.
 ~
 FLAGS  0
 Sect   2
+DOOR 2
+~
+~
+0 0 17926
 DOOR 0
 ~
 ~
@@ -1992,10 +2000,6 @@ DOOR 3
 ~
 ~
 0 0 17935
-DOOR 2
-~
-~
-0 0 17926
 End
 
 #17937
@@ -2074,22 +2078,22 @@ onward.
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17929
-DOOR 3
-~
-~
-0 0 17938
-DOOR 0
-~
-~
-0 0 17949
 DOOR 1
 ~
 ~
 0 0 17930
+DOOR 0
+~
+~
+0 0 17949
+DOOR 3
+~
+~
+0 0 17938
+DOOR 2
+~
+~
+0 0 17929
 End
 
 #17940
@@ -2166,22 +2170,22 @@ manicured labyrinth.
 ~
 FLAGS  0
 Sect   2
-DOOR 1
-~
-~
-0 0 17943
 DOOR 3
 ~
 ~
 0 0 17941
-DOOR 0
+DOOR 1
 ~
 ~
-0 0 17952
+0 0 17943
 DOOR 2
 ~
 ~
 0 0 17932
+DOOR 0
+~
+~
+0 0 17952
 End
 
 #17943
@@ -2259,14 +2263,6 @@ again and mutter irritably to yourself.  Which way to go?
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17935
-DOOR 3
-~
-~
-0 0 17944
 DOOR 1
 ~
 ~
@@ -2275,6 +2271,14 @@ DOOR 0
 ~
 ~
 0 0 17955
+DOOR 2
+~
+~
+0 0 17935
+DOOR 3
+~
+~
+0 0 17944
 End
 
 #17946
@@ -2349,10 +2353,6 @@ reached down and put this generous reprieve in such an unfriendly place.
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17938
 DOOR 1
 ~
 ~
@@ -2365,6 +2365,10 @@ DOOR 3
 ~
 ~
 0 0 17947
+DOOR 2
+~
+~
+0 0 17938
 End
 
 #17949
@@ -2441,22 +2445,22 @@ a more likely possibility, be lost in here forever.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17961
 DOOR 1
 ~
 ~
 0 0 17952
-DOOR 3
-~
-~
-0 0 17950
 DOOR 2
 ~
 ~
 0 0 17941
+DOOR 0
+~
+~
+0 0 17961
+DOOR 3
+~
+~
+0 0 17950
 End
 
 #17952
@@ -2531,22 +2535,22 @@ something to help you figure out where you are.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17964
 DOOR 3
 ~
 ~
 0 0 17953
-DOOR 1
-~
-~
-0 0 17955
 DOOR 2
 ~
 ~
 0 0 17944
+DOOR 1
+~
+~
+0 0 17955
+DOOR 0
+~
+~
+0 0 17964
 End
 
 #17955
@@ -2625,10 +2629,10 @@ onward.
 ~
 FLAGS  0
 Sect   2
-DOOR 2
+DOOR 0
 ~
 ~
-0 0 17947
+0 0 17967
 DOOR 1
 ~
 ~
@@ -2637,16 +2641,16 @@ DOOR 3
 ~
 ~
 0 0 17956
-DOOR 0
+DOOR 2
 ~
 ~
-0 0 17967
+0 0 17947
 End
 
 #17958
-NAME   Start of the Maze~
+NAME   Dead End~
 DESCR
-This is the beginning to what looks like a maze with an awful stench of Minotaur.
+You have reached a dead end.  There is nowhere to go but south.
 ~
 FLAGS  0
 Sect   2
@@ -2654,10 +2658,6 @@ DOOR 2
 ~
 ~
 0 0 17948
-DOOR 4
-~
-~
-0 0 3108
 End
 
 #17959
@@ -2703,6 +2703,10 @@ manicured labyrinth.
 ~
 FLAGS  0
 Sect   2
+DOOR 0
+~
+~
+0 0 17970
 DOOR 1
 ~
 ~
@@ -2711,10 +2715,6 @@ DOOR 2
 ~
 ~
 0 0 17950
-DOOR 0
-~
-~
-0 0 17970
 DOOR 3
 ~
 ~
@@ -2796,10 +2796,6 @@ again and mutter irritably to yourself.  Which way to go?
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17953
 DOOR 3
 ~
 ~
@@ -2812,6 +2808,10 @@ DOOR 1
 ~
 ~
 0 0 17964
+DOOR 2
+~
+~
+0 0 17953
 End
 
 #17964
@@ -2886,6 +2886,10 @@ reached down and put this generous reprieve in such an unfriendly place.
 ~
 FLAGS  0
 Sect   2
+DOOR 0
+~
+~
+0 0 17976
 DOOR 2
 ~
 ~
@@ -2898,10 +2902,6 @@ DOOR 3
 ~
 ~
 0 0 17965
-DOOR 0
-~
-~
-0 0 17976
 End
 
 #17967
@@ -2978,6 +2978,10 @@ should even bother to continue on.
 ~
 FLAGS  0
 Sect   2
+DOOR 0
+~
+~
+0 0 17979
 DOOR 2
 ~
 ~
@@ -2990,10 +2994,6 @@ DOOR 3
 ~
 ~
 0 0 17968
-DOOR 0
-~
-~
-0 0 17979
 End
 
 #17970
@@ -3056,18 +3056,18 @@ DOOR 0
 ~
 ~
 0 0 17982
-DOOR 1
-~
-~
-0 0 17973
-DOOR 2
-~
-~
-0 0 17962
 DOOR 3
 ~
 ~
 0 0 17971
+DOOR 2
+~
+~
+0 0 17962
+DOOR 1
+~
+~
+0 0 17973
 End
 
 #17973
@@ -3146,14 +3146,6 @@ onward.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17985
-DOOR 2
-~
-~
-0 0 17965
 DOOR 1
 ~
 ~
@@ -3162,6 +3154,14 @@ DOOR 3
 ~
 ~
 0 0 17974
+DOOR 0
+~
+~
+0 0 17985
+DOOR 2
+~
+~
+0 0 17965
 End
 
 #17976
@@ -3238,14 +3238,14 @@ virtually impossible.
 ~
 FLAGS  0
 Sect   2
-DOOR 1
-~
-~
-0 0 17979
 DOOR 2
 ~
 ~
 0 0 17968
+DOOR 1
+~
+~
+0 0 17979
 DOOR 0
 ~
 ~
@@ -3329,22 +3329,22 @@ again and mutter irritably to yourself.  Which way to go?
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17971
-DOOR 1
-~
-~
-0 0 17982
-DOOR 3
-~
-~
-0 0 17980
 DOOR 0
 ~
 ~
 0 0 17991
+DOOR 1
+~
+~
+0 0 17982
+DOOR 2
+~
+~
+0 0 17971
+DOOR 3
+~
+~
+0 0 17980
 End
 
 #17982
@@ -3419,22 +3419,22 @@ reached down and put this generous reprieve in such an unfriendly place.
 ~
 FLAGS  0
 Sect   2
-DOOR 1
-~
-~
-0 0 17985
 DOOR 2
 ~
 ~
 0 0 17974
-DOOR 3
-~
-~
-0 0 17983
 DOOR 0
 ~
 ~
 0 0 17994
+DOOR 3
+~
+~
+0 0 17983
+DOOR 1
+~
+~
+0 0 17985
 End
 
 #17985
@@ -3511,14 +3511,6 @@ should even bother to continue on.
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17977
-DOOR 1
-~
-~
-0 0 17988
 DOOR 0
 ~
 ~
@@ -3527,6 +3519,14 @@ DOOR 3
 ~
 ~
 0 0 17986
+DOOR 2
+~
+~
+0 0 17977
+DOOR 1
+~
+~
+0 0 17988
 End
 
 #17988
@@ -3689,22 +3689,22 @@ onward.
 ~
 FLAGS  0
 Sect   2
-DOOR 0
-~
-~
-0 0 17903
-DOOR 2
-~
-~
-0 0 17983
 DOOR 3
 ~
 ~
 0 0 17992
+DOOR 0
+~
+~
+0 0 17903
 DOOR 1
 ~
 ~
 0 0 17994
+DOOR 2
+~
+~
+0 0 17983
 End
 
 #17994
@@ -3781,18 +3781,18 @@ virtually impossible.
 ~
 FLAGS  0
 Sect   2
-DOOR 2
-~
-~
-0 0 17986
-DOOR 1
-~
-~
-0 0 17997
 DOOR 3
 ~
 ~
 0 0 17995
+DOOR 1
+~
+~
+0 0 17997
+DOOR 2
+~
+~
+0 0 17986
 DOOR 0
 ~
 ~

@@ -1,86 +1,140 @@
 #AREADATA
-Name        Varggin Shih~
-Builders    None~
-VNUMs       22000 22099
-Security    9
-Recall      22000
+Name Varggin Shih~
+Builders None~
+VNUMs 22000 22099
+Credits {40 51} Barsak  Varggin Shih~
+Security 9
+Xplore 0
 End
+
+
 
 #MOBDATA
 #22000
-NAME   disgusting troll warrior~
-SHORT  a disgusting troll warrior~
-LONG   A large troll sniffs the air, preparing to attack his enemies! 
+NAME  disgusting troll warrior~
+SHORT a disgusting troll warrior~
+LONG  A large troll sniffs the air, preparing to attack his enemies! 
 ~
 DESCR
 Well-muscled and smelly like any other troll. An inhabitant of the 
 dark town of Varggin Shih, he trains as a warrior in their small community. 
 ~
-RACE   troll~
-ACT    ABGT
-AFF    0
-ALIGN  -1000
-LEVEL  50
-HROLL  0
-DDICE  10d5+22
-MDICE  1d1+1
-HDICE  50d10+5850
-GOLD   2000
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABGT
+AFF   0
+OFF   CDEFIKO
+IMM   0
+RES   DELQ
+VULN  HKP
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 50
+HROLL 0
+ENHA  100.00%
+MATER none~
+HDICE 50d10+5850
+MDICE 1d1+1
+DDICE 10d5+22
+REGEN 0
+DTYPE pound
+AC    -23 -23 -23 -23
+POS   stand stand
+SEX   male
+GOLD  2000
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #22001
-NAME   strong troll archer~
-SHORT  a strong troll archer~
-LONG   A large troll looks up at you and readies his bow! 
+NAME  strong troll archer~
+SHORT a strong troll archer~
+LONG  A large troll looks up at you and readies his bow! 
 ~
 DESCR
 He is one of the great archers of Varggin Shih. His muscles glisten as he  
 readies his bow for a battle, glaring at you with hatred. 
 ~
-RACE   troll~
-ACT    ABFGT
-AFF    0
-ALIGN  -1000
-LEVEL  55
-HROLL  0
-DDICE  10d5+28
-MDICE  1d1+1
-HDICE  50d10+6000
-GOLD   2000
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABFGT
+AFF   0
+OFF   CDEFIK
+IMM   0
+RES   DELQ
+VULN  HKNP
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 55
+HROLL 0
+ENHA  100.00%
+MATER none~
+HDICE 50d10+6000
+MDICE 1d1+1
+DDICE 10d5+28
+REGEN 0
+DTYPE crush
+AC    -26 -26 -26 -26
+POS   stand stand
+SEX   male
+GOLD  2000
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #22002
-NAME   strong troll guard~
-SHORT  a elite troll guard~
-LONG   A large troll sneers at you, guarding the king's lair with his life. 
+NAME  strong troll guard~
+SHORT a elite troll guard~
+LONG  A large troll sneers at you, guarding the king's lair with his life. 
 ~
 DESCR
 He is one of the few trolls who have trained their whole life to be 
 guardian of the king and protector of his life. His muscles are large 
 and his skin is tough. Perhaps you should rethink your plans... 
 ~
-RACE   troll~
-ACT    ABFGT
-AFF    0
-ALIGN  -1000
-LEVEL  53
-HROLL  2
-DDICE  10d6+27
-MDICE  1d1+1
-HDICE  50d10+8000
-GOLD   3000
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABFGT
+AFF   0
+OFF   ACDIKOX
+IMM   0
+RES   DELQ
+VULN  HKNP
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 53
+HROLL 2
+ENHA  100.00%
+MATER none~
+HDICE 50d10+8000
+MDICE 1d1+1
+DDICE 10d6+27
+REGEN 0
+DTYPE pierce
+AC    -28 -28 -28 -28
+POS   stand stand
+SEX   male
+GOLD  3000
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #22003
-NAME   troll king~
-SHORT  the king of Varggin Shih~
-LONG   A huge troll growls and spits at you for interupting him! 
+NAME  troll king~
+SHORT the king of Varggin Shih~
+LONG  A huge troll growls and spits at you for interupting him! 
 ~
 DESCR
 He is the king of this very dark and evil town. Having fought through the 
@@ -89,46 +143,80 @@ troll fighters to join him in a village of luxury. No worries, no problems
 and no intruders. Now that the mountain pass that leads here has been found, 
 though, his trolls have taken offense to the infidels. 
 ~
-RACE   troll~
-ACT    ABGT
-AFF    0
-ALIGN  -1000
-LEVEL  55
-HROLL  4
-DDICE  10d10+20
-MDICE  1d1+1
-HDICE  1d1+13499
-GOLD   5000
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABGT
+AFF   0
+OFF   ACDIKOVX
+IMM   AE
+RES   DELQ
+VULN  HKNP
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 55
+HROLL 4
+ENHA  100.00%
+MATER none~
+HDICE 1d1+13499
+MDICE 1d1+1
+DDICE 10d10+20
+REGEN 0
+DTYPE slash
+AC    -29 -29 -29 -29
+POS   stand stand
+SEX   male
+GOLD  5000
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  huge
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #22004
-NAME   troll citizen~
-SHORT  the troll citizen~
-LONG   A medium sized troll walks the streets of Varggin Shih here. 
+NAME  troll citizen~
+SHORT the troll citizen~
+LONG  A medium sized troll walks the streets of Varggin Shih here. 
 ~
 DESCR
 He is large, well-muscled and ugly. 
 ~
-RACE   troll~
-ACT    ABCT
-AFF    0
-ALIGN  -1000
-LEVEL  45
-HROLL  2
-DDICE  9d6+16
-MDICE  1d1+1
-HDICE  1d1+3899
-GOLD   300
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABCT
+AFF   0
+OFF   CDEFKO
+IMM   0
+RES   DELQ
+VULN  HKN
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 45
+HROLL 2
+ENHA  100.00%
+MATER none~
+HDICE 1d1+3899
+MDICE 1d1+1
+DDICE 9d6+16
+REGEN 0
+DTYPE crush
+AC    -15 -15 -15 -15
+POS   stand stand
+SEX   male
+GOLD  300
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #22005
-NAME   troll ranger~
-SHORT  a large troll ranger~
-LONG   A large troll ranger looks up at your entrance and attacks! 
+NAME  troll ranger~
+SHORT a large troll ranger~
+LONG  A large troll ranger looks up at your entrance and attacks! 
 ~
 DESCR
 He is one of the trolls who has dedicated his life to the woods and all  
@@ -136,24 +224,41 @@ that it has to offer. Crude, disgusting plants sit around his home with
 their vines climbing up and down the walls. He prepares to defend his home 
 against the intruders. 
 ~
-RACE   troll~
-ACT    ABFT
-AFF    0
-ALIGN  -1000
-LEVEL  57
-HROLL  3
-DDICE  10d4+25
-MDICE  1d1+1
-HDICE  1d1+7399
-GOLD   3000
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABFT
+AFF   0
+OFF   CDJKN
+IMM   0
+RES   DELQ
+VULN  HKNP
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 57
+HROLL 3
+ENHA  100.00%
+MATER none~
+HDICE 1d1+7399
+MDICE 1d1+1
+DDICE 10d4+25
+REGEN 0
+DTYPE pound
+AC    -27 -27 -27 -27
+POS   stand stand
+SEX   male
+GOLD  3000
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #22006
-NAME   troll shaman Haggin~
-SHORT  the shaman of Varggin Shih~
-LONG   A large shaman stands here chanting spells at any who oppose him. 
+NAME  troll shaman Haggin~
+SHORT the shaman of Varggin Shih~
+LONG  A large shaman stands here chanting spells at any who oppose him. 
 ~
 DESCR
 He is one of the darkest looking trolls you have ever seen. Fur that is 
@@ -162,304 +267,411 @@ your spine. Haggin the shaman has known the king of this town for most
 of his adult life, having joined him in a crusade against a village or 
 two they live in luxury. 
 ~
-RACE   troll~
-ACT    ABFOT
-AFF    0
-ALIGN  -1000
-LEVEL  54
-HROLL  3
-DDICE  10d7+30
-MDICE  1d1+1
-HDICE  1d1+8999
-GOLD   2000
-POS    stand stand
-SEX    male
+RACE  troll~
+ACT   ABFOT
+AFF   0
+OFF   ADFKNVX
+IMM   AB
+RES   CDLQ
+VULN  HKN
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 54
+HROLL 3
+ENHA  100.00%
+MATER none~
+HDICE 1d1+8999
+MDICE 1d1+1
+DDICE 10d7+30
+REGEN 0
+DTYPE wrath
+AC    -28 -28 -28 -28
+POS   stand stand
+SEX   male
+GOLD  2000
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
 End
 
 #0
+
+
 
 #OBJDATA
 #22000
 NAME   blood-covered blood axe~
 SHORT  a blood-covered axe~
-DESCR  A blood-covered axe is here.~
+DESCR 
+A blood-covered axe is here.~
 MAT    iron~
-TYPE   weapon 0 0 0 0 0
-EXTRA  1 3
+TYPE   weapon axe 4 11 slice 0
+EXTRA  1 3 0 2576
 WEAR   AN
 LEVEL  40
 WEIGHT 23
 COST   600
-COND   P
+COND   100
+Affect O 19 3 0
+LIMIT  9
 End
 
 #22001
 NAME   deadly bow~
 SHORT  a deadly bow~
-DESCR  A deadly bow rests here in a pool of blood.~
+DESCR 
+A deadly bow rests here in a pool of blood.~
 MAT    wood~
-TYPE   weapon 0 0 0 0 0
-EXTRA  1 1
+TYPE   weapon exotic 5 4 thwack 0
+EXTRA  1 1 0 512
 WEAR   AN
 LEVEL  45
 WEIGHT 12
 COST   9000
-COND   P
+COND   100
+Affect O 17 -5 0
+Affect O 19 2 0
+LIMIT  7
 End
 
 #22002
 NAME   signet ring~
 SHORT  a Varggin Shih signet ring~
-DESCR  A silver ring is here, the signet of Varggin Shih adorns it.~
+DESCR 
+A silver ring is here, the signet of Varggin Shih adorns it.~
 MAT    silver~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 5
+TYPE   armor BCF CDE BCF DE 0
+EXTRA  1 5 0 528913
 WEAR   AB
 LEVEL  50
 WEIGHT 4
 COST   9000
-COND   P
+COND   100
+Affect O 12 35 0
+Affect O 13 35 0
+Affect O 19 3 0
+Affect O 5 2 0
+LIMIT  4
 End
 
 #22003
 NAME   crude iron belt~
 SHORT  a crude iron belt~
-DESCR  A crude-looking iron belt is here.~
+DESCR 
+A crude-looking iron belt is here.~
 MAT    iron~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 3
+TYPE   armor BDF F BCDF ABCE 0
+EXTRA  1 3 0 19
 WEAR   AL
 LEVEL  50
 WEIGHT 13
 COST   9000
-COND   P
+COND   100
+Affect O 13 25 0
+Affect O 23 -3 0
+Affect O 19 3 0
+LIMIT  5
 End
 
 #22004
 NAME   helm furs black~
 SHORT  the helm of blackened furs~
-DESCR  A dirty helm of blackened furs is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A dirty helm of blackened furs is here.~
+MAT    flesh~
+TYPE   armor BCDE BCDF ADE CE 0
+EXTRA  1 1 0 2
 WEAR   AE
 LEVEL  50
 WEIGHT 16
 COST   9000
-COND   P
+COND   100
+Affect O 2 -3 0
+Affect O 13 40 0
+Affect O 19 3 0
+LIMIT  2
 End
 
 #22005
 NAME   centaur hoof~
 SHORT  a centaur hoof~
-DESCR  A large hoof of a centaur is here.~
-MAT    none~
+DESCR 
+A large hoof of a centaur is here.~
+MAT    bone~
 TYPE   armor 0 0 0 0 0
-EXTRA  1 2
+EXTRA  1 2 0 3
 WEAR   AO
 LEVEL  50
 WEIGHT 8
 COST   9000
-COND   P
+COND   100
+Affect O 14 100 0
+Affect O 5 3 0
+Affect O 19 4 0
+LIMIT  4
 End
 
 #22006
 NAME   blood-covered bloody battlearmor armor battle~
 SHORT  some blood-covered battlearmor~
-DESCR  Some blood-covered battle armor is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+Some blood-covered battle armor is here.~
+MAT    gem~
+TYPE   armor DEF CEG BCG ABCDEF 0
+EXTRA  1 1 0 2
 WEAR   AD
 LEVEL  50
-WEIGHT 21
+WEIGHT 20
 COST   9000
-COND   P
+COND   100
+Affect O 19 3 0
+Affect O 1 3 0
+Affect O 18 5 0
+Affect O 13 20 0
+LIMIT  4
 End
 
 #22007
 NAME   potion smelly strange~
 SHORT  a strange smelly potion~
-DESCR  A strange smelly potion is here.~
-MAT    none~
-TYPE   potion 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A strange smelly potion is here.~
+MAT    glass~
+TYPE   potion 55 'fireball' 'fireball' 'fireball' 'word of recall'
+EXTRA  1 1 0 64
 WEAR   A
 LEVEL  55
 WEIGHT 7
 COST   9000
-COND   P
+COND   100
+LIMIT  1
 End
 
 #22008
 NAME   wicked iron longsword~
 SHORT  the wicked iron longsword~
-DESCR  A wicked iron longsword is here.~
-MAT    none~
-TYPE   weapon 0 0 0 0 0
-EXTRA  1 2
+DESCR 
+A wicked iron longsword is here.~
+MAT    iron~
+TYPE   weapon sword 5 11 slice F
+EXTRA  1 2 0 3
 WEAR   AN
 LEVEL  50
 WEIGHT 24
 COST   9000
-COND   P
+COND   100
+Affect O 19 10 0
+Affect O 13 50 0
+LIMIT  1
 End
 
 #22009
 NAME   staff zargg troll~
 SHORT  the staff of Zargg Nihl~
-DESCR  A large staff is here.~
-MAT    none~
-TYPE   weapon 0 0 0 0 0
-EXTRA  1 2
+DESCR 
+A large staff is here.~
+MAT    iron~
+TYPE   weapon staff 8 6 digestion F
+EXTRA  1 2 0 3
 WEAR   AN
 LEVEL  45
-WEIGHT 32
+WEIGHT 37
 COST   9000
-COND   P
+COND   100
+Affect O 2 2 0
+Affect O 19 8 0
+Affect O 18 8 0
+LIMIT  9
 End
 
 #22010
 NAME   potion strange black~
 SHORT  a strange black potion~
-DESCR  A strange black potion is here.~
-MAT    none~
-TYPE   potion 0 0 0 0 0
-EXTRA  1 2
+DESCR 
+A strange black potion is here.~
+MAT    glass~
+TYPE   potion 50 'heal' 'heal' '' ''
+EXTRA  1 2 0 65
 WEAR   A
 LEVEL  50
 WEIGHT 7
 COST   900
-COND   P
+COND   100
+LIMIT  1
 End
 
 #22011
 NAME   bone bones plate breastplate~
 SHORT  a bone breastplate~
-DESCR  A pile of bones is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A pile of bones is here.~
+MAT    bone~
+TYPE   armor DEF DEG BCG BDF 0
+EXTRA  1 1 0 1
 WEAR   AD
 LEVEL  50
-WEIGHT 27
+WEIGHT 26
 COST   900
-COND   P
+COND   100
+Affect O 19 3 0
+Affect O 2 -1 0
+LIMIT  10
 End
 
 #22012
 NAME   bone bones leggings~
 SHORT  a pair of bone leggings~
-DESCR  A pile of bones is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A pile of bones is here.~
+MAT    bone~
+TYPE   armor ABF DEF CDF BDE 0
+EXTRA  1 1 0 1
 WEAR   AF
 LEVEL  50
 WEIGHT 22
 COST   900
-COND   P
+COND   100
+Affect O 19 3 0
+Affect O 2 -1 0
+LIMIT  10
 End
 
 #22013
 NAME   bone bones boots~
 SHORT  a pair of bone boots~
-DESCR  A pile of bones is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A pile of bones is here.~
+MAT    bone~
+TYPE   armor ABF DEF CDF BDE 0
+EXTRA  1 1 0 1
 WEAR   AG
 LEVEL  50
 WEIGHT 18
 COST   900
-COND   P
+COND   100
+Affect O 19 3 0
+Affect O 2 -2 0
+LIMIT  10
 End
 
 #22014
 NAME   bone bones shield~
 SHORT  a bone shield~
-DESCR  A pile of bones is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A pile of bones is here.~
+MAT    bone~
+TYPE   armor FG BCEH DEFG DG 0
+EXTRA  1 1 0 2
 WEAR   AJ
 LEVEL  50
 WEIGHT 32
 COST   900
-COND   P
+COND   100
+Affect O 19 3 0
+Affect O 2 -2 0
+LIMIT  10
 End
 
 #22015
 NAME   robe pain black~
 SHORT  the robe of Pain~
-DESCR  A black robe is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 2
+DESCR 
+A black robe is here.~
+MAT    cloth~
+TYPE   armor AF ABDF AF ACDEF 0
+EXTRA  1 2 0 3
 WEAR   AK
 LEVEL  50
 WEIGHT 7
 COST   900
-COND   P
+COND   100
+Affect O 13 -200 0
+Affect O 12 200 0
+LIMIT  2
 End
 
 #22016
 NAME   bracelet suffering~
 SHORT  the bracelet of suffering~
-DESCR  A large iron bracelet is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 5
+DESCR 
+A large iron bracelet is here.~
+MAT    iron~
+TYPE   armor CDF BF EF DE 0
+EXTRA  1 5 0 2579
 WEAR   AM
 LEVEL  51
 WEIGHT 16
 COST   900
-COND   P
+COND   100
+Affect O 19 4 0
+Affect O 13 10 0
+LIMIT  2
 End
 
 #22017
 NAME   skull cracked~
 SHORT  the cracked skull of the shaman of Varggin Shih~
-DESCR  A cracked skull of the shaman of Varggin Shih is here.~
-MAT    none~
+DESCR 
+A cracked skull of the shaman of Varggin Shih is here.~
+MAT    bone~
 TYPE   armor 0 0 0 0 0
-EXTRA  1 3
+EXTRA  1 3 0 4609
 WEAR   AO
 LEVEL  50
 WEIGHT 8
 COST   900
-COND   P
+COND   100
+Affect O 4 6 0
+Affect O 24 -10 0
+Affect O 19 3 0
+Affect O 12 25 0
+LIMIT  2
 End
 
 #22018
 NAME   strange bone~
 SHORT  the strange bone~
-DESCR  A strange looking bone is humming here.~
-MAT    none~
+DESCR 
+A strange looking bone is humming here.~
+MAT    bone~
 TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+EXTRA  1 1 0 2
 WEAR   AO
 LEVEL  60
 WEIGHT 8
 COST   9000
-COND   P
+COND   100
+Affect O 1 -25 0
+LIMIT  30
 End
 
 #22019
 NAME   fur leggings~
 SHORT  some tough fur leggings~
-DESCR  A pile of tough-looking fur is here.~
-MAT    none~
-TYPE   armor 0 0 0 0 0
-EXTRA  1 1
+DESCR 
+A pile of tough-looking fur is here.~
+MAT    flesh~
+TYPE   armor AE ADE BCD ABD 0
+EXTRA  1 1 0 2
 WEAR   AF
 LEVEL  40
 WEIGHT 17
 COST   900
-COND   P
+COND   100
+Affect O 1 2 0
+Affect O 6 1 0
+Affect O 13 35 0
+Affect O 19 3 0
+LIMIT  18
 End
 
 #0
+
+
 
 #ROOMDATA
 #22000
@@ -1490,14 +1702,10 @@ The street, like anything you see around you, smells. A dim glow illuminates
 the area from an unknown source. Various grunts and howls can be heard coming 
 from the many homes that you see lining the street. You notice that there 
 was some fur tossed to the side of the road, most likely the source of the 
-horrid smell.  The street here has odd cobblestones popping out of the dirt.
+horrid smell.
 ~
 FLAGS  1
-Sect   11
-DOOR 0
-You see the remnants of an old road that must have been abandoned once the trolls took over this place.  You just might be able to crawl through the brush.~
-remnants road~
-2048 0 31043
+Sect   0
 DOOR 1
 ~
 ~
@@ -2146,7 +2354,7 @@ Sect   0
 DOOR 3
 ~
 ~
-0 0 22051
+0 0 22053
 End
 
 #22079
@@ -2411,8 +2619,14 @@ End
 
 #0
 
+
+
 #SPECIALS
+M 22003 spec_breath_gas
+M 22006 spec_cast_undead
 S
+
+
 
 #RESETS
 M 0 22004 8 22025 1
@@ -2427,45 +2641,54 @@ M 0 22000 5 22057 1
 M 0 22000 5 22058 1
 M 0 22000 5 22060 1
 M 0 22000 5 22062 1
-E 0 22000 0 16 0
+E 0 22000 0 16
 M 0 22000 5 22063 1
 M 0 22001 6 22064 1
 M 0 22001 6 22065 1
-E 0 22001 0 16 0
+E 0 22001 0 16
 M 0 22001 6 22067 1
 M 0 22005 8 22068 1
 M 0 22005 8 22069 1
 M 0 22005 8 22070 1
 M 0 22005 8 22071 1
-E 0 22011 0 5 0
-E 0 22012 0 7 0
-E 0 22013 0 8 0
-E 0 22014 0 11 0
-E 0 22009 0 16 0
+E 0 22011 0 5
+E 0 22012 0 7
+E 0 22013 0 8
+E 0 22014 0 11
+E 0 22009 0 16
 M 0 22005 8 22072 1
 M 0 22005 8 22073 1
 M 0 22005 8 22074 1
 M 0 22001 6 22076 1
 M 0 22001 6 22078 1
 M 0 22006 1 22082 1
-E 0 22015 0 12 0
-E 0 22016 0 14 0
-E 0 22017 0 6 0
-G 0 0 0 0 0
-E 0 22019 0 7 0
+E 0 22015 0 12
+E 0 22016 0 14
+E 0 22017 0 6
+G 0 22018 0
+E 0 22019 0 7
 M 0 22002 1 22083 1
 M 0 22003 1 22084 1
-E 0 22002 0 2 0
-E 0 22003 0 13 0
-E 0 22004 0 6 0
-G 0 0 0 0 0
-E 0 22006 0 5 0
-E 0 22008 0 16 0
+E 0 22002 0 2
+E 0 22003 0 13
+E 0 22004 0 6
+G 0 22005 0
+E 0 22006 0 5
+E 0 22008 0 16
 M 0 22001 6 22087 1
 M 0 22005 8 22091 1
 S
 
+
+
 #SHOPS
 0
+
+
+
+#IMPROGS
+E
+
+
 
 #$

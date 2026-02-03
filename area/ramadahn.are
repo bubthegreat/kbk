@@ -1590,13 +1590,13 @@ NAME   potion teal~
 SHORT  a teal potion~
 DESCR 
 A teal potion is frothing here.~
-MAT    glass~
+MAT    liquid~
 TYPE   potion 65 'cure poison' 'cure disease' 'cure blindness' 'heal'
 EXTRA  1 1 0 1
 WEAR   A
-LEVEL  10
-WEIGHT 7
-COST   2500
+LEVEL  0
+WEIGHT 2
+COST   0
 COND   100
 End
 
@@ -1611,7 +1611,7 @@ EXTRA  1 1 0 2
 WEAR   A
 LEVEL  0
 WEIGHT 2
-COST   10000
+COST   0
 COND   100
 End
 
@@ -1658,7 +1658,7 @@ SHORT  the bracer of Diplomacy~
 DESCR 
 A fine bracer lies here.~
 MAT    cloth~
-TYPE   armor BDE BF BDE EF 0
+TYPE   armor ADE BF ADE EF 0
 EXTRA  1 3 0 524291
 WEAR   AM
 LEVEL  51
@@ -1681,7 +1681,7 @@ TYPE   weapon staff 10 5 smash C
 EXTRA  0 0
 WEAR   AN
 LEVEL  51
-WEIGHT 13
+WEIGHT 15
 COST   0
 COND   100
 Affect A 0 0 E
@@ -1693,7 +1693,7 @@ SHORT  a shriveled head strung from a chain~
 DESCR 
 A shriveled head is herestrung from a small chain.~
 MAT    flesh~
-TYPE   armor DE CF CE E 0
+TYPE   armor DE ABF CE E 0
 EXTRA  1 8 0 1579666
 WEAR   AC
 LEVEL  51
@@ -1828,7 +1828,7 @@ SHORT  a medallion of the Royal Guard~
 DESCR 
 A shiny medallion is lying here.~
 MAT    silver~
-TYPE   armor EF CF EF BCDE 0
+TYPE   armor EF ABF EF BCDE 0
 EXTRA  1 5 0 1053699
 WEAR   AC
 LEVEL  51
@@ -1848,11 +1848,11 @@ SHORT  a royal gown~
 DESCR 
 A silver gown is piled here.~
 MAT    cloth~
-TYPE   armor BDE ABF BDE AEF 0
+TYPE   armor 0 0 0 0 0
 EXTRA  1 2 0 524289
 WEAR   AK
 LEVEL  45
-WEIGHT 7
+WEIGHT 5
 COST   0
 COND   100
 Affect O 5 4 0
@@ -6136,7 +6136,6 @@ S
 
 
 #SHOPS
-28511 10 26 0 0 0 100 100 0 23
 0
 
 

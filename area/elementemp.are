@@ -536,10 +536,10 @@ LEVEL  51
 WEIGHT 7
 COST   0
 COND   100
-Affect O 18 1 0
-Affect O 19 1 0
-Affect O 13 25 0
 Affect O 12 25 0
+Affect O 13 25 0
+Affect O 19 1 0
+Affect O 18 1 0
 LIMIT  20
 End
 
@@ -556,8 +556,8 @@ LEVEL  0
 WEIGHT 43
 COST   0
 COND   100
-Affect O 19 8 0
 Affect O 18 5 0
+Affect O 19 8 0
 LIMIT  25
 End
 
@@ -574,11 +574,11 @@ LEVEL  0
 WEIGHT 7
 COST   0
 COND   100
-Affect O 17 -20 0
-Affect O 19 -8 0
-Affect O 18 -5 0
-Affect O 13 50 0
 Affect O 12 100 0
+Affect O 13 50 0
+Affect O 18 -5 0
+Affect O 19 -8 0
+Affect O 17 -20 0
 LIMIT  20
 End
 
@@ -595,8 +595,8 @@ LEVEL  0
 WEIGHT 3
 COST   0
 COND   100
-Affect O 13 10 0
 Affect O 12 50 0
+Affect O 13 10 0
 LIMIT  10
 End
 
@@ -613,8 +613,8 @@ LEVEL  51
 WEIGHT 6
 COST   0
 COND   100
-Affect O 13 10 0
 Affect O 12 25 0
+Affect O 13 10 0
 LIMIT  10
 End
 
@@ -631,8 +631,8 @@ LEVEL  0
 WEIGHT 3
 COST   0
 COND   100
-Affect O 13 10 0
 Affect O 1 3 0
+Affect O 13 10 0
 LIMIT  10
 End
 
@@ -649,8 +649,8 @@ LEVEL  51
 WEIGHT 12
 COST   0
 COND   100
-Affect O 13 5 0
 Affect O 1 5 0
+Affect O 13 5 0
 LIMIT  10
 End
 
@@ -667,8 +667,8 @@ LEVEL  0
 WEIGHT 3
 COST   0
 COND   100
-Affect O 13 10 0
 Affect O 2 3 0
+Affect O 13 10 0
 LIMIT  10
 End
 
@@ -685,8 +685,8 @@ LEVEL  0
 WEIGHT 24
 COST   0
 COND   100
-Affect O 19 5 0
 Affect O 2 5 0
+Affect O 19 5 0
 LIMIT  10
 End
 
@@ -703,8 +703,8 @@ LEVEL  0
 WEIGHT 3
 COST   0
 COND   100
-Affect O 13 60 0
 Affect O 5 3 0
+Affect O 13 60 0
 LIMIT  10
 End
 
@@ -721,8 +721,8 @@ LEVEL  51
 WEIGHT 23
 COST   0
 COND   100
-Affect O 19 4 0
 Affect O 13 30 0
+Affect O 19 4 0
 LIMIT  10
 End
 
@@ -739,8 +739,8 @@ LEVEL  50
 WEIGHT 3
 COST   3490
 COND   100
-Affect O 19 3 0
 Affect O 13 10 0
+Affect O 19 3 0
 LIMIT  10
 End
 
@@ -757,8 +757,8 @@ LEVEL  51
 WEIGHT 12
 COST   0
 COND   100
-Affect O 13 5 0
 Affect O 19 5 0
+Affect O 13 5 0
 LIMIT  10
 End
 
@@ -775,8 +775,8 @@ LEVEL  0
 WEIGHT 3
 COST   0
 COND   100
-Affect O 13 10 0
 Affect O 18 5 0
+Affect O 13 10 0
 LIMIT  10
 End
 
@@ -793,8 +793,8 @@ LEVEL  51
 WEIGHT 4
 COST   0
 COND   100
-Affect O 13 5 0
 Affect O 18 5 0
+Affect O 13 5 0
 LIMIT  10
 End
 
@@ -811,10 +811,10 @@ LEVEL  0
 WEIGHT 4
 COST   0
 COND   100
-Affect O 17 -20 0
-Affect O 19 6 0
-Affect O 12 40 0
 Affect O 13 40 0
+Affect O 12 40 0
+Affect O 19 6 0
+Affect O 17 -20 0
 LIMIT  2
 End
 
@@ -824,16 +824,16 @@ SHORT  the mantle of Pope Medius~
 DESCR 
 A large mantle with the inscriptions 'Pope Medius' is resting here.~
 MAT    cloth~
-TYPE   armor BDE BF BDE EF 0
+TYPE   armor ADE BF ADE EF 0
 EXTRA  1 2 0 3
 WEAR   AC
 LEVEL  51
 WEIGHT 3
 COST   15000
 COND   100
-Affect O 1 -5 0
-Affect O 12 50 0
 Affect O 13 50 0
+Affect O 12 50 0
+Affect O 1 -5 0
 LIMIT  6
 End
 
@@ -847,13 +847,13 @@ TYPE   weapon staff 10 6 smash AD
 EXTRA  1 2 0 3
 WEAR   AN
 LEVEL  52
-WEIGHT 13
+WEIGHT 15
 COST   0
 COND   100
-Affect O 18 1 0
-Affect O 19 2 0
-Affect O 12 50 0
 Affect O 13 50 0
+Affect O 12 50 0
+Affect O 19 2 0
+Affect O 18 1 0
 LIMIT  4
 End
 
@@ -870,10 +870,10 @@ LEVEL  48
 WEIGHT 13
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 13 20 0
 Affect O 2 -2 0
+Affect O 13 20 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  25
 End
 
@@ -890,9 +890,9 @@ LEVEL  51
 WEIGHT 18
 COST   0
 COND   100
-Affect O 13 -10 0
-Affect O 19 6 0
 Affect O 18 3 0
+Affect O 19 6 0
+Affect O 13 -10 0
 LIMIT  30
 End
 
@@ -909,8 +909,8 @@ LEVEL  51
 WEIGHT 23
 COST   0
 COND   100
-Affect O 13 50 0
 Affect O 19 5 0
+Affect O 13 50 0
 End
 
 #13121

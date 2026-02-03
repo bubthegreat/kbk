@@ -563,14 +563,14 @@ LEVEL  0
 WEIGHT 8
 COST   300
 COND   100
-EDESC leather~
-The leather wrapped around the potion is old and decayed, originating
-from an, to you, unknown creature. 
-~
 EDESC potion clear~
 As you examine the potion more, you notice the oddities of this potion.
 When you look through it you notice strange things... The clear potion is
 certainly not of this world. 
+~
+EDESC leather~
+The leather wrapped around the potion is old and decayed, originating
+from an, to you, unknown creature. 
 ~
 End
 
@@ -587,14 +587,14 @@ LEVEL  2
 WEIGHT 8
 COST   640
 COND   100
+EDESC scroll jhyfrdow~
+The scroll is titled 'jhyfrdow' and looks very old. As you examine it
+closer you notice primitive drawings of men doing some kind of a ritual. 
+~
 EDESC ritual men drawings~
 The drawing pictures people gathered round giant stone formations,
 worshipping a giant worm like creature. It seems they are sacrificing some
 of their own species. 
-~
-EDESC scroll jhyfrdow~
-The scroll is titled 'jhyfrdow' and looks very old. As you examine it
-closer you notice primitive drawings of men doing some kind of a ritual. 
 ~
 End
 
@@ -1231,12 +1231,12 @@ here.
 ~
 FLAGS  0
 Sect   4
-EDESC  pine tree trees pines~
-The all too quiet trees suggest that something roams these woods. 
-~
 EDESC  mountains~
 The mountains seems dark and all most alive, as they contrast against the
 sky. 
+~
+EDESC  pine tree trees pines~
+The all too quiet trees suggest that something roams these woods. 
 ~
 DOOR 0
 The path continues up the mountain. 
@@ -1549,20 +1549,20 @@ sign of such. West of here is the ancient path.
 ~
 FLAGS  0
 Sect   2
-EDESC  death rituals worms engraving picture~
-The pictures are depicting evil rituals. You see druids pouring blood
-over herbs on an altar like this one. There are people calling giant worms
-into existence with dark spells. 
+EDESC  stones g'harne monolith~
+The stones of G'harne tower fifteen feet over you. The giant stones are
+made of a material you haven't seen before. It resembles black marble, but
+somehow feels different. 
 ~
 EDESC  altar sacrifice~
 You move closer to examine the sacrifice altar of G'harne. The altar is
 about 3 feet high, 10 feet long and 4 feet wide. It has engraved pictures of
 death rituals and horrifying worms. 
 ~
-EDESC  stones g'harne monolith~
-The stones of G'harne tower fifteen feet over you. The giant stones are
-made of a material you haven't seen before. It resembles black marble, but
-somehow feels different. 
+EDESC  death rituals worms engraving picture~
+The pictures are depicting evil rituals. You see druids pouring blood
+over herbs on an altar like this one. There are people calling giant worms
+into existence with dark spells. 
 ~
 DOOR 3
 You see the ancient path and the wooden bridge here. 

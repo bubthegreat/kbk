@@ -1204,13 +1204,13 @@ LEVEL  40
 WEIGHT 34
 COST   0
 COND   100
-Affect O 19 5 0
-Affect O 18 5 0
-Affect O 17 -15 0
-Affect O 13 -20 0
-Affect O 5 -2 0
-Affect O 12 50 0
 Affect O 1 -1 0
+Affect O 12 50 0
+Affect O 5 -2 0
+Affect O 13 -20 0
+Affect O 17 -15 0
+Affect O 18 5 0
+Affect O 19 5 0
 EDESC plate solamnic blackened darkened armor~
 It is embossed with what used to be the White Rose of Solamnia ... Now it
 is blackened all over, and the Rose is now Black. 
@@ -1249,9 +1249,9 @@ LEVEL  30
 WEIGHT 16
 COST   0
 COND   100
-Affect O 19 4 0
-Affect O 5 -1 0
 Affect O 13 15 0
+Affect O 5 -1 0
+Affect O 19 4 0
 EDESC jagged broadsword iron rusty~
 Although rusty, it is jagged and sharp, able to do heavy damage with one
 swing of its thick, heavy blade. 
@@ -1271,9 +1271,9 @@ LEVEL  40
 WEIGHT 20
 COST   0
 COND   100
-Affect O 19 4 0
-Affect O 4 2 0
 Affect O 17 -15 0
+Affect O 4 2 0
+Affect O 19 4 0
 EDESC gauntlets blackened solamnic~
 They are blackened and evil, and glow with a slightly red unlight ... On
 each finger of the right glove are tiny red runes. 
@@ -1293,8 +1293,8 @@ LEVEL  30
 WEIGHT 7
 COST   0
 COND   100
-Affect O 13 15 0
 Affect O 12 70 0
+Affect O 13 15 0
 EDESC skirt tattered torn grey elven~
 It looks like an old, worn elven skirt that was once snowy-white and
 decorated with beautiful designs, but time and something more profound than
@@ -1315,11 +1315,11 @@ LEVEL  0
 WEIGHT 41
 COST   12000
 COND   100
-Affect O 17 -15 0
-Affect O 3 2 0
-Affect O 1 2 0
-Affect O 12 -60 0
 Affect O 19 3 0
+Affect O 12 -60 0
+Affect O 1 2 0
+Affect O 3 2 0
+Affect O 17 -15 0
 EDESC black steel shield kite dying phoenix~
 The phoenix depicted on the shield is being consumed by a black fire, and
 the impression is that this phoenix will never rise back to life again. The
@@ -1340,11 +1340,11 @@ LEVEL  33
 WEIGHT 17
 COST   0
 COND   100
-Affect O 13 -20 0
-Affect O 5 -1 0
-Affect O 18 7 0
-Affect O 19 7 0
 Affect O 1 -1 0
+Affect O 19 7 0
+Affect O 18 7 0
+Affect O 5 -1 0
+Affect O 13 -20 0
 EDESC longsword sword pitch black~
 The blade is black and shaped like a forked tongue, and it is constantly
 dripping thick, red blood. The sword seems to take in all light and life
@@ -1366,11 +1366,11 @@ LEVEL  30
 WEIGHT 7
 COST   0
 COND   100
-Affect O 12 -30 0
-Affect O 3 -2 0
-Affect O 4 -1 0
-Affect O 1 3 0
 Affect O 19 4 0
+Affect O 1 3 0
+Affect O 4 -1 0
+Affect O 3 -2 0
+Affect O 12 -30 0
 EDESC head wrappings decaying mummy~
 The rags are old and smell horrible, a combination of death and embalming
 fluids. 
@@ -1448,9 +1448,9 @@ LEVEL  30
 WEIGHT 7
 COST   0
 COND   100
-Affect O 1 -1 0
-Affect O 19 5 0
 Affect O 12 -10 0
+Affect O 19 5 0
+Affect O 1 -1 0
 EDESC scythe cold ethereal shimmering~
 The blade chills you as you touch the staff, and the aura around it feels
 like that of a wraith. 
@@ -1618,9 +1618,9 @@ LEVEL  38
 WEIGHT 6
 COST   0
 COND   100
-Affect O 18 5 0
-Affect O 12 35 0
 Affect O 4 3 0
+Affect O 12 35 0
+Affect O 18 5 0
 EDESC gown wedding intangible elven~
 The gown looks smeared with blood, but still glowing with a faint bluish-
 gold aura of light and goodness. It is of obvious elven design, and is
@@ -1641,10 +1641,10 @@ LEVEL  38
 WEIGHT 4
 COST   0
 COND   100
-Affect O 3 2 0
-Affect O 2 2 0
-Affect O 17 -20 0
 Affect O 12 50 0
+Affect O 17 -20 0
+Affect O 2 2 0
+Affect O 3 2 0
 EDESC veil wedding immaterial elven~
 The veil shimmers in and out of your sight, even if you wear it. It is as
 if it were not wholly of this realm, nor wholly of the spiritual realm. The
@@ -1684,11 +1684,11 @@ LEVEL  38
 WEIGHT 7
 COST   0
 COND   100
-Affect O 1 -2 0
-Affect O 19 5 0
-Affect O 18 5 0
-Affect O 17 -10 0
 Affect O 5 -1 0
+Affect O 17 -10 0
+Affect O 18 5 0
+Affect O 19 5 0
+Affect O 1 -2 0
 EDESC cape torn tattered cloak solamnic red black~
 The cape is ancient beyond belief, incredibly surviving unknown years and
 years of use and war. The cape is darkened with necromancy, and the
@@ -1773,11 +1773,11 @@ LEVEL  35
 WEIGHT 27
 COST   0
 COND   100
-Affect O 1 -1 0
-Affect O 17 -10 0
-Affect O 3 -10 0
-Affect O 12 15 0
 Affect O 19 3 0
+Affect O 12 15 0
+Affect O 3 -10 0
+Affect O 17 -10 0
+Affect O 1 -1 0
 EDESC helmet full blackened solamnic battle~
 The helmet is full around the face and head, protecting everything but
 the eyes. The air around the helmet is cold and strangely fearsome, like a
@@ -1799,10 +1799,10 @@ LEVEL  30
 WEIGHT 4
 COST   0
 COND   100
-Affect O 1 -1 0
-Affect O 19 2 0
-Affect O 12 10 0
 Affect O 13 -10 0
+Affect O 12 10 0
+Affect O 19 2 0
+Affect O 1 -1 0
 EDESC heart beating black~
 The beating is rhythmic ... Not so unnatural. Holding it, you get an evil
 feeling from the blood that drips down your hand constantly. And for as long
@@ -1842,10 +1842,10 @@ LEVEL  30
 WEIGHT 23
 COST   0
 COND   100
-Affect O 2 1 0
-Affect O 19 4 0
-Affect O 14 25 0
 Affect O 18 4 0
+Affect O 14 25 0
+Affect O 19 4 0
+Affect O 2 1 0
 EDESC hand axe iron green light~
 The surprising thing about this axe is its lightness for being made
 entirely of iron ... The other surprising thing is the odd green tint which
@@ -1863,12 +1863,12 @@ TYPE   weapon staff 4 12 wrath CF
 EXTRA  1 8 0 17565251
 WEAR   AN
 LEVEL  35
-WEIGHT 20
+WEIGHT 23
 COST   0
 COND   100
-Affect O 18 2 0
-Affect O 13 50 0
 Affect O 1 1 0
+Affect O 13 50 0
+Affect O 18 2 0
 EDESC staff wooden gnarled blue steelcapped~
 The staff is twisted and has a strange aura, neither holy nor unholy. At
 the tip of the steel cap is a worn symbol of the Healer. 
@@ -1888,11 +1888,11 @@ LEVEL  37
 WEIGHT 18
 COST   6000
 COND   100
-Affect O 18 -5 0
-Affect O 19 6 0
-Affect O 2 -2 0
-Affect O 14 -50 0
 Affect O 1 -1 0
+Affect O 14 -50 0
+Affect O 2 -2 0
+Affect O 19 6 0
+Affect O 18 -5 0
 EDESC mace obsidian emeralds inlaid~
 The club is almost too heavy to use. You'd have to be strong as a
 minotaur to even hold it with one hand. But it is absolutely beautiful, with
@@ -1913,9 +1913,9 @@ LEVEL  38
 WEIGHT 18
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 4 1 0
 Affect O 12 35 0
+Affect O 4 1 0
+Affect O 19 2 0
 EDESC platinum morninstar spiked diamonds~
 The head is beautiful, and the diamonds glitter in the light wonderfully.
 It is connected to the haft by a rather long chain, and the haft itself is
@@ -1957,10 +1957,10 @@ LEVEL  35
 WEIGHT 2
 COST   0
 COND   100
-Affect O 1 1 0
-Affect O 17 -8 0
-Affect O 12 45 0
 Affect O 13 30 0
+Affect O 12 45 0
+Affect O 17 -8 0
+Affect O 1 1 0
 EDESC wisp ether ghostly~
 It is somewhat immaterial, but you can still strangely touch and look at
 it. 
@@ -1998,8 +1998,8 @@ LEVEL  30
 WEIGHT 3
 COST   0
 COND   100
-Affect O 19 2 0
 Affect O 3 2 0
+Affect O 19 2 0
 EDESC solamnic code book old~
 The code is a simple yet elegant book of parchment, small and beautiful.
 On the cover is simply inscribed "Est Sularus Oth Mithas." 
@@ -2112,10 +2112,10 @@ LEVEL  35
 WEIGHT 33
 COST   0
 COND   100
-Affect O 2 -2 0
-Affect O 1 -2 0
-Affect O 18 -4 0
 Affect O 19 -5 0
+Affect O 18 -4 0
+Affect O 1 -2 0
+Affect O 2 -2 0
 EDESC torso iron armor~
 The armor radiates magic and malevolence, daring any to wear it. 
 ~
@@ -2134,10 +2134,10 @@ LEVEL  35
 WEIGHT 16
 COST   0
 COND   100
-Affect O 19 -5 0
-Affect O 1 -2 0
-Affect O 13 -50 0
 Affect O 18 -5 0
+Affect O 13 -50 0
+Affect O 1 -2 0
+Affect O 19 -5 0
 EDESC antique iron sword~
 The sword doesn't look real, like it was taken from a sketch of a sword
 and given substance. It almost seems to be daring you to hold it in your
@@ -2248,10 +2248,10 @@ LEVEL  35
 WEIGHT 7
 COST   0
 COND   100
-Affect O 12 50 0
-Affect O 4 2 0
-Affect O 3 2 0
 Affect O 2 -1 0
+Affect O 3 2 0
+Affect O 4 2 0
+Affect O 12 50 0
 EDESC tapestry magic~
 A great battle of sorcerers is shown on this old tapestry, and great
 magical power flows from the cloth. It shimmers with energy. 
@@ -2271,10 +2271,10 @@ LEVEL  35
 WEIGHT 7
 COST   6500
 COND   100
-Affect O 19 4 0
-Affect O 1 2 0
-Affect O 5 2 0
 Affect O 2 1 0
+Affect O 5 2 0
+Affect O 1 2 0
+Affect O 19 4 0
 EDESC tapestry war~
 The tapestry exhibits explicit acts of war and violence. Strong bloodlust
 exudes from the cloth. 
@@ -2313,10 +2313,10 @@ LEVEL  30
 WEIGHT 4
 COST   0
 COND   100
-Affect O 1 1 0
-Affect O 12 25 0
-Affect O 18 4 0
 Affect O 13 -20 0
+Affect O 18 4 0
+Affect O 12 25 0
+Affect O 1 1 0
 EDESC ring skull bone~
 The ring is made from smooth carved bone, and at the top, where a jewel
 would normally be, is a very tiny skull, something that would probably not
@@ -2337,9 +2337,9 @@ LEVEL  32
 WEIGHT 13
 COST   0
 COND   100
-Affect O 2 -1 0
-Affect O 18 -3 0
 Affect O 17 -15 0
+Affect O 18 -3 0
+Affect O 2 -1 0
 EDESC girdle steel black skull~
 The girth looks tight ... You might have a hard time of getting the thing
 off. And although horrible, it is strangely beautiful. Something about it
@@ -2361,10 +2361,10 @@ LEVEL  34
 WEIGHT 4
 COST   0
 COND   100
-Affect O 19 6 0
-Affect O 1 2 0
-Affect O 13 50 0
 Affect O 5 -3 0
+Affect O 13 50 0
+Affect O 1 2 0
+Affect O 19 6 0
 EDESC rose ring silver black~
 It is beautiful and ugly at the same time. Obviously of Solamnic make,
 although very old, it has been desecrated by evil and something about it
@@ -2385,10 +2385,10 @@ LEVEL  32
 WEIGHT 3
 COST   0
 COND   100
-Affect O 1 2 0
-Affect O 19 3 0
-Affect O 17 -5 0
 Affect O 3 -1 0
+Affect O 17 -5 0
+Affect O 19 3 0
+Affect O 1 2 0
 EDESC ring red ruby adamantite~
 The ring is solid ruby, somehow marbled with adamantite. The effect is
 somewhat startling, so much that the pattern sticks in your mind. The
@@ -2409,9 +2409,9 @@ LEVEL  31
 WEIGHT 26
 COST   1000
 COND   100
-Affect O 17 -5 0
-Affect O 1 -1 0
 Affect O 12 30 0
+Affect O 1 -1 0
+Affect O 17 -5 0
 EDESC scale vambraces stained~
 The armguards are stained, but still made of fine scale mail, closely
 linked to prevent a weapon from penetrating them and rendering the arms
@@ -2433,11 +2433,11 @@ LEVEL  32
 WEIGHT 28
 COST   0
 COND   100
-Affect O 2 -2 0
-Affect O 18 -4 0
-Affect O 17 10 0
-Affect O 14 -50 0
 Affect O 13 20 0
+Affect O 14 -50 0
+Affect O 17 10 0
+Affect O 18 -4 0
+Affect O 2 -2 0
 End
 
 #16159
@@ -2453,10 +2453,10 @@ LEVEL  32
 WEIGHT 16
 COST   0
 COND   100
-Affect O 2 -1 0
-Affect O 1 1 0
-Affect O 19 2 0
 Affect O 18 -2 0
+Affect O 19 2 0
+Affect O 1 1 0
+Affect O 2 -1 0
 EDESC shackle iron black~
 The shackle looks very strong. It looks like you wouldn't be able to take
 it off very easily. But it does look like it will give you a decent amount
@@ -2477,10 +2477,10 @@ LEVEL  32
 WEIGHT 4
 COST   4000
 COND   100
-Affect O 1 2 0
-Affect O 19 3 0
-Affect O 17 10 0
 Affect O 3 -1 0
+Affect O 17 10 0
+Affect O 19 3 0
+Affect O 1 2 0
 EDESC signet dargaard~
 A ring of Dargaard Keep's ruler, engraved with symbols of might. Once
 being a knight of Solamnia this ring was a symbol of loyality and honor, now
@@ -2502,11 +2502,11 @@ LEVEL  35
 WEIGHT 6
 COST   7000
 COND   100
-Affect O 1 2 0
-Affect O 19 10 0
-Affect O 5 2 0
-Affect O 2 1 0
 Affect O 17 -15 0
+Affect O 2 1 0
+Affect O 5 2 0
+Affect O 19 10 0
+Affect O 1 2 0
 EDESC head dragon~
 A large head of the black dragon has been severed and mummified as a
 deadly and powerful artifact. Black scales flare as they are being polished,
@@ -2527,11 +2527,11 @@ LEVEL  35
 WEIGHT 6
 COST   7000
 COND   100
-Affect O 1 2 0
-Affect O 19 10 0
-Affect O 5 2 0
-Affect O 2 1 0
 Affect O 17 -15 0
+Affect O 2 1 0
+Affect O 5 2 0
+Affect O 19 10 0
+Affect O 1 2 0
 EDESC vial blood~
 A large crystal vial has been filled with a strange, deep red liquid. It
 is bubbling with horrible smelling smoke. 
@@ -2551,10 +2551,10 @@ LEVEL  35
 WEIGHT 12
 COST   0
 COND   100
-Affect O 19 -5 0
-Affect O 1 -2 0
-Affect O 13 -50 0
 Affect O 18 -5 0
+Affect O 13 -50 0
+Affect O 1 -2 0
+Affect O 19 -5 0
 EDESC rod crystal~
 A translucent crystal rod looks ghostly, absorbing the light around your
 hands. While you look at it, purple smoke appears inside it, shrouding the
@@ -2577,9 +2577,9 @@ LEVEL  32
 WEIGHT 10
 COST   0
 COND   100
-Affect O 2 -1 0
-Affect O 1 1 0
 Affect O 19 2 0
+Affect O 1 1 0
+Affect O 2 -1 0
 EDESC pendant bone~
 A pendant made as some kind of evil symbol. Ancient runes are engraved on
 crossed bones. Between the bones you can see a small demonic skull grinning
@@ -2600,11 +2600,11 @@ LEVEL  37
 WEIGHT 10
 COST   13000
 COND   100
-Affect O 18 -5 0
-Affect O 19 6 0
-Affect O 2 -2 0
-Affect O 14 -50 0
 Affect O 1 -1 0
+Affect O 14 -50 0
+Affect O 2 -2 0
+Affect O 19 6 0
+Affect O 18 -5 0
 EDESC whip bone bone-handled~
 A massive leather whip looks like a weapon of immense pain and torturing. 
 ~
@@ -2623,11 +2623,11 @@ LEVEL  45
 WEIGHT 21
 COST   0
 COND   100
-Affect O 2 -3 0
-Affect O 14 -50 0
-Affect O 5 -1 0
-Affect O 4 -2 0
 Affect O 19 7 0
+Affect O 4 -2 0
+Affect O 5 -1 0
+Affect O 14 -50 0
+Affect O 2 -3 0
 EDESC wings skeletal red dracolich~
 The wings are massive, and look heavy and unwieldy. They would probably
 restrict movement and agility drastically, but the aura of hate coming off
@@ -2648,10 +2648,10 @@ LEVEL  45
 WEIGHT 21
 COST   0
 COND   100
-Affect O 2 -1 0
-Affect O 17 -15 0
-Affect O 13 -35 0
 Affect O 18 4 0
+Affect O 13 -35 0
+Affect O 17 -15 0
+Affect O 2 -1 0
 EDESC skull red freezing head dracolich~
 The skull is far too large to be used as a helmet of any kind, but
 something about the arrangement of the bones on the back make it look like
@@ -2673,9 +2673,9 @@ LEVEL  45
 WEIGHT 16
 COST   0
 COND   100
-Affect O 13 -20 0
-Affect O 4 -1 0
 Affect O 12 15 0
+Affect O 4 -1 0
+Affect O 13 -20 0
 EDESC claw clenched dracolich red~
 The claw is a bit big to be used as a weapon, but it is clenched enough
 so that it might fit on your head ... It could be a little tight, though. 
@@ -2695,10 +2695,10 @@ LEVEL  45
 WEIGHT 21
 COST   0
 COND   100
-Affect O 13 -20 0
-Affect O 19 5 0
-Affect O 2 -2 0
 Affect O 3 -3 0
+Affect O 2 -2 0
+Affect O 19 5 0
+Affect O 13 -20 0
 EDESC spine red dracolich~
 The spine is very long, long enough to coil around you twice, and thick
 enough to give a decent amount of protection. But to trust such an evil
@@ -2719,11 +2719,11 @@ LEVEL  35
 WEIGHT 22
 COST   0
 COND   100
-Affect O 14 -50 0
-Affect O 17 -15 0
-Affect O 1 -2 0
-Affect O 13 -35 0
 Affect O 19 2 0
+Affect O 13 -35 0
+Affect O 1 -2 0
+Affect O 17 -15 0
+Affect O 14 -50 0
 EDESC red rib cage dracolich greaves~
 The rib cage is fairly small, considering it came from a dracolich. It's
 too small to fit onto your body, but you might be able to squeeze your legs
@@ -2763,9 +2763,9 @@ LEVEL  35
 WEIGHT 5
 COST   0
 COND   100
-Affect O 12 40 0
-Affect O 4 1 0
 Affect O 13 -25 0
+Affect O 4 1 0
+Affect O 12 40 0
 EDESC white-bladed dirk serpentine~
 The dirk's wide white blade looks very sharp, even though it is scratched
 and chipped in numerous places. The hilt of the dagger is shaped like a
@@ -2786,10 +2786,10 @@ LEVEL  29
 WEIGHT 6
 COST   400
 COND   100
-Affect O 1 -1 0
-Affect O 17 -10 0
-Affect O 19 2 0
 Affect O 12 50 0
+Affect O 19 2 0
+Affect O 17 -10 0
+Affect O 1 -1 0
 EDESC tongue necklace~
 The tongues are strung together on a bit of iron wire. They are dried
 out, but strangely bloody. They writhe and twist, and occasionally they all
@@ -2810,11 +2810,11 @@ LEVEL  32
 WEIGHT 6
 COST   5000
 COND   100
-Affect O 13 -25 0
-Affect O 2 -1 0
-Affect O 3 -2 0
-Affect O 12 40 0
 Affect O 19 3 0
+Affect O 12 40 0
+Affect O 3 -2 0
+Affect O 2 -1 0
+Affect O 13 -25 0
 EDESC tongue black~
 The tongue writhes and writhes unceasingly, maddeningly, mindlessly. No
 rhyme or reason is behind it at all but black, foul magic from beyond the
@@ -2832,11 +2832,11 @@ TYPE   weapon spear 7 6 freezingbite EF
 EXTRA  1 3 0 524801
 WEAR   AN
 LEVEL  35
-WEIGHT 5
+WEIGHT 7
 COST   2400
 COND   100
-Affect O 13 30 0
 Affect O 19 5 0
+Affect O 13 30 0
 End
 
 #16176
@@ -2852,9 +2852,9 @@ LEVEL  29
 WEIGHT 7
 COST   4000
 COND   100
-Affect O 19 4 0
-Affect O 5 -2 0
 Affect O 1 -1 0
+Affect O 5 -2 0
+Affect O 19 4 0
 EDESC bandage mummy~
 The bandages reek of rot and decay. 
 ~
@@ -2873,8 +2873,8 @@ LEVEL  30
 WEIGHT 20
 COST   1400
 COND   100
-Affect O 19 5 0
 Affect O 18 2 0
+Affect O 19 5 0
 EDESC morningstar corroded~
 It's rusty, but still looks like it could be used safely. There are worse
 weapons one could use. 
@@ -2894,9 +2894,9 @@ LEVEL  24
 WEIGHT 8
 COST   0
 COND   100
-Affect O 1 -1 0
-Affect O 13 15 0
 Affect O 17 -5 0
+Affect O 13 15 0
+Affect O 1 -1 0
 EDESC talisman crystal~
 What a beautiful necklace ... It radiates strange magics and mystical
 powers. 
@@ -2916,9 +2916,9 @@ LEVEL  34
 WEIGHT 12
 COST   0
 COND   100
-Affect O 13 30 0
-Affect O 12 35 0
 Affect O 2 1 0
+Affect O 12 35 0
+Affect O 13 30 0
 End
 
 #16180
@@ -2954,8 +2954,8 @@ LEVEL  32
 WEIGHT 9
 COST   0
 COND   100
-Affect O 17 -15 0
 Affect O 13 50 0
+Affect O 17 -15 0
 EDESC cross burned silver~
 The cross was probably beautiful in its day, but it has been desecrated. 
 ~

@@ -2091,7 +2091,7 @@ TYPE   weapon staff 1 1 smash ABDFG
 EXTRA  1 2 0 65
 WEAR   AN
 LEVEL  0
-WEIGHT 20
+WEIGHT 23
 COST   0
 COND   100
 End
@@ -2128,7 +2128,6 @@ Affect O 12 35 0
 Affect O 13 35 0
 Affect O 19 6 0
 Affect O 18 6 0
-RESTR  X
 End
 
 #2910
@@ -2360,7 +2359,7 @@ TYPE   weapon spear 1 1 darkwrath 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  0
-WEIGHT 22
+WEIGHT 27
 COST   0
 COND   100
 End
@@ -2511,7 +2510,7 @@ TYPE   weapon staff 0 0 smash 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  0
-WEIGHT 13
+WEIGHT 15
 COST   0
 COND   100
 Affect O 18 10 0
@@ -2528,7 +2527,7 @@ TYPE   weapon staff 0 0 magic 0
 EXTRA  1 2 0 320
 WEAR   AN
 LEVEL  0
-WEIGHT 19
+WEIGHT 22
 COST   0
 COND   100
 Affect O 13 50 0
@@ -2546,7 +2545,7 @@ TYPE   weapon staff 0 0 smash 0
 EXTRA  0 0
 WEAR   AN
 LEVEL  0
-WEIGHT 13
+WEIGHT 15
 COST   0
 COND   100
 Affect O 13 50 0

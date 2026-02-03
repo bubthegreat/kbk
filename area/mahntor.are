@@ -1392,10 +1392,10 @@ LEVEL  25
 WEIGHT 16
 COST   2600
 COND   100
-Affect O 18 5 0
-Affect O 19 2 0
-Affect O 2 2 0
 Affect O 14 50 0
+Affect O 2 2 0
+Affect O 19 2 0
+Affect O 18 5 0
 EDESC gloves combat~
 These gloves are plated with metal plates that provide strength and 
 protection.
@@ -1412,13 +1412,13 @@ TYPE   armor BD ABE CD CD 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  22
-WEIGHT 27
+WEIGHT 26
 COST   4200
 COND   100
-Affect O 18 2 0
-Affect O 19 5 0
-Affect O 17 -10 0
 Affect O 13 25 0
+Affect O 17 -10 0
+Affect O 19 5 0
+Affect O 18 2 0
 End
 
 #2302
@@ -1434,10 +1434,10 @@ LEVEL  30
 WEIGHT 22
 COST   2600
 COND   100
-Affect O 19 3 0
-Affect O 18 2 0
-Affect O 17 -5 0
 Affect O 13 15 0
+Affect O 17 -5 0
+Affect O 18 2 0
+Affect O 19 3 0
 End
 
 #2303
@@ -1453,10 +1453,10 @@ LEVEL  30
 WEIGHT 21
 COST   2600
 COND   100
-Affect O 19 3 0
-Affect O 18 2 0
-Affect O 13 15 0
 Affect O 17 -5 0
+Affect O 13 15 0
+Affect O 18 2 0
+Affect O 19 3 0
 End
 
 #2304
@@ -1472,8 +1472,8 @@ LEVEL  28
 WEIGHT 18
 COST   4700
 COND   100
-Affect O 19 6 0
 Affect O 18 8 0
+Affect O 19 6 0
 End
 
 #2305
@@ -1489,8 +1489,8 @@ LEVEL  20
 WEIGHT 21
 COST   860
 COND   100
-Affect O 20 -4 0
 Affect O 19 2 0
+Affect O 20 -4 0
 EDESC cloak pitch black~
 It appears to have pockets inside it.
 ~
@@ -1509,9 +1509,9 @@ LEVEL  30
 WEIGHT 10
 COST   3400
 COND   100
-Affect O 4 2 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 4 2 0
 End
 
 #2307
@@ -1527,10 +1527,10 @@ LEVEL  20
 WEIGHT 16
 COST   1570
 COND   100
-Affect O 19 6 0
-Affect O 18 -2 0
-Affect O 2 -1 0
 Affect O 1 1 0
+Affect O 2 -1 0
+Affect O 18 -2 0
+Affect O 19 6 0
 EDESC spiked gauntlets~
 They look pretty damaging.
 ~
@@ -1549,9 +1549,9 @@ LEVEL  27
 WEIGHT 32
 COST   4900
 COND   100
-Affect O 20 -5 0
-Affect O 17 -15 0
 Affect O 13 25 0
+Affect O 17 -15 0
+Affect O 20 -5 0
 EDESC shield shadow~
 You look into the depths of the shield and shiver at the evil it contains.
 ~
@@ -1570,8 +1570,8 @@ LEVEL  45
 WEIGHT 13
 COST   3500
 COND   100
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
 EDESC nightbringer short sword shortsword~
 The runes "NiGHtBrINgeR" are scrawled along the blade.
 ~
@@ -1590,10 +1590,10 @@ LEVEL  20
 WEIGHT 21
 COST   3000
 COND   100
-Affect O 3 3 0
-Affect O 4 3 0
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
+Affect O 4 3 0
+Affect O 3 3 0
 End
 
 #2311
@@ -1606,13 +1606,13 @@ TYPE   armor ABCE DF ADE ABDE 0
 EXTRA  1 5 0 3393
 WEAR   AD
 LEVEL  32
-WEIGHT 27
+WEIGHT 26
 COST   6700
 COND   100
-Affect O 13 25 0
-Affect O 19 5 0
-Affect O 18 5 0
 Affect O 4 1 0
+Affect O 18 5 0
+Affect O 19 5 0
+Affect O 13 25 0
 End
 
 #2312
@@ -1628,9 +1628,9 @@ LEVEL  10
 WEIGHT 10
 COST   760
 COND   100
-Affect O 13 25 0
-Affect O 18 4 0
 Affect O 19 2 0
+Affect O 18 4 0
+Affect O 13 25 0
 End
 
 #2313
@@ -1646,10 +1646,10 @@ LEVEL  30
 WEIGHT 32
 COST   4100
 COND   100
-Affect O 20 -5 0
-Affect O 13 25 0
-Affect O 18 1 0
 Affect O 19 3 0
+Affect O 18 1 0
+Affect O 13 25 0
+Affect O 20 -5 0
 EDESC shield huge tower~
 A pure white shield with a gold cross emblazoned across it.
 ~
@@ -1668,10 +1668,10 @@ LEVEL  28
 WEIGHT 34
 COST   3200
 COND   100
-Affect O 5 4 0
-Affect O 13 50 0
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
+Affect O 13 50 0
+Affect O 5 4 0
 EDESC dawnbringer mace huge~
 The runes "DAwNbRIngER" are scrawled along the handle.
 ~
@@ -1692,9 +1692,9 @@ LEVEL  15
 WEIGHT 21
 COST   2600
 COND   100
-Affect O 3 2 0
-Affect O 12 20 0
 Affect O 20 -3 0
+Affect O 12 20 0
+Affect O 3 2 0
 EDESC spectacles wire rimmed~
 They'll make you look smart.
 ~
@@ -1713,9 +1713,9 @@ LEVEL  30
 WEIGHT 4
 COST   1520
 COND   100
-Affect O 12 45 0
-Affect O 13 25 0
 Affect O 20 -2 0
+Affect O 13 25 0
+Affect O 12 45 0
 EDESC ring banded~
 The ring has entwined bands of gold and silver.
 ~
@@ -1735,12 +1735,12 @@ LEVEL  27
 WEIGHT 21
 COST   3200
 COND   100
-Affect O 13 25 0
-Affect O 12 25 0
-Affect O 24 -5 0
-Affect O 19 -3 0
-Affect O 18 -3 0
 Affect O 17 -50 0
+Affect O 18 -3 0
+Affect O 19 -3 0
+Affect O 24 -5 0
+Affect O 12 25 0
+Affect O 13 25 0
 EDESC globe minor~
 Shimmering colors move inside the globe.
 ~
@@ -1756,13 +1756,13 @@ TYPE   weapon staff 5 14 magic F
 EXTRA  1 1 0 64
 WEAR   AN
 LEVEL  27
-WEIGHT 26
+WEIGHT 30
 COST   2900
 COND   100
-Affect O 20 -4 0
-Affect O 19 5 0
-Affect O 18 5 0
 Affect O 3 2 0
+Affect O 18 5 0
+Affect O 19 5 0
+Affect O 20 -4 0
 EDESC staff gnarled magius~
 It appears to be simply a gnarled old limb. It feels powerful though.
 ~
@@ -1799,9 +1799,9 @@ LEVEL  25
 WEIGHT 21
 COST   1950
 COND   100
-Affect O 13 25 0
-Affect O 18 2 0
 Affect O 5 2 0
+Affect O 18 2 0
+Affect O 13 25 0
 End
 
 #2321
@@ -1817,10 +1817,10 @@ LEVEL  30
 WEIGHT 10
 COST   1520
 COND   100
-Affect O 13 45 0
-Affect O 18 2 0
-Affect O 5 4 0
 Affect O 17 -5 0
+Affect O 5 4 0
+Affect O 18 2 0
+Affect O 13 45 0
 End
 
 #2322
@@ -1854,8 +1854,8 @@ LEVEL  26
 WEIGHT 18
 COST   1960
 COND   100
-Affect O 19 8 0
 Affect O 18 5 0
+Affect O 19 8 0
 End
 
 #2324
@@ -1871,9 +1871,9 @@ LEVEL  5
 WEIGHT 10
 COST   110
 COND   100
-Affect O 12 35 0
-Affect O 20 -4 0
 Affect O 3 2 0
+Affect O 20 -4 0
+Affect O 12 35 0
 LIMIT  20
 End
 
@@ -1890,10 +1890,10 @@ LEVEL  8
 WEIGHT 4
 COST   470
 COND   100
-Affect O 13 20 0
-Affect O 12 20 0
-Affect O 14 50 0
 Affect O 5 1 0
+Affect O 14 50 0
+Affect O 12 20 0
+Affect O 13 20 0
 End
 
 #2326
@@ -1909,9 +1909,9 @@ LEVEL  5
 WEIGHT 13
 COST   550
 COND   100
-Affect O 5 2 0
-Affect O 18 2 0
 Affect O 13 10 0
+Affect O 18 2 0
+Affect O 5 2 0
 End
 
 #2327
@@ -1927,9 +1927,9 @@ LEVEL  30
 WEIGHT 18
 COST   2500
 COND   100
-Affect O 14 45 0
-Affect O 18 4 0
 Affect O 19 1 0
+Affect O 18 4 0
+Affect O 14 45 0
 EDESC boots striding~
 They look comfortable to walk in.
 ~
@@ -1948,10 +1948,10 @@ LEVEL  51
 WEIGHT 21
 COST   2000
 COND   100
-Affect O 13 25 0
-Affect O 12 25 0
-Affect O 20 -3 0
 Affect R 0 -1 I
+Affect O 20 -3 0
+Affect O 12 25 0
+Affect O 13 25 0
 EDESC cloak icy white~
 Smoke rises from it almost like it's made of dry ice.
 ~
@@ -1967,12 +1967,12 @@ TYPE   weapon staff 5 12 frbite BF
 EXTRA  1 1 0 64
 WEAR   AN
 LEVEL  28
-WEIGHT 26
+WEIGHT 30
 COST   1470
 COND   100
-Affect O 18 6 0
-Affect O 19 4 0
 Affect O 12 20 0
+Affect O 19 4 0
+Affect O 18 6 0
 EDESC staff ice~
 The runes "FrIgID" are inscribed in the icy staff.
 ~
@@ -1991,9 +1991,9 @@ LEVEL  7
 WEIGHT 4
 COST   460
 COND   100
-Affect O 19 3 0
-Affect O 18 3 0
 Affect O 13 5 0
+Affect O 18 3 0
+Affect O 19 3 0
 End
 
 #2331
@@ -2027,8 +2027,8 @@ LEVEL  30
 WEIGHT 10
 COST   7600
 COND   100
-Affect O 5 4 0
 Affect O 13 50 0
+Affect O 5 4 0
 End
 
 #2333
@@ -2063,8 +2063,8 @@ LEVEL  27
 WEIGHT 24
 COST   4300
 COND   100
-Affect O 19 3 0
 Affect O 18 9 0
+Affect O 19 3 0
 End
 
 #2335
@@ -2098,9 +2098,9 @@ LEVEL  10
 WEIGHT 21
 COST   730
 COND   100
-Affect O 2 2 0
-Affect O 18 4 0
 Affect O 19 1 0
+Affect O 18 4 0
+Affect O 2 2 0
 End
 
 #2337
@@ -2116,10 +2116,10 @@ LEVEL  20
 WEIGHT 21
 COST   1450
 COND   100
-Affect O 18 4 0
-Affect O 19 1 0
-Affect O 13 20 0
 Affect O 2 1 0
+Affect O 13 20 0
+Affect O 19 1 0
+Affect O 18 4 0
 End
 
 #2338
@@ -2135,8 +2135,8 @@ LEVEL  20
 WEIGHT 22
 COST   1450
 COND   100
-Affect O 18 3 0
 Affect O 19 1 0
+Affect O 18 3 0
 EDESC pants black leather~
 They look sneaky.
 ~
@@ -2155,8 +2155,8 @@ LEVEL  26
 WEIGHT 13
 COST   2300
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 EDESC sword wicked short shortsword~
 It looks just perfect for backstabbing.
 ~
@@ -2175,12 +2175,12 @@ LEVEL  31
 WEIGHT 21
 COST   4100
 COND   100
-Affect O 20 -10 0
-Affect O 13 50 0
-Affect O 12 50 0
-Affect O 17 -100 0
-Affect O 19 -10 0
 Affect O 18 -10 0
+Affect O 19 -10 0
+Affect O 17 -100 0
+Affect O 12 50 0
+Affect O 13 50 0
+Affect O 20 -10 0
 EDESC globe major~
 Shimmering colors move inside the globe.
 ~
@@ -2196,13 +2196,13 @@ TYPE   armor CE ABF BCE DE 0
 EXTRA  1 1 0 64
 WEAR   AD
 LEVEL  30
-WEIGHT 27
+WEIGHT 26
 COST   7000
 COND   100
-Affect O 1 3 0
-Affect O 5 3 0
-Affect O 19 6 0
 Affect O 18 2 0
+Affect O 19 6 0
+Affect O 5 3 0
+Affect O 1 3 0
 End
 
 #2342
@@ -2218,9 +2218,9 @@ LEVEL  35
 WEIGHT 32
 COST   6600
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
 Affect O 2 -1 0
+Affect O 18 4 0
+Affect O 19 4 0
 End
 
 #2343
@@ -2236,9 +2236,9 @@ LEVEL  13
 WEIGHT 4
 COST   1020
 COND   100
-Affect O 19 4 0
-Affect O 17 -5 0
 Affect O 13 15 0
+Affect O 17 -5 0
+Affect O 19 4 0
 End
 
 #2344
@@ -2254,12 +2254,12 @@ LEVEL  35
 WEIGHT 21
 COST   3400
 COND   100
-Affect O 19 4 0
-Affect O 18 -2 0
-Affect O 1 1 0
-Affect O 3 -2 0
-Affect O 4 -2 0
 Affect O 2 -1 0
+Affect O 4 -2 0
+Affect O 3 -2 0
+Affect O 1 1 0
+Affect O 18 -2 0
+Affect O 19 4 0
 End
 
 #2345
@@ -2275,9 +2275,9 @@ LEVEL  31
 WEIGHT 18
 COST   3400
 COND   100
-Affect O 19 8 0
-Affect O 18 6 0
 Affect O 2 -1 0
+Affect O 18 6 0
+Affect O 19 8 0
 EDESC axe great~
 The runes "DeAtH" are scrawled along the blade.
 ~
@@ -2293,7 +2293,7 @@ TYPE   armor E CDE BE ABE 0
 EXTRA  1 2 0 513
 WEAR   AD
 LEVEL  27
-WEIGHT 27
+WEIGHT 26
 COST   5500
 COND   100
 Affect O 20 -2 0
@@ -2333,8 +2333,8 @@ LEVEL  25
 WEIGHT 16
 COST   3200
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 EDESC blade ethereal~
 You can almost see through it.
 ~
@@ -2613,7 +2613,7 @@ TYPE   armor AC D AC BC 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  15
-WEIGHT 27
+WEIGHT 26
 COST   2100
 COND   100
 End
@@ -2646,8 +2646,8 @@ LEVEL  18
 WEIGHT 32
 COST   690
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #2369
@@ -2708,8 +2708,8 @@ LEVEL  22
 WEIGHT 20
 COST   2500
 COND   100
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 End
 
 #2373
@@ -2770,8 +2770,8 @@ LEVEL  22
 WEIGHT 32
 COST   830
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #2377
@@ -2832,8 +2832,8 @@ LEVEL  29
 WEIGHT 18
 COST   2300
 COND   100
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 EDESC star morning morningstar~
 It looks damaging.
 ~
@@ -2930,7 +2930,7 @@ TYPE   weapon staff 2 10 thrust F
 EXTRA  0 0
 WEAR   AN
 LEVEL  17
-WEIGHT 26
+WEIGHT 30
 COST   320
 COND   100
 End
@@ -2993,10 +2993,10 @@ LEVEL  23
 WEIGHT 19
 COST   5800
 COND   100
-Affect O 18 3 0
-Affect O 19 3 0
-Affect O 13 -30 0
 Affect O 24 -3 0
+Affect O 13 -30 0
+Affect O 19 3 0
+Affect O 18 3 0
 EDESC gauntlets ogre power~
 They look very "handy".
 ~
@@ -3015,9 +3015,9 @@ LEVEL  51
 WEIGHT 22
 COST   500
 COND   100
-Affect O 19 8 0
-Affect O 18 4 0
 Affect O 12 30 0
+Affect O 18 4 0
+Affect O 19 8 0
 LIMIT  10
 End
 
@@ -3046,7 +3046,7 @@ TYPE   armor AC D AC BC 0
 EXTRA  0 0
 WEAR   AD
 LEVEL  15
-WEIGHT 27
+WEIGHT 26
 COST   2100
 COND   100
 End
@@ -3643,12 +3643,12 @@ There are small inscriptions on the rock at the base of the portal.
 ~
 FLAGS  0
 Sect   2
+EDESC  small inscriptions inscription~
+"Enter all ye who wish to join the Brotherhood!"
+~
 EDESC  portal blue~
 You see a swirling blue portal of light. You think you can see glimpses of
 something moving on the "other side".
-~
-EDESC  small inscriptions inscription~
-"Enter all ye who wish to join the Brotherhood!"
 ~
 DOOR 0
 ~
@@ -5052,11 +5052,11 @@ door is to the west. To the east, you see a heavy stone door.
 ~
 FLAGS  8
 Sect   0
-EDESC  huge stone~
-A very formidable looking door.
-~
 EDESC  gold~
 Looks like the back of a secret door of sorts.
+~
+EDESC  huge stone~
+A very formidable looking door.
 ~
 DOOR 1
 ~
@@ -5125,11 +5125,11 @@ itself leads south and north.
 ~
 FLAGS  8
 Sect   0
-EDESC  yellow~
-You see a yellow door. It has the name "Sumaron" written on it.
-~
 EDESC  red~
 You see a red door. It has the name "Gorak" written on it.
+~
+EDESC  yellow~
+You see a yellow door. It has the name "Sumaron" written on it.
 ~
 DOOR 0
 ~
@@ -5158,11 +5158,11 @@ black door. The hall itself leads north and south.
 ~
 FLAGS  8
 Sect   0
-EDESC  maroon~
-You see a maroon door here. It has the name "Amyrok" written on it.
-~
 EDESC  black~
 You see a black door. It has the name "Darkoth" inscribed on it.
+~
+EDESC  maroon~
+You see a maroon door here. It has the name "Amyrok" written on it.
 ~
 DOOR 0
 ~
@@ -5229,11 +5229,11 @@ south.
 ~
 FLAGS  8
 Sect   0
-EDESC  green~
-You see a green door here. It has the name "Nasturn" written on it.
-~
 EDESC  white~
 You see a white door here. It has the name "Tyrgoth" inscribed on it.
+~
+EDESC  green~
+You see a green door here. It has the name "Nasturn" written on it.
 ~
 DOOR 0
 ~
@@ -5338,11 +5338,11 @@ itself leads north back along the rows of doors.
 ~
 FLAGS  8
 Sect   0
-EDESC  grey~
-You see a grey door here. It has the name "Dorgar" written on it.
-~
 EDESC  brown~
 You see a brown door here. It has the name "Belrak" written on it.
+~
+EDESC  grey~
+You see a grey door here. It has the name "Dorgar" written on it.
 ~
 DOOR 0
 ~

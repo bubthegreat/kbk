@@ -176,19 +176,19 @@ notice that there are no exits from this room.
 ~
 FLAGS  4
 Sect   0
-EDESC  friend friends~
-The list include such prominent names as : God, Lottie, Kurgan, Ezzard,
-Mike, Sprocket and Stormbringer. 
+EDESC  pictures picture decoration~
+These pictures show the friend's and foe's of Ravan. They are easy to
+separate, as most of the foe's have the letters R. I. P. Inscripted
+underneath them. 
 ~
 EDESC  foe foes enemies~
 There is only one picture yet... Dim. It pictures him hanging from a
 gallow, north of the town. It has the letters R. I. P. Inscripted
 underneath. 
 ~
-EDESC  pictures picture decoration~
-These pictures show the friend's and foe's of Ravan. They are easy to
-separate, as most of the foe's have the letters R. I. P. Inscripted
-underneath them. 
+EDESC  friend friends~
+The list include such prominent names as : God, Lottie, Kurgan, Ezzard,
+Mike, Sprocket and Stormbringer. 
 ~
 End
 

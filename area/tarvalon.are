@@ -1337,8 +1337,8 @@ LEVEL  20
 WEIGHT 17
 COST   610
 COND   100
-Affect O 19 3 0
 Affect O 18 4 0
+Affect O 19 3 0
 End
 
 #1806
@@ -1354,8 +1354,8 @@ LEVEL  20
 WEIGHT 41
 COST   750
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #1807
@@ -1371,8 +1371,8 @@ LEVEL  20
 WEIGHT 34
 COST   750
 COND   100
-Affect O 13 15 0
 Affect O 5 1 0
+Affect O 13 15 0
 End
 
 #1808
@@ -1404,8 +1404,8 @@ LEVEL  20
 WEIGHT 27
 COST   750
 COND   100
-Affect O 13 8 0
 Affect O 18 2 0
+Affect O 13 8 0
 End
 
 #1810
@@ -1599,12 +1599,12 @@ LEVEL  40
 WEIGHT 34
 COST   4000
 COND   100
-Affect O 23 -20 0
-Affect O 19 4 0
-Affect O 18 4 0
-Affect O 13 50 0
-Affect O 5 4 0
 Affect O 1 4 0
+Affect O 5 4 0
+Affect O 13 50 0
+Affect O 18 4 0
+Affect O 19 4 0
+Affect O 23 -20 0
 EDESC axe~
 This large axe is intricately carved with hideous runes.
 ~
@@ -1623,8 +1623,8 @@ LEVEL  32
 WEIGHT 16
 COST   4000
 COND   100
-Affect O 19 4 0
 Affect O 18 6 0
+Affect O 19 4 0
 End
 
 #0

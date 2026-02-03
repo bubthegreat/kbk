@@ -771,7 +771,7 @@ SHORT  the Ringmaster's Bracelet~
 DESCR 
 A large wide bracelet of blue emerald lies here.~
 MAT    gem~
-TYPE   armor F EF DF CF BD
+TYPE   armor F EF DF ABF BD
 EXTRA  1 6 0 119
 WEAR   AM
 LEVEL  51
@@ -1053,7 +1053,7 @@ COND   100
 Affect O 13 50 0
 Affect O 18 6 0
 Affect O 19 6 0
-LIMIT  10
+LIMIT  2
 End
 
 #24423
@@ -1072,7 +1072,7 @@ COND   100
 Affect O 13 50 0
 Affect O 18 6 0
 Affect O 19 6 0
-LIMIT  10
+LIMIT  2
 End
 
 #24424
@@ -1092,7 +1092,7 @@ Affect O 1 1 0
 Affect O 13 40 0
 Affect O 18 2 0
 Affect O 19 3 0
-LIMIT  10
+LIMIT  2
 End
 
 #0
@@ -2505,6 +2505,10 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 ~
 FLAGS  1
 Sect   0
+DOOR 1
+~
+~
+0 0 24468
 DOOR 2
 ~
 ~
@@ -2513,10 +2517,6 @@ DOOR 0
 ~
 ~
 0 0 24473
-DOOR 1
-~
-~
-0 0 24468
 DOOR 3
 ~
 ~
@@ -2533,10 +2533,6 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 ~
 FLAGS  1
 Sect   0
-DOOR 1
-~
-~
-0 0 24469
 DOOR 2
 ~
 ~
@@ -2545,6 +2541,10 @@ DOOR 0
 ~
 ~
 0 0 24477
+DOOR 1
+~
+~
+0 0 24469
 DOOR 3
 ~
 ~
@@ -2565,14 +2565,14 @@ DOOR 0
 ~
 ~
 0 0 24475
-DOOR 1
-~
-~
-0 0 24467
 DOOR 2
 ~
 ~
 0 0 24472
+DOOR 1
+~
+~
+0 0 24467
 DOOR 3
 ~
 ~
@@ -2618,6 +2618,10 @@ A ladder ascends out of the mist from here.
 ~
 FLAGS  1
 Sect   0
+DOOR 1
+~
+~
+0 0 24472
 DOOR 0
 ~
 ~
@@ -2626,10 +2630,6 @@ DOOR 2
 ~
 ~
 0 0 24474
-DOOR 1
-~
-~
-0 0 24472
 DOOR 3
 ~
 ~
@@ -2678,18 +2678,18 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 24470
-DOOR 2
-~
-~
-0 0 24467
 DOOR 1
 ~
 ~
 0 0 24474
+DOOR 2
+~
+~
+0 0 24467
+DOOR 0
+~
+~
+0 0 24470
 DOOR 3
 ~
 ~
@@ -2706,10 +2706,6 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 24471
 DOOR 2
 ~
 ~
@@ -2718,6 +2714,10 @@ DOOR 1
 ~
 ~
 0 0 24475
+DOOR 0
+~
+~
+0 0 24471
 DOOR 3
 ~
 ~
@@ -2734,10 +2734,6 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 24472
 DOOR 1
 ~
 ~
@@ -2746,6 +2742,10 @@ DOOR 2
 ~
 ~
 0 0 24469
+DOOR 0
+~
+~
+0 0 24472
 DOOR 3
 ~
 ~
@@ -2763,10 +2763,6 @@ swirls and hides other such horrors.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 24469
 DOOR 1
 ~
 ~
@@ -2775,6 +2771,10 @@ DOOR 2
 ~
 ~
 0 0 24475
+DOOR 0
+~
+~
+0 0 24469
 DOOR 3
 ~
 ~
@@ -2790,14 +2790,14 @@ appear to be of any real interest.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 24474
 DOOR 1
 ~
 ~
 0 0 24469
+DOOR 0
+~
+~
+0 0 24474
 DOOR 2
 ~
 ~
@@ -2821,14 +2821,14 @@ DOOR 0
 ~
 ~
 0 0 24470
-DOOR 1
-~
-~
-0 0 24473
 DOOR 2
 ~
 ~
 0 0 24467
+DOOR 1
+~
+~
+0 0 24473
 DOOR 3
 ~
 ~

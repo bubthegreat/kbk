@@ -900,14 +900,14 @@ LEVEL  51
 WEIGHT 14
 COST   500000
 COND   100
-Affect O 5 2 0
-Affect O 13 25 0
 Affect O 19 5 0
-EDESC club~
+Affect O 13 25 0
+Affect O 5 2 0
+EDESC desc~
 A hefty club carved lovingly from a fallen branch of oak, it has many dimly glowing
 runes of a pale green light running along it's length.
 ~
-EDESC desc~
+EDESC club~
 A hefty club carved lovingly from a fallen branch of oak, it has many dimly glowing
 runes of a pale green light running along it's length.
 ~
@@ -927,8 +927,8 @@ LEVEL  50
 WEIGHT 3
 COST   700000
 COND   100
-Affect O 5 4 0
 Affect I 0 -1 L
+Affect O 5 4 0
 EDESC ring~
 Tiny runes of dwarven craftmanship glint off this simple band of pure mithril. A wide
 band, it seems only a stubby finger could wear it comfortably. The runes flicker with 
@@ -951,10 +951,10 @@ LEVEL  55
 WEIGHT 7
 COST   50000
 COND   100
-Affect O 1 2 0
-Affect O 5 2 0
-Affect O 20 -5 0
 Affect O 19 5 0
+Affect O 20 -5 0
+Affect O 5 2 0
+Affect O 1 2 0
 EDESC belt~
 A simple leather belt dangles a collection of fallen foes scalps from it. The belt
 is quite sturdy and durable, though the foul stench of rotting flesh accompanies it.
@@ -976,8 +976,8 @@ LEVEL  52
 WEIGHT 25
 COST   10000
 COND   100
-Affect O 1 2 0
 Affect O 19 4 0
+Affect O 1 2 0
 End
 
 #116
@@ -1009,9 +1009,9 @@ LEVEL  51
 WEIGHT 16
 COST   150000
 COND   100
-Affect O 13 35 0
-Affect O 2 -3 0
 Affect O 19 5 0
+Affect O 2 -3 0
+Affect O 13 35 0
 End
 
 #118
@@ -1027,9 +1027,9 @@ LEVEL  55
 WEIGHT 33
 COST   800000
 COND   100
-Affect V 0 -1 E
-Affect O 31 -2 0
 Affect O 4 2 0
+Affect O 31 -2 0
+Affect V 0 -1 E
 EDESC breastplate~
 A piece of iron shaped to fit over the torso of a smaller figure has seen better days.
 Several crude etchings can be seen depicting forges and the hammers that strike them,
@@ -1100,9 +1100,9 @@ LEVEL  52
 WEIGHT 25
 COST   40000
 COND   100
-Affect O 19 7 0
-Affect O 18 7 0
 Affect O 2 -3 0
+Affect O 18 7 0
+Affect O 19 7 0
 EDESC halberd~
 The long wooden handle ending in the large serrated blade of onyx, has visible signs of
 wear, suggesting it has seen many hands in it's lifetime. Certain symbols have been 
@@ -1127,14 +1127,14 @@ WEIGHT 6
 COST   50000
 COND   100
 EDESC desk~
+Covered with strange looking trinkets, this desk takes up a large portion of the office.
+Carved with intricate detail, you notice a partially hidden drawer on the back.
+~
+EDESC desk~
 A fine desk of polished maple covered in intricate carvings takes up the bulk of this
 room. They were made by a very skilled and patient hand and they all seem to be alive
 especially a fantastic dragon that winds around the front of the wood ending in a huge
 gaping jaw. You notice a desk drawer already half open near the back. 
-~
-EDESC desk~
-Covered with strange looking trinkets, this desk takes up a large portion of the office.
-Carved with intricate detail, you notice a partially hidden drawer on the back.
 ~
 LIMIT  1
 End
@@ -1244,8 +1244,8 @@ LEVEL  51
 WEIGHT 8
 COST   0
 COND   100
-Affect O 22 -15 0
 Affect O 20 -15 0
+Affect O 22 -15 0
 LIMIT  3
 End
 
@@ -1259,11 +1259,11 @@ TYPE   armor BCDF BCDF BCDF BCDF 0
 EXTRA  1 2 0 557056
 WEAR   AG
 LEVEL  51
-WEIGHT 21
+WEIGHT 20
 COST   300000
 COND   100
-Affect O 2 5 0
 Affect A 0 -1 P
+Affect O 2 5 0
 LIMIT  2
 End
 
@@ -1280,8 +1280,8 @@ LEVEL  55
 WEIGHT 8
 COST   100000
 COND   100
-Affect R 0 -1 K
 Affect O 20 -5 0
+Affect R 0 -1 K
 LIMIT  3
 End
 
@@ -1312,11 +1312,11 @@ TYPE   weapon spear 8 7 sflame F
 EXTRA  1 5 0 3457
 WEAR   AN
 LEVEL  52
-WEIGHT 32
+WEIGHT 39
 COST   120000
 COND   100
-Affect O 19 8 0
 Affect O 2 3 0
+Affect O 19 8 0
 EDESC trident~
 Along the shaft of this silver spear have been placed protective religious runes to
 enhance the bearers battle prowess as well as constantly remind them of their faith.
@@ -1337,16 +1337,16 @@ LEVEL  55
 WEIGHT 25
 COST   800000
 COND   100
-Affect O 13 50 0
-Affect O 12 50 0
 Affect O 20 -10 0
-EDESC shield~
-A circular shield of a toughened hide of a beast is rimmed along the edges with a
-multitude of eyes all fixed in an unblinking gaze.
-~
+Affect O 12 50 0
+Affect O 13 50 0
 EDESC desc~
 The tough, leathery hide of a beast coats the front of the shield, while along the edges
 of this circlular shield, evenly spaced eyes gaze out in an unblinking stare.
+~
+EDESC shield~
+A circular shield of a toughened hide of a beast is rimmed along the edges with a
+multitude of eyes all fixed in an unblinking gaze.
 ~
 LIMIT  2
 End
@@ -1364,8 +1364,8 @@ LEVEL  52
 WEIGHT 12
 COST   10000
 COND   100
-Affect O 12 50 0
 Affect R 0 -1 Q
+Affect O 12 50 0
 EDESC circlet~
 A multitude of various healing herbs are woven into this circlet, providing the wearer
 with the natural medicine and resistance that nature has to offer.
@@ -1387,9 +1387,9 @@ LEVEL  53
 WEIGHT 7
 COST   10000
 COND   100
-Affect O 19 5 0
-Affect O 18 5 0
 Affect O 5 2 0
+Affect O 18 5 0
+Affect O 19 5 0
 LIMIT  3
 End
 
@@ -1406,9 +1406,9 @@ LEVEL  52
 WEIGHT 27
 COST   300000
 COND   100
-Affect O 2 -3 0
-Affect O 5 2 0
 Affect O 19 6 0
+Affect O 5 2 0
+Affect O 2 -3 0
 LIMIT  5
 RESTR  G
 End
@@ -1426,9 +1426,9 @@ LEVEL  51
 WEIGHT 6
 COST   10000
 COND   100
-Affect O 2 2 0
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
+Affect O 2 2 0
 End
 
 #139
@@ -1444,8 +1444,8 @@ LEVEL  0
 WEIGHT 39
 COST   32000
 COND   100
-Affect O 1 2 0
 Affect O 19 5 0
+Affect O 1 2 0
 End
 
 #140
@@ -1492,8 +1492,8 @@ LEVEL  52
 WEIGHT 16
 COST   12000
 COND   100
-Affect R 0 -1 P
 Affect O 3 4 0
+Affect R 0 -1 P
 LIMIT  2
 End
 
@@ -1534,12 +1534,12 @@ an unusually crude carving stands out amongst the other more skillfully done etc
 ~
 FLAGS  0
 Sect   0
-EDESC  carving~
-Welcome to the Lattenburrow Downs! Entertainment for the Masses!
-~
 EDESC  crude~
 Tiny scratching can be made out to read, My first area, hope you boys and girls enjoy
 it. A hefty thanks to everyone that helped me. Especially to Zornath and barley and hops.
+~
+EDESC  carving~
+Welcome to the Lattenburrow Downs! Entertainment for the Masses!
 ~
 DOOR 0
 Further down a cobblestone path

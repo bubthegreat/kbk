@@ -333,12 +333,12 @@ LEVEL  48
 WEIGHT 9
 COST   1000
 COND   100
-Affect O 5 -2 0
-Affect O 13 25 0
-Affect O 12 25 0
-Affect O 18 2 0
-Affect O 19 2 0
 Affect O 3 2 0
+Affect O 19 2 0
+Affect O 18 2 0
+Affect O 12 25 0
+Affect O 13 25 0
+Affect O 5 -2 0
 End
 
 #29352
@@ -385,10 +385,10 @@ LEVEL  58
 WEIGHT 5
 COST   900
 COND   100
-Affect O 19 3 0
-Affect O 12 50 0
-Affect O 3 2 0
 Affect O 18 2 0
+Affect O 3 2 0
+Affect O 12 50 0
+Affect O 19 3 0
 End
 
 #29355
@@ -404,9 +404,9 @@ LEVEL  54
 WEIGHT 18
 COST   1500
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
 Affect O 5 1 0
+Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #29356
@@ -422,10 +422,10 @@ LEVEL  60
 WEIGHT 13
 COST   2000
 COND   100
-Affect O 14 25 0
-Affect O 12 50 0
-Affect O 3 1 0
 Affect O 4 1 0
+Affect O 3 1 0
+Affect O 12 50 0
+Affect O 14 25 0
 End
 
 #29357
@@ -441,8 +441,8 @@ LEVEL  60
 WEIGHT 18
 COST   2500
 COND   100
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
 LIMIT  5
 End
 
@@ -459,11 +459,11 @@ LEVEL  60
 WEIGHT 43
 COST   1200
 COND   100
-Affect O 18 3 0
-Affect O 19 5 0
-Affect O 13 25 0
-Affect O 1 2 0
 Affect O 3 -2 0
+Affect O 1 2 0
+Affect O 13 25 0
+Affect O 19 5 0
+Affect O 18 3 0
 LIMIT  15
 End
 
@@ -480,12 +480,12 @@ LEVEL  60
 WEIGHT 21
 COST   5000
 COND   100
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 18 5 0
-Affect O 19 5 0
-Affect O 4 -1 0
 Affect O 3 -1 0
+Affect O 4 -1 0
+Affect O 19 5 0
+Affect O 18 5 0
+Affect O 1 1 0
+Affect O 2 1 0
 LIMIT  2
 End
 
@@ -502,8 +502,8 @@ LEVEL  60
 WEIGHT 7
 COST   3000
 COND   100
-Affect O 12 150 0
 Affect O 3 3 0
+Affect O 12 150 0
 LIMIT  1
 RESTR  T
 End
@@ -521,14 +521,14 @@ LEVEL  60
 WEIGHT 9
 COST   7500
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
-Affect O 2 -1 0
-Affect O 1 -2 0
-Affect O 4 2 0
-Affect O 3 2 0
-Affect O 13 50 0
 Affect O 12 50 0
+Affect O 13 50 0
+Affect O 3 2 0
+Affect O 4 2 0
+Affect O 1 -2 0
+Affect O 2 -1 0
+Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #29362
@@ -571,13 +571,13 @@ TYPE   boat 0 0 0 0 0
 EXTRA  1 1 0 64
 WEAR   AG
 LEVEL  40
-WEIGHT 92
+WEIGHT 23
 COST   1000
 COND   100
-Affect O 18 2 0
-Affect O 2 1 0
-Affect O 17 -5 0
 Affect A 0 0 c
+Affect O 17 -5 0
+Affect O 2 1 0
+Affect O 18 2 0
 End
 
 #29365
@@ -593,8 +593,8 @@ LEVEL  40
 WEIGHT 36
 COST   900
 COND   100
-Affect O 18 3 0
 Affect O 2 3 0
+Affect O 18 3 0
 End
 
 #29366
@@ -747,9 +747,9 @@ LEVEL  51
 WEIGHT 8
 COST   0
 COND   100
-Affect O 20 -10 0
-Affect O 13 75 0
 Affect O 12 100 0
+Affect O 13 75 0
+Affect O 20 -10 0
 LIMIT  3
 End
 

@@ -1985,7 +1985,7 @@ TYPE   weapon spear 6 8 pierce 0
 EXTRA  1 1 0 16
 WEAR   AN
 LEVEL  35
-WEIGHT 19
+WEIGHT 24
 COST   20000
 COND   100
 EDESC iron spear~
@@ -2006,10 +2006,10 @@ LEVEL  51
 WEIGHT 9
 COST   20000
 COND   100
-Affect O 17 -8 0
-Affect O 24 -5 0
-Affect O 17 2 0
 Affect O 18 2 0
+Affect O 17 2 0
+Affect O 24 -5 0
+Affect O 17 -8 0
 EDESC banner nightfall~
 This standard bears the symbol of an eclipsed moon. It is the mark of 
 one of the greater demons of the Abyss and should not be taken lightly.
@@ -2046,13 +2046,13 @@ LEVEL  1
 WEIGHT 12
 COST   0
 COND   100
-Affect O 1 -5 0
-Affect O 13 1 0
-Affect O 3 -5 0
-Affect O 14 1 0
-Affect O 12 1 0
-Affect O 5 -5 0
 Affect O 4 -5 0
+Affect O 5 -5 0
+Affect O 12 1 0
+Affect O 14 1 0
+Affect O 3 -5 0
+Affect O 13 1 0
+Affect O 1 -5 0
 EDESC collar enslavement~
 Dark runes cover this steel collar. Pain and suffering are it's primary 
 use, and the powerful magics bestowed upon it are designed to keep the 
@@ -2074,10 +2074,10 @@ LEVEL  51
 WEIGHT 9
 COST   0
 COND   100
-Affect O 24 -15 0
-Affect O 12 50 0
-Affect O 19 2 0
 Affect O 18 3 0
+Affect O 19 2 0
+Affect O 12 50 0
+Affect O 24 -15 0
 EDESC eye demilich~
 You see some faint motion within it as some unspeakable force idles 
 inside it, waiting to be released. The eye is all that remains of one of 
@@ -2099,10 +2099,10 @@ LEVEL  51
 WEIGHT 24
 COST   0
 COND   100
-Affect O 19 2 0
-Affect O 18 1 0
-Affect O 17 -14 0
 Affect O 13 25 0
+Affect O 17 -14 0
+Affect O 18 1 0
+Affect O 19 2 0
 EDESC black bone circlet~
 A bit of a human skull has been sliced off from the demilich Nel'Shadan. 
 Even in death it contains some of the immortal power of the ancient 
@@ -2124,8 +2124,8 @@ LEVEL  48
 WEIGHT 17
 COST   20000
 COND   100
-Affect O 19 6 0
 Affect O 18 7 0
+Affect O 19 6 0
 EDESC scimitar runed~
 A beautfully crafted scimitar has been engraved with the runes of Fear, 
 Hate, Death, Darkness and pain. 
@@ -2146,9 +2146,9 @@ LEVEL  40
 WEIGHT 15
 COST   20000
 COND   100
-Affect O 17 -10 0
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
+Affect O 17 -10 0
 LIMIT  4
 End
 
@@ -2165,8 +2165,8 @@ LEVEL  45
 WEIGHT 4
 COST   20000
 COND   100
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
 LIMIT  4
 End
 
@@ -2183,10 +2183,10 @@ LEVEL  51
 WEIGHT 18
 COST   0
 COND   100
-Affect O 13 50 0
-Affect O 12 50 0
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
+Affect O 12 50 0
+Affect O 13 50 0
 EDESC demon head mace~
 This mace has been forged by the most unholy means. A demon's head has 
 been severed and by divine powers it lives on, screaming in anguish and 
@@ -2209,16 +2209,16 @@ LEVEL  45
 WEIGHT 24
 COST   0
 COND   100
-Affect O 19 3 0
-Affect O 17 -6 0
-Affect O 13 5 0
 Affect O 18 2 0
+Affect O 13 5 0
+Affect O 17 -6 0
+Affect O 19 3 0
+EDESC flesh tatters arm~
+Bits of torn ragged flesh twitch and spasm with a life of their own.
+~
 EDESC flesh tatters arm~
 These bits of ragged torn flesh seem to still be alive. The bloody 
 tatters are woven together into what could be used as sleeves. 
-~
-EDESC flesh tatters arm~
-Bits of torn ragged flesh twitch and spasm with a life of their own.
 ~
 LIMIT  2
 End
@@ -2236,8 +2236,8 @@ LEVEL  45
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 18 2 0
 Affect O 12 35 0
+Affect O 18 2 0
 LIMIT  3
 End
 
@@ -2254,11 +2254,11 @@ LEVEL  51
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 12 10 0
-Affect O 13 10 0
-Affect O 24 -2 0
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
+Affect O 24 -2 0
+Affect O 13 10 0
+Affect O 12 10 0
 EDESC pendant eternity~
 T his beautiful ivory and gold pendant was carved in the temple of Asgard 
 by the immortals of honor and duty. It has the word 'Eternity' engraved 
@@ -2280,12 +2280,12 @@ LEVEL  51
 WEIGHT 24
 COST   20000
 COND   100
-Affect O 17 -10 0
-Affect O 4 1 0
-Affect O 3 2 0
-Affect O 13 30 0
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
+Affect O 13 30 0
+Affect O 3 2 0
+Affect O 4 1 0
+Affect O 17 -10 0
 LIMIT  2
 End
 
@@ -2302,12 +2302,12 @@ LEVEL  51
 WEIGHT 30
 COST   20000
 COND   100
-Affect O 17 -15 0
-Affect O 5 1 0
-Affect O 1 2 0
-Affect O 13 60 0
-Affect O 19 4 0
 Affect O 18 2 0
+Affect O 19 4 0
+Affect O 13 60 0
+Affect O 1 2 0
+Affect O 5 1 0
+Affect O 17 -15 0
 LIMIT  2
 End
 
@@ -2324,11 +2324,11 @@ LEVEL  51
 WEIGHT 24
 COST   20000
 COND   100
-Affect O 13 40 0
-Affect O 17 -10 0
-Affect O 12 20 0
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect O 12 20 0
+Affect O 17 -10 0
+Affect O 13 40 0
 LIMIT  2
 End
 
@@ -2345,10 +2345,10 @@ LEVEL  51
 WEIGHT 25
 COST   20000
 COND   100
-Affect O 2 2 0
-Affect O 13 35 0
-Affect O 19 2 0
 Affect O 18 3 0
+Affect O 19 2 0
+Affect O 13 35 0
+Affect O 2 2 0
 LIMIT  2
 End
 
@@ -2358,17 +2358,17 @@ SHORT  a bracelet carved from gold dragon tears~
 DESCR 
 some frozen tears have been carved into a bracelet.~
 MAT    energy~
-TYPE   armor CF DF CF DEF AC
+TYPE   armor ABF DF ABF DEF AC
 EXTRA  1 4 0 3168
 WEAR   AM
 LEVEL  51
 WEIGHT 9
 COST   1000
 COND   100
-Affect O 24 -5 0
-Affect O 17 -10 0
-Affect O 19 4 0
 Affect O 18 1 0
+Affect O 19 4 0
+Affect O 17 -10 0
+Affect O 24 -5 0
 EDESC bracelet tears~
 Some gold dragon tears have been frozen and carved into a bracelet.
 ~
@@ -2388,8 +2388,8 @@ LEVEL  52
 WEIGHT 22
 COST   0
 COND   100
-Affect O 19 5 0
 Affect O 18 6 0
+Affect O 19 5 0
 EDESC sword forever~
 After King Arthur's sword Excalibur was returned to the lake the gods 
 forged a new blade of pure mithril. This blade was blessed 'Forever' in 
@@ -2412,9 +2412,9 @@ LEVEL  45
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 2 -2 0
-Affect O 19 4 0
 Affect O 18 -1 0
+Affect O 19 4 0
+Affect O 2 -2 0
 LIMIT  3
 End
 
@@ -2431,9 +2431,9 @@ LEVEL  52
 WEIGHT 15
 COST   0
 COND   100
-Affect O 1 1 0
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
+Affect O 1 1 0
 EDESC longsword blade souls black~
 The greater lords of the Abyss have gathered the souls of those who did 
 not quite make it to Heaven and have punished them for their goodness by 
@@ -2457,13 +2457,13 @@ LEVEL  1
 WEIGHT 30
 COST   0
 COND   100
-Affect O 4 -2 0
-Affect O 3 -2 0
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 13 -40 0
-Affect O 19 -6 0
 Affect O 18 -3 0
+Affect O 19 -6 0
+Affect O 13 -40 0
+Affect O 1 1 0
+Affect O 2 1 0
+Affect O 3 -2 0
+Affect O 4 -2 0
 EDESC plate armor outcast~
 This battered armor has the symbol of a broken sword embossed on it. The 
 deathknight Karanth was given it as punishment for his oathbreaking when 
@@ -2487,13 +2487,13 @@ LEVEL  51
 WEIGHT 4
 COST   20000
 COND   100
-Affect O 1 1 0
-Affect O 19 4 0
-Affect O 18 1 0
-Affect O 17 -8 0
-Affect O 13 20 0
-Affect O 12 20 0
 Affect O 5 1 0
+Affect O 12 20 0
+Affect O 13 20 0
+Affect O 17 -8 0
+Affect O 18 1 0
+Affect O 19 4 0
+Affect O 1 1 0
 LIMIT  3
 End
 
@@ -2510,11 +2510,11 @@ LEVEL  51
 WEIGHT 12
 COST   0
 COND   100
-Affect O 19 3 0
-Affect O 18 2 0
-Affect O 17 -9 0
-Affect O 13 15 0
 Affect O 12 15 0
+Affect O 13 15 0
+Affect O 17 -9 0
+Affect O 18 2 0
+Affect O 19 3 0
 LIMIT  3
 End
 
@@ -2531,13 +2531,13 @@ LEVEL  51
 WEIGHT 30
 COST   0
 COND   100
-Affect O 24 -15 0
-Affect O 19 2 0
-Affect O 18 4 0
-Affect O 17 -25 0
-Affect O 14 50 0
-Affect O 3 1 0
 Affect O 2 3 0
+Affect O 3 1 0
+Affect O 14 50 0
+Affect O 17 -25 0
+Affect O 18 4 0
+Affect O 19 2 0
+Affect O 24 -15 0
 EDESC shadow shift forsaken~
 The shadow of some powerful immortal being has been left here to face 
 the light. It shifts and writhes about as it tries to hide in the darkness.
@@ -2580,9 +2580,9 @@ LEVEL  52
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 19 6 0
-Affect O 18 6 0
 Affect O 14 -50 0
+Affect O 18 6 0
+Affect O 19 6 0
 EDESC dracolich claw~
 The huge skeletal claw of a dead dragon has been severed. Part of it's 
 powerful binding magics still remain and it hums sotfly with power. 
@@ -2603,12 +2603,12 @@ LEVEL  52
 WEIGHT 24
 COST   0
 COND   100
-Affect O 19 4 0
-Affect O 17 -20 0
-Affect O 14 1 0
-Affect O 13 60 0
-Affect O 2 -4 0
 Affect O 1 2 0
+Affect O 2 -4 0
+Affect O 13 60 0
+Affect O 14 1 0
+Affect O 17 -20 0
+Affect O 19 4 0
 EDESC dracolich spine~
 This is the severed coil of a dracolich spine. Powerful binding magics 
 still remain within it making it hum softly with power. 
@@ -2629,9 +2629,9 @@ LEVEL  45
 WEIGHT 36
 COST   0
 COND   100
-Affect O 19 3 0
-Affect O 18 1 0
 Affect O 13 20 0
+Affect O 18 1 0
+Affect O 19 3 0
 LIMIT  3
 End
 
@@ -2752,9 +2752,9 @@ LEVEL  45
 WEIGHT 4
 COST   0
 COND   100
-Affect O 13 20 0
-Affect O 12 40 0
 Affect O 3 2 0
+Affect O 12 40 0
+Affect O 13 20 0
 LIMIT  7
 End
 
@@ -2771,9 +2771,9 @@ LEVEL  45
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 1 0
 Affect O 17 -6 0
+Affect O 18 1 0
+Affect O 19 2 0
 EDESC bone collar~
 Some bones have been strung together to form a loose necklace.
 ~
@@ -2842,12 +2842,12 @@ LEVEL  0
 WEIGHT 9
 COST   0
 COND   100
+EDESC barrel~
+a barrel drenched in blood lies here.
+~
 EDESC blood~
 The blood seems to be quite recently poured on the barrel, and in very 
 liberal amounts. 
-~
-EDESC barrel~
-a barrel drenched in blood lies here.
 ~
 End
 
@@ -3014,8 +3014,8 @@ LEVEL  25
 WEIGHT 18
 COST   8000
 COND   100
-Affect O 19 3 0
 Affect O 18 -1 0
+Affect O 19 3 0
 LIMIT  7
 End
 
@@ -3149,11 +3149,11 @@ TYPE   weapon mace 5 6 crush 0
 EXTRA  1 2 0 1280
 WEAR   AN
 LEVEL  25
-WEIGHT 21
+WEIGHT 20
 COST   8000
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #14063
@@ -3166,11 +3166,11 @@ TYPE   weapon axe 5 6 slice 0
 EXTRA  1 2 0 1280
 WEAR   AN
 LEVEL  25
-WEIGHT 21
+WEIGHT 20
 COST   8000
 COND   100
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
 End
 
 #14064
@@ -3186,8 +3186,8 @@ LEVEL  25
 WEIGHT 29
 COST   9000
 COND   100
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
 End
 
 #14065
@@ -3219,8 +3219,8 @@ LEVEL  35
 WEIGHT 30
 COST   20000
 COND   100
-Affect O 19 1 0
 Affect O 18 3 0
+Affect O 19 1 0
 End
 
 #14067
@@ -3253,9 +3253,9 @@ LEVEL  51
 WEIGHT 30
 COST   20000
 COND   100
-Affect O 19 3 0
-Affect O 18 1 0
 Affect O 17 -10 0
+Affect O 18 1 0
+Affect O 19 3 0
 LIMIT  2
 End
 
@@ -3287,9 +3287,9 @@ LEVEL  1
 WEIGHT 30
 COST   0
 COND   100
-Affect O 19 -1 0
-Affect O 18 -1 0
 Affect O 5 -1 0
+Affect O 18 -1 0
+Affect O 19 -1 0
 End
 
 #14071
@@ -3363,9 +3363,9 @@ LEVEL  30
 WEIGHT 9
 COST   12000
 COND   100
-Affect O 12 20 0
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
+Affect O 12 20 0
 End
 
 #14075
@@ -3460,9 +3460,9 @@ LEVEL  30
 WEIGHT 18
 COST   6000
 COND   100
-Affect O 13 10 0
-Affect O 19 1 0
 Affect O 18 1 0
+Affect O 19 1 0
+Affect O 13 10 0
 End
 
 #14081
@@ -3491,11 +3491,11 @@ TYPE   weapon mace 5 6 crush 0
 EXTRA  1 2 0 1280
 WEAR   AN
 LEVEL  45
-WEIGHT 21
+WEIGHT 20
 COST   18000
 COND   100
-Affect O 19 4 0
 Affect O 18 4 0
+Affect O 19 4 0
 End
 
 #14084
@@ -3511,9 +3511,9 @@ LEVEL  45
 WEIGHT 25
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
 Affect O 17 -10 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  9
 End
 
@@ -3547,8 +3547,8 @@ LEVEL  35
 WEIGHT 30
 COST   20000
 COND   100
-Affect O 19 1 0
 Affect O 18 3 0
+Affect O 19 1 0
 LIMIT  4
 End
 
@@ -3565,11 +3565,11 @@ LEVEL  51
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 3 0
-Affect O 13 15 0
-Affect O 12 20 0
 Affect O 2 1 0
+Affect O 12 20 0
+Affect O 13 15 0
+Affect O 18 3 0
+Affect O 19 2 0
 LIMIT  2
 End
 
@@ -3586,9 +3586,9 @@ LEVEL  51
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 8 0
 Affect O 2 2 0
+Affect O 18 8 0
+Affect O 19 4 0
 LIMIT  2
 End
 
@@ -3598,16 +3598,16 @@ SHORT  a cavalier shield~
 DESCR 
 a fine shield with a dwarf knight's emblem is here.~
 MAT    unknown~
-TYPE   armor ACDEFG ACDEFG ACDEFG ACDEFG D
+TYPE   armor CDEFG CDEFG CDEFG CDEFG D
 EXTRA  1 2 0 1026
 WEAR   AJ
 LEVEL  51
 WEIGHT 36
 COST   20000
 COND   100
-Affect O 19 3 0
-Affect O 18 2 0
 Affect O 13 15 0
+Affect O 18 2 0
+Affect O 19 3 0
 LIMIT  3
 End
 
@@ -3624,9 +3624,9 @@ LEVEL  51
 WEIGHT 23
 COST   20000
 COND   100
-Affect O 19 4 0
-Affect O 18 4 0
 Affect O 1 1 0
+Affect O 18 4 0
+Affect O 19 4 0
 LIMIT  2
 End
 
@@ -3643,11 +3643,11 @@ LEVEL  50
 WEIGHT 9
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 13 20 0
-Affect O 12 40 0
 Affect O 3 2 0
+Affect O 12 40 0
+Affect O 13 20 0
+Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  4
 End
 
@@ -3664,9 +3664,9 @@ LEVEL  51
 WEIGHT 4
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 3 0
 Affect O 13 10 0
+Affect O 18 3 0
+Affect O 19 2 0
 LIMIT  4
 End
 
@@ -3683,11 +3683,11 @@ LEVEL  55
 WEIGHT 24
 COST   0
 COND   100
-Affect O 19 3 0
-Affect O 18 4 0
-Affect O 13 30 0
-Affect O 12 30 0
 Affect O 5 -4 0
+Affect O 12 30 0
+Affect O 13 30 0
+Affect O 18 4 0
+Affect O 19 3 0
 LIMIT  2
 End
 
@@ -3704,9 +3704,9 @@ LEVEL  46
 WEIGHT 30
 COST   20000
 COND   100
-Affect O 19 3 0
-Affect O 18 -1 0
 Affect O 17 -5 0
+Affect O 18 -1 0
+Affect O 19 3 0
 LIMIT  4
 End
 
@@ -3723,8 +3723,8 @@ LEVEL  1
 WEIGHT 4
 COST   0
 COND   100
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  5
 End
 
@@ -3773,8 +3773,8 @@ LEVEL  50
 WEIGHT 25
 COST   20000
 COND   100
-Affect O 13 20 0
 Affect O 12 30 0
+Affect O 13 20 0
 LIMIT  6
 End
 
@@ -3808,8 +3808,8 @@ LEVEL  51
 WEIGHT 15
 COST   20000
 COND   100
-Affect O 19 8 0
 Affect O 18 -1 0
+Affect O 19 8 0
 LIMIT  2
 End
 
@@ -3839,11 +3839,11 @@ TYPE   armor CDE CDE CDE CDE 0
 EXTRA  1 4 0 660
 WEAR   AG
 LEVEL  40
-WEIGHT 21
+WEIGHT 20
 COST   20000
 COND   100
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
 End
 
 #14104
@@ -3859,10 +3859,10 @@ LEVEL  40
 WEIGHT 24
 COST   20000
 COND   100
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 17 -10 0
 Affect O 2 1 0
+Affect O 17 -10 0
+Affect O 18 2 0
+Affect O 19 2 0
 EDESC drow mask~
 a mask of drow make seems to almost absorb light and hide what lies behind it.
 ~
@@ -3901,9 +3901,9 @@ LEVEL  52
 WEIGHT 36
 COST   20000
 COND   100
-Affect O 19 5 0
-Affect O 18 -1 0
 Affect O 17 -9 0
+Affect O 18 -1 0
+Affect O 19 5 0
 EDESC drow wakizashi ~
 This fine blade isn't much good as a weapon, but someone with good 
 reflexes could easily use it to divert the blows of heavier weapons and 
@@ -3942,8 +3942,8 @@ LEVEL  40
 WEIGHT 12
 COST   20000
 COND   100
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 LIMIT  3
 End
 
@@ -3960,10 +3960,10 @@ LEVEL  40
 WEIGHT 18
 COST   0
 COND   100
-Affect O 13 -300 0
-Affect O 14 -300 0
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
+Affect O 14 -300 0
+Affect O 13 -300 0
 End
 
 #14110
@@ -3979,8 +3979,8 @@ LEVEL  52
 WEIGHT 23
 COST   25000
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 LIMIT  2
 End
 
@@ -3997,9 +3997,9 @@ LEVEL  52
 WEIGHT 23
 COST   25000
 COND   100
-Affect O 1 3 0
-Affect O 19 6 0
 Affect O 20 -10 0
+Affect O 19 6 0
+Affect O 1 3 0
 LIMIT  2
 RESTR  B
 End
@@ -4017,9 +4017,9 @@ LEVEL  51
 WEIGHT 34
 COST   30000
 COND   100
-Affect O 17 -50 0
-Affect O 19 7 0
 Affect O 2 -4 0
+Affect O 19 7 0
+Affect O 17 -50 0
 LIMIT  3
 RESTR  B
 End
@@ -5483,6 +5483,10 @@ distance you hear something's roar echo through the mountain.
 ~
 FLAGS  1
 Sect   5
+DOOR 1
+~
+~
+0 0 14085
 DOOR 2
 ~
 ~
@@ -5491,10 +5495,6 @@ DOOR 0
 The snowy ground narrows onto a ledge.~
 ~
 0 0 14076
-DOOR 1
-~
-~
-0 0 14085
 DOOR 3
 ~
 ~
@@ -5510,14 +5510,14 @@ distance you hear something's roar echo through the mountain.
 ~
 FLAGS  1
 Sect   5
-DOOR 0
-~
-~
-0 0 14081
 DOOR 1
 ~
 ~
 0 0 14084
+DOOR 0
+~
+~
+0 0 14081
 DOOR 2
 ~
 ~
@@ -5618,14 +5618,14 @@ distance you hear something's roar echo through the mountain.
 ~
 FLAGS  1
 Sect   5
-DOOR 2
-~
-~
-0 0 14077
 DOOR 0
 ~
 ~
 0 0 14080
+DOOR 2
+~
+~
+0 0 14077
 DOOR 1
 ~
 ~
@@ -5672,6 +5672,10 @@ In the distance you hear something's roar echo through the mountain.
 ~
 FLAGS  1
 Sect   5
+DOOR 2
+~
+~
+0 0 14081
 DOOR 0
 ~
 ~
@@ -5680,10 +5684,6 @@ DOOR 1
 ~
 ~
 0 0 14078
-DOOR 2
-~
-~
-0 0 14081
 DOOR 3
 ~
 ~
@@ -5802,10 +5802,6 @@ in the shadows.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 14099
 DOOR 2
 ~
 ~
@@ -5814,6 +5810,10 @@ DOOR 1
 ~
 ~
 0 0 14091
+DOOR 0
+~
+~
+0 0 14099
 DOOR 3
 ~
 ~
@@ -5831,14 +5831,14 @@ in the shadows.
 ~
 FLAGS  1
 Sect   0
-DOOR 2
-~
-~
-0 0 14092
 DOOR 0
 ~
 ~
 0 0 14279
+DOOR 2
+~
+~
+0 0 14092
 DOOR 1
 ~
 ~
@@ -5860,18 +5860,18 @@ in the shadows.
 ~
 FLAGS  1
 Sect   0
-DOOR 2
-~
-~
-0 0 14095
-DOOR 1
-~
-~
-0 0 14090
 DOOR 0
 ~
 ~
 0 0 14280
+DOOR 1
+~
+~
+0 0 14090
+DOOR 2
+~
+~
+0 0 14095
 DOOR 3
 ~
 ~
@@ -5893,14 +5893,14 @@ DOOR 2
 ~
 ~
 0 0 14090
-DOOR 0
-~
-~
-0 0 14096
 DOOR 1
 ~
 ~
 0 0 14094
+DOOR 0
+~
+~
+0 0 14096
 DOOR 3
 ~
 ~
@@ -5918,10 +5918,6 @@ in the shadows.
 ~
 FLAGS  1
 Sect   0
-DOOR 0
-~
-~
-0 0 14097
 DOOR 1
 ~
 ~
@@ -5930,6 +5926,10 @@ DOOR 2
 ~
 ~
 0 0 14095
+DOOR 0
+~
+~
+0 0 14097
 DOOR 3
 ~
 ~
@@ -6009,14 +6009,14 @@ DOOR 0
 ~
 ~
 0 0 14094
-DOOR 2
-~
-~
-0 0 14098
 DOOR 1
 ~
 ~
 0 0 14279
+DOOR 2
+~
+~
+0 0 14098
 DOOR 3
 ~
 ~
@@ -6034,18 +6034,18 @@ in the shadows.
 ~
 FLAGS  1
 Sect   0
-DOOR 2
-~
-~
-0 0 14280
-DOOR 0
-~
-~
-0 0 14096
 DOOR 1
 ~
 ~
 0 0 14095
+DOOR 0
+~
+~
+0 0 14096
+DOOR 2
+~
+~
+0 0 14280
 DOOR 3
 ~
 ~
@@ -6063,14 +6063,14 @@ in the shadows.
 ~
 FLAGS  1
 Sect   0
-DOOR 2
-~
-~
-0 0 14090
 DOOR 0
 ~
 ~
 0 0 14279
+DOOR 2
+~
+~
+0 0 14090
 DOOR 1
 ~
 ~

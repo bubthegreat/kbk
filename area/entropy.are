@@ -206,8 +206,8 @@ LEVEL  20
 WEIGHT 20
 COST   0
 COND   100
-Affect O 18 10 0
 Affect O 19 10 0
+Affect O 18 10 0
 RESTR  a
 End
 
@@ -224,10 +224,10 @@ LEVEL  51
 WEIGHT 7
 COST   0
 COND   100
-Affect O 13 80 0
-Affect O 1 10 0
-Affect O 19 10 0
 Affect O 20 -20 0
+Affect O 19 10 0
+Affect O 1 10 0
+Affect O 13 80 0
 End
 
 #0
@@ -247,11 +247,11 @@ form of a dog, blinking in and out of physical form.
 ~
 FLAGS  14163976
 Sect   0
+EDESC  keyword~
+~
 EDESC  sign~
 Perhaps the name of the old inn has been scratched out and now the weathered sign simply
 reads, " No ale here. Go away." in an almost illegible script.
-~
-EDESC  keyword~
 ~
 DOOR 0
 A large dark room lays empty to the north.
@@ -276,13 +276,13 @@ into the walls, ranging from the most insane ramblings to words of bizarre wisdo
 ~
 FLAGS  14163976
 Sect   0
-EDESC  wisdom~
-In a frantic scribbled script reads, " If I had a gold coin for every person I ever
-knew, I would have an empty coinpurse, because the gold went to ale.".
-~
 EDESC  ramblings~
 A wild mess of scribblings coat the walls, some of them read, " Often I like to eat out
 of a bowl made of skulls. Only because it makes me feel like I get smarter."
+~
+EDESC  wisdom~
+In a frantic scribbled script reads, " If I had a gold coin for every person I ever
+knew, I would have an empty coinpurse, because the gold went to ale.".
 ~
 DOOR 0
 A nerve wracking cackle echoes from the north, as well as an odor of stale ale.

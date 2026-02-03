@@ -123,11 +123,11 @@ LEVEL  55
 WEIGHT 12
 COST   0
 COND   100
-Affect O 2 -4 0
-Affect O 5 1 0
-Affect O 1 3 0
-Affect O 18 2 0
 Affect O 19 15 0
+Affect O 18 2 0
+Affect O 1 3 0
+Affect O 5 1 0
+Affect O 2 -4 0
 End
 
 #26010
@@ -164,27 +164,6 @@ A rusty plaque stands here, and a map is nailed to the wall.
 ~
 FLAGS  7349260
 Sect   0
-EDESC  plaque~
-================== WELCOME TO THE COLISEUM ==================
-You have entered the elite fighting ground of the realms.  Do
-NOT attack anybody until an Immortal explains things. This is
-considered an irritating annoyance, and you will be slain.
-
-Here, Immortals will watch your killing prowess.  Fight well,
-for you may be considered for tattoos, quest items, or more.
-
-You are to stay in this arena until an Immortal transfers you
-out.  If you must quit, get the attention of an Immortal.
-
-You may find pills of health.  Use them, for you will need
-them. Do not hoard them, or take all of them at once. Slaying
-violators is always fun.
-
-Good luck.
---Dioxide
-=============================================================
-
-~
 EDESC  map~
 =============================================================
 Map of the Coliseum, mapped by Dioxide
@@ -211,6 +190,27 @@ Map of the Coliseum, mapped by Dioxide
                          To North
 
 =============================================================
+~
+EDESC  plaque~
+================== WELCOME TO THE COLISEUM ==================
+You have entered the elite fighting ground of the realms.  Do
+NOT attack anybody until an Immortal explains things. This is
+considered an irritating annoyance, and you will be slain.
+
+Here, Immortals will watch your killing prowess.  Fight well,
+for you may be considered for tattoos, quest items, or more.
+
+You are to stay in this arena until an Immortal transfers you
+out.  If you must quit, get the attention of an Immortal.
+
+You may find pills of health.  Use them, for you will need
+them. Do not hoard them, or take all of them at once. Slaying
+violators is always fun.
+
+Good luck.
+--Dioxide
+=============================================================
+
 ~
 DOOR 0
 You see the northern wing of the first level.~

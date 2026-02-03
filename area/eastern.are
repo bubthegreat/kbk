@@ -727,11 +727,11 @@ TYPE   armor ABD CE ACD BCD 0
 EXTRA  1 2 0 65
 WEAR   AD
 LEVEL  23
-WEIGHT 27
+WEIGHT 26
 COST   7300
 COND   100
-Affect O 2 2 0
 Affect O 17 -4 0
+Affect O 2 2 0
 End
 
 #5002
@@ -747,8 +747,8 @@ LEVEL  51
 WEIGHT 32
 COST   2000
 COND   100
-Affect O 19 7 0
 Affect O 18 4 0
+Affect O 19 7 0
 LIMIT  10
 End
 
@@ -947,8 +947,8 @@ LEVEL  52
 WEIGHT 17
 COST   3500
 COND   100
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
 LIMIT  5
 End
 
@@ -965,10 +965,10 @@ LEVEL  51
 WEIGHT 17
 COST   4500
 COND   100
-Affect O 18 4 0
-Affect O 19 4 0
-Affect O 20 -5 0
 Affect O 12 35 0
+Affect O 20 -5 0
+Affect O 19 4 0
+Affect O 18 4 0
 LIMIT  5
 End
 
@@ -1030,8 +1030,8 @@ LEVEL  51
 WEIGHT 10
 COST   2600
 COND   100
-Affect O 18 7 0
 Affect O 12 50 0
+Affect O 18 7 0
 LIMIT  5
 End
 
@@ -1093,8 +1093,8 @@ LEVEL  20
 WEIGHT 15
 COST   2500
 COND   100
-Affect O 20 -10 0
 Affect O 2 2 0
+Affect O 20 -10 0
 LIMIT  5
 End
 
@@ -1217,12 +1217,12 @@ TYPE   armor ABDF AG CF ACDE 0
 EXTRA  1 1 0 1
 WEAR   AD
 LEVEL  51
-WEIGHT 21
+WEIGHT 20
 COST   15000
 COND   100
-Affect O 2 -4 0
-Affect O 19 4 0
 Affect R 0 -1 J
+Affect O 19 4 0
+Affect O 2 -4 0
 LIMIT  7
 End
 

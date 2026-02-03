@@ -2296,8 +2296,8 @@ LEVEL  30
 WEIGHT 21
 COST   9000
 COND   100
-Affect O 13 20 0
 Affect O 1 1 0
+Affect O 13 20 0
 End
 
 #20402
@@ -2345,8 +2345,8 @@ LEVEL  15
 WEIGHT 16
 COST   415
 COND   100
-Affect O 3 1 0
 Affect O 20 -3 0
+Affect O 3 1 0
 End
 
 #20405
@@ -2359,11 +2359,11 @@ TYPE   armor BC BD AC C 0
 EXTRA  1 1 0 32768
 WEAR   AD
 LEVEL  20
-WEIGHT 21
+WEIGHT 20
 COST   18000
 COND   100
-Affect O 13 14 0
 Affect O 19 1 0
+Affect O 13 14 0
 End
 
 #20406
@@ -2471,8 +2471,8 @@ LEVEL  10
 WEIGHT 33
 COST   1280
 COND   100
-Affect O 18 -1 0
 Affect O 19 1 0
+Affect O 18 -1 0
 End
 
 #20413
@@ -2488,8 +2488,8 @@ LEVEL  30
 WEIGHT 17
 COST   5000
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #20414
@@ -2521,8 +2521,8 @@ LEVEL  30
 WEIGHT 34
 COST   7000
 COND   100
-Affect O 18 -2 0
 Affect O 19 2 0
+Affect O 18 -2 0
 End
 
 #20416
@@ -2569,10 +2569,10 @@ LEVEL  20
 WEIGHT 4
 COST   2500
 COND   100
-Affect O 20 -5 0
-Affect O 3 1 0
-Affect O 2 1 0
 Affect O 12 15 0
+Affect O 2 1 0
+Affect O 3 1 0
+Affect O 20 -5 0
 LIMIT  4
 End
 
@@ -2589,8 +2589,8 @@ LEVEL  40
 WEIGHT 18
 COST   10000
 COND   100
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
 LIMIT  6
 End
 
@@ -2607,9 +2607,9 @@ LEVEL  40
 WEIGHT 25
 COST   12000
 COND   0
-Affect O 12 25 0
-Affect O 13 25 0
 Affect O 5 1 0
+Affect O 13 25 0
+Affect O 12 25 0
 LIMIT  3
 End
 
@@ -2677,8 +2677,8 @@ LEVEL  60
 WEIGHT 18
 COST   20000
 COND   100
-Affect O 19 25 0
 Affect O 18 25 0
+Affect O 19 25 0
 End
 
 #20425
@@ -2709,8 +2709,8 @@ LEVEL  40
 WEIGHT 17
 COST   500
 COND   100
-Affect O 19 3 0
 Affect O 18 3 0
+Affect O 19 3 0
 End
 
 #20427
@@ -3152,11 +3152,11 @@ LEVEL  20
 WEIGHT 4
 COST   0
 COND   100
-Affect O 18 2 0
-Affect O 19 2 0
-Affect O 12 25 0
-Affect O 13 25 0
 Affect O 14 25 0
+Affect O 13 25 0
+Affect O 12 25 0
+Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #20483
@@ -3548,8 +3548,8 @@ LEVEL  27
 WEIGHT 16
 COST   125
 COND   100
-Affect O 18 1 0
 Affect O 19 1 0
+Affect O 18 1 0
 End
 
 #20555
@@ -3565,8 +3565,8 @@ LEVEL  25
 WEIGHT 17
 COST   115
 COND   100
-Affect O 18 2 0
 Affect O 2 1 0
+Affect O 18 2 0
 End
 
 #20556
@@ -3582,8 +3582,8 @@ LEVEL  21
 WEIGHT 8
 COST   80
 COND   100
-Affect O 20 -5 0
 Affect O 5 1 0
+Affect O 20 -5 0
 End
 
 #20557
@@ -3599,8 +3599,8 @@ LEVEL  23
 WEIGHT 14
 COST   95
 COND   100
-Affect O 14 30 0
 Affect O 1 1 0
+Affect O 14 30 0
 End
 
 #20558
@@ -3616,10 +3616,10 @@ LEVEL  35
 WEIGHT 4
 COST   17650
 COND   100
-Affect O 20 -2 0
-Affect O 18 1 0
-Affect O 19 2 0
 Affect O 4 1 0
+Affect O 19 2 0
+Affect O 18 1 0
+Affect O 20 -2 0
 End
 
 #20559
@@ -3635,8 +3635,8 @@ LEVEL  25
 WEIGHT 15
 COST   6125
 COND   100
-Affect O 12 20 0
 Affect O 3 1 0
+Affect O 12 20 0
 End
 
 #20560
@@ -3668,9 +3668,9 @@ LEVEL  22
 WEIGHT 27
 COST   20000
 COND   100
-Affect O 13 15 0
-Affect O 12 15 0
 Affect O 1 1 0
+Affect O 12 15 0
+Affect O 13 15 0
 End
 
 #20562
@@ -3788,11 +3788,11 @@ TYPE   armor ABCD ABCD ABCD ABC 0
 EXTRA  1 1 0 32768
 WEAR   AD
 LEVEL  30
-WEIGHT 21
+WEIGHT 20
 COST   150
 COND   100
-Affect O 19 1 0
 Affect O 2 1 0
+Affect O 19 1 0
 End
 
 #20570
@@ -3805,7 +3805,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  1 1 0 32768
 WEAR   A
 LEVEL  10
-WEIGHT 25
+WEIGHT 6
 COST   100
 COND   100
 End
@@ -3820,7 +3820,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  1 1 0 32768
 WEAR   A
 LEVEL  0
-WEIGHT 25
+WEIGHT 6
 COST   50
 COND   100
 End
@@ -3835,7 +3835,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  1 1 0 32768
 WEAR   A
 LEVEL  30
-WEIGHT 25
+WEIGHT 6
 COST   200
 COND   100
 End
@@ -4064,11 +4064,11 @@ TYPE   weapon staff 6 6 pierce 0
 EXTRA  1 1 0 32768
 WEAR   AN
 LEVEL  40
-WEIGHT 19
+WEIGHT 22
 COST   20000
 COND   100
-Affect O 18 -2 0
 Affect O 19 5 0
+Affect O 18 -2 0
 End
 
 #20588
@@ -4084,8 +4084,8 @@ LEVEL  10
 WEIGHT 18
 COST   4250
 COND   100
-Affect O 19 1 0
 Affect O 18 2 0
+Affect O 19 1 0
 End
 
 #20589
@@ -4101,8 +4101,8 @@ LEVEL  27
 WEIGHT 6
 COST   19000
 COND   100
-Affect O 19 3 0
 Affect O 18 2 0
+Affect O 19 3 0
 End
 
 #20590
@@ -4118,8 +4118,8 @@ LEVEL  25
 WEIGHT 15
 COST   11790
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #20591
@@ -4132,11 +4132,11 @@ TYPE   weapon mace 4 6 pound 0
 EXTRA  1 1 0 32768
 WEAR   AN
 LEVEL  20
-WEIGHT 21
+WEIGHT 20
 COST   7625
 COND   100
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
 End
 
 #20592
@@ -4167,8 +4167,8 @@ LEVEL  21
 WEIGHT 17
 COST   1000
 COND   100
-Affect O 12 40 0
 Affect O 3 2 0
+Affect O 12 40 0
 LIMIT  25
 End
 
@@ -4185,9 +4185,9 @@ LEVEL  24
 WEIGHT 16
 COST   10000
 COND   100
-Affect O 13 15 0
-Affect O 19 2 0
 Affect O 18 4 0
+Affect O 19 2 0
+Affect O 13 15 0
 LIMIT  3
 End
 
@@ -4205,11 +4205,11 @@ LEVEL  25
 WEIGHT 3
 COST   10000
 COND   100
-Affect O 13 10 0
-Affect O 12 10 0
-Affect O 24 -5 0
-Affect O 19 2 0
 Affect O 18 1 0
+Affect O 19 2 0
+Affect O 24 -5 0
+Affect O 12 10 0
+Affect O 13 10 0
 LIMIT  5
 End
 
@@ -4243,9 +4243,9 @@ LEVEL  50
 WEIGHT 18
 COST   10000
 COND   100
-Affect O 2 2 0
-Affect O 12 30 0
 Affect O 13 30 0
+Affect O 12 30 0
+Affect O 2 2 0
 LIMIT  5
 End
 

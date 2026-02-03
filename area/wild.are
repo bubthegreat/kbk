@@ -803,9 +803,9 @@ LEVEL  44
 WEIGHT 14
 COST   1552
 COND   100
-Affect O 3 2 0
-Affect O 12 50 0
 Affect O 18 4 0
+Affect O 12 50 0
+Affect O 3 2 0
 LIMIT  5
 End
 
@@ -838,10 +838,10 @@ LEVEL  35
 WEIGHT 6
 COST   1321
 COND   100
-Affect O 1 1 0
-Affect O 18 3 0
-Affect O 19 7 0
 Affect O 2 1 0
+Affect O 19 7 0
+Affect O 18 3 0
+Affect O 1 1 0
 LIMIT  4
 End
 
@@ -858,9 +858,9 @@ LEVEL  51
 WEIGHT 16
 COST   20000
 COND   100
-Affect V 0 0 M
-Affect R 0 0 N
 Affect O 13 55 0
+Affect R 0 0 N
+Affect V 0 0 M
 LIMIT  1
 End
 
@@ -877,10 +877,10 @@ LEVEL  51
 WEIGHT 4
 COST   11543
 COND   100
-Affect O 2 0 0
-Affect O 12 33 0
-Affect O 18 5 0
 Affect O 19 5 0
+Affect O 18 5 0
+Affect O 12 33 0
+Affect O 2 0 0
 LIMIT  12
 End
 
@@ -914,10 +914,10 @@ LEVEL  33
 WEIGHT 13
 COST   122
 COND   100
-Affect O 1 4 0
-Affect O 18 3 0
-Affect O 19 4 0
 Affect O 17 -2 0
+Affect O 19 4 0
+Affect O 18 3 0
+Affect O 1 4 0
 LIMIT  20
 End
 
@@ -934,10 +934,10 @@ LEVEL  53
 WEIGHT 3
 COST   2334
 COND   100
-Affect O 13 22 0
-Affect O 18 3 0
-Affect O 19 8 0
 Affect R 0 0 I
+Affect O 19 8 0
+Affect O 18 3 0
+Affect O 13 22 0
 LIMIT  12
 End
 
@@ -954,8 +954,8 @@ LEVEL  41
 WEIGHT 14
 COST   211
 COND   100
-Affect O 2 3 0
 Affect O 18 4 0
+Affect O 2 3 0
 LIMIT  20
 End
 
@@ -972,8 +972,8 @@ LEVEL  52
 WEIGHT 10
 COST   11222
 COND   100
-Affect O 18 3 0
 Affect O 19 3 0
+Affect O 18 3 0
 LIMIT  15
 End
 
@@ -1005,8 +1005,8 @@ LEVEL  22
 WEIGHT 17
 COST   22
 COND   100
-Affect O 18 2 0
 Affect O 19 2 0
+Affect O 18 2 0
 End
 
 #26213
@@ -1022,11 +1022,11 @@ LEVEL  52
 WEIGHT 6
 COST   20000
 COND   100
-Affect O 13 55 0
-Affect O 2 4 0
-Affect O 17 -12 0
-Affect O 18 4 0
 Affect O 19 4 0
+Affect O 18 4 0
+Affect O 17 -12 0
+Affect O 2 4 0
+Affect O 13 55 0
 LIMIT  10
 End
 
@@ -1043,10 +1043,10 @@ LEVEL  52
 WEIGHT 32
 COST   20000
 COND   100
-Affect A 0 0 N
-Affect O 1 4 0
-Affect O 18 4 0
 Affect O 19 6 0
+Affect O 18 4 0
+Affect O 1 4 0
+Affect A 0 0 N
 LIMIT  2
 End
 
@@ -1063,10 +1063,10 @@ LEVEL  48
 WEIGHT 6
 COST   6112
 COND   100
-Affect O 12 21 0
-Affect O 13 21 0
-Affect O 17 -16 0
 Affect O 20 -12 0
+Affect O 17 -16 0
+Affect O 13 21 0
+Affect O 12 21 0
 LIMIT  8
 End
 
@@ -1083,11 +1083,11 @@ LEVEL  41
 WEIGHT 12
 COST   122
 COND   100
-Affect O 2 -2 0
-Affect O 1 2 0
-Affect O 18 2 0
-Affect O 19 6 0
 Affect O 17 -9 0
+Affect O 19 6 0
+Affect O 18 2 0
+Affect O 1 2 0
+Affect O 2 -2 0
 LIMIT  8
 End
 
@@ -1121,10 +1121,10 @@ LEVEL  45
 WEIGHT 24
 COST   1224
 COND   100
-Affect R 0 0 H
-Affect O 1 2 0
-Affect O 19 6 0
 Affect O 18 6 0
+Affect O 19 6 0
+Affect O 1 2 0
+Affect R 0 0 H
 LIMIT  1
 End
 
@@ -1141,15 +1141,15 @@ LEVEL  48
 WEIGHT 21
 COST   1
 COND   100
-Affect V 0 0 CD
-Affect O 1 -3 0
-Affect O 2 -3 0
-Affect O 3 -3 0
-Affect O 4 -3 0
-Affect O 5 -3 0
-Affect O 18 -10 0
-Affect O 19 -10 0
 Affect A 0 0 IKd
+Affect O 19 -10 0
+Affect O 18 -10 0
+Affect O 5 -3 0
+Affect O 4 -3 0
+Affect O 3 -3 0
+Affect O 2 -3 0
+Affect O 1 -3 0
+Affect V 0 0 CD
 LIMIT  1
 End
 
@@ -1183,9 +1183,9 @@ LEVEL  52
 WEIGHT 6
 COST   2123
 COND   100
-Affect O 1 2 0
-Affect O 18 8 0
 Affect O 19 8 0
+Affect O 18 8 0
+Affect O 1 2 0
 LIMIT  2
 End
 
@@ -1199,12 +1199,12 @@ TYPE   weapon staff 8 5 crush F
 EXTRA  1 5 0 266307
 WEAR   AN
 LEVEL  42
-WEIGHT 20
+WEIGHT 23
 COST   0
 COND   100
-Affect O 1 3 0
-Affect O 18 4 0
 Affect O 19 9 0
+Affect O 18 4 0
+Affect O 1 3 0
 LIMIT  7
 End
 
@@ -1221,9 +1221,9 @@ LEVEL  46
 WEIGHT 16
 COST   5666
 COND   100
-Affect O 18 2 0
-Affect O 19 3 0
 Affect O 17 -10 0
+Affect O 19 3 0
+Affect O 18 2 0
 LIMIT  20
 End
 
@@ -1237,7 +1237,7 @@ TYPE   boat 0 0 0 0 0
 EXTRA  1 6 0 17039459
 WEAR   AOP
 LEVEL  52
-WEIGHT 21
+WEIGHT 5
 COST   0
 COND   100
 Affect O 20 -10 0
@@ -1257,10 +1257,10 @@ LEVEL  52
 WEIGHT 12
 COST   0
 COND   100
-Affect O 2 5 0
-Affect O 18 10 0
-Affect O 17 -15 0
 Affect O 20 -15 0
+Affect O 17 -15 0
+Affect O 18 10 0
+Affect O 2 5 0
 LIMIT  8
 End
 
@@ -1277,8 +1277,8 @@ LEVEL  52
 WEIGHT 4
 COST   0
 COND   100
-Affect R 0 0 E
 Affect O 17 -20 0
+Affect R 0 0 E
 End
 
 #0
@@ -1373,26 +1373,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26213
-DOOR 3
-You see more forest. 
-~
-~
-0 0 26218
-DOOR 1
-You see more forest. 
-~
-~
-0 0 26204
 DOOR 2
 You see more forest. 
 ~
 ~
 0 0 26202
+DOOR 3
+You see more forest. 
+~
+~
+0 0 26218
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26213
+DOOR 1
+You see more forest. 
+~
+~
+0 0 26204
 MHRATE 75 75
 End
 
@@ -1505,11 +1505,6 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 1
-You see more forest. 
-~
-~
-0 0 26209
 DOOR 3
 You see more forest. 
 ~
@@ -1520,6 +1515,11 @@ You see more forest.
 ~
 ~
 0 0 26214
+DOOR 1
+You see more forest. 
+~
+~
+0 0 26209
 DOOR 2
 You see more forest. 
 ~
@@ -1851,6 +1851,11 @@ You see more forest.
 ~
 ~
 0 0 26219
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26217
 DOOR 0
 You see more forest. 
 ~
@@ -1861,11 +1866,6 @@ You see more forest.
 ~
 ~
 0 0 26239
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26217
 MHRATE 75 75
 End
 
@@ -1910,16 +1910,16 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 3
-You see a large clearing. 
-~
-~
-0 0 26224
 DOOR 2
 You see more forest. 
 ~
 ~
 0 0 26215
+DOOR 3
+You see a large clearing. 
+~
+~
+0 0 26224
 DOOR 0
 You see more forest. 
 ~
@@ -1954,16 +1954,16 @@ You see more forest.
 ~
 ~
 0 0 26225
-DOOR 1
-You see more forest. 
-~
-~
-0 0 26215
 DOOR 2
 You see more forest. 
 ~
 ~
 0 0 26219
+DOOR 1
+You see more forest. 
+~
+~
+0 0 26215
 MHRATE 75 75
 End
 
@@ -2012,6 +2012,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26226
 DOOR 3
 You see more forest. 
 ~
@@ -2022,11 +2027,6 @@ You see more forest.
 ~
 ~
 0 0 26223
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26226
 DOOR 2
 You see more forest. 
 ~
@@ -2106,6 +2106,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
+DOOR 1
+You see more forest. 
+~
+~
+0 0 26229
 DOOR 2
 You see a large clearing. 
 ~
@@ -2121,11 +2126,6 @@ You see more forest.
 ~
 ~
 0 0 26227
-DOOR 1
-You see more forest. 
-~
-~
-0 0 26229
 MHRATE 75 75
 End
 
@@ -2140,16 +2140,16 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 3
-You see more forest. 
-~
-~
-0 0 26228
 DOOR 1
 You see more forest. 
 ~
 ~
 0 0 26230
+DOOR 3
+You see more forest. 
+~
+~
+0 0 26228
 DOOR 0
 You see more forest. 
 ~
@@ -2175,16 +2175,16 @@ the east. To the north, west and south is Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26231
 DOOR 2
 You see more forest. 
 ~
 ~
 0 0 26221
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26231
 DOOR 3
 You see more forest. 
 ~
@@ -2326,16 +2326,16 @@ the east. To the west, east and south is Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26236
 DOOR 1
 You see more forest. 
 ~
 ~
 0 0 26234
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26236
 DOOR 3
 You see more forest. 
 ~
@@ -2415,6 +2415,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26239
 DOOR 3
 You see more forest. 
 ~
@@ -2430,11 +2435,6 @@ You see more forest.
 ~
 ~
 0 0 26225
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26239
 MHRATE 75 75
 End
 
@@ -2504,25 +2504,25 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
+DOOR 0
+~
+~
+0 0 26265
 DOOR 3
 You see more forest. 
 ~
 ~
 0 0 26247
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26242
-DOOR 0
-~
-~
-0 0 26265
 DOOR 1
 You see more forest. 
 ~
 ~
 0 0 26235
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26242
 MHRATE 75 75
 End
 
@@ -2537,26 +2537,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 3
-You see more forest. 
-~
-~
-0 0 26248
-DOOR 1
-You see more forest. 
-~
-~
-0 0 26236
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26241
 DOOR 2
 You see more forest. 
 ~
 ~
 0 0 26243
+DOOR 3
+You see more forest. 
+~
+~
+0 0 26248
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26241
+DOOR 1
+You see more forest. 
+~
+~
+0 0 26236
 MHRATE 75 75
 End
 
@@ -2571,26 +2571,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26244
-DOOR 3
-You see more forest. 
-~
-~
-0 0 26249
 DOOR 0
 You see more forest. 
 ~
 ~
 0 0 26242
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26244
 DOOR 1
 You see more forest. 
 ~
 ~
 0 0 26237
+DOOR 3
+You see more forest. 
+~
+~
+0 0 26249
 MHRATE 75 75
 End
 
@@ -2605,6 +2605,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26245
 DOOR 1
 You see more forest. 
 ~
@@ -2615,11 +2620,6 @@ You see more forest.
 ~
 ~
 0 0 26250
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26245
 DOOR 0
 You see more forest. 
 ~
@@ -2669,10 +2669,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 2
+DOOR 3
+You see more forest. 
 ~
 ~
-0 0 26263
+0 0 26252
 DOOR 1
 You see more forest. 
 ~
@@ -2683,11 +2684,10 @@ You see more forest.
 ~
 ~
 0 0 26245
-DOOR 3
-You see more forest. 
+DOOR 2
 ~
 ~
-0 0 26252
+0 0 26263
 MHRATE 75 75
 End
 
@@ -2702,6 +2702,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26253
 DOOR 3
 You see more forest. 
 ~
@@ -2717,11 +2722,6 @@ You see more forest.
 ~
 ~
 0 0 26248
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26253
 MHRATE 75 75
 End
 
@@ -2736,26 +2736,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 3
-You see more forest. 
-~
-~
-0 0 26256
 DOOR 2
 You see more forest. 
 ~
 ~
 0 0 26249
-DOOR 0
+DOOR 3
 You see more forest. 
 ~
 ~
-0 0 26247
+0 0 26256
 DOOR 1
 You see more forest. 
 ~
 ~
 0 0 26242
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26247
 MHRATE 75 75
 End
 
@@ -2806,16 +2806,16 @@ You see more forest.
 ~
 ~
 0 0 26251
-DOOR 1
-You see more forest. 
-~
-~
-0 0 26244
 DOOR 0
 You see more forest. 
 ~
 ~
 0 0 26249
+DOOR 1
+You see more forest. 
+~
+~
+0 0 26244
 MHRATE 75 75
 End
 
@@ -2860,26 +2860,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26262
 DOOR 3
 You see more forest. 
 ~
 ~
 0 0 26260
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26251
 DOOR 1
 You see more forest. 
 ~
 ~
 0 0 26246
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26262
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26251
 MHRATE 75 75
 End
 
@@ -2944,15 +2944,6 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 3
-~
-~
-0 0 26267
-DOOR 2
-You see more forest. 
-~
-~
-0 0 26256
 DOOR 1
 You see more forest. 
 ~
@@ -2963,6 +2954,15 @@ You see more forest.
 ~
 ~
 0 0 26254
+DOOR 3
+~
+~
+0 0 26267
+DOOR 2
+You see more forest. 
+~
+~
+0 0 26256
 MHRATE 75 75
 End
 
@@ -3169,16 +3169,6 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  1
 Sect   3
-DOOR 0
-You see more forest. 
-~
-~
-0 0 26246
-DOOR 3
-You see more forest. 
-~
-~
-0 0 26262
 DOOR 1
 You see more forest. 
 ~
@@ -3189,6 +3179,16 @@ You see a darker more dangerous forest.
 ~
 ~
 0 0 26271
+DOOR 0
+You see more forest. 
+~
+~
+0 0 26246
+DOOR 3
+You see more forest. 
+~
+~
+0 0 26262
 MHRATE 75 75
 End
 
@@ -3351,16 +3351,16 @@ the east. To the north, south and west is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 0
-You see lighter forest. 
-~
-~
-0 0 26264
 DOOR 2
 You see a dark forest. 
 ~
 ~
 0 0 26273
+DOOR 0
+You see lighter forest. 
+~
+~
+0 0 26264
 DOOR 3
 You see a dark forest. 
 ~
@@ -3380,26 +3380,26 @@ unsafe here.
 ~
 FLAGS  8193
 Sect   3
-DOOR 2
-You see a dark forest. 
-~
-~
-0 0 26278
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26270
 DOOR 0
 You see a lighter forest. 
 ~
 ~
 0 0 26263
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26270
 DOOR 3
 You see a dark forest. 
 ~
 ~
 0 0 26279
+DOOR 2
+You see a dark forest. 
+~
+~
+0 0 26278
 MHRATE 50 50
 End
 
@@ -3552,21 +3552,21 @@ You see a dark forest.
 ~
 ~
 0 0 26276
-DOOR 3
-You see a dark forest. 
-~
-~
-0 0 26281
-DOOR 0
-You see a dark forest. 
-~
-~
-0 0 26278
 DOOR 1
 You see a dark forest. 
 ~
 ~
 0 0 26274
+DOOR 0
+You see a dark forest. 
+~
+~
+0 0 26278
+DOOR 3
+You see a dark forest. 
+~
+~
+0 0 26281
 MHRATE 50 50
 End
 
@@ -3581,11 +3581,6 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26273
 DOOR 2
 You see a dark forest. 
 ~
@@ -3596,6 +3591,11 @@ You see a dark forest.
 ~
 ~
 0 0 26271
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26273
 DOOR 3
 You see a dark forest. 
 ~
@@ -3645,16 +3645,16 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 3
-You see a dark forest. 
-~
-~
-0 0 26286
 DOOR 1
 You see a dark forest. 
 ~
 ~
 0 0 26278
+DOOR 3
+You see a dark forest. 
+~
+~
+0 0 26286
 DOOR 2
 You see a dark forest. 
 ~
@@ -3679,26 +3679,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26277
-DOOR 3
-You see a dark forest. 
-~
-~
-0 0 26285
 DOOR 0
 You see a dark forest. 
 ~
 ~
 0 0 26280
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26277
 DOOR 2
 You see a dark forest. 
 ~
 ~
 0 0 26282
+DOOR 3
+You see a dark forest. 
+~
+~
+0 0 26285
 MHRATE 50 50
 End
 
@@ -3836,26 +3836,26 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26280
-DOOR 0
-You see a dark forest. 
-~
-~
-0 0 26287
 DOOR 3
 You see a dark forest. 
 ~
 ~
 0 0 26291
+DOOR 0
+You see a dark forest. 
+~
+~
+0 0 26287
 DOOR 2
 You see a dark forest. 
 ~
 ~
 0 0 26285
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26280
 MHRATE 50 50
 End
 
@@ -3871,16 +3871,16 @@ the north. To the south, west and east is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26279
 DOOR 2
 You see a dark forest. 
 ~
 ~
 0 0 26286
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26279
 DOOR 3
 You see a dark forest. 
 ~
@@ -3901,16 +3901,16 @@ the south. To the north, east and west is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 0
-You see a dark forest. 
-~
-~
-0 0 26289
 DOOR 1
 You see a dark forest. 
 ~
 ~
 0 0 26284
+DOOR 0
+You see a dark forest. 
+~
+~
+0 0 26289
 DOOR 3
 You see a dark forest. 
 ~
@@ -3930,11 +3930,6 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 2
-You see a dark forest. 
-~
-~
-0 0 26288
 DOOR 0
 You see a dark forest. 
 ~
@@ -3950,6 +3945,11 @@ You see a dark forest.
 ~
 ~
 0 0 26295
+DOOR 2
+You see a dark forest. 
+~
+~
+0 0 26288
 MHRATE 50 50
 End
 
@@ -4070,16 +4070,16 @@ the south. To the north, east and west is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26288
 DOOR 0
 You see a dark forest. 
 ~
 ~
 0 0 26295
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26288
 DOOR 3
 You see a dark forest. 
 ~
@@ -4099,6 +4099,11 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
+DOOR 0
+You see a dark forest. 
+~
+~
+0 0 26296
 DOOR 1
 You see a dark forest. 
 ~
@@ -4114,11 +4119,6 @@ You see a dark forest.
 ~
 ~
 0 0 26302
-DOOR 0
-You see a dark forest. 
-~
-~
-0 0 26296
 MHRATE 50 50
 End
 
@@ -4133,6 +4133,16 @@ unsafe here. All directions lead you through the Wild Wood.
 ~
 FLAGS  8193
 Sect   3
+DOOR 0
+You see a dark forest. 
+~
+~
+0 0 26297
+DOOR 3
+You see a dark forest. 
+~
+~
+0 0 26301
 DOOR 1
 You see a dark forest. 
 ~
@@ -4143,16 +4153,6 @@ You see a dark forest.
 ~
 ~
 0 0 26295
-DOOR 3
-You see a dark forest. 
-~
-~
-0 0 26301
-DOOR 0
-You see a dark forest. 
-~
-~
-0 0 26297
 MHRATE 50 50
 End
 
@@ -4227,16 +4227,16 @@ the north. To the south, west and east is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 2
-You see a dark forest. 
-~
-~
-0 0 26300
 DOOR 1
 You see a dark forest. 
 ~
 ~
 0 0 26298
+DOOR 2
+You see a dark forest. 
+~
+~
+0 0 26300
 DOOR 3
 You see a dark forest. 
 ~
@@ -4257,16 +4257,16 @@ the west. To the north, south and east is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26297
 DOOR 2
 You see a dark forest. 
 ~
 ~
 0 0 26301
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26297
 DOOR 0
 You see a dark forest. 
 ~
@@ -4326,16 +4326,16 @@ You see a dark forest.
 ~
 ~
 0 0 26303
-DOOR 3
-You see a dark forest. 
-~
-~
-0 0 26307
 DOOR 1
 You see a dark forest. 
 ~
 ~
 0 0 26295
+DOOR 3
+You see a dark forest. 
+~
+~
+0 0 26307
 MHRATE 50 50
 End
 
@@ -4406,21 +4406,21 @@ the west. To the north, south and east is Wild Wood.
 ~
 FLAGS  8193
 Sect   3
-DOOR 1
-You see a dark forest. 
-~
-~
-0 0 26300
-DOOR 0
-You see a dark forest. 
-~
-~
-0 0 26304
 DOOR 2
 You see a dark forest. 
 ~
 ~
 0 0 26306
+DOOR 0
+You see a dark forest. 
+~
+~
+0 0 26304
+DOOR 1
+You see a dark forest. 
+~
+~
+0 0 26300
 MHRATE 50 50
 End
 
@@ -4440,11 +4440,6 @@ You see a dark forest.
 ~
 ~
 0 0 26301
-DOOR 2
-You see a dark forest. 
-~
-~
-0 0 26307
 DOOR 3
 ~
 ~
@@ -4454,6 +4449,11 @@ You see a dark forest.
 ~
 ~
 0 0 26305
+DOOR 2
+You see a dark forest. 
+~
+~
+0 0 26307
 MHRATE 50 50
 End
 

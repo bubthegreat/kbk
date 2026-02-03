@@ -458,7 +458,7 @@ TYPE   weapon staff 8 4 smash 0
 EXTRA  1 1 0 32768
 WEAR   AN
 LEVEL  51
-WEIGHT 22
+WEIGHT 25
 COST   1
 COND   100
 Affect O 18 5 0
@@ -494,7 +494,7 @@ TYPE   weapon spear 8 4 pierce F
 EXTRA  1 1 0 32768
 WEAR   AN
 LEVEL  51
-WEIGHT 33
+WEIGHT 41
 COST   1
 COND   100
 Affect O 18 5 0
@@ -634,7 +634,7 @@ TYPE   weapon spear 9 7 chaotic CEFH
 EXTRA  1 4 0 786435
 WEAR   AN
 LEVEL  60
-WEIGHT 17
+WEIGHT 21
 COST   0
 COND   100
 Affect O 31 1 0

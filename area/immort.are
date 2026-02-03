@@ -237,7 +237,7 @@ TYPE   weapon mace 5 9 beating BCDH
 EXTRA  1 5 0 36995
 WEAR   AN
 LEVEL  0
-WEIGHT 21
+WEIGHT 20
 COST   0
 COND   100
 End
@@ -255,10 +255,10 @@ LEVEL  52
 WEIGHT 19
 COST   0
 COND   100
-Affect O 12 50 0
-Affect O 13 50 0
-Affect O 19 7 0
 Affect R 0 -1 P
+Affect O 19 7 0
+Affect O 13 50 0
+Affect O 12 50 0
 LIMIT  1
 RESTR  Eb
 End
@@ -276,41 +276,24 @@ LEVEL  60
 WEIGHT 9
 COST   0
 COND   100
-Affect O 19 50 0
-Affect O 18 50 0
 Affect O 28 -25 0
+Affect O 18 50 0
+Affect O 19 50 0
 End
 
 #1205
 NAME   Newbie Guide~
 SHORT  the Guide to Pos Domination~
 DESCR 
-THIS IS A GUIDE! *LOOK PAGEONE*~
+A book with all the answers calls out to you here.~
 MAT    paper~
-TYPE   furniture 0 0 0 0 0
+TYPE   trash 0 0 0 0 0
 EXTRA  0 0
-WEAR   0
+WEAR   A
 LEVEL  0
 WEIGHT 3
 COST   10
 COND   100
-EDESC guide~
-A bound book hums with untold wisdom..perhaps looking through these pages will get you
-on your way in these terrible lands. Looking at PageOne seems a good idea.
-~
-EDESC pageone~
-Welcome to the secret book of total POS domination. Count yourself lucky, people have 
-killed for this information. Now read on and learn all you need to know.
- 
-Getting Started:
- 
-1. Right when you create, your should first type Outfit. This will give you a basic set
-of armor to get started. Buying simple newbie weapons, one south and up of the altar in
-Mid should be your next stop. At the merchant, type LIST to show his wares..then simply
-type BUY Dagger..etc..whichever weapon you wish, or purchase all of them if you want.
-Congrats, you now have armor and weapons. Next type PRAC ALL, to practice all your skills,
-spells, or sups to 75%. You are now ready to get on with the training. Look at pagetwo.
-~
 EDESC pagetwo~
 2. Training and getting the lay of the land.
  
@@ -330,40 +313,23 @@ questions on what a certain skill/spell/supplication does try looking to our hel
 for an answer. For instance..typing HELP shield will bring up all related topics to 
 shields..helpful for newbie paladins. Onward you go! Doing well so far right? 
 ~
-End
-
-#1208
-NAME   Potion of invisibility~
-SHORT  a potion of Invisibility~
-DESCR 
-You see an almost translucent glass vial on the ground.~
-MAT    glass~
-TYPE   potion 0 'invisibility' 'heal' 'heal' 'reserved'
-EXTRA  0 0
-WEAR   A
-LEVEL  51
-WEIGHT 7
-COST   0
-COND   100
-End
-
-#1209
-NAME   The Biggest Shtick!~
-SHORT  the Biggest Shtick~
-DESCR 
-A long and girthy 'staff' is lying here on the ground.~
-MAT    flesh~
-TYPE   weapon staff 1 1 slap CE
-EXTRA  1 5 0 17039619
-WEAR   AN
-LEVEL  60
-WEIGHT 13
-COST   1410065408
-COND   100
-Affect O 20 -1000 0
-Affect O 17 -10000 0
-Affect O 12 10000 0
-Affect O 13 10000 0
+EDESC pageone~
+Welcome to the secret book of total POS domination. Count yourself lucky, people have 
+killed for this information. Now read on and learn all you need to know.
+ 
+Getting Started:
+ 
+1. Right when you create, your should first type Outfit. This will give you a basic set
+of armor to get started. Buying simple newbie weapons, one south and up of the altar in
+Mid should be your next stop. At the merchant, type LIST to show his wares..then simply
+type BUY Dagger..etc..whichever weapon you wish, or purchase all of them if you want.
+Congrats, you now have armor and weapons. Next type PRAC ALL, to practice all your skills,
+spells, or sups to 75%. You are now ready to get on with the training. Look at pagetwo.
+~
+EDESC guide~
+A bound book hums with untold wisdom..perhaps looking through these pages will get you
+on your way in these terrible lands. Looking at PageOne seems a good idea.
+~
 End
 
 #1210
@@ -371,19 +337,16 @@ NAME   newbie breastplate~
 SHORT  a rusted newbie breastplate~
 DESCR 
 A rusty newbie breastplate lies here.~
-MAT    leather~
-TYPE   armor ABCF CG BDF ACDF 0
+MAT    iron~
+TYPE   armor BCDEF EF CG BF 0
 EXTRA  1 3 0 17858560
 WEAR   AD
 LEVEL  45
-WEIGHT 18
+WEIGHT 33
 COST   0
 COND   100
-Affect O 1 3 0
-Affect O 19 2 0
 Affect O 18 2 0
-Affect O 13 20 0
-Affect O 12 20 0
+Affect O 19 2 0
 End
 
 #1211
@@ -391,19 +354,16 @@ NAME   newbie armguards~
 SHORT  a pair of steel newbie armguards~
 DESCR 
 A pair of steel newbie armguards lie here.~
-MAT    leather~
-TYPE   armor ACDE AEF ABCDE AF 0
+MAT    iron~
+TYPE   armor ACDF ABF AEF DE 0
 EXTRA  1 2 0 1081344
 WEAR   AI
 LEVEL  45
-WEIGHT 14
+WEIGHT 26
 COST   0
 COND   100
-Affect O 12 10 0
-Affect O 13 10 0
-Affect O 1 2 0
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 End
 
 #1212
@@ -411,20 +371,15 @@ NAME   newbie gauntlets~
 SHORT  a pair of newbie gauntlets~
 DESCR 
 A pair of newbie gauntlets lie here.~
-MAT    leather~
-TYPE   armor ADE ABDF ABDE ACDE 0
+MAT    iron~
+TYPE   armor ABCF BCDE ABDF ACE 0
 EXTRA  1 2 0 1081344
 WEAR   AH
 LEVEL  45
-WEIGHT 10
+WEIGHT 19
 COST   0
 COND   100
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 12 10 0
-Affect O 13 10 0
-Affect O 19 3 0
-Affect O 18 3 0
+Affect O 19 2 0
 End
 
 #1213
@@ -440,13 +395,11 @@ LEVEL  45
 WEIGHT 8
 COST   0
 COND   100
-Affect O 20 -5 0
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 19 2 0
-Affect O 18 2 0
-Affect O 12 15 0
-Affect O 13 15 0
+Affect O 18 1 0
+Affect O 19 1 0
+Affect O 24 -3 0
+Affect O 12 10 0
+Affect O 13 5 0
 End
 
 #1214
@@ -462,13 +415,8 @@ LEVEL  45
 WEIGHT 4
 COST   0
 COND   100
-Affect O 12 10 0
-Affect O 13 10 0
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 19 3 0
-Affect O 18 3 0
-Affect O 20 -5 0
+Affect O 18 2 0
+Affect O 19 2 0
 End
 
 #1215
@@ -484,13 +432,9 @@ LEVEL  45
 WEIGHT 4
 COST   0
 COND   100
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 12 5 0
-Affect O 13 5 0
-Affect O 19 3 0
-Affect O 18 3 0
-Affect O 20 -3 0
+Affect O 19 2 0
+Affect O 24 -1 0
+Affect O 18 1 0
 End
 
 #1216
@@ -506,12 +450,8 @@ LEVEL  45
 WEIGHT 7
 COST   0
 COND   100
-Affect O 12 10 0
-Affect O 13 10 0
-Affect O 2 2 0
-Affect O 1 2 0
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 End
 
 #1217
@@ -527,12 +467,8 @@ LEVEL  45
 WEIGHT 7
 COST   0
 COND   100
-Affect O 12 10 0
-Affect O 13 10 0
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 19 2 0
 Affect O 18 2 0
+Affect O 19 2 0
 End
 
 #1218
@@ -540,19 +476,14 @@ NAME   Newbie Boots~
 SHORT  a pair of tarnished newbie boots~
 DESCR 
 A pair of tarnished newbie boots lie here, damaged.~
-MAT    leather~
-TYPE   armor ADE ABDF ABDE ACDE 0
+MAT    iron~
+TYPE   armor ABCF BCDE ABDF ACE 0
 EXTRA  1 2 0 1081344
 WEAR   AG
 LEVEL  45
-WEIGHT 12
+WEIGHT 23
 COST   0
 COND   100
-Affect O 14 50 0
-Affect O 13 10 0
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 18 2 0
 Affect O 19 2 0
 End
 
@@ -561,17 +492,17 @@ NAME   newbie head pole~
 SHORT  an unbalanced newbie pole~
 DESCR 
 An unbalanced newbie pole has been abandoned here.~
-MAT    leather~
+MAT    iron~
 TYPE   light 0 0 ABCFGHIJ 0 0
 EXTRA  1 3 0 1081345
 WEAR   AO
 LEVEL  45
-WEIGHT 5
+WEIGHT 9
 COST   0
 COND   100
-Affect O 13 30 0
-Affect O 12 30 0
 Affect O 20 -10 0
+Affect O 12 30 0
+Affect O 13 30 0
 EDESC eyes~
 Two sunken eyes stare at you, lifelessly yet still eminating enough light
 to keep your surroundings visible.
@@ -583,18 +514,16 @@ NAME   Newbie Shield~
 SHORT  a polished newbie shield~
 DESCR 
 A polished newbie shield has been left here.~
-MAT    leather~
-TYPE   armor CG CEFG DG ACDG 0
+MAT    steel~
+TYPE   armor CEFG ACDG CEFG DG 0
 EXTRA  1 2 0 1081344
 WEAR   AJ
 LEVEL  45
-WEIGHT 21
+WEIGHT 41
 COST   0
 COND   100
-Affect O 2 3 0
-Affect O 1 3 0
-Affect O 12 30 0
-Affect O 13 30 0
+Affect O 18 3 0
+Affect O 19 3 0
 End
 
 #1221
@@ -610,18 +539,14 @@ LEVEL  0
 WEIGHT 24
 COST   0
 COND   100
-Affect O 2 1 0
-Affect O 1 1 0
-Affect O 12 30 0
-Affect O 13 30 0
 End
 
 #1222
 NAME   Newbie Map~
-SHORT  A sign with directions~
+SHORT  a newbie map written on parchment~
 DESCR 
-A large sign stands here showing directions to many places.~
-MAT    wood~
+A newbie map lies here.~
+MAT    unknown~
 TYPE   map 0 0 0 0 0
 EXTRA  1 3 0 17858560
 WEAR   A
@@ -629,177 +554,31 @@ LEVEL  0
 WEIGHT 9
 COST   0
 COND   100
-
-EDESC Areas four~
-[Areas Four]
-- The Hobo Train Yard
-[3e4n2w8ne]
-- The Lost Prison
-[20ene10n]
-- The Minotaur Maze
-[6sd]
-- The Naiadian Sea
-[4s2e3s2w3swswn]
-- The Red Tower
-[5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nwn2w]
-- The Southern Swamps
-[36en10e3s]
-- The Wild Woods
-[9en]
-- Underdark
-[6e4s2es2edws2d]
-- Valley of the Elves
-[3e4n2w6nwn]
-- Varggin Shih
-[nd2wsw2sd2sd]
-- Wyvern's Tower
-[6e4s2es2ede]
-~
-EDESC Areas three~
-[Areas Three]
-- Rakshasa Tower
-[5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nen2ene2n]
-- Rivenrock Canyon
-[12en]
-- Ruins of Drannor
-[5wnwn3w3nw3n7w8n2e3n4es5es2e2s]
-- Sands of Sorrow
-[s2e2s3e]
-- Shadowlands
-[3e4n2w4ne2n4e4s3edsd]
-- Snow Caves
-[3e4n2w12nwnene4nwnenw4n]
-- Strange Carnival
-[5w3s3wsds2esese2s2w]
-- Strange Mansion
-[20ene7nw]
-- Sywilm Woods
-[4w]
-- The Blue Tower
-[5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nwn2e]
-- The Cave of Shadows
-[36en6e3n3e14nws]
-- The Dale
-[5wnwnw]
-- The Dragon Tower
-[5w3s5w2s2wn2wsw3n2ew]
-- The Green Tower
-[5wnwn3w3nw3n7w8n2e3n4es5e4se4nwn2w2nw3n]
-~
-EDESC Areas two~
-[Areas Two]
-- Elemental Temple
-[5w3s5w2s2wn2wsw2nw]
-- Emerald Forest
-[4s2e3s2w3swsw]
-- Evil' Abode
-[36enen]
-- Forest of Myth Drannor
-[5wnwn3w3nw3n7w8n2e3n2e]
-- Forgotten Isle
-[37esws]
-- Galaxy
-[5w3s5w2s2wn2wsw3newe]
-- Lich Tower
-[nd]
-- Hell
-[3e4n2w12nwnene4nwnenw3n8ed]
-- High Tower
-[5w3s5w2s2wn2wsw2n]
-- Latenburrow Downs
-[5wnwnen]
-- Mad Man
-[6e9n10wn]
-- Mahn-Tor
-[6e4s2es2ed3nes]
-- Mausoleum
-[36en6e3n5ened]
-- Neraka
-[5wnwn3w3nwn2wswn3w]
-~
-EDESC Areas one~
-[Areas One]
-- Arkham Swamps
-[36en15e]
-- Arkham Legion
-[36en17es2en6e2sen3es2e]
-- Beholder Corps
-[5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nw3n2wnwn]
-- Blight
-[6e3n]
-- Castle of Giants
-[6e4s2es2ed5n2wn]
-- Castle of Trails
-[5w3s5w2s2w2n]
-- Celestial Area
-[5wnwn3w3nwn2wswn3w2n2wu]
-- Charnag Che'el
-[6e4s2es2edwsdw]
-- Crusader Battlefield
-[3e4n2w6nw2n2w]
-- Dargaard Keep
-[3e4n2w12nwnene4nwnenw3n]
-- Dark Forest
-[3e4n2w7n]
-- Dead Forest
-[6e4s2eses]
-- Dunes of Aarid'dorr
-[6e4s2es2ed2se]
-- Dying Forest
-[6e4s2ese3se2ses2enen3e3s2w4s2e4s]
-~
-EDESC Towns Cities Villages~
-[Towns]
-- Arkham
-[36e]
-- Drow Enclave
-[5wnwn3w3nw3n7w8n2e3n4es5e4se4ne3nw7nd]
-- Giant Village
-[36en10e7s4w3s3e3se3s2e3s2e4sw2se4s2es2e]
-- Naiadia
-[4s2e3s2w3swsw2nw2nw3n2e]
-- Neraka
-[5wnwn3w3nwn2wswn3w]
-- New Ofcol
-[nd2wsw2sd2sds]
-- New Thalos
-[15e]
-- Ofcol
-[nd2wsw2sd2sds]
-- Ramadahn
-[6enw2n3w7n3e]
-- Tar Valon
-[6enw]
-- Thalos
-[6es]
-- The Elven Stronghold
-[5wnwn3w3nw3n7w8n2e3n2en]
-- Varggin Shih
-[nd2wsw2sd2sd]
-~
-EDESC Cabals~
-[Cabals]
-- Ancient
-[36en6e3n3e14nws]
-- Arcana
-[6e4s2es2edwsd4w2d2ses2euw]
-- Bounty
-[s2pws]
-- Empire
-[6enw2n3w4nw2n2w5n]
-- Enforcer
-[nd2wsw2sd2sd3s4w]
-- Knight
-[nd2wsw2sd2sd7s6e2ue2un]
-- Outlaw
-[3e4n2w6nw4n]
-- Rager
-[6e4s2es2ed5n4wsw]
-- Sylvan
-[5w3s5wsesesen]
+EDESC map~
+To Practice: n,w,n,w 
+To Train: s,3e,s 
+Strange Mansion: 21e,8n,w,n 
+Riven Rock Canyon: 12e,3n,w,2n,e,n,e,2n,e,2n 
+Strange Carnival: s,2e,2s,8w,s,w,2e,7n 
+ Nightfall: 3e,4n,2w,7n,6e,4s,3e,d,s,d,2s,e,3s,e,2s,2e,2s,e,2s,2e,2s,3e,2s,u,2e,2n,e,n,e,4u,2e,  2d,e 
+Nightfall Keep: 
+3e,4n,2w,7n,6e,4s,3e,d,s,d,2s,e,3s,e,2s,2e,2s,e,2s,2e,2s,3e,2s,u,2e,2n,e,n, 
+4u,2e,2d,10e,s,2e,3u,e,3d,2e,s 
+ Ramadhn: 6e,n,w,2n,3w,7n,3e,17n
+ Dark Forest: 3e,4n,2w,13n 
+The Valley Inn: 4e,3n,2w 
+Lich Tower: n,d 
+The Hobo Train Yard: 4e,3n,2w,5n,w,2n,2e 
+ Mausoleum: 40e,n,6e,2n,2e,n,e,d,2s 
+Tar Valon: 6e,n,w,2n,3w 
+The Lost Prison: 21e,12n 
+ Battlefield: 3e,4n,2w,4n,w,5n,2w 
+Southern Swamps: 40e,n,6e, all south 
+Castle of Giants: 6e,4s,2e,s,2e,d,5n,2w,6n 
+Emerald Forest: 6s,w,s,2w,2s,e,s,w,2s,e,3s,w,s,w,u 
+Varggin Shih: n,d,3w,3s,d,2s,d,n,u,w,u,n,u,2n,e,d,n,d,2n
 ~
 End
-
 
 #1223
 NAME   Newbie Gold~
@@ -829,8 +608,8 @@ LEVEL  60
 WEIGHT 4
 COST   250
 COND   100
-Affect O 3 -15 0
 Affect O 4 -15 0
+Affect O 3 -15 0
 End
 
 #1225
@@ -861,10 +640,10 @@ LEVEL  60
 WEIGHT 23
 COST   15000
 COND   100
-Affect A 0 -1 H
-Affect O 20 -10 0
-Affect O 18 10 0
 Affect O 19 10 0
+Affect O 18 10 0
+Affect O 20 -10 0
+Affect A 0 -1 H
 LIMIT  2
 End
 
@@ -881,8 +660,8 @@ LEVEL  60
 WEIGHT 9
 COST   5000
 COND   100
-Affect O 19 300 0
 Affect O 18 100 0
+Affect O 19 300 0
 End
 
 #1228
@@ -928,9 +707,9 @@ LEVEL  60
 WEIGHT 23
 COST   5000
 COND   100
-Affect O 20 -10 0
-Affect O 18 10 0
 Affect O 19 10 0
+Affect O 18 10 0
+Affect O 20 -10 0
 LIMIT  1
 RESTR  X
 End
@@ -964,8 +743,8 @@ LEVEL  51
 WEIGHT 16
 COST   0
 COND   100
-Affect O 19 5 0
 Affect O 18 5 0
+Affect O 19 5 0
 LIMIT  1
 RESTR  X
 End
@@ -1132,16 +911,84 @@ from one angle, or the wine-dark sea from another.
 ~
 FLAGS  41480
 Sect   4
-EDESC  dusty leather bound leather-bound Donne~
-.       `Cruel and sudden, hast thou since
-        Purpled thy nail in blood of innocence?
-        Wherein could this flea guilty be,
-        Except in the drop it sucked from thee?
-        Yet thou trimph'st and say'st that thou
-        Find'st not thyself, nor me the weaker now;
-          'Tis true, then learn how false fears be:
-          Just so much honour when thou yield'st to me
-          Will waste as this flea's death took life from thee.'
+EDESC  rose rose-brambled balcony railing~
+Climbing white roses have swarmed over the original marble to obscure
+it almost completely.  The air is sweet not with roses, though,
+but with Satin's sandalwood perfume.
+~
+EDESC  rosewood chair~
+It looks comfortable, and the cushions are ivory velvet.
+~
+EDESC  stark black mountains wine wine-dark dark sea~
+The ocean is constantly smashing up against the cliffs and rending
+huge slabs from it.  The beach is scarcely a beach at all, more a
+collection of rough flakes varying in size from a small car to a
+small fist.  As the water comes up over the rocks and ebbs back
+down, it filters through the spaces and makes an unnerving rattling
+sound.
+~
+EDESC  print out print-out creased well poem~
+This page has been read over so many times that you can barely discern
+the words, and in fact with much poring only the following becomes
+clear:
+        'I know that I am studly - Heck, I'm sexy, cute and cuddly
+         And I know that I'm extremely modest too.'
+~
+EDESC  yeats~
+The page it is flipped open to reads:
+
+A sudden blow: the great wings beating still
+Above the staggering girl, her thighs carressed
+By the dark webs, her nape caught in his bill,
+he holds her helpless breast upon his breast.
+How can those terrified vague fingers push
+The feathered glory from her loosening thighs?
+And how can body, laid in that white rush,
+But feel that strange heart beating where it lies?
+A shudder in the loins engenders there
+The broken wall, the burning roof and tower
+And Agammemnon dead.  Being so caught up,
+So mastered by this brute blood of the air,
+Did she put on his knowledge with his power
+Before his indifferent beak could let her drop?
+~
+EDESC  chandler~
+She has just started the Lady in the Lake:
+
+Gillerain Regal, the Champagne of Perfumes.  It was definitely
+the stuff to get.  One drop of that in the hollow of your
+throat and the matched pink pearls started falling off you like
+summer rain.
+~
+EDESC  barrie~
+A copy of Peter Pan is opened near the end:
+
+What sort of form was Hook showing?  Misguided man though he
+was, we may be glad, without sympathising with him, that in
+the end he stayed true to the traditions of his race.  The
+other boys were flying about him now, flouting, scornful; and
+as he staggered about the deck striking at them impotently, his
+mind was no longer with them; it was slouching in the playing
+fields of long ago, or being sent up for good, or watching
+the wall-game from a famous wall.  And his shoes were right,
+and his waistcoat was right, and his tie was right, and his
+socks were right.
+
+James Hook, thou not wholly unheroic figure, farewell.
+~
+EDESC  tennyson~
+.       "My mariners
+         Souls that have toiled, and wrought, and thought with me -
+         The ever with a frolic welcome took
+         The thunder and the sunshine, and opposed
+         Free hearts, free foreheads - you and I are old;
+         Old age hath yet his honour and the toil
+         Death closes all; but something ere the end,
+         Some work of noble note, may yet be done,
+         Not unbecoming of men that strove with the gods.
+         The lights begin to twinkle from the rocks;
+         The long day wanes; the slow moon climbs; the deep
+         Moans round with many voices."
 ~
 EDESC  battered paperback de Laclos~
 .       'One is very soon bored of everything, my angel; it is a law
@@ -1165,84 +1012,16 @@ EDESC  battered paperback de Laclos~
         without regret.  I shall come back perhaps.  Such is life.
         It is not my fault.
 ~
-EDESC  tennyson~
-.       "My mariners
-         Souls that have toiled, and wrought, and thought with me -
-         The ever with a frolic welcome took
-         The thunder and the sunshine, and opposed
-         Free hearts, free foreheads - you and I are old;
-         Old age hath yet his honour and the toil
-         Death closes all; but something ere the end,
-         Some work of noble note, may yet be done,
-         Not unbecoming of men that strove with the gods.
-         The lights begin to twinkle from the rocks;
-         The long day wanes; the slow moon climbs; the deep
-         Moans round with many voices."
-~
-EDESC  barrie~
-A copy of Peter Pan is opened near the end:
-
-What sort of form was Hook showing?  Misguided man though he
-was, we may be glad, without sympathising with him, that in
-the end he stayed true to the traditions of his race.  The
-other boys were flying about him now, flouting, scornful; and
-as he staggered about the deck striking at them impotently, his
-mind was no longer with them; it was slouching in the playing
-fields of long ago, or being sent up for good, or watching
-the wall-game from a famous wall.  And his shoes were right,
-and his waistcoat was right, and his tie was right, and his
-socks were right.
-
-James Hook, thou not wholly unheroic figure, farewell.
-~
-EDESC  chandler~
-She has just started the Lady in the Lake:
-
-Gillerain Regal, the Champagne of Perfumes.  It was definitely
-the stuff to get.  One drop of that in the hollow of your
-throat and the matched pink pearls started falling off you like
-summer rain.
-~
-EDESC  yeats~
-The page it is flipped open to reads:
-
-A sudden blow: the great wings beating still
-Above the staggering girl, her thighs carressed
-By the dark webs, her nape caught in his bill,
-he holds her helpless breast upon his breast.
-How can those terrified vague fingers push
-The feathered glory from her loosening thighs?
-And how can body, laid in that white rush,
-But feel that strange heart beating where it lies?
-A shudder in the loins engenders there
-The broken wall, the burning roof and tower
-And Agammemnon dead.  Being so caught up,
-So mastered by this brute blood of the air,
-Did she put on his knowledge with his power
-Before his indifferent beak could let her drop?
-~
-EDESC  print out print-out creased well poem~
-This page has been read over so many times that you can barely discern
-the words, and in fact with much poring only the following becomes
-clear:
-        'I know that I am studly - Heck, I'm sexy, cute and cuddly
-         And I know that I'm extremely modest too.'
-~
-EDESC  stark black mountains wine wine-dark dark sea~
-The ocean is constantly smashing up against the cliffs and rending
-huge slabs from it.  The beach is scarcely a beach at all, more a
-collection of rough flakes varying in size from a small car to a
-small fist.  As the water comes up over the rocks and ebbs back
-down, it filters through the spaces and makes an unnerving rattling
-sound.
-~
-EDESC  rosewood chair~
-It looks comfortable, and the cushions are ivory velvet.
-~
-EDESC  rose rose-brambled balcony railing~
-Climbing white roses have swarmed over the original marble to obscure
-it almost completely.  The air is sweet not with roses, though,
-but with Satin's sandalwood perfume.
+EDESC  dusty leather bound leather-bound Donne~
+.       `Cruel and sudden, hast thou since
+        Purpled thy nail in blood of innocence?
+        Wherein could this flea guilty be,
+        Except in the drop it sucked from thee?
+        Yet thou trimph'st and say'st that thou
+        Find'st not thyself, nor me the weaker now;
+          'Tis true, then learn how false fears be:
+          Just so much honour when thou yield'st to me
+          Will waste as this flea's death took life from thee.'
 ~
 DOOR 2
 Valhalla is to the south.
@@ -1284,12 +1063,12 @@ are east.
 ~
 FLAGS  1032
 Sect   0
-EDESC  clutter mess~
-You notice Jimmy Hoffa's ring.
-~
 EDESC  tools scrolls braziers components~
 It's all worth a fortune, but you'd better not touch it.  Alander keeps
 inventory and holds grudges.
+~
+EDESC  clutter mess~
+You notice Jimmy Hoffa's ring.
 ~
 DOOR 2
 Valhalla is to the south.
@@ -1310,21 +1089,21 @@ corner, you notice a statue.
 ~
 FLAGS  33288
 Sect   0
-EDESC  bookshelf~
-This is the most amazing collection of chess books you have ever seen.
-Everything from Damiano's manuscripts, to a complete collection of the
-Encyclopedia of Chess Openings, to the latest Imformants are all here.
+EDESC  desk~
+This desk is much larger than anyone could possibly need.  At one end you 
+notice a large, disorderly mass of papers; it must be all his immortal
+paperwork.  At the other end is a magnificent wooden inlaid board with
+handcrafted ebony and hardwood pieces.
 ~
 EDESC  statue~
 You recognize this as a statue of Robert James Fischer, one of the most 
 creative, if not eccentric, players of all time.  The inscription on the
 base reads, "I like the moment when I crush a man's ego."
 ~
-EDESC  desk~
-This desk is much larger than anyone could possibly need.  At one end you 
-notice a large, disorderly mass of papers; it must be all his immortal
-paperwork.  At the other end is a magnificent wooden inlaid board with
-handcrafted ebony and hardwood pieces.
+EDESC  bookshelf~
+This is the most amazing collection of chess books you have ever seen.
+Everything from Damiano's manuscripts, to a complete collection of the
+Encyclopedia of Chess Openings, to the latest Imformants are all here.
 ~
 DOOR 0
 Valhalla is to the north
@@ -1366,13 +1145,13 @@ tear savagely at your fragile body.
 ~
 FLAGS  282599940
 Sect   0
+EDESC  sky wind winds~
+Cold winds plunge ceaselessly at you from the dark, cloudless sky.
+~
 EDESC  floor~
 The stone floor is the same shade of grey as the sky and is completely plain
 and unscratched.  It is probably too hard for anything to leave as much as a
 scratch on it.
-~
-EDESC  sky wind winds~
-Cold winds plunge ceaselessly at you from the dark, cloudless sky.
 ~
 DOOR 0
 The hard floor seems to go on forever.
