@@ -274,8 +274,9 @@ class MudTerminal:
         if not room:
             return
 
-        # Check if exit already exists
-        if dir_num in room.exits:
+        # Check if exit already exists and is a real exit (to_room > 0)
+        # Allow overwriting description-only directions (to_room = 0)
+        if dir_num in room.exits and room.exits[dir_num].to_room > 0:
             self._add_output("There is already an exit in that direction.", color=(255, 200, 100))
             return
 
@@ -283,12 +284,28 @@ class MudTerminal:
 
         # If target_vnum is provided, link to existing room
         if target_vnum is not None:
-            # Check if target room exists
-            if target_vnum not in area.rooms:
-                self._add_output(f"ERROR: Room #{target_vnum} does not exist!", color=(255, 100, 100))
-                return
+            # Search for target room across all loaded areas
+            target_room = None
+            target_area = None
+            target_area_id = None
 
-            target_room = area.rooms[target_vnum]
+            # First check current area
+            if target_vnum in area.rooms:
+                target_room = area.rooms[target_vnum]
+                target_area = area
+                target_area_id = app_state.current_area_id
+            else:
+                # Search other loaded areas
+                for area_id, other_area in app_state.areas.items():
+                    if target_vnum in other_area.rooms:
+                        target_room = other_area.rooms[target_vnum]
+                        target_area = other_area
+                        target_area_id = area_id
+                        break
+
+            if target_room is None:
+                self._add_output(f"ERROR: Room #{target_vnum} does not exist in any loaded area!", color=(255, 100, 100))
+                return
 
             # Create exit from current room to target room
             room.exits[dir_num] = Exit(
@@ -303,23 +320,34 @@ class MudTerminal:
                 to_room=self.current_room_vnum
             )
 
-            # Save the area file if we have a file path
-            if app_state.current_file:
-                try:
+            # Determine if this is a cross-area link
+            is_cross_area = (target_area_id != app_state.current_area_id)
+
+            # Save the area file(s)
+            try:
+                # Save current area
+                if app_state.current_file:
                     writer = AreWriter(area)
                     writer.write(app_state.current_file)
+                    app_state.mark_modified(app_state.current_area_id)
+
+                # If cross-area, save the target area too
+                if is_cross_area and target_area_id in app_state.area_files:
+                    target_file = app_state.area_files[target_area_id]
+                    writer = AreWriter(target_area)
+                    writer.write(target_file)
+                    app_state.mark_modified(target_area_id)
+                    self._add_output(f"Cross-area two-way link established to room #{target_vnum}.", color=(100, 255, 100))
+                    self._add_output(f"  (Saved both {app_state.current_file.name} and {target_file.name})", color=(150, 150, 150))
+                else:
                     self._add_output(f"Two-way link established to room #{target_vnum}.", color=(100, 255, 100))
-                    # Mark the area as modified
-                    app_state.mark_modified()
-                except Exception as e:
-                    self._add_output(f"ERROR: Failed to save area file: {e}", color=(255, 100, 100))
-                    # Remove the exits since we couldn't save
-                    del room.exits[dir_num]
-                    del target_room.exits[reverse_dir_num]
-                    return
-            else:
-                self._add_output(f"Two-way link established to room #{target_vnum}.", color=(100, 255, 100))
-                self._add_output("WARNING: No area file loaded, changes not saved!", color=(255, 200, 100))
+
+            except Exception as e:
+                self._add_output(f"ERROR: Failed to save area file: {e}", color=(255, 100, 100))
+                # Remove the exits since we couldn't save
+                del room.exits[dir_num]
+                del target_room.exits[reverse_dir_num]
+                return
 
             # Move to the target room
             self.current_room_vnum = target_vnum

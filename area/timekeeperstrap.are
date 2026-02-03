@@ -551,7 +551,7 @@ You see nothing special here.
 End
 
 #31026
-NAME   A New Room~
+NAME   Center of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
 ~
@@ -960,7 +960,7 @@ You can see the last portion of road that's been maintained a few hundred feet t
 DOOR 2
 The forest swallows up the south side of the road.~
 ~
-0 0 0
+0 0 22045
 DOOR 3
 You see the end of the maintained road, and some rough road beyond.
 ~

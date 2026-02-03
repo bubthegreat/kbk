@@ -90,26 +90,42 @@ class AreWriter:
     def _write_object(self, f: TextIO, obj: Object) -> None:
         """Write a single object."""
         f.write(f"#{obj.vnum}\n")
-        f.write(f"NAME {obj.keywords}~\n")
-        f.write(f"SHORT {obj.short_description}~\n")
-        f.write(f"DESCR {obj.long_description}~\n")
-        
+        f.write(f"NAME   {obj.keywords}~\n")
+        f.write(f"SHORT  {obj.short_description}~\n")
+        f.write(f"DESCR  {obj.long_description}~\n")
+
+        # MAT (material) line
+        f.write(f"MAT    {obj.material}~\n")
+
         # TYPE line
         type_values_str = " ".join(str(v) for v in obj.type_values) if obj.type_values else "0"
-        f.write(f"TYPE {obj.item_type} {type_values_str}\n")
-        
-        # EXTRA line
-        f.write(f"EXTRA {obj.extra_flags} {obj.extra_value2} {obj.extra_value3} {obj.extra_value4} 0\n")
-        
-        # VALUES line (legacy format, may not be needed in new format)
-        f.write("VALUES 0 0 0 0 0\n")
-        
-        # STATS line
-        f.write(f"STATS {obj.level} {obj.weight} {obj.cost} P\n")
-        
-        # WEAR line
-        f.write(f"WEAR {obj.wear_flags} 0 0\n")
-        
+        f.write(f"TYPE   {obj.item_type} {type_values_str}\n")
+
+        # EXTRA line (only 2 values in the correct format)
+        f.write(f"EXTRA  {obj.extra_flags} {obj.extra_value2}\n")
+
+        # WEAR line (just the flags, no extra values)
+        f.write(f"WEAR   {obj.wear_flags}\n")
+
+        # Individual stat lines
+        f.write(f"LEVEL  {obj.level}\n")
+        f.write(f"WEIGHT {obj.weight}\n")
+        f.write(f"COST   {obj.cost}\n")
+        f.write(f"COND   {obj.condition}\n")
+
+        # Optional LIMIT line
+        if obj.limit > 0:
+            f.write(f"LIMIT  {obj.limit}\n")
+
+        # Optional RESTR line
+        if obj.restriction:
+            f.write(f"RESTR  {obj.restriction}~\n")
+
+        # Extra descriptions (EDESC)
+        for edesc in obj.extra_descriptions:
+            f.write(f"EDESC {edesc.keywords}~\n")
+            f.write(f"{edesc.description}~\n")
+
         # AFFECT lines (if any)
         # TODO: Implement when we have affects in the Object model
 

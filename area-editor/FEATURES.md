@@ -348,8 +348,13 @@ This document outlines all implemented features in the Area Editor. This ensures
 - **Auto-navigation**: After digging, you are moved to the new/target room
 - **UI sync**: The area tree is refreshed to show new rooms
 - **Vnum allocation**: When creating new rooms, uses the next available vnum in the area's range
-- **Error prevention**: Prevents creating duplicate exits in the same direction
-- **Validation**: Checks that target room exists before creating link
+- **Error prevention**: Prevents creating duplicate exits in the same direction (unless it's a description-only direction with to_room=0)
+- **Description-only override**: If a direction has a description but no exit (to_room=0), dig will update it to create an actual exit
+- **Cross-area linking**: If multiple areas are loaded, you can dig to rooms in other areas
+  - Searches all loaded areas for the target room
+  - Saves both area files when creating cross-area links
+  - Displays a message indicating which files were saved
+- **Validation**: Checks that target room exists in any loaded area before creating link
 - Based on the ROM MUD OLC (Online Creation) `dig` and `link` commands
 
 **Related Tests**: `tests/test_mud_terminal.py::test_dig_command_creates_new_room`, `tests/test_mud_terminal.py::test_dig_command_links_to_existing_room`, `tests/test_mud_terminal.py::test_dig_command_prevents_duplicate_exits`
