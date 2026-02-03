@@ -180,223 +180,283 @@ End
 
 #OBJDATA
 #22000
-NAME blood-covered blood axe~
-SHORT a blood-covered axe~
-DESCR A blood-covered axe is here.~
-TYPE weapon axe 4 11 slice 0
-EXTRA 1 3 0 2576 0
-VALUES 0 0 0 0 0
-STATS 40 23 600 P
-WEAR AN 0 0
+NAME   blood-covered blood axe~
+SHORT  a blood-covered axe~
+DESCR  A blood-covered axe is here.~
+MAT    none~
+TYPE   weapon 0 0 0 0 0
+EXTRA  1 3
+WEAR   AN 0 0
+LEVEL  40
+WEIGHT 23
+COST   600
+COND   P
 End
 
 #22001
-NAME deadly bow~
-SHORT a deadly bow~
-DESCR A deadly bow rests here in a pool of blood.~
-TYPE weapon exotic 5 4 thwack 0
-EXTRA 1 1 0 512 0
-VALUES 0 0 0 0 0
-STATS 45 12 9000 P
-WEAR AN 0 0
+NAME   deadly bow~
+SHORT  a deadly bow~
+DESCR  A deadly bow rests here in a pool of blood.~
+MAT    none~
+TYPE   weapon 0 0 0 0 0
+EXTRA  1 1
+WEAR   AN 0 0
+LEVEL  45
+WEIGHT 12
+COST   9000
+COND   P
 End
 
 #22002
-NAME signet ring~
-SHORT a Varggin Shih signet ring~
-DESCR A silver ring is here, the signet of Varggin Shih adorns it.~
-TYPE armor BCF CDE BCF DE 0
-EXTRA 1 5 0 528913 0
-VALUES 0 0 0 0 0
-STATS 50 4 9000 P
-WEAR AB 0 0
+NAME   signet ring~
+SHORT  a Varggin Shih signet ring~
+DESCR  A silver ring is here, the signet of Varggin Shih adorns it.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 5
+WEAR   AB 0 0
+LEVEL  50
+WEIGHT 4
+COST   9000
+COND   P
 End
 
 #22003
-NAME crude iron belt~
-SHORT a crude iron belt~
-DESCR A crude-looking iron belt is here.~
-TYPE armor BDF F BCDF ABCE 0
-EXTRA 1 3 0 19 0
-VALUES 0 0 0 0 0
-STATS 50 13 9000 P
-WEAR AL 0 0
+NAME   crude iron belt~
+SHORT  a crude iron belt~
+DESCR  A crude-looking iron belt is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 3
+WEAR   AL 0 0
+LEVEL  50
+WEIGHT 13
+COST   9000
+COND   P
 End
 
 #22004
-NAME helm furs black~
-SHORT the helm of blackened furs~
-DESCR A dirty helm of blackened furs is here.~
-TYPE armor BCDE BCDF ADE CE 0
-EXTRA 1 1 0 2 0
-VALUES 0 0 0 0 0
-STATS 50 16 9000 P
-WEAR AE 0 0
+NAME   helm furs black~
+SHORT  the helm of blackened furs~
+DESCR  A dirty helm of blackened furs is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AE 0 0
+LEVEL  50
+WEIGHT 16
+COST   9000
+COND   P
 End
 
 #22005
-NAME centaur hoof~
-SHORT a centaur hoof~
-DESCR A large hoof of a centaur is here.~
-TYPE armor 0 0 0 0 0
-EXTRA 1 2 0 3 0
-VALUES 0 0 0 0 0
-STATS 50 8 9000 P
-WEAR AO 0 0
+NAME   centaur hoof~
+SHORT  a centaur hoof~
+DESCR  A large hoof of a centaur is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 2
+WEAR   AO 0 0
+LEVEL  50
+WEIGHT 8
+COST   9000
+COND   P
 End
 
 #22006
-NAME blood-covered bloody battlearmor armor battle~
-SHORT some blood-covered battlearmor~
-DESCR Some blood-covered battle armor is here.~
-TYPE armor DEF CEG BCG ABCDEF 0
-EXTRA 1 1 0 2 0
-VALUES 0 0 0 0 0
-STATS 50 21 9000 P
-WEAR AD 0 0
+NAME   blood-covered bloody battlearmor armor battle~
+SHORT  some blood-covered battlearmor~
+DESCR  Some blood-covered battle armor is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AD 0 0
+LEVEL  50
+WEIGHT 21
+COST   9000
+COND   P
 End
 
 #22007
-NAME potion smelly strange~
-SHORT a strange smelly potion~
-DESCR A strange smelly potion is here.~
-TYPE potion 55 'fireball' 'fireball' 'fireball' 'word of recall'
-EXTRA 1 1 0 64 0
-VALUES 0 0 0 0 0
-STATS 55 7 9000 P
-WEAR A 0 0
+NAME   potion smelly strange~
+SHORT  a strange smelly potion~
+DESCR  A strange smelly potion is here.~
+MAT    none~
+TYPE   potion 0 0 0 0 0
+EXTRA  1 1
+WEAR   A 0 0
+LEVEL  55
+WEIGHT 7
+COST   9000
+COND   P
 End
 
 #22008
-NAME wicked iron longsword~
-SHORT the wicked iron longsword~
-DESCR A wicked iron longsword is here.~
-TYPE weapon sword 5 11 slice F
-EXTRA 1 2 0 3 0
-VALUES 0 0 0 0 0
-STATS 50 24 9000 P
-WEAR AN 0 0
+NAME   wicked iron longsword~
+SHORT  the wicked iron longsword~
+DESCR  A wicked iron longsword is here.~
+MAT    none~
+TYPE   weapon 0 0 0 0 0
+EXTRA  1 2
+WEAR   AN 0 0
+LEVEL  50
+WEIGHT 24
+COST   9000
+COND   P
 End
 
 #22009
-NAME staff zargg troll~
-SHORT the staff of Zargg Nihl~
-DESCR A large staff is here.~
-TYPE weapon staff 8 6 digestion F
-EXTRA 1 2 0 3 0
-VALUES 0 0 0 0 0
-STATS 45 32 9000 P
-WEAR AN 0 0
+NAME   staff zargg troll~
+SHORT  the staff of Zargg Nihl~
+DESCR  A large staff is here.~
+MAT    none~
+TYPE   weapon 0 0 0 0 0
+EXTRA  1 2
+WEAR   AN 0 0
+LEVEL  45
+WEIGHT 32
+COST   9000
+COND   P
 End
 
 #22010
-NAME potion strange black~
-SHORT a strange black potion~
-DESCR A strange black potion is here.~
-TYPE potion 50 'heal' 'heal' '' ''
-EXTRA 1 2 0 65 0
-VALUES 0 0 0 0 0
-STATS 50 7 900 P
-WEAR A 0 0
+NAME   potion strange black~
+SHORT  a strange black potion~
+DESCR  A strange black potion is here.~
+MAT    none~
+TYPE   potion 0 0 0 0 0
+EXTRA  1 2
+WEAR   A 0 0
+LEVEL  50
+WEIGHT 7
+COST   900
+COND   P
 End
 
 #22011
-NAME bone bones plate breastplate~
-SHORT a bone breastplate~
-DESCR A pile of bones is here.~
-TYPE armor DEF DEG BCG BDF 0
-EXTRA 1 1 0 1 0
-VALUES 0 0 0 0 0
-STATS 50 27 900 P
-WEAR AD 0 0
+NAME   bone bones plate breastplate~
+SHORT  a bone breastplate~
+DESCR  A pile of bones is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AD 0 0
+LEVEL  50
+WEIGHT 27
+COST   900
+COND   P
 End
 
 #22012
-NAME bone bones leggings~
-SHORT a pair of bone leggings~
-DESCR A pile of bones is here.~
-TYPE armor ABF DEF CDF BDE 0
-EXTRA 1 1 0 1 0
-VALUES 0 0 0 0 0
-STATS 50 22 900 P
-WEAR AF 0 0
+NAME   bone bones leggings~
+SHORT  a pair of bone leggings~
+DESCR  A pile of bones is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AF 0 0
+LEVEL  50
+WEIGHT 22
+COST   900
+COND   P
 End
 
 #22013
-NAME bone bones boots~
-SHORT a pair of bone boots~
-DESCR A pile of bones is here.~
-TYPE armor ABF DEF CDF BDE 0
-EXTRA 1 1 0 1 0
-VALUES 0 0 0 0 0
-STATS 50 18 900 P
-WEAR AG 0 0
+NAME   bone bones boots~
+SHORT  a pair of bone boots~
+DESCR  A pile of bones is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AG 0 0
+LEVEL  50
+WEIGHT 18
+COST   900
+COND   P
 End
 
 #22014
-NAME bone bones shield~
-SHORT a bone shield~
-DESCR A pile of bones is here.~
-TYPE armor FG BCEH DEFG DG 0
-EXTRA 1 1 0 2 0
-VALUES 0 0 0 0 0
-STATS 50 32 900 P
-WEAR AJ 0 0
+NAME   bone bones shield~
+SHORT  a bone shield~
+DESCR  A pile of bones is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AJ 0 0
+LEVEL  50
+WEIGHT 32
+COST   900
+COND   P
 End
 
 #22015
-NAME robe pain black~
-SHORT the robe of Pain~
-DESCR A black robe is here.~
-TYPE armor AF ABDF AF ACDEF 0
-EXTRA 1 2 0 3 0
-VALUES 0 0 0 0 0
-STATS 50 7 900 P
-WEAR AK 0 0
+NAME   robe pain black~
+SHORT  the robe of Pain~
+DESCR  A black robe is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 2
+WEAR   AK 0 0
+LEVEL  50
+WEIGHT 7
+COST   900
+COND   P
 End
 
 #22016
-NAME bracelet suffering~
-SHORT the bracelet of suffering~
-DESCR A large iron bracelet is here.~
-TYPE armor CDF BF EF DE 0
-EXTRA 1 5 0 2579 0
-VALUES 0 0 0 0 0
-STATS 51 16 900 P
-WEAR AM 0 0
+NAME   bracelet suffering~
+SHORT  the bracelet of suffering~
+DESCR  A large iron bracelet is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 5
+WEAR   AM 0 0
+LEVEL  51
+WEIGHT 16
+COST   900
+COND   P
 End
 
 #22017
-NAME skull cracked~
-SHORT the cracked skull of the shaman of Varggin Shih~
-DESCR A cracked skull of the shaman of Varggin Shih is here.~
-TYPE armor 0 0 0 0 0
-EXTRA 1 3 0 4609 0
-VALUES 0 0 0 0 0
-STATS 50 8 900 P
-WEAR AO 0 0
+NAME   skull cracked~
+SHORT  the cracked skull of the shaman of Varggin Shih~
+DESCR  A cracked skull of the shaman of Varggin Shih is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 3
+WEAR   AO 0 0
+LEVEL  50
+WEIGHT 8
+COST   900
+COND   P
 End
 
 #22018
-NAME strange bone~
-SHORT the strange bone~
-DESCR A strange looking bone is humming here.~
-TYPE armor 0 0 0 0 0
-EXTRA 1 1 0 2 0
-VALUES 0 0 0 0 0
-STATS 60 8 9000 P
-WEAR AO 0 0
+NAME   strange bone~
+SHORT  the strange bone~
+DESCR  A strange looking bone is humming here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AO 0 0
+LEVEL  60
+WEIGHT 8
+COST   9000
+COND   P
 End
 
 #22019
-NAME fur leggings~
-SHORT some tough fur leggings~
-DESCR A pile of tough-looking fur is here.~
-TYPE armor AE ADE BCD ABD 0
-EXTRA 1 1 0 2 0
-VALUES 0 0 0 0 0
-STATS 40 17 900 P
-WEAR AF 0 0
+NAME   fur leggings~
+SHORT  some tough fur leggings~
+DESCR  A pile of tough-looking fur is here.~
+MAT    none~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1
+WEAR   AF 0 0
+LEVEL  40
+WEIGHT 17
+COST   900
+COND   P
 End
 
 #0
@@ -1431,13 +1491,13 @@ the area from an unknown source. Various grunts and howls can be heard coming
 from the many homes that you see lining the street. You notice that there 
 was some fur tossed to the side of the road, most likely the source of the 
 horrid smell.
- ~
+~
 FLAGS  1
 Sect   0
 DOOR 0
 You see the remnants of an old road that must have been abandoned once the trolls took over this place.  You just might be able to crawl through the brush.~
 ~
-0 0 0
+0 0 31043
 DOOR 1
 ~
 ~
