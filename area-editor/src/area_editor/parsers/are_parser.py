@@ -376,7 +376,15 @@ class AreParser(BaseParser):
                             if len(stats_parts) >= 3:
                                 obj.cost = int(stats_parts[2])
                             if len(stats_parts) >= 4:
-                                obj.condition = stats_parts[3]  # Can be 'P' or number
+                                # Condition can be 'P' (perfect) or a number (0-100)
+                                cond_value = stats_parts[3]
+                                if cond_value == 'P':
+                                    obj.condition = 'P'
+                                else:
+                                    try:
+                                        obj.condition = int(cond_value)
+                                    except ValueError:
+                                        obj.condition = 100  # Default to 100 if invalid
 
                     elif keyword == 'WEAR':
                         # Read wear flags
@@ -395,8 +403,18 @@ class AreParser(BaseParser):
                         obj.cost = int(parts[1]) if len(parts) > 1 else 0
 
                     elif keyword == 'COND':
-                        # Read condition
-                        obj.condition = int(parts[1]) if len(parts) > 1 else 100
+                        # Read condition - can be 'P' (perfect) or a number (0-100)
+                        if len(parts) > 1:
+                            cond_value = parts[1]
+                            if cond_value == 'P':
+                                obj.condition = 'P'
+                            else:
+                                try:
+                                    obj.condition = int(cond_value)
+                                except ValueError:
+                                    obj.condition = 100  # Default to 100 if invalid
+                        else:
+                            obj.condition = 100
 
                     elif keyword == 'LIMIT':
                         # Read limit

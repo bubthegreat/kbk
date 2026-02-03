@@ -2,7 +2,7 @@
 Object data model.
 """
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Union
 
 
 @dataclass
@@ -50,7 +50,7 @@ class Object:
     level: int = 0
     weight: int = 0
     cost: int = 0
-    condition: int = 100  # COND
+    condition: Union[int, str] = 100  # COND - can be int (0-100) or 'P' (perfect)
     limit: int = 0  # LIMIT (optional)
     restriction: str = ""  # RESTR (optional)
 
