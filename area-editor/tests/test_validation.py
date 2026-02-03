@@ -125,7 +125,7 @@ def test_validate_room_exits():
     assert result.has_warnings()
     errors = result.get_errors_for_item("room", 1000)
     assert len(errors) == 1
-    assert "not in this area" in errors[0].message
+    assert "does not exist" in errors[0].message
 
 
 def test_validate_empty_room_name():

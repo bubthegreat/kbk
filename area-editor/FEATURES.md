@@ -488,3 +488,58 @@ This document outlines all implemented features in the Area Editor. This ensures
 
 ---
 
+## Old Format Detection and Conversion
+
+**Description**: The area-editor automatically detects when objects are using the old format (with `VALUES` and `STATS` keywords) and displays a warning. When you save the file, it will automatically convert objects to the new format (with `LEVEL`, `WEIGHT`, `COST`, `COND` keywords) that the MUD server requires.
+
+**How to Test**:
+1. Open an area file that has objects in the old format (e.g., `trolls.are`)
+2. Check the validation panel - you should see warnings like:
+   - `[WARNING] object #22000: Object uses old format (VALUES/STATS keywords)`
+3. Save the file
+4. The objects will be automatically converted to the new format
+5. Re-open the file - the warnings should be gone
+
+**Additional Notes**:
+- The area-editor's **parser** supports both old and new formats for backward compatibility
+- The area-editor's **writer** always writes in the new format
+- The MUD server **only** supports the new format - files with old format will crash the server
+- This warning helps you identify which files need to be re-saved to work with the MUD server
+
+**Format Comparison**:
+
+Old format (NOT supported by MUD server):
+```
+#22000
+NAME blood-covered blood axe~
+SHORT a blood-covered axe~
+DESCR A blood-covered axe is here.~
+TYPE weapon axe 4 11 slice 0
+EXTRA 1 3 0 2576 0
+VALUES 0 0 0 0 0
+STATS 40 23 600 P
+WEAR AN 0 0
+End
+```
+
+New format (supported by MUD server):
+```
+#22000
+NAME   blood-covered blood axe~
+SHORT  a blood-covered axe~
+DESCR  A blood-covered axe is here.~
+MAT    oldstyle~
+TYPE   weapon axe 4 11 slice 0
+EXTRA  1 3
+WEAR   AN
+LEVEL  40
+WEIGHT 23
+COST   600
+COND   P
+End
+```
+
+**Related Tests**: `tests/test_old_format_warning.py`
+
+---
+

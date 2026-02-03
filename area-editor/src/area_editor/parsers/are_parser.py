@@ -357,12 +357,16 @@ class AreParser(BaseParser):
                     elif keyword == 'VALUES':
                         # Read item values (weapon damage, armor AC, etc.)
                         # Just store as type_values for now
+                        # Mark this object as using old format
+                        obj._loaded_from_old_format = True
                         if len(parts) > 1:
                             obj.type_values = parts[1].split()
 
                     elif keyword == 'STATS':
                         # Read level, weight, cost, condition
                         # Format: STATS <level> <weight> <cost> <condition>
+                        # Mark this object as using old format
+                        obj._loaded_from_old_format = True
                         if len(parts) > 1:
                             stats_parts = parts[1].split()
                             if len(stats_parts) >= 1:

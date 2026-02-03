@@ -232,9 +232,33 @@ class MudTerminal:
         exit_obj = room.exits[dir_num]
         new_room_vnum = exit_obj.to_room
 
-        if new_room_vnum not in app_state.current_area.rooms:
-            self._add_output(f"ERROR: Room #{new_room_vnum} does not exist!", color=(255, 100, 100))
+        # Search for target room across all loaded areas
+        target_room = None
+        target_area = None
+        target_area_id = None
+
+        # First check current area
+        if new_room_vnum in app_state.current_area.rooms:
+            target_room = app_state.current_area.rooms[new_room_vnum]
+            target_area = app_state.current_area
+            target_area_id = app_state.current_area_id
+        else:
+            # Search other loaded areas
+            for area_id, other_area in app_state.areas.items():
+                if new_room_vnum in other_area.rooms:
+                    target_room = other_area.rooms[new_room_vnum]
+                    target_area = other_area
+                    target_area_id = area_id
+                    break
+
+        if target_room is None:
+            self._add_output(f"ERROR: Room #{new_room_vnum} does not exist in any loaded area!", color=(255, 100, 100))
             return
+
+        # Switch to the target area if it's different
+        if target_area_id != app_state.current_area_id:
+            app_state.set_current_area(target_area_id)
+            self._add_output(f"[Entering {target_area.name}]", color=(150, 150, 255))
 
         self.current_room_vnum = new_room_vnum
         self._add_output("")  # Blank line

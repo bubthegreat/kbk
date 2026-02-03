@@ -214,8 +214,8 @@ class MainWindow:
             app_state.load_area(area, filepath_obj)
             area_id = filepath_obj.name  # Use filename as area ID
 
-            # Run validation
-            validator = AreaValidator(area, area_id)
+            # Run validation (pass all loaded areas for cross-area validation)
+            validator = AreaValidator(area, area_id, app_state.areas)
             validation_result = validator.validate()
             app_state.set_validation_result(area_id, validation_result)
 

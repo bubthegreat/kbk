@@ -112,13 +112,15 @@ void process_text args((CHAR_DATA * ch, char *text));
 int port;
 int control;
 bool fCopyOver;
+bool fValidateOnly;
 
 int main(int argc, char **argv)
 {
-	
+
 	struct timeval now_time;
 
 	fCopyOver = FALSE;
+	fValidateOnly = FALSE;
 
 /* Memory debugging if needed. */
 #if defined(MALLOC_DEBUG)
@@ -139,14 +141,22 @@ int main(int argc, char **argv)
 	}
 
 	/*
-	 * Get the port number.
+	 * Get the port number and check for flags.
 	 */
 	port = 8989;
 	if (argc != 1)
 	{
-		if (!is_number(argv[1]))
+		/* Check for --validate or --check flag */
+		if (!strcmp(argv[1], "--validate") || !strcmp(argv[1], "--check") || !strcmp(argv[1], "-v"))
 		{
-			fprintf(stderr, "Usage: %s [port #]\n", argv[0]);
+			fValidateOnly = TRUE;
+			log_string("=== VALIDATION MODE ===");
+			log_string("Loading areas and data files only, will not start server.");
+		}
+		else if (!is_number(argv[1]))
+		{
+			fprintf(stderr, "Usage: %s [port #] or %s --validate\n", argv[0], argv[0]);
+			fprintf(stderr, "  --validate, --check, -v : Load all data and exit (for CI/CD validation)\n");
 			exit(1);
 		}
 		else if ((port = atoi(argv[1])) <= 1024)
@@ -165,9 +175,20 @@ int main(int argc, char **argv)
 	}
 
 	/* Run the game. */
-	if (!fCopyOver)
+	if (!fCopyOver && !fValidateOnly)
 		control = init_socket(port);
+
 	boot_db();
+
+	/* If validation mode, exit cleanly after successful boot */
+	if (fValidateOnly)
+	{
+		log_string("=== VALIDATION SUCCESSFUL ===");
+		log_string("All areas, mobiles, objects, and data files loaded successfully.");
+		log_string("Server is ready to run. Exiting validation mode.");
+		exit(0);
+	}
+
 	sprintf(log_buf, "KBK booted, binding on port %d.", port);
 	log_string(log_buf);
 

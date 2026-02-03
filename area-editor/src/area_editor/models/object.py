@@ -56,7 +56,11 @@ class Object:
 
     extra_descriptions: List[ExtraDescription] = field(default_factory=list)
     affects: List[ObjectAffect] = field(default_factory=list)
-    
+
+    # Internal flag to track if this object was loaded from old format
+    # (used for validation warnings)
+    _loaded_from_old_format: bool = field(default=False, repr=False)
+
     def add_extra_description(self, keywords: str, description: str) -> ExtraDescription:
         """Add an extra description."""
         extra_desc = ExtraDescription(keywords=keywords, description=description)

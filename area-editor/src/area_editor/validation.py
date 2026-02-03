@@ -8,7 +8,7 @@ This module provides validation for area files to detect common errors such as:
 - Malformed data
 """
 from dataclasses import dataclass, field
-from typing import Dict, List, Set
+from typing import Dict, List, Set, Optional
 from area_editor.models import Area, Room, Object, Mobile, Shop, Reset
 
 
@@ -59,16 +59,18 @@ class ValidationResult:
 
 class AreaValidator:
     """Validates area files for common errors."""
-    
-    def __init__(self, area: Area, area_id: str):
+
+    def __init__(self, area: Area, area_id: str, all_areas: Optional[Dict[str, Area]] = None):
         """Initialize the validator.
-        
+
         Args:
             area: The area to validate
             area_id: Unique identifier for the area (usually filename)
+            all_areas: Optional dict of all loaded areas (for cross-area validation)
         """
         self.area = area
         self.area_id = area_id
+        self.all_areas = all_areas or {}
         self.result = ValidationResult(area_id=area_id)
     
     def validate(self) -> ValidationResult:
@@ -76,6 +78,7 @@ class AreaValidator:
         self._validate_vnums()
         self._validate_room_exits()
         self._validate_room_references()
+        self._validate_object_format()
         self._validate_shops()
         self._validate_resets()
         return self.result
@@ -127,18 +130,26 @@ class AreaValidator:
 
                 # Check if target room exists in this area
                 if target_vnum not in self.area.rooms:
-                    # This might be a cross-area exit, so it's a warning not an error
-                    direction_names = ["north", "east", "south", "west", "up", "down"]
-                    dir_name = direction_names[direction] if 0 <= direction < 6 else str(direction)
+                    # Check if it exists in other loaded areas (cross-area exit)
+                    found_in_other_area = False
+                    for other_area_id, other_area in self.all_areas.items():
+                        if other_area_id != self.area_id and target_vnum in other_area.rooms:
+                            found_in_other_area = True
+                            break
 
-                    self.result.add_error(ValidationError(
-                        error_type="missing_room",
-                        severity="warning",
-                        item_type="room",
-                        item_vnum=vnum,
-                        message=f"Exit {dir_name} points to room #{target_vnum} which is not in this area",
-                        details=f"This may be a cross-area exit or a missing room"
-                    ))
+                    # Only warn if the room doesn't exist in ANY loaded area
+                    if not found_in_other_area:
+                        direction_names = ["north", "east", "south", "west", "up", "down"]
+                        dir_name = direction_names[direction] if 0 <= direction < 6 else str(direction)
+
+                        self.result.add_error(ValidationError(
+                            error_type="missing_room",
+                            severity="warning",
+                            item_type="room",
+                            item_vnum=vnum,
+                            message=f"Exit {dir_name} points to room #{target_vnum} which does not exist in any loaded area",
+                            details=f"This room may be in an area that is not currently loaded, or it may be missing"
+                        ))
     
     def _validate_room_references(self):
         """Validate that rooms have basic required data."""
@@ -152,7 +163,7 @@ class AreaValidator:
                     item_vnum=vnum,
                     message="Room has no name"
                 ))
-            
+
             # Check for empty description
             if not room.description or room.description.strip() == "":
                 self.result.add_error(ValidationError(
@@ -161,6 +172,21 @@ class AreaValidator:
                     item_type="room",
                     item_vnum=vnum,
                     message="Room has no description"
+                ))
+
+    def _validate_object_format(self):
+        """Validate that objects are not using the old format."""
+        for vnum, obj in self.area.objects.items():
+            # Check if object was loaded from old format (VALUES/STATS keywords)
+            if hasattr(obj, '_loaded_from_old_format') and obj._loaded_from_old_format:
+                self.result.add_error(ValidationError(
+                    error_type="old_format",
+                    severity="warning",
+                    item_type="object",
+                    item_vnum=vnum,
+                    message="Object uses old format (VALUES/STATS keywords)",
+                    details="This file will be converted to the new format (LEVEL/WEIGHT/COST/COND) when saved. "
+                           "The MUD server only supports the new format."
                 ))
 
     def _validate_shops(self):
