@@ -1,9 +1,9 @@
 #AREADATA
 Name        Timekeeperstrap~
 Builders    Builder~
-VNUMs       1000 1099
+VNUMs       31000 31599
 Security    9
-Recall      1000
+Recall      31000
 End
 
 #MOBDATA
@@ -13,7 +13,7 @@ End
 #0
 
 #ROOMDATA
-#1000
+#31000
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
 This is going to be the landslide that opened a hidden entrance to the tunnel that leads to the timekeepers trap
@@ -23,18 +23,18 @@ Sect   5
 DOOR 0
 ~
 ~
-0 0 1001
+0 0 31001
 DOOR 1
 ~
 ~
-0 0 1011
+0 0 31011
 DOOR 3
 ~
 ~
-0 0 1015
+0 0 31015
 End
 
-#1001
+#31001
 NAME   A narrow cave entrance~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -44,14 +44,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1002
+0 0 31002
 DOOR 2
 ~
 ~
-0 0 1000
+0 0 31000
 End
 
-#1002
+#31002
 NAME   A narrow cave entrance~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -61,14 +61,14 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1003
+0 0 31003
 DOOR 2
 ~
 ~
-0 0 1001
+0 0 31001
 End
 
-#1003
+#31003
 NAME   A side tunnel in the cave~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -78,14 +78,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1004
+0 0 31004
 DOOR 3
 ~
 ~
-0 0 1002
+0 0 31002
 End
 
-#1004
+#31004
 NAME   A side tunnel in the cave~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -95,14 +95,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1005
+0 0 31005
 DOOR 2
 ~
 ~
-0 0 1003
+0 0 31003
 End
 
-#1005
+#31005
 NAME   Entrance to a cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -112,22 +112,22 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1008
+0 0 31008
 DOOR 1
 ~
 ~
-0 0 1006
+0 0 31006
 DOOR 2
 ~
 ~
-0 0 1004
+0 0 31004
 DOOR 3
 ~
 ~
-0 0 1007
+0 0 31007
 End
 
-#1006
+#31006
 NAME   The small cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -137,14 +137,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1009
+0 0 31009
 DOOR 3
 ~
 ~
-0 0 1005
+0 0 31005
 End
 
-#1007
+#31007
 NAME   The small cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -154,14 +154,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1010
+0 0 31010
 DOOR 1
 ~
 ~
-0 0 1005
+0 0 31005
 End
 
-#1008
+#31008
 NAME   The small cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -171,22 +171,22 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1045
+0 0 31045
 DOOR 1
 ~
 ~
-0 0 1009
+0 0 31009
 DOOR 2
 ~
 ~
-0 0 1005
+0 0 31005
 DOOR 3
 ~
 ~
-0 0 1010
+0 0 31010
 End
 
-#1009
+#31009
 NAME   The small cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -196,18 +196,18 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1044
+0 0 31044
 DOOR 2
 ~
 ~
-0 0 1006
+0 0 31006
 DOOR 3
 ~
 ~
-0 0 1008
+0 0 31008
 End
 
-#1010
+#31010
 NAME   The smooth wall of the cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -217,18 +217,18 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1046
+0 0 31046
 DOOR 1
 ~
 ~
-0 0 1008
+0 0 31008
 DOOR 2
 ~
 ~
-0 0 1007
+0 0 31007
 End
 
-#1011
+#31011
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -238,14 +238,14 @@ Sect   5
 DOOR 1
 ~
 ~
-0 0 1012
+0 0 31012
 DOOR 3
 ~
 ~
-0 0 1000
+0 0 31000
 End
 
-#1012
+#31012
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -255,32 +255,32 @@ Sect   5
 DOOR 0
 ~
 ~
-0 0 1013
+0 0 31013
 DOOR 3
 ~
 ~
-0 0 1011
+0 0 31011
 End
 
-#1013
+#31013
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
 The south exit here should be non obvious, and you have to move a large pile of
-rocks to get there.  
+rocks to get there.
 ~
 FLAGS  0
 Sect   5
 DOOR 1
 ~
 ~
-0 0 1014
+0 0 31014
 DOOR 2
 ~
 ~
-0 0 1012
+0 0 31012
 End
 
-#1014
+#31014
 NAME   A small animal trail on the mountain~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -290,27 +290,27 @@ Sect   5
 DOOR 2
 ~
 ~
-0 0 1016
+0 0 31016
 DOOR 3
 ~
 ~
-0 0 1013
+0 0 31013
 End
 
-#1015
+#31015
 NAME   A Large Boulder~
 DESCR
-As you follow the western edge of the landslide you come to a gigantic boulder that seems to have fallen.  It's massive girth extends into the forest line to the south, leaving no obvious path to continue this direction.  
+As you follow the western edge of the landslide you come to a gigantic boulder that seems to have fallen.  It's massive girth extends into the forest line to the south, leaving no obvious path to continue this direction.
 ~
 FLAGS  0
 Sect   5
 DOOR 1
 ~
 ~
-0 0 1000
+0 0 31000
 End
 
-#1016
+#31016
 NAME   A small animal trail on the mountain~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -320,14 +320,14 @@ Sect   5
 DOOR 0
 ~
 ~
-0 0 1014
+0 0 31014
 DOOR 2
 ~
 ~
-0 0 1017
+0 0 31017
 End
 
-#1017
+#31017
 NAME   A small animal trail on the mountain~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -337,14 +337,14 @@ Sect   5
 DOOR 0
 ~
 ~
-0 0 1016
+0 0 31016
 DOOR 1
 ~
 ~
-0 0 1018
+0 0 31018
 End
 
-#1018
+#31018
 NAME   A small animal trail on the mountain~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -354,14 +354,14 @@ Sect   5
 DOOR 3
 ~
 ~
-0 0 1017
+0 0 31017
 DOOR 5
 ~
 ~
-0 0 1019
+0 0 31019
 End
 
-#1019
+#31019
 NAME   A small animal trail on the hillside~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -371,14 +371,14 @@ Sect   4
 DOOR 1
 ~
 ~
-0 0 1020
+0 0 31020
 DOOR 4
 ~
 ~
-0 0 1018
+0 0 31018
 End
 
-#1020
+#31020
 NAME   A small animal trail on the hillside~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -388,14 +388,14 @@ Sect   5
 DOOR 1
 ~
 ~
-0 0 1021
+0 0 31021
 DOOR 3
 ~
 ~
-0 0 1019
+0 0 31019
 End
 
-#1021
+#31021
 NAME   A small animal trail on the hillside~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -405,14 +405,14 @@ Sect   4
 DOOR 1
 ~
 ~
-0 0 1022
+0 0 31022
 DOOR 3
 ~
 ~
-0 0 1020
+0 0 31020
 End
 
-#1022
+#31022
 NAME   A small animal trail on the hillside~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -422,14 +422,14 @@ Sect   4
 DOOR 2
 ~
 ~
-0 0 1023
+0 0 31023
 DOOR 3
 ~
 ~
-0 0 1021
+0 0 31021
 End
 
-#1023
+#31023
 NAME   A small animal trail on the hillside~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -439,14 +439,14 @@ Sect   4
 DOOR 0
 ~
 ~
-0 0 1022
+0 0 31022
 DOOR 1
 ~
 ~
-0 0 1024
+0 0 31024
 End
 
-#1024
+#31024
 NAME   Edge of a Grassy Field~
 DESCR
 This west entrance should be non-obvious and hidden, but you should just be able
@@ -458,18 +458,18 @@ Sect   2
 DOOR 0
 ~
 ~
-0 0 1027
+0 0 31027
 DOOR 1
 ~
 ~
-0 0 1025
+0 0 31025
 DOOR 3
 ~
 ~
-0 0 1023
+0 0 31023
 End
 
-#1025
+#31025
 NAME   Edge of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -479,18 +479,18 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1026
+0 0 31026
 DOOR 1
 ~
 ~
-0 0 1032
+0 0 31032
 DOOR 3
 ~
 ~
-0 0 1024
+0 0 31024
 End
 
-#1026
+#31026
 NAME   A New Room~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -500,22 +500,22 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1030
+0 0 31030
 DOOR 1
 ~
 ~
-0 0 1028
+0 0 31028
 DOOR 2
 ~
 ~
-0 0 1025
+0 0 31025
 DOOR 3
 ~
 ~
-0 0 1027
+0 0 31027
 End
 
-#1027
+#31027
 NAME   Edge of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -525,18 +525,18 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1031
+0 0 31031
 DOOR 1
 ~
 ~
-0 0 1026
+0 0 31026
 DOOR 2
 ~
 ~
-0 0 1024
+0 0 31024
 End
 
-#1028
+#31028
 NAME   In A Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -546,22 +546,22 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1029
+0 0 31029
 DOOR 1
 ~
 ~
-0 0 1033
+0 0 31033
 DOOR 2
 ~
 ~
-0 0 1032
+0 0 31032
 DOOR 3
 ~
 ~
-0 0 1026
+0 0 31026
 End
 
-#1029
+#31029
 NAME   End of A Small Animal Trail~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -571,18 +571,18 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1040
+0 0 31040
 DOOR 2
 ~
 ~
-0 0 1028
+0 0 31028
 DOOR 3
 ~
 ~
-0 0 1030
+0 0 31030
 End
 
-#1030
+#31030
 NAME   Edge of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -592,18 +592,18 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1029
+0 0 31029
 DOOR 2
 ~
 ~
-0 0 1026
+0 0 31026
 DOOR 3
 ~
 ~
-0 0 1031
+0 0 31031
 End
 
-#1031
+#31031
 NAME   Edge of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -613,14 +613,14 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1030
+0 0 31030
 DOOR 2
 ~
 ~
-0 0 1027
+0 0 31027
 End
 
-#1032
+#31032
 NAME   Edge of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -630,18 +630,18 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1028
+0 0 31028
 DOOR 1
 ~
 ~
-0 0 1034
+0 0 31034
 DOOR 3
 ~
 ~
-0 0 1025
+0 0 31025
 End
 
-#1033
+#31033
 NAME   In Front of a Hermits House~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -651,18 +651,18 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1035
+0 0 31035
 DOOR 2
 ~
 ~
-0 0 1034
+0 0 31034
 DOOR 3
 ~
 ~
-0 0 1028
+0 0 31028
 End
 
-#1034
+#31034
 NAME   Edge of a Grassy Field~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -672,14 +672,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1033
+0 0 31033
 DOOR 3
 ~
 ~
-0 0 1032
+0 0 31032
 End
 
-#1035
+#31035
 NAME   Inside a Hermit's House~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -689,14 +689,14 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1036
+0 0 31036
 DOOR 3
 ~
 ~
-0 0 1033
+0 0 31033
 End
 
-#1036
+#31036
 NAME   Bedroom of a Hermits House~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -706,14 +706,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1037
+0 0 31037
 DOOR 3
 ~
 ~
-0 0 1035
+0 0 31035
 End
 
-#1037
+#31037
 NAME   Behind a Hermits House~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -723,14 +723,14 @@ Sect   0
 DOOR 2
 ~
 ~
-0 0 1036
+0 0 31036
 DOOR 5
 ~
 ~
-0 0 1038
+0 0 31038
 End
 
-#1038
+#31038
 NAME   Down the Well~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -740,14 +740,14 @@ Sect   0
 DOOR 2
 ~
 ~
-0 0 1039
+0 0 31039
 DOOR 4
 ~
 ~
-0 0 1037
+0 0 31037
 End
 
-#1039
+#31039
 NAME   The Secret Workshop~
 DESCR
 This room should have some weird devices and things and some notes exaplaining to look for a hidden switch that looks like a triangular rock.  This lock will actually open the tunnel to the timekeepers trap when you find it.~
@@ -756,14 +756,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1038
+0 0 31038
 DOOR 1
 ~
 ~
-0 0 1052
+0 0 31052
 End
 
-#1040
+#31040
 NAME   A Small Animal Trail~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -773,14 +773,14 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1041
+0 0 31041
 DOOR 2
 ~
 ~
-0 0 1029
+0 0 31029
 End
 
-#1041
+#31041
 NAME   A Small Animal Trail~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -790,14 +790,14 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1042
+0 0 31042
 DOOR 3
 ~
 ~
-0 0 1040
+0 0 31040
 End
 
-#1042
+#31042
 NAME   End Of The Road~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -807,14 +807,14 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1043
+0 0 31043
 DOOR 3
 ~
 ~
-0 0 1041
+0 0 31041
 End
 
-#1043
+#31043
 NAME   The Poorly Maintained Road~
 DESCR
 This is the entrance to the area for the Timekeepers Trap.
@@ -826,12 +826,12 @@ Sect   0
 DOOR 3
 ~
 ~
-0 0 1042
+0 0 31042
 EDESC sign post~
 WARNING: Roads are unmaintained beyond this point.  Caution should be taken for landslides and wild animals.~
 End
 
-#1044
+#31044
 NAME   The Caverns End~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -841,14 +841,14 @@ Sect   0
 DOOR 2
 ~
 ~
-0 0 1009
+0 0 31009
 DOOR 3
 ~
 ~
-0 0 1045
+0 0 31045
 End
 
-#1045
+#31045
 NAME   The smooth wall of the cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -858,18 +858,18 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1044
+0 0 31044
 DOOR 2
 ~
 ~
-0 0 1008
+0 0 31008
 DOOR 3
 ~
 ~
-0 0 1046
+0 0 31046
 End
 
-#1046
+#31046
 NAME   The sharp corner of the cavern~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -879,18 +879,18 @@ Sect   0
 DOOR 1
 ~
 ~
-0 0 1045
+0 0 31045
 DOOR 2
 ~
 ~
-0 0 1010
+0 0 31010
 DOOR 5
 ~
 ~
-0 0 1047
+0 0 31047
 End
 
-#1047
+#31047
 NAME   A smooth Metal Tunnel~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -900,14 +900,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1048
+0 0 31048
 DOOR 4
 ~
 ~
-0 0 1046
+0 0 31046
 End
 
-#1048
+#31048
 NAME   A smooth Metal Tunnel~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -917,14 +917,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1049
+0 0 31049
 DOOR 2
 ~
 ~
-0 0 1047
+0 0 31047
 End
 
-#1049
+#31049
 NAME   A smooth Metal Tunnel~
 DESCR
 This is a newly created room. Edit this description to describe what the room looks like.
@@ -934,14 +934,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1050
+0 0 31050
 DOOR 2
 ~
 ~
-0 0 1048
+0 0 31048
 End
 
-#1050
+#31050
 NAME   The Odd Metal Door~
 DESCR
 This is the actual entrance to the timekeepers lair.  It opens at noon every day.
@@ -951,14 +951,14 @@ Sect   0
 DOOR 0
 ~
 ~
-0 0 1051
+0 0 31051
 DOOR 2
 ~
 ~
-0 0 1049
+0 0 31049
 End
 
-#1051
+#31051
 NAME   The Waiting Room~
 DESCR
 This is an odd waiting room - but it's entire purpose is that depending on what time you go north to go inside, you will get a different set of rooms to interact with.
@@ -968,10 +968,10 @@ Sect   0
 DOOR 2
 ~
 ~
-0 0 1050
+0 0 31050
 End
 
-#1052
+#31052
 NAME   The End of Time~
 DESCR
 Time seems to speed up as you move, accelerating until there is a blur of white
