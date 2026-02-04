@@ -2192,19 +2192,9 @@ class EditorPanel:
             )
             dpg.add_spacer(height=10)
 
-            # Short Description (SHORT field in ROM format)
-            dpg.add_text("Short Description:", color=(150, 150, 150))
-            dpg.add_text("(What appears in the room, e.g., 'a town guard')", color=(120, 120, 120))
-            dpg.add_input_text(
-                default_value=mob.short_description,
-                width=-1,
-                callback=self._on_mobile_field_changed,
-                user_data=('short_description', mob_vnum)
-            )
-            dpg.add_spacer(height=10)
-
             # Long Description (LONG field in ROM format)
-            dpg.add_text("Long Description:", color=(150, 150, 150))
+            # This is what you see when you examine/look at the mobile
+            dpg.add_text("Long Description (Examine):", color=(150, 150, 150))
             dpg.add_text("(What you see when you 'look' at the mobile - auto-wraps at 80 characters)", color=(120, 120, 120))
             # Use wrapped text input that auto-wraps at 80 characters and auto-resizes
             wrapped_input = WrappedTextInput(
@@ -2216,6 +2206,18 @@ class EditorPanel:
                 line_height=20
             )
             wrapped_input.create()
+            dpg.add_spacer(height=10)
+
+            # Short Description (SHORT field in ROM format)
+            # This is what appears in the room listing
+            dpg.add_text("Short Description (Room):", color=(150, 150, 150))
+            dpg.add_text("(What appears in the room, e.g., 'A town guard stands here.')", color=(120, 120, 120))
+            dpg.add_input_text(
+                default_value=mob.short_description,
+                width=-1,
+                callback=self._on_mobile_field_changed,
+                user_data=('short_description', mob_vnum)
+            )
             dpg.add_spacer(height=10)
 
             # Description (DESCR field in ROM format)
