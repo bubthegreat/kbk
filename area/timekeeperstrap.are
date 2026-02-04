@@ -988,8 +988,16 @@ End
 #31035
 NAME   Inside a Hermit's House~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
-~
+This is a newly created room. Edit this description to describe what the room
+looks like.
+
+This room should have the timekeepers newly married wife before he's actually done anything crazy -
+this is all pre-elia-dying.  She is here just making dinner or something, and
+the lab out back is not actually somethign either of them understands.  He is
+going to be at the apple tree investigating the weird fracture in time to the
+rotting apple tree, and she's got a journal she's writing about how he's found
+some sort of temporal fracture that he's exploring.  He's a chronomancer, or at
+least aspiring to be one.~
 FLAGS  0
 Sect   0
 DOOR 1
@@ -1152,17 +1160,15 @@ You see the looming piedmont in the distance.~
 ~
 0 0 0
 DOOR 1
-The broken cobblestone seems to improve going this direction.
+You see nothing special here.~
 ~
-~
-0 0 31043
+0 0 31062
 DOOR 2
 The forest swallows up the south side of the road.~
 ~
 0 0 0
 DOOR 3
-You see a small animal trail off the road just past a crumbled stone wall.
-~
+You see nothing special here.~
 ~
 0 0 31041
 DOOR 5
@@ -1366,6 +1372,10 @@ This is an odd waiting room - but it's entire purpose is that depending on what 
 ~
 FLAGS  0
 Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31068
 DOOR 2
 You see nothing special here.
 ~
@@ -1379,7 +1389,12 @@ DESCR
 Time seems to speed up as you move, accelerating until there is a blur of white
 streaming past you faster than you can comprehend.  Suddenly, everything stops,
 and there is only black.  There is nothing here.  You aren't exactly floating,
-it's just that...there is just...nothing.  ~
+it's just that...there is just...nothing.  
+
+Note: If you bring him the box with all the things used on it, it's actually the
+paradox fixer, and will reward you with like 50 hours of les age and 2 con or
+something for solving the riddle.  I think I'd like it to also give you a little
+clock tattoo that casts haste on you in combat, because this is going to be a bitch of a set of riddles to solve.~
 FLAGS  295182337
 Sect   9
 End
@@ -1493,8 +1508,14 @@ End
 #31058
 NAME   An Ancient Apple Tree~
 DESCR
-Beneath the leaves of this ancient apple tree you see hundreds of apples in various stages of rotting.  It's obvious that no one has tended this tree in some time.  Nearby you see the stump of a rotten apple tree that seems to have rotted and fallen over.  
-~
+Beneath the leaves of this ancient apple tree you see hundreds of apples in
+various stages of rotting.  It's obvious that no one has tended this tree in
+some time.  Nearby you see the stump of a rotten apple tree that seems to have
+rotted and fallen over.  
+
+NOTE: The timekeeper should be young here - he's just started his research in
+chronomancy and found this fracture in time that he believes is a paradox, and
+it's what gets him started thinking about paradoxes in the first place.  This IS the paradox, because without this paradox he wouldn't have started researching paradoxes and his wife wouldn't have been killed helping him research them.  He is the one who created this paradox of looped time that links the current apple tree to the ancient moldy one.  ~
 FLAGS  0
 Sect   3
 DOOR 1
@@ -1513,8 +1534,10 @@ DESCR
 This apple tree stump is surrounded by branches of a once great tree, now laid
 low.  It's branches would have been at least a hundred feet high.  Now the
 branches are strewn about this glade, some so rotten that they've been overcome
-with moss and fungus.  You see something odd and faded etched into the base of the trunk.
-~
+with moss and fungus.  You see something odd and faded etched into the base of
+the trunk.
+
+NOTE: This is supposed to be a small fracture in time you can pass through and needs some foreshadowing showing that this dude is fucking up time and it's dangerous - it's kind of supposed to be the same tree.~
 FLAGS  0
 Sect   3
 DOOR 3
@@ -1560,6 +1583,158 @@ DOOR 3
 You can see the end of the dock past the debris and mud.~
 ~
 0 0 31060
+End
+
+#31062
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31063
+DOOR 3
+You see nothing special here.~
+~
+0 0 31042
+End
+
+#31063
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31064
+DOOR 3
+You see nothing special here.~
+~
+0 0 31062
+End
+
+#31064
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31065
+DOOR 2
+You see nothing special here.~
+~
+0 0 31063
+End
+
+#31065
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31066
+DOOR 3
+You see nothing special here.~
+~
+0 0 31064
+End
+
+#31066
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31065
+DOOR 1
+You see nothing special here.~
+~
+0 0 31067
+End
+
+#31067
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31043
+DOOR 3
+You see nothing special here.~
+~
+0 0 31066
+End
+
+#31068
+NAME   The Threshold~
+DESCR
+As you enter from the waiting room, the entrance seals shut.  The smooth surface
+of this almost tubular room has windows that seem to flicker with strange
+energeies outside intermittently.  The room is bare of anything other than a
+ledge large enough to sit on on each side of the room.  The lighting in this
+room seems to come from under the ledge, although when you look there is no
+noticeable source for the under-lighting.  There is a sundial in the center of the tube on a small pedestal made of the same metal as all the rest of the chamber, however the sundial seems to cast a shadow as if it were standing directly in the sun.  ~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31051
+EDESC sundial shadow~
+NOTE: This should change depending on what time it is to indicate which area you'll get into after this.
+
+This small silvery sundial is incredibly minimalistic in it's design.  At the moment the small triangular spike seems to be casting a shadow at the %s oclock mark.
+
+12-2: Stellar/Astral
+12-2: Hourglass
+2-4: Pendulum
+4-6: Heat
+6-8: Lightning
+8-10: Looping
+10-12: Predictive
+
+Each of these areas will have a puzzle you ahve to solve to get out, and a hidden piece of his "final work" that will remove him from time entirely, but he can't do it himself without creating a paradox, so this entire area that started as a trap actually became his way of removing himself from time to prevent a paradox that he eventually sees coming in the predictive time area.
+
+It should progressively get tougher and tougher as you go forward in time closer to the paradox.~
+EDESC stellar astral~
+12-2: Stellar/Astral - This period of the lab will outline his obsession with the stars and astral relationships that dictate the passing of time.  You'll find notes about his ramblings of relativistic nature of time, how movement plays into it, and puzzles related to stars, sun, and moon positions.  Would be cool to add something in here with a legitimate lunar calendar.
+
+In this area you'll actually find the silver box from under the pond with his wife's name - this is some foreshadowing, but each piece of time you'll have to use something on this box to actually build out the final "piece" that will prevent the paradox and get you a reward - so if you don't keep it with you you won't have pieces to apply to it, etc.~
+EDESC hourglass~
+The hourglass lab is when he's past the relativistic research and is starting to look at practical application of time passing.  You'll find puzzles and notes related to practical application of moving forward or backwards of objects in time, but not yet himself.  He's studied enough to demonstrate that time travel of objects is possible, but not brave enough or crazy enough to have tried it on himself.  You'll find the first notes from his friend in this one, but wont meet him yet.  ~
+EDESC pendulum~
+The pendulum era of the lab is going to be more mad-scientist and you'll meet the friend in this timeframe.  He's still alive and well, but focused on trying to decipher his friends research to "catch up" to him through the time jumps.  This area of the lab is going to be more like gnomish artificer where he's discovering ways to intentionally impact the flow of time, not just move himself, but to actually alter the flow of time around him and impact it in different ways.  Puzzles in this section will be related to building a basic clock with a pendulum - finding all the pieces and put it together - the pieces are in various spots in the lab.  You'll also start to find automatons in this area that are like gnomish artificer automatons and notes showing that he needed to build helpers to assist in building things, etc.  These will be mobs you can fight, some will have the pieces of the clock that solve the riddle, etc.  ~
+EDESC heat~
+The "heat" area is when he starts to get into energy manipulation for measuring and manipulating time directly, but harnessing natural elements to power the various aspects of his time research.  This area is the first area where he will start to notice that his experiments and alterations on time are having stability impacts in other areas of time, and while here you will be able to "observe" destabilization affects.  This is the area where he is trying to increase the power for his experiments, because now that he knows how to control minute aspects of time, he needs more and more power to fuel the experiments.~
+EDESC lightning~
+The "lightning" area will be sort of a hint at a digital concept of time - at this point he's harnessed power and has focused on precision - so the electrical aspect of time is going to be solving puzzles like binary gate addition/subtraction to unlock the way back with your prize. ~
+EDESC Looping~
+In the loopin time he's beginning to experiment with paradoxes and how to create and avoid them.  This part of the lab will actually be where the friend is killed, but never actually dies, because the lab itself is in a looped paradox - the actual trap.  This is where you'll see some of the insanity and risk - something happened prior to this that made him start to take insane risks, something we later will find out that his dear Elia dies, and he's trying to find a way to save her.~
+EDESC predictive~
+New extra description.
+~
 End
 
 #0
