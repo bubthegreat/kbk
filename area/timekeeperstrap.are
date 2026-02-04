@@ -135,6 +135,38 @@ AMOD  0
 QUEST 0
 End
 
+#31004
+NAME  irritated snapping turtle~
+SHORT An angry snapping turtle is here, upset that you disturbed its rest.~
+LONG  This soft shell snapping turtle is quite large for such a small pond.  It's powerful neck seems dangerous given the sharp snapping tip on it's mouth.  It has strong forelegs and hindlegs and seems to have no interest in hiding in it's shell.~
+DESCR
+~
+RACE  fish~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 10
+HROLL 10
+ENHA  100.00%
+MATER flesh~
+HDICE 10d8+100
+MDICE 10d10+50
+DDICE 2d4+5
+REGEN 0
+POS   stand stand
+SEX   none
+GOLD  100
+SIZE  medium
+AMOD  0
+QUEST 0
+End
+
 #0
 
 #OBJDATA
@@ -723,6 +755,10 @@ You see nothing special here.
 ~
 ~
 0 0 31027
+DOOR 5
+You see nothing special here.~
+~
+0 0 31060
 End
 
 #31027
@@ -754,14 +790,9 @@ You see nothing special here.
 End
 
 #31028
-NAME   In A Grassy Field~
+NAME   A Small Dock At The Edge Of The Pond~
 DESCR
-This field is full of short grasses and small wildflowers.  The air is crisp and
-clear, but a bit chilly because of the elevation.  The sky is dominated
-by the mountains to the north, even as close as you are to them.  Not too far to
-the west, you can see the forest ends at the base of the mountainside.  You can
-also see some recent landslides from this distance.
-~
+Here on the east side of the pond there is a small wodden dock that still seems capable of supporting you.  There is an old swinging chair large enough for two that is half broken hear the grass at the beginning of the dock, but it seems to be old and unrepaired long enough that it has not been functional in quite some time.  Looking out over the pond you can see insects flitting about as the grass waves gently in the breeze.  The only ripples you see on the pond are from the waterbugs skimming the surface, and the occasionally stronger breeze gently pusing along.~
 FLAGS  0
 Sect   2
 DOOR 0
@@ -789,8 +820,12 @@ End
 #31029
 NAME   End of A Small Animal Trail~
 DESCR
-The animal trail opens up into a grassy field, surroundeed by mature trees.  It's a fairly large field, with a small spond in the middle.
-~
+As you come to the end of the animal trail, the ancient forest seems to be
+thinning, but only because the brush and scrubs don't get enough sunlight to
+survive.  The mature forest area is full of thick tree trunks and plain dirt
+paths, where the animal trails seem to split and merge.  Because the brush is
+clearer you can see plainly where the ancient road continues to lead this
+way.As you come upon the edge of this ancient forest, you see a beautiful wildflower filled field to the south and est.  The forest is more of the same to the east, leading back to the animal trails you just came from.~
 FLAGS  0
 Sect   3
 DOOR 0
@@ -1042,7 +1077,12 @@ End
 #31040
 NAME   A Small Animal Trail~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+As you pass through the thick branches that seem to be overgrown, you are able
+to still follow the thin animnal trail as it continues along the ancient
+roadbase.  Occasionally you spot an errant cobblestone or moss covered road
+marker.  The trees are ancient, like the mountain that you spot peeking between
+the branches occasionally as you look towards the sky.  Light filters down
+through the branches making this forest light up with a verdant glow.
 ~
 FLAGS  0
 Sect   3
@@ -1061,10 +1101,15 @@ End
 #31041
 NAME   A Small Animal Trail~
 DESCR
-This is a newly created room. Edit this description to describe what the room
-looks like.
+As you pass through the thick branches that seem to be overgrown, you are able
+to still follow the thin animnal trail as it continues along the ancient
+roadbase.  Occasionally you spot an errant cobblestone or moss covered road
+marker.  The trees are ancient, like the mountain that you spot peeking between
+the branches occasionally as you look towards the sky.  Light filters down
+through the branches making this forest light up with a verdant glow.
 
-NOTE: This animal trail needs to be longer - it's way too short for following an old road that leads to the mountains.~
+NOTE: This animal trail needs to be longer - it's way too short for following an
+old road that leads to the mountains.~
 FLAGS  0
 Sect   3
 DOOR 1
@@ -1471,6 +1516,42 @@ Though it's very faded, you can make out the shape of a heart with the initials 
 ~
 End
 
+#31060
+NAME   In The Pond~
+DESCR
+The pond is still and clear, small minnows and insects swimming through being
+busy with their errands.  The silt at the bottom of the pond is drab and brown,
+undisturbed aside from your presence.  Above you can see the surface of the pond
+just above you.  There are various sticks and branches in the mud, and you notice something glinting in the silt.~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31061
+DOOR 4
+You see nothing special here.~
+~
+0 0 31026
+EDESC silt mud glinting box~
+This silver box is half buried in the silt, but you can make out the letter E embellished on the lid.  Upon closer inspection you can make out the inscription "Elia", though when you open it the box is in fact empty.~
+End
+
+#31061
+NAME   Under The Dock~
+DESCR
+As you squeeze underneath the dock you find yourself cramped and unable to move
+well.  The mud here is thick and visibility is low.  Above you can see the
+boards of the dock rippling above the smooth surface of the pond as light peeks
+its way through the boards, but you cannot see much else in the murky water.~
+FLAGS  0
+Sect   6
+DOOR 3
+You see nothing special here.~
+~
+0 0 31060
+End
+
 #0
 
 #SPECIALS
@@ -1484,7 +1565,6 @@ M 0 31001 1 31024 1
 M 0 31001 1 31030 1
 M 0 31001 1 31032 1
 M 0 31001 1 31034 1
-M 0 31001 1 31028 1
 M 0 31001 1 31027 1
 M 0 31002 1 31026 1
 M 0 31003 1 31043 1

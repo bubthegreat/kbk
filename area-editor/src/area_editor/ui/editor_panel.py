@@ -1939,13 +1939,25 @@ class EditorPanel:
             # Item Type
             with dpg.group(horizontal=True):
                 dpg.add_text("Item Type:", color=(150, 150, 150))
-                dpg.add_input_text(
-                    default_value=obj.item_type,
+
+                # Import item types list
+                from area_editor.constants import ITEM_TYPES
+
+                # Make sure current item type is in the list
+                current_item_type = obj.item_type if obj.item_type else "treasure"
+                if current_item_type not in ITEM_TYPES:
+                    # If not in list, add it (for backwards compatibility)
+                    item_types_list = list(ITEM_TYPES) + [current_item_type]
+                else:
+                    item_types_list = list(ITEM_TYPES)
+
+                dpg.add_combo(
+                    items=item_types_list,
+                    default_value=current_item_type,
                     width=200,
                     callback=self._on_object_field_changed,
                     user_data=('item_type', obj_vnum)
                 )
-                dpg.add_text("(e.g., weapon, armor, potion, treasure)", color=(100, 100, 100))
 
             # Material
             with dpg.group(horizontal=True):
@@ -2196,10 +2208,23 @@ class EditorPanel:
             # Race
             with dpg.group(horizontal=True):
                 dpg.add_text("Race:", color=(150, 150, 150))
-                dpg.add_input_text(
-                    default_value=mob.race,
+
+                # Import race types list
+                from area_editor.constants import RACE_TYPES
+
+                # Make sure current race is in the list
+                current_race = mob.race if mob.race else "human"
+                if current_race not in RACE_TYPES:
+                    # If not in list, add it (for backwards compatibility)
+                    race_types_list = list(RACE_TYPES) + [current_race]
+                else:
+                    race_types_list = list(RACE_TYPES)
+
+                dpg.add_combo(
+                    items=race_types_list,
+                    default_value=current_race,
                     width=200,
-                    callback=self._on_mobile_field_changed,
+                    callback=lambda s, a, u: self._on_mobile_field_changed(s, a, u),
                     user_data=('race', mob_vnum)
                 )
 

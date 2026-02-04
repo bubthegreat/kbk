@@ -95,6 +95,61 @@ SIZE_FLAGS: List[Tuple[str, str, str]] = [
     ("giant", "giant", "Giant"),
 ]
 
+# Item types (from src/const.c item_table)
+ITEM_TYPES: List[str] = [
+    "light", "scroll", "wand", "staff", "weapon", "treasure", "armor",
+    "potion", "clothing", "furniture", "trash", "container", "drink",
+    "key", "food", "money", "boat", "fountain", "pill", "protect",
+    "map", "portal", "warp_stone", "room_key", "gem", "jewelry",
+    "jukebox", "skeleton", "instrument"
+]
+
+# Race types (from src/const.c race_table) - PC races first, then NPC races
+RACE_TYPES: List[str] = [
+    # PC races (playable)
+    "human", "dwarf", "elf", "svirfnebli", "dark-elf", "centaur", "troll",
+    "cloud", "gnome", "draconian", "ethereal", "changeling", "arial", "fire",
+    "duergar", "storm", "lich", "angel", "wood-elf", "illithid", "vuuhu",
+    "ruugrah", "malefisti",
+    # NPC races (non-playable)
+    "bat", "bear", "cat", "centipede", "dog", "doll", "dragon", "fido",
+    "fish", "fox", "goblin", "hobgoblin", "kobold", "lizard", "modron",
+    "pig", "rabbit", "school monster", "snake", "song bird", "water fowl",
+    "wolf", "wyvern", "nymph", "titan", "unique"
+]
+
+# Weapon types (from src/const.c weapon_table)
+WEAPON_TYPES: List[str] = [
+    "sword", "mace", "dagger", "axe", "spear", "flail", "whip",
+    "polearm", "staff", "hand to hand"
+]
+
+# Damage types (from src/const.c attack_table)
+DAMAGE_TYPES: List[str] = [
+    "none", "slice", "stab", "slash", "whip", "claw", "blast", "pound",
+    "crush", "grep", "bite", "pierce", "suction", "beating", "digestion",
+    "charge", "slap", "punch"
+]
+
+# Wear locations (from src/tables.c wear_loc_flags) - for equipment slots
+WEAR_LOCATIONS: List[str] = [
+    "none", "light", "lfinger", "rfinger", "neck1", "neck2", "body",
+    "head", "legs", "feet", "hands", "arms", "shield", "about", "waist",
+    "lwrist", "rwrist", "wielded", "hold", "dualwielded"
+]
+
+# Apply types (from src/tables.c apply_types) - for object affects
+APPLY_TYPES: List[str] = [
+    "affects", "object", "immune", "resist", "vuln", "weapon"
+]
+
+# Apply flags (from src/tables.c apply_flags) - what stats can be affected
+APPLY_FLAGS: List[str] = [
+    "none", "strength", "dexterity", "intelligence", "wisdom", "constitution",
+    "sex", "class", "level", "age", "height", "weight", "mana", "hp", "move",
+    "gold", "experience", "ac", "hitroll", "damroll"
+]
+
 # Helper functions
 def get_flag_name(flags: int, flag_list: List[Tuple[str, int, str]]) -> str:
     """Get a human-readable string of flag names from a bit field."""
