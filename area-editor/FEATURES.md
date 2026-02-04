@@ -543,3 +543,77 @@ End
 
 ---
 
+## Complete Data Preservation
+
+**Description**: The area editor now preserves ALL metadata when loading and saving .are files, including all mobile fields, object affects, specials, and section ordering.
+
+**How to Test**:
+1. Open any existing .are file (e.g., `area/trolls.are`)
+2. Make a small change (e.g., edit a room description)
+3. Save the file
+4. Run `diff -u area/trolls.are area/trolls_backup.are` (if you made a backup)
+5. Verify that ONLY your intentional changes appear in the diff
+6. All other data should be preserved exactly
+
+**What is Preserved**:
+
+**AREADATA Section:**
+- Name, Builders, VNUMs, Security
+- Credits (level range and author)
+- Xplore flag
+- Recall vnum (if present)
+
+**Mobile (#MOBDATA) Fields:**
+- Basic: NAME, SHORT, LONG, DESCR, RACE
+- Flags: ACT, AFF, OFF, IMM, RES, VULN
+- Combat: WSPEC, ALIGN, GROUP, LEVEL, HROLL, ENHA
+- Stats: MATER, HDICE, MDICE, DDICE, REGEN, DTYPE
+- Defense: AC (4 values: pierce, bash, slash, exotic)
+- Position: POS (start and default), SEX, GOLD
+- Physical: FORM, PARTS, SIZE
+- Modifiers: DMOD, AMOD, QUEST
+
+**Object (#OBJDATA) Fields:**
+- Descriptions: NAME, SHORT, DESCR (on separate line)
+- Properties: MAT (material), TYPE, EXTRA, WEAR
+- Stats: LEVEL, WEIGHT, COST, COND
+- Affects: Affect lines (location, apply_type, modifier, bitvector)
+- Limits: LIMIT field
+- Extra: EDESC (extra descriptions)
+
+**Room (#ROOMDATA) Fields:**
+- All room fields already preserved
+
+**Section Ordering:**
+- Correct order: AREADATA → MOBDATA → OBJDATA → ROOMDATA → SPECIALS → RESETS → SHOPS → IMPROGS → #$
+
+**Reset Commands:**
+- Correct format per command type:
+  - M: `M 0 <mob_vnum> <max_world> <room_vnum> <max_room>`
+  - E: `E 0 <obj_vnum> 0 <wear_loc>` (4 values)
+  - G: `G 0 <obj_vnum> 0` (3 values)
+  - O: `O 0 <obj_vnum> 0 <room_vnum>`
+  - P: `P 0 <obj_vnum> <max> <container_vnum> <max_in_container>`
+
+**Specials (#SPECIALS):**
+- Format: `M <vnum> <spec_function>`
+- Preserves special function assignments to mobiles
+
+**Shops (#SHOPS):**
+- Already preserved
+
+**Improgs (#IMPROGS):**
+- Section is written (usually empty with just `E` marker)
+
+**Additional Notes**:
+- The only acceptable differences in a diff should be:
+  - Blank lines (cosmetic)
+  - Your intentional edits
+- All fields are written even when they have 0 values (matches original format)
+- This fixes the systemic data loss issue that was corrupting area files
+- Files saved by the editor are now safe to load in the MUD server
+
+**Related Tests**: Manual testing with `diff` command
+
+---
+
