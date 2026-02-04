@@ -1,90 +1,138 @@
 #AREADATA
-Name        Timekeeperstrap~
-Builders    Builder~
-VNUMs       31000 31599
-Security    9
-Recall      31000
+Name Timekeeperstrap~
+Builders Builder~
+VNUMs 31000 31599
+Security 9
+Xplore 0
 End
 
 #MOBDATA
 #31000
-NAME   timekeeper old man~
-SHORT  The Timekeeper is floating here.~
-LONG   This dude is OLD.  So old, in fact, that you can't see where his wrinkles start or end.~
+NAME  timekeeper old man~
+SHORT The Timekeeper is floating here.~
+LONG  This dude is OLD.  So old, in fact, that you can't see where his wrinkles start or end.~
 DESCR
 ~
-RACE   human~
-ACT    
-AFF    
-ALIGN  0
-LEVEL  52
-HROLL  52
-DDICE  10d17+26
-MDICE  52d10+260
-HDICE  52d8+520
-GOLD   520
-POS    stand stand
-SEX    none
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 52
+ENHA  100.00%
+MATER flesh~
+HDICE 52d8+520
+MDICE 52d10+260
+DDICE 10d17+26
+REGEN 0
+POS   stand stand
+SEX   none
+GOLD  520
+SIZE  medium
+AMOD  0
+QUEST 0
 End
 
 #31001
-NAME   grasshopper~
-SHORT  A green leaf-shaped grassoppher is here.~
-LONG   This grasshopper is bright green, with wings that are shaped just like a small green leaf.  It's legs are cocked back and ready to jump at a moments notice.~
+NAME  grasshopper~
+SHORT A green leaf-shaped grassoppher is here.~
+LONG  This grasshopper is bright green, with wings that are shaped just like a small green leaf.  It's legs are cocked back and ready to jump at a moments notice.~
 DESCR
 ~
-RACE   human~
-ACT    
-AFF    
-ALIGN  0
-LEVEL  5
-HROLL  5
-DDICE  1d4+2
-MDICE  5d10+25
-HDICE  5d8+50
-GOLD   50
-POS    stand stand
-SEX    either
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 5
+HROLL 5
+ENHA  100.00%
+MATER flesh~
+HDICE 5d8+50
+MDICE 5d10+25
+DDICE 1d4+2
+REGEN 0
+POS   stand stand
+SEX   either
+GOLD  50
+SIZE  medium
+AMOD  0
+QUEST 0
 End
 
 #31002
-NAME   painter turtle small~
-SHORT  A small painter turtle is here.~
-LONG   This small little painter turtle has red stripes on either side of his tiny head.  He must be a baby turtle, only about two or three inches wide at the thickest part of his shell.~
+NAME  painter turtle small~
+SHORT A small painter turtle is here.~
+LONG  This small little painter turtle has red stripes on either side of his tiny head.  He must be a baby turtle, only about two or three inches wide at the thickest part of his shell.~
 DESCR
 ~
-RACE   human~
-ACT    
-AFF    
-ALIGN  0
-LEVEL  1
-HROLL  1
-DDICE  1d4+0
-MDICE  1d10+5
-HDICE  1d8+10
-GOLD   10
-POS    stand stand
-SEX    none
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 1
+HROLL 1
+ENHA  100.00%
+MATER flesh~
+HDICE 1d8+10
+MDICE 1d10+5
+DDICE 1d4+0
+REGEN 0
+POS   stand stand
+SEX   none
+GOLD  10
+SIZE  medium
+AMOD  0
+QUEST 0
 End
 
 #31003
-NAME   bandit man~
-SHORT  A bandit stands here blocking the road.~
-LONG   This bandit seems to be mostly human, but you can't really tell because of all of the clothing wrapped around him to keep the cold from biting.  Mostly in grays and blacks, it's no wonder you didn't notice him until you got here.~
+NAME  bandit man~
+SHORT A bandit stands here blocking the road.~
+LONG  This bandit seems to be mostly human, but you can't really tell because of all of the clothing wrapped around him to keep the cold from biting.  Mostly in grays and blacks, it's no wonder you didn't notice him until you got here.~
 DESCR
 ~
-RACE   human~
-ACT    
-AFF    
-ALIGN  -1000
-LEVEL  5
-HROLL  5
-DDICE  1d4+2
-MDICE  5d10+25
-HDICE  5d8+50
-GOLD   50
-POS    stand stand
-SEX    none
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN -1000
+GROUP 0
+LEVEL 5
+HROLL 5
+ENHA  100.00%
+MATER flesh~
+HDICE 5d8+50
+MDICE 5d10+25
+DDICE 1d4+2
+REGEN 0
+POS   stand stand
+SEX   none
+GOLD  50
+SIZE  medium
+AMOD  0
+QUEST 0
 End
 
 #0
@@ -1093,7 +1141,7 @@ You can see the last portion of road that's been maintained a few hundred feet t
 ~
 0 0 0
 DOOR 2
-The forest swallows up the south side of the road.~
+You see nothing special here.~
 ~
 0 0 22045
 DOOR 3
@@ -1444,5 +1492,10 @@ S
 
 #SHOPS
 0
+
+#IMPROGS
+E
+
+
 
 #$

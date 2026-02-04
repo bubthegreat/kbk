@@ -7,8 +7,6 @@ Security 9
 Xplore 0
 End
 
-
-
 #MOBDATA
 #22000
 NAME  disgusting troll warrior~
@@ -299,8 +297,6 @@ QUEST 0
 End
 
 #0
-
-
 
 #OBJDATA
 #22000
@@ -670,8 +666,6 @@ LIMIT  18
 End
 
 #0
-
-
 
 #ROOMDATA
 #22000
@@ -1706,6 +1700,10 @@ horrid smell.
 ~
 FLAGS  1
 Sect   0
+DOOR 0
+You might be able to squeeze past the pile of furs to the dirt path beyond.~
+~
+2048 0 31043
 DOOR 1
 ~
 ~
@@ -2619,14 +2617,10 @@ End
 
 #0
 
-
-
 #SPECIALS
 M 22003 spec_breath_gas
 M 22006 spec_cast_undead
 S
-
-
 
 #RESETS
 M 0 22004 8 22025 1
@@ -2679,12 +2673,8 @@ M 0 22001 6 22087 1
 M 0 22005 8 22091 1
 S
 
-
-
 #SHOPS
 0
-
-
 
 #IMPROGS
 E
