@@ -8,9 +8,9 @@ End
 
 #MOBDATA
 #31000
-NAME  timekeeper old man~
-SHORT The Timekeeper is floating here.~
-LONG  This dude is OLD.  So old, in fact, that you can't see where his wrinkles start or end.~
+NAME  timekeeper old man midian~
+SHORT Midian the aged Timekeeper is floating here.~
+LONG  You almost cannot tell that this is Midian, his body is so aged and wrinkled.  He still wears his pristine chronomancers robes, though they seem to have been modified heavily with inlays of mysterisous silvery metal and strange symbols.~
 DESCR
 ~
 RACE  human~
@@ -162,6 +162,102 @@ REGEN 0
 POS   stand stand
 SEX   none
 GOLD  100
+SIZE  medium
+AMOD  0
+QUEST 0
+End
+
+#31005
+NAME  elia~
+SHORT Elia is here writing in her journal.~
+LONG  Elia is the dudes wife - we gotta fix this description so it's better but for now, she's a young married woman who's fresh and excited about life.~
+DESCR
+~
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 15
+HROLL 15
+ENHA  100.00%
+MATER flesh~
+HDICE 15d8+150
+MDICE 15d10+75
+DDICE 3d5+7
+REGEN 0
+POS   sitting sitting
+SEX   female
+GOLD  150
+SIZE  medium
+AMOD  0
+QUEST 0
+End
+
+#31006
+NAME  chronomancer Midian~
+SHORT Midian the chronomancer is here, investigating the paradox.~
+LONG  Midian stands here in his chronomancers robes, still bearing the creases of being newly made.  His eyes are bright and curious, and despite being a bit tall, he carries himself with an air of affability.~
+DESCR
+~
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 1
+HROLL 1
+ENHA  100.00%
+MATER flesh~
+HDICE 1d8+10
+MDICE 1d10+5
+DDICE 1d4+0
+REGEN 0
+POS   stand stand
+SEX   none
+GOLD  10
+SIZE  medium
+AMOD  0
+QUEST 0
+End
+
+#31007
+NAME  midian~
+SHORT A middle aged Midian is here searching frantically through papers.~
+LONG  Midian seems to have aged quite a bit compared to his younger self, including odd scarring in various places.  His chronomancers  robes are worn and disheveled, showing an obvious lack of care.~
+DESCR
+~
+RACE  human~
+ACT   
+AFF   
+OFF   
+IMM   
+RES   
+VULN  
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 35
+HROLL 35
+ENHA  100.00%
+MATER flesh~
+HDICE 35d8+350
+MDICE 35d10+175
+DDICE 7d11+17
+REGEN 0
+POS   stand stand
+SEX   none
+GOLD  350
 SIZE  medium
 AMOD  0
 QUEST 0
@@ -986,7 +1082,7 @@ You see nothing special here.
 End
 
 #31035
-NAME   Inside a Hermit's House~
+NAME   Inside a Chronomancers House~
 DESCR
 This is a newly created room. Edit this description to describe what the room
 looks like.
@@ -1086,8 +1182,7 @@ You see nothing special here.
 ~
 0 0 31038
 DOOR 1
-You see nothing special here.
-~
+You see nothing special here.~
 ~
 0 0 31052
 End
@@ -1209,7 +1304,7 @@ DOOR 3
 You see the end of the maintained road, and some rough road beyond.
 ~
 ~
-0 0 31042
+0 0 31067
 DOOR 5
 The cobblestones below your feet are covered in mud and dirt that is reddish-orange clay on top of the dark gray cobblestone.~
 ~
@@ -1394,9 +1489,16 @@ it's just that...there is just...nothing.
 Note: If you bring him the box with all the things used on it, it's actually the
 paradox fixer, and will reward you with like 50 hours of les age and 2 con or
 something for solving the riddle.  I think I'd like it to also give you a little
-clock tattoo that casts haste on you in combat, because this is going to be a bitch of a set of riddles to solve.~
+clock tattoo that casts haste on you in combat, because this is going to be a
+bitch of a set of riddles to solve.
+
+ALSO NOTE: This is not going to actually lead back to his workshop once it's ready - you'll be stuck and suck it up.  Just putting an exit here for temporary convenience.~
 FLAGS  295182337
 Sect   9
+DOOR 3
+You see nothing special here.~
+~
+0 0 31039
 End
 
 #31053
@@ -1754,6 +1856,9 @@ M 0 31001 1 31027 1
 M 0 31002 1 31026 1
 M 0 31003 1 31043 1
 M 0 31004 1 31061 1
+M 0 31005 1 31035 1
+M 0 31006 1 31058 1
+M 0 31007 1 31039 1
 S
 
 #SHOPS
