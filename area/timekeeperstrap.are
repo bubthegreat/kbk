@@ -815,6 +815,10 @@ You see nothing special here.
 ~
 ~
 0 0 31026
+EDESC chair swing swinging~
+This once well-built swinging chair is now almost falling apart with wear from the elements.  On the chair back the initials 'E' and 'M' are carved in scrolled lettering that is beginning to crack.  The supports on one side have fallen, and hte grass seems to be taking over the area the swing once sat on.  The chain that hangs the chair is oddly untouched by the elements like the dock and the chair itself, gleaming on it's own.  The links in the chain seem too small to support two people, and you can see no visible welds in the linkage of the almost delicate chain.~
+EDESC dock wooden~
+This small wooden dock is built on posts that have been dug into the pond floor at intervals every few feet.  The wood is worn with age, splitting in some areas, but still serviceable enough to walk on without too much featr of falling through.  You can see murkey water below the boards of the dock between the gaps.~
 End
 
 #31029
@@ -950,6 +954,12 @@ You see nothing special here.
 ~
 ~
 0 0 31028
+EDESC boulders rocks~
+The boulders making up the walls of this cottage are oddly rough in their general shape for how smoothly they are fit together with one another.  Where two boulders touch together it almost looks as if they melted to fit snugly with one another, but the rest is a normal rough hewn boulder that looks to have been unearthed directly from the mountain.  ~
+EDESC window pane~
+The window is made with a few pieces of wood acting as framing for the smooth glass windows.  One of the window panes in the four paned window seems to have had a large hole knocked through it, though some of the glass pieces still remain in that quadrant.  Each window pane quadrant is about the size of someone's head, allowing plenty of light to enter from the west.~
+EDESC door handle~
+The door of this cottage looks like normal wood at first, but as you look closer you see rivets of a starange silvery metal in the hinges.  The handle is made of wood, as are the panels of the door, but they are fit together snugly and oiled well enough that they do not seem to have been weathered like some of the other areas of the cottage.  You notice that the handle has a place for a lock, but instead of having one there is just a hole through the door where it should have been.~
 End
 
 #31034
@@ -1544,10 +1554,10 @@ As you squeeze underneath the dock you find yourself cramped and unable to move
 well.  The mud here is thick and visibility is low.  Above you can see the
 boards of the dock rippling above the smooth surface of the pond as light peeks
 its way through the boards, but you cannot see much else in the murky water.~
-FLAGS  0
+FLAGS  2049
 Sect   6
 DOOR 3
-You see nothing special here.~
+You can see the end of the dock past the debris and mud.~
 ~
 0 0 31060
 End
@@ -1568,6 +1578,7 @@ M 0 31001 1 31034 1
 M 0 31001 1 31027 1
 M 0 31002 1 31026 1
 M 0 31003 1 31043 1
+M 0 31004 1 31061 1
 S
 
 #SHOPS

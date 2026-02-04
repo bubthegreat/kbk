@@ -23,6 +23,10 @@ class EditorPanel:
         self.editor_group_id = None
         self.current_vnum = None  # Track current item being edited
         self.mud_terminal = MudTerminal(main_window)  # MUD terminal instance with main_window reference
+        self.current_room_tab = None  # Track which tab is active in room editor
+        self.current_object_tab = None  # Track which tab is active in object editor
+        self.room_tab_bar_id = None  # ID of the room editor tab bar
+        self.object_tab_bar_id = None  # ID of the object editor tab bar
     
     def create(self):
         """Create the editor panel."""
@@ -373,11 +377,11 @@ class EditorPanel:
         # Mark as modified
         app_state.mark_modified()
 
-        # Refresh the editor
+        # Refresh the editor, preserving the current tab
         if item_type == 'room':
-            self.show_room_editor(item_vnum)
+            self.show_room_editor(item_vnum, preserve_tab=True)
         elif item_type == 'object':
-            self.show_object_editor(item_vnum)
+            self.show_object_editor(item_vnum, preserve_tab=True)
 
     def _on_delete_extra_desc_clicked(self, sender, app_data, user_data):
         """Handle delete extra description button click."""
@@ -399,11 +403,11 @@ class EditorPanel:
         # Mark as modified
         app_state.mark_modified()
 
-        # Refresh the editor
+        # Refresh the editor, preserving the current tab
         if item_type == 'room':
-            self.show_room_editor(item_vnum)
+            self.show_room_editor(item_vnum, preserve_tab=True)
         elif item_type == 'object':
-            self.show_object_editor(item_vnum)
+            self.show_object_editor(item_vnum, preserve_tab=True)
 
     def _on_add_mobile_reset_clicked(self, sender, app_data, user_data):
         """Handle add mobile reset button click - show modal to select mobile."""
@@ -1390,11 +1394,22 @@ class EditorPanel:
                     color=(255, 100, 100)
                 )
 
-    def show_room_editor(self, room_vnum):
-        """Show the room editor for the specified room."""
+    def show_room_editor(self, room_vnum, preserve_tab=True):
+        """Show the room editor for the specified room.
+
+        Args:
+            room_vnum: The vnum of the room to edit
+            preserve_tab: If True, restore the previously active tab after refresh
+        """
         room = app_state.current_area.rooms.get(room_vnum)
         if not room:
             return
+
+        # Save the currently active tab before clearing (if we have a tab bar)
+        saved_tab = None
+        if preserve_tab and self.room_tab_bar_id and dpg.does_item_exist(self.room_tab_bar_id):
+            # Get the currently selected tab
+            saved_tab = dpg.get_value(self.room_tab_bar_id)
 
         self._clear_editor()
         self._show_editor()
@@ -1429,9 +1444,16 @@ class EditorPanel:
                     dpg.add_spacer(height=10)
 
             # Create tab bar for room editor
-            with dpg.tab_bar():
+            self.room_tab_bar_id = dpg.generate_uuid()
+            general_tab_id = dpg.generate_uuid()
+            flags_tab_id = dpg.generate_uuid()
+            exits_tab_id = dpg.generate_uuid()
+            extra_desc_tab_id = dpg.generate_uuid()
+            mobiles_tab_id = dpg.generate_uuid()
+
+            with dpg.tab_bar(tag=self.room_tab_bar_id):
                 # General Tab
-                with dpg.tab(label="General"):
+                with dpg.tab(label="General", tag=general_tab_id):
                     dpg.add_spacer(height=10)
 
                     dpg.add_text("Name:", color=(150, 150, 150))
@@ -1472,7 +1494,7 @@ class EditorPanel:
                     )
 
                 # Flags Tab
-                with dpg.tab(label="Flags"):
+                with dpg.tab(label="Flags", tag=flags_tab_id):
                     dpg.add_spacer(height=10)
                     dpg.add_text("Room Flags:", color=(150, 150, 150))
                     dpg.add_text("(Check the flags that apply to this room)", color=(120, 120, 120))
@@ -1488,19 +1510,23 @@ class EditorPanel:
                         )
 
                 # Exits Tab
-                with dpg.tab(label="Exits"):
+                with dpg.tab(label="Exits", tag=exits_tab_id):
                     dpg.add_spacer(height=10)
                     self._show_exits_editor(room, room_vnum)
 
                 # Extra Descriptions Tab
-                with dpg.tab(label="Extra Descriptions"):
+                with dpg.tab(label="Extra Descriptions", tag=extra_desc_tab_id):
                     dpg.add_spacer(height=10)
                     self._show_extra_descriptions_editor(room, room_vnum)
 
                 # Mobiles Tab
-                with dpg.tab(label="Mobiles"):
+                with dpg.tab(label="Mobiles", tag=mobiles_tab_id):
                     dpg.add_spacer(height=10)
                     self._show_mobiles_editor(room, room_vnum)
+
+            # Restore the previously active tab if we saved one
+            if saved_tab and dpg.does_item_exist(saved_tab):
+                dpg.set_value(self.room_tab_bar_id, saved_tab)
 
             dpg.add_spacer(height=10)
             dpg.add_text("Properties", color=(200, 200, 200))
@@ -1882,8 +1908,13 @@ class EditorPanel:
                 height=25
             )
 
-    def show_object_editor(self, obj_vnum):
-        """Show the object editor for the specified object."""
+    def show_object_editor(self, obj_vnum, preserve_tab=True):
+        """Show the object editor for the specified object.
+
+        Args:
+            obj_vnum: The vnum of the object to edit
+            preserve_tab: Unused for object editor (no tabs), kept for API consistency
+        """
         obj = app_state.current_area.objects.get(obj_vnum)
         if not obj:
             return
