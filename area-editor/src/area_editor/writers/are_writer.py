@@ -30,17 +30,26 @@ class AreWriter:
             self._write_specials_section(f)
             self._write_resets_section(f)
             self._write_shops_section(f)
+            self._write_improgs_section(f)
             self._write_terminator(f)
     
     def _write_area_section(self, f: TextIO) -> None:
         """Write the #AREADATA section."""
         f.write("#AREADATA\n")
-        f.write(f"Name        {self.area.name}~\n")
-        f.write(f"Builders    {self.area.author}~\n")
-        f.write(f"VNUMs       {self.area.min_vnum} {self.area.max_vnum}\n")
-        f.write(f"Security    {self.area.security}\n")
-        if self.area.min_vnum > 0:  # Only add Recall if we have a valid vnum range
-            f.write(f"Recall      {self.area.min_vnum}\n")
+        f.write(f"Name {self.area.name}~\n")
+        f.write(f"Builders {self.area.builders}~\n")
+        f.write(f"VNUMs {self.area.min_vnum} {self.area.max_vnum}\n")
+
+        # Write Credits if present (format: "{min max} Author  AreaName~")
+        if self.area.credits:
+            f.write(f"Credits {self.area.credits}\n")
+
+        f.write(f"Security {self.area.security}\n")
+
+        # Write Xplore if present
+        if hasattr(self.area, 'xplore'):
+            f.write(f"Xplore {self.area.xplore}\n")
+
         f.write("End\n\n")
     
     def _write_mobiles_section(self, f: TextIO) -> None:
@@ -57,23 +66,81 @@ class AreWriter:
     def _write_mobile(self, f: TextIO, mob: Mobile) -> None:
         """Write a single mobile."""
         f.write(f"#{mob.vnum}\n")
-        f.write(f"NAME   {mob.keywords}~\n")
-        f.write(f"SHORT  {mob.short_description}~\n")
-        f.write(f"LONG   {mob.long_description}~\n")
+        f.write(f"NAME  {mob.keywords}~\n")
+        f.write(f"SHORT {mob.short_description}~\n")
+        f.write(f"LONG  {mob.long_description}~\n")
         f.write("DESCR\n")
         f.write(f"{mob.description}~\n")
-        f.write(f"RACE   {mob.race}~\n")
-        f.write(f"ACT    {mob.act_flags}\n")
-        f.write(f"AFF    {mob.affected_flags}\n")
-        f.write(f"ALIGN  {mob.alignment}\n")
-        f.write(f"LEVEL  {mob.level}\n")
-        f.write(f"HROLL  {mob.hitroll}\n")
-        f.write(f"DDICE  {mob.damage_dice}\n")
-        f.write(f"MDICE  {mob.mana_dice}\n")
-        f.write(f"HDICE  {mob.hit_dice}\n")
-        f.write(f"GOLD   {mob.gold}\n")
-        f.write(f"POS    {mob.start_position} {mob.default_position}\n")
-        f.write(f"SEX    {mob.sex}\n")
+        f.write(f"RACE  {mob.race}~\n")
+        f.write(f"ACT   {mob.act_flags}\n")
+        f.write(f"AFF   {mob.affected_flags}\n")
+
+        # Write OFF, IMM, RES, VULN (always write, even if 0 or empty)
+        f.write(f"OFF   {mob.offensive_flags}\n")
+        f.write(f"IMM   {mob.immunity_flags}\n")
+        f.write(f"RES   {mob.resistance_flags}\n")
+        f.write(f"VULN  {mob.vulnerability_flags}\n")
+
+        # Write WSPEC (always write)
+        f.write(f"WSPEC {mob.weapon_spec}\n")
+
+        f.write(f"ALIGN {mob.alignment}\n")
+
+        # Write GROUP (always write)
+        f.write(f"GROUP {mob.group}\n")
+
+        f.write(f"LEVEL {mob.level}\n")
+        f.write(f"HROLL {mob.hitroll}\n")
+
+        # Write ENHA if present
+        if mob.enhancement:
+            f.write(f"ENHA  {mob.enhancement}\n")
+
+        # Write MATER if present
+        if mob.material:
+            f.write(f"MATER {mob.material}~\n")
+
+        f.write(f"HDICE {mob.hit_dice}\n")
+        f.write(f"MDICE {mob.mana_dice}\n")
+        f.write(f"DDICE {mob.damage_dice}\n")
+
+        # Write REGEN (always write)
+        f.write(f"REGEN {mob.regen}\n")
+
+        # Write DTYPE if present
+        if mob.damage_type:
+            f.write(f"DTYPE {mob.damage_type}\n")
+
+        # Write AC if any values are non-zero
+        if mob.ac_pierce or mob.ac_bash or mob.ac_slash or mob.ac_exotic:
+            f.write(f"AC    {mob.ac_pierce} {mob.ac_bash} {mob.ac_slash} {mob.ac_exotic}\n")
+
+        f.write(f"POS   {mob.start_position} {mob.default_position}\n")
+        f.write(f"SEX   {mob.sex}\n")
+        f.write(f"GOLD  {mob.gold}\n")
+
+        # Write FORM if present
+        if mob.form:
+            f.write(f"FORM  {mob.form}\n")
+
+        # Write PARTS if present
+        if mob.parts:
+            f.write(f"PARTS {mob.parts}\n")
+
+        # Write SIZE if present
+        if mob.size:
+            f.write(f"SIZE  {mob.size}\n")
+
+        # Write DMOD if present
+        if mob.damage_modifier:
+            f.write(f"DMOD  {mob.damage_modifier}\n")
+
+        # Write AMOD (always write)
+        f.write(f"AMOD  {mob.armor_modifier}\n")
+
+        # Write QUEST (always write)
+        f.write(f"QUEST {mob.quest}\n")
+
         f.write("End\n\n")
     
     def _write_objects_section(self, f: TextIO) -> None:
@@ -92,7 +159,8 @@ class AreWriter:
         f.write(f"#{obj.vnum}\n")
         f.write(f"NAME   {obj.keywords}~\n")
         f.write(f"SHORT  {obj.short_description}~\n")
-        f.write(f"DESCR  {obj.long_description}~\n")
+        f.write("DESCR \n")
+        f.write(f"{obj.long_description}~\n")
 
         # MAT (material) line
         f.write(f"MAT    {obj.material}~\n")
@@ -120,21 +188,23 @@ class AreWriter:
         f.write(f"COST   {obj.cost}\n")
         f.write(f"COND   {obj.condition}\n")
 
-        # Optional LIMIT line
+        # Extra descriptions (EDESC)
+        for edesc in obj.extra_descriptions:
+            f.write(f"EDESC {edesc.keywords}~\n")
+            f.write(f"{edesc.description}~\n")
+
+        # Affect lines (if any) - MUST come before LIMIT
+        # Format: Affect <location> <apply_type> <modifier> <bitvector>
+        for affect in obj.affects:
+            f.write(f"Affect {affect.location} {affect.apply_type} {affect.modifier} {affect.bitvector}\n")
+
+        # Optional LIMIT line - MUST come after Affect
         if obj.limit > 0:
             f.write(f"LIMIT  {obj.limit}\n")
 
         # Optional RESTR line
         if obj.restriction:
             f.write(f"RESTR  {obj.restriction}~\n")
-
-        # Extra descriptions (EDESC)
-        for edesc in obj.extra_descriptions:
-            f.write(f"EDESC {edesc.keywords}~\n")
-            f.write(f"{edesc.description}~\n")
-
-        # AFFECT lines (if any)
-        # TODO: Implement when we have affects in the Object model
 
         f.write("End\n\n")
 
@@ -196,9 +266,33 @@ class AreWriter:
 
     def _write_reset(self, f: TextIO, reset: Reset) -> None:
         """Write a single reset command."""
-        # Format: <command> <if_flag> <arg1> <arg2> <arg3> <arg4>
-        # if_flag is always 0 in modern ROM
-        f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2} {reset.arg3} {reset.arg4}\n")
+        # Format varies by command type:
+        # M: M 0 <mob_vnum> <max_world> <room_vnum> <max_room>
+        # O: O 0 <obj_vnum> 0 <room_vnum>
+        # P: P 0 <obj_vnum> <max> <container_vnum> <max_in_container>
+        # G: G 0 <obj_vnum> 0  (only 3 values after command)
+        # E: E 0 <obj_vnum> 0 <wear_loc>  (only 4 values after command)
+        # D: D 0 <room_vnum> <door> <state>
+        # R: R 0 <room_vnum> <num_exits>
+
+        if reset.command == 'G':
+            # Give: G 0 <obj_vnum> 0
+            f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2}\n")
+        elif reset.command == 'E':
+            # Equip: E 0 <obj_vnum> 0 <wear_loc>
+            f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2} {reset.arg3}\n")
+        elif reset.command == 'O':
+            # Object: O 0 <obj_vnum> 0 <room_vnum>
+            f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2} {reset.arg3}\n")
+        elif reset.command == 'D':
+            # Door: D 0 <room_vnum> <door> <state>
+            f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2} {reset.arg3}\n")
+        elif reset.command == 'R':
+            # Randomize: R 0 <room_vnum> <num_exits>
+            f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2}\n")
+        else:
+            # M, P, and others: full 5 values
+            f.write(f"{reset.command} 0 {reset.arg1} {reset.arg2} {reset.arg3} {reset.arg4}\n")
 
     def _write_shops_section(self, f: TextIO) -> None:
         """Write the #SHOPS section."""
@@ -216,7 +310,13 @@ class AreWriter:
         buy_types_str = " ".join(str(bt) for bt in shop.buy_types)
         f.write(f"{shop.keeper} {buy_types_str} {shop.profit_buy} {shop.profit_sell} {shop.open_hour} {shop.close_hour}\n")
 
+    def _write_improgs_section(self, f: TextIO) -> None:
+        """Write the #IMPROGS section."""
+        f.write("#IMPROGS\n")
+        # Most areas have empty IMPROGS sections, just write the end marker
+        f.write("E\n\n")
+
     def _write_terminator(self, f: TextIO) -> None:
         """Write the #$ terminator."""
-        f.write("#$\n")
+        f.write("\n\n#$\n")
 

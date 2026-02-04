@@ -63,23 +63,24 @@ class AreParser(BaseParser):
     def _parse_area_section(self):
         """Parse the #AREADATA section."""
         print(f"Parsing AREADATA section at line {self.line_number}")
-        
+
         while True:
             line = self.read_line()
             if not line or line.strip() == 'End':
                 break
-            
+
             parts = line.split(None, 1)
             if len(parts) < 2:
                 continue
-            
+
             keyword = parts[0]
             value = parts[1]
-            
+
             if keyword == 'Name':
                 self.area.name = value.rstrip('~')
             elif keyword == 'Builders':
-                self.area.author = value.rstrip('~')
+                self.area.builders = value.rstrip('~')
+                self.area.author = value.rstrip('~')  # Keep for compatibility
             elif keyword == 'VNUMs':
                 vnums = value.split()
                 if len(vnums) >= 2:
@@ -88,10 +89,24 @@ class AreParser(BaseParser):
             elif keyword == 'Security':
                 self.area.security = int(value)
             elif keyword == 'Credits':
-                # Parse credits line like "{ 5 35} Author    Area Name~"
+                # Store the full credits line: "{40 51} Barsak  Varggin Shih~"
+                self.area.credits = value
+                # Also parse level range if present
                 if value.startswith('{'):
-                    # Extract level range and name
-                    pass
+                    try:
+                        # Extract level range from "{min max}"
+                        end_brace = value.index('}')
+                        level_part = value[1:end_brace].strip()
+                        levels = level_part.split()
+                        if len(levels) >= 2:
+                            self.area.min_level = int(levels[0])
+                            self.area.max_level = int(levels[1])
+                    except (ValueError, IndexError):
+                        pass
+            elif keyword == 'Xplore':
+                self.area.xplore = int(value)
+            elif keyword == 'Recall':
+                self.area.recall = int(value)
     
     def _parse_mobiles_section(self):
         """Parse the #MOBDATA section."""
@@ -618,14 +633,41 @@ class AreParser(BaseParser):
             # Parse arguments based on command type
             reset = Reset(command=command)
 
-            if len(parts) >= 5:
-                # Most resets have format: COMMAND arg0 arg1 arg2 arg3 [arg4]
-                # arg0 is usually 0 (unused), so we skip it
-                reset.arg1 = int(parts[2])  # vnum or value
-                reset.arg2 = int(parts[3])  # max count or value
-                reset.arg3 = int(parts[4])  # room vnum or value
-                if len(parts) >= 6:
-                    reset.arg4 = int(parts[5])  # max in room or value
+            # Different commands have different numbers of arguments
+            # Format: COMMAND if_flag arg1 arg2 [arg3] [arg4]
+            # if_flag is parts[1], always 0 in modern ROM
+
+            if command == 'G':
+                # G: G 0 <obj_vnum> 0
+                if len(parts) >= 4:
+                    reset.arg1 = int(parts[2])  # obj_vnum
+                    reset.arg2 = int(parts[3])  # 0
+            elif command == 'E':
+                # E: E 0 <obj_vnum> 0 <wear_loc>
+                if len(parts) >= 5:
+                    reset.arg1 = int(parts[2])  # obj_vnum
+                    reset.arg2 = int(parts[3])  # 0
+                    reset.arg3 = int(parts[4])  # wear_loc
+            elif command in ['O', 'D']:
+                # O: O 0 <obj_vnum> 0 <room_vnum>
+                # D: D 0 <room_vnum> <door> <state>
+                if len(parts) >= 5:
+                    reset.arg1 = int(parts[2])
+                    reset.arg2 = int(parts[3])
+                    reset.arg3 = int(parts[4])
+            elif command == 'R':
+                # R: R 0 <room_vnum> <num_exits>
+                if len(parts) >= 4:
+                    reset.arg1 = int(parts[2])
+                    reset.arg2 = int(parts[3])
+            else:
+                # M, P, and others: M 0 <arg1> <arg2> <arg3> <arg4>
+                if len(parts) >= 5:
+                    reset.arg1 = int(parts[2])
+                    reset.arg2 = int(parts[3])
+                    reset.arg3 = int(parts[4])
+                    if len(parts) >= 6:
+                        reset.arg4 = int(parts[5])
 
             self.area.resets.append(reset)
             print(f"  Parsed reset: {command} {reset.arg1} {reset.arg2} {reset.arg3} {reset.arg4}")
@@ -672,8 +714,37 @@ class AreParser(BaseParser):
     def _parse_specials_section(self):
         """Parse the #SPECIALS section."""
         print(f"Parsing SPECIALS section at line {self.line_number}")
-        # TODO: Implement specials parsing
-        pass
+        from area_editor.models.special import Special
+
+        while True:
+            raw_line = self.file.readline()
+            if not raw_line:  # EOF
+                break
+
+            self.line_number += 1
+            line = raw_line.strip()
+
+            # End of specials section
+            if line.startswith('S') or line.startswith('#'):
+                break
+
+            # Skip empty lines
+            if not line:
+                continue
+
+            # Parse special line
+            # Format: M <vnum> <spec_function>
+            parts = line.split(None, 2)
+            if len(parts) < 3:
+                continue
+
+            if parts[0] == 'M':
+                special = Special(
+                    vnum=int(parts[1]),
+                    spec_function=parts[2]
+                )
+                self.area.specials.append(special)
+                print(f"  Parsed special: M {special.vnum} {special.spec_function}")
     
     def _parse_helps_section(self):
         """Parse the #HELPS section."""
