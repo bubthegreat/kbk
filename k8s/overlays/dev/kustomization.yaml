@@ -11,8 +11,8 @@ commonLabels:
   environment: dev
 
 commonAnnotations:
-  deployed-branch: compiler-fixes
-  deployed-sha: 850d5e5
+  deployed-branch: claude/prod-staging-db-issues-dnrzm6
+  deployed-sha: 8b01c81
 
 patchesStrategicMerge:
   - ingress-patch.yaml
@@ -20,4 +20,4 @@ patchesStrategicMerge:
 
 images:
   - name: bubthegreat/kbk
-    newTag: compiler-fixes-850d5e5
+    newTag: claude-prod-staging-db-issues-dnrzm6-8b01c81
