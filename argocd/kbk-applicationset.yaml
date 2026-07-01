@@ -4,7 +4,10 @@ metadata:
   name: kbk-environments
   namespace: argocd
 spec:
-  # Use the List generator to define each environment
+  # Use the List generator to define each environment.
+  # revision controls which git ref each environment renders from —
+  # point staging/dev at a feature branch to validate it before it
+  # reaches prod, then set them back to HEAD after merging.
   generators:
     - list:
         elements:
@@ -12,14 +15,17 @@ spec:
             namespace: kbk-prod
             overlay: prod
             telnetPort: "8989"
+            revision: HEAD
           - environment: staging
             namespace: kbk-staging
             overlay: kbk-staging
             telnetPort: "8988"
+            revision: claude/prod-staging-db-issues-dnrzm6
           - environment: dev
             namespace: kbk-dev
             overlay: dev
             telnetPort: "8987"
+            revision: claude/prod-staging-db-issues-dnrzm6
   
   template:
     metadata:
@@ -32,7 +38,7 @@ spec:
       
       source:
         repoURL: https://github.com/bubthegreat/kbk.git
-        targetRevision: HEAD
+        targetRevision: '{{revision}}'
         path: 'k8s/overlays/{{overlay}}'
       
       destination:
