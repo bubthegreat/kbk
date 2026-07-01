@@ -16,6 +16,7 @@ commonAnnotations:
 
 patchesStrategicMerge:
   - ingress-patch.yaml
+  - kbk-configmap.yaml
 
 images:
   - name: bubthegreat/kbk

@@ -18,14 +18,21 @@ The deployment now uses **separate persistent volumes** for all critical data:
 |-----------|---------|----------|------|
 | `/kbk/player/` | Player character files (`.plr`) | `kbk-player-pvc` | 1Gi |
 | `/kbk/sys/` | System files (bugs, bans, bounties, etc.) | `kbk-sys-pvc` | 1Gi |
-| `/kbk/area/` | Area files + compiled binary | `kbk-area-pvc` | 2Gi |
+| `/kbk/data/` | SQLite database (`kbk.db`) | `kbk-data-pvc` | 1Gi |
+
+> ⚠️ `/kbk/area/` is **not** persisted — area files and the compiled binary
+> ship in the Docker image, so in-game OLC edits are lost on pod restart.
+> Pull edited areas off the pod (see README) and commit them to the repo.
 
 ### How It Works
 
 1. **Init Container** runs first on pod startup
-   - Checks if persistent volumes are empty
-   - If empty, copies initial data from Docker image
-   - If not empty, skips (preserves existing data)
+   - Copies player/sys files from the Docker image if the volumes are empty
+   - Runs `PRAGMA integrity_check` on `kbk.db`; a corrupt database is
+     quarantined to `kbk.db.corrupt-<timestamp>` instead of crash-looping
+     the server
+   - Always re-applies the idempotent schema (`init_sqlite.sql`), so new
+     tables reach existing volumes automatically
 
 2. **Main Container** mounts the persistent volumes
    - All changes to player files are saved to PVC
@@ -140,15 +147,14 @@ telnet 192.168.0.20 8989
 - `itemfix.txt` - Item fixes
 - `*.not` - Note files (changes, ideas, news, penalty)
 
-### Area Directory (`/kbk/area/`)
-- `*.are` - Area files (can be modified via OLC)
-- `area.lst` - Area list
-- `pos2` - Compiled MUD binary
-- `start-kbk.sh` - Startup script
+### Data Directory (`/kbk/data/`)
+- `kbk.db` - SQLite database (notes, bounties, pklogs, charmed mobs,
+  player auth, login/traffic history)
 
 ### What's NOT Persisted (By Design)
 - `/kbk/localxfer/` - Uses emptyDir (temporary transfer directory)
-- Notes - Stored in MySQL database (already persistent)
+- `/kbk/area/` - Area files and the `pos2` binary come from the Docker
+  image; OLC edits must be exported and committed to persist
 
 ## 🔍 Verification Commands
 
@@ -160,8 +166,7 @@ kubectl get pvc -n kbk-prod
 # NAME              STATUS   VOLUME                                     CAPACITY
 # kbk-player-pvc    Bound    pvc-xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx     1Gi
 # kbk-sys-pvc       Bound    pvc-xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx     1Gi
-# kbk-area-pvc      Bound    pvc-xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx     2Gi
-# mysql-pvc         Bound    pvc-xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx     10Gi
+# kbk-data-pvc      Bound    pvc-xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx     1Gi
 
 # Check volumes are mounted
 kubectl exec -n kbk-prod deployment/kbk-deployment -- df -h | grep kbk
@@ -176,9 +181,10 @@ kubectl logs -n kbk-prod -l app=kbk -c init-kbk-data
 ## 🎯 Benefits
 
 - ✅ **Player data survives deployments** - No more lost characters!
-- ✅ **OLC changes persist** - Area modifications saved across updates
+- ✅ **Database survives deployments** - Notes, bounties, pklogs all kept
 - ✅ **System files preserved** - Bans, bugs, bounties all kept
 - ✅ **Automatic initialization** - Fresh deployments get starter data
+- ✅ **Self-healing database** - Corrupt `kbk.db` is quarantined, not fatal
 - ✅ **Safe updates** - Code changes don't affect player data
 
 ## ⚠️ Important Notes

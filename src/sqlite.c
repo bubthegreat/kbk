@@ -744,21 +744,21 @@ void pruneDatabase(void)
 	// Notes
 	if (sqlite_safe_query("DELETE FROM notes WHERE timestamp + 2592000 < %d", current_time) != 0)
 	{
-		n_logf("MySQL: Failed to clean notes table.");
+		n_logf("SQLite: Failed to clean notes table.");
 	}
 	else
 	{
-		n_logf("MySQL: Notes tables has been cleaned.");
+		n_logf("SQLite: Notes tables has been cleaned.");
 	}
 
 	// Logins
 	if (sqlite_safe_query("DELETE FROM logins WHERE ctime + 5184000 < %d", current_time) != 0)
 	{
-		n_logf("MySQL: Failed to clean logins table.");
+		n_logf("SQLite: Failed to clean logins table.");
 	}
 	else
 	{
-		n_logf("MySQL: Login records have been cleaned.");
+		n_logf("SQLite: Login records have been cleaned.");
 	}
 
 	return;
@@ -781,7 +781,7 @@ void delete_char(char *name, bool save_pfile)
 	name = capitalize(name);
 
 	// Wipe bounties
-	if (sqlite_safe_query("DELETE FROM bounties WHERE victim='%s'", name))
+	if (sqlite_safe_query("DELETE FROM bounties WHERE victim='%s'", name) == 0)
 	{
 		n_logf("Delete_char: Wiped bounties for %s.", name);
 	}
@@ -790,7 +790,7 @@ void delete_char(char *name, bool save_pfile)
 		n_logf("Delete_char: Failed to wipe bounties for %s.", name);
 	}
 	// Wipe charmies
-	if (sqlite_safe_query("DELETE FROM charmed WHERE owner='%s'", name))
+	if (sqlite_safe_query("DELETE FROM charmed WHERE owner='%s'", name) == 0)
 	{
 		n_logf("Delete_char: wiped saved charmed mobs for %s.", name);
 	}
@@ -799,7 +799,7 @@ void delete_char(char *name, bool save_pfile)
 		n_logf("Delete_char: Failed to wipe charmed mobs for %s.", name);
 	}
 	// Wipe pklogs
-	if (sqlite_safe_query("DELETE FROM pklogs WHERE dead='%s' OR killer='%s'", name, name))
+	if (sqlite_safe_query("DELETE FROM pklogs WHERE dead='%s' OR killer='%s'", name, name) == 0)
 	{
 		n_logf("Delete_char: wiping pklogs for %s.", name);
 	}

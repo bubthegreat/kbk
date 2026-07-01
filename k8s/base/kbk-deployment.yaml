@@ -48,15 +48,25 @@ spec:
               else
                 echo "Sys directory already initialized, skipping..."
               fi
-              # Initialize SQLite database if it doesn't exist
-              if [ ! -f /kbk-persistent/data/kbk.db ]; then
-                echo "Initializing SQLite database..."
-                mkdir -p /kbk-persistent/data
-                sqlite3 /kbk-persistent/data/kbk.db < /kbk/data/init_sqlite.sql
-                echo "SQLite database initialized"
-              else
-                echo "SQLite database already exists, skipping..."
+              # Self-healing SQLite init: a corrupt or partial kbk.db left on the
+              # retained volume would make the MUD exit(1) at boot and crash-loop
+              # the pod, so verify integrity and quarantine bad files here.
+              mkdir -p /kbk-persistent/data
+              DB=/kbk-persistent/data/kbk.db
+              if [ -f "$DB" ]; then
+                if sqlite3 "$DB" 'PRAGMA integrity_check;' 2>/dev/null | grep -q '^ok$'; then
+                  echo "SQLite integrity check passed"
+                else
+                  BACKUP="$DB.corrupt-$(date +%Y%m%d-%H%M%S)"
+                  echo "SQLite integrity check FAILED - quarantining bad database at $BACKUP"
+                  mv "$DB" "$BACKUP"
+                fi
               fi
+              # Schema is all IF NOT EXISTS, so re-applying is safe and picks up
+              # newly added tables on existing volumes.
+              echo "Applying SQLite schema..."
+              sqlite3 "$DB" < /kbk/data/init_sqlite.sql
+              echo "SQLite database ready"
               echo "Initialization complete!"
           volumeMounts:
             - name: kbk-player-storage
@@ -78,33 +88,36 @@ spec:
           ports:
             - containerPort: 8989
               name: telnet
-          # Add readiness probe to know when app is ready
+          # Probe timings assume the server may be running under gdb
+          # (ENABLE_GDB_DEBUGGING=true): everything responds slower, and after
+          # a crash gdb spends time writing backtraces before the restart
+          # loop's sleep. Liveness tolerates ~60s of no-answer so a pod is not
+          # killed mid-backtrace, which would lose the crash data gdb exists
+          # to capture.
           readinessProbe:
             tcpSocket:
               port: 8989
             initialDelaySeconds: 5
-            periodSeconds: 2
-            timeoutSeconds: 1
+            periodSeconds: 5
+            timeoutSeconds: 3
             successThreshold: 1
             failureThreshold: 3
-          # Add liveness probe to detect if app is hung
           livenessProbe:
             tcpSocket:
               port: 8989
             initialDelaySeconds: 15
             periodSeconds: 10
-            timeoutSeconds: 1
+            timeoutSeconds: 5
             successThreshold: 1
-            failureThreshold: 3
-          # Add startup probe for initial startup (more lenient)
+            failureThreshold: 6
           startupProbe:
             tcpSocket:
               port: 8989
             initialDelaySeconds: 0
             periodSeconds: 2
-            timeoutSeconds: 1
+            timeoutSeconds: 3
             successThreshold: 1
-            failureThreshold: 30
+            failureThreshold: 90
           volumeMounts:
             - name: kbk-player-storage
               mountPath: /kbk/player
