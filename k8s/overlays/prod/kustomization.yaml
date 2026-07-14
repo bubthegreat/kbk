@@ -13,4 +13,5 @@ commonLabels:
 
 patchesStrategicMerge:
   - kbk-configmap.yaml
+  - kbk-pvc-storage-patch.yaml
 

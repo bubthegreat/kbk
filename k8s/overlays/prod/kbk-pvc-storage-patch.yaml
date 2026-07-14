@@ -1,0 +1,25 @@
+# Prod-only: kbk volumes on the encrypted StorageClass. Base stays
+# longhorn-retain so dev/staging are untouched (accepted-unencrypted, see
+# homelab docs/superpowers/specs/2026-07-13-encrypted-volume-migration-design.md).
+# storageClassName is immutable — landing this required deleting the prod
+# PVCs first (data was disposable); Argo recreated them empty on this SC.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kbk-player-pvc
+spec:
+  storageClassName: longhorn-encrypted
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kbk-sys-pvc
+spec:
+  storageClassName: longhorn-encrypted
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kbk-data-pvc
+spec:
+  storageClassName: longhorn-encrypted
