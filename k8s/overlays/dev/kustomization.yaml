@@ -16,7 +16,6 @@ commonAnnotations:
   deployed-sha: 8b01c81
 
 patchesStrategicMerge:
-  - ingress-patch.yaml
   - kbk-configmap.yaml
 
 images:

@@ -16,9 +16,7 @@ commonAnnotations:
   deployed-branch: claude/prod-staging-db-issues-dnrzm6
   deployed-sha: 8b01c81
 
-# Patch ingress to use staging hostname
 patchesStrategicMerge:
-  - ingress-patch.yaml
   - kbk-configmap.yaml
 
 images:
