@@ -151,7 +151,22 @@ class MenuBar:
     
     def _on_save(self):
         """Handle Save menu item."""
-        print("Save clicked")
+        from area_editor.app_state import app_state
+        from area_editor.parsers import json_area_io
+
+        area = app_state.current_area
+        if area is None:
+            print("Save: no area open")
+            return
+        json_dir = getattr(area, "_json_dir", None)
+        if json_dir:
+            json_area_io.save_area_json(area, json_dir)
+            self.main_window.status_bar.set_status(
+                "Saved JSON area to %s" % json_dir, color=(100, 200, 100)
+            )
+        else:
+            # Legacy .are areas: Save As still handles path selection.
+            print("Save: this area is not a JSON area; use Save As")
     
     def _on_save_as(self):
         """Handle Save As menu item."""
