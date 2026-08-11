@@ -1193,6 +1193,49 @@ AMOD  0
 QUEST 0
 End
 
+#31028
+NAME  toller artificer friend~
+SHORT Toller the artificer~
+LONG  Toller stands here, soot-streaked and gaunt, still following where Midian led.~
+DESCR
+The years and the chase have worn Toller down to wire and shadow.  He is thinner
+than when you first read his letters, his artificer's apron scorched, his hands
+burned and blistered -- but his eyes are the same stubborn, patient brown.  He
+has followed his friend even into the fire, feeding the furnaces, reading the
+gauges, refusing to let Midian burn here alone.  The watch at his throat he
+checks still, out of old habit, as though it could tell him how much time is left.
+~
+RACE  human~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 800
+GROUP 0
+LEVEL 50
+HROLL 50
+ENHA  100.00%
+MATER flesh~
+HDICE 50d8+500
+MDICE 50d10+250
+DDICE 9d12+24
+REGEN 0
+DTYPE none
+AC    0 0 0 0
+POS   stand stand
+SEX   male
+GOLD  0
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
 #0
 
 #OBJDATA
@@ -2359,6 +2402,53 @@ still.  Only one of the orrery's three plates does not blur when you raise the
 lens to it -- the quiet one, the empty chair.~
 End
 
+#31055
+NAME   note toller last final artificer~
+SHORT  Toller's last note~
+DESCR
+A page in a jagged, hurried hand lies beneath a dead man's open hand.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC note toller last final~
+The hand is Toller's, the letters burned into the page as much as written: "M.
+cannot cut himself free from the inside -- I have watched him try, and every try
+tears the wound wider.  But I am not inside it.  I never was.  I am only the
+friend who followed.  An outside hand can close what an inside hand cannot -- and
+it must be paid for from outside, in a life freely given.  I have the charge
+built.  I know what it will do to me.  Tell him, whoever you are, that I was not
+brave; I was only his friend, and I could not watch him do it alone.  Take what
+is left of me onward.  Finish it.  Save them both.  You cannot save me, and that
+is right -- someone has to be the price."~
+End
+
+#31056
+NAME   watch toller pocket ticking friend~
+SHORT  Toller's watch~
+DESCR
+A watch, still wound and softly ticking, is cupped in the finger-bones of a skeleton here.~
+MAT    silver~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC watch toller pocket ticking~
+Toller's watch, still wound, still ticking, carried to the very end and past it.
+This is the thing his whole sacrifice was folded into: a timepiece made and given
+from outside the paradox, the one clock Midian could never wind for himself.
+Carried to the End of Time, an outside hand could use it to close the wound for
+good -- to give Midian back his life and Elia back her breath, and undo the trap
+entire.  All of it, save the one man who made it possible.  The watch ticks on in
+your hand, patient as its owner, counting out a time he will never see.~
+End
 #0
 
 #ROOMDATA
@@ -6475,6 +6565,13 @@ DOOR 2
 You see nothing special here.~
 ~
 0 0 31179
+EDESC body toller corpse artificer~
+Toller lies where he fell, slumped over his own workbench, and there is no doubt
+that he is dead.  The charge he built ran through him and out again, and it has
+left him whole but utterly still, one burned hand still closed around a half-made
+cell.  He gave himself to the work knowingly -- an outside hand, a life freely
+paid, to make possible the one cut Midian could never make from within.  His last
+notes lie scattered under his open fingers.~
 End
 
 #31180
@@ -6725,6 +6822,13 @@ DOOR 3
 A great blast door of dull metal stands ajar in the western wall.~
 door blast~
 AB 0 31198
+EDESC skeleton toller bones body~
+Slumped against the broken apparatus is a skeleton gone to clean bone, one hand
+fallen open in its lap.  It is Toller -- you know him by the scorched artificer's
+apron still hung on the bones, and by the watch cupped in the curl of his
+fingers, ticking yet.  He followed his friend even here, to the far side of the
+friend's own dying, and here at the last he stopped.  Whatever he carried out of
+the lightning, he carried it this far and no farther.~
 End
 
 #31200
@@ -7305,6 +7409,9 @@ O 0 31054 0 31214
 O 0 31048 0 31219
 D 0 31216 0 2
 D 0 31217 2 2
+M 0 31028 1 31156 1
+O 0 31055 0 31185
+O 0 31056 0 31199
 S
 
 #SHOPS
