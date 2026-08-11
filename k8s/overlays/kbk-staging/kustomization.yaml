@@ -12,8 +12,6 @@ resources:
 commonLabels:
   environment: staging
 
-# Patch ingress to use staging hostname
 patchesStrategicMerge:
-  - ingress-patch.yaml
   - kbk-configmap.yaml
 

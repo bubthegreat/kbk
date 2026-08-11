@@ -5,6 +5,5 @@ resources:
   - kbk-deployment.yaml
   - kbk-pvc.yaml
   - kbk-service-http.yaml
-  - kbk-ingress.yaml
   - kbk-configmap.yaml
 
