@@ -12,14 +12,20 @@ NAME  timekeeper old man midian~
 SHORT Midian the aged Timekeeper is floating here.~
 LONG  You almost cannot tell that this is Midian, his body is so aged and wrinkled.  He still wears his pristine chronomancers robes, though they seem to have been modified heavily with inlays of mysterisous silvery metal and strange symbols.~
 DESCR
+Time has not been kind to Midian.  His skin hangs in papery folds, mapped with
+wrinkles so deep they seem carved rather than worn.  He drifts a hand's breadth
+above the ground, weightless, as though the years have frayed away even his tie
+to the earth.  The silvery inlays worked into his ancient robes pulse faintly in
+time with nothing you can name, and his clouded eyes track something no one else
+in the room can see.
 ~
 RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -31,10 +37,15 @@ HDICE 52d8+520
 MDICE 52d10+260
 DDICE 10d17+26
 REGEN 0
+DTYPE none
+AC    -10 -10 -10 0
 POS   stand stand
-SEX   none
+SEX   male
 GOLD  520
+FORM  AHMV
+PARTS ABCDEFGHIJK
 SIZE  medium
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -44,14 +55,18 @@ NAME  grasshopper~
 SHORT A green leaf-shaped grassoppher is here.~
 LONG  This grasshopper is bright green, with wings that are shaped just like a small green leaf.  It's legs are cocked back and ready to jump at a moments notice.~
 DESCR
+The grasshopper is no longer than your thumb, its body the bright green of new
+spring leaves.  Its folded wings mimic a single blade of grass so perfectly that
+the insect all but vanishes the moment it goes still.  Every few seconds its
+hind legs tense, coiled, ready to fling it out of reach in a heartbeat.
 ~
-RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+RACE  centipede~
+ACT   AF
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -63,10 +78,15 @@ HDICE 5d8+50
 MDICE 5d10+25
 DDICE 1d4+2
 REGEN 0
+DTYPE none
+AC    0 0 0 0
 POS   stand stand
 SEX   either
 GOLD  50
-SIZE  medium
+FORM  AG
+PARTS ADEFK
+SIZE  tiny
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -76,14 +96,18 @@ NAME  painter turtle small~
 SHORT A small painter turtle is here.~
 LONG  This small little painter turtle has red stripes on either side of his tiny head.  He must be a baby turtle, only about two or three inches wide at the thickest part of his shell.~
 DESCR
+Barely wider than a copper coin, this painter turtle cannot be more than a
+season old.  Thin red and yellow stripes run back from its blunt little head,
+and the edges of its shell are still soft and pliable.  It watches you with
+black bead eyes, in no particular hurry to be anywhere at all.
 ~
-RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+RACE  lizard~
+ACT   AF
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -95,10 +119,15 @@ HDICE 1d8+10
 MDICE 1d10+5
 DDICE 1d4+0
 REGEN 0
+DTYPE none
+AC    0 0 0 0
 POS   stand stand
 SEX   none
 GOLD  10
-SIZE  medium
+FORM  AG
+PARTS ADEFK
+SIZE  tiny
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -108,14 +137,18 @@ NAME  bandit man~
 SHORT A bandit stands here blocking the road.~
 LONG  This bandit seems to be mostly human, but you can't really tell because of all of the clothing wrapped around him to keep the cold from biting.  Mostly in grays and blacks, it's no wonder you didn't notice him until you got here.~
 DESCR
+Layers of gray and black wool are wound around this man until little of him
+shows but a strip of wary eyes.  What skin you can see is weathered and chapped
+raw by the cold.  He keeps his weight balanced on the balls of his feet, one
+hand never straying far from the blade at his hip.
 ~
 RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+ACT   ABE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN -1000
 GROUP 0
@@ -127,10 +160,15 @@ HDICE 5d8+50
 MDICE 5d10+25
 DDICE 1d4+2
 REGEN 0
+DTYPE none
+AC    0 0 0 0
 POS   stand stand
-SEX   none
+SEX   male
 GOLD  50
+FORM  AHMV
+PARTS ABCDEFGHIJK
 SIZE  medium
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -140,14 +178,18 @@ NAME  irritated snapping turtle~
 SHORT An angry snapping turtle is here, upset that you disturbed its rest.~
 LONG  This soft shell snapping turtle is quite large for such a small pond.  It's powerful neck seems dangerous given the sharp snapping tip on it's mouth.  It has strong forelegs and hindlegs and seems to have no interest in hiding in it's shell.~
 DESCR
+This soft-shelled snapper is far too big for the little pond that spawned it.
+Its neck is thick and startlingly long, tipped with a hooked beak that could
+take off a careless finger.  Powerful legs churn furrows in the mud, and it
+makes no move to withdraw into its shell -- it would far rather bite.
 ~
-RACE  fish~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+RACE  lizard~
+ACT   AF
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -159,10 +201,15 @@ HDICE 10d8+100
 MDICE 10d10+50
 DDICE 2d4+5
 REGEN 0
+DTYPE bite
+AC    -5 -5 -5 0
 POS   stand stand
 SEX   none
 GOLD  100
-SIZE  medium
+FORM  AG
+PARTS ADEFK
+SIZE  small
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -170,16 +217,21 @@ End
 #31005
 NAME  elia~
 SHORT Elia is here writing in her journal.~
-LONG  Elia is the dudes wife - we gotta fix this description so it's better but for now, she's a young married woman who's fresh and excited about life.~
+LONG  Elia sits here, a journal open across her knees, her pen moving in quick and eager strokes.~
 DESCR
+Elia is young, and it shows in the brightness of her eyes and the easy way she
+smiles at nothing in particular.  Newly married, she wears her happiness plainly
+and without apology.  Ink stains the side of one hand where it drags across the
+page, and every so often she pauses to glance toward the door, as though waiting
+on someone she is glad to wait for.
 ~
 RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -191,10 +243,15 @@ HDICE 15d8+150
 MDICE 15d10+75
 DDICE 3d5+7
 REGEN 0
+DTYPE none
+AC    0 0 0 0
 POS   sitting sitting
 SEX   female
 GOLD  150
+FORM  AHMV
+PARTS ABCDEFGHIJK
 SIZE  medium
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -204,14 +261,19 @@ NAME  chronomancer Midian~
 SHORT Midian the chronomancer is here, investigating the paradox.~
 LONG  Midian stands here in his chronomancers robes, still bearing the creases of being newly made.  His eyes are bright and curious, and despite being a bit tall, he carries himself with an air of affability.~
 DESCR
+Midian is tall and a little gangly, as though he has not quite grown into his
+own height.  His chronomancer's robes are so new that the fold-creases still
+hold their edges.  He crouches at the base of the tree, prodding at the empty
+air itself with bright, curious eyes, muttering measurements to no one and
+grinning whenever the numbers surprise him.
 ~
 RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -223,10 +285,15 @@ HDICE 1d8+10
 MDICE 1d10+5
 DDICE 1d4+0
 REGEN 0
+DTYPE none
+AC    0 0 0 0
 POS   stand stand
-SEX   none
+SEX   male
 GOLD  10
+FORM  AHMV
+PARTS ABCDEFGHIJK
 SIZE  medium
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -236,14 +303,19 @@ NAME  midian~
 SHORT A middle aged Midian is here searching frantically through papers.~
 LONG  Midian seems to have aged quite a bit compared to his younger self, including odd scarring in various places.  His chronomancers  robes are worn and disheveled, showing an obvious lack of care.~
 DESCR
+The years sit heavily on Midian here.  Odd scars seam his hands and jaw, pale
+and precise, like burns left by something that was never quite fire.  His robes
+are stained and unmended, and he shuffles through drifts of loose paper with the
+frantic, hollow-eyed focus of a man who has not slept properly in a very, very
+long time.
 ~
 RACE  human~
-ACT   
-AFF   
-OFF   
-IMM   
-RES   
-VULN  
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
 WSPEC 0
 ALIGN 0
 GROUP 0
@@ -255,10 +327,15 @@ HDICE 35d8+350
 MDICE 35d10+175
 DDICE 7d11+17
 REGEN 0
+DTYPE none
+AC    -5 -5 -5 0
 POS   stand stand
-SEX   none
+SEX   male
 GOLD  350
+FORM  AHMV
+PARTS ABCDEFGHIJK
 SIZE  medium
+DMOD  100
 AMOD  0
 QUEST 0
 End
@@ -266,6 +343,215 @@ End
 #0
 
 #OBJDATA
+#31000
+NAME   silver box elia~
+SHORT  a small silver box~
+DESCR
+A small silver box, half-buried in silt, lies here.~
+MAT    silver~
+TYPE   container 25 A 0 25 100
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 3
+COST   0
+COND   100
+EDESC box lid elia~
+The box is worked from a single piece of pale silver, no larger than two cupped
+hands.  The letter 'E' is embellished on the lid in a flowing script, and along
+the front edge someone has inscribed the name "Elia".  The metal is untouched by
+the years -- no tarnish, no dents -- as though time simply refuses to settle on
+it.  When you lift the lid the inside is bare and empty, lined with the faint
+smell of pond water.~
+End
+
+#31001
+NAME   journal elia diary~
+SHORT  Elia's journal~
+DESCR
+A slim journal bound in soft blue cloth rests here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC journal diary elia~
+The pages are filled with a bright, looping hand.  Most of it is ordinary --
+the price of flour, a neighbour's new goat, how tall the beans have grown -- but
+the later entries return again and again to Midian.  "M. swears the old apple
+tree runs backward," one reads.  "He found a seam in the air beneath it, he
+says, a crack where a rotten tree and a living one share the same roots.  He is
+so happy I could cry.  I have never seen him so alive as when he is chasing
+something no one else believes in."  The final written page simply says: "He has
+started calling it a paradox.  I do not like the word, but I like his smile."~
+End
+
+#31002
+NAME   journals notes midian papers~
+SHORT  a heap of frantic notes~
+DESCR
+A heap of loose, ink-blotted notes has been swept into a pile here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC notes journals papers midian~
+The handwriting has decayed along with the man -- once neat, now a cramped and
+shaking scrawl.  Whole pages are crossed out.  What survives is grim.  "There is
+no undoing it from inside.  Every attempt only widens the seam."  And later:
+"The only cut that does not bleed into the rest is the one that removes the
+hand that made it.  If I was never here to begin the work, the work was never
+begun.  I must take myself out of time entirely -- and I cannot do it myself
+without becoming the very paradox I am trying to close."  A final note, underlined
+twice: "The way down is a lie of stone.  Look for the rock that is too even to be
+a rock.  Press the triangle."~
+End
+
+#31003
+NAME   triangular rock switch stone~
+SHORT  a triangular rock~
+DESCR
+One stone in the wall is a little too even, a little too triangular.~
+MAT    stone~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   0
+LEVEL  0
+WEIGHT 40
+COST   0
+COND   100
+EDESC rock stone triangle triangular switch~
+Set flush into the workshop wall is a stone shaped in too clean a triangle to be
+natural -- each edge straight, each face flat.  Faint scratches around its rim
+show where fingers have pressed it a thousand times.  It gives slightly when you
+lean on it, as though it wants to sink into the wall.~
+End
+
+#31004
+NAME   apple ripe red~
+SHORT  a ripe red apple~
+DESCR
+A ripe red apple has fallen here in the grass.~
+MAT    wood~
+TYPE   food 0 3 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC apple ripe red~
+The apple is flawless -- firm, unblemished, its skin a deep sunset red.  It looks
+freshly fallen, though the tree above has borne nothing but rot for longer than
+anyone can remember.  Held here in the cold air, it feels somehow out of place,
+as though it belongs to a different season, or a different year entirely.~
+End
+
+#31005
+NAME   apple rotten mush~
+SHORT  a rotten apple~
+DESCR
+A rotten, half-collapsed apple lies here among the roots.~
+MAT    wood~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC apple rotten mush~
+The apple has caved in on itself, brown and soft and crawling with slow decay.
+Yet its shape is unmistakably a match for the ripe fruit beneath the living tree
+-- the same curve, the same twist of the stem -- as though a single apple were
+somehow rotting and whole at once, in two places at the same time.~
+End
+
+#31006
+NAME   coin silver worn~
+SHORT  a worn silver coin~
+DESCR
+A worn silver coin glints up from the mud.~
+MAT    silver~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC coin silver~
+The coin is old and its face rubbed nearly smooth, but you can still make out the
+worn profile of some long-forgotten sovereign.  One of dozens tossed down the
+well by travellers over the years -- a small silver wish against the dark.~
+End
+
+#31007
+NAME   stew bowl meal hot~
+SHORT  a bowl of hot stew~
+DESCR
+A bowl of hot stew steams gently on the table.~
+MAT    wood~
+TYPE   pill 5 'cure light' 'bless' '' ''
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC stew bowl meal~
+Thick and savoury, the stew is crowded with soft vegetables and tender meat, and
+it steams as though it were only just ladled out.  Someone made this with care.
+Just the smell of it eases the ache out of your shoulders and lifts your heart a
+little.~
+End
+
+#31008
+NAME   locket silver tarnished~
+SHORT  a tarnished silver locket~
+DESCR
+A tarnished silver locket lies here on its broken chain.~
+MAT    silver~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC locket silver~
+The little locket is black with tarnish and its clasp is bent, plainly stolen and
+carried a long, careless way.  Thumbing it open reveals a tiny, faded portrait of
+a young woman with a kind, laughing face.  Whoever she was, someone once loved
+her enough to carry her over their heart.~
+End
+
+#31009
+NAME   map crude parchment~
+SHORT  a crude map~
+DESCR
+A crumpled, crude map has been dropped here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC map parchment~
+The map is scrawled in charcoal on a scrap of greasy parchment.  It sketches the
+old road, the treeline, and the fresh scar of the landslide, with a crude X
+inked over the mountains and, beside it, a single scratched word: "gold?"  Others
+have come sniffing after the trap, then -- and got no further than this.~
+End
 #0
 
 #ROOMDATA
@@ -296,7 +582,11 @@ End
 #31001
 NAME   A narrow cave entrance~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The landslide tore this gap open only recently -- the stone at its edges is
+still raw and unweathered, pale where the older rock around it is stained dark.
+The passage is barely wide enough for one person, and the daylight behind you
+dies quickly against the cold, damp air ahead.  Somewhere deeper you can hear
+the slow, patient drip of water.
 ~
 FLAGS  0
 Sect   0
@@ -315,7 +605,10 @@ End
 #31002
 NAME   A narrow cave entrance~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The walls press close here, slick with a thin film of moisture that catches what
+little light reaches this deep.  Your breath fogs in front of you.  The floor is
+loose scree, treacherous underfoot, and the passage bends sharply just ahead so
+that you cannot see what lies beyond it.
 ~
 FLAGS  0
 Sect   0
@@ -334,7 +627,10 @@ End
 #31003
 NAME   A side tunnel in the cave~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A narrower branch splits off from the main passage here.  The ceiling drops low
+enough that you must stoop, and the stone is scored with old, patient grooves --
+water, or something like it, wearing its slow way through over long years.  The
+air smells of wet mineral and cold.
 ~
 FLAGS  0
 Sect   0
@@ -353,7 +649,10 @@ End
 #31004
 NAME   A side tunnel in the cave~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The side tunnel widens just enough to stand upright.  Pale roots have forced
+their way through cracks in the ceiling, hanging like thin white threads, and a
+scatter of small bones lies against one wall where some animal met its end.  The
+darkness ahead is complete and undisturbed.
 ~
 FLAGS  0
 Sect   0
@@ -372,7 +671,10 @@ End
 #31005
 NAME   Entrance to a cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The tunnel opens without warning into a larger space -- you feel the air change
+before you see it, the echoes of your footsteps stretching out and away.  This
+is the threshold of a cavern, its far walls lost in shadow.  Passages lead off
+in several directions, each one swallowed whole by the dark.
 ~
 FLAGS  0
 Sect   0
@@ -401,7 +703,10 @@ End
 #31006
 NAME   The small cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This corner of the cavern is close and low, the ceiling studded with stubby
+formations that drip steadily onto the stone below.  Centuries of that slow
+patience have built pale humps of rock underfoot.  The dripping is constant here,
+almost a heartbeat, echoing off unseen walls.
 ~
 FLAGS  0
 Sect   0
@@ -420,7 +725,10 @@ End
 #31007
 NAME   The small cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The cavern narrows here into an alcove of smooth, water-worn stone.  A shallow
+pool has gathered in a dip in the floor, black and perfectly still, reflecting
+nothing at all.  The walls glisten faintly where trapped minerals catch the
+edge of your vision, then vanish when you look at them directly.
 ~
 FLAGS  0
 Sect   0
@@ -439,7 +747,10 @@ End
 #31008
 NAME   The small cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The floor of the cavern rises here in a broad shelf of tumbled rock.  Fallen
+slabs lean against one another overhead, propped in a balance you would rather
+not test.  The passages that lead away from this spot branch in every direction,
+as though the mountain could never quite decide which way to let the water run.
 ~
 FLAGS  0
 Sect   0
@@ -468,7 +779,10 @@ End
 #31009
 NAME   The small cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Here the cavern pinches inward, forcing you between two great fins of stone.  The
+rock is cold enough to ache against your palm.  Beyond the gap the ceiling opens
+out again, but the way through is tight, and the darkness past it gives no hint
+of what waits on the other side.
 ~
 FLAGS  0
 Sect   0
@@ -492,7 +806,10 @@ End
 #31010
 NAME   The smooth wall of the cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The rough cavern stone ends abruptly here against a wall unlike the rest --
+smooth, almost polished, curving away in a line far too regular to be natural.
+Where the raw rock meets it the seam is seamless, as though the mountain had
+been poured against a mould and left to set.  Something made this.
 ~
 FLAGS  0
 Sect   0
@@ -516,7 +833,10 @@ End
 #31011
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Broken earth and shattered stone sprawl across the mountainside here, where a
+whole shoulder of the slope has torn loose and slid.  Uprooted saplings lie half
+buried in the rubble, their roots clawing at the sky.  The scar is fresh -- no
+moss, no weathering -- and picking your way across the loose scree is slow work.
 ~
 FLAGS  0
 Sect   5
@@ -535,7 +855,10 @@ End
 #31012
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The landslide narrows to a tongue of debris here, funneled between two stubborn
+outcrops that refused to give way.  Dust still sifts down now and then from
+above, hissing softly against the rubble.  A tumble of larger boulders blocks
+the way south, though the gaps between them look as if they might be worked open.
 ~
 FLAGS  0
 Sect   5
@@ -574,7 +897,10 @@ End
 #31014
 NAME   A small animal trail on the mountain~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A thread of a trail winds along the mountainside here, worn into the slope by
+generations of deer and goat.  It is barely a boot wide, and the drop to your
+left falls away into scrub and scree.  Wind combs steadily across the open rock,
+carrying the thin, cold smell of snow from the peaks above.
 ~
 FLAGS  0
 Sect   5
@@ -602,12 +928,28 @@ You see nothing special here.
 ~
 ~
 0 0 31000
+EDESC boulder rock~
+Up close the boulder is the size of a small house, streaked with lichen and
+scarred pale where it struck the slope on its long way down.  It is far too vast
+and too deeply settled to move.  There is no path around it to the south -- only
+forest, and stone, and the long walk back the way you came.~
+EDESC claw marks scratches~
+Low on the boulder's southern face, half hidden under a beard of moss, is a
+cluster of old claw marks gouged into the rock -- some animal's, by the spacing,
+though a large one.  They are weathered smooth and long abandoned.~
+EDESC den burrow hole~
+A dark gap opens under one edge of the boulder where the earth has washed away,
+just wide enough for a fox or a badger.  A faint whiff of musk drifts out of it,
+but whatever denned here is long gone, and the burrow is cold and empty.~
 End
 
 #31016
 NAME   A small animal trail on the mountain~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The trail switches back on itself here, hugging a bulge of grey stone.  Tufts of
+hardy grass and pale mountain flowers cling to every crack that will hold a
+little soil.  From this height the land below spreads out in folds of forest and
+field, hazed blue with distance.
 ~
 FLAGS  0
 Sect   5
@@ -626,7 +968,10 @@ End
 #31017
 NAME   A small animal trail on the mountain~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Here the trail levels out across a broad shelf of rock, an easier stretch after
+the climb.  Old droppings and a few tufts of snagged fur show that the animals
+still use this path.  A lone, wind-bent pine stands sentinel at the shelf's edge,
+its needles whispering in the constant breeze.
 ~
 FLAGS  0
 Sect   5
@@ -645,7 +990,10 @@ End
 #31018
 NAME   A small animal trail on the mountain~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The trail begins its long descent here, dropping down off the bare mountain rock
+toward the greener slopes below.  Loose gravel skitters out from under each step
+and bounds away down the incline.  Below and to the east you can make out where
+the open stone gives way to grass and the first scattered trees.
 ~
 FLAGS  0
 Sect   5
@@ -664,7 +1012,10 @@ End
 #31019
 NAME   A small animal trail on the hillside~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The bare mountain is behind you now, and the trail runs across a grassy hillside
+soft with turf.  Wildflowers nod in the wind, and the buzz of insects replaces
+the empty silence of the heights.  The path is easier here, worn broad and
+comfortable where the animals have lingered to graze.
 ~
 FLAGS  0
 Sect   4
@@ -683,7 +1034,10 @@ End
 #31020
 NAME   A small animal trail on the hillside~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The hillside rolls gently away on every side, a sea of waving grass broken here
+and there by grey knuckles of stone.  The trail dips through a shallow hollow
+where the turf is greener and damper underfoot.  A hawk turns slow circles high
+overhead, riding the warm air rising off the slope.
 ~
 FLAGS  0
 Sect   4
@@ -702,7 +1056,10 @@ End
 #31021
 NAME   A small animal trail on the hillside~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The trail crosses the flank of the hill here, following the contour of the land.
+Below, the grass thickens and darkens toward a distant treeline; above, it thins
+back toward the naked rock of the mountain.  The wind is gentler down here, and
+warm enough now to smell the green of growing things.
 ~
 FLAGS  0
 Sect   4
@@ -721,7 +1078,10 @@ End
 #31022
 NAME   A small animal trail on the hillside~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The slope eases toward level ground here, and the trail begins to lose itself
+among the thickening grass.  Clumps of gorse and bramble mark the way where the
+animals have pushed through.  Ahead to the east the land opens flat and wide,
+and you can just make out the edge of a broad grassy field.
 ~
 FLAGS  0
 Sect   4
@@ -740,7 +1100,10 @@ End
 #31023
 NAME   A small animal trail on the hillside~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This is where the hillside finally surrenders to the flatland, the last gentle
+roll of turf before the ground levels out entirely.  The animal trail fans out
+and fades, its work done, scattering into a dozen faint tracks through the grass.
+To the east the wildflower field begins, wide and bright under the open sky.
 ~
 FLAGS  0
 Sect   4
@@ -786,6 +1149,13 @@ You see nothing special here.
 ~
 ~
 0 0 31023
+EDESC sky stars constellations moon night~
+By day the sky here is a vast, clean blue, stitched to the grey mountains along
+its northern rim.  But it is at night that this high field truly opens: with no
+town for a hundred miles to dim them, the stars come out in their thousands,
+wheeling in slow and ancient patterns.  You could learn to read the seasons in
+them -- the hunter, the loom, the great slow turning of the moon -- if only you
+had someone to teach you.  Someone, clearly, once tried.~
 End
 
 #31025
@@ -855,6 +1225,11 @@ DOOR 5
 You see nothing special here.~
 ~
 0 0 31060
+EDESC stars reflection water sky~
+When the sky is dark and the pond lies still, the whole field of stars comes
+mirrored on the black water, so perfectly doubled that for a dizzy moment you
+cannot tell which way is up.  It is easy to imagine a person sitting at this
+pond's edge for hours, charting the heavens in the water at their feet.~
 End
 
 #31027
@@ -1056,6 +1431,13 @@ EDESC window pane~
 The window is made with a few pieces of wood acting as framing for the smooth glass windows.  One of the window panes in the four paned window seems to have had a large hole knocked through it, though some of the glass pieces still remain in that quadrant.  Each window pane quadrant is about the size of someone's head, allowing plenty of light to enter from the west.~
 EDESC door handle~
 The door of this cottage looks like normal wood at first, but as you look closer you see rivets of a starange silvery metal in the hinges.  The handle is made of wood, as are the panels of the door, but they are fit together snugly and oiled well enough that they do not seem to have been weathered like some of the other areas of the cottage.  You notice that the handle has a place for a lock, but instead of having one there is just a hole through the door where it should have been.~
+EDESC hole peephole lock~
+Putting your eye to the lock-hole, you can see clear through into the cottage
+beyond.  A young woman moves about a warm little kitchen, humming to herself as
+she stirs a pot over the fire, wholly unaware that anyone is watching.  The
+bright silvery rivets around the hole frame the scene like a picture -- worked
+from that same untarnished metal you keep finding wherever this strange little
+life has left its mark.~
 End
 
 #31034
@@ -1084,16 +1466,13 @@ End
 #31035
 NAME   Inside a Chronomancers House~
 DESCR
-This is a newly created room. Edit this description to describe what the room
-looks like.
-
-This room should have the timekeepers newly married wife before he's actually done anything crazy -
-this is all pre-elia-dying.  She is here just making dinner or something, and
-the lab out back is not actually somethign either of them understands.  He is
-going to be at the apple tree investigating the weird fracture in time to the
-rotting apple tree, and she's got a journal she's writing about how he's found
-some sort of temporal fracture that he's exploring.  He's a chronomancer, or at
-least aspiring to be one.~
+The inside of the cottage is small but warm, and plainly loved.  A cook-fire
+crackles low in a hearth of the same melted-looking stone as the walls outside,
+and something savoury simmers in a pot hung above it.  Bundled herbs sway drying
+from the rafters, a well-worn table stands beneath the window, and two mismatched
+chairs are drawn up close together beside the fire.  Whoever lives here has built
+a quiet, ordinary happiness within these walls -- though a curious draft, and a
+faint metallic tang, drift in from the yard out back.~
 FLAGS  0
 Sect   0
 DOOR 1
@@ -1111,7 +1490,11 @@ End
 #31036
 NAME   Bedroom of a Hermits House~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A small, spare bedroom, barely wide enough for the narrow bed pushed against the
+far wall.  The blankets are neatly made, though a soft grey fur of dust has
+settled over everything.  A single wooden chair waits beside the bed, and a
+shuttered window lets in thin blades of pale light.  Two people clearly once
+shared a quiet life within these walls.
 ~
 FLAGS  0
 Sect   0
@@ -1130,7 +1513,11 @@ End
 #31037
 NAME   Behind a Hermits House~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The cottage backs onto a scrap of tended yard long gone wild, hemmed in by the
+dark edge of the forest.  A rickety lean-to sags against the rear wall, and the
+remains of a vegetable garden have bolted and gone to seed.  In the centre of
+the yard stands the round stone lip of an old well, its bucket rope frayed to
+threads and its depths lost in shadow.
 ~
 FLAGS  0
 Sect   3
@@ -1144,12 +1531,21 @@ You see nothing special here.
 ~
 ~
 0 0 31038
+EDESC well stone bucket~
+The old well is ringed in the same melted-looking mountain stone as the cottage.
+Peering over the lip you find no water at all -- only darkness, and far below,
+the faint dull glint of coins caught in the mud, small wishes dropped by
+travellers who passed this lonely way.~
 End
 
 #31038
 NAME   Down the Well~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+You climb down the slick stones of the well shaft into damp, close dark.  But
+instead of water, the shaft opens partway down onto a dry side passage -- cut on
+purpose, its walls too square to be any accident of nature.  Cold air breathes
+out of it, carrying a faint metallic tang.  Whoever sank this well was hiding
+far more than water at the bottom of it.
 ~
 FLAGS  0
 Sect   6
@@ -1163,17 +1559,22 @@ You see nothing special here.
 ~
 ~
 0 0 31037
+EDESC mud coins silt~
+The mud of the shaft floor is studded with old coins, greened and blackened by
+the years.  Most are copper and long past worthless, but here and there a worn
+silver piece catches what little light falls from the world above.~
 End
 
 #31039
 NAME   The Secret Workshop~
 DESCR
-This room should have some weird devices and things and some notes exaplaining
-to look for a hidden switch that looks like a triangular rock.  This lock will
-actually open the tunnel to the timekeepers trap when you find it.  Need to add
-some journals and things like that that show his last resort was going to be to
-try and stop himself from ever going down this path and accepted that to prevent
-a paradox he would also have to remove himself from time entirely.~
+This hidden chamber is a chronomancer's workshop, and a troubled one.  Strange
+devices crowd every surface -- half-built armatures of brass and silver, glass
+tubes clouded with old residue, and a great ring of graduated metal that turns
+very slowly of its own accord and by all rights should not.  Loose notes drift
+ankle-deep across the floor.  Every wall is bare, seamless stone, save one, where
+a single triangular rock sits set a little too neatly among its rougher fellows.
+This was where a desperate man did his last, worst work.~
 FLAGS  8
 Sect   0
 DOOR 0
@@ -1220,9 +1621,7 @@ roadbase.  Occasionally you spot an errant cobblestone or moss covered road
 marker.  The trees are ancient, like the mountain that you spot peeking between
 the branches occasionally as you look towards the sky.  Light filters down
 through the branches making this forest light up with a verdant glow.
-
-NOTE: This animal trail needs to be longer - it's way too short for following an
-old road that leads to the mountains.~
+~
 FLAGS  0
 Sect   3
 DOOR 1
@@ -1284,8 +1683,7 @@ towering heights of mountainst hat no one has survived passing over.  Their
 snowy peaks loom in the distance, uncaring of the matters below.  The air is
 crisp, almost stale, despite being so far from civilizationt hat there is no
 evidence of people existing at all in any polace you look.
-
-NOTE: Add more rooms to walk through to get here - this isn't far enough to give it the feeling that we got closer to the mountains.  Add some dead ends for future expansion too.~
+~
 FLAGS  0
 Sect   11
 DOOR 0
@@ -1320,7 +1718,11 @@ End
 #31044
 NAME   The Caverns End~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The cavern comes to a dead stop here against a wall of that same unnaturally
+smooth stone.  For all that it looks like a dead end, the air moves -- a slow
+draft slides out from somewhere along the seams, cool and faintly stale.  There
+is a way onward from here, though the mountain has done its patient best to hide
+where it begins.
 ~
 FLAGS  8
 Sect   5
@@ -1339,7 +1741,11 @@ End
 #31045
 NAME   The smooth wall of the cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The smooth, poured-looking stone dominates this stretch of the cavern entirely,
+the rough natural rock reduced to a few stubborn patches.  Running your hand
+along the wall you can feel the faintest seams, regular as brickwork, though no
+mortar shows anywhere.  The passage bends here to follow the long curve of the
+strange construction.
 ~
 FLAGS  0
 Sect   5
@@ -1363,7 +1769,10 @@ End
 #31046
 NAME   The sharp corner of the cavern~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The smooth wall turns a hard, deliberate corner here, sharper than any water
+ever carved.  A gap yawns downward at the angle of the turn, a throat of shadow
+dropping away beneath your feet.  The metallic smell is stronger in this spot,
+and beneath it, very faint, a low hum you feel in your teeth more than hear.
 ~
 FLAGS  0
 Sect   5
@@ -1387,7 +1796,11 @@ End
 #31047
 NAME   A smooth Metal Tunnel~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+There is no pretending this is a cave any longer.  The walls, floor, and curved
+ceiling are all a single seamless surface of dull silver metal, cool and faintly
+warm at the same time.  Your footsteps ring softly and come back wrong, somehow
+flattened.  The tunnel runs straight and level, lit by no lamp you can find and
+yet lit all the same.
 ~
 FLAGS  0
 Sect   0
@@ -1406,7 +1819,10 @@ End
 #31048
 NAME   A smooth Metal Tunnel~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The metal tunnel continues, unbroken and identical, so that you could almost
+believe you had not moved at all.  Faint lines are etched into the walls at
+regular intervals -- markings, perhaps, or measurements, in a script of dots and
+arcs you do not recognize.  The soft, toothless hum never once falters.
 ~
 FLAGS  0
 Sect   0
@@ -1425,7 +1841,10 @@ End
 #31049
 NAME   A smooth Metal Tunnel~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The tunnel widens slightly here as it nears its end.  The etched markings on the
+walls grow denser, crowding together into bands of intricate symbols that seem
+almost to shift and crawl when you are not looking straight at them.  Ahead, the
+passage is sealed off by a great disc of metal set flush into the wall.
 ~
 FLAGS  0
 Sect   0
@@ -1444,8 +1863,12 @@ End
 #31050
 NAME   The Odd Metal Door~
 DESCR
-This is the actual entrance to the timekeepers lair.  It opens at noon every day.
-~
+The tunnel ends at a single vast disc of silver metal, taller than three men and
+set flush into the wall without hinge or handle.  Its face is graven with
+concentric rings of symbols that crawl slowly around their circles, and a band of
+them near the centre tracks the sun outside as surely as any sundial.  For most
+of the day the disc stands shut fast and cold -- but the markings promise it was
+built to open, once and briefly, when the sun climbs highest.~
 FLAGS  0
 Sect   0
 DOOR 0
@@ -1463,8 +1886,12 @@ End
 #31051
 NAME   The Waiting Room~
 DESCR
-This is an odd waiting room - but it's entire purpose is that depending on what time you go north to go inside, you will get a different set of rooms to interact with.
-~
+Beyond the great door lies a small, perfectly round chamber of the same seamless
+metal.  There is nothing here -- no furniture, no marking -- save a smooth archway
+to the north and the sealed disc behind you to the south.  The air is warm and
+utterly still, and carries the sense of a held breath.  Something about the place
+suggests it is not a destination but a threshold, and that what lies north may
+not be the same twice.~
 FLAGS  0
 Sect   0
 DOOR 0
@@ -1482,17 +1909,11 @@ End
 NAME   The End of Time~
 DESCR
 Time seems to speed up as you move, accelerating until there is a blur of white
-streaming past you faster than you can comprehend.  Suddenly, everything stops,
-and there is only black.  There is nothing here.  You aren't exactly floating,
-it's just that...there is just...nothing.  
-
-Note: If you bring him the box with all the things used on it, it's actually the
-paradox fixer, and will reward you with like 50 hours of les age and 2 con or
-something for solving the riddle.  I think I'd like it to also give you a little
-clock tattoo that casts haste on you in combat, because this is going to be a
-bitch of a set of riddles to solve.
-
-ALSO NOTE: This is not going to actually lead back to his workshop once it's ready - you'll be stuck and suck it up.  Just putting an exit here for temporary convenience.~
+streaming past you faster than you can comprehend.  Suddenly everything stops,
+and there is only black.  There is nothing here.  You are not exactly floating --
+it is simply that there is nothing left to float in, nothing to mark motion or
+stillness, no up, no down, no now.  There is just... nothing.  And somewhere out
+in that nothing, patient and unhurried, something is waiting for you.~
 FLAGS  295182337
 Sect   9
 DOOR 3
@@ -1576,7 +1997,11 @@ End
 #31056
 NAME   A Small Path Through The Woods~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A footpath winds in beneath the eaves of the forest, soft with fallen needles
+and dappled with shifting light.  The trees close overhead into a green-gold
+roof, and the noise of the open field falls away behind you into a deep woodland
+hush.  The path leads on southward, toward a stillness that feels almost
+expectant.
 ~
 FLAGS  0
 Sect   3
@@ -1593,7 +2018,11 @@ End
 #31057
 NAME   A Small Path Through The Woods~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The forest presses close on both sides here, old and thick-trunked, the
+undergrowth heavy with fern and moss.  The path narrows to a single worn line of
+bare earth.  Somewhere ahead the ordinary sounds of the wood -- birdsong, the
+tick of insects -- thin out and grow strangely hushed, as though the trees
+themselves had stopped to listen.
 ~
 FLAGS  0
 Sect   3
@@ -1613,11 +2042,11 @@ DESCR
 Beneath the leaves of this ancient apple tree you see hundreds of apples in
 various stages of rotting.  It's obvious that no one has tended this tree in
 some time.  Nearby you see the stump of a rotten apple tree that seems to have
-rotted and fallen over.  
-
-NOTE: The timekeeper should be young here - he's just started his research in
-chronomancy and found this fracture in time that he believes is a paradox, and
-it's what gets him started thinking about paradoxes in the first place.  This IS the paradox, because without this paradox he wouldn't have started researching paradoxes and his wife wouldn't have been killed helping him research them.  He is the one who created this paradox of looped time that links the current apple tree to the ancient moldy one.  ~
+rotted and fallen over.  Yet something here is wrong.  The air beneath the boughs
+hangs strangely thick, and the light seems to lag a beat behind the swaying of
+the leaves, as though it were reaching you a heartbeat too late.  Look long
+enough and you could swear the fallen, rotted stump and this living tree are
+somehow the same tree, caught at two different ends of its life at once.~
 FLAGS  0
 Sect   3
 DOOR 1
@@ -1637,9 +2066,11 @@ This apple tree stump is surrounded by branches of a once great tree, now laid
 low.  It's branches would have been at least a hundred feet high.  Now the
 branches are strewn about this glade, some so rotten that they've been overcome
 with moss and fungus.  You see something odd and faded etched into the base of
-the trunk.
-
-NOTE: This is supposed to be a small fracture in time you can pass through and needs some foreshadowing showing that this dude is fucking up time and it's dangerous - it's kind of supposed to be the same tree.~
+the trunk.  The air around the fallen trunk shivers faintly, like heat over
+summer stone, though the glade is cold.  For just a moment, at the edge of your
+vision, the rotted wood seems whole and green again -- and then it is gone, and
+only the ruin remains.  Whatever happened here, time itself has not entirely
+healed over it.~
 FLAGS  0
 Sect   3
 DOOR 3
@@ -1688,12 +2119,15 @@ You can see the end of the dock past the debris and mud.~
 End
 
 #31062
-NAME   A New Room~
+NAME   The Crumbling Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The road is little more than a suggestion now, a scatter of cracked stones losing
+their long fight with the forest floor.  Ahead to the west the trees begin to
+thin, and you can sense open ground beyond -- the true end of the road, where
+whatever this way once led has crumbled away into ruin.
 ~
 FLAGS  0
-Sect   0
+Sect   11
 DOOR 1
 You see nothing special here.~
 ~
@@ -1705,12 +2139,15 @@ You see nothing special here.~
 End
 
 #31063
-NAME   A New Room~
+NAME   The Overgrown Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The old road runs on beneath a heavy canopy, a green tunnel dim even at midday.
+Roots have buckled the paving into low waves, and pale mushrooms grow in the damp
+seams between the stones.  The air is cool and still, and smells of leaf-mould
+and slow, patient decay.
 ~
 FLAGS  0
-Sect   0
+Sect   11
 DOOR 0
 You see nothing special here.~
 ~
@@ -1722,12 +2159,15 @@ You see nothing special here.~
 End
 
 #31064
-NAME   A New Room~
+NAME   The Overgrown Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Here the forest has all but reclaimed the road.  Saplings stand in the middle of
+what was once the way, and only the odd cobblestone breaking the leaf litter
+proves a road ran through at all.  You push through low branches, following the
+faint straight line the trees have never quite managed to erase.
 ~
 FLAGS  0
-Sect   0
+Sect   11
 DOOR 1
 You see nothing special here.~
 ~
@@ -1739,12 +2179,15 @@ You see nothing special here.~
 End
 
 #31065
-NAME   A New Room~
+NAME   A Bend In The Old Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The road bends sharply here around a shoulder of rock, the reason for the turn
+long since forgotten.  Moss furs the stones a deep, soft green and muffles your
+steps.  It is very quiet -- no birds, no wind to speak of, only the occasional
+distant crack of a branch settling somewhere back among the trees.
 ~
 FLAGS  0
-Sect   0
+Sect   11
 DOOR 2
 You see nothing special here.~
 ~
@@ -1756,12 +2199,15 @@ You see nothing special here.~
 End
 
 #31066
-NAME   A New Room~
+NAME   The Rough Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The old road climbs a low rise here, its stones heaved and tilted by frost and
+root.  Brambles reach in from either side to snag at your legs.  A fallen road
+marker lies half-swallowed in the grass, its carved lettering worn far too
+smooth to read.  The mountains loom grey and patient beyond the trees.
 ~
 FLAGS  0
-Sect   0
+Sect   11
 DOOR 0
 You see nothing special here.~
 ~
@@ -1773,12 +2219,15 @@ You see nothing special here.~
 End
 
 #31067
-NAME   A New Room~
+NAME   The Rough Road~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The last of the maintained cobblestone gives out here, and the road turns rough
+and broken underfoot.  Weeds push up thick between the surviving stones, and deep
+ruts run where the rains have carried the surface away.  Behind you to the east
+the road still remembers being cared for; ahead to the west, it plainly does not.
 ~
 FLAGS  0
-Sect   0
+Sect   11
 DOOR 1
 You see nothing special here.~
 ~
@@ -1797,9 +2246,30 @@ of this almost tubular room has windows that seem to flicker with strange
 energeies outside intermittently.  The room is bare of anything other than a
 ledge large enough to sit on on each side of the room.  The lighting in this
 room seems to come from under the ledge, although when you look there is no
-noticeable source for the under-lighting.  There is a sundial in the center of the tube on a small pedestal made of the same metal as all the rest of the chamber, however the sundial seems to cast a shadow as if it were standing directly in the sun.  ~
+noticeable source for the under-lighting.  There is a sundial in the center of
+the tube on a small pedestal made of the same metal as all the rest of the
+chamber, however the sundial seems to cast a shadow as if it were standing
+directly in the sun.  
+
+12-2: Stellar/Astral
+
+12-2: Hourglass
+
+2-4: Pendulum
+
+4-6: Heat
+
+6-8: Lightning
+
+8-10: Looping
+
+10-12: Predictive~
 FLAGS  0
 Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31070
 DOOR 2
 You see nothing special here.~
 ~
@@ -1839,6 +2309,763 @@ New extra description.
 ~
 End
 
+#31069
+NAME   Stellar Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31076
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31070
+NAME   Hourglass Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 0
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31071
+NAME   Pendulus Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 0
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31072
+NAME   Primal Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 0
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31073
+NAME   Lightning Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 0
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31074
+NAME   Paradox Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 0
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31075
+NAME   Predictive Sanctum~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 0
+End
+
+#31076
+NAME   stellar C1~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31086
+DOOR 1
+You see nothing special here.~
+~
+0 0 31079
+DOOR 2
+You see nothing special here.~
+~
+0 0 31069
+DOOR 3
+You see nothing special here.~
+~
+0 0 31077
+End
+
+#31077
+NAME   Stellar 1-2~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31085
+DOOR 1
+You see nothing special here.~
+~
+0 0 31076
+DOOR 3
+You see nothing special here.~
+~
+0 0 31078
+End
+
+#31078
+NAME   Stellar 1-1~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31083
+DOOR 1
+You see nothing special here.~
+~
+0 0 31077
+End
+
+#31079
+NAME   Stellar 1-R1~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31087
+DOOR 1
+You see nothing special here.~
+~
+0 0 31080
+DOOR 3
+You see nothing special here.~
+~
+0 0 31076
+End
+
+#31080
+NAME   Stellar 1-R2~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31081
+DOOR 3
+You see nothing special here.~
+~
+0 0 31079
+End
+
+#31081
+NAME   stellar 2-6~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31093
+DOOR 1
+You see nothing special here.~
+~
+0 0 31082
+DOOR 2
+You see nothing special here.~
+~
+0 0 31080
+DOOR 3
+You see nothing special here.~
+~
+0 0 31087
+End
+
+#31082
+NAME   stellar 2-7~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31094
+DOOR 3
+You see nothing special here.~
+~
+0 0 31081
+End
+
+#31083
+NAME   stellar 2-2~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31089
+DOOR 1
+You see nothing special here.~
+~
+0 0 31085
+DOOR 2
+You see nothing special here.~
+~
+0 0 31078
+DOOR 3
+You see nothing special here.~
+~
+0 0 31084
+End
+
+#31084
+NAME   Stellar 2-1~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31088
+DOOR 1
+You see nothing special here.~
+~
+0 0 31083
+End
+
+#31085
+NAME   stellar 2-3~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31090
+DOOR 1
+You see nothing special here.~
+~
+0 0 31086
+DOOR 2
+You see nothing special here.~
+~
+0 0 31077
+DOOR 3
+You see nothing special here.~
+~
+0 0 31083
+End
+
+#31086
+NAME   stellar c2~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31091
+DOOR 1
+You see nothing special here.~
+~
+0 0 31087
+DOOR 2
+You see nothing special here.~
+~
+0 0 31076
+DOOR 3
+You see nothing special here.~
+~
+0 0 31085
+End
+
+#31087
+NAME   stellar 2-5~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31092
+DOOR 1
+You see nothing special here.~
+~
+0 0 31081
+DOOR 2
+You see nothing special here.~
+~
+0 0 31079
+DOOR 3
+You see nothing special here.~
+~
+0 0 31086
+End
+
+#31088
+NAME   stellar 3-1~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31101
+DOOR 1
+You see nothing special here.~
+~
+0 0 31089
+DOOR 2
+You see nothing special here.~
+~
+0 0 31084
+End
+
+#31089
+NAME   stellar 3-2~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31100
+DOOR 1
+You see nothing special here.~
+~
+0 0 31090
+DOOR 2
+You see nothing special here.~
+~
+0 0 31083
+DOOR 3
+You see nothing special here.~
+~
+0 0 31088
+End
+
+#31090
+NAME   stellar 3-3~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31099
+DOOR 1
+You see nothing special here.~
+~
+0 0 31091
+DOOR 2
+You see nothing special here.~
+~
+0 0 31085
+DOOR 3
+You see nothing special here.~
+~
+0 0 31089
+End
+
+#31091
+NAME   stellar C3~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31098
+DOOR 1
+You see nothing special here.~
+~
+0 0 31092
+DOOR 2
+You see nothing special here.~
+~
+0 0 31086
+DOOR 3
+You see nothing special here.~
+~
+0 0 31090
+End
+
+#31092
+NAME   stellar 3-5~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31097
+DOOR 1
+You see nothing special here.~
+~
+0 0 31093
+DOOR 2
+You see nothing special here.~
+~
+0 0 31087
+DOOR 3
+You see nothing special here.~
+~
+0 0 31091
+End
+
+#31093
+NAME   stellar 3-6~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31096
+DOOR 1
+You see nothing special here.~
+~
+0 0 31094
+DOOR 2
+You see nothing special here.~
+~
+0 0 31081
+DOOR 3
+You see nothing special here.~
+~
+0 0 31092
+End
+
+#31094
+NAME   stellar 3-7~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31095
+DOOR 1
+You see nothing special here.~
+~
+0 0 31105
+DOOR 2
+You see nothing special here.~
+~
+0 0 31082
+DOOR 3
+You see nothing special here.~
+~
+0 0 31093
+End
+
+#31095
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31104
+DOOR 2
+You see nothing special here.~
+~
+0 0 31094
+DOOR 3
+You see nothing special here.~
+~
+0 0 31096
+End
+
+#31096
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31095
+DOOR 2
+You see nothing special here.~
+~
+0 0 31093
+DOOR 3
+You see nothing special here.~
+~
+0 0 31097
+End
+
+#31097
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31096
+DOOR 2
+You see nothing special here.~
+~
+0 0 31092
+DOOR 3
+You see nothing special here.~
+~
+0 0 31098
+End
+
+#31098
+NAME   stellar C4~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31097
+DOOR 2
+You see nothing special here.~
+~
+0 0 31091
+DOOR 3
+You see nothing special here.~
+~
+0 0 31099
+End
+
+#31099
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31098
+DOOR 2
+You see nothing special here.~
+~
+0 0 31090
+DOOR 3
+You see nothing special here.~
+~
+0 0 31100
+End
+
+#31100
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31099
+DOOR 2
+You see nothing special here.~
+~
+0 0 31089
+DOOR 3
+You see nothing special here.~
+~
+0 0 31101
+End
+
+#31101
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31100
+DOOR 2
+You see nothing special here.~
+~
+0 0 31088
+DOOR 3
+You see nothing special here.~
+~
+0 0 31102
+End
+
+#31102
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31101
+DOOR 3
+You see nothing special here.~
+~
+0 0 31103
+End
+
+#31103
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31102
+End
+
+#31104
+NAME   A New Room~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31105
+DOOR 3
+You see nothing special here.~
+~
+0 0 31095
+End
+
+#31105
+NAME   stellar 3-8 (SPECIAL)~
+DESCR
+This is a newly created room. Edit this description to describe what the room looks like.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31104
+DOOR 3
+You see nothing special here.~
+~
+0 0 31094
+End
+
 #0
 
 #SPECIALS
@@ -1855,10 +3082,20 @@ M 0 31001 1 31034 1
 M 0 31001 1 31027 1
 M 0 31002 1 31026 1
 M 0 31003 1 31043 1
+G 0 31008 0
+G 0 31009 0
 M 0 31004 1 31061 1
 M 0 31005 1 31035 1
 M 0 31006 1 31058 1
 M 0 31007 1 31039 1
+O 0 31000 0 31060
+O 0 31001 0 31035
+O 0 31002 0 31039
+O 0 31003 0 31039
+O 0 31004 0 31058
+O 0 31005 0 31059
+O 0 31006 0 31038
+O 0 31007 0 31035
 S
 
 #SHOPS
