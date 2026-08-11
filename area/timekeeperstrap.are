@@ -1898,7 +1898,7 @@ NAME   cinder cold burns final work piece~
 SHORT  a cinder that burns cold~
 DESCR
 A single ember rests upon the pedestal here, glowing, though the air around it aches with cold.~
-MAT    none~
+MAT    mineral~
 TYPE   trash 0 0 0 0 0
 EXTRA  0 0
 WEAR   A
@@ -2215,7 +2215,7 @@ NAME   heartbeat instant moment stilled key~
 SHORT  a stilled heartbeat~
 DESCR
 A single stilled heartbeat hangs in the air here, cold and heavy as a key of ice.~
-MAT    none~
+MAT    mineral~
 TYPE   trash 0 0 0 0 0
 EXTRA  0 0
 WEAR   A
