@@ -340,6 +340,859 @@ AMOD  0
 QUEST 0
 End
 
+#31008
+NAME  echo midian astral projection~
+SHORT the astral echo of Midian~
+LONG  A translucent projection of a young Midian stands here, gazing up at a sky only he can see.~
+DESCR
+This is Midian as he was at the very beginning -- young, bright-eyed, and utterly
+absorbed.  He is not quite here; you can see the turning stars faintly through
+him.  He murmurs figures and angles under his breath, laughing now and then at
+some private discovery, and takes no notice of you at all.  He is only an echo --
+a single moment of hope pressed permanently into this place.
+~
+RACE  human~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 45
+HROLL 45
+ENHA  100.00%
+MATER flesh~
+HDICE 45d8+450
+MDICE 45d10+225
+DDICE 9d13+22
+REGEN 0
+DTYPE none
+AC    0 0 0 0
+POS   stand stand
+SEX   male
+GOLD  0
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31009
+NAME  wisp star mote~
+SHORT a drifting star-wisp~
+LONG  A small wisp of cold star-fire drifts through the air, trailing sparks.~
+DESCR
+The wisp is a knot of pale, cold fire no bigger than a fist, drifting on unseen
+currents of the air.  It is one of the observatory's old guardians, set long ago
+to drive off anything that does not belong among the stars.  It pulses faintly,
+and where it passes the air smells of frost and burnt lightning.
+~
+RACE  nymph~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 42
+HROLL 42
+ENHA  100.00%
+MATER none~
+HDICE 42d8+300
+MDICE 42d10+210
+DDICE 8d10+20
+REGEN 0
+DTYPE shock
+AC    -8 -8 -8 -8
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  tiny
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31010
+NAME  sentinel sand glass construct~
+SHORT A sand-glass sentinel is standing guard here.~
+LONG  A towering sentinel of hardened sand and smoked glass stands watch here.~
+DESCR
+The sentinel is shaped from packed sand fused with plates of dark, smoked glass,
+a head taller than any man and utterly without face.  Within its hollow trunk a
+slow river of sand turns endlessly over, pouring up as often as down, and where
+that sand shifts the whole figure seems to age and unage at once -- edges
+crumbling, then healing bright again.  It does not breathe, does not blink, and
+yet it plainly watches the engine at its back.
+~
+RACE  modron~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 46
+HROLL 46
+ENHA  100.00%
+MATER stone~
+HDICE 46d8+460
+MDICE 46d10+230
+DDICE 9d12+20
+REGEN 0
+DTYPE pound
+AC    -7 -7 -7 -5
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31011
+NAME  moth instant caught frozen~
+SHORT a moth held in a single instant of flight~
+LONG  A pale moth hangs in the air, wings mid-beat, held in one unmoving instant.~
+DESCR
+The moth is small and dust-pale, and it is not resting -- it is stopped.  Its
+wings are caught at the top of a beat, its legs curled for a landing it will
+never make, a single mote of pollen frozen an inch beyond one antenna.  Whatever
+Midian did to this room, the moth flew into it long ago and simply ceased to fall
+through time along with the rest of the world.
+~
+RACE  nymph~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 44
+HROLL 0
+ENHA  100.00%
+MATER none~
+HDICE 44d8+40
+MDICE 44d10+40
+DDICE 2d4+2
+REGEN 0
+DTYPE none
+AC    0 0 0 0
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  tiny
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31012
+NAME  mouse clockwork flicker brass~
+SHORT a flickering clockwork mouse~
+LONG  A small mouse of brass and glass skitters along the shelves, flickering.~
+DESCR
+The mouse is a clever little thing of brass gears and glass beads, made to run
+the shelves and wind the smaller sand-clocks.  Something has gone wrong with it:
+with every darting step it flickers, one instant bright and new, the next
+rust-eaten and half-collapsed, then whole again.  Caught between its ages, it has
+turned mean, and it bares needle teeth of splintered glass at anything that moves.
+~
+RACE  doll~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 44
+HROLL 44
+ENHA  100.00%
+MATER metal~
+HDICE 44d8+220
+MDICE 44d10+220
+DDICE 7d10+14
+REGEN 0
+DTYPE bite
+AC    -5 -5 -5 -3
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  tiny
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31013
+NAME  friend artificer toller~
+SHORT Toller the artificer~
+LONG  A wiry artificer looks up from a half-built clock, tools still in hand.~
+DESCR
+Years of squinting at fine mechanisms have carved permanent lines around his
+eyes, and his fingers are stained black with oil and quick with old habit.  He
+wears a leather apron hung with tiny tools, and about his neck hangs a watch
+that he checks compulsively, as though afraid of falling behind.  There is no
+madness in him, only a tired, stubborn patience -- the look of a man who has
+been chasing a friend through time and does not intend to give up.
+~
+RACE  human~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 800
+GROUP 0
+LEVEL 48
+HROLL 48
+ENHA  100.00%
+MATER flesh~
+HDICE 48d8+480
+MDICE 48d10+240
+DDICE 9d12+22
+REGEN 0
+DTYPE none
+AC    0 0 0 0
+POS   stand stand
+SEX   male
+GOLD  0
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31014
+NAME  automaton clockwork brass construct~
+SHORT a brass clockwork automaton~
+LONG  A brass clockwork automaton stalks the floor, gears whirring behind its ribs.~
+DESCR
+The automaton is built in a rough mockery of a man, its body a cage of brass
+ribs through which you can see a heart of spinning gears.  It moves in sudden,
+precise jerks, each step timed to the tick of the mechanism inside it, and its
+blank faceplate turns to track you with the patience of a thing that never
+tires.  Somewhere in its whirring chest, you are certain, a clock piece has
+been locked away for safekeeping.
+~
+RACE  modron~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 48
+HROLL 48
+ENHA  100.00%
+MATER metal~
+HDICE 48d8+480
+MDICE 48d10+240
+DDICE 9d12+22
+REGEN 0
+DTYPE pound
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31015
+NAME  golem escapement iron automaton construct~
+SHORT an iron escapement-golem~
+LONG  An iron escapement-golem lurches here, its chest a slowly ticking mechanism.~
+DESCR
+Taller and heavier than its brass kin, this golem is forged of blackened iron,
+and where a heart would be a great escapement rocks back and forth, ticking out
+each of its ponderous steps.  Chains and driving weights hang from its frame
+like grim jewellery, swinging as it moves.  It guards the deeper chamber with
+the dumb persistence of a machine that has forgotten it was ever given any
+other order.
+~
+RACE  modron~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 49
+HROLL 49
+ENHA  100.00%
+MATER metal~
+HDICE 49d8+490
+MDICE 49d10+245
+DDICE 9d12+23
+REGEN 0
+DTYPE pound
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31016
+NAME  fire elemental guardian flame~
+SHORT a towering fire elemental~
+LONG  A towering elemental of living fire uncoils above the great crucible, guarding it.~
+DESCR
+The elemental has no shape it keeps for long -- a pillar of white and orange
+flame, now a coiling serpent of fire, now a vague and burning man.  Two points
+of cold white light hang where its eyes should be, and they follow you with a
+patient, furnace hunger.  It was bound here to keep Midian's forged keys from any
+hand but his, and it has never once been relieved of the duty.  The heat coming
+off it is enough to blister paint at ten paces.
+~
+RACE  nymph~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 50
+HROLL 50
+ENHA  100.00%
+MATER none~
+HDICE 50d8+500
+MDICE 50d10+250
+DDICE 9d12+24
+REGEN 0
+DTYPE shock
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31017
+NAME  furnace tender construct automaton~
+SHORT a furnace-tending construct~
+LONG  A soot-blackened construct shuffles among the furnaces, tending fires that need no tending.~
+DESCR
+The construct is a thing of riveted iron plates and articulated brass, built in
+a rough parody of a stooped labourer.  Its chest glows through the seams where
+its own furnace-heart still burns, and its hands have been fitted with rakes and
+tongs in place of fingers.  It performs its old tasks in an endless loop --
+stoking, raking, stoking -- and turns on anything that interrupts the work with
+the blind fury of a machine that has forgotten why it was made.
+~
+RACE  modron~
+ACT   ABE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 48
+HROLL 48
+ENHA  100.00%
+MATER metal~
+HDICE 48d8+480
+MDICE 48d10+240
+DDICE 9d12+22
+REGEN 0
+DTYPE pound
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31018
+NAME  flame scribe figure standing~
+SHORT a scribe of standing flame~
+LONG  A pale figure of standing flame drifts among the consoles, murmuring numbers to itself.~
+DESCR
+The figure is barely there -- a suggestion of a robed clerk sketched in low blue
+fire, thin enough to read the consoles through.  It was Midian's assistant once,
+or the echo of one, kept on past death to log the readings.  It does not seem to
+see you; it drifts from gauge to gauge, reading each aloud in a soft crackling
+voice, and where its numbers fall wrong it pauses, troubled, and begins the row
+again.  Now and then it says a name -- Elia -- and cannot say why.
+~
+RACE  nymph~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 50
+HROLL 50
+ENHA  100.00%
+MATER none~
+HDICE 50d8+500
+MDICE 50d10+250
+DDICE 9d12+24
+REGEN 0
+DTYPE none
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   either
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  small
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31019
+NAME  arc wraith spark energy~
+SHORT an arc-wraith~
+LONG  An arc-wraith crawls along the dead relays, spitting blue sparks where it goes.~
+DESCR
+The wraith is a knot of naked current given something almost like a will, a
+crawling snarl of blue-white light that climbs the copper and leaps the gaps
+between the spark-terminals.  Where it lingers the metal blackens and the air
+turns to ozone.  It was never meant to leave its cage; the paradox that broke
+this place tore it loose, and now it hunts the charge in anything warm.
+~
+RACE  nymph~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 51
+HROLL 51
+ENHA  100.00%
+MATER none~
+HDICE 51d8+460
+MDICE 51d10+255
+DDICE 9d12+22
+REGEN 0
+DTYPE shock
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  small
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31020
+NAME  relay golem construct automaton~
+SHORT a relay-golem~
+LONG  A relay-golem of stacked iron switches stands guard here, its contacts snapping open and shut.~
+DESCR
+The golem is a man-high tower of relay banks bolted to a single armature, built
+by Midian to test his gates and never let a wrong answer pass.  Hundreds of iron
+contacts open and close across its body in patterns that almost look like
+thought.  Half of them are dead now, fused black, and the living half chatters
+without rest -- a broken adding-machine that has forgotten every sum but the
+order to strike.
+~
+RACE  modron~
+ACT   ABE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 51
+HROLL 51
+ENHA  100.00%
+MATER metal~
+HDICE 51d8+510
+MDICE 51d10+255
+DDICE 10d12+22
+REGEN 0
+DTYPE shock
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31021
+NAME  galvanic sentinel construct guardian~
+SHORT a galvanic sentinel~
+LONG  A galvanic sentinel looms over the pedestal, wreathed in the arcs it was built to hold.~
+DESCR
+The last and largest of the engine's wardens, the sentinel is a great jointed
+construct of blackened iron and coiled copper, raised to stand over the finished
+work and let no hand near it.  Lightning runs the length of its frame in a slow,
+deliberate crawl, held and shaped and never spent.  It does not pace.  It does
+not sleep.  It only waits, humming, for something foolish enough to reach past it.
+~
+RACE  modron~
+ACT   ABE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 52
+ENHA  100.00%
+MATER metal~
+HDICE 52d8+560
+MDICE 52d10+260
+DDICE 10d12+24
+REGEN 0
+DTYPE shock
+AC    -9 -9 -9 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  huge
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31022
+NAME  corin apprentice friend echo man~
+SHORT Corin the apprentice~
+LONG  Corin, or the echo left where Corin used to be, folds toward the floor mid-fall and never lands.~
+DESCR
+This was Midian's apprentice, a slight young man with ink-stained cuffs and a
+scholar's stoop.  He is caught in the last half-second of dying: a wound opens
+at his throat, his knees buckle, his mouth shapes a word -- and then the instant
+snaps back to its beginning and plays again.  He falls, and falls, and falls,
+and each time his eyes find yours with the same startled grief, as though he has
+only just realised he is not permitted to finish.  Whatever killed him here is
+long gone.  Only the killing remains, worn smooth by endless repetition.
+~
+RACE  human~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 48
+HROLL 48
+ENHA  100.00%
+MATER flesh~
+HDICE 48d8+480
+MDICE 48d10+240
+DDICE 9d12+20
+REGEN 0
+DTYPE none
+AC    -8 -8 -8 -6
+POS   stand stand
+SEX   male
+GOLD  0
+FORM  AHMV
+PARTS ABCDEFGHIJK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31023
+NAME  guardian construct paradox warden~
+SHORT a paradox-warden of dull silver~
+LONG  A tall construct of dull silver stands watch, its many joints ticking a half-beat out of time with themselves.~
+DESCR
+The warden is built in the shape of a man and then corrected, over and over,
+until it is the shape of nothing kind.  Plates of tarnished silver overlap its
+frame, each stamped with a clock-face whose hands run backward.  It moves in
+stutters, arriving where it means to be a moment before it sets out, so that the
+eye can never quite hold it still.  It was made to keep a single room exactly as
+it was, and it will kill anything that tries to make that room otherwise.
+~
+RACE  modron~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 52
+ENHA  100.00%
+MATER metal~
+HDICE 52d8+520
+MDICE 52d10+260
+DDICE 10d12+26
+REGEN 0
+DTYPE pound
+AC    -9 -9 -9 -7
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31024
+NAME  warden mirror reflection light~
+SHORT a warden of the mirror~
+LONG  A tall smear of cold light stands in the room, wearing your own reflection like a borrowed coat.~
+DESCR
+There is no body here, only a standing sheet of reflection torn free of any
+mirror.  It shows you back to yourself -- your face, your stance, the weapon in
+your hand -- but always a half-second late, so that when you move it lunges to
+catch up, and the catching-up is a blow.  Where its edges fray, the air behind
+it repeats in narrow bands, the same sliver of room stacked a hundred times deep.
+It hates being looked away from, and it strikes hardest at those who try.
+~
+RACE  nymph~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 52
+ENHA  100.00%
+MATER none~
+HDICE 52d8+520
+MDICE 52d10+260
+DDICE 10d12+26
+REGEN 0
+DTYPE shock
+AC    -9 -9 -9 -7
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31025
+NAME  echo midian seated figure~
+SHORT a fraying echo of Midian~
+LONG  A fraying echo of Midian sits in the chair, watching futures no longer shown.~
+DESCR
+It is not the man himself but the shape he wore out of this place -- a figure
+of thin grey light held in the exact posture of long watching, elbows on
+knees, gaze fixed forward on the dead screens.  Where it meets the dissolving
+air its edges lift and drift away like ash off a cold fire.  It does not turn
+to you.  Whatever it is still watching, it is plainly not here, and not now.
+~
+RACE  nymph~
+ACT   AB
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 0
+ENHA  100.00%
+MATER none~
+HDICE 52d8+520
+MDICE 52d10+260
+DDICE 9d12+22
+REGEN 0
+DTYPE none
+AC    -9 -9 -9 -6
+POS   stand stand
+SEX   male
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31026
+NAME  sentinel fixed time construct~
+SHORT a sentinel of fixed time~
+LONG  A sentinel of fixed time stands guard where the futures turn beneath the glass.~
+DESCR
+Midian built it to defend the one outcome he chose against every other that
+might undo it.  It is a tall thing of frayed silver plate and slow brass
+gearwork, and where its body should end it thins instead into the grey nothing
+of the chamber, half-erased and still functioning.  Its single lens-eye tracks
+you with the flat patience of something that has already watched how this ends,
+and found you wanting in it.
+~
+RACE  modron~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 52
+ENHA  100.00%
+MATER metal~
+HDICE 52d8+520
+MDICE 52d10+260
+DDICE 10d14+24
+REGEN 0
+DTYPE pound
+AC    -9 -9 -9 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  large
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
+#31027
+NAME  unmade moment paradox guardian~
+SHORT the unmade moment~
+LONG  The unmade moment coils around the last certainty, guarding what he chose.~
+DESCR
+It has no shape you can hold in your eye for long -- a knot of the grey
+unmaking itself, wearing for a heartbeat the face of a burning house, then a
+rising river, then nothing at all.  This is the paradox given just enough will
+to guard its own solution.  It does not want the last piece lifted from its
+plinth.  It comes apart and together again with a sound like a caught breath,
+and then it comes for you.
+~
+RACE  nymph~
+ACT   AE
+AFF   0
+OFF   0
+IMM   0
+RES   0
+VULN  0
+WSPEC 0
+ALIGN 0
+GROUP 0
+LEVEL 52
+HROLL 52
+ENHA  100.00%
+MATER none~
+HDICE 52d8+520
+MDICE 52d10+260
+DDICE 10d16+26
+REGEN 0
+DTYPE shock
+AC    -10 -10 -10 -6
+POS   stand stand
+SEX   none
+GOLD  0
+FORM  AG
+PARTS ADEK
+SIZE  medium
+DMOD  100
+AMOD  0
+QUEST 0
+End
+
 #0
 
 #OBJDATA
@@ -552,6 +1405,960 @@ old road, the treeline, and the fresh scar of the landslide, with a crude X
 inked over the mountains and, beside it, a single scratched word: "gold?"  Others
 have come sniffing after the trap, then -- and got no further than this.~
 End
+
+#31010
+NAME   mote fixed starlight piece~
+SHORT  a mote of fixed starlight~
+DESCR
+A mote of fixed starlight hangs in the air here, refusing to fall.~
+MAT    silver~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 0
+COST   0
+COND   100
+EDESC mote starlight piece~
+No larger than a seed and brighter than a lamp, the mote simply holds wherever it
+is set, perfectly still while the world ages around it.  This is the first of
+Midian's "final work" -- a sliver of time made to stand outside of time.  It is
+shaped, you sense, to be set into something: a fitting, a socket, the seat of a
+small silver box.~
+End
+
+#31011
+NAME   lunar calendar dial~
+SHORT  a lunar calendar~
+DESCR
+A brass lunar calendar, its dials still turning, has been left here.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC calendar dial moon phases~
+The calendar is a nest of engraved brass dials that turn of their own accord,
+tracking the true moon in the sky far outside.  An inner ring names the eight
+phases; an outer ring, in Midian's hand, carries a single instruction: "To climb
+the Axis, leave each firmament only by the room whose moon matches the moon of
+tonight.  The heavens do not forgive the wrong door -- they simply send you down
+again."  A glance at the dial tells you which phase holds sway right now.~
+End
+
+#31012
+NAME   star-chart chart notes astral~
+SHORT  Midian's star-chart~
+DESCR
+A great star-chart, dense with notes in a young hand, is spread here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC chart star-chart notes astral~
+The chart is beautiful and obsessive, every star numbered, every margin crammed
+with a young man's certainty.  "Time is not a river," one note insists, "but a
+thing you can outpace -- I have watched the heavens slow when I run the gallery,
+I swear it."  Traced over the constellations in fresh ink is a single winding
+path, climbing from the base of the sky to its summit: the true way up the Axis,
+if you can match it to the rooms.  In one corner, softer: "E. asks why I never
+sleep.  How can I sleep, with this so close?"~
+End
+
+#31013
+NAME   astrolabe brass~
+SHORT  a brass astrolabe~
+DESCR
+A finely made brass astrolabe rests here.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 3
+COST   0
+COND   100
+EDESC astrolabe brass~
+The astrolabe is a masterwork of nested brass plates and hair-thin pointers, worn
+bright along its edges by constant handling.  With it a careful astronomer can fix
+the height of any star or the exact phase of the moon.  Turned over, its back is
+engraved: "For M, so you need never lose your way among them.  -- E."~
+End
+
+#31014
+NAME   key silver dome orrery~
+SHORT  a silver dome key~
+DESCR
+A silver key, its bow shaped like a tiny domed observatory, lies here.~
+MAT    silver~
+TYPE   key 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC key silver dome~
+The key is silver and untarnished, its bow worked into the shape of a tiny domed
+observatory.  It fits, you are certain, the great blast doors of the sealed
+experiment chamber -- the only way in to the mote of starlight held beyond the
+glass.~
+End
+#31015
+NAME   key silver restored bright~
+SHORT  a restored silver key~
+DESCR
+A silver key rests in the engine's cradle, gleaming as though freshly struck.~
+MAT    silver~
+TYPE   key 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC key silver restored bright~
+The key is bright, unblemished silver, its wards crisp and new -- and yet it is
+plainly old.  Beside where it lay rests its ruined twin: the same key eaten to
+brown lace by rust, crumbling at a touch.  This one was that one, once.  Midian
+ran it backward through his engine until every year of corrosion fell away, and
+it shines now as it did the day it was cut.  It fits, surely, some lock this wing
+was built around.~
+End
+
+#31016
+NAME   grain sand falling piece work~
+SHORT  a grain of sand that will not fall~
+DESCR
+A single grain of sand hangs in the air beneath a bell of glass, not falling.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC grain sand falling piece work~
+A lone grain of pale sand, held a finger's breadth above the pillar where it
+should rest, and never closing that gap.  It does not drift, does not settle --
+for it, the fall has simply stopped.  This is a piece of Midian's final work, cut
+and balanced with impossible care, its underside shaped to a small facet meant to
+seat into the socket of a little silver box.  Held in the hand it weighs nothing
+at all, as though it is only half here.~
+End
+
+#31017
+NAME   letter folded friend first~
+SHORT  a folded letter~
+DESCR
+A folded letter lies here, its wax seal already broken.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC letter folded friend first~
+The hand is not Midian's -- rounder, hurried, warm.
+
+  "Midian -- I have read your pages three times and still I cannot hold the
+  shape of it in my head.  You say you moved the coin, not through the room, but
+  through the hour -- that it sat on your table yesterday and today both, and you
+  chose which.  I believe you because it is you, and for no better reason.  Send
+  me the smaller proofs first.  I am not ready for the large ones, and I do not
+  think you are either.  -- your friend"~
+End
+
+#31018
+NAME   letter friend second pebble~
+SHORT  a second letter~
+DESCR
+A second letter rests here, weighted against the draught by a small pebble.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC letter friend second pebble~
+The same warm, hurried hand, pressed harder this time.
+
+  "The seed you sent came as a staff of dark wood -- aged forty years in a
+  night, you wrote, and I do not doubt it, though my wife will not keep it in the
+  house.  Midian, I marvel and I am afraid in the same breath.  You move stones
+  and seeds and rusted keys through their years as easily as I turn a page.  But
+  I hear the next question already behind your teeth, and I beg you: an object
+  does not grieve if the moving goes wrong.  A man would.  Do not make yourself
+  the proof.  I will come when you have gone slower, not sooner.  -- your friend"~
+End
+
+#31019
+NAME   hourglass great still sand~
+SHORT  a great hourglass of still sand~
+DESCR
+A great hourglass stands on a velvet-draped table, its sand refusing to fall.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 8
+COST   0
+COND   100
+EDESC hourglass great still sand~
+Taller than your forearm, its frame of dark polished wood and its glass without
+a single flaw.  The whole of its sand is heaped in the upper bulb, and there it
+stays -- not trickling, not even the faintest thread of it slipping through the
+narrow waist.  A brass plaque at its foot reads, in Midian's neat early hand:
+"The first hour I told to wait.  It has waited ever since."~
+End
+
+#31020
+NAME   ledger notes aging midian~
+SHORT  Midian's aging ledger~
+DESCR
+A ledger lies open on the workbench, its pages dense with a careful hand.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC ledger notes aging midian~
+Column after neat column records objects set into the cradle and the years poured
+into or out of them: a nail rusted forward a century, a twig greened backward to
+its spring, an apple held whole and rotten at once.  Near the bottom of the last
+filled page a note stands apart:
+
+  "The vault's own key was lost to rust years ago, crumbled past use.  No matter
+  -- I have made another.  I set its ruined twin in the engine and ran it
+  backward, year by year, until the corrosion fell away and it shone new.  It
+  rests now in the engine's cradle, and it opens the silver door as if freshly
+  cut."~
+End
+
+#31021
+NAME   pendulum brass bob clock piece~
+SHORT  a brass pendulum~
+DESCR
+A brass pendulum, its lens-shaped bob still faintly swinging, lies here.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 4
+COST   0
+COND   100
+EDESC pendulum brass bob~
+The pendulum is a slender brass rod tipped with a polished lens-shaped bob,
+heavy and cool in the hand.  It swings a moment longer than it should when you
+hold it still, as though reluctant to stop.  It is plainly one part of some
+larger clock -- the piece that keeps the beat.~
+End
+
+#31022
+NAME   gear drive brass cog clock piece~
+SHORT  a brass drive gear~
+DESCR
+A large brass drive gear, its teeth bright with use, has been dropped here.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 6
+COST   0
+COND   100
+EDESC gear drive brass cog~
+The drive gear is a broad wheel of brass, its teeth machined to a flawless edge
+and worn bright where they have meshed with a thousand others.  Turned in the
+hand it whirs softly, hungry to be part of a mechanism again.  It belongs to the
+great clock the workshop was built to assemble.~
+End
+
+#31023
+NAME   escapement wheel pallet clock piece~
+SHORT  an escapement wheel~
+DESCR
+An escapement wheel and its forked pallet lie here, ticking faintly.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC escapement wheel pallet~
+The escapement is a fine toothed wheel paired with a forked steel pallet, the
+clever heart that lets a clock release its power one measured tick at a time.
+Even loose in your hand it will not stay still, rocking back and forth with a
+sound like a patient, whispered count.  It is one of the four parts of the
+master clock.~
+End
+
+#31024
+NAME   weight driving lead slug clock piece~
+SHORT  a driving weight~
+DESCR
+A heavy driving weight of cased lead sits here, trailing a length of chain.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 25
+COST   0
+COND   100
+EDESC weight driving lead~
+The driving weight is a slug of lead in a brass case, absurdly heavy for its
+size, with a stub of chain still fixed to its top.  This is the muscle of the
+clock: hung on its chain, it feeds the whole mechanism the slow, patient pull of
+its falling.  Without it, nothing else would move.~
+End
+
+#31025
+NAME   clock assembled master regulator piece~
+SHORT  the assembled master clock~
+DESCR
+The assembled master clock stands here, ticking, whole at last.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 40
+COST   0
+COND   100
+EDESC clock assembled master~
+Pendulum, drive gear, escapement, and weight have been married into a single
+ticking machine -- the master clock the whole workshop was built to make.  It is
+oddly light for its size, and its beat does not quite match any clock around it,
+running a heartbeat ahead as though it keeps a time of its own.  Its silhouette
+exactly matches the sealed door of the innermost vault.~
+End
+
+#31026
+NAME   heart escapement final work piece~
+SHORT  the escapement heart~
+DESCR
+The escapement heart rests here on its stand, machined to impossible fineness.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC heart escapement final work~
+The escapement heart is a single flawless component no larger than a walnut, its
+wheel and pallets cut so fine they seem to blur.  Where an ordinary escapement
+merely counts time, this one seems to grip it -- to hold a moment and refuse to
+let it pass.  It is a piece of Midian's final work, shaped and sized to be set
+into the small silver box you carry.  Holding it, you feel the seconds around you
+draw thin.~
+End
+
+#31027
+NAME   journal notes artificer log paper~
+SHORT  an artificer's journal~
+DESCR
+A leather journal lies open on the workbench, its pages dense with notes.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC journal notes artificer log~
+The journal belongs to the artificer camped in the alcove.  Page after page
+records his patient attempt to reverse-engineer Midian's work: "He does not
+merely measure time now -- he moves it, folds it, jumps ahead of it and leaves
+the rest of us behind.  I mean to catch him.  If you are reading this, friend,
+then build the clock the way the pendulums are tuned, in order, longest beat to
+shortest.  The last piece is the key.  -- for M, whatever he has become."~
+End
+
+#31028
+NAME   heat-scarred logbook log book~
+SHORT  a heat-scarred logbook~
+DESCR
+A heat-scarred logbook lies open here, its pages fused at the edges.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC logbook log book~
+The logbook's cover is warped and its pages fused at the edges, but the middle
+survives.  The hand is Midian's, still firm in these years, still proud.  "Fire
+is the first honest power," one entry reads.  "The pendulum and the lens only
+watched time; fire feeds it.  I can pour heat into the seam and force it wider."
+Later the pride curdles: "The others feel it now.  I have pushed heat into our
+hour, and three hundred years downstream a summer never ends.  I did not think
+the wound would travel."  A final legible line: "The inner hearth is sealed.
+Only the key drawn from the great crucible will open it -- and only fire can make
+that key."~
+End
+
+#31029
+NAME   cinder key crucible-forged crucible forged~
+SHORT  a crucible-forged cinder-key~
+DESCR
+A key of dark iron lies at the crucible's edge, its teeth still glowing a dull red.~
+MAT    metal~
+TYPE   key 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC key cinder-key cinder crucible~
+The key was drawn straight from the great crucible and never allowed to cool;
+its teeth are shaped like tongues of flame, and it glows a sullen red that no
+forge could sustain for this long.  It is warm -- almost too warm -- to hold,
+and the heat of it seems to lean toward the lock it was made for.~
+End
+
+#31030
+NAME   cinder cold burns final work piece~
+SHORT  a cinder that burns cold~
+DESCR
+A single ember rests upon the pedestal here, glowing, though the air around it aches with cold.~
+MAT    none~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC cinder cold ember piece~
+It looks like a live coal, small enough to close your hand around, and it sheds
+a steady orange light -- yet it draws warmth out of everything near it, so that
+your fingers ache as though you gripped a fistful of winter.  This is a piece of
+Midian's final work: a cinder that burns cold, heat and its absence bound into
+one impossible thing.  One face of it is ground flat and true, sized and shaped
+to be set into a small silver box.~
+End
+
+#31031
+NAME   console plate cracked message~
+SHORT  a cracked console plate~
+DESCR
+A cracked console plate lies here, still flickering with a half-formed message.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC plate console message~
+Power still crawls through the plate's fractured glass, spelling out the same
+unfinished line again and again: "HEAT SEAM STABLE AT -- HEAT SEAM STABLE AT --".
+The number never comes.  Whatever reading Midian was waiting for, the instrument
+burned out before it could be spoken, frozen forever on the edge of an answer.~
+End
+
+#31032
+NAME   heat-sink rod heatsink sink rod~
+SHORT  a heat-sink rod~
+DESCR
+A slender rod of frost-blackened metal lies racked against the wall here.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 3
+COST   0
+COND   100
+EDESC rod heat-sink heatsink~
+The rod is one of a bank built to drink the wing's excess fire and carry it away
+into the cold-vault.  This one is icy to the touch and beaded with frost that
+will not melt even in the surrounding heat.  Fine frost-script, etched by no tool
+you recognise, spirals along its length -- a warning, perhaps, or an apology.~
+End
+
+#31033
+NAME   tablet ash-etched warden stone~
+SHORT  an ash-etched tablet~
+DESCR
+A flat stone tablet, its face etched through the soot, leans against the crucible's rim.~
+MAT    stone~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 4
+COST   0
+COND   100
+EDESC tablet stone warden~
+Someone -- not Midian; the hand is plainer, a servant's or a guard's -- scratched
+these words through the soot on the stone: "The master forges his keys in the
+fire and forgets them here when the burning takes his mind.  If you mean to open
+the sealed hearth, take the glowing key from the crucible's edge.  Do not wait
+for it to cool.  It never does."~
+End
+
+#31034
+NAME   note card logic engine primer problem~
+SHORT  a logic-engine primer~
+DESCR
+A brittle card of waxed paper, printed with gate-symbols and a hand-inked problem, lies here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC note card logic engine primer problem~
+The card is Midian's own primer for the engine that fills these halls.  "Three
+gates," it reads, in a hand grown harder and more exact than the young star-
+watcher's.  "AND yields ONE only when both feeds are ONE.  OR yields ONE when
+either is.  NOT flips what it is given.  From these three I have built an ADDER,
+and from the adder, a key."  Below is a single worked problem: "Add, in the old
+base of two:  0101 + 0011.  The engine will not open until it reads the answer."
+A note in the margin adds: "First seat a charged capacitor in the relay door to
+the north, or the gallery stays sealed.  Carry a live bit and a dead bit to the
+Adder Console within; it will fuse them into the circuit key."~
+End
+
+#31035
+NAME   note schematic adder console~
+SHORT  the Adder's schematic~
+DESCR
+A folded schematic, pinned open beside the Adder Console, is covered in careful sums.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC note schematic adder console sum~
+The schematic walks the sum out one column at a time, right to left, the way the
+engine reads it:  0101 plus 0011.  "One and one make zero, carry one.  Zero and
+one and the carry make zero, carry one.  One and zero and the carry make zero,
+carry one.  Zero and zero and the carry make one."  At the foot, circled twice:
+the answer word, 1000.  "Seat the ONE, then the ZERO, in the order the answer
+names them," Midian has written, "and the console will close the circuit and cast
+the key.  Precision, now.  The stars forgave a wrong guess.  The current will not."~
+End
+
+#31036
+NAME   bolt lightning glass frozen piece~
+SHORT  a bolt held frozen in glass~
+DESCR
+A shard of thick glass hangs in the air here, and caught inside it a fork of lightning is frozen mid-strike.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC bolt lightning glass frozen piece work~
+Sealed in a palm of flawless glass is a single bolt of lightning, stopped in the
+instant of its leap -- every branch and filament held perfectly still, still
+white-hot, and utterly silent.  This is a piece of Midian's "final work," a
+moment of raw power measured and pinned so exactly that time itself lets go of
+it.  Its base is cut to a small, familiar shape: made, you understand, to be set
+into the seat of a silver box.~
+End
+
+#31037
+NAME   capacitor cell charged component~
+SHORT  a charged capacitor cell~
+DESCR
+A glass capacitor cell, still holding a faint blue charge, sits in a cradle of copper here.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC capacitor cell charged component~
+A hand's-length cylinder of wound foil and clouded glass, warm to the touch and
+humming with the last of a charge laid down long ago.  Most of its siblings in
+the banks are cracked and dead; this one still holds.  Its copper feet are shaped
+to drop into the empty cradle at the heart of the sealed relay door -- the one
+thing that will wake the lock and let the gallery doors part.~
+End
+
+#31038
+NAME   bit token one live charged~
+SHORT  a live bit-token~
+DESCR
+A small brass token stamped with a single upright stroke lies here, crackling faintly.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC bit token one live charged stroke~
+A brass disc no wider than a coin, stamped with a single upright stroke -- the
+engine's mark for ONE.  It is live: a thin, angry charge runs its rim and stings
+the fingers.  The Adder Console will want it, the primer said, seated in its turn
+to spell out the answer word.~
+End
+
+#31039
+NAME   bit token zero dead ring~
+SHORT  a dead bit-token~
+DESCR
+A small brass token stamped with an open ring lies here, cold and inert.~
+MAT    metal~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC bit token zero dead ring~
+A brass disc stamped with an open ring -- the engine's mark for ZERO.  Unlike its
+live twin it holds no charge at all; it is cold, dead metal, and that deadness is
+the whole of its meaning.  The Adder Console reads absence as surely as it reads
+current.~
+End
+
+#31040
+NAME   key circuit assembled cast~
+SHORT  the assembled circuit key~
+DESCR
+A key of etched copper and glass, freshly cast by the Adder Console, rests in its tray.~
+MAT    metal~
+TYPE   key 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC key circuit assembled cast~
+The circuit key is a slender wafer of etched copper sealed under glass, its face
+a maze of fused logic-lines that still glow a dim, satisfied blue -- the engine's
+answer, made solid.  It is cut to fit the great blast door of the experiment
+chamber, the only lock left between you and the bolt held frozen beyond it.~
+End
+
+#31041
+NAME   readout log console paradox~
+SHORT  a paradox-engine readout~
+DESCR
+A brass readout torn from a console lies here, its printed ribbon spooling onto the floor.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC readout log console paradox ribbon~
+The ribbon prints the same six lines forever, each stamped a second later than
+the last.  "Trial 411: closed the loop by hand.  Held four minutes.  Subject
+survived.  Trial 412: closed the loop by hand.  Held four minutes.  Subject
+survived."  In the margin, in a shaking version of Midian's neat hand: "A
+paradox is only a door with the same room on both sides.  If I can make one on
+purpose, I can find the seam in the one that took her -- and reach back through.
+I will risk anything now.  There is nothing left that I am afraid to lose."~
+End
+
+#31042
+NAME   note page corin apprentice~
+SHORT  Corin's last page~
+DESCR
+A single page in a cramped, ink-stained hand has been pressed flat beneath a paperweight here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC note page corin apprentice~
+"He has not been the same since the mistress died.  He does not say her name.
+He only works, and the work has gone somewhere I cannot follow him.  Today he
+asked me to stand inside the loop while he closed it -- just to hold the moment
+steady, he said, only for a minute.  I trust him.  I have always trusted him.
+If you are reading this and I have not come out, then the minute did not end,
+and it is not his fault, and please -- tell him it is not his fault."~
+End
+
+#31043
+NAME   shard mirror glass~
+SHORT  a cracked mirror-shard~
+DESCR
+A long shard of mirror lies on the floor, catching the light at a wrong angle.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC shard mirror glass~
+When you lift the shard your reflection arrives a heartbeat behind your hand,
+so that for an instant the glass holds an empty room and then, reluctantly,
+remembers you were in it.~
+End
+
+#31044
+NAME   hourglass glass broken~
+SHORT  a broken hourglass~
+DESCR
+A small hourglass lies on its side here, its frame cracked, its sand misbehaving.~
+MAT    wood~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 2
+COST   0
+COND   100
+EDESC hourglass glass sand broken~
+The sand runs down into the lower bulb, waits, and then climbs back up again,
+tracing the same fall over and over.  It has been doing this, you suspect, for
+a very long time, and will not stop for you.~
+End
+
+#31046
+NAME   heartbeat instant moment stilled key~
+SHORT  a stilled heartbeat~
+DESCR
+A single stilled heartbeat hangs in the air here, cold and heavy as a key of ice.~
+MAT    none~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC heartbeat instant moment stilled~
+This is the exact instant of Corin's death, lifted whole out of the loop that
+would not let it finish.  Now that it is complete it has weight, and edges, and
+a shape -- the blunt, deliberate shape of a key.  It is faintly warm in the
+centre and unbearably cold at its rim, and holding it feels like holding still
+the only thing in this place that was ever allowed to end.~
+End
+
+#31047
+NAME   moment piece work paradox unending~
+SHORT  a moment that will not end~
+DESCR
+A sliver of frozen time rests here, no larger than a coin, humming with a sound just under hearing.~
+MAT    silver~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC moment piece work paradox unending~
+A moment that will not end, sealed by Midian at the height of his madness -- a
+single instant made to repeat forever, so that nothing inside it can ever be
+lost, because nothing inside it can ever finish.  It is a piece of his final
+work, ground and faceted like a gem, and its edge is cut to be set into a small
+silver box.  When you hold it to your ear it whispers the same half-second of a
+woman's laugh, again, and again, and again.~
+End
+
+#31048
+NAME   piece certainty final work last~
+SHORT  the last certainty~
+DESCR
+The last certainty rests here on its plinth, impossibly still.~
+MAT    silver~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC certainty piece final work last~
+No larger than a coin and far heavier than it has any right to be, this is the
+seventh and last piece of Midian's final work.  Where the earlier pieces hummed
+with borrowed time, this one is simply, flatly certain -- a fixed point you
+could no more argue with than argue with the past.  Its underside is cut to
+seat into a small silver box, the last of seven sockets it was always meant to
+fill.  Set together, the seven were to make the box into the one thing that
+could mend a paradox: a fixer of what cannot be fixed.  That joining is for
+later.  For now it waits in your hand, quiet and inevitable.~
+End
+
+#31049
+NAME   page folded note prophecy~
+SHORT  a folded page~
+DESCR
+A single folded page rests on the arm of the chair.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC page note prophecy folded~
+The engine still shows me three futures, and two of them are kindnesses it
+invents to spare me.  In one she burns; in one she drowns; and in both I am
+there, too slow, and the seam tears wider for my trying.  Do not trust the
+moving plates.  The true future is the still one -- the empty chair, the seam
+sewn shut, Elia breathing, and my own place at the table swept clean of me.
+Take the still plate from the orrery.  It is the only key cut to the last door,
+and the only end I can bear to make true.~
+End
+
+#31050
+NAME   plate still fixed future glass~
+SHORT  the still prediction-plate~
+DESCR
+A small pane of glass lies here, showing a moment perfectly still.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC plate still fixed future glass~
+The pane is cool and unmoving in your hand.  Where the other predictions seethe
+with fire and water, this one holds a single quiet scene: a plain room, an
+empty chair drawn back from a table, a seam in the air stitched closed, and a
+woman standing in a doorway, alive and unaware.  Of Midian there is no sign at
+all -- not dead, simply never there.  It is the future he dreads and the only
+one he will allow.  The plate's edge is cut, oddly, like a key.~
+End
+
+#31051
+NAME   plate burning fire future glass~
+SHORT  the burning prediction-plate~
+DESCR
+A pane of glass lies here, lit from within by a fire that gives no heat.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC plate burning fire future glass~
+The scene trapped in the glass never stops moving: a cottage takes fire in the
+dark, a shape struggles at a window, and a familiar figure reaches the door a
+heartbeat too late.  It is vivid, and cruel, and false -- a comfort the engine
+offers, a death Midian could tell himself he merely failed to prevent.  Its
+edge is smooth and worn.  It fits no lock but grief.~
+End
+
+#31052
+NAME   plate drowning water future glass~
+SHORT  the drowning prediction-plate~
+DESCR
+A pane of glass lies here, dark and streaming with water that never spills.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC plate drowning water future glass~
+Within the glass a night river rises without end; a pale hand slips beneath the
+black water, and a boat strains always one stroke short.  Like the fire, it is
+convincing in the way a nightmare is convincing -- all weight, no truth --
+another kindly lie in which the fault was only slowness, only luck.  Its edge
+is smooth and fits nothing.  It is not the future he chose.~
+End
+
+#31053
+NAME   letter midian final elia~
+SHORT  a letter in a familiar hand~
+DESCR
+A letter juts from one of the few drawers that remain.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC letter midian final elia~
+It is addressed to no one, or to her.  "I have watched every road, Elia," it
+begins, "and there is only one where you go on and the world holds.  It is the
+road where I am never on it.  I cannot cut the paradox from inside; every
+attempt only widens the wound.  The single cut that does not bleed is the one
+that takes away the hand that made it -- takes away me, back before the
+beginning, so the beginning never comes.  I am not brave.  I am only certain.
+Forgive me the arithmetic of it.  I would rather be forgotten than be the
+reason you were."~
+End
+
+#31054
+NAME   lens seer reading crystal~
+SHORT  a seer's lens~
+DESCR
+A seer's lens of ground crystal rests on the reading-desk.~
+MAT    mineral~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC lens seer reading crystal~
+A disc of ground crystal on a worn brass handle, the tool Midian used to read
+the prediction-plates true.  Held up to the light it sorts the honest futures
+from the flattering ones: the moving scenes smear and run under its gaze,
+revealing themselves as invention, while a true prediction stays sharp and
+still.  Only one of the orrery's three plates does not blur when you raise the
+lens to it -- the quiet one, the empty chair.~
+End
+
 #0
 
 #ROOMDATA
@@ -2312,7 +4119,12 @@ End
 #31069
 NAME   Stellar Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+You step out of the featureless threshold into a vaulted chamber of dark, polished
+stone, and the ceiling above is not a ceiling at all but a perfect night sky --
+thousands of stars burning cold and clear, wheeling in slow silence.  This was
+Midian's first observatory, built when he was young and certain the heavens held
+the secret of time itself.  Star-charts, long abandoned, curl on every wall, and
+a spiral of worn brass steps climbs north into the turning dark.
 ~
 FLAGS  0
 Sect   0
@@ -2327,16 +4139,22 @@ You see nothing special here.~
 End
 
 #31070
-NAME   Hourglass Sanctum~
+NAME   The Hourglass Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A calm, ordered chamber opens around you, its walls lined with hourglasses of
+every size -- from thimble-small to taller than a man -- each one turned and
+running, their sand whispering down in a hundred soft streams.  The floor is
+swept clean, the brass fittings polished, everything kept with the plain pride of
+a man still sure of his work.  A doorway north leads deeper into the wing, where
+Midian first learned to move not himself but objects through their years.  To the
+south a sealed arch waits, its threshold dark and cold.
 ~
 FLAGS  0
 Sect   0
 DOOR 0
 You see nothing special here.~
 ~
-0 0 0
+0 0 31110
 DOOR 2
 You see nothing special here.~
 ~
@@ -2346,14 +4164,20 @@ End
 #31071
 NAME   Pendulus Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The air in this vaulted antechamber moves in slow, measured sweeps, as though
+some vast pendulum you cannot see counts out the seconds of the room itself.
+Brass rails and half-dismantled consoles line the walls, and everywhere the
+patient tick of hidden escapements presses against your ears.  An archway to the
+north breathes out the smell of oil and hot metal; to the south, a sealed door
+waits for a key that has not yet been cut.  Midian has been at work here, bending
+the flow of hours around him the way a smith bends a bar of iron.
 ~
 FLAGS  0
 Sect   0
 DOOR 0
 You see nothing special here.~
 ~
-0 0 0
+0 0 31130
 DOOR 2
 You see nothing special here.~
 ~
@@ -2363,14 +4187,20 @@ End
 #31072
 NAME   Primal Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The sanctum stands as a threshold between the quiet outer lab and something far
+hungrier to the north.  Here the instruments are older and cruder -- great copper
+vessels, banks of bellows gone to verdigris, iron cradles built to hold fire the
+way a lamp holds a flame.  Elia's silver box grows faintly warm against you, as
+though it remembers heat.  Through the northern doorway the air ripples and
+glows, and a dry furnace-wind breathes out to meet you.  To the south the floor
+gives onto bare, unfinished stone.
 ~
 FLAGS  0
 Sect   0
 DOOR 0
 You see nothing special here.~
 ~
-0 0 0
+0 0 31150
 DOOR 2
 You see nothing special here.~
 ~
@@ -2380,14 +4210,22 @@ End
 #31073
 NAME   Lightning Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The brass steps give way to a floor of black slate veined with raw copper, and
+the air here bites clean and sharp with the smell of ozone.  This was the second
+of Midian's workshops -- the one he raised after the stars failed him, when he
+stopped watching time and set out to measure it.  Racks of glass capacitors line
+the walls, most cracked and lightless, a scattered few still ticking with a faint
+blue charge.  Overhead, dead relays hang in ordered rows like a congregation of
+little iron saints.  Somewhere in the dark a spark leaps, cracks, and dies.  A
+low doorway leads north into the engine proper; the way south is a blank,
+unfinished threshold.
 ~
 FLAGS  0
 Sect   0
 DOOR 0
 You see nothing special here.~
 ~
-0 0 0
+0 0 31170
 DOOR 2
 You see nothing special here.~
 ~
@@ -2397,14 +4235,20 @@ End
 #31074
 NAME   Paradox Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A round chamber of black glass, and everything in it happens twice.  Your
+footfall on the threshold arrives, pauses, and arrives again a breath later, an
+echo that comes from ahead of you instead of behind.  The walls are hung with
+clocks that all read the same instant and refuse to leave it.  Cold air pours
+down from the north, where a passage opens onto a corridor that seems, from
+here, to be several corridors laid one atop another.  To the south a sealed arch
+waits, dark and disused, its way not yet opened.
 ~
 FLAGS  0
 Sect   0
 DOOR 0
 You see nothing special here.~
 ~
-0 0 0
+0 0 31190
 DOOR 2
 You see nothing special here.~
 ~
@@ -2414,10 +4258,21 @@ End
 #31075
 NAME   Predictive Sanctum~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+You stand at the threshold of the last wing Midian ever built, and it is
+already leaving.  The walls here do not so much end as thin, their far corners
+gone soft and grey, unravelling into a fog that eats the edges of things.
+Charts of hours-yet-to-come paper the near wall, but where they run out of
+certainty the ink simply stops and the paper with it.  A cold draught that has
+no source pulls always northward, toward the deeper rooms, as though the future
+itself were drawing breath.  To the south a sealed way waits, patient, for a
+door that has not yet been opened.
 ~
 FLAGS  0
 Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31210
 DOOR 2
 You see nothing special here.~
 ~
@@ -2425,9 +4280,13 @@ You see nothing special here.~
 End
 
 #31076
-NAME   stellar C1~
+NAME   The Celestial Axis - First Rung~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The steps open onto a great central shaft that rises through the very heart of
+this place, its walls set with rings of slowly turning brass.  Directly overhead
+hangs the moon -- here only a thin new crescent, barely a nail-paring of light.
+Passages branch away east and west into the lower firmament, but the true way is
+upward, if you can read which turning the sky will allow.
 ~
 FLAGS  0
 Sect   0
@@ -2450,9 +4309,12 @@ You see nothing special here.~
 End
 
 #31077
-NAME   Stellar 1-2~
+NAME   The Lower Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A curving gallery of the lower firmament, its painted stars flickering on hidden
+wires.  The moon set into the ceiling here is a fat waxing gibbous -- though you
+could swear it read differently a moment ago.  East lies the bright central shaft;
+the rest of the way wanders off among false and shifting constellations.
 ~
 FLAGS  0
 Sect   0
@@ -2471,9 +4333,13 @@ You see nothing special here.~
 End
 
 #31078
-NAME   Stellar 1-1~
+NAME   The Lower Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A low side-cell off the great shaft, its ceiling a sparse scatter of dim,
+unfamiliar stars.  The moon here shows as a waning sliver, thin and guttering, and
+something about the whole arrangement feels subtly wrong -- a sky copied down by
+someone who was, in the end, only guessing.  The path through leads only deeper
+into the firmament.
 ~
 FLAGS  0
 Sect   0
@@ -2488,9 +4354,12 @@ You see nothing special here.~
 End
 
 #31079
-NAME   Stellar 1-R1~
+NAME   The Wandering Stars~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Here the fixed stars give way to the wanderers -- the planets, five bright points
+that keep no honest place in the sky.  The chamber seems to turn slowly around you,
+and the moon overhead is dark and new, offering no light and no guidance at all.
+It would be an easy thing to lose the true way entirely among these rooms.
 ~
 FLAGS  0
 Sect   0
@@ -2509,9 +4378,11 @@ You see nothing special here.~
 End
 
 #31080
-NAME   Stellar 1-R2~
+NAME   The Wandering Stars~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Deeper among the wandering stars, the walls themselves seem uncertain, the painted
+planets sliding along their wires into ever-changing figures.  The moon is still
+dark and blind here.  Every direction looks like progress, and none of it is.
 ~
 FLAGS  0
 Sect   0
@@ -2526,9 +4397,12 @@ You see nothing special here.~
 End
 
 #31081
-NAME   stellar 2-6~
+NAME   The Middle Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A cell where the middle firmament runs up against the wandering stars, and the two
+skies blur confusingly together.  The moon is full here -- or seems to be, until
+you notice its edge is subtly, deliberately wrong.  Everything in this room is
+very nearly right, which is worse than being wrong.
 ~
 FLAGS  0
 Sect   0
@@ -2551,9 +4425,11 @@ You see nothing special here.~
 End
 
 #31082
-NAME   stellar 2-7~
+NAME   The Middle Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The far eastern edge of the middle firmament, a dim cul-de-sac of a room where the
+painted stars thin to almost nothing.  A new moon gives no light at all.  The only
+way onward climbs north, into the colder heights of the upper firmament.
 ~
 FLAGS  0
 Sect   0
@@ -2568,9 +4444,12 @@ You see nothing special here.~
 End
 
 #31083
-NAME   stellar 2-2~
+NAME   The Middle Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The firmament tightens here into a knot of intersecting galleries.  The moon shows
+waning gibbous, and the star-patterns almost -- but not quite -- match the charts
+you half-remember from below.  Passages lead away in every direction, each as
+plausible as the last.
 ~
 FLAGS  0
 Sect   0
@@ -2593,9 +4472,12 @@ You see nothing special here.~
 End
 
 #31084
-NAME   Stellar 2-1~
+NAME   The Middle Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A quiet cell of the middle firmament, its ceiling crowded with stars set just
+slightly out of true.  A first-quarter moon hangs here, half light and half
+shadow.  The false sky presses close and close, and the galleries lead on north
+and east into more of the same.
 ~
 FLAGS  0
 Sect   0
@@ -2610,9 +4492,12 @@ You see nothing special here.~
 End
 
 #31085
-NAME   stellar 2-3~
+NAME   The Middle Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A broad terrace of the middle firmament, opening east toward the brighter light of
+the central shaft.  A waxing crescent moon rides low along the ceiling.  The stars
+are thicker and truer this near the Axis -- but still, the charts warn, not to be
+trusted entirely.
 ~
 FLAGS  0
 Sect   0
@@ -2635,9 +4520,13 @@ You see nothing special here.~
 End
 
 #31086
-NAME   stellar c2~
+NAME   The Celestial Axis - Second Rung~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Higher on the central shaft, the turning brass rings are denser here and the air
+hums faintly with their motion.  The moon overhead has swollen to a half-disc,
+cut cleanly down the middle between light and dark.  The firmament spreads east
+and west, crowded with false and flickering stars, but the shaft climbs on toward
+a brighter sky above.
 ~
 FLAGS  0
 Sect   0
@@ -2660,9 +4549,11 @@ You see nothing special here.~
 End
 
 #31087
-NAME   stellar 2-5~
+NAME   The Middle Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The firmament here abuts the central shaft to the west, its false stars paling in
+the shaft's clean light.  A last-quarter moon hangs overhead, its lit half turned
+the wrong way round -- a small lie in the sky, for the careful to catch.
 ~
 FLAGS  0
 Sect   0
@@ -2685,9 +4576,12 @@ You see nothing special here.~
 End
 
 #31088
-NAME   stellar 3-1~
+NAME   The Upper Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+High in the false heavens now, the upper firmament is colder and clearer, its
+stars burning hard and bright as chips of ice.  A waning crescent moon hangs thin
+overhead.  To the north, a stair climbs toward the lit consoles of the control
+gallery.
 ~
 FLAGS  0
 Sect   0
@@ -2706,9 +4600,11 @@ You see nothing special here.~
 End
 
 #31089
-NAME   stellar 3-2~
+NAME   The Upper Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The upper firmament arches overhead here in a dome of hard, brilliant stars.  A
+first-quarter moon stands precise and cold at its centre.  The gallery's warmer
+light spills faintly down from the north, promising an end to the climb.
 ~
 FLAGS  0
 Sect   0
@@ -2731,9 +4627,12 @@ You see nothing special here.~
 End
 
 #31090
-NAME   stellar 3-3~
+NAME   The Upper Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Near the very top of the false heavens, this cell opens east onto the bright
+central shaft.  A waxing gibbous moon hangs overhead, very nearly full.  You are
+close to the true way now, and the sky here is the closest of all to honest --
+close enough to tempt you into trusting it.
 ~
 FLAGS  0
 Sect   0
@@ -2756,9 +4655,13 @@ You see nothing special here.~
 End
 
 #31091
-NAME   stellar C3~
+NAME   The Celestial Axis - Third Rung~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Near the top of the shaft now, you can see the whole mechanism of the place --
+concentric brass orbits nested one inside another, each carrying its painted world
+in a slow, endless circle.  The moon above has grown to a fat gibbous curve,
+flooding the shaft with pale light.  The upper firmament branches away to either
+side; the way up is very close.
 ~
 FLAGS  0
 Sect   0
@@ -2781,9 +4684,11 @@ You see nothing special here.~
 End
 
 #31092
-NAME   stellar 3-5~
+NAME   The Upper Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The upper firmament presses against the Axis to the west here.  A waning gibbous
+moon rides the ceiling.  Above, to the north, the underside of the control gallery
+is just visible through gaps in the false sky, its instruments glinting.
 ~
 FLAGS  0
 Sect   0
@@ -2806,9 +4711,11 @@ You see nothing special here.~
 End
 
 #31093
-NAME   stellar 3-6~
+NAME   The Upper Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A high, cold cell of the upper firmament, its stars fierce and near.  The moon
+shows first quarter, its terminator razor-sharp against the dark.  Stairs and
+galleries lead away in every direction, most of them wrong, all of them inviting.
 ~
 FLAGS  0
 Sect   0
@@ -2831,9 +4738,12 @@ You see nothing special here.~
 End
 
 #31094
-NAME   stellar 3-7~
+NAME   The Upper Firmament~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The northeastern height of the upper firmament, where the false sky finally frays
+away toward real instruments.  A full moon blazes overhead, whole and true at
+last.  North lies the control gallery; east, through a low arch, the great dome of
+the Grand Orrery turns slowly in the dark.
 ~
 FLAGS  0
 Sect   0
@@ -2856,12 +4766,20 @@ You see nothing special here.~
 End
 
 #31095
-NAME   A New Room~
+NAME   The Control Gallery - East Terminus~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The eastern end of the gallery, where the instruments give way to a second great
+sealed blast door in the north wall -- the twin of the one at the far west end,
+and just as shut.  This one, the notes scrawled beside it insist, is the way OUT,
+for a day when there is something to come out from.  A short stair leads down and
+east toward a domed side chamber where a larger machine waits in the dark.
 ~
 FLAGS  0
 Sect   0
+DOOR 0
+The eastern blast door in the north wall, closed now but no longer locked.~
+door blast~
+AB 0 31108
 DOOR 1
 You see nothing special here.~
 ~
@@ -2877,9 +4795,13 @@ You see nothing special here.~
 End
 
 #31096
-NAME   A New Room~
+NAME   The Control Gallery~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The consoles here are given over to a single great mechanism: a jointed armature
+of silver and brass, folded against the north wall and clearly built to reach out
+and forward, through the glass beyond, into the chamber sealed on the far side.
+Whatever it was made to grasp, it grasps nothing now -- its fingers curled and
+still, waiting on a hand at the controls.
 ~
 FLAGS  0
 Sect   0
@@ -2898,9 +4820,13 @@ You see nothing special here.~
 End
 
 #31097
-NAME   A New Room~
+NAME   The Control Gallery~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+This part of the gallery looks out over the whole central shaft, the moon-tracking
+rings turning far below.  A brass speaking-tube and a bank of long levers suggest
+this is where the most delicate work was directed.  A window set into the north
+wall gives onto darkness -- and, faintly, the gleam of something kept safe beyond
+the glass.
 ~
 FLAGS  0
 Sect   0
@@ -2916,12 +4842,23 @@ DOOR 3
 You see nothing special here.~
 ~
 0 0 31098
+EDESC window glass north~
+Through the tall window in the north wall you look into a sealed white chamber
+beyond the reach of the sealed doors.  At its centre, under a dome of flawless
+glass, a single mote of starlight hangs perfectly still upon a pedestal.  The
+jointed armature folded against this side of the glass is plainly built to reach
+in and lift it -- but the levers that would drive it hang dead, and no hand has
+worked them in a very long time.~
 End
 
 #31098
-NAME   stellar C4~
+NAME   The Celestial Axis - Summit~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The central shaft opens out at its summit into a broad gallery beneath the full
+moon, which hangs directly overhead, whole and blinding-bright.  From here the
+entire observatory is laid out below you like a working model of the heavens.
+The Control Gallery runs east and west, its consoles waiting under the light, and
+beyond it, to the north, the sealed silver doors of the experiment chamber gleam.
 ~
 FLAGS  0
 Sect   0
@@ -2940,9 +4877,13 @@ You see nothing special here.~
 End
 
 #31099
-NAME   A New Room~
+NAME   The Control Gallery~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+More instruments crowd this length of the gallery -- a long table of nested
+rings, a rack of graduated rods, an orrery-drum wound with fine bright chain.
+Chalk diagrams of the moon's phases march across a slate board on the wall, half
+erased and rewritten.  Everything here is meticulous, hopeful, and long, long
+abandoned.
 ~
 FLAGS  0
 Sect   0
@@ -2961,9 +4902,13 @@ You see nothing special here.~
 End
 
 #31100
-NAME   A New Room~
+NAME   The Control Gallery~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+Consoles crowd this stretch of the gallery, their faces a clutter of dials,
+cranks, and little glass windows behind which painted stars slide on wires.  A
+tall astrolabe of tarnished brass stands bolted to the floor, its arms still set
+to some reading taken lifetimes ago.  The full moon burns down through the open
+vault overhead, silvering every surface.
 ~
 FLAGS  0
 Sect   0
@@ -2982,12 +4927,21 @@ You see nothing special here.~
 End
 
 #31101
-NAME   A New Room~
+NAME   The Control Gallery - West Terminus~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The western end of a long gallery of instruments curved beneath the open night.
+Banks of brass consoles line the wall, their dials frozen mid-reading, their
+ledgers open to columns of star-positions in Midian's neat early hand.  Set into
+the north wall is a great sealed blast door -- a mirror-smooth disc of silver
+metal without seam or handle, save a single keyhole set oddly at its centre, and
+cold to the touch.  A dead-end passage runs west into confusion.
 ~
 FLAGS  0
 Sect   0
+DOOR 0
+A great blast door of mirror-smooth silver seals the north wall, a single keyhole set oddly at its heart.~
+door blast~
+ABC 31014 31106
 DOOR 1
 You see nothing special here.~
 ~
@@ -3003,9 +4957,11 @@ You see nothing special here.~
 End
 
 #31102
-NAME   A New Room~
+NAME   The Lost Constellations~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A narrow gallery of forgotten star-figures, their names lost, their shapes half
+scratched out and clumsily redrawn.  The moon here is dark and offers no help at
+all.  The passage narrows westward into a deeper, colder dark.
 ~
 FLAGS  0
 Sect   0
@@ -3020,9 +4976,12 @@ You see nothing special here.~
 End
 
 #31103
-NAME   A New Room~
+NAME   The Lost Constellations~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+The end of the lost constellations: a cramped, freezing dead-end where the painted
+stars simply stop, mid-pattern, as though the painter had one day set down the
+brush and never returned.  There is nothing here but the dark, and the long walk
+back.
 ~
 FLAGS  0
 Sect   0
@@ -3033,9 +4992,13 @@ You see nothing special here.~
 End
 
 #31104
-NAME   A New Room~
+NAME   The Orrery Antechamber~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A short landing between the control gallery and the great domed chamber to the
+south.  The walls here are painted with a map of the whole sky, gone dim and
+flaking with age, its inked lines still precise enough to navigate by.  Below,
+through a broad archway, you can see the vast turning shape of the Grand Orrery
+wheeling slowly in the dark.
 ~
 FLAGS  0
 Sect   0
@@ -3050,9 +5013,15 @@ You see nothing special here.~
 End
 
 #31105
-NAME   stellar 3-8 (SPECIAL)~
+NAME   The Grand Orrery~
 DESCR
-This is a newly created room. Edit this description to describe what the room looks like.
+A domed chamber given over entirely to a single colossal machine: the Grand
+Orrery, a nested cage of silver orbits large enough to walk within, each ring
+bearing a painted world that drifts in slow, perfect order.  At its heart, where
+the sun-globe should sit, there is instead a control station of dials and cranked
+wheels.  This is where the whole observatory was aimed and read -- and where, the
+notes say, the first true measurement of bent time was taken.  The moon painted on
+the dome above stands full and exact.
 ~
 FLAGS  0
 Sect   0
@@ -3064,6 +5033,2142 @@ DOOR 3
 You see nothing special here.~
 ~
 0 0 31094
+End
+
+#31106
+NAME   The West Airlock~
+DESCR
+A narrow chamber of seamless silver metal, sealed at its western end by the
+mirror-smooth blast door that opens -- when it opens at all -- onto the control
+gallery beyond.  In this early, unbroken age of the observatory it stays locked,
+though a keyhole at its centre suggests it was never truly meant to stay that way.
+To the east, a second doorway leads deeper into the experiment chamber itself.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31107
+DOOR 2
+The mirror-smooth blast door back to the control gallery, a keyhole at its heart.~
+door blast~
+ABC 31014 31101
+End
+
+#31107
+NAME   The Stellar Experiment Chamber~
+DESCR
+This is the heart of it: a domed white chamber where Midian first proved that
+time could be bent.  Everything here is pristine, untouched, the air itself
+faintly humming.  Rails of silver arc across the ceiling, and in the centre, on a
+slender pedestal beneath a dome of flawless glass, a single mote of light drifts
+and turns -- a fragment of starlight held perfectly, impossibly still.  Great
+windows in the south wall look back into the control gallery, and jointed
+armatures reach down from above, built to work upon the pedestal without any hand
+ever entering this sterile room.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31108
+DOOR 3
+You see nothing special here.~
+~
+0 0 31106
+EDESC pedestal glass dome mote starlight~
+Beneath the glass, the mote of fixed starlight hangs at the centre of the
+pedestal, no larger than a seed and brighter than a lamp.  It does not fall.  It
+does not drift.  It simply holds, exactly where it was set, while everything else
+in the world grows older around it.  The armatures overhead are angled to lift the
+dome and take it -- but the controls for that are back in the gallery, on the far
+side of the glass.~
+End
+
+#31108
+NAME   The East Airlock~
+DESCR
+The eastern twin of the entry airlock: a slim chamber of silver metal ending in a
+sealed blast door, the marked way OUT of the experiment chamber.  Like its twin it
+is shut fast in this unbroken age, its silver face without seam or handle.  A
+doorway west leads back into the pristine heart of the lab.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+The eastern blast door, the marked way out onto the control gallery.~
+door blast~
+AB 0 31095
+DOOR 3
+You see nothing special here.~
+~
+0 0 31107
+End
+
+#31110
+NAME   The Hall of Falling Sand~
+DESCR
+A long hall runs north, its high ceiling lost in shadow, both side walls fitted
+with shelves of running hourglasses.  The sound of falling sand is everywhere --
+a dry, endless hush, like rain that never quite lands.  Everything here is
+orderly and whole: no dust, no ruin, only the patient upkeep of a careful mind.
+Smaller chambers open to the east and west, and the hall continues north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31111
+DOOR 1
+You see nothing special here.~
+~
+0 0 31112
+DOOR 2
+You see nothing special here.~
+~
+0 0 31070
+DOOR 3
+You see nothing special here.~
+~
+0 0 31120
+End
+
+#31112
+NAME   The Sand-Clock Alcove~
+DESCR
+A snug alcove, its every surface crowded with sand-clocks -- squat, wide-mouthed
+glasses meant for measuring small and precise spans.  One great hourglass stands
+apart on a velvet-draped table, its sand heaped in the upper bulb and refusing to
+fall.  Something small and quick skitters among the shelves, there and gone,
+flickering as it runs.  A passage leads back west.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31110
+End
+
+#31120
+NAME   The Broken Clepsydra~
+DESCR
+A quiet side-room given over to a single great water-clock -- a clepsydra of
+bronze basins and thin copper pipes, taller than you are.  Its water has long
+since stilled, and a faint green patina has crept across the lower metal, the
+first and only disorder you have found in all this wing.  A folded letter lies on
+the rim of the lowest basin, its wax seal already broken.  The only way out is
+east.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31110
+End
+
+#31111
+NAME   The Gallery of Hourglasses~
+DESCR
+The hall widens into a formal gallery, hourglasses set out on plinths down its
+centre like treasures in a museum.  Small brass plaques name each one and the
+span it was made to keep.  Here Midian's early triumphs stand on display with an
+open, boyish pride -- the first glasses he tuned not merely to measure time, but
+to lean against it.  Ways open east and west, and the gallery runs on to the
+north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31113
+DOOR 1
+You see nothing special here.~
+~
+0 0 31114
+DOOR 2
+You see nothing special here.~
+~
+0 0 31110
+DOOR 3
+You see nothing special here.~
+~
+0 0 31121
+End
+
+#31114
+NAME   The Weathering Room~
+DESCR
+A workroom built around a strange cradle of glass and brass -- an apparatus for
+aging and unaging small objects, its twin funnels of sand poised to pour years
+into or out of whatever is set between them.  Test pieces line a shelf: an iron
+nail rusted to lace, a green twig, an apple whole and rotten at once.  A ledger
+lies open on the bench in Midian's careful hand.  The door is west.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31111
+EDESC apparatus cradle funnels~
+Set an object in the cradle, Midian's notes explain, and turn the funnels: sand
+pours down to age it, or pours up to give its years back.  The mechanism is
+delicate and beautifully kept, every joint oiled, every glass clean.~
+End
+
+#31121
+NAME   The Reversed Garden~
+DESCR
+A curious indoor garden, its beds filled not with soil but with fine white sand.
+From the sand rise plants caught mid-change -- a sapling shrinking back toward its
+seed, a flower folding into bud, a staff of dark wood softening again into a green
+sprout.  The air is warm and still and smells of turned earth.  A second letter
+rests on a low stone bench, weighted with a small pebble.  The way out lies east.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31111
+End
+
+#31113
+NAME   The Hall of Slow Hours~
+DESCR
+The gallery narrows again into a solemn hall where the light itself seems to move
+thickly, catching in the falling sand like honey.  Every hourglass here runs at
+its own wrong pace -- some racing, some barely trickling, a few hanging almost
+frozen at the waist.  A passage opens east, and the hall climbs on toward the
+north, where a low, steady humming can be felt more than heard.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31115
+DOOR 1
+You see nothing special here.~
+~
+0 0 31122
+DOOR 2
+You see nothing special here.~
+~
+0 0 31111
+End
+
+#31122
+NAME   The Sundial Court~
+DESCR
+A round court lit by a pale false sun that tracks slowly across a painted sky.
+At its centre a great sundial throws a knife of shadow that creeps visibly as you
+watch, far faster than any true day.  Here Midian calibrated his instruments
+against the turning of the heavens, coaxing them to agree.  A passage leads north
+into a hush of glass cases, and the way back lies west.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31124
+DOOR 3
+You see nothing special here.~
+~
+0 0 31113
+End
+
+#31124
+NAME   The Reliquary of Hours~
+DESCR
+A hushed reliquary where Midian kept his failures and his firsts alike, each
+sealed in its own case of clean glass: a rose that will not wilt, a candle that
+burns without shortening, a dead bird returned to the shape of the egg.  Small
+labels in his hand record the day each was lifted out of time's reach.  A single
+passage leads south.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31122
+End
+
+#31115
+NAME   The De-Aging Engine~
+DESCR
+The source of the humming stands here: a broad, low engine of glass drums and
+sand-filled coils, the beating heart of Midian's craft for turning an object back
+against its own years.  A cradle at its centre holds a single key of bright,
+unblemished silver, gleaming as though freshly struck.  Beside it lies its
+discarded twin -- the same key before its ruin was undone, brown and crumbling to
+lace.  A sentinel guards the engine.  A passage leads north; the way back is south.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31116
+DOOR 2
+You see nothing special here.~
+~
+0 0 31113
+EDESC key corroded twin ruined~
+The ruined twin has rusted almost to nothing, its wards eaten away, its bow
+crumbling at the lightest touch.  It is what the bright key in the cradle would
+be, had Midian not run it backward through the drums until its years fell off it.~
+End
+
+#31116
+NAME   The Control Gallery - West Terminus~
+DESCR
+The western end of a long gallery of consoles, their dials and levers still
+bright and true.  This is where Midian governed the whole wing -- every hourglass,
+every engine, answerable to the switches beneath his hand.  Set into the north
+wall is a heavy vault door of pale silver, seamless but for a single keyhole at
+its heart.  The gallery runs east, and a passage returns south toward the engine.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A vault door of pale silver seals the north wall, a single keyhole set at its heart.~
+door vault silver~
+ABC 31015 31117
+DOOR 1
+You see nothing special here.~
+~
+0 0 31119
+DOOR 2
+You see nothing special here.~
+~
+0 0 31115
+End
+
+#31119
+NAME   The Control Gallery - East Terminus~
+DESCR
+The eastern end of the console gallery, its ledgers stacked and squared, its
+instruments dark and waiting.  A second door of pale silver is set into the north
+wall, its keyhole the exact match of the first -- the far side, surely, of
+whatever lies sealed beyond.  The gallery runs west toward the master controls.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A silver vault door seals the north wall, its keyhole matching the door to the west.~
+door vault silver~
+ABC 31015 31118
+DOOR 3
+You see nothing special here.~
+~
+0 0 31116
+End
+
+#31117
+NAME   The Experiment Chamber - Antechamber~
+DESCR
+Beyond the vault door the air turns cold and utterly silent -- not a single grain
+of sand moves here.  This is the experiment chamber proper, where Midian tested
+his craft on objects he dared not risk out in the open wing.  Shrouded shapes
+stand under dust-cloths, and a low table bears the tools of precise, patient work.
+A way leads east, deeper in; the vault door lies south behind you.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31123
+DOOR 2
+A vault door of pale silver seals the way south, a single keyhole at its heart.~
+door vault silver~
+ABC 31015 31116
+End
+
+#31123
+NAME   The Experiment Chamber - The Reversing Loom~
+DESCR
+A narrow inner room dominated by a device like a loom strung not with thread but
+with thin ribbons of falling sand, each stream running upward as often as down.
+Half-finished trials hang in its frame, objects held between one age and another,
+neither growing nor decaying while the loom keeps them.  Ways lead east and west.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31118
+DOOR 3
+You see nothing special here.~
+~
+0 0 31117
+End
+
+#31118
+NAME   The Experiment Chamber - The Still Hour~
+DESCR
+The innermost room of the chamber, and the stillest place you have ever stood.
+Here time does not merely run slow -- it does not run at all.  On a slender pillar
+at the room's centre, beneath a bell of clear glass, rests a single grain of sand,
+held a finger's breadth above the pillar's top: not falling, not drifting, not
+ever going to fall.  A silver door leads south, out of the chamber; the loom-room
+lies west.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+A silver vault door leads south out of the chamber, a keyhole at its heart.~
+door vault silver~
+ABC 31015 31119
+DOOR 3
+You see nothing special here.~
+~
+0 0 31123
+EDESC grain sand bell pillar~
+Look as long as you like: the grain does not fall.  It hangs in the still air as
+though the very next instant has been taken away from it -- the one instant in
+which it would have dropped.  This, plainly, is a piece of the work Midian built
+this whole wing to reach.~
+End
+
+#31130
+NAME   The Ticking Threshold~
+DESCR
+You stand at the mouth of the workshop proper, where a hundred clocks tick
+slightly out of step with one another.  The sound builds and scatters, builds
+and scatters, so that no two moments here feel quite the same length.  Cabinets
+of tools stand open along the walls, their drawers labelled in a cramped, hurried
+hand.  Time itself seems thicker here, dragging at your heels as you move north
+into the deeper rooms.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31144
+DOOR 2
+You see nothing special here.~
+~
+0 0 31071
+End
+
+#31144
+NAME   The Pendulum Colonnade~
+DESCR
+A long colonnade stretches before you, each pillar hung with a swinging pendulum
+of a different length.  They sweep in a slow, staggered rhythm, brass bobs
+catching the lamplight as they pass, and the floor beneath them is scored with
+pale arcs where their tips have brushed the stone for years.  Someone has tuned
+them with obsessive care; the pattern they trace is almost, but not quite, a
+song.  The workshop opens wider to the north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31131
+DOOR 2
+You see nothing special here.~
+~
+0 0 31130
+End
+
+#31131
+NAME   The Control Gallery~
+DESCR
+This is the heart of the workshop, a gallery of instrument consoles ranked
+around a central floor.  Escapement wheels turn behind glass, governors spin
+lazily on their spindles, and a great master pendulum sweeps overhead, ticking
+out the beat that all the lesser machines struggle to match.  Chalkboards crowd
+the walls, covered edge to edge with equations that circle back on themselves.
+An alcove opens to the east, and a colder passage runs north toward the sealed
+experiment chamber.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31133
+DOOR 1
+You see nothing special here.~
+~
+0 0 31132
+DOOR 2
+You see nothing special here.~
+~
+0 0 31144
+End
+
+#31132
+NAME   The Artificer's Alcove~
+DESCR
+A cramped alcove has been made into a second workshop, more lived-in than the
+rest.  A cot, a cold kettle, and a workbench buried under gears and sprung
+springs speak of someone who has camped here a long while.  Diagrams of Midian's
+machines are pinned above the bench, annotated in a different, steadier hand, as
+though their owner has been trying patiently to read a language written by a
+madman.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31131
+End
+
+#31133
+NAME   The Chamber Approach~
+DESCR
+The rooms narrow here into a cold stone landing before the experiment chamber.
+The cheerful clutter of the workshop gives way to something more deliberate: the
+walls are lined with lead, and a heavy geared door stands to the west, its face
+worked into the shape of a clock with no hands.  A second door to the east hangs
+ajar, the way out once the work within is done.  The ticking is quieter here, as
+if the room is holding its breath.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+A closed geared door leads east, the marked way out of the chamber.~
+door geared~
+AB 0 31139
+DOOR 2
+You see nothing special here.~
+~
+0 0 31131
+DOOR 3
+A heavy geared door bars the way west, its keyhole cut in the shape of a swinging pendulum.~
+door geared pendulum~
+ABC 31021 31134
+End
+
+#31134
+NAME   The Experiment Chamber - West Bay~
+DESCR
+You step into the experiment chamber, a broad vaulted hall built around a single
+purpose.  Pendulums of every size hang from the ceiling, some frozen mid-swing in
+a way that makes your stomach turn, others sweeping far too slow or far too fast
+for their length.  Midian has been altering the flow of time in this very air,
+and the proof of it hangs all around you, stopped and started at his whim.  The
+chamber curves away to the north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31135
+DOOR 1
+A heavy geared door bars the way east, its keyhole cut in the shape of a swinging pendulum.~
+door geared pendulum~
+ABC 31021 31133
+End
+
+#31135
+NAME   The Experiment Chamber - Workbenches~
+DESCR
+The chamber floor is given over to workbenches here, each one a graveyard of
+half-finished mechanisms.  Escapement wheels lie in trays sorted by size, and a
+row of governors spin at speeds that do not match the effort turning them.  A
+construct has clearly been assembled and dismantled on this bench a dozen times.
+The hall continues east and drops back south toward the entrance.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31136
+DOOR 2
+You see nothing special here.~
+~
+0 0 31134
+End
+
+#31136
+NAME   The Experiment Chamber - Crossing~
+DESCR
+A wide crossing where three ways meet beneath a canopy of hanging weights, each
+one strung on a chain long enough to graze the floor.  To the north a low geared
+door is set into the wall, its keyhole cut in the unmistakable shape of a gear
+tooth.  The rest of the chamber opens west and east, and the slow tick of the
+master mechanism reaches even here.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A low geared door blocks the way north, its keyhole cut in the shape of a gear tooth.~
+door geared gear~
+ABC 31022 31140
+DOOR 1
+You see nothing special here.~
+~
+0 0 31137
+DOOR 3
+You see nothing special here.~
+~
+0 0 31135
+End
+
+#31137
+NAME   The Experiment Chamber - Regulator Cases~
+DESCR
+The chamber turns here past a bank of tall regulator cases, their pendulums
+swinging behind cracked glass.  One case has been shattered outright, its works
+spilled across the floor in a slick of oil and broken jewels.  A narrow doorway
+to the east leads into what looks like a scrap room; the chamber proper runs on
+to the south and west.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31145
+DOOR 2
+You see nothing special here.~
+~
+0 0 31138
+DOOR 3
+You see nothing special here.~
+~
+0 0 31136
+End
+
+#31138
+NAME   The Experiment Chamber - East Bay~
+DESCR
+This eastern bay of the chamber has been swept almost clean, the benches pushed
+back against the walls to make room for a single great frame of brass, empty now,
+as though it once held a machine that has since been carried away.  Faint scorch
+marks fan across the floor beneath it.  A doorway leads north back into the
+chamber, and the exit hall lies to the west.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31137
+DOOR 3
+You see nothing special here.~
+~
+0 0 31139
+End
+
+#31139
+NAME   The Chamber Exit Hall~
+DESCR
+A short hall of lead-lined stone, plainly the way out of the experiment chamber.
+The door at its western end stands closed but unlocked, opening back toward the
+workshop and the long road out.  Someone has scratched a single line into the
+wall beside it, over and over, as if counting days: how many, you cannot tell.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31138
+DOOR 3
+A closed geared door leads west, back toward the workshop.~
+door geared~
+AB 0 31133
+End
+
+#31140
+NAME   The Escapement Row~
+DESCR
+Past the geared door the chamber narrows into a workshop row lined with
+escapements, the tiny hearts of clocks, laid out in careful ranks.  Each one
+ticks at its own pace, and the massed sound is like rain on a tin roof.  At the
+north end a second door waits, its keyhole cut in the shape of an escapement's
+forked pallet.  Whoever built this passage meant it to be walked in order.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A geared door bars the way north, its keyhole cut in the shape of a forked escapement pallet.~
+door geared escapement~
+ABC 31023 31141
+DOOR 2
+A low geared door blocks the way south, its keyhole cut in the shape of a gear tooth.~
+door geared gear~
+ABC 31022 31136
+End
+
+#31141
+NAME   The Weight Well~
+DESCR
+The floor drops away here into a deep well, and down its throat hang the driving
+weights of some enormous clock, chains vanishing into the dark below.  A railed
+walkway crosses the gap.  On the far side a heavy door is set with a keyhole
+shaped like a slotted weight, and the whole room hums faintly with the tension of
+all that iron waiting to fall.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A heavy door bars the way north, its keyhole cut in the shape of a slotted driving weight.~
+door heavy weight~
+ABC 31024 31142
+DOOR 2
+A geared door bars the way south, its keyhole cut in the shape of a forked escapement pallet.~
+door geared escapement~
+ABC 31023 31140
+End
+
+#31142
+NAME   The Assembly Bench~
+DESCR
+This is where the work comes together.  A long assembly bench dominates the room,
+and upon it, at last, stands a clock built whole from the scattered pieces of the
+workshop: pendulum, gear, escapement, and weight married into one ticking
+machine.  Beyond it a final door stands sealed, its keyhole no ordinary slot but
+the exact silhouette of the finished clock itself.  Only the assembled work will
+open it.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A sealed door bars the way north, its keyhole cut in the exact silhouette of a finished clock.~
+door sealed clock~
+ABC 31025 31143
+DOOR 2
+A heavy door bars the way south, its keyhole cut in the shape of a slotted driving weight.~
+door heavy weight~
+ABC 31024 31141
+End
+
+#31143
+NAME   The Escapement Heart Vault~
+DESCR
+A small round vault, quiet as a tomb after the endless ticking of the workshop.
+In its center, cradled on a stand of black velvet, rests a single exquisite
+component -- an escapement heart, machined finer than anything else in these
+rooms.  This is what all the rest was built to protect: a piece of Midian's final
+work, shaped and sized to be set into a small silver box.  The air around it is
+utterly still, as though time itself has been told to wait.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+A sealed door leads south, its keyhole cut in the exact silhouette of a finished clock.~
+door sealed clock~
+ABC 31025 31142
+End
+
+#31145
+NAME   The Automaton Scrapyard~
+DESCR
+A cramped side room heaped with the ruined bodies of clockwork automatons, arms
+and gears and dented brass skulls tangled together in the corners.  Some still
+twitch, a wheel turning here, a jaw clicking there, animated by mechanisms that
+have not yet wound down.  Whatever Midian and his patient guest have been
+building, they have paid for it in a great many broken servants.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31137
+End
+
+#31150
+NAME   The Ashen Threshold~
+DESCR
+You cross into the first of Midian's fire-halls, and the temperature climbs at
+once.  Soot lies thick on every surface, and the walls are streaked black where
+old flames licked too high.  Buckled sheets of metal, once panelling, hang half
+peeled from the stone.  A fine grey ash drifts down from somewhere above and
+settles on your shoulders like snow that has forgotten how to be cold.  The
+sanctum lies behind you to the south; the hall runs on, hotter, to the north,
+and a soot-black stair climbs away above.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31151
+DOOR 2
+You see nothing special here.~
+~
+0 0 31072
+DOOR 4
+You see nothing special here.~
+~
+0 0 31163
+End
+
+#31151
+NAME   The Cinderway Corridor~
+DESCR
+The corridor is paved with dull cinders that crunch and glow faintly underfoot,
+never quite going out.  Elemental conduits run along the ceiling, thick glass
+pipes that should carry captured fire but now stand cracked and dark.  Heat
+radiates from a doorway to the east, where a deeper red light pulses.  The way
+north climbs toward a stutter of broken light, and the corridor falls back
+southward toward the threshold.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31152
+DOOR 1
+You see nothing special here.~
+~
+0 0 31153
+DOOR 2
+You see nothing special here.~
+~
+0 0 31150
+End
+
+#31152
+NAME   The Stutter Room~
+DESCR
+Something is wrong with time in this room, and you feel it in your teeth.  A
+loose panel by the wall falls, strikes the floor, and leaps back to its place,
+over and over, caught in a groove three seconds long.  A guttering flame on a
+wall-sconce burns down, gutters out, and stands whole again.  This is the first
+room where Midian's meddling tore the weave of other hours -- and you are
+watching an old wound refuse to close.  Passages lead south and north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31155
+DOOR 2
+You see nothing special here.~
+~
+0 0 31151
+End
+
+#31153
+NAME   Furnace Row~
+DESCR
+A row of squat iron furnaces lines both walls, their mouths gaping and their
+grates choked with slag.  One still burns, roaring without fuel, and the floor
+before it has warped into slow ripples of cooled metal.  The heat here is a
+physical weight; each breath scours your throat.  A construct labours among the
+furnaces, tending fires that no longer need tending.  The corridor lies west, and
+a fiercer glare bleeds through an opening to the east.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31154
+DOOR 3
+You see nothing special here.~
+~
+0 0 31151
+End
+
+#31154
+NAME   The Great Crucible~
+DESCR
+This is the beating heart of the fire-wing: a single vast crucible sunk into the
+floor, wide as a millpond and brimming with molten light.  The air above it
+shivers, and the walls are glazed to glass by centuries of heat.  This is where
+Midian forged the tools of his ambition -- and, the scorch-marks suggest, where
+more than one of them turned on him.  Something vast and burning uncoils above
+the crucible's surface, watching you with eyes like white coals.  The only way
+out is back to the west.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31153
+End
+
+#31155
+NAME   The Elemental Conduit Junction~
+DESCR
+Four thick conduits of fire-glass meet here in a rusted iron collar, splitting
+the wing's stolen heat toward its many engines.  Two of the pipes still glow a
+sullen orange; the others are dark and frost-rimed, drawing cold instead of fire.
+Valves and stopcocks crust the junction, most seized solid.  Ways open south,
+north, and east, each breathing a different temperature at you.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31156
+DOOR 1
+You see nothing special here.~
+~
+0 0 31157
+DOOR 2
+You see nothing special here.~
+~
+0 0 31152
+End
+
+#31156
+NAME   The Control Gallery~
+DESCR
+A long gallery of instrument consoles curves along one wall, their faces a ruin
+of cracked gauges, melted dials, and blistered brass.  This is where Midian read
+the temperature of the ages and fed his fires accordingly.  Half the readouts
+still twitch, needles swinging between impossible extremes.  A pale figure of
+standing flame drifts among the consoles, murmuring numbers to itself in a voice
+like settling coals.  Ways lead south, north, and east.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31158
+DOOR 1
+You see nothing special here.~
+~
+0 0 31164
+DOOR 2
+You see nothing special here.~
+~
+0 0 31155
+End
+
+#31157
+NAME   The Heat-sink Vault~
+DESCR
+The heat drains out of you the moment you enter.  This vault was built to bleed
+off the wing's excess fire, and something in its balance has broken: here the air
+runs backward and cold, and your breath hangs in a fog that drifts the wrong way,
+toward your mouth.  Frost feathers climb the walls in patterns that undraw
+themselves if you watch too long.  A bank of heat-sink rods stands racked against
+the far wall.  The junction lies back to the west.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31155
+End
+
+#31158
+NAME   The Chamber Approach~
+DESCR
+The gallery ends at a scorched antechamber, and the way forward is barred.  A
+heavy blast door of dull metal fills the eastern wall, its surface scarred by
+fire from the far side, a single keyhole set at its heart like a closed eye.
+Warning-glyphs, half melted, ring the frame.  Whatever Midian kept beyond this
+door, he meant to keep it from himself as much as from anyone.  The gallery lies
+back to the south.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+A heavy blast door of dull metal bars the way east, scarred by fire, a keyhole at its heart.~
+door blast~
+ABC 31029 31159
+DOOR 2
+You see nothing special here.~
+~
+0 0 31156
+End
+
+#31159
+NAME   The Forge Floor~
+DESCR
+Beyond the blast door lies the experiment chamber proper, and the heat returns
+tenfold.  The floor is a single sheet of forge-iron, scored with channels once
+meant to run with liquid fire.  Anvils and quenching troughs stand abandoned, and
+half-finished work lies where it was dropped -- brackets and rings of that
+strange silvery metal, warped now by the very heat that shaped them.  The sealed
+door lies west; the chamber opens further east.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31160
+DOOR 3
+A heavy blast door of dull metal seals the way west, a keyhole set at its heart.~
+door blast~
+ABC 31029 31158
+End
+
+#31160
+NAME   The Timewell~
+DESCR
+At the centre of the chamber a well of white fire sinks into the floor, and the
+air above it does not behave.  A dropped cinder falls upward.  Sparks trace their
+own paths in reverse, gathering back into the flame.  Here, hottest of all,
+Midian bent time and heat together, and here the damage runs deepest -- you can
+feel a second, wrong "now" pressing against your own.  Ways open west, east, and
+north, each shimmering with risen heat.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31165
+DOOR 1
+You see nothing special here.~
+~
+0 0 31161
+DOOR 3
+You see nothing special here.~
+~
+0 0 31159
+End
+
+#31161
+NAME   The Inner Hearth~
+DESCR
+This innermost cell was Midian's private hearth, and it is oddly still.  A low
+stone pedestal stands at its centre, ringed by cold braziers, and upon the
+pedestal rests a single point of light that draws the eye and will not let it go.
+The walls here are unmarked by soot, as though the fire in this room learned long
+ago to burn without smoke -- or without warmth.  A vent-door of slatted metal
+leads east; the timewell lies back to the west.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+A slatted vent-door of dull metal stands closed across the eastern way.~
+door vent~
+AB 0 31162
+DOOR 3
+You see nothing special here.~
+~
+0 0 31160
+End
+
+#31162
+NAME   The Cooling Vent~
+DESCR
+You step out into a long venting-shaft where the wing exhales its spent heat.
+The air moves at last, a dry wind sighing away down the passage, and after the
+inner hearth it feels almost cool.  Grilles in the floor glow faintly far below.
+The vent-door lies back to the west; a soot-black stair descends to the south.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31163
+DOOR 3
+A slatted vent-door of dull metal stands closed across the western way.~
+door vent~
+AB 0 31161
+End
+
+#31163
+NAME   The Ashfall Return Stair~
+DESCR
+A narrow stair spirals down through drifting ash, closing the loop back toward
+the threshold.  Grey flakes settle endlessly out of the dark above, deep enough
+here to muffle your steps.  The vent-shaft lies back to the north, and below, a
+faint familiar light marks the ashen threshold where you began.  The stair
+descends.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31162
+DOOR 5
+You see nothing special here.~
+~
+0 0 31150
+End
+
+#31164
+NAME   The Instrument Annex~
+DESCR
+A side annex crammed with redundant instruments branches off the gallery.  Rolls
+of scorched schematics lie heaped in the corners, and a wall of secondary gauges
+records temperatures no living thing could survive.  A single console here still
+holds power, its cracked plate flickering with the last of a message its maker
+never finished.  The gallery lies back to the west.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31156
+End
+
+#31165
+NAME   The Flicker Alcove~
+DESCR
+A cramped alcove opens off the timewell, and within it a single instant repeats
+without end.  A gout of flame erupts from a ruptured conduit, freezes at its
+fullest reach, and is gone -- then erupts again, identical, tireless.  You could
+count your heartbeats by it.  Whoever stood here to observe the effect left a
+handprint scorched into the wall, fingers spread, as if to push the moment away.
+The timewell lies back to the south.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31160
+End
+
+#31170
+NAME   The Copper Threshold~
+DESCR
+Beyond the sanctum the walls turn to riveted copper plate, green with age and
+scored by old burns where the charge has jumped the seams.  A steady, uneasy hum
+lives in the metal, felt in the teeth more than heard.  Bundled cables sag from
+the ceiling in loops, some of them still live -- now and again one twitches and
+throws a white spark across the passage.  The way runs north into the heart of
+the engine; a low arch opens east onto a flooded bay.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31181
+DOOR 1
+You see nothing special here.~
+~
+0 0 31184
+DOOR 2
+You see nothing special here.~
+~
+0 0 31073
+End
+
+#31184
+NAME   The Charged Cistern~
+DESCR
+This low bay was meant to hold Midian's spare cells, but a broken conduit has
+flooded it ankle-deep with black water, and the water is not safe.  A dropped
+cable trails into it and the whole surface crawls with a thin, restless skin of
+current, hissing and spitting where it laps the walls.  Dead capacitors bob in
+the shallows like drowned lanterns.  There is nothing to gain here but a jolt;
+the only way out is back west.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31170
+End
+
+#31181
+NAME   The Ozone Corridor~
+DESCR
+The corridor narrows and the hum climbs to a needling whine.  Spark-gaps have
+been set into the walls at even intervals -- paired brass knobs, a hair apart --
+and every few seconds a blue thread of light snaps between one pair and vanishes,
+leaving the air thick with ozone and the ghost of thunder.  The floor is painted
+with a single straight guide-line, worn but exact, drawn to keep a careful walker
+clear of the arcs.  It runs on north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31171
+DOOR 2
+You see nothing special here.~
+~
+0 0 31170
+End
+
+#31171
+NAME   The Logic Vestibule~
+DESCR
+Here the engine shows its plan.  A round chamber opens out, and set into its
+three inner walls are three great gate-frames of iron and glass, each stamped
+deep with a word: AND to the east, OR to the west, and -- north, above a sealed
+and cradled door -- the mark of the whole.  A reading-stand stands at the centre,
+and on it a brittle primer card waits for anyone who would work the gates.  The
+northern door is dead and dark, a copper cradle empty at its heart, and it will
+not so much as shiver until something is seated there.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A sealed relay door bars the way north, a copper cradle empty at its heart.~
+door relay~
+ABC 31037 31176
+DOOR 1
+You see nothing special here.~
+~
+0 0 31172
+DOOR 2
+You see nothing special here.~
+~
+0 0 31181
+DOOR 3
+You see nothing special here.~
+~
+0 0 31174
+End
+
+#31172
+NAME   The AND-Gate Station~
+DESCR
+This narrow cell is the AND gate laid bare: two heavy feed-levers on the south
+wall and, above them, a single lamp that Midian built to light only when both
+levers are thrown together.  The lamp is dark now, its glass starred with a
+crack, and one lever hangs snapped from its slot.  Burn-marks fan across the iron
+where the logic once ran hot.  A service-hatch leads north, deeper into the
+gate-works.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31173
+DOOR 3
+You see nothing special here.~
+~
+0 0 31171
+End
+
+#31173
+NAME   The Spark-Gap Cage~
+DESCR
+A cramped iron cage of a room, ringed floor to ceiling with spark-terminals that
+were meant to hold a test-charge safely penned.  The penning has failed.  Current
+crawls the bars in slow blue veins, and the air is a solid wall of ozone and
+heat.  On a scorched shelf, behind the worst of the arcing, a single live
+bit-token still sits in its clip -- the AND gate's kept answer, waiting to be
+claimed.  The only door is back south.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31172
+End
+
+#31174
+NAME   The OR-Gate Station~
+DESCR
+The OR gate is a wider, calmer room, its logic gentler: a lamp above two levers
+that Midian set to light if either one is thrown.  Of the three gate-stations it
+is the least ruined, and its lamp still gives a weak, guttering glow, enough to
+throw long shadows.  Cable-runs branch away in two directions -- north, into a
+vault of stacked relays, and west, toward the low, sour hum of the inverter.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31175
+DOOR 1
+You see nothing special here.~
+~
+0 0 31171
+DOOR 3
+You see nothing special here.~
+~
+0 0 31182
+End
+
+#31175
+NAME   The Relay Bank Vault~
+DESCR
+Wall upon wall of relays fill this deep vault, tens of thousands of iron switches
+stacked in perfect, patient ranks -- Midian's memory, his adder, his pride, all
+of it dark and still now.  A charged capacitor cell rests in a copper cradle near
+the door, one of the last still holding its current; beside it, in a dead relay's
+open jaw, lies a cold bit-token stamped with a ring.  The ranks stretch away into
+silence.  There is no exit but the way you came, south.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31174
+End
+
+#31182
+NAME   The NOT-Gate Station~
+DESCR
+The inverter cell is a mean, cramped space that stinks of hot iron and failure.
+The NOT gate is simplest of all -- one feed in, its opposite out -- and Midian
+built a relay-golem here to test it, over and over, forever.  The golem still
+runs, though the test broke long ago; its contacts chatter and snap in the dark,
+flipping ones to zeros and back at nothing.  A grated stair drops south into a
+sump where the dead cells were dumped.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31174
+DOOR 2
+You see nothing special here.~
+~
+0 0 31183
+End
+
+#31183
+NAME   The Dead Relay Sump~
+DESCR
+At the bottom of the grated stair is the sump, a pit where every burned-out cell
+and fused relay of the engine was thrown to rot.  They lie in drifts, blackened
+and split, leaking a faint corrosive sludge that eats the light.  Here and there
+a dying capacitor still finds the strength for one last spark, a small blue
+flinch in the dark.  It is a graveyard for Midian's precision, and it holds
+nothing living.  The stair leads back north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31182
+End
+
+#31176
+NAME   The Control Gallery, West Bank~
+DESCR
+Past the relay door the engine opens into its control gallery, a long room walled
+in slate panels studded with dials, plug-boards, and the cranked wheels by which
+the whole machine was once conducted.  Most of the gauges are dead; a few needles
+still tremble, reading currents that have nowhere left to go.  A tall blast door
+of dull grey metal seals the north wall, a socket at its centre shaped for a key
+this gallery was built to make.  The gallery runs on east.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A tall blast door of dull grey metal seals the way north, a key-socket at its centre.~
+door blast~
+ABC 31040 31178
+DOOR 1
+You see nothing special here.~
+~
+0 0 31177
+DOOR 2
+A sealed relay door bars the way south, a copper cradle at its heart.~
+door relay~
+ABC 31037 31171
+End
+
+#31177
+NAME   The Control Gallery, East Bank~
+DESCR
+The east end of the gallery is given wholly to the Adder Console -- a broad slate
+desk of numbered keys, seat-slots, and a small casting-tray, the machine that
+turns an answer into a key.  A schematic is pinned open beside it, and in the
+tray, still faintly glowing, lies a freshly cast circuit key: the engine has
+already run its sum and cast the answer, waiting only to be taken.  A second blast
+door, the marked way back from the chamber, seals the north wall.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A blast door of dull grey metal seals the way north, marked as the chamber's return.~
+door blast~
+AB 0 31180
+DOOR 3
+You see nothing special here.~
+~
+0 0 31176
+End
+
+#31178
+NAME   The West Airlock~
+DESCR
+A slim chamber of seamless grey metal, sealed at its southern end by the blast
+door that opens -- when its key is turned -- back onto the control gallery.  This
+is the marked way IN.  The walls are scorched where charge has forced the seams,
+and a low current still sighs through the plating.  To the east, an inner doorway
+leads into the experiment chamber itself.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31179
+DOOR 2
+The grey blast door back to the control gallery, a key-socket at its centre.~
+door blast~
+ABC 31040 31176
+End
+
+#31179
+NAME   The Galvanic Experiment Chamber~
+DESCR
+This is the heart of it: a vaulted chamber where Midian first caught a moment of
+raw power and made it hold still.  It is the most broken room in the wing -- the
+walls are black with old fire, cables hang torn and spitting, and great arcs of
+loose lightning crawl the ironwork and crack against the floor without pause.  At
+the centre, on a slender pedestal beneath a torn glass hood, hangs a single bolt
+of lightning frozen mid-strike, silent and white-hot.  A doorway west is the way
+in; another east is the marked way out; and a low arch leads north to an
+instrument annex.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31185
+DOOR 1
+You see nothing special here.~
+~
+0 0 31180
+DOOR 3
+You see nothing special here.~
+~
+0 0 31178
+End
+
+#31185
+NAME   The Instrument Annex~
+DESCR
+A cramped annex off the chamber, packed with the fine instruments Midian used to
+read his one great moment: galvanometers, spark-chronometers, and rack on rack of
+scorched brass dials, all of them now stopped or shivering uselessly.  A workbench
+along one wall is strewn with half-built cells and the burnt stubs of his notes,
+abandoned mid-word.  Loose charge licks along the ceiling.  The only way out is
+back south into the chamber.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31179
+End
+
+#31180
+NAME   The East Airlock~
+DESCR
+The eastern twin of the entry airlock: a slim chamber of grey metal ending in a
+sealed blast door, the marked way OUT of the experiment chamber.  This door needs
+no key from within -- it opens outward, onto the far bank of the control gallery.
+Loose current crawls the plating and the smell of ozone is thick enough to taste.
+A doorway west leads back into the crackling heart of the lab.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+The grey blast door, the marked way out onto the control gallery.~
+door blast~
+AB 0 31177
+DOOR 3
+You see nothing special here.~
+~
+0 0 31179
+End
+
+#31190
+NAME   Threshold of the Broken Hour~
+DESCR
+The corridor beyond the sanctum cannot decide how long it is.  You take a step
+and the far wall is nearer; you take another and it has drawn back again, so
+that walking here feels like wading against a tide made of distance.  Faint
+scorch-marks fan across the ceiling, the record of some experiment that got
+loose.  The air tastes of hot brass and stopped time.  The way runs on to the
+north; the sanctum lies south.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31191
+DOOR 2
+You see nothing special here.~
+~
+0 0 31074
+End
+
+#31191
+NAME   The Mirror Hall~
+DESCR
+A long panelled hall lined floor to ceiling with mirrors, and every mirror is
+empty.  They hold the hall, the cold lamplight, the dust -- but not you, never
+you, as though you have not yet been permitted to happen here.  The hall runs
+straight north and back south, and there is something wrong with how ordinary
+it looks, some detail your eye keeps sliding off.  You are almost certain you
+have not been here before.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31192
+DOOR 2
+You see nothing special here.~
+~
+0 0 31190
+End
+
+#31192
+NAME   The Mirror Hall~
+DESCR
+A long panelled hall lined floor to ceiling with mirrors, and every mirror is
+empty.  It is the same hall -- the same dust, the same cold lamps, the same
+wrong ordinariness -- and you are almost certain you have not been here before,
+though the certainty is beginning to feel rehearsed.  The way runs north and
+back south as it did.  But here, in the eastern wall, one mirror hangs a
+finger's width proud of the others, and behind its silvered edge shows a thin
+dark seam of somewhere else.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31193
+DOOR 1
+You see nothing special here.~
+~
+0 0 31194
+DOOR 2
+You see nothing special here.~
+~
+0 0 31191
+End
+
+#31193
+NAME   The Mirror Hall~
+DESCR
+A long panelled hall lined floor to ceiling with mirrors, and every mirror is
+empty.  It is the same hall.  It is exactly, insistently the same hall, and the
+dust lies undisturbed even where your own feet should have crossed it a moment
+ago.  You are almost certain you have not been here before.  The certainty is a
+lie and some cold animal part of you knows it: north from here does not go
+onward.  North from here goes back to where you started, and will keep going
+back forever, unless you have already found the seam and left.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31191
+DOOR 2
+You see nothing special here.~
+~
+0 0 31192
+End
+
+#31194
+NAME   A Seam in the Repetition~
+DESCR
+You step sideways out of the hall and into the gap behind it, a narrow wedge of
+space that the loop forgot to smooth away.  Here the mirrors are seen from the
+back, plain grey board and cheap nails, and the endless corridor is revealed for
+the cheap and cruel trick it is.  The air stops tasting of brass.  To the west
+lies the seam you came through; to the north, at last, a way that goes somewhere
+new -- a spill of instrument-light from a gallery beyond.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31195
+DOOR 3
+You see nothing special here.~
+~
+0 0 31192
+End
+
+#31195
+NAME   The Control Gallery, West End~
+DESCR
+The west end of a long gallery given over to the study of paradox.  Consoles of
+black glass and brass march along the walls, each crowned with a ring of mirrors
+angled to face another mirror, so that every reading is reflected into itself
+and never resolves.  The needles on the dials tremble but never fall.  A dead
+mirror on the western wall shows a version of this gallery in which someone is
+still standing; the way east runs on down the gallery, and the seam lies south.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31196
+DOOR 2
+You see nothing special here.~
+~
+0 0 31194
+DOOR 3
+You see nothing special here.~
+~
+0 0 31197
+End
+
+#31196
+NAME   The Control Gallery, East End~
+DESCR
+The gallery's eastern end, where the consoles give up their pretence of order.
+Ribbons of printed figures have vomited out across the floor, all of them
+repeating, and a bank of mirrors overhead has cracked into a hundred wedges that
+each hold a different second of the room.  A heavy cold breathes down from the
+north, off the sealed threshold of the experiment chamber.  The gallery runs
+back west; a way climbs north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31198
+DOOR 3
+You see nothing special here.~
+~
+0 0 31195
+End
+
+#31197
+NAME   The Gallery's Reflection~
+DESCR
+This narrow room should not exist.  It is the west end of the gallery again --
+the same consoles, the same trembling dials -- but reflected, every letter on
+every ledger reversed, and it dead-ends where the true gallery would carry on.
+It is the room the dead mirror was showing, and you have walked into the glass.
+The only way out is back east, into the world that reads the right way round.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31195
+End
+
+#31198
+NAME   The Sealed Threshold~
+DESCR
+A short, cold antechamber at the mouth of the experiment chamber.  The chamber
+itself lies behind a great blast door set in the eastern wall -- a disc of dull
+metal, seamless but for a keyhole, standing today a hand's width ajar on its
+dead hinges.  Through the gap comes a sound like a held breath that is never let
+out.  To the north a passage circles away, the long way round; the gallery lies
+south.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31204
+DOOR 1
+A great blast door of dull metal fills the eastern wall, standing a hand's width ajar.~
+door blast~
+AB 0 31199
+DOOR 2
+You see nothing special here.~
+~
+0 0 31196
+End
+
+#31199
+NAME   Experiment Chamber, West Entry~
+DESCR
+You pass through the blast door into the experiment chamber, and the held-breath
+sound closes over you.  This is the antechamber of the lab proper, its far
+corners lost in a haze where the air itself seems to be running the same short
+loop of stillness over and over.  Broken apparatus lies where it fell and has
+gone on lying, unrusting, unmoved.  The blast door is west; the loop deepens to
+the east, toward a light that flickers at exactly the same interval, always.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31200
+DOOR 3
+A great blast door of dull metal stands ajar in the western wall.~
+door blast~
+AB 0 31198
+End
+
+#31200
+NAME   The Laboratory That Will Not End~
+DESCR
+The heart of the loop, and the worst room you have entered in this place.  It is
+a modest laboratory -- a bench, a stool overturned, a lamp -- but it is happening
+on a ring, a single half-second of catastrophe played without pause.  The lamp
+falls and is upright.  A beaker shatters and is whole.  And at the centre of it
+Corin dies, and does not die, and dies again, forever, his grief always fresh.
+A locked mirror-door seals the southern wall, its keyhole cut in the exact shape
+of an ending.  The way back is west; a mirror of this room lies north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31201
+DOOR 2
+A tall mirror-door of black glass seals the southern wall, its keyhole cut in the shape of an ending.~
+door mirror~
+ABC 31046 31202
+DOOR 3
+You see nothing special here.~
+~
+0 0 31199
+End
+
+#31201
+NAME   A Mirror of the Laboratory~
+DESCR
+The same laboratory again, reflected and reversed, and here the loop has been
+allowed to rot.  The bench is on the wrong side, the fallen lamp lies where no
+lamp fell, and the catastrophe at the centre plays out with no one in it to
+suffer -- an empty space that dies, over and over, where Corin should be.
+Something tall and out of time keeps watch over the emptiness.  The true
+laboratory lies south; a passage leads east, back toward the way out.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31203
+DOOR 2
+You see nothing special here.~
+~
+0 0 31200
+End
+
+#31202
+NAME   The Vault of the Unending Moment~
+DESCR
+Beyond the mirror-door the loop finally, mercifully stops.  This is a small
+vaulted cell of still, dead air, and after the endless repetition outside its
+silence rings like a struck bell.  On a low plinth at its centre, cradled in a
+setting of silver wire, rests the thing Midian made here at the height of his
+madness -- a single moment sealed so that it can never end.  The only way out is
+north, back through the ending in the door.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+A tall mirror-door of black glass seals the northern wall, its keyhole cut in the shape of an ending.~
+door mirror~
+ABC 31046 31200
+End
+
+#31203
+NAME   The Way Out~
+DESCR
+A curved egress passage skirting the edge of the loop, where the repetition
+thins to a faint shudder underfoot.  Set in the eastern wall is a plain iron
+door, unsealed, that opens onto the long circling passage back toward the
+gallery.  The mirrored laboratory lies west; the door out is east.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+A plain iron door stands in the eastern wall, unsealed.~
+door iron~
+AB 0 31204
+DOOR 3
+You see nothing special here.~
+~
+0 0 31201
+End
+
+#31204
+NAME   The Long Way Back~
+DESCR
+A bare circling passage that carries you the long way round the outside of the
+chamber, away from the loop and its grief.  The shudder of repetition falls
+behind you with every step, until the air is merely cold, and merely still.  A
+plain iron door lies west, back into the chamber's edge; south the passage
+returns you to the sealed threshold and the gallery beyond.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31198
+DOOR 3
+A plain iron door stands in the western wall, unsealed.~
+door iron~
+AB 0 31203
+End
+
+#31210
+NAME   The Fraying Threshold~
+DESCR
+The corridor beyond the sanctum is coming undone.  Long seams of nothing run
+floor to ceiling, and through them you glimpse not another room but a grey
+absence, a place where the world has been quietly rubbed away.  What remains
+still holds the shape of a hall of prophecy -- shelves of sealed almanacs, a
+floor inlaid with the wheeling of stars -- but half of it hangs suspended over
+erasure, held up by habit alone.  The way north is whole enough to walk.
+Behind you, south, the sanctum still faintly glows.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31211
+DOOR 2
+You see nothing special here.~
+~
+0 0 31075
+End
+
+#31211
+NAME   The Corridor of Prediction Engines~
+DESCR
+Machines line both walls of this long room, and every one of them is a clock
+that tells no hour.  Instead their faces show weather that has not come, faces
+you have not met, doors you have not yet opened.  Most have frayed to silence,
+their glass gone milky and their needles still, but a few tick out their small
+prophecies yet, to an empty room that no longer listens.  A branching passage
+opens north into a wider dark; smaller doors stand east and west.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31212
+DOOR 1
+You see nothing special here.~
+~
+0 0 31213
+DOOR 3
+You see nothing special here.~
+~
+0 0 31221
+End
+
+#31213
+NAME   The Chair Where He Watched~
+DESCR
+A single high-backed chair sits alone at the centre of this small chamber,
+turned to face a wall of dead screens.  This is where he sat, you understand at
+once -- for hours, for years -- watching every road the future could take.  The
+floor around the chair is worn pale by the same two feet returning and
+returning.  On a stand at its arm lies a folded page.  Everything here is grief
+worn smooth, and the walls have begun to dissolve at their upper edges, as
+though even this memory is being let go.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31211
+End
+
+#31221
+NAME   The Ward of Erased Days~
+DESCR
+This narrow ward was meant to store the days he had already spent predicting,
+each sealed away in its own drawer.  Now most of the drawers open onto nothing
+at all -- not empty, but absent, the wood and its contents unmade together.  A
+few survive, and from one juts the corner of a letter in a hand you have come
+to know.  The room ends where the erasure begins, a soft grey wall that is not
+a wall, and that you feel, strongly, you must not touch.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31211
+End
+
+#31212
+NAME   The Branching Orrery~
+DESCR
+The ceiling of this round room holds a vast orrery, but its spheres are not
+worlds -- they are outcomes.  From a single fixed point at its heart, arms of
+brass branch and branch again, and at the tip of each hangs a small pane of
+glass showing a moment that might yet be.  Three of these panes have fallen
+loose and rest now on the central plinth, close enough to lift: one lit with
+fire, one dark with water, and one perfectly, terribly still.  Branches lead
+east and west into the possibilities; the way on lies north.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31214
+DOOR 1
+You see nothing special here.~
+~
+0 0 31222
+DOOR 2
+You see nothing special here.~
+~
+0 0 31211
+DOOR 3
+You see nothing special here.~
+~
+0 0 31223
+End
+
+#31222
+NAME   The Branch That Burns~
+DESCR
+You follow one arm of the orrery into a room drenched in false firelight.  The
+prediction painted across its walls is vivid and moving: a cottage alight, a
+woman's shape at the window, and Midian's own figure frozen at the threshold a
+heartbeat too late.  It has the awful sharpness of a thing the machine wanted
+him to believe.  But the longer you look the more it flickers, like a lie
+repeated too often, and the dissolving edges of the room show plainly through
+the flames.
+~
+FLAGS  0
+Sect   0
+DOOR 3
+You see nothing special here.~
+~
+0 0 31212
+End
+
+#31223
+NAME   The Branch That Drowns~
+DESCR
+This arm of the orrery ends in a cold and streaming dark.  The future here runs
+with water: a river risen in the night, a pale hand slipping beneath the
+surface, Midian's boat always one stroke short.  It is convincing in the way a
+nightmare is convincing, all weight and no truth, and it too begins to come
+apart at the seams, the painted flood thinning to grey where the room itself is
+being unmade around it.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31212
+End
+
+#31214
+NAME   The Prophecy Engine~
+DESCR
+The largest of the prediction engines fills this room, a cathedral of brass and
+frozen glass that once turned every scrap of the present into a hundred
+futures.  It is dying now.  Whole banks of it have frayed to nothing, and what
+remains grinds on with a slow, arthritic patience, printing the same answer
+over and over onto a spool of paper that dissolves as fast as it is written.  A
+seer's lens rests forgotten on the reading-desk.  North, the control gallery
+waits.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31215
+DOOR 2
+You see nothing special here.~
+~
+0 0 31212
+End
+
+#31215
+NAME   The Control Gallery, East Console~
+DESCR
+The eastern half of a long gallery of consoles, where Midian once steered the
+great engine's gaze.  The instruments here are the last he built and the most
+unravelled, their casings gone translucent, their readings bleeding away at the
+corners.  A dead archway north gapes where the experiment chamber lets out, its
+threshold rimmed with the same grey nothing that is eating this whole wing.
+The gallery runs on west; the puzzle rooms lie south.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+You see nothing special here.~
+~
+0 0 31220
+DOOR 2
+You see nothing special here.~
+~
+0 0 31214
+DOOR 3
+You see nothing special here.~
+~
+0 0 31216
+End
+
+#31216
+NAME   The Control Gallery, West Console~
+DESCR
+The western consoles are quieter, and colder.  Here a single great door seals
+the north wall -- a disc of dull, frayed metal with a keyhole at its heart, the
+last barrier between the gallery and the chamber where Midian meant to end
+himself.  The lock is a strange one: its wards are cut not to a shape but to a
+certainty, and only the one true future, carried in hand, will turn it.  The
+gallery opens east.
+~
+FLAGS  0
+Sect   0
+DOOR 0
+The last blast door, dull and half-unmade, seals the way north; its keyhole is cut to fit a single fixed outcome.~
+door blast~
+ABC 31050 31217
+DOOR 1
+You see nothing special here.~
+~
+0 0 31215
+End
+
+#31217
+NAME   The Dissolving Antechamber~
+DESCR
+You cross into the experiment chamber, and the world grows thin.  This first
+room is more absence than substance -- the floor holds underfoot but you cannot
+say what it is made of, and the walls are only a suggestion of walls, receding
+into grey wherever you look at them straight.  This is where Midian worked to
+remove himself from time, and the work has spread: the room is being erased
+along with its maker.  The way back south is sealed behind you; the chamber
+goes on east.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31224
+DOOR 2
+The sealed blast door south, cut to a single certainty, stands closed behind you.~
+door blast~
+ABC 31050 31216
+End
+
+#31224
+NAME   The Half-Erased Laboratory~
+DESCR
+A laboratory, or the ghost of one.  Benches and apparatus stand in careful rows
+along the room's eastern side; on its western side there is simply nothing, a
+clean grey emptiness where the same benches must once have stood before they
+were unmade.  The boundary between the two runs down the middle of the floor
+like a tideline, and the instruments closest to it are frayed to lace.  East
+and west the room continues, into being and out of it.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31218
+DOOR 3
+You see nothing special here.~
+~
+0 0 31217
+End
+
+#31218
+NAME   The Prediction Floor~
+DESCR
+The floor of this wide room is one great lens of glass, and beneath it, dim and
+slow, futures still turn.  You can see them moving down there like fish under
+ice -- a table, a chair, a door swinging shut on an empty room -- the outcome
+he chose, rehearsed again and again beneath your feet.  The air is bitterly
+cold and thin, and the ceiling has frayed away entirely, opening on a grey that
+is neither sky nor dark.  The chamber runs east and west.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31219
+DOOR 3
+You see nothing special here.~
+~
+0 0 31224
+End
+
+#31219
+NAME   The Fixed Point~
+DESCR
+At the heart of the chamber, everything stops.  Here the fraying has drawn back
+into a perfect, held stillness, as though this one point were being protected
+from the unmaking that claims all the rest.  A low plinth stands at the centre,
+and on it, catching what little light remains, lies the last of Midian's work
+-- a small, certain thing, waiting.  The room is silent in the particular way
+of a held breath.  A frayed archway leads east; the way you came lies west.
+~
+FLAGS  0
+Sect   0
+DOOR 1
+You see nothing special here.~
+~
+0 0 31220
+DOOR 3
+You see nothing special here.~
+~
+0 0 31218
+End
+
+#31220
+NAME   The Unmaking Threshold~
+DESCR
+The chamber's eastern edge, where it gives out entirely.  Beyond this point
+there is no room at all, only the grey, and the threshold itself is going --
+you can feel it thinning under you even as you stand.  A stair of vanishing
+stone folds back south toward the gallery, the only way that still holds.
+Whatever Midian meant to become, he meant to become it here, at the exact place
+where the world runs out.
+~
+FLAGS  0
+Sect   0
+DOOR 2
+You see nothing special here.~
+~
+0 0 31215
+DOOR 3
+You see nothing special here.~
+~
+0 0 31219
 End
 
 #0
@@ -3096,6 +7201,110 @@ O 0 31004 0 31058
 O 0 31005 0 31059
 O 0 31006 0 31038
 O 0 31007 0 31035
+M 0 31008 1 31105 1
+M 0 31009 3 31083 1
+M 0 31009 3 31090 1
+M 0 31009 3 31079 1
+O 0 31010 0 31107
+O 0 31011 0 31069
+O 0 31012 0 31069
+O 0 31013 0 31100
+O 0 31014 0 31105
+D 0 31101 0 2
+D 0 31106 2 2
+D 0 31108 2 1
+D 0 31095 0 1
+M 0 31010 1 31115 1
+M 0 31011 1 31121 1
+M 0 31012 1 31112 1
+O 0 31015 0 31115
+O 0 31016 0 31118
+O 0 31017 0 31120
+O 0 31018 0 31121
+O 0 31019 0 31112
+O 0 31020 0 31114
+D 0 31116 0 2
+D 0 31117 2 2
+D 0 31118 2 2
+D 0 31119 0 2
+M 0 31013 1 31132 1
+M 0 31014 1 31131 1
+G 0 31022 0
+M 0 31015 1 31135 1
+G 0 31024 0
+O 0 31021 0 31131
+O 0 31023 0 31134
+O 0 31025 0 31142
+O 0 31026 0 31143
+O 0 31027 0 31132
+D 0 31133 3 2
+D 0 31134 1 2
+D 0 31136 0 2
+D 0 31140 2 2
+D 0 31140 0 2
+D 0 31141 2 2
+D 0 31141 0 2
+D 0 31142 2 2
+D 0 31142 0 2
+D 0 31143 2 2
+D 0 31133 1 1
+D 0 31139 3 1
+M 0 31016 1 31154 1
+M 0 31017 1 31153 1
+M 0 31018 1 31156 1
+O 0 31029 0 31154
+O 0 31033 0 31154
+O 0 31030 0 31161
+O 0 31028 0 31156
+O 0 31031 0 31164
+O 0 31032 0 31157
+D 0 31158 1 2
+D 0 31159 3 2
+D 0 31161 1 1
+D 0 31162 3 1
+M 0 31019 1 31173 1
+M 0 31020 1 31182 1
+M 0 31021 1 31179 1
+O 0 31034 0 31171
+O 0 31035 0 31177
+O 0 31036 0 31179
+O 0 31037 0 31175
+O 0 31038 0 31173
+O 0 31039 0 31175
+O 0 31040 0 31177
+D 0 31171 0 2
+D 0 31176 2 2
+D 0 31176 0 2
+D 0 31178 2 2
+D 0 31177 0 1
+D 0 31180 2 1
+M 0 31022 1 31200 1
+G 0 31046 0
+M 0 31023 1 31201 1
+M 0 31024 1 31197 1
+O 0 31041 0 31197
+O 0 31042 0 31201
+O 0 31043 0 31192
+O 0 31044 0 31195
+O 0 31047 0 31202
+D 0 31198 1 1
+D 0 31199 3 1
+D 0 31200 2 2
+D 0 31202 0 2
+D 0 31203 1 1
+D 0 31204 3 1
+M 0 31025 1 31213 1
+M 0 31026 1 31218 1
+M 0 31027 1 31219 1
+O 0 31049 0 31213
+O 0 31053 0 31221
+O 0 31050 0 31212
+O 0 31051 0 31222
+O 0 31052 0 31223
+O 0 31054 0 31214
+O 0 31048 0 31219
+D 0 31216 0 2
+D 0 31217 2 2
 S
 
 #SHOPS
