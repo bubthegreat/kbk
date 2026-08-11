@@ -5,6 +5,7 @@ namespace: kbk-staging
 
 resources:
   - namespace.yaml
+  - kbk-httproute.yaml
   - ../../base
 
 # Add namespace to all resources
