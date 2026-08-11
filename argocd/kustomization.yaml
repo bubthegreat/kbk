@@ -3,6 +3,5 @@ kind: Kustomization
 
 resources:
   - kbk-applicationset.yaml
-  - ingress-nginx-tcp-config.yaml
   - cluster-resources.yaml
 

@@ -16,7 +16,6 @@ commonAnnotations:
   deployed-sha: 850d5e5
 
 patchesStrategicMerge:
-  - ingress-patch.yaml
 
 images:
   - name: bubthegreat/kbk
