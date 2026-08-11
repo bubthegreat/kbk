@@ -551,16 +551,19 @@ QUEST 0
 End
 
 #31013
-NAME  friend artificer toller~
-SHORT Toller the artificer~
-LONG  A wiry artificer looks up from a half-built clock, tools still in hand.~
+NAME  friend timekeeper toller~
+SHORT Toller the timekeeper~
+LONG  A haggard timekeeper looks up from his instruments, a watch in one hand, and studies you.~
 DESCR
-Years of squinting at fine mechanisms have carved permanent lines around his
-eyes, and his fingers are stained black with oil and quick with old habit.  He
-wears a leather apron hung with tiny tools, and about his neck hangs a watch
-that he checks compulsively, as though afraid of falling behind.  There is no
-madness in him, only a tired, stubborn patience -- the look of a man who has
-been chasing a friend through time and does not intend to give up.
+Toller is a chronomancer, a timekeeper of no small skill -- and, though the man
+he hunts no longer knows it, Midian's oldest and dearest friend.  Thirty years
+they were close; then Elia died, and Midian fled sideways into the hours
+themselves, and it was Toller who took up the chase, era after era, always a step
+behind.  The pursuit has worn him gaunt, but there is no madness in him, only a
+tired and stubborn love.  A watch hangs at his neck, which he checks compulsively,
+as though it could tell him how much of his friend is left to save.  He speaks to
+you readily -- you, at least, will listen -- though it is plain that Midian himself
+looks straight through him and sees only a stranger at his heels.
 ~
 RACE  human~
 ACT   AB
@@ -1194,16 +1197,17 @@ QUEST 0
 End
 
 #31028
-NAME  toller artificer friend~
-SHORT Toller the artificer~
-LONG  Toller stands here, soot-streaked and gaunt, still following where Midian led.~
+NAME  toller timekeeper friend~
+SHORT Toller the timekeeper~
+LONG  Toller stands here, soot-streaked and gaunt, watching the man who does not know him.~
 DESCR
-The years and the chase have worn Toller down to wire and shadow.  He is thinner
-than when you first read his letters, his artificer's apron scorched, his hands
-burned and blistered -- but his eyes are the same stubborn, patient brown.  He
-has followed his friend even into the fire, feeding the furnaces, reading the
-gauges, refusing to let Midian burn here alone.  The watch at his throat he
-checks still, out of old habit, as though it could tell him how much time is left.
+The chase has worn Toller down to wire and shadow, and the fire of this era has
+scorched his timekeeper's coat and blistered his hands -- but his eyes are the
+same stubborn, patient brown they always were.  He has followed his oldest friend
+even into the flame, close enough now to watch him work.  Midian, wrapped in his
+madness, glances through Toller as though he were a stranger, and never once sees
+the boy he grew up beside.  The watch at his throat he checks still, as if to
+count how much of Midian is left to reach before the fire takes the rest.
 ~
 RACE  human~
 ACT   AB
@@ -1819,10 +1823,10 @@ draw thin.~
 End
 
 #31027
-NAME   journal notes artificer log paper~
-SHORT  an artificer's journal~
+NAME   journal toller timekeeper log paper~
+SHORT  Toller's journal~
 DESCR
-A leather journal lies open on the workbench, its pages dense with notes.~
+A worn journal lies open on the desk, its pages dense with a timekeeper's notes.~
 MAT    paper~
 TYPE   trash 0 0 0 0 0
 EXTRA  0 0
@@ -1831,13 +1835,17 @@ LEVEL  0
 WEIGHT 2
 COST   0
 COND   100
-EDESC journal notes artificer log~
-The journal belongs to the artificer camped in the alcove.  Page after page
-records his patient attempt to reverse-engineer Midian's work: "He does not
-merely measure time now -- he moves it, folds it, jumps ahead of it and leaves
-the rest of us behind.  I mean to catch him.  If you are reading this, friend,
-then build the clock the way the pendulums are tuned, in order, longest beat to
-shortest.  The last piece is the key.  -- for M, whatever he has become."~
+EDESC journal toller timekeeper log~
+The journal is Toller's.  "Thirty years we were friends," an early page reads,
+"he and I, two boys who loved the shape of an hour.  Then Elia died, and something
+in him died with her, and he ran -- not away, but sideways, into the years
+themselves.  I have followed him through age after age of this dreadful place, and
+he does not know my face.  To Midian I am only a shadow at his heels, a rival, a
+thing to outrun.  He would weep if he knew it was me.  So I do not tell him.  I
+only follow, and try to reach the work before it finishes him."  Lower down, in a
+steadier hand: "The clock here opens the way -- built in the order the pendulums
+are tuned, longest beat to shortest, the last piece the key.  -- for M, whatever
+he has become."~
 End
 
 #31028
@@ -2403,7 +2411,7 @@ lens to it -- the quiet one, the empty chair.~
 End
 
 #31055
-NAME   note toller last final artificer~
+NAME   note toller last final timekeeper~
 SHORT  Toller's last note~
 DESCR
 A page in a jagged, hurried hand lies beneath a dead man's open hand.~
@@ -2419,12 +2427,13 @@ EDESC note toller last final~
 The hand is Toller's, the letters burned into the page as much as written: "M.
 cannot cut himself free from the inside -- I have watched him try, and every try
 tears the wound wider.  But I am not inside it.  I never was.  I am only the
-friend who followed.  An outside hand can close what an inside hand cannot -- and
-it must be paid for from outside, in a life freely given.  I have the charge
-built.  I know what it will do to me.  Tell him, whoever you are, that I was not
-brave; I was only his friend, and I could not watch him do it alone.  Take what
-is left of me onward.  Finish it.  Save them both.  You cannot save me, and that
-is right -- someone has to be the price."~
+timekeeper who followed him here, the friend he no longer knows.  An outside hand
+can close what an inside hand cannot -- and it must be paid for from outside, in a
+life freely given.  I have the charge built.  I know what it will do to me.  In
+all this chase he never once knew my face, so you must be the one who knows it:
+tell it true, that it was Toller, his oldest friend, who paid.  Take what is left
+of me onward.  Finish it.  Save them both.  You cannot save me, and that is right
+-- someone has to be the price."~
 End
 
 #31056
@@ -2441,13 +2450,39 @@ WEIGHT 1
 COST   0
 COND   100
 EDESC watch toller pocket ticking~
-Toller's watch, still wound, still ticking, carried to the very end and past it.
-This is the thing his whole sacrifice was folded into: a timepiece made and given
-from outside the paradox, the one clock Midian could never wind for himself.
-Carried to the End of Time, an outside hand could use it to close the wound for
-good -- to give Midian back his life and Elia back her breath, and undo the trap
-entire.  All of it, save the one man who made it possible.  The watch ticks on in
-your hand, patient as its owner, counting out a time he will never see.~
+Toller's watch, still wound, still ticking, carried to the very end and past it --
+a timekeeper's own timepiece, made and wound from outside the paradox, the one
+clock Midian could never wind for himself.  This is the thing his whole sacrifice
+was folded into.  Carried to the End of Time, an outside hand could use it to
+close the wound for good: to give Midian back his life and Elia back her breath,
+and undo the trap entire.  All of it, save the one man who made it possible -- the
+best friend Midian chased across the years and never once recognized.  The watch
+ticks on in your hand, patient as its owner, counting out a time he will never
+see, for a man who will never know he had it counted.~
+End
+
+#31057
+NAME   journal toller second chase page~
+SHORT  Toller's travelling journal~
+DESCR
+A travelling journal, its cover warped by heat, has been set down open here.~
+MAT    paper~
+TYPE   trash 0 0 0 0 0
+EXTRA  0 0
+WEAR   A
+LEVEL  0
+WEIGHT 1
+COST   0
+COND   100
+EDESC journal toller second chase page~
+Toller's hand again, later and more desperate: "Another age, another failure to
+reach him.  He burns himself for power now, and I stood not ten feet away while he
+looked through me and asked, quite politely, that the 'stranger' stop crowding his
+instruments.  I laughed, so that I would not weep.  Thirty years, and I am a
+stranger crowding his instruments.  I begin to see what saving him will cost --
+not merely a hand from outside, but a life paid from outside, one for one.  I am
+not afraid of that.  I am afraid only that when it is done he will still never know
+it was me."~
 End
 #0
 
@@ -5603,14 +5638,14 @@ You see nothing special here.~
 End
 
 #31132
-NAME   The Artificer's Alcove~
+NAME   Toller's Vigil~
 DESCR
-A cramped alcove has been made into a second workshop, more lived-in than the
-rest.  A cot, a cold kettle, and a workbench buried under gears and sprung
-springs speak of someone who has camped here a long while.  Diagrams of Midian's
-machines are pinned above the bench, annotated in a different, steadier hand, as
-though their owner has been trying patiently to read a language written by a
-madman.
+A cramped alcove has been made into a traveller's camp, more lived-in than the
+rest of the workshop.  A cot, a cold kettle, and a folding desk of timekeeper's
+instruments speak of someone who has kept watch here a long while.  Charts of
+Midian's leaps through the hours are pinned above the desk, marked and dated in a
+different, steadier hand -- the patient work of a man tracking a friend across the
+years, always arriving just after he has gone.
 ~
 FLAGS  0
 Sect   0
@@ -6565,7 +6600,7 @@ DOOR 2
 You see nothing special here.~
 ~
 0 0 31179
-EDESC body toller corpse artificer~
+EDESC body toller corpse timekeeper~
 Toller lies where he fell, slumped over his own workbench, and there is no doubt
 that he is dead.  The charge he built ran through him and out again, and it has
 left him whole but utterly still, one burned hand still closed around a half-made
@@ -6824,11 +6859,12 @@ door blast~
 AB 0 31198
 EDESC skeleton toller bones body~
 Slumped against the broken apparatus is a skeleton gone to clean bone, one hand
-fallen open in its lap.  It is Toller -- you know him by the scorched artificer's
-apron still hung on the bones, and by the watch cupped in the curl of his
-fingers, ticking yet.  He followed his friend even here, to the far side of the
-friend's own dying, and here at the last he stopped.  Whatever he carried out of
-the lightning, he carried it this far and no farther.~
+fallen open in its lap.  It is Toller -- you know him by the scorched timekeeper's
+coat still hung on the bones, and by the watch cupped in the curl of his fingers,
+ticking yet.  He chased his oldest friend across every age of this place and died
+still chasing, and Midian never once turned and knew his face.  Whatever he
+carried out of the lightning, he carried it this far, and here at the last he
+stopped.~
 End
 
 #31200
@@ -7412,6 +7448,7 @@ D 0 31217 2 2
 M 0 31028 1 31156 1
 O 0 31055 0 31185
 O 0 31056 0 31199
+O 0 31057 0 31156
 S
 
 #SHOPS
