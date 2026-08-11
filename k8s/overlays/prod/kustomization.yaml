@@ -5,6 +5,7 @@ namespace: kbk-prod
 
 resources:
   - namespace.yaml
+  - kbk-httproute.yaml
   - ../../base
 
 # Add namespace to all resources
