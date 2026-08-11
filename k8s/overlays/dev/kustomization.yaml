@@ -5,6 +5,7 @@ namespace: kbk-dev
 
 resources:
   - namespace.yaml
+  - kbk-httproute.yaml
   - ../../base
 
 commonLabels:
