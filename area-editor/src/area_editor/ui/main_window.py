@@ -233,9 +233,15 @@ class MainWindow:
         try:
             self.status_bar.set_status("Loading area file...", color=(200, 200, 100))
 
-            # Parse the file
-            parser = AreParser(filepath)
-            area = parser.parse()
+            from area_editor.parsers import json_area_io
+
+            if json_area_io.is_json_area(filepath):
+                # rom24 JSON area folder.
+                area = json_area_io.load_area_json(filepath)
+            else:
+                # Legacy .are text file.
+                parser = AreParser(filepath)
+                area = parser.parse()
 
             if area is None:
                 self.status_bar.set_status("Failed to load area file", color=(255, 100, 100))
