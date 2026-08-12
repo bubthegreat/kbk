@@ -3804,10 +3804,9 @@ built to open, once and briefly, when the sun climbs highest.~
 FLAGS  0
 Sect   0
 DOOR 0
-You see nothing special here.
-~
-~
-0 0 31051
+A vast disc of silver metal seals the way north, graven with slow-turning rings.~
+door metal disc~
+AB 0 31051
 DOOR 2
 You see nothing special here.
 ~
@@ -3831,10 +3830,9 @@ You see nothing special here.~
 ~
 0 0 31068
 DOOR 2
-You see nothing special here.
-~
-~
-0 0 31050
+The vast silver blast door leads south, back down the metal tunnel.~
+door metal disc~
+AB 0 31050
 End
 
 #31052
@@ -7449,12 +7447,15 @@ M 0 31028 1 31156 1
 O 0 31055 0 31185
 O 0 31056 0 31199
 O 0 31057 0 31156
+D 0 31050 0 1
+D 0 31051 2 1
 S
 
 #SHOPS
 0
 
 #IMPROGS
+R 31050 entry_prog rprog_entry_noon_door
 E
 
 

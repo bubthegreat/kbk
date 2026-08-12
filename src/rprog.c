@@ -35,11 +35,13 @@
 
 DECLARE_RPROG_FUN_SPEECH(speech_prog_realm_dead);
 DECLARE_RPROG_FUN_ENTRY(rprog_entry_esiraen_fall);
+DECLARE_RPROG_FUN_ENTRY(rprog_entry_noon_door);
 
 const struct improg_type rprog_table[] =
 	{
 		{"speech_prog", "speech_prog_realm_dead", speech_prog_realm_dead},
 		{"entry_prog", "rprog_entry_esiraen_fall", rprog_entry_esiraen_fall},
+		{"entry_prog", "rprog_entry_noon_door", rprog_entry_noon_door},
 		{NULL, NULL, NULL},
 };
 
@@ -92,5 +94,49 @@ void rprog_entry_esiraen_fall(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 	send_to_char("{bYou scream in absolute terror as you realize that you've fallen from impossible heights.{x\n\r", ch);
 	send_to_char("{bThe last thing you hear is the sound of your body being slammed against the icy water.{x\n\r", ch);
 	raw_kill_new(ch, ch, TRUE, FALSE);
+	return;
+}
+
+/*
+ * The Odd Metal Door (room 31050): its north exit yields only when the sun
+ * stands at its highest.  Re-evaluated each time someone enters the room.
+ */
+void rprog_entry_noon_door(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
+{
+	EXIT_DATA *pexit;
+	ROOM_INDEX_DATA *to_room;
+
+	if (IS_NPC(ch))
+		return;
+
+	pexit = room->exit[DIR_NORTH];
+	if (pexit == NULL)
+		return;
+
+	if (time_info.hour == 12)
+	{
+		if (IS_SET(pexit->exit_info, EX_CLOSED))
+		{
+			REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+			REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+			if ((to_room = pexit->u1.to_room) != NULL && to_room->exit[DIR_SOUTH] != NULL)
+			{
+				REMOVE_BIT(to_room->exit[DIR_SOUTH]->exit_info, EX_CLOSED);
+				REMOVE_BIT(to_room->exit[DIR_SOUTH]->exit_info, EX_LOCKED);
+			}
+			act("With a deep, grinding resonance the great metal door draws back, and the noon light pours through.", ch, NULL, NULL, TO_ROOM);
+			send_to_char("With a deep, grinding resonance the great metal door draws back, and the noon light pours through.\n\r", ch);
+		}
+	}
+	else
+	{
+		if (!IS_SET(pexit->exit_info, EX_CLOSED))
+		{
+			SET_BIT(pexit->exit_info, EX_CLOSED);
+			if ((to_room = pexit->u1.to_room) != NULL && to_room->exit[DIR_SOUTH] != NULL)
+				SET_BIT(to_room->exit[DIR_SOUTH]->exit_info, EX_CLOSED);
+		}
+		send_to_char("The great metal door stands sealed and cold; its markings promise it opens only when the sun stands at its highest.\n\r", ch);
+	}
 	return;
 }
