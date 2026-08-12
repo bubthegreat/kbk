@@ -2790,15 +2790,14 @@ DESCR
 The landslide narrows to a tongue of debris here, funneled between two stubborn
 outcrops that refused to give way.  Dust still sifts down now and then from
 above, hissing softly against the rubble.  A tumble of larger boulders blocks
-the way south, though the gaps between them look as if they might be worked open.
+the way north, though the gaps between them look as if they might be worked open.
 ~
 FLAGS  0
 Sect   5
 DOOR 0
-You see nothing special here.
-~
-~
-0 0 31013
+A tumble of larger boulders blocks the way north; the gaps look as if they might be worked open.~
+rocks pile boulders~
+ABN 0 31013
 DOOR 3
 You see nothing special here.
 ~
@@ -2809,8 +2808,11 @@ End
 #31013
 NAME   The Edge Of The Collapsed Landslide~
 DESCR
-The south exit here should be non obvious, and you have to move a large pile of
-rocks to get there.
+The landslide's western arm ends here against a shoulder of the mountain.  The
+way east follows a thin animal trail; to the south, half-buried in the tumbled
+scree, a great pile of loose rocks has slid down to cover what might once have
+been a passage.  A draught of cold, still air leaks faintly from somewhere behind
+them.
 ~
 FLAGS  0
 Sect   5
@@ -2820,10 +2822,9 @@ You see nothing special here.
 ~
 0 0 31014
 DOOR 2
-You see nothing special here.
-~
-~
-0 0 31012
+A pile of loose rocks buries a low passage to the south; the gaps look as though they might be worked open.~
+rocks pile boulders~
+ABN 0 31012
 End
 
 #31014
@@ -3719,10 +3720,9 @@ You see nothing special here.
 ~
 0 0 31010
 DOOR 5
-You see nothing special here.
-~
-~
-0 0 31047
+A seamless plug of silver metal seals the throat of shadow dropping away below.~
+passage plug metal~
+ABC 0 31047
 End
 
 #31047
@@ -3742,10 +3742,9 @@ You see nothing special here.
 ~
 0 0 31048
 DOOR 4
-You see nothing special here.
-~
-~
-0 0 31046
+A seamless plug of silver metal seals the way up into the natural cavern.~
+passage plug metal~
+ABC 0 31046
 End
 
 #31048
@@ -7449,6 +7448,10 @@ O 0 31056 0 31199
 O 0 31057 0 31156
 D 0 31050 0 1
 D 0 31051 2 1
+D 0 31013 2 1
+D 0 31012 0 1
+D 0 31046 5 2
+D 0 31047 4 2
 S
 
 #SHOPS
@@ -7456,6 +7459,7 @@ S
 
 #IMPROGS
 R 31050 entry_prog rprog_entry_noon_door
+R 31039 entry_prog rprog_entry_secret_switch
 E
 
 

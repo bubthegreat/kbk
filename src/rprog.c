@@ -36,12 +36,14 @@
 DECLARE_RPROG_FUN_SPEECH(speech_prog_realm_dead);
 DECLARE_RPROG_FUN_ENTRY(rprog_entry_esiraen_fall);
 DECLARE_RPROG_FUN_ENTRY(rprog_entry_noon_door);
+DECLARE_RPROG_FUN_ENTRY(rprog_entry_secret_switch);
 
 const struct improg_type rprog_table[] =
 	{
 		{"speech_prog", "speech_prog_realm_dead", speech_prog_realm_dead},
 		{"entry_prog", "rprog_entry_esiraen_fall", rprog_entry_esiraen_fall},
 		{"entry_prog", "rprog_entry_noon_door", rprog_entry_noon_door},
+		{"entry_prog", "rprog_entry_secret_switch", rprog_entry_secret_switch},
 		{NULL, NULL, NULL},
 };
 
@@ -137,6 +139,43 @@ void rprog_entry_noon_door(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 				SET_BIT(to_room->exit[DIR_SOUTH]->exit_info, EX_CLOSED);
 		}
 		send_to_char("The great metal door stands sealed and cold; its markings promise it opens only when the sun stands at its highest.\n\r", ch);
+	}
+	return;
+}
+
+/*
+ * The Secret Workshop (room 31039): reaching the hidden triangular switch
+ * unseals the plugged passage from the natural cavern (31046, down) into the
+ * smooth metal tunnel (31047, up) -- the tunnel that leads to the trap.
+ */
+void rprog_entry_secret_switch(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
+{
+	ROOM_INDEX_DATA *cavern, *tunnel;
+	EXIT_DATA *pexit;
+
+	if (IS_NPC(ch))
+		return;
+
+	cavern = get_room_index(31046);
+	tunnel = get_room_index(31047);
+	if (cavern == NULL)
+		return;
+
+	pexit = cavern->exit[DIR_DOWN];
+	if (pexit == NULL)
+		return;
+
+	if (IS_SET(pexit->exit_info, EX_CLOSED) || IS_SET(pexit->exit_info, EX_LOCKED))
+	{
+		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+		if (tunnel != NULL && tunnel->exit[DIR_UP] != NULL)
+		{
+			REMOVE_BIT(tunnel->exit[DIR_UP]->exit_info, EX_CLOSED);
+			REMOVE_BIT(tunnel->exit[DIR_UP]->exit_info, EX_LOCKED);
+		}
+		send_to_char("As your hand finds the triangular stone it sinks into the wall with a heavy click, and far off in the mountain stone grinds on stone -- a sealed way, opening at last.\n\r", ch);
+		act("The triangular stone sinks into the wall with a click, and a distant grinding shudders up through the rock.", ch, NULL, NULL, TO_ROOM);
 	}
 	return;
 }
