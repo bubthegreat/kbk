@@ -2800,6 +2800,23 @@ cost,
 with a quiet word of thanks whose weight she will never know.  You will keep
 it.~
 End
+#31061
+NAME   recess hidden~
+SHORT  a hidden recess in the wall~
+DESCR
+~
+MAT    stone~
+TYPE   container 50 0 0 50 100
+EXTRA  0 0
+WEAR   0
+LEVEL  0
+WEIGHT 5
+COST   0
+COND   100
+EDESC recess hidden~
+A shallow recess set into the stone behind the too-even triangular block, just
+deep enough to have kept something safe and out of sight.~
+End
 #0
 
 #ROOMDATA
@@ -3594,7 +3611,8 @@ dock, but it seems to be old and unrepaired long enough that it has not been
 functional in quite some time.  Looking out over the pond you can see
 insects flitting about as the grass waves gently in the breeze.  The only
 ripples you see on the pond are from the waterbugs skimming the surface, and
-the occasionally stronger breeze gently pusing along.~
+the occasionally stronger breeze gently pusing along.
+~
 FLAGS  0
 Sect   2
 DOOR 0
@@ -3644,7 +3662,8 @@ paths, where the animal trails seem to split and merge.  Because the brush is
 clearer you can see plainly where the ancient road continues to lead this
 way.As you come upon the edge of this ancient forest, you see a beautiful
 wildflower filled field to the south and est.  The forest is more of the
-same to the east, leading back to the animal trails you just came from.~
+same to the east, leading back to the animal trails you just came from.
+~
 FLAGS  0
 Sect   3
 DOOR 0
@@ -3857,7 +3876,8 @@ chairs are drawn up close together beside the fire.  Whoever lives here has
 built
 a quiet, ordinary happiness within these walls -- though a curious draft,
 and a
-faint metallic tang, drift in from the yard out back.~
+faint metallic tang, drift in from the yard out back.
+~
 FLAGS  0
 Sect   0
 DOOR 1
@@ -3961,11 +3981,10 @@ This hidden chamber is a chronomancer's workshop, and a troubled one.  Strange
 devices crowd every surface -- half-built armatures of brass and silver, glass
 tubes clouded with old residue, and a great ring of graduated metal that turns
 very slowly of its own accord and by all rights should not.  Loose notes drift
-ankle-deep across the floor.  Every wall is bare, seamless stone, save one,
-where
-a single triangular rock sits set a little too neatly among its rougher
-fellows.
-This was where a desperate man did his last, worst work.~
+ankle-deep across the floor.  The walls are bare, seamless stone -- save one,
+which does not sit quite right, as though a part of it were waiting to be found.
+This was where a desperate man did his last, worst work.
+~
 FLAGS  8
 Sect   0
 DOOR 0
@@ -3977,6 +3996,12 @@ DOOR 1
 You see nothing special here.~
 ~
 0 0 31052
+EDESC wall walls recess stone triangular rock switch~
+Most of the workshop's walls are featureless, seamless stone.  One is not: run
+your hands across it and you find a single block worked into too clean a triangle
+to be natural, each edge straight, each face flat, its rim faintly scratched
+where fingers have pressed it many times.  It gives a little under your palm, and
+set into the stone behind it is a shallow, hidden recess.~
 End
 
 #31040
@@ -4284,7 +4309,8 @@ them near the centre tracks the sun outside as surely as any sundial.  For
 most
 of the day the disc stands shut fast and cold -- but the markings promise it
 was
-built to open, once and briefly, when the sun climbs highest.~
+built to open, once and briefly, when the sun climbs highest.
+~
 FLAGS  0
 Sect   0
 DOOR 0
@@ -4317,7 +4343,8 @@ to the north and the sealed disc behind you to the south.  The air is warm and
 utterly still, and carries the sense of a held breath.  Something about the
 place
 suggests it is not a destination but a threshold, and that what lies north may
-not be the same twice.~
+not be the same twice.
+~
 FLAGS  0
 Sect   0
 DOOR 0
@@ -4350,7 +4377,8 @@ floating --
 it is simply that there is nothing left to float in, nothing to mark motion or
 stillness, no up, no down, no now.  There is just... nothing.  And somewhere
 out
-in that nothing, patient and unhurried, something is waiting for you.~
+in that nothing, patient and unhurried, something is waiting for you.
+~
 FLAGS  295182336
 Sect   0
 DOOR 3
@@ -4428,7 +4456,8 @@ by the mountains to the north, even as close as you are to them.  Not too
 far to
 the west, you can see the forest ends at the base of the mountainside.  You
 can
-also see some recent landslides from this distance.~
+also see some recent landslides from this distance.
+~
 FLAGS  0
 Sect   2
 DOOR 0
@@ -4496,7 +4525,8 @@ boughs
 hangs strangely thick, and the light seems to lag a beat behind the swaying of
 the leaves, as though it were reaching you a heartbeat too late.  Look long
 enough and you could swear the fallen, rotted stump and this living tree are
-somehow the same tree, caught at two different ends of its life at once.~
+somehow the same tree, caught at two different ends of its life at once.
+~
 FLAGS  0
 Sect   3
 DOOR 1
@@ -4523,7 +4553,8 @@ your
 vision, the rotted wood seems whole and green again -- and then it is gone,
 and
 only the ruin remains.  Whatever happened here, time itself has not entirely
-healed over it.~
+healed over it.
+~
 FLAGS  0
 Sect   3
 DOOR 3
@@ -4546,7 +4577,8 @@ brown,
 undisturbed aside from your presence.  Above you can see the surface of the
 pond
 just above you.  There are various sticks and branches in the mud, and you
-notice something glinting in the silt.~
+notice something glinting in the silt.
+~
 FLAGS  0
 Sect   0
 DOOR 1
@@ -4571,7 +4603,8 @@ move
 well.  The mud here is thick and visibility is low.  Above you can see the
 boards of the dock rippling above the smooth surface of the pond as light
 peeks
-its way through the boards, but you cannot see much else in the murky water.~
+its way through the boards, but you cannot see much else in the murky water.
+~
 FLAGS  2049
 Sect   6
 DOOR 3
@@ -4727,7 +4760,8 @@ to
 understand, is where the archway to the north will open -- a different age of
 Midian's lab for every slice of the day.  The way south leads back to the
 waiting
-room, and to your own time, whenever you have need of it.~
+room, and to your own time, whenever you have need of it.
+~
 FLAGS  0
 Sect   0
 DOOR 0
@@ -8206,7 +8240,8 @@ M 0 31007 1 31039 1
 O 0 31000 0 31060
 O 0 31001 0 31035
 O 0 31002 0 31039
-O 0 31003 0 31039
+O 0 31061 0 31039
+P 0 31003 1 31061 1
 O 0 31004 0 31058
 O 0 31005 0 31059
 O 0 31006 0 31038
