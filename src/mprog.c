@@ -56,6 +56,7 @@ DECLARE_MPROG_FUN_FIGHT(fight_prog_sequestered);
 DECLARE_MPROG_FUN_SPEECH(speech_prog_enforcer);
 DECLARE_MPROG_FUN_FIGHT(fight_prog_animate_weapon);
 DECLARE_MPROG_FUN_FIGHT(fight_prog_animate_armor);
+DECLARE_MPROG_FUN_GREET(greet_prog_toller);
 
 const struct improg_type mprog_table[] =
 	{
@@ -81,6 +82,7 @@ const struct improg_type mprog_table[] =
 		{"speech_prog", "speech_prog_enforcer", speech_prog_enforcer},
 		{"fight_prog", "fight_prog_animate_weapon", fight_prog_animate_weapon},
 		{"fight_prog", "fight_prog_animate_armor", fight_prog_animate_armor},
+		{"greet_prog", "greet_prog_toller", greet_prog_toller},
 		{NULL, NULL, NULL},
 };
 
@@ -1089,4 +1091,22 @@ void speech_prog_enforcer(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 	act("$n appears.", ch, 0, 0, TO_ROOM);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 	do_look(ch, "auto");
+}
+
+/*
+ * Toller (mobs 31013, 31028): the timekeeper who chased Midian across the
+ * eras and whom Midian never recognized.  He speaks his testimony to any
+ * player who comes near -- the revelation the player carries and Midian never
+ * learns.
+ */
+void greet_prog_toller(CHAR_DATA *mob, CHAR_DATA *ch)
+{
+	if (IS_NPC(ch))
+		return;
+	act("$n turns to you, and for a moment something like hope crosses his tired face.", mob, NULL, ch, TO_VICT);
+	do_say(mob, "You can see me -- good.  He cannot, or will not, any longer.");
+	do_say(mob, "Thirty years Midian was my dearest friend, and I have chased him through every age of this place to bring him home.");
+	do_say(mob, "But to him I am only a stranger at his heels now, one more thing to outrun.  He does not know my face.");
+	do_say(mob, "If I cannot reach him in time, then you must carry the truth on for me: tell it, when it matters, that it was Toller, his friend, who followed.");
+	return;
 }

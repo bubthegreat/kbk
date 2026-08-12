@@ -7461,6 +7461,8 @@ S
 R 31050 entry_prog rprog_entry_noon_door
 R 31039 entry_prog rprog_entry_secret_switch
 R 31068 entry_prog rprog_entry_threshold_route
+M 31013 greet_prog greet_prog_toller
+M 31028 greet_prog greet_prog_toller
 E
 
 
