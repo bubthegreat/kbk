@@ -2484,6 +2484,64 @@ not merely a hand from outside, but a life paid from outside, one for one.  I am
 not afraid of that.  I am afraid only that when it is done he will still never know
 it was me."~
 End
+#31058
+NAME   tattoo clock~
+SHORT  a ticking clock tattoo~
+DESCR
+A small clock tattoo, its hands faintly ticking, has been inked here.~
+MAT    flesh~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1 0 128
+WEAR   AQ
+LEVEL  52
+WEIGHT 0
+COST   0
+COND   100
+EDESC tattoo clock~
+A small clock is inked into the skin, and its hands, impossibly, tick.  This is
+Midian's parting gift to the one who set him free: in the heat of battle it
+sometimes quickens of its own accord, and for a moment time itself opens a little
+around you.~
+End
+
+#31059
+NAME   tattoo clock twinned~
+SHORT  a twinned clock tattoo~
+DESCR
+A twinned clock tattoo, two faces ticking as one, has been inked here.~
+MAT    flesh~
+TYPE   armor 0 0 0 0 0
+EXTRA  1 1 0 128
+WEAR   AQ
+LEVEL  52
+WEIGHT 0
+COST   0
+COND   100
+EDESC tattoo clock twinned~
+Two small clocks are inked into the skin side by side, their hands ticking in
+perfect step -- one for Midian, one for Elia, both of them living and whole
+because of you, and because of the friend who paid for it.  In battle the twinned
+faces quicken readily, and time opens wide around you.~
+End
+
+#31060
+NAME   lock hair pale keepsake~
+SHORT  a lock of pale hair~
+DESCR
+A lock of pale hair, bound with a thread of silver, rests here.~
+MAT    flesh~
+TYPE   trash 0 0 0 0 0
+EXTRA  1 1 0 128
+WEAR   A
+LEVEL  0
+WEIGHT 0
+COST   0
+COND   100
+EDESC lock hair pale keepsake~
+A single lock of pale hair, bound with a thread of that untarnishable silver.
+Elia pressed it into your hand herself, alive and unaware of everything it cost,
+with a quiet word of thanks whose weight she will never know.  You will keep it.~
+End
 #0
 
 #ROOMDATA
@@ -7463,6 +7521,9 @@ R 31039 entry_prog rprog_entry_secret_switch
 R 31068 entry_prog rprog_entry_threshold_route
 M 31013 greet_prog greet_prog_toller
 M 31028 greet_prog greet_prog_toller
+M 31000 give_prog give_prog_midian_end
+I 31058 fight_prog fight_prog_clock_tattoo
+I 31059 fight_prog fight_prog_clock_tattoo
 E
 
 

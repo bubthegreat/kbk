@@ -70,6 +70,7 @@ DECLARE_IPROG_FUN_INVOKE(invoke_prog_deathwalk_statue);
 DECLARE_IPROG_FUN_FIGHT(fight_prog_seraphim_axe);
 DECLARE_IPROG_FUN_FIGHT(fight_prog_orb_dominion);
 DECLARE_IPROG_FUN_FIGHT(fight_prog_tattoo_kat);
+DECLARE_IPROG_FUN_FIGHT(fight_prog_clock_tattoo);
 DECLARE_IPROG_FUN_INVOKE(invoke_prog_tattoo_daed);
 DECLARE_IPROG_FUN_FIGHT(fight_prog_tattoo_daed);
 DECLARE_IPROG_FUN_FIGHT(fight_prog_earthsplitter);
@@ -220,6 +221,7 @@ const struct improg_type iprog_table[] =
 		{"fight_prog", "fight_prog_seraphim_axe", fight_prog_seraphim_axe},
 		{"fight_prog", "fight_prog_orb_dominion", fight_prog_orb_dominion},
 		{"fight_prog", "fight_prog_tattoo_kat", fight_prog_tattoo_kat},
+		{"fight_prog", "fight_prog_clock_tattoo", fight_prog_clock_tattoo},
 		{"get_prog", "get_prog_palace_key_one", get_prog_palace_key_one},
 		{"get_prog", "get_prog_palace_key_two", get_prog_palace_key_two},
 		{"get_prog", "get_prog_palace_key_three", get_prog_palace_key_three},
@@ -866,6 +868,30 @@ void fight_prog_seraphim_axe(OBJ_DATA *obj, CHAR_DATA *ch)
 	if (is_worn(obj) && number_percent() < 7 && ch->fighting != NULL)
 	{
 		(*skill_table[skill_lookup("concatenate")].spell_fun)(skill_lookup("concatenate"), 60, ch, ch->fighting, TAR_CHAR_OFFENSIVE);
+	}
+	return;
+}
+
+/*
+ * The clock tattoo (31058) and twinned clock tattoo (31059), Midian's parting
+ * gift.  While worn, it sometimes quickens in combat and hastes the wearer.
+ * The twinned tattoo (true ending) fires a little more often than the single.
+ */
+void fight_prog_clock_tattoo(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	int threshold;
+
+	if (!is_worn(obj) || ch->fighting == NULL)
+		return;
+	if (IS_AFFECTED(ch, AFF_HASTE))
+		return;
+
+	threshold = (obj->pIndexData->vnum == 31059) ? 92 : 96;
+	if (number_percent() > threshold)
+	{
+		act("The clock tattoo on $n's skin ticks suddenly, racing.", ch, obj, 0, TO_ROOM);
+		act("The clock tattoo on your skin ticks suddenly faster, and the moment opens around you!", ch, obj, 0, TO_CHAR);
+		obj_cast_spell(skill_lookup("haste"), obj->level, ch, ch, obj);
 	}
 	return;
 }

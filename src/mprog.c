@@ -57,6 +57,7 @@ DECLARE_MPROG_FUN_SPEECH(speech_prog_enforcer);
 DECLARE_MPROG_FUN_FIGHT(fight_prog_animate_weapon);
 DECLARE_MPROG_FUN_FIGHT(fight_prog_animate_armor);
 DECLARE_MPROG_FUN_GREET(greet_prog_toller);
+DECLARE_MPROG_FUN_GIVE(give_prog_midian_end);
 
 const struct improg_type mprog_table[] =
 	{
@@ -83,6 +84,7 @@ const struct improg_type mprog_table[] =
 		{"fight_prog", "fight_prog_animate_weapon", fight_prog_animate_weapon},
 		{"fight_prog", "fight_prog_animate_armor", fight_prog_animate_armor},
 		{"greet_prog", "greet_prog_toller", greet_prog_toller},
+		{"give_prog", "give_prog_midian_end", give_prog_midian_end},
 		{NULL, NULL, NULL},
 };
 
@@ -1108,5 +1110,118 @@ void greet_prog_toller(CHAR_DATA *mob, CHAR_DATA *ch)
 	do_say(mob, "Thirty years Midian was my dearest friend, and I have chased him through every age of this place to bring him home.");
 	do_say(mob, "But to him I am only a stranger at his heels now, one more thing to outrun.  He does not know my face.");
 	do_say(mob, "If I cannot reach him in time, then you must carry the truth on for me: tell it, when it matters, that it was Toller, his friend, who followed.");
+	return;
+}
+
+/*
+ * Aged Midian at the End of Time (mob 31000).  Give him the silver box (31000)
+ * with all seven pieces of his final work sealed inside.  If the bearer also
+ * carries Toller's watch (31056), the true ending fires: Midian and Elia are
+ * both saved, and a greater boon is granted.  Otherwise the normal ending:
+ * Midian removes himself from time, and a lesser boon is granted.
+ */
+void give_prog_midian_end(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	OBJ_DATA *content, *next, *reward;
+	int pieces[7] = {31010, 31016, 31026, 31030, 31036, 31047, 31048};
+	int i;
+	bool complete, found, has_watch;
+
+	if (IS_NPC(ch))
+		return;
+
+	if (obj->pIndexData->vnum != 31000)
+	{
+		act("$n turns $p aside with a distracted hand.", mob, obj, ch, TO_VICT);
+		do_say(mob, "This is not the vessel.  Bring me Elia's box, and everything that belongs inside it.");
+		return;
+	}
+
+	complete = TRUE;
+	for (i = 0; i < 7; i++)
+	{
+		found = FALSE;
+		for (content = obj->contains; content != NULL; content = content->next_content)
+		{
+			if (content->pIndexData->vnum == pieces[i])
+			{
+				found = TRUE;
+				break;
+			}
+		}
+		if (!found)
+		{
+			complete = FALSE;
+			break;
+		}
+	}
+
+	if (!complete)
+	{
+		do_say(mob, "The work is not whole.  Seven pieces the box was made to carry, and I feel gaps in it still.  Go back.  Finish it, and return to me.");
+		obj_from_char(obj);
+		obj_to_char(obj, ch);
+		return;
+	}
+
+	has_watch = FALSE;
+	for (content = ch->carrying; content != NULL; content = content->next_content)
+	{
+		if (content->pIndexData->vnum == 31056)
+		{
+			has_watch = TRUE;
+			break;
+		}
+	}
+
+	extract_obj(obj);
+
+	if (has_watch)
+	{
+		act("$n takes the assembled work in trembling hands, and for the first time his ancient eyes truly see you -- and then, past you, someone you cannot.", mob, NULL, ch, TO_VICT);
+		do_say(mob, "Toller.  It was Toller, all along.  Oh, my friend -- and you carried what he gave.");
+		do_say(mob, "Then it can be mended without unmaking me.  Elia lives.  I live.  All of it holds -- all but the one who paid.");
+		act("A vast, gentle unwinding passes through the dark, and the trap comes undone around you both.", mob, NULL, ch, TO_VICT);
+
+		for (content = ch->carrying; content != NULL; content = next)
+		{
+			next = content->next_content;
+			if (content->pIndexData->vnum == 31056)
+			{
+				extract_obj(content);
+				break;
+			}
+		}
+
+		ch->played -= 100 * 3600;
+		if (ch->played < 0)
+			ch->played = 0;
+		ch->perm_stat[STAT_CON] = UMIN(ch->perm_stat[STAT_CON] + 2, get_max_train(ch, STAT_CON));
+		ch->perm_stat[STAT_STR] = UMIN(ch->perm_stat[STAT_STR] + 1, get_max_train(ch, STAT_STR));
+
+		reward = create_object(get_obj_index(31059), 52);
+		obj_to_char(reward, ch);
+		reward = create_object(get_obj_index(31060), 52);
+		obj_to_char(reward, ch);
+
+		send_to_char("Years lift off you like a held breath let go; your body steadies and strengthens, and a twinned clock settles warm upon your skin.\n\r", ch);
+	}
+	else
+	{
+		act("$n takes the assembled work in trembling hands, and something in his ancient face eases at last.", mob, NULL, ch, TO_VICT);
+		do_say(mob, "It is whole.  I can close the wound the only way left to me -- by taking the hand that made it out of time entirely.");
+		do_say(mob, "It is a fair price, and mine to pay.  Go now, and be a little less old for the carrying of it.");
+		act("A vast, gentle unwinding passes through the dark, and Midian is simply, mercifully gone.", mob, NULL, ch, TO_VICT);
+
+		ch->played -= 50 * 3600;
+		if (ch->played < 0)
+			ch->played = 0;
+		ch->perm_stat[STAT_CON] = UMIN(ch->perm_stat[STAT_CON] + 2, get_max_train(ch, STAT_CON));
+
+		reward = create_object(get_obj_index(31058), 52);
+		obj_to_char(reward, ch);
+
+		send_to_char("Years lift off you like a held breath let go; your body steadies, and a small clock settles warm upon your skin.\n\r", ch);
+	}
 	return;
 }
