@@ -56,7 +56,8 @@ DECLARE_MPROG_FUN_FIGHT(fight_prog_sequestered);
 DECLARE_MPROG_FUN_SPEECH(speech_prog_enforcer);
 DECLARE_MPROG_FUN_FIGHT(fight_prog_animate_weapon);
 DECLARE_MPROG_FUN_FIGHT(fight_prog_animate_armor);
-DECLARE_MPROG_FUN_GREET(greet_prog_toller);
+DECLARE_MPROG_FUN_SPEECH(speech_prog_toller);
+DECLARE_MPROG_FUN_GIVE(give_prog_toller);
 DECLARE_MPROG_FUN_GIVE(give_prog_midian_end);
 
 const struct improg_type mprog_table[] =
@@ -83,7 +84,8 @@ const struct improg_type mprog_table[] =
 		{"speech_prog", "speech_prog_enforcer", speech_prog_enforcer},
 		{"fight_prog", "fight_prog_animate_weapon", fight_prog_animate_weapon},
 		{"fight_prog", "fight_prog_animate_armor", fight_prog_animate_armor},
-		{"greet_prog", "greet_prog_toller", greet_prog_toller},
+		{"speech_prog", "speech_prog_toller", speech_prog_toller},
+		{"give_prog", "give_prog_toller", give_prog_toller},
 		{"give_prog", "give_prog_midian_end", give_prog_midian_end},
 		{NULL, NULL, NULL},
 };
@@ -1101,15 +1103,61 @@ void speech_prog_enforcer(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
  * player who comes near -- the revelation the player carries and Midian never
  * learns.
  */
-void greet_prog_toller(CHAR_DATA *mob, CHAR_DATA *ch)
+/*
+ * Toller (mobs 31013, 31028) is too intent on his instruments to notice anyone
+ * until spoken to.  A short talk-tree draws his story out and sends the player
+ * to fetch Elia's journal (obj 31001); giving it to him (give_prog_toller) is
+ * the payoff, the full revelation.
+ */
+void speech_prog_toller(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 {
 	if (IS_NPC(ch))
 		return;
-	act("$n turns to you, and for a moment something like hope crosses his tired face.", mob, NULL, ch, TO_VICT);
-	do_say(mob, "You can see me -- good.  He cannot, or will not, any longer.");
-	do_say(mob, "Thirty years Midian was my dearest friend, and I have chased him through every age of this place to bring him home.");
-	do_say(mob, "But to him I am only a stranger at his heels now, one more thing to outrun.  He does not know my face.");
-	do_say(mob, "If I cannot reach him in time, then you must carry the truth on for me: tell it, when it matters, that it was Toller, his friend, who followed.");
+
+	if (strstr(speech, "hello") || strstr(speech, "toller") || strstr(speech, "who"))
+	{
+		act("$n startles, as though waking from a deep study, and stares at you.", mob, NULL, ch, TO_VICT);
+		do_say(mob, "You -- you can see me?  Speak to me?  He cannot, not for years now.");
+		do_say(mob, "I am Toller.  Once I was Midian's dearest friend.  Ask me of him, if you have the time.");
+		return;
+	}
+	if (strstr(speech, "midian") || strstr(speech, "friend"))
+	{
+		do_say(mob, "Thirty years we were close, he and I, two timekeepers who loved the shape of an hour.");
+		do_say(mob, "Then Elia died, and something in him died with her, and he ran -- sideways, into the years themselves.  I have chased him ever since.");
+		do_say(mob, "And he no longer knows my face.  Say 'help', if you would aid me before it is too late.");
+		return;
+	}
+	if (strstr(speech, "help") || strstr(speech, "elia") || strstr(speech, "journal"))
+	{
+		do_say(mob, "Then bring me Elia's journal.  He kept it, in the cottage by the pond, in the early years.");
+		do_say(mob, "I need to look upon her hand once more, and remember why I follow.  Bring it to me, and I will tell you the rest.");
+		return;
+	}
+	return;
+}
+
+void give_prog_toller(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	if (IS_NPC(ch))
+		return;
+
+	if (obj->pIndexData->vnum != 31001)
+	{
+		do_say(mob, "No -- this is not what I asked of you.");
+		obj_from_char(obj);
+		obj_to_char(obj, ch);
+		return;
+	}
+
+	act("$n takes the journal in both hands and opens it as though it might break.", mob, NULL, ch, TO_VICT);
+	do_say(mob, "Her hand.  Yes.  I had begun to forget the shape of it.");
+	do_say(mob, "Listen, then, since you can hear me.  I am the friend Midian does not know he is running from, and I will not reach him in time -- I feel it.");
+	do_say(mob, "When it ends, an outside hand must close the wound, and pay for it from outside.  I mean to be that hand.  He will never know it was me.");
+	do_say(mob, "Carry the truth for me: tell it, when it matters, that it was Toller who followed.  Now take her journal back -- it is yours to keep safe, not mine.");
+
+	obj_from_char(obj);
+	obj_to_char(obj, ch);
 	return;
 }
 
