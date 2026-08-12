@@ -4257,7 +4257,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31070
@@ -4280,7 +4280,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31071
@@ -4303,7 +4303,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31072
@@ -4326,7 +4326,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31073
@@ -4351,7 +4351,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31074
@@ -4374,7 +4374,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31075
@@ -4398,7 +4398,7 @@ You see nothing special here.~
 DOOR 2
 You see nothing special here.~
 ~
-0 0 0
+0 0 31068
 End
 
 #31076
@@ -7460,6 +7460,7 @@ S
 #IMPROGS
 R 31050 entry_prog rprog_entry_noon_door
 R 31039 entry_prog rprog_entry_secret_switch
+R 31068 entry_prog rprog_entry_threshold_route
 E
 
 

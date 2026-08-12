@@ -37,6 +37,7 @@ DECLARE_RPROG_FUN_SPEECH(speech_prog_realm_dead);
 DECLARE_RPROG_FUN_ENTRY(rprog_entry_esiraen_fall);
 DECLARE_RPROG_FUN_ENTRY(rprog_entry_noon_door);
 DECLARE_RPROG_FUN_ENTRY(rprog_entry_secret_switch);
+DECLARE_RPROG_FUN_ENTRY(rprog_entry_threshold_route);
 
 const struct improg_type rprog_table[] =
 	{
@@ -44,6 +45,7 @@ const struct improg_type rprog_table[] =
 		{"entry_prog", "rprog_entry_esiraen_fall", rprog_entry_esiraen_fall},
 		{"entry_prog", "rprog_entry_noon_door", rprog_entry_noon_door},
 		{"entry_prog", "rprog_entry_secret_switch", rprog_entry_secret_switch},
+		{"entry_prog", "rprog_entry_threshold_route", rprog_entry_threshold_route},
 		{NULL, NULL, NULL},
 };
 
@@ -177,5 +179,73 @@ void rprog_entry_secret_switch(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 		send_to_char("As your hand finds the triangular stone it sinks into the wall with a heavy click, and far off in the mountain stone grinds on stone -- a sealed way, opening at last.\n\r", ch);
 		act("The triangular stone sinks into the wall with a click, and a distant grinding shudders up through the rock.", ch, NULL, NULL, TO_ROOM);
 	}
+	return;
+}
+
+/*
+ * The Threshold (room 31068): the sundial reads the current hour and the
+ * archway north opens onto a different era-wing of the lab depending on when
+ * you cross it.  The in-game day (0-23) is split into seven chronological
+ * bands, one per era, earliest to latest.
+ */
+void rprog_entry_threshold_route(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
+{
+	EXIT_DATA *pexit;
+	ROOM_INDEX_DATA *to_room;
+	int hour, dest;
+	const char *era;
+	char buf[MAX_STRING_LENGTH];
+
+	if (IS_NPC(ch))
+		return;
+
+	pexit = room->exit[DIR_NORTH];
+	if (pexit == NULL)
+		return;
+
+	hour = time_info.hour;
+	if (hour <= 2)
+	{
+		dest = 31069;
+		era = "a cold vault of wheeling stars";
+	}
+	else if (hour <= 6)
+	{
+		dest = 31070;
+		era = "a hall of endlessly falling sand";
+	}
+	else if (hour <= 9)
+	{
+		dest = 31071;
+		era = "a workshop of swinging pendulums";
+	}
+	else if (hour <= 13)
+	{
+		dest = 31072;
+		era = "a wing of hungry, roaring fire";
+	}
+	else if (hour <= 16)
+	{
+		dest = 31073;
+		era = "a hall where loose lightning crawls";
+	}
+	else if (hour <= 20)
+	{
+		dest = 31074;
+		era = "a place that loops upon itself";
+	}
+	else
+	{
+		dest = 31075;
+		era = "a wing fraying out of the world";
+	}
+
+	if ((to_room = get_room_index(dest)) == NULL)
+		return;
+
+	pexit->u1.to_room = to_room;
+
+	sprintf(buf, "The sundial's shadow settles, and the archway north opens onto %s.\n\r", era);
+	send_to_char(buf, ch);
 	return;
 }
